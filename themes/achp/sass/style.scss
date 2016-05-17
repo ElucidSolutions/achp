@@ -1,145 +1,172 @@
+$heading-text: 'Open Sans', sans-serif;
+$body-text: 'Georgia', serif;
+$header-color: #013B5E; 
+$accent-color: #0990FE;
+$division-cover: #E2E2E2;
+$base-text-size: 16px;
+
+@mixin center-xy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 html {
   /*font-size: 16px;*/
-  /*letter-spacing: 0px;*/ }
+  /*letter-spacing: 0px;*/
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
   /*background-color: rgb(244,244,244);*/
   margin: 0;
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 #homepage_hero_region {
-  background-image: url("https://placeholdit.imgix.net/~text?txtsize=33&txt=Hero%20Background&w=1500&h=500");
+  background-image: url('https://placeholdit.imgix.net/~text?txtsize=33&txt=Hero%20Background&w=1500&h=500');
   background-size: cover;
   height: 500px;
-  position: relative; }
-  #homepage_hero_region #homepage_hero_content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: relative;
+
+  #homepage_hero_content {
+    @include center-xy;
     color: #FFFFFF;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
-    #homepage_hero_region #homepage_hero_content p {
-      text-align: center; }
-    #homepage_hero_region #homepage_hero_content hr {
+    text-shadow: 0px 1px 3px rgba(0,0,0,0.50);
+
+    p {
+      text-align: center;
+    }
+
+    hr {
       color: #FFFFFF;
       background-color: #FFFFFF;
       width: 40%;
       height: 0;
-      border: 1px solid #FFFFFF; }
-    #homepage_hero_region #homepage_hero_content h1 {
-      font-family: "Open Sans", sans-serif;
+      border: 1px solid #FFFFFF;
+    }
+
+    h1 {
+      font-family: $heading-text;
       font-size: 2.5em;
       text-align: center;
       margin: 0;
-      padding: 0; }
-      #homepage_hero_region #homepage_hero_content h1 .subtitle {
-        font-size: 2em; }
+      padding: 0;
+
+      & .subtitle {
+        font-size: 2em;
+      }
+    }
+  }
+}
 
 button {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
+  font-family: $heading-text;
+  font-size: $base-text-size;
   color: #FFFFFF;
   line-height: 1em;
-  background-color: #0990FE;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+  background-color: $accent-color;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
   border: none;
   border-radius: 2px;
   padding: 15px 40px;
-  text-align: center; }
+  text-align: center;
+}
 
 /* Above is Rebecca's new SASS; code from Larry's old style.css starts here */
 fieldset {
-  margin: 2%; }
+  margin: 2%; 
+}
 
 ul {
   list-style: none;
-  margin: 0 !important; }
+  margin: 0 !important;
+}
 
 #header {
-  background-color: #013c5e;
+  background-color: rgb(1,60,94);
   color: white;
-  height: 175px; }
-
+  height: 175px;
+}
 #header a {
   color: white;
-  text-decoration: none; }
-
+  text-decoration: none;
+}
 #header-logo {
   float: left;
   height: 100%;
   margin: 0px;
-  width: 12%; }
-
+  width: 12%;
+}
 #header-logo img {
-  height: 100%; }
-
+  height: 100%;
+}
 #header-title {
   float: left;
   padding: 2% 1% 0% 0%;
-  width: 35%; }
-
+  width: 35%;
+}
 #header-right {
   float: left;
   padding: 2% 1% 1% 0%;
-  width: 51%; }
-
+  width: 51%;
+}
 #header-right #block-achp-login h2 {
-  display: none; }
-
+  display: none;
+}
 #header-right #block-achp-login ul {
   float: right;
-  margin: 0; }
-
+  margin: 0;
+}
 #header-right #block-achp-login ul li {
   float: left;
-  margin: 0em 1em; }
+  margin: 0em 1em;
+}
 
 .form-item {
-  margin-top: 0; }
-
+  margin-top: 0;
+}
 #header-right #user-login-form {
-  float: right; }
-
+  float: right;
+}
 #header-right #user-login-form div {
   float: left;
-  padding: 0em 1em 0em 0em; }
-
+  padding: 0em 1em 0em 0em;
+}
 #header-right #user-login-form #edit-actions {
-  display: none; }
-
+  display: none;
+}
 #header-right #block-achp-search h2 {
-  display: none; }
-
+  display: none;
+}
 #header-right #search-block-form {
-  float: left; }
-
+  float: left;
+}
 #header-right #search-block-form #edit-actions {
-  display: none; }
-
+  display: none;
+}
 #sign-in-section {
   float: right;
   padding-bottom: 1em;
   text-align: right;
-  width: 100%; }
-
+  width: 100%;
+}
 #form-section {
-  float: right; }
-
+  float: right;
+}
 #menu {
   overflow: hidden;
   padding: 1% 0%;
-  width: 100%; }
-
+  width: 100%;
+}
 #menu .menu-item {
   float: left;
   padding: 0% 2% 0% 2%;
   text-align: center;
-  width: 10%; }
-
+  width: 10%;
+}
 #main {
   background-color: white;
-  padding: 2%; }
-
-/*# sourceMappingURL=style.css.map */
+  padding: 2%;
+}
