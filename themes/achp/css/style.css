@@ -1,32 +1,35 @@
-/* Mixin for responsive type size */
+/* dark blue */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 html, body {
   max-width: 100%;
-  /*box-sizing: border-box; */
-  font-family: "Open Sans", sans-serif;
+  font-family: "Georgia", serif;
   margin: 0;
   padding: 0;
   font-size: 16px;
+  line-height: 1.5;
   /*min-width: 300px;*/ }
 
-h1 {
-  font-family: "Georgia", serif;
-  font-size: 2.5rem;
+h1, h2 {
+  font-family: "Open Sans", sans-serif;
   text-align: center;
   margin: 0;
   padding: 0;
   font-weight: normal; }
+
+h1 {
+  font-size: 2.5rem; }
   h1.heading_subtitle {
     font-size: 2.25rem;
-    font-weight: lighter;
-    font-style: italic; }
+    font-weight: lighter; }
 
 h2 {
   color: #043B62;
-  font-size: 1rem;
+  font-size: 2rem; }
+
+p {
   text-align: center; }
 
 #homepage_hero_region {
@@ -47,7 +50,7 @@ h2 {
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
     width: 75%; }
     #homepage_hero_region #homepage_hero_content p {
-      text-align: center; }
+      font-size: 1.375rem; }
     #homepage_hero_region #homepage_hero_content hr {
       width: 40%;
       color: #FFFFFF;
@@ -63,8 +66,9 @@ button {
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
   border: none;
   border-radius: 2px;
-  padding: 15px 40px;
-  text-align: center; }
+  padding: 10px 40px;
+  margin: 0 auto;
+  display: block; }
 
 /* Above is Rebecca's new SASS; code from Larry's old style.css starts here */
 fieldset {
@@ -84,6 +88,35 @@ ul {
     text-align: center;
     width: 10%; }
 
+#homepage_impact {
+  margin: 50px; }
+  #homepage_impact hr {
+    color: #950306;
+    background-color: #950306;
+    border: 1px solid #950306;
+    height: 0;
+    width: 15%; }
+  #homepage_impact .impact_item {
+    float: left;
+    width: 33%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 7%; }
+    #homepage_impact .impact_item.impact_item_1 {
+      padding-left: 0; }
+    #homepage_impact .impact_item.impact_item_3 {
+      padding-right: 0; }
+      #homepage_impact .impact_item.impact_item_3:after {
+        clear: both; }
+  #homepage_impact .impact_number {
+    color: #309AEE;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.625rem; }
+  #homepage_impact p {
+    color: #4F4F4F;
+    margin-bottom: 25px; }
+
+/* Below are leftovers from old .css file*/
 #header {
   background-color: #013c5e;
   color: white;
@@ -128,7 +161,6 @@ ul {
       #header #header-right #search-block-form #edit-actions {
         display: none; }
 
-/* Below are leftovers from old .css file*/
 #main {
   background-color: white;
   padding: 2%; }

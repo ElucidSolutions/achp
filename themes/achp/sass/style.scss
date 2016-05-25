@@ -1,23 +1,11 @@
-$header-text: 'Georgia', serif;
-$body-text: 'Open Sans', sans-serif;
-$header-color: #043B62;
-$accent-color: #0990FE;
-$division-cover: #950306;
+$header-text: 'Open Sans', sans-serif;
+$body-text: 'Georgia', serif;
+$main-color: #043B62; /* dark blue */
+$accent-color-blue: #0990FE;
+$accent-color-lightblue: #309AEE;
+$accent-color-red: #950306;
+$accent-color-grey: #4F4F4F;
 $base-text-size: 16px;
-
-/* Mixin for responsive type size */
-@mixin font-size ($fs-map) {
-  @each $fs-breakpoint, $fs-font-size in $fs-map {
-    @if $fs-breakpoint == null {
-      font-size: $fs-font-size;
-    }
-    @else {
-      @media screen and (min-width: $fs-breakpoint) {
-        font-size: $fs-font-size;
-      }
-    }
-  }
-}
 
 /* Mixin for centering horizontally */
 @mixin center-x {
@@ -63,32 +51,37 @@ $base-text-size: 16px;
 
 html, body {
   max-width: 100%;
-  /*box-sizing: border-box; */
   font-family: $body-text; 
   margin: 0;
   padding: 0;
   font-size: 16px;
+  line-height: 1.5;
   /*min-width: 300px;*/
 }
 
-h1 {
-  font-family: $header-text;
-  font-size: 2.5rem;
+h1, h2 {
+  font-family: $header-text; 
   text-align: center;
   margin: 0;
   padding: 0;
   font-weight: normal;
+}
+
+h1 {
+  font-size: 2.5rem;
 
   &.heading_subtitle {
     font-size: 2.25rem;
     font-weight: lighter;
-    font-style: italic;
   }
 }
 
 h2 {
-  color: $header-color;
-  font-size: 1rem;
+  color: $main-color;
+  font-size: 2rem;
+}
+
+p {
   text-align: center;
 }
 
@@ -105,7 +98,7 @@ h2 {
     width: 75%;
 
     p {
-      text-align: center;
+      font-size: 1.375rem;
     }
 
     hr {
@@ -119,12 +112,13 @@ button {
   font-size: $base-text-size;
   color: #FFFFFF;
   line-height: 1rem;
-  background-color: $accent-color;
+  background-color: $accent-color-blue;
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
   border: none;
   border-radius: 2px;
-  padding: 15px 40px;
-  text-align: center;
+  padding: 10px 40px;
+  margin: 0 auto;
+  display: block;
 }
 
 /* Above is Rebecca's new SASS; code from Larry's old style.css starts here */
@@ -149,6 +143,49 @@ ul {
     width: 10%;
   }
 }
+
+#homepage_impact {
+  margin: 50px;
+
+  hr {
+    @include hr ($accent-color-red);
+    width: 15%;
+  }
+
+  .impact_item {
+    float: left;
+    width: 33%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 7%;
+
+    &.impact_item_1 {
+      padding-left: 0;
+    }
+
+    &.impact_item_3 {
+      padding-right: 0;
+      &:after {
+        clear: both;
+      }
+    }
+
+  }
+
+  .impact_number {
+    color: $accent-color-lightblue;
+    font-family: $header-text;
+    font-size: 1.625rem;
+  }
+
+  p {
+    color: $accent-color-grey;
+    margin-bottom: 25px;
+  }
+}
+
+
+/* Below are leftovers from old .css file*/
 
 #header {
   background-color: rgb(1,60,94);
@@ -224,8 +261,6 @@ ul {
     }
   }
 }
-
-/* Below are leftovers from old .css file*/
 
 #main {
   background-color: white;
