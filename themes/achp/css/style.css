@@ -1,15 +1,36 @@
-html {
-  /*font-size: 16px;*/
-  /*letter-spacing: 0px;*/ }
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  /*background-color: rgb(244,244,244);*/
+/* Mixin for responsive type size */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+html, body {
+  max-width: 100%;
+  /*box-sizing: border-box; */
+  font-family: "Open Sans", sans-serif;
   margin: 0;
-  font-size: 16px; }
+  padding: 0;
+  font-size: 16px;
+  /*min-width: 300px;*/ }
+
+h1 {
+  font-family: "Georgia", serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-weight: normal; }
+  h1.heading_subtitle {
+    font-size: 2.25rem;
+    font-weight: lighter;
+    font-style: italic; }
+
+h2 {
+  color: #043B62;
+  font-size: 1rem;
+  text-align: center; }
 
 #homepage_hero_region {
-  background-image: url("https://placeholdit.imgix.net/~text?txtsize=33&txt=Hero%20Background&w=1500&h=500");
+  background-image: url("../images/blue-columns-background.jpg");
   background-size: cover;
   height: 500px;
   position: relative; }
@@ -17,31 +38,27 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
     color: #FFFFFF;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    width: 75%; }
     #homepage_hero_region #homepage_hero_content p {
       text-align: center; }
     #homepage_hero_region #homepage_hero_content hr {
+      width: 40%;
       color: #FFFFFF;
       background-color: #FFFFFF;
-      width: 40%;
-      height: 0;
-      border: 1px solid #FFFFFF; }
-    #homepage_hero_region #homepage_hero_content h1 {
-      font-family: "Open Sans", sans-serif;
-      font-size: 2.5em;
-      text-align: center;
-      margin: 0;
-      padding: 0; }
-      #homepage_hero_region #homepage_hero_content h1 .subtitle {
-        font-size: 2em; }
+      border: 1px solid #FFFFFF;
+      height: 0; }
 
 button {
-  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   color: #FFFFFF;
-  line-height: 1em;
+  line-height: 1rem;
   background-color: #0990FE;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
   border: none;
@@ -57,66 +74,64 @@ ul {
   list-style: none;
   margin: 0 !important; }
 
+#menu {
+  overflow: hidden;
+  padding: 1% 0%;
+  width: 100%; }
+  #menu .menu-item {
+    float: left;
+    padding: 0% 2% 0% 2%;
+    text-align: center;
+    width: 10%; }
+
 #header {
   background-color: #013c5e;
   color: white;
   height: 175px; }
+  #header a {
+    color: white;
+    text-decoration: none; }
+  #header-logo {
+    float: left;
+    height: 100%;
+    margin: 0px;
+    width: 12%; }
+    #header-logo img {
+      height: 100%; }
+  #header-title {
+    float: left;
+    padding: 2% 1% 0% 0%;
+    width: 35%; }
+  #header #header-right {
+    float: left;
+    padding: 2% 1% 1% 0%;
+    width: 51%; }
+    #header #header-right #block-achp-login h2 {
+      display: none; }
+    #header #header-right #block-achp-login ul {
+      float: right;
+      margin: 0; }
+      #header #header-right #block-achp-login ul li {
+        float: left;
+        margin: 0em 1em; }
+    #header #header-right #user-login-form {
+      float: right; }
+      #header #header-right #user-login-form div {
+        float: left;
+        padding: 0em 1em 0em 0em; }
+      #header #header-right #user-login-form #edit-actions {
+        display: none; }
+    #header #header-right #block-achp-search h2 {
+      display: none; }
+    #header #header-right #search-block-form {
+      float: left; }
+      #header #header-right #search-block-form #edit-actions {
+        display: none; }
 
-#header a {
-  color: white;
-  text-decoration: none; }
-
-#header-logo {
-  float: left;
-  height: 100%;
-  margin: 0px;
-  width: 12%; }
-
-#header-logo img {
-  height: 100%; }
-
-#header-title {
-  float: left;
-  padding: 2% 1% 0% 0%;
-  width: 35%; }
-
-#header-right {
-  float: left;
-  padding: 2% 1% 1% 0%;
-  width: 51%; }
-
-#header-right #block-achp-login h2 {
-  display: none; }
-
-#header-right #block-achp-login ul {
-  float: right;
-  margin: 0; }
-
-#header-right #block-achp-login ul li {
-  float: left;
-  margin: 0em 1em; }
-
-.form-item {
-  margin-top: 0; }
-
-#header-right #user-login-form {
-  float: right; }
-
-#header-right #user-login-form div {
-  float: left;
-  padding: 0em 1em 0em 0em; }
-
-#header-right #user-login-form #edit-actions {
-  display: none; }
-
-#header-right #block-achp-search h2 {
-  display: none; }
-
-#header-right #search-block-form {
-  float: left; }
-
-#header-right #search-block-form #edit-actions {
-  display: none; }
+/* Below are leftovers from old .css file*/
+#main {
+  background-color: white;
+  padding: 2%; }
 
 #sign-in-section {
   float: right;
@@ -127,19 +142,7 @@ ul {
 #form-section {
   float: right; }
 
-#menu {
-  overflow: hidden;
-  padding: 1% 0%;
-  width: 100%; }
-
-#menu .menu-item {
-  float: left;
-  padding: 0% 2% 0% 2%;
-  text-align: center;
-  width: 10%; }
-
-#main {
-  background-color: white;
-  padding: 2%; }
+.form-item {
+  margin-top: 0; }
 
 /*# sourceMappingURL=style.css.map */

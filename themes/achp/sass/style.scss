@@ -1,31 +1,99 @@
-$heading-text: 'Open Sans', sans-serif;
-$body-text: 'Georgia', serif;
-$header-color: #013B5E; 
+$header-text: 'Georgia', serif;
+$body-text: 'Open Sans', sans-serif;
+$header-color: #043B62;
 $accent-color: #0990FE;
-$division-cover: #E2E2E2;
+$division-cover: #950306;
 $base-text-size: 16px;
 
+/* Mixin for responsive type size */
+@mixin font-size ($fs-map) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    }
+    @else {
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}
+
+/* Mixin for centering horizontally */
+@mixin center-x {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* Mixin for centering vertically */
+@mixin center-y {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Mixin for centering vertically & horizontally */
 @mixin center-xy {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 
-html {
-  /*font-size: 16px;*/
-  /*letter-spacing: 0px;*/
+/* Mixin for generating solid-colored hr elements*/
+@mixin hr ($color) {
+  color: $color;
+  background-color: $color;
+  border: 1px solid $color;
+  height: 0;
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  /*background-color: rgb(244,244,244);*/
+html, body {
+  max-width: 100%;
+  /*box-sizing: border-box; */
+  font-family: $body-text; 
   margin: 0;
+  padding: 0;
   font-size: 16px;
+  /*min-width: 300px;*/
+}
+
+h1 {
+  font-family: $header-text;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+
+  &.heading_subtitle {
+    font-size: 2.25rem;
+    font-weight: lighter;
+    font-style: italic;
+  }
+}
+
+h2 {
+  color: $header-color;
+  font-size: 1rem;
+  text-align: center;
 }
 
 #homepage_hero_region {
-  background-image: url('https://placeholdit.imgix.net/~text?txtsize=33&txt=Hero%20Background&w=1500&h=500');
+  background-image: url('../images/blue-columns-background.jpg');
   background-size: cover;
   height: 500px;
   position: relative;
@@ -34,38 +102,23 @@ body {
     @include center-xy;
     color: #FFFFFF;
     text-shadow: 0px 1px 3px rgba(0,0,0,0.50);
+    width: 75%;
 
     p {
       text-align: center;
     }
 
     hr {
-      color: #FFFFFF;
-      background-color: #FFFFFF;
       width: 40%;
-      height: 0;
-      border: 1px solid #FFFFFF;
-    }
-
-    h1 {
-      font-family: $heading-text;
-      font-size: 2.5em;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-
-      & .subtitle {
-        font-size: 2em;
-      }
+      @include hr (#FFFFFF);
     }
   }
 }
 
 button {
-  font-family: $heading-text;
   font-size: $base-text-size;
   color: #FFFFFF;
-  line-height: 1em;
+  line-height: 1rem;
   background-color: $accent-color;
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
   border: none;
@@ -84,89 +137,112 @@ ul {
   margin: 0 !important;
 }
 
+#menu {
+  overflow: hidden;
+  padding: 1% 0%;
+  width: 100%;
+
+ .menu-item {
+    float: left;
+    padding: 0% 2% 0% 2%;
+    text-align: center;
+    width: 10%;
+  }
+}
+
 #header {
   background-color: rgb(1,60,94);
   color: white;
   height: 175px;
-}
-#header a {
-  color: white;
-  text-decoration: none;
-}
-#header-logo {
-  float: left;
-  height: 100%;
-  margin: 0px;
-  width: 12%;
-}
-#header-logo img {
-  height: 100%;
-}
-#header-title {
-  float: left;
-  padding: 2% 1% 0% 0%;
-  width: 35%;
-}
-#header-right {
-  float: left;
-  padding: 2% 1% 1% 0%;
-  width: 51%;
-}
-#header-right #block-achp-login h2 {
-  display: none;
-}
-#header-right #block-achp-login ul {
-  float: right;
-  margin: 0;
-}
-#header-right #block-achp-login ul li {
-  float: left;
-  margin: 0em 1em;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  &-logo {
+    float: left;
+    height: 100%;
+    margin: 0px;
+    width: 12%;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &-title {
+    float: left;
+    padding: 2% 1% 0% 0%;
+    width: 35%;
+  }
+
+  #header-right {
+    float: left;
+    padding: 2% 1% 1% 0%;
+    width: 51%;
+
+    #block-achp-login {
+      h2 {
+        display: none;
+      }
+
+      ul {
+        float: right;
+        margin: 0;
+
+        li {
+          float: left;
+          margin: 0em 1em;         
+        }
+      } 
+    }
+
+    #user-login-form {
+      float: right;
+
+      div {
+        float: left;
+        padding: 0em 1em 0em 0em;       
+      }
+
+      #edit-actions {
+        display: none;
+      }
+    }
+
+    #block-achp-search h2 {
+      display: none;
+    }
+
+    #search-block-form {
+      float: left;
+
+      #edit-actions {
+        display: none;
+      }
+    }
+  }
 }
 
-.form-item {
-  margin-top: 0;
+/* Below are leftovers from old .css file*/
+
+#main {
+  background-color: white;
+  padding: 2%;
 }
-#header-right #user-login-form {
-  float: right;
-}
-#header-right #user-login-form div {
-  float: left;
-  padding: 0em 1em 0em 0em;
-}
-#header-right #user-login-form #edit-actions {
-  display: none;
-}
-#header-right #block-achp-search h2 {
-  display: none;
-}
-#header-right #search-block-form {
-  float: left;
-}
-#header-right #search-block-form #edit-actions {
-  display: none;
-}
+
 #sign-in-section {
   float: right;
   padding-bottom: 1em;
   text-align: right;
   width: 100%;
 }
+
 #form-section {
   float: right;
 }
-#menu {
-  overflow: hidden;
-  padding: 1% 0%;
-  width: 100%;
-}
-#menu .menu-item {
-  float: left;
-  padding: 0% 2% 0% 2%;
-  text-align: center;
-  width: 10%;
-}
-#main {
-  background-color: white;
-  padding: 2%;
+
+.form-item {
+  margin-top: 0;
 }
