@@ -1,10 +1,13 @@
-$header-text: 'Open Sans', sans-serif;
-$body-text: 'Georgia', serif;
-$main-color: #043B62; /* dark blue */
-$accent-color-blue: #0990FE;
-$accent-color-lightblue: #309AEE;
-$accent-color-red: #950306;
-$accent-color-grey: #4F4F4F;
+$header-text: 'P22 Underground', sans-serif;
+$body-text: 'Minion Pro', serif;
+$color-darkblue: #043B62; /* dark blue */
+$color-blue: #0990FE;
+$color-lightblue: #309AEE;
+$color-red: #950306;
+$color-grey: #4F4F4F;
+$background-color-darkblue: #043B62;
+$background-color-grey: #F4F4F4;
+$background-color-lightblue: #E8F8FF;
 $base-text-size: 16px;
 
 /* Mixin for centering horizontally */
@@ -42,7 +45,7 @@ $base-text-size: 16px;
 }
 
 /* Mixin for generating solid-colored hr elements*/
-@mixin hr ($color) {
+@mixin hr($color) {
   color: $color;
   background-color: $color;
   border: 1px solid $color;
@@ -77,8 +80,12 @@ h1 {
 }
 
 h2 {
-  color: $main-color;
+  color: $color-darkblue;
   font-size: 2rem;
+}
+
+hr {
+  @include hr($color-red);
 }
 
 p {
@@ -86,10 +93,12 @@ p {
 }
 
 #homepage_hero_region {
-  background-image: url('../images/blue-columns-background.jpg');
-  background-size: cover;
+  padding: 25px 50px;
   height: 500px;
   position: relative;
+  background-image: url('../images/blue-columns-background.jpg');
+  background-size: cover;
+  /* Holding for real image */
 
   #homepage_hero_content {
     @include center-xy;
@@ -102,8 +111,8 @@ p {
     }
 
     hr {
-      width: 40%;
-      @include hr (#FFFFFF);
+      width: 500px;
+      @include hr(#FFFFFF);
     }
   }
 }
@@ -112,7 +121,7 @@ button {
   font-size: $base-text-size;
   color: #FFFFFF;
   line-height: 1rem;
-  background-color: $accent-color-blue;
+  background-color: $color-blue;
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
   border: none;
   border-radius: 2px;
@@ -144,11 +153,89 @@ ul {
   }
 }
 
-#homepage_impact {
-  margin: 50px;
+#homepage_quicklinks_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: $background-color-grey;
 
   hr {
-    @include hr ($accent-color-red);
+    width: 50px;
+  }
+}
+
+#homepage_news_region {
+  padding: 25px 50px;
+  height: 200px;
+
+  hr {
+    width: 50px;
+  }
+}
+
+#homepage_events_region {
+  padding: 25px 50px;
+  background-image: url('../images/blue-columns-background.jpg');
+  background-size: cover;
+  height: 200px;
+
+  h2 {
+    color: #FFFFFF;
+  }
+
+  hr {
+    @include hr(#FFFFFF);
+    width: 50px;
+  }
+}
+
+#homepage_flowchart_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: $background-color-lightblue;
+
+  hr {
+    width: 100px;
+  }
+}
+
+#homepage_map_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: $color-darkblue;
+
+  h2 {
+    color: #FFFFFF;
+  }
+  hr {
+    @include hr(#FFFFFF);
+    width: 100px;
+  }
+}
+
+#homepage_success_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: $background-color-grey;
+
+  hr {
+    width: 100px;
+  }
+}
+
+#homepage_issues_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: $background-color-lightblue;
+
+  hr {
+    width: 100px;
+  }
+}
+
+#homepage_impact_region {
+  padding: 25px 50px;
+
+  hr {
     width: 15%;
   }
 
@@ -169,17 +256,16 @@ ul {
         clear: both;
       }
     }
-
   }
 
   .impact_number {
-    color: $accent-color-lightblue;
+    color: $color-lightblue;
     font-family: $header-text;
     font-size: 1.625rem;
   }
 
   p {
-    color: $accent-color-grey;
+    color: $color-grey;
     margin-bottom: 25px;
   }
 
@@ -189,99 +275,12 @@ ul {
 }
 
 
-/* Below are leftovers from old .css file*/
+#homepage_preserveamerica_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: $background-color-grey;
 
-#header {
-  background-color: rgb(1,60,94);
-  color: white;
-  height: 175px;
-
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  &-logo {
-    float: left;
-    height: 100%;
-    margin: 0px;
-    width: 12%;
-
-    img {
-      height: 100%;
-    }
-  }
-
-  &-title {
-    float: left;
-    padding: 2% 1% 0% 0%;
-    width: 35%;
-  }
-
-  #header-right {
-    float: left;
-    padding: 2% 1% 1% 0%;
-    width: 51%;
-
-    #block-achp-login {
-      h2 {
-        display: none;
-      }
-
-      ul {
-        float: right;
-        margin: 0;
-
-        li {
-          float: left;
-          margin: 0em 1em;         
-        }
-      } 
-    }
-
-    #user-login-form {
-      float: right;
-
-      div {
-        float: left;
-        padding: 0em 1em 0em 0em;       
-      }
-
-      #edit-actions {
-        display: none;
-      }
-    }
-
-    #block-achp-search h2 {
-      display: none;
-    }
-
-    #search-block-form {
-      float: left;
-
-      #edit-actions {
-        display: none;
-      }
-    }
+  hr {
+    width: 100px;
   }
 }
-
-/*#main {
-  background-color: white;
-  padding: 2%;
-}
-
-#sign-in-section {
-  float: right;
-  padding-bottom: 1em;
-  text-align: right;
-  width: 100%;
-}
-
-#form-section {
-  float: right;
-}
-
-.form-item {
-  margin-top: 0;
-}*/

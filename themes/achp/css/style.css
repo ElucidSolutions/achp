@@ -5,7 +5,7 @@
 /* Mixin for generating solid-colored hr elements*/
 html, body {
   max-width: 100%;
-  font-family: "Georgia", serif;
+  font-family: "Minion Pro", serif;
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -13,7 +13,7 @@ html, body {
   /*min-width: 300px;*/ }
 
 h1, h2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "P22 Underground", sans-serif;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -29,14 +29,22 @@ h2 {
   color: #043B62;
   font-size: 2rem; }
 
+hr {
+  color: #950306;
+  background-color: #950306;
+  border: 1px solid #950306;
+  height: 0; }
+
 p {
   text-align: center; }
 
 #homepage_hero_region {
+  padding: 25px 50px;
+  height: 500px;
+  position: relative;
   background-image: url("../images/blue-columns-background.jpg");
   background-size: cover;
-  height: 500px;
-  position: relative; }
+  /* Holding for real image */ }
   #homepage_hero_region #homepage_hero_content {
     position: absolute;
     top: 50%;
@@ -52,7 +60,7 @@ p {
     #homepage_hero_region #homepage_hero_content p {
       font-size: 1.375rem; }
     #homepage_hero_region #homepage_hero_content hr {
-      width: 40%;
+      width: 500px;
       color: #FFFFFF;
       background-color: #FFFFFF;
       border: 1px solid #FFFFFF;
@@ -88,99 +96,98 @@ ul {
     text-align: center;
     width: 10%; }
 
-#homepage_impact {
-  margin: 50px; }
-  #homepage_impact hr {
-    color: #950306;
-    background-color: #950306;
-    border: 1px solid #950306;
+#homepage_quicklinks_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: #F4F4F4; }
+  #homepage_quicklinks_region hr {
+    width: 50px; }
+
+#homepage_news_region {
+  padding: 25px 50px;
+  height: 200px; }
+  #homepage_news_region hr {
+    width: 50px; }
+
+#homepage_events_region {
+  padding: 25px 50px;
+  background-image: url("../images/blue-columns-background.jpg");
+  background-size: cover;
+  height: 200px; }
+  #homepage_events_region h2 {
+    color: #FFFFFF; }
+  #homepage_events_region hr {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
     height: 0;
+    width: 50px; }
+
+#homepage_flowchart_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: #E8F8FF; }
+  #homepage_flowchart_region hr {
+    width: 100px; }
+
+#homepage_map_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: #043B62; }
+  #homepage_map_region h2 {
+    color: #FFFFFF; }
+  #homepage_map_region hr {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    height: 0;
+    width: 100px; }
+
+#homepage_success_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: #F4F4F4; }
+  #homepage_success_region hr {
+    width: 100px; }
+
+#homepage_issues_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: #E8F8FF; }
+  #homepage_issues_region hr {
+    width: 100px; }
+
+#homepage_impact_region {
+  padding: 25px 50px; }
+  #homepage_impact_region hr {
     width: 15%; }
-  #homepage_impact .impact_item {
+  #homepage_impact_region .impact_item {
     float: left;
     width: 33%;
     text-align: center;
     box-sizing: border-box;
     padding: 0 7%; }
-    #homepage_impact .impact_item.impact_item_1 {
+    #homepage_impact_region .impact_item.impact_item_1 {
       padding-left: 0; }
-    #homepage_impact .impact_item.impact_item_3 {
+    #homepage_impact_region .impact_item.impact_item_3 {
       padding-right: 0; }
-      #homepage_impact .impact_item.impact_item_3:after {
+      #homepage_impact_region .impact_item.impact_item_3:after {
         clear: both; }
-  #homepage_impact .impact_number {
+  #homepage_impact_region .impact_number {
     color: #309AEE;
-    font-family: "Open Sans", sans-serif;
+    font-family: "P22 Underground", sans-serif;
     font-size: 1.625rem; }
-  #homepage_impact p {
+  #homepage_impact_region p {
     color: #4F4F4F;
     margin-bottom: 25px; }
-  #homepage_impact button {
+  #homepage_impact_region button {
     clear: both; }
 
-/* Below are leftovers from old .css file*/
-#header {
-  background-color: #013c5e;
-  color: white;
-  height: 175px; }
-  #header a {
-    color: white;
-    text-decoration: none; }
-  #header-logo {
-    float: left;
-    height: 100%;
-    margin: 0px;
-    width: 12%; }
-    #header-logo img {
-      height: 100%; }
-  #header-title {
-    float: left;
-    padding: 2% 1% 0% 0%;
-    width: 35%; }
-  #header #header-right {
-    float: left;
-    padding: 2% 1% 1% 0%;
-    width: 51%; }
-    #header #header-right #block-achp-login h2 {
-      display: none; }
-    #header #header-right #block-achp-login ul {
-      float: right;
-      margin: 0; }
-      #header #header-right #block-achp-login ul li {
-        float: left;
-        margin: 0em 1em; }
-    #header #header-right #user-login-form {
-      float: right; }
-      #header #header-right #user-login-form div {
-        float: left;
-        padding: 0em 1em 0em 0em; }
-      #header #header-right #user-login-form #edit-actions {
-        display: none; }
-    #header #header-right #block-achp-search h2 {
-      display: none; }
-    #header #header-right #search-block-form {
-      float: left; }
-      #header #header-right #search-block-form #edit-actions {
-        display: none; }
-
-/*#main {
-  background-color: white;
-  padding: 2%;
-}
-
-#sign-in-section {
-  float: right;
-  padding-bottom: 1em;
-  text-align: right;
-  width: 100%;
-}
-
-#form-section {
-  float: right;
-}
-
-.form-item {
-  margin-top: 0;
-}*/
+#homepage_preserveamerica_region {
+  padding: 25px 50px;
+  height: 200px;
+  background-color: #F4F4F4; }
+  #homepage_preserveamerica_region hr {
+    width: 100px; }
 
 /*# sourceMappingURL=style.css.map */
