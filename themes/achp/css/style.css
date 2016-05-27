@@ -5,7 +5,6 @@
 /* Mixin for generating solid-colored hr elements*/
 html, body {
   max-width: 100%;
-  font-family: "Minion Pro", serif;
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -42,7 +41,7 @@ p {
   padding: 25px 50px;
   height: 500px;
   position: relative;
-  background-image: url("../images/blue-columns-background.jpg");
+  background-image: url("../images/columns-banner-bg.png");
   background-size: cover;
   /* Holding for real image */ }
   #homepage_hero_region #homepage_hero_content {
@@ -105,9 +104,34 @@ ul {
 
 #homepage_news_region {
   padding: 25px 50px;
-  height: 200px; }
+  text-align: left; }
   #homepage_news_region hr {
     width: 50px; }
+  #homepage_news_region .homepage_news_content {
+    padding: 10px;
+    font-family: "P22 Underground", sans-serif;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+    border-top: 4px solid #950306;
+    float: left;
+    width: calc(33% - 20px * 2 / 3);
+    box-sizing: border-box;
+    margin: 20px;
+    margin-left: 0;
+    height: 275px;
+    text-align: left; }
+    #homepage_news_region .homepage_news_content:last-of-type {
+      margin-right: 0; }
+    #homepage_news_region .homepage_news_content .news_item_title {
+      font-size: 1.25rem;
+      color: #043B62; }
+    #homepage_news_region .homepage_news_content .news_item_date {
+      color: #4A4A4A; }
+    #homepage_news_region .homepage_news_content .news_item_body p {
+      text-align: left;
+      font-family: "Minion Pro", serif; }
+  #homepage_news_region button {
+    clear: both;
+    /*display: inline-block;*/ }
 
 #homepage_events_region {
   padding: 25px 50px;

@@ -1,10 +1,11 @@
-$header-text: 'P22 Underground', sans-serif;
-$body-text: 'Minion Pro', serif;
+$sans-text: 'P22 Underground', sans-serif;
+$serif-text: 'Minion Pro', serif;
 $color-darkblue: #043B62; /* dark blue */
 $color-blue: #0990FE;
 $color-lightblue: #309AEE;
 $color-red: #950306;
 $color-grey: #4F4F4F;
+$color-lightgrey: #4A4A4A;
 $background-color-darkblue: #043B62;
 $background-color-grey: #F4F4F4;
 $background-color-lightblue: #E8F8FF;
@@ -54,7 +55,6 @@ $base-text-size: 16px;
 
 html, body {
   max-width: 100%;
-  font-family: $body-text; 
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -63,7 +63,7 @@ html, body {
 }
 
 h1, h2 {
-  font-family: $header-text; 
+  font-family: $sans-text; 
   text-align: center;
   margin: 0;
   padding: 0;
@@ -96,7 +96,7 @@ p {
   padding: 25px 50px;
   height: 500px;
   position: relative;
-  background-image: url('../images/blue-columns-background.jpg');
+  background-image: url('../images/columns-banner-bg.png');
   background-size: cover;
   /* Holding for real image */
 
@@ -165,10 +165,50 @@ ul {
 
 #homepage_news_region {
   padding: 25px 50px;
-  height: 200px;
+  text-align: left;
 
   hr {
     width: 50px;
+  }
+
+  .homepage_news_content {
+    $margin: 20px;
+    padding: 10px;
+    font-family: $sans-text;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+    border-top: 4px solid $color-red;
+    float: left;
+    width: calc(33% - #{$margin} * 2 / 3);
+    box-sizing: border-box;
+    margin: $margin;
+    margin-left: 0;
+    height: 275px;
+    text-align: left;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    .news_item {
+      &_title {
+        font-size: 1.25rem;
+        color: $color-darkblue;
+      }
+
+      &_date {
+        color: $color-lightgrey;
+      }
+
+      &_body p {
+        text-align: left;
+        font-family: $serif-text;
+      }
+    }
+  }
+
+  button {
+    clear: both;
+    /*display: inline-block;*/
   }
 }
 
@@ -260,7 +300,7 @@ ul {
 
   .impact_number {
     color: $color-lightblue;
-    font-family: $header-text;
+    font-family: $sans-text;
     font-size: 1.625rem;
   }
 
