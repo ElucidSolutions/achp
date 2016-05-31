@@ -208,14 +208,20 @@ ul {
     width: 15%; }
   #homepage_impact_region .impact_item {
     float: left;
-    width: 300px;
+    width: 33%;
     text-align: center;
     box-sizing: border-box;
-    margin-right: 50px; }
+    padding-right: 50px; }
     #homepage_impact_region .impact_item.impact_item_3 {
-      margin-right: 0; }
+      padding-right: 0; }
       #homepage_impact_region .impact_item.impact_item_3:after {
         clear: both; }
+    @media (max-width: 650px) {
+      #homepage_impact_region .impact_item {
+        float: none;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%; } }
   #homepage_impact_region .impact_number {
     color: #309AEE;
     font-family: "P22 Underground", sans-serif;

@@ -200,17 +200,25 @@ ul {
 
   .impact_item {
     float: left;
-    width: 300px;
+    width: 33%;
     text-align: center;
     box-sizing: border-box;
-    margin-right: 50px;
+    padding-right: 50px;
 
     &.impact_item_3 {
-      margin-right: 0;
+      padding-right: 0;
+
       &:after {
         clear: both;
       }
     }
+
+    @media (max-width: 650px) {
+      float: none;
+      margin: 0 auto;
+      padding: 0;
+      width: 100%
+    } 
   }
 
   .impact_number {
