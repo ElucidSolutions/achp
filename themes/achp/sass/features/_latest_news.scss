@@ -1,0 +1,40 @@
+ @import "../global";
+
+ #block-views-block-latest-news-block
+
+  .news-item {
+    $margin: 20px;
+    padding: 10px;
+    font-family: $sans-text;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+    border-top: 4px solid $color-red;
+    float: left;
+    width: calc(33% - #{$margin} * 2);
+    /* Once floating content on right disappears, replace with this: */
+    /*width: calc((100% - #{$margin} * 2 ) / 3);*/
+    box-sizing: border-box;
+    margin: $margin;
+    margin-left: 0;
+    height: 425px;
+    text-align: left;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    .news_item {
+      &_title {
+        font-size: 1.25rem;
+        color: $color-darkblue;
+      }
+
+      &_date {
+        color: $color-lightgrey;
+      }
+
+      &_body p {
+        text-align: left;
+        font-family: $serif-text;
+      }
+    }
+  }
