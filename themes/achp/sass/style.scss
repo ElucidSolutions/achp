@@ -1,64 +1,6 @@
 @import "features";
 @import "global";
 
-/*$sans-text: 'P22 Underground', sans-serif;
-$serif-text: 'Minion Pro', serif;
-$color-darkblue: #043B62;
-$color-blue: #0990FE;
-$color-lightblue: #309AEE;
-$color-red: #950306;
-$color-grey: #4F4F4F;
-$color-lightgrey: #4A4A4A;
-$background-color-darkblue: #043B62;
-$background-color-grey: #F4F4F4;
-$background-color-lightblue: #E8F8FF;
-$base-text-size: 16px;*/
-
-/* Mixin for centering horizontally */
-@mixin center-x {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-/* Mixin for centering vertically */
-@mixin center-y {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-/* Mixin for centering vertically & horizontally */
-@mixin center-xy {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-}
-
-/* Mixin for generating solid-colored hr elements*/
-@mixin hr($color) {
-  color: $color;
-  background-color: $color;
-  border: 1px solid $color;
-  height: 0;
-}
-
-/* Global variables */
-$max-content-width: 1024px;
-
 html, body {
   max-width: 100%;
   margin: 0;
@@ -184,8 +126,8 @@ ul {
   }
 
   button {
-    clear: both;
-    /*display: inline-block;*/
+    /*clear: both;*/
+    margin-top: 20px;
   }
 }
 
@@ -258,17 +200,13 @@ ul {
 
   .impact_item {
     float: left;
-    width: 33%;
+    width: 300px;
     text-align: center;
     box-sizing: border-box;
-    padding: 0 7%;
-
-    &.impact_item_1 {
-      padding-left: 0;
-    }
+    margin-right: 50px;
 
     &.impact_item_3 {
-      padding-right: 0;
+      margin-right: 0;
       &:after {
         clear: both;
       }

@@ -37,9 +37,18 @@
     {{ fields.title.content }}
   </section>
   <section class="news_item_date">
-    {{ fields.date.content }}
+    {{ fields.field_date.content }}
   </section> 
   <section class="news_item_body">
     {{ fields.body.content }}
-  </section>      
+  </section>  
+  {% if fields.field_external_url.content %}
+    <section class="news_item_link_external">
+      {{ fields.field_external_url.content }}
+    </section>
+  {% else %}
+    <section class="news_item_link_node">
+      {{ fields.view_node.content }}
+    </section>
+  {% endif %}
 </article>

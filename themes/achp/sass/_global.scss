@@ -10,3 +10,48 @@ $background-color-darkblue: #043B62;
 $background-color-grey: #F4F4F4;
 $background-color-lightblue: #E8F8FF;
 $base-text-size: 16px;
+
+/* Mixin for centering horizontally */
+@mixin center-x {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* Mixin for centering vertically */
+@mixin center-y {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Mixin for centering vertically & horizontally */
+@mixin center-xy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Mixin for generating solid-colored hr elements*/
+@mixin hr($color) {
+  color: $color;
+  background-color: $color;
+  border: 1px solid $color;
+  height: 0;
+}
+
+/* Global variables */
+$max-content-width: 1024px;

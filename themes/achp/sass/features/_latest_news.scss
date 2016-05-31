@@ -1,25 +1,34 @@
  @import "../global";
 
- #block-views-block-latest-news-block
+$news_item_num: 3;
+$news_item_height: 350px;
+$news_item_width: 300px;
+$news_item_margin: 20px;
+
+ #block-views-block-latest-news-block {
+  width: $news_item_width * $news_item_num + $news_item_margin * ($news_item_num - 1);
+  margin: 0 auto;
+  height: $news_item_height;
 
   .news-item {
-    $margin: 20px;
     padding: 10px;
     font-family: $sans-text;
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
     border-top: 4px solid $color-red;
     float: left;
-    width: calc(33% - #{$margin} * 2);
-    /* Once floating content on right disappears, replace with this: */
-    /*width: calc((100% - #{$margin} * 2 ) / 3);*/
+    height: $news_item_height;
+    width: $news_item_width;
     box-sizing: border-box;
-    margin: $margin;
+    margin: 25px $news_item_margin 30px;
     margin-left: 0;
-    height: 425px;
     text-align: left;
 
     &:last-of-type {
       margin-right: 0;
+
+      &:after {
+          clear: both;
+        }
     }
 
     .news_item {
@@ -38,3 +47,4 @@
       }
     }
   }
+}
