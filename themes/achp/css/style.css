@@ -1,42 +1,74 @@
+/* Global variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
-/* Global variables */
-#block-views-block-latest-news-block {
-  width: 940px;
-  margin: 0 auto;
-  height: 350px; }
-  #block-views-block-latest-news-block .news-item {
-    padding: 10px;
-    font-family: "P22 Underground", sans-serif;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
-    border-top: 4px solid #950306;
-    float: left;
-    height: 350px;
-    width: 300px;
-    box-sizing: border-box;
-    margin: 25px 20px 30px;
-    margin-left: 0;
-    text-align: left; }
-    #block-views-block-latest-news-block .news-item:last-of-type {
-      margin-right: 0; }
-      #block-views-block-latest-news-block .news-item:last-of-type:after {
-        clear: both; }
-    #block-views-block-latest-news-block .news-item .news_item_title {
-      font-size: 1.25rem;
-      color: #043B62; }
-    #block-views-block-latest-news-block .news-item .news_item_date {
-      color: #4A4A4A; }
-    #block-views-block-latest-news-block .news-item .news_item_body p {
-      text-align: left;
-      font-family: "Minion Pro", serif; }
+/* Mixin for card positioning */
+#block-views-block-latest-news-block .homepage_news_item {
+  padding: 10px;
+  position: relative;
+  height: 325px; }
+  #block-views-block-latest-news-block .homepage_news_item .news_item_title {
+    font-size: 1.25rem;
+    color: #043B62; }
+  #block-views-block-latest-news-block .homepage_news_item .news_item_date {
+    color: #4A4A4A;
+    margin-top: 20px; }
+  #block-views-block-latest-news-block .homepage_news_item .news_item_body p {
+    text-align: left;
+    font-family: "minion-pro", serif;
+    margin-top: 10px;
+    color: #4F4F4F; }
+  #block-views-block-latest-news-block .homepage_news_item .news_item_link {
+    position: absolute;
+    bottom: 0; }
+    #block-views-block-latest-news-block .homepage_news_item .news_item_link a {
+      color: #4F4F4F;
+      text-decoration: none;
+      cursor: pointer; }
+@media (min-width: 1024px) {
+  #block-views-block-latest-news-block {
+    width: 930px;
+    margin: 0 auto;
+    height: 425px; }
+    #block-views-block-latest-news-block .card {
+      height: 375px;
+      width: 300px;
+      margin: 25px 15px;
+      margin-left: 0;
+      float: left; }
+      #block-views-block-latest-news-block .card:last-of-type {
+        margin-right: 0; }
+        #block-views-block-latest-news-block .card:last-of-type:after {
+          clear: both; } }
+@media (max-width: 1023px) {
+  #block-views-block-latest-news-block {
+    width: 615px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin: 0 auto; }
+    #block-views-block-latest-news-block .card {
+      width: 45%;
+      float: left;
+      margin: 25px 15px; }
+      #block-views-block-latest-news-block .card.view-item-2 {
+        margin-right: 0; }
+      #block-views-block-latest-news-block .card.view-item-3 {
+        float: none;
+        clear: both;
+        margin: 0 auto; } }
 
+/* Global variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
-/* Global variables */
+/* Mixin for card positioning */
 html, body {
   max-width: 100%;
   margin: 0;
@@ -44,14 +76,17 @@ html, body {
   font-size: 16px;
   line-height: 1.5;
   box-sizing: border-box;
-  /*min-width: 300px;*/ }
+  font-family: "minion-pro", serif;
+  overflow-x: hidden; }
 
 .content_wrapper {
   max-width: 1024px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: relative; }
 
 h1, h2 {
-  font-family: "P22 Underground", sans-serif;
+  font-family: "p22-underground", sans-serif;
+  /*font-family: 'p22-underground'; font-style: normal; font-weight: 400;*/
   text-align: center;
   margin: 0;
   padding: 0;
@@ -76,13 +111,34 @@ hr {
 p {
   text-align: center; }
 
+button {
+  font-family: "p22-underground", sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  line-height: 1rem;
+  background-color: #0990FE;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+  border: none;
+  border-radius: 2px;
+  padding: 10px 40px;
+  margin: 0 auto;
+  display: block; }
+
+/* For standard coloring, text, etc; include mixin cardgroup for positioning when 3 cards are in a row */
+.card {
+  padding: 10px;
+  font-family: "p22-underground", sans-serif;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+  border-top: 6px solid #950306;
+  box-sizing: border-box;
+  text-align: left; }
+
 #homepage_hero_region {
   padding: 25px 50px;
   height: 500px;
   position: relative;
   background-image: url("../images/columns-banner-bg.png");
-  background-size: cover;
-  /* Holding for real image */ }
+  background-size: cover; }
   #homepage_hero_region #homepage_hero_content {
     position: absolute;
     top: 50%;
@@ -104,40 +160,6 @@ p {
       border: 1px solid #FFFFFF;
       height: 0; }
 
-button {
-  font-size: 16px;
-  color: #FFFFFF;
-  line-height: 1rem;
-  background-color: #0990FE;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
-  border: none;
-  border-radius: 2px;
-  padding: 10px 40px;
-  margin: 0 auto;
-  display: block; }
-
-/* Above is Rebecca's new SASS; code from Larry's old style.css starts here */
-/*fieldset {
-  margin: 2%; 
-}
-
-ul {
-  list-style: none;
-  margin: 0 !important;
-}
-
-#menu {
-  overflow: hidden;
-  padding: 1% 0%;
-  width: 100%;
-
- .menu-item {
-    float: left;
-    padding: 0% 2% 0% 2%;
-    text-align: center;
-    width: 10%;
-  }
-}*/
 #homepage_quicklinks_region {
   padding: 25px 50px;
   height: 200px;
@@ -147,12 +169,16 @@ ul {
 
 #homepage_news_region {
   padding: 25px 50px;
-  text-align: left; }
+  /*text-align: left;*/
+  /*height: 900px;*/
+  /*overflow: hidden;*/ }
   #homepage_news_region hr {
     width: 50px; }
-  #homepage_news_region button {
-    /*clear: both;*/
-    margin-top: 20px; }
+  @media (max-width: 1023px) {
+    #homepage_news_region {
+      height: 950px; }
+      #homepage_news_region button {
+        margin-top: 825px; } }
 
 #homepage_events_region {
   padding: 25px 50px;
@@ -203,28 +229,41 @@ ul {
     width: 100px; }
 
 #homepage_impact_region {
-  padding: 25px 50px; }
+  padding: 25px 50px;
+  margin: 0 auto; }
+  #homepage_impact_region #block-ourimpact {
+    margin: 0 auto; }
   #homepage_impact_region hr {
     width: 15%; }
   #homepage_impact_region .impact_item {
+    /*$impact-item-width: 300px;*/
     float: left;
     width: 33%;
+    /*min-width: 300px;*/
+    height: 325px;
     text-align: center;
     box-sizing: border-box;
-    padding-right: 50px; }
+    padding: 25px;
+    /*border: 1px solid pink;*/ }
+    #homepage_impact_region .impact_item.impact_item_1 {
+      padding-left: 0;
+      /*margin-left: ($max-content-width - $impact-item-width * 3) / 2;*/ }
     #homepage_impact_region .impact_item.impact_item_3 {
       padding-right: 0; }
       #homepage_impact_region .impact_item.impact_item_3:after {
         clear: both; }
-    @media (max-width: 650px) {
+    @media (max-width: 750px) {
       #homepage_impact_region .impact_item {
         float: none;
-        margin: 0 auto;
-        padding: 0;
-        width: 100%; } }
+        width: 100%;
+        margin: 0;
+        height: 200px;
+        padding: 15px 0; }
+        #homepage_impact_region .impact_item img {
+          height: 45%; } }
   #homepage_impact_region .impact_number {
     color: #309AEE;
-    font-family: "P22 Underground", sans-serif;
+    font-family: "p22-underground", sans-serif;
     font-size: 1.625rem; }
   #homepage_impact_region p {
     color: #4F4F4F;

@@ -1,5 +1,7 @@
-$sans-text: 'P22 Underground', sans-serif;
-$serif-text: 'Minion Pro', serif;
+/* Global variables */
+$max-content-width: 1024px;
+$sans-text: 'p22-underground', sans-serif;
+$serif-text: 'minion-pro', serif;
 $color-darkblue: #043B62;
 $color-blue: #0990FE;
 $color-lightblue: #309AEE;
@@ -53,5 +55,19 @@ $base-text-size: 16px;
   height: 0;
 }
 
-/* Global variables */
-$max-content-width: 1024px;
+/* Mixin for card positioning */
+@mixin cardgroup ($item_height, $item_width, $margin_vert, $margin_horiz) {
+  height: $item_height;
+  width: $item_width;
+  margin: $margin_vert $margin_horiz;
+  margin-left: 0;
+  float: left;
+
+    &:last-of-type {
+    margin-right: 0;
+
+    &:after {
+      clear: both;
+    }
+  }
+}

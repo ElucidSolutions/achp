@@ -43,11 +43,11 @@
     {{ fields.body.content }}
   </section>  
   {% if fields.field_external_url.content %}
-    <section class="news_item_link_external">
+    <section class="news_item_link">
       {{ fields.field_external_url.content }}
     </section>
   {% else %}
-    <section class="news_item_link_node">
+    <section class="news_item_link">
       {{ fields.view_node.content }}
     </section>
   {% endif %}

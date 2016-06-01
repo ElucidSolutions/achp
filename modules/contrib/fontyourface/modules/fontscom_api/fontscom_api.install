@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Fonts.com API install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function fontscom_api_install() {
+  module_set_weight('fontscom_api', 10);
+  drupal_set_message(t('Due to the number of fonts, automated import from install for Fonts.com is disabled. Please use @font-your-face settings to import Fonts.com fonts.'));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function fontscom_api_uninstall() {
+  fontyourface_delete('fontscom_api');
+}

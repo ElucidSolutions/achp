@@ -1,35 +1,18 @@
  @import "../global";
 
 $news_item_num: 3;
-$news_item_height: 350px;
+$news_item_height: 375px;
 $news_item_width: 300px;
-$news_item_margin: 20px;
+$news_item_margin_horiz: 15px;
+$news_item_margin_vert: 25px;
+
 
  #block-views-block-latest-news-block {
-  width: $news_item_width * $news_item_num + $news_item_margin * ($news_item_num - 1);
-  margin: 0 auto;
-  height: $news_item_height;
 
-  .news-item {
+  .homepage_news_item {
     padding: 10px;
-    font-family: $sans-text;
-    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-    border-top: 4px solid $color-red;
-    float: left;
-    height: $news_item_height;
-    width: $news_item_width;
-    box-sizing: border-box;
-    margin: 25px $news_item_margin 30px;
-    margin-left: 0;
-    text-align: left;
-
-    &:last-of-type {
-      margin-right: 0;
-
-      &:after {
-          clear: both;
-        }
-    }
+    position: relative;
+    height: $news_item_height - $news_item_margin_vert * 2;
 
     .news_item {
       &_title {
@@ -39,12 +22,63 @@ $news_item_margin: 20px;
 
       &_date {
         color: $color-lightgrey;
+        margin-top: 20px;
       }
 
       &_body p {
         text-align: left;
         font-family: $serif-text;
+        margin-top: 10px;
+        color: $color-grey;
       }
+
+      &_link {
+        position: absolute;
+        bottom: 0;
+
+        a {
+          color: $color-grey;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    width: $news_item_width * 3 + $news_item_margin_horiz * ($news_item_num - 1);
+    margin: 0 auto;
+    height: $news_item_height + $news_item_margin_vert * 2;
+
+    .card {
+      @include cardgroup ($news_item_height, $news_item_width, $news_item_margin-vert, $news_item_margin-horiz);
+    }
+  }
+
+   @media (max-width: 1023px) {   
+    width: $news_item_width * 2 + $news_item_margin_horiz;
+    @include center-x;
+    margin: 0 auto;
+
+    .card {
+
+      $news_item_width: 45%;
+      width: $news_item_width;
+      float: left;
+      margin: $news_item_margin_vert $news_item_margin_horiz;
+
+      &.view-item-2 {
+        margin-right: 0;
+      }
+ 
+      &.view-item-3 {
+        float: none;
+        clear: both;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 700px) {
     }
   }
 }

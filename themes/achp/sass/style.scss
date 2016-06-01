@@ -8,16 +8,19 @@ html, body {
   font-size: 16px;
   line-height: 1.5;
   box-sizing: border-box;
-  /*min-width: 300px;*/
+  font-family: $serif-text;
+  overflow-x: hidden;
 }
 
 .content_wrapper {
   max-width: $max-content-width;
   margin: 0 auto;
+  position: relative;
 }
 
 h1, h2 {
   font-family: $sans-text; 
+  /*font-family: 'p22-underground'; font-style: normal; font-weight: 400;*/
   text-align: center;
   margin: 0;
   padding: 0;
@@ -46,13 +49,36 @@ p {
   text-align: center;
 }
 
+button {
+  font-family: $sans-text;
+  font-size: $base-text-size;
+  color: #FFFFFF;
+  line-height: 1rem;
+  background-color: $color-blue;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+  border: none;
+  border-radius: 2px;
+  padding: 10px 40px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* For standard coloring, text, etc; include mixin cardgroup for positioning when 3 cards are in a row */
+.card {
+  padding: 10px;
+  font-family: $sans-text;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+  border-top: 6px solid $color-red;
+  box-sizing: border-box;
+  text-align: left;
+}
+
 #homepage_hero_region {
   padding: 25px 50px;
   height: 500px;
   position: relative;
   background-image: url('../images/columns-banner-bg.png');
   background-size: cover;
-  /* Holding for real image */
 
   #homepage_hero_content {
     @include center-xy;
@@ -71,42 +97,6 @@ p {
   }
 }
 
-button {
-  font-size: $base-text-size;
-  color: #FFFFFF;
-  line-height: 1rem;
-  background-color: $color-blue;
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-  border: none;
-  border-radius: 2px;
-  padding: 10px 40px;
-  margin: 0 auto;
-  display: block;
-}
-
-/* Above is Rebecca's new SASS; code from Larry's old style.css starts here */
-/*fieldset {
-  margin: 2%; 
-}
-
-ul {
-  list-style: none;
-  margin: 0 !important;
-}
-
-#menu {
-  overflow: hidden;
-  padding: 1% 0%;
-  width: 100%;
-
- .menu-item {
-    float: left;
-    padding: 0% 2% 0% 2%;
-    text-align: center;
-    width: 10%;
-  }
-}*/
-
 #homepage_quicklinks_region {
   padding: 25px 50px;
   height: 200px;
@@ -119,15 +109,20 @@ ul {
 
 #homepage_news_region {
   padding: 25px 50px;
-  text-align: left;
+  /*text-align: left;*/
+  /*height: 900px;*/
+  /*overflow: hidden;*/
 
   hr {
     width: 50px;
   }
 
-  button {
-    /*clear: both;*/
-    margin-top: 20px;
+  @media (max-width: 1023px) {
+    height: 950px;
+
+    button {
+      margin-top: $news_item_height * 2 + $news_item_margin_vert * 2 + 25px;
+    }
   }
 }
 
@@ -193,17 +188,30 @@ ul {
 
 #homepage_impact_region {
   padding: 25px 50px;
+  margin: 0 auto;
 
+#block-ourimpact {
+  margin: 0 auto;
+}
   hr {
     width: 15%;
   }
 
   .impact_item {
+    /*$impact-item-width: 300px;*/
     float: left;
     width: 33%;
+    /*min-width: 300px;*/
+    height: 325px;
     text-align: center;
     box-sizing: border-box;
-    padding-right: 50px;
+    padding: 25px;
+    /*border: 1px solid pink;*/
+
+    &.impact_item_1 {
+      padding-left: 0;
+      /*margin-left: ($max-content-width - $impact-item-width * 3) / 2;*/
+    }
 
     &.impact_item_3 {
       padding-right: 0;
@@ -213,12 +221,17 @@ ul {
       }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 750px) {
       float: none;
-      margin: 0 auto;
-      padding: 0;
-      width: 100%
-    } 
+      width: 100%;
+      margin: 0;
+      height: 200px;
+      padding: 15px 0;
+
+      img {
+        height: 45%;
+      }
+    }
   }
 
   .impact_number {
