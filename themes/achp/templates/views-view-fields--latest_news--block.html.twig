@@ -39,9 +39,6 @@
   <section class="news_item_date">
     {{ fields.field_date.content }}
   </section> 
-  <section class="news_item_date_mobile">
-    {{ fields.field_date_1.content }}
-  </section>
   <section class="news_item_body">
     {{ fields.body.content }}
   </section>  
@@ -49,9 +46,15 @@
     <section class="news_item_link read_more">
       {{ fields.field_external_url.content }}
     </section>
+    <section class="news_item_link_mobile">
+      {{ fields.field_external_url_1.content }}
+    </section>
   {% else %}
     <section class="news_item_link read_more">
       {{ fields.view_node.content }}
+    </section>
+    <section class="news_item_link_mobile">
+      {{ fields.view_node_1.content }}
     </section>
   {% endif %}
 </article>

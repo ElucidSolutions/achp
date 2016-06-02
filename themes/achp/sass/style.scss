@@ -130,16 +130,19 @@ button {
 
 #homepage_news_region {
   padding: 25px 50px;
+  height: auto;
 
   hr {
     width: 50px;
   }
 
-  @media (max-width: 1023px) {
-    height: 950px;
-
-    button {
+  button {
+    @media (max-width: 1023px) {
       margin-top: $news_item_height * 2 + $news_item_margin_vert * 2 + 25px;
+    }
+
+    @media (max-width: 600px) {
+      margin-top: 30px;
     }
   }
 }
