@@ -155,7 +155,7 @@ button {
   }
 
   button {
-    /*display: none;*/
+    clear: both;
   }
 }
 
@@ -224,7 +224,6 @@ button {
   padding: 25px 50px;
   margin: 0 auto;
 
-  /* Text above impact stats */
   #block-ourimpact {
     margin: 0 auto;
   }
@@ -234,25 +233,12 @@ button {
   }
 
   .impact_item {
-    float: left;
-    width: 33%;
+    @include span-columns (4 of 12);
     height: 300px;
     text-align: center;
     box-sizing: border-box;
     padding: 25px;
     margin-bottom: 15px;
-
-    &.impact_item_1 {
-      padding-left: 0;
-    }
-
-    &.impact_item_3 {
-      padding-right: 0;
-
-      &:after {
-        clear: both;
-      }
-    }
 
     img {
       height: 120px;
@@ -278,11 +264,10 @@ button {
     }
 
     .impact_item {
-      float: none;
-      width: 100%;
       margin: 0 0 25px;
       height: auto;
       padding: 0;
+      @include span-columns (12 of 12);
 
       &_3 {
         margin-bottom: 25px;

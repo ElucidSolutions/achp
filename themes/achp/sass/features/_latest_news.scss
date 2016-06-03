@@ -50,7 +50,7 @@ $news_card_height: 350px;
   @media (min-width: 1024px) {
     .card {  
       height: $news_card_height;
-      @include span-columns (4 of 12);
+      @include span-columns (4 of $grid-columns);
     }     
   }
 
@@ -95,13 +95,13 @@ $news_card_height: 350px;
   }
 
   @media (max-width: $mobile-breakpoint) {
-    height: 225px;
+    height: 240px;
     border-top: 6px solid $color-red;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
     margin: 25px 0 25px;
 
     .card {
-      height: 75px;
+      height: 80px;
       margin: 0;
       @include span-columns (12 of 12);
       box-shadow: none;

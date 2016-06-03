@@ -15,10 +15,8 @@ $base-text-size: 16px;
 $mobile-breakpoint: 600px;
 
 /* Grid variables */
-/*$column: 90px;*/
 $gutter: 0;
 $grid-columns: 12;
-/*$max-width: 1024px;*/
 
 /* Mixin for centering horizontally */
 @mixin center-x {
@@ -121,25 +119,3 @@ $impact_number-font-sizes: (
   null: 1.25rem,
   $mobile-breakpoint: 1.625rem
 );
-
-
-/*@mixin card-height($ch-map) {
-  @each $ch-breakpoint, $ch-height in $ch-map {
-    @if $ch-breakpoint == null {
-      height: $ch-height;
-    }
-    @else {
-      @media screen and (min-width: $ch-breakpoint) {
-        height: $ch-height;
-      }
-    }
-  }
-}
-
-$news-card-height: (
-  null: 150px,
-  $mobile-breakpoint: 1.625rem
-  750px: 450px,
-  850px : 400px,
-  1023px: 300px
-);/*/
