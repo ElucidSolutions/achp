@@ -101,32 +101,46 @@ $news-card-height: (
   #block-views-block-latest-news-block {
     height: 225px;
     border-top: 6px solid #950306;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26); }
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+    margin: 25px 0 25px; }
     #block-views-block-latest-news-block .card {
-      /*height: auto;*/
+      height: 75px;
       margin: 0;
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%;
-      height: 75px;
       box-shadow: none;
-      border-top: 1px solid rgba(0, 0, 0, 0.26); }
+      border-top: 1px solid rgba(0, 0, 0, 0.26);
+      position: relative; }
       #block-views-block-latest-news-block .card:last-child {
         margin-right: 0; }
       #block-views-block-latest-news-block .card .homepage_news_item {
-        /*height: auto;*/
-        position: relative;
-        padding: 5px; }
+        height: 60px;
+        padding: 0;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%); }
         #block-views-block-latest-news-block .card .homepage_news_item .news_item_date, #block-views-block-latest-news-block .card .homepage_news_item .news_item_body, #block-views-block-latest-news-block .card .homepage_news_item .news_item_link {
           display: none; }
         #block-views-block-latest-news-block .card .homepage_news_item .news_item_title {
-          width: 95%;
-          line-height: 24px; }
+          width: 85%;
+          line-height: 24px;
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%); }
         #block-views-block-latest-news-block .card .homepage_news_item .news_item_link_mobile {
           font-size: 0.875rem;
-          float: right;
-          right: 0;
+          right: 20px;
           display: inline-block;
           position: absolute;
           top: 50%;
@@ -335,7 +349,7 @@ button {
   #homepage_news_region hr {
     width: 50px; }
   #homepage_news_region button {
-    display: none; }
+    /*display: none;*/ }
 
 #homepage_events_region {
   padding: 25px 50px;

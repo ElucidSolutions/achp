@@ -60,7 +60,7 @@ $news_card_height: 350px;
 
     .card {
       height: $news_card_height;
-      @include span-columns (6);
+      @include span-columns (6 of 12);
 
       &.view-item-2 {
         margin-right: 0;
@@ -96,22 +96,23 @@ $news_card_height: 350px;
 
   @media (max-width: $mobile-breakpoint) {
     height: 225px;
-    border-top: 6px solid #950306;
+    border-top: 6px solid $color-red;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+    margin: 25px 0 25px;
 
     .card {
-      $news_card_height: 75px;
-      /*height: auto;*/
+      height: 75px;
       margin: 0;
       @include span-columns (12 of 12);
-      height: 75px;
       box-shadow: none;
       border-top: 1px solid rgba(0, 0, 0, 0.26);
+      position: relative;
 
       .homepage_news_item {
-        /*height: auto;*/
-        position: relative;
-        padding: 5px;
+        height: 60px;
+        padding: 0;
+        width: 100%;
+        @include center-y;
 
         .news_item {
           &_date, &_body, &_link {
@@ -119,14 +120,14 @@ $news_card_height: 350px;
           }
 
           &_title {
-            width: 95%;
+            width: 85%;
             line-height: 24px;
+            @include center-y;
           }
 
           &_link_mobile {
             font-size: 0.875rem;
-            float: right;
-            right: 0;
+            right: 20px;
             display: inline-block;
             @include center-y;
 
