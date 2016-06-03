@@ -27,21 +27,23 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  @include font-size($h1-font-sizes);
 
   &.heading_subtitle {
-    font-size: 2.25rem;
+    @include font-size($h1-subtitle-font-sizes);
     font-weight: 300;
   }
 }
 
+/* Section titles */
 h2 {
   color: $color-darkblue;
-  font-size: 2rem;
+  @include font-size($h2-font-sizes);
 }
 
+/* Card titles/headlines */
 h3 {
-  font-size: 1.25rem;
+  @include font-size($h3-font-sizes);
   color: $color-darkblue;
   text-align: left;
   font-weight: 500;
@@ -57,7 +59,7 @@ p {
 
 button {
   font-family: $sans-text;
-  font-size: $base-text-size;
+  @include font-size($button-font-sizes);
   color: #FFFFFF;
   line-height: 1.4rem;
   background-color: $color-blue;
@@ -108,7 +110,7 @@ button {
     }
 
     p {
-      font-size: 1.375rem;
+      @include font-size($hero-p-font-sizes);
       margin-top: 0;
     }
 
@@ -128,6 +130,7 @@ button {
   }
 }
 
+/* See latest_news feature file for more */
 #homepage_news_region {
   padding: 25px 50px;
   height: auto;
@@ -141,7 +144,7 @@ button {
       margin-top: $news_item_height * 2 + $news_item_margin_vert * 2 + 25px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: $mobile-breakpoint) {
       margin-top: 30px;
     }
   }
@@ -181,6 +184,7 @@ button {
   h2 {
     color: #FFFFFF;
   }
+
   hr {
     @include hr(#FFFFFF);
     width: 100px;
@@ -211,6 +215,7 @@ button {
   padding: 25px 50px;
   margin: 0 auto;
 
+  /* Text above impact stats */
   #block-ourimpact {
     margin: 0 auto;
   }
@@ -247,7 +252,7 @@ button {
     .impact_number {
       color: $color-lightblue;
       font-family: $sans-text;
-      font-size: 1.625rem;
+      @include font-size($impact_number-font-sizes);
       margin-top: 20px;
       font-weight: 500;
     }
@@ -259,7 +264,6 @@ button {
   }
 
   @media (max-width: 750px) {
-
     #block-ourimpact {
       margin-bottom: 25px;
     }
@@ -289,7 +293,6 @@ button {
     clear: both;
   }
 }
-
 
 #homepage_preserveamerica_region {
   padding: 25px 50px;

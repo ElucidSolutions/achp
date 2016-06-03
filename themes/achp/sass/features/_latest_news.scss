@@ -1,4 +1,4 @@
- @import "../global";
+@import "../global";
 
 $news_item_num: 3;
 $news_item_height: 360px;
@@ -13,7 +13,6 @@ $news_item_margin_vert: 25px;
     height: $news_item_height - $news_item_margin_vert * 2;
 
     .news_item {
-
       &_date {
         color: $color-lightgrey;
         margin-top: 20px;
@@ -50,13 +49,13 @@ $news_item_margin_vert: 25px;
     .card {   
       @include cardgroup ($news_item_height, $news_item_width, $news_item_margin-vert, $news_item_margin-horiz);
     
-        &.view-item-3 {
-          margin-right: 0;
+      &.view-item-3 {
+        margin-right: 0;
 
-          &:after {
-            clear: both;
-          }
+        &:after {
+          clear: both;
         }
+      }
     }     
   }
 
@@ -83,7 +82,7 @@ $news_item_margin_vert: 25px;
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: $mobile-breakpoint) {
     margin-top: 25px;
     
     .view-item-2, .view-item-3 {
@@ -96,12 +95,13 @@ $news_item_margin_vert: 25px;
       padding: 5px;
 
       .news_item {
-        &_title {
-          width: 95%;
-        }
-
         &_date, &_body, &_link {
           display: none;
+        }
+
+        &_title {
+          width: 95%;
+          line-height: 24px;
         }
 
         &_link_mobile {

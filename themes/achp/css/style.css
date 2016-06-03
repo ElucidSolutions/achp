@@ -4,6 +4,9 @@
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for card positioning */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/* for subtitle too */
 #block-views-block-latest-news-block .homepage_news_item {
   padding: 10px;
   position: relative;
@@ -69,10 +72,11 @@
       height: auto;
       position: relative;
       padding: 5px; }
-      #block-views-block-latest-news-block .homepage_news_item .news_item_title {
-        width: 95%; }
       #block-views-block-latest-news-block .homepage_news_item .news_item_date, #block-views-block-latest-news-block .homepage_news_item .news_item_body, #block-views-block-latest-news-block .homepage_news_item .news_item_link {
         display: none; }
+      #block-views-block-latest-news-block .homepage_news_item .news_item_title {
+        width: 95%;
+        line-height: 24px; }
       #block-views-block-latest-news-block .homepage_news_item .news_item_link_mobile {
         font-size: 1.5em;
         float: right;
@@ -94,6 +98,9 @@
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for card positioning */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/* for subtitle too */
 html, body {
   max-width: 100%;
   margin: 0;
@@ -117,20 +124,34 @@ h1, h2, h3 {
   font-weight: normal; }
 
 h1 {
-  font-size: 2.5rem; }
+  font-size: 1.25rem; }
+  @media screen and (min-width: 600px) {
+    h1 {
+      font-size: 2.5rem; } }
   h1.heading_subtitle {
-    font-size: 2.25rem;
+    font-size: 1.25rem;
     font-weight: 300; }
+    @media screen and (min-width: 600px) {
+      h1.heading_subtitle {
+        font-size: 2.25rem; } }
 
+/* Section titles */
 h2 {
   color: #043B62;
-  font-size: 2rem; }
+  font-size: 1.25rem; }
+  @media screen and (min-width: 600px) {
+    h2 {
+      font-size: 2rem; } }
 
+/* Card titles/headlines */
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: #043B62;
   text-align: left;
   font-weight: 500; }
+  @media screen and (min-width: 600px) {
+    h3 {
+      font-size: 1.25rem; } }
 
 hr {
   color: #950306;
@@ -144,7 +165,7 @@ p {
 
 button {
   font-family: "p22-underground", sans-serif;
-  font-size: 16px;
+  font-size: 0.75rem;
   color: #FFFFFF;
   line-height: 1.4rem;
   background-color: #0990FE;
@@ -154,6 +175,9 @@ button {
   padding: 12px 35px 8px;
   margin: 0 auto 30px auto;
   display: block; }
+  @media screen and (min-width: 600px) {
+    button {
+      font-size: 16px; } }
 
 /* For standard coloring, text, etc; include mixin cardgroup for positioning when 3 cards are in a row */
 .card {
@@ -199,8 +223,11 @@ button {
       height: 1px;
       margin-top: 20px; }
     #homepage_hero_region #homepage_hero_content p {
-      font-size: 1.375rem;
+      font-size: 16px;
       margin-top: 0; }
+      @media screen and (min-width: 600px) {
+        #homepage_hero_region #homepage_hero_content p {
+          font-size: 1.375rem; } }
     #homepage_hero_region #homepage_hero_content button {
       margin-top: 40px; }
 
@@ -211,6 +238,7 @@ button {
   #homepage_quicklinks_region hr {
     width: 50px; }
 
+/* See latest_news feature file for more */
 #homepage_news_region {
   padding: 25px 50px;
   height: auto; }
@@ -275,7 +303,8 @@ button {
 
 #homepage_impact_region {
   padding: 25px 50px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  /* Text above impact stats */ }
   #homepage_impact_region #block-ourimpact {
     margin: 0 auto; }
   #homepage_impact_region hr {
@@ -299,9 +328,12 @@ button {
     #homepage_impact_region .impact_item .impact_number {
       color: #309AEE;
       font-family: "p22-underground", sans-serif;
-      font-size: 1.625rem;
+      font-size: 1.25rem;
       margin-top: 20px;
       font-weight: 500; }
+      @media screen and (min-width: 600px) {
+        #homepage_impact_region .impact_item .impact_number {
+          font-size: 1.625rem; } }
     #homepage_impact_region .impact_item p {
       color: #4F4F4F;
       margin: 5px 0 25px; }

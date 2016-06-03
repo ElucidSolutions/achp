@@ -12,6 +12,7 @@ $background-color-darkblue: #043B62;
 $background-color-grey: #F4F4F4;
 $background-color-lightblue: #E8F8FF;
 $base-text-size: 16px;
+$mobile-breakpoint: 600px;
 
 /* Mixin for centering horizontally */
 @mixin center-x {
@@ -64,3 +65,55 @@ $base-text-size: 16px;
   margin-left: 0;
   float: left;
 }
+
+/* Mixin for responsive type size */
+@mixin font-size($fs-map) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    }
+    @else {
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}
+
+/* Maps for type changes*/
+
+$h1-font-sizes: (
+  null: 1.25rem,
+  $mobile-breakpoint: 2.5rem
+); /* for subtitle too */
+
+$h1-subtitle-font-sizes: (
+  null: 1.25rem,
+  $mobile-breakpoint: 2.25rem
+);
+
+$h2-font-sizes: (
+  null: 1.25rem,
+  $mobile-breakpoint: 2rem
+);
+
+$h3-font-sizes: (
+  null: 1.125rem,
+  $mobile-breakpoint: 1.25rem
+);
+
+$button-font-sizes: (
+  null: 0.75rem,
+  $mobile-breakpoint: $base-text-size
+);
+
+$hero-p-font-sizes: (
+  null: $base-text-size,
+  $mobile-breakpoint: 1.375rem
+);
+
+$impact_number-font-sizes: (
+  null: 1.25rem,
+  $mobile-breakpoint: 1.625rem
+);
+
