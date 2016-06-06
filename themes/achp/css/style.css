@@ -388,13 +388,15 @@ button {
 #homepage_news_region {
   padding: 25px 50px;
   height: auto; }
+  #homepage_news_region hr {
+    width: 50px; }
+  #homepage_news_region #block-morenewsbutton {
+    padding: 0 25px; }
+    #homepage_news_region #block-morenewsbutton button {
+      clear: both; }
   @media (max-width: 600px) {
     #homepage_news_region {
       padding: 25px 0; } }
-  #homepage_news_region hr {
-    width: 50px; }
-  #homepage_news_region button {
-    clear: both; }
 
 #homepage_events_region {
   padding: 25px 50px;
@@ -473,9 +475,12 @@ button {
     text-align: center;
     box-sizing: border-box;
     padding: 25px;
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    /* Temporary solution to blocks being off-center */ }
     #homepage_impact_region .impact_item:last-child {
       margin-right: 0; }
+    #homepage_impact_region .impact_item_1 {
+      margin-left: 2.35765%; }
     #homepage_impact_region .impact_item img {
       height: 120px; }
     #homepage_impact_region .impact_item .impact_number {
@@ -494,7 +499,7 @@ button {
     #homepage_impact_region #block-ourimpact {
       margin-bottom: 25px; }
     #homepage_impact_region .impact_item {
-      margin: 0 0 25px;
+      margin-bottom: 25px;
       height: auto;
       padding: 0;
       float: left;
@@ -503,6 +508,8 @@ button {
       width: 100%; }
       #homepage_impact_region .impact_item:last-child {
         margin-right: 0; }
+      #homepage_impact_region .impact_item_1 {
+        margin-left: 0; }
       #homepage_impact_region .impact_item_3 {
         margin-bottom: 25px; }
       #homepage_impact_region .impact_item .impact_number, #homepage_impact_region .impact_item p {
