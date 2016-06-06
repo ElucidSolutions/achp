@@ -438,11 +438,17 @@ button {
   background-color: #F4F4F4; }
   #homepage_success_region hr {
     width: 300px; }
+  #homepage_success_region button {
+    min-width: 225px; }
   @media (max-width: 600px) {
     #homepage_success_region {
       padding: 25px 0; }
       #homepage_success_region #block-preservationsuccessstories {
-        padding: 0 25px; } }
+        padding: 0 25px; }
+      #homepage_success_region #block-moresuccessstoriesbutton {
+        padding: 0 25px; }
+        #homepage_success_region #block-moresuccessstoriesbutton button {
+          min-width: 0; } }
 
 #homepage_issues_region {
   padding: 25px 50px;

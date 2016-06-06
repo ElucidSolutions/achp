@@ -218,11 +218,23 @@ button {
     width: 300px;
   }
 
+  button {
+    min-width: 225px;
+  }
+
   @media (max-width: $mobile-breakpoint) {  
     padding: 25px 0;
 
     #block-preservationsuccessstories {
       padding: 0 25px;
+    }
+
+    #block-moresuccessstoriesbutton {
+      padding: 0 25px;
+    
+      button {
+        min-width: 0;
+      }
     }
   }
 }
