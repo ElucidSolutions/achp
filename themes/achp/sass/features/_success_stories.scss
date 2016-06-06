@@ -1,0 +1,59 @@
+@import "../global";
+
+$success_card_margin_vert: 25px;
+$success_card_height: 400px;
+
+#block-views-block-homepage-success-stories-block-1 {
+  /*text-align: center;*/
+
+  .card {
+    height: $success_card_height;
+    margin-top: $success_card_margin_vert;
+    margin-bottom: $success_card_margin_vert;
+    text-align: center;
+    @include span-columns (4 of $grid-columns);
+    background-color: #ffffff;
+
+    .success_story {
+      padding: 10px;
+      position: relative;
+      height: $success_card_height - 30px;     
+
+      &_image {
+        $success_story_image_height: 185px;
+        height: $success_story_image_height;
+        overflow: hidden;
+        margin-bottom: 10px;
+
+        img {
+          height: auto;
+          min-height: $success_story_image_height;
+          width: 100%;
+        }
+      }
+
+      &_title h3 {
+        text-align: inherit;
+      }
+
+      &_location {
+        color: $color-lightgrey-2;
+      }
+
+      &_body p {
+        font-family: $serif-text;
+        margin: 5px;
+      }
+
+      &_link {
+        @include center-x;
+        bottom: 0;
+
+        img {
+          margin-left: 5px;
+          vertical-align: -1px;
+        }
+      }
+    }
+  }
+}

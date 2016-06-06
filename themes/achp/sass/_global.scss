@@ -8,6 +8,7 @@ $color-lightblue: #309AEE;
 $color-red: #950306;
 $color-grey: #4F4F4F;
 $color-lightgrey: #C6C6C6;
+$color-lightgrey-2: #7C7C7C;
 $background-color-darkblue: #043B62;
 $background-color-grey: #F4F4F4;
 $background-color-lightblue: #E8F8FF;
@@ -59,15 +60,6 @@ $grid-columns: 12;
   /*border: 1px solid $color;*/
   border: none;
   height: 1px;
-}
-
-/* Mixin for card positioning */
-@mixin cardgroup ($item_height, $item_width, $margin_vert, $margin_horiz) {
-  height: $item_height;
-  width: $item_width;
-  /*margin: $margin_vert $margin_horiz;*/
-  /*margin-left: 0;*/
-  /*float: left;*/
 }
 
 /* Mixin for responsive type size */
