@@ -131,6 +131,11 @@ button {
 
     button {
       margin-top: 40px;
+      margin-bottom: 0;
+
+      @media (max-width: $mobile-breakpoint) {  
+        margin-top: 20px;
+      }
     }
   }
 }
@@ -149,6 +154,10 @@ button {
 #homepage_news_region {
   padding: 25px 50px;
   height: auto;
+
+  @media (max-width: $mobile-breakpoint) {  
+    padding: 25px 0;
+  }
 
   hr {
     width: 50px;
@@ -207,6 +216,14 @@ button {
 
   hr {
     width: 300px;
+  }
+
+  @media (max-width: $mobile-breakpoint) {  
+    padding: 25px 0;
+
+    #block-preservationsuccessstories {
+      padding: 0 25px;
+    }
   }
 }
 
@@ -296,4 +313,9 @@ button {
   hr {
     width: 100px;
   }
+}
+
+/* Admin menu overlay */
+body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
+  margin: 0px;
 }

@@ -4,8 +4,6 @@ $success_card_margin_vert: 25px;
 $success_card_height: 400px;
 
 #block-views-block-homepage-success-stories-block-1 {
-  /*text-align: center;*/
-
   .card {
     height: $success_card_height;
     margin-top: $success_card_margin_vert;
@@ -15,7 +13,7 @@ $success_card_height: 400px;
     background-color: #ffffff;
 
     .success_story {
-      padding: 10px;
+      padding: 5px 10px;
       position: relative;
       height: $success_card_height - 30px;     
 
@@ -23,7 +21,7 @@ $success_card_height: 400px;
         $success_story_image_height: 185px;
         height: $success_story_image_height;
         overflow: hidden;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
 
         img {
           height: auto;
@@ -53,6 +51,48 @@ $success_card_height: 400px;
           margin-left: 5px;
           vertical-align: -1px;
         }
+      }
+    }
+  }
+
+  @media (max-width: 1023px) {  
+    .card {
+      @include span-columns (6 of 12);
+
+      &.view-item-2 {
+        margin-right: 0;
+      }
+ 
+      &.view-item-3 {
+        margin-top: 0;
+        @include shift(3);
+      }
+    }
+  }
+
+  @media (max-width: 700px) {  
+    .card {
+      $success_card_height: 425px;
+      height: $success_card_height;
+
+      .success_story {
+        height: $success_card_height - 30px;     
+      }
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {   
+    .card {
+      $success_card_height: 400px;
+      height: $success_card_height;
+      @include span-columns (12 of 12);
+
+      &.view-item-2, &.view-item-3 {
+        display: none;
+      }
+
+      .success_story {
+        height: $success_card_height - 30px;     
       }
     }
   }

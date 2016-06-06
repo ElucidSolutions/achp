@@ -107,6 +107,7 @@ $news_card_height: 350px;
 
       .homepage_news_item {
         height: 60px;
+        margin: 0 20px;
         padding: 0;
         width: 100%;
         @include center-y;
@@ -117,14 +118,14 @@ $news_card_height: 350px;
           }
 
           &_title {
-            width: 85%;
+            width: 75%;
             line-height: 24px;
             @include center-y;
           }
 
           &_link_mobile {
             font-size: 0.875rem;
-            right: 20px;
+            right: 60px;
             display: inline-block;
             @include center-y;
 
