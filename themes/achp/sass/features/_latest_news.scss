@@ -85,6 +85,10 @@ $news_card_height: 350px;
         height: $news_card_height - 30px;
       }
 
+      &.view-item-2 {
+        margin-top: 0;
+      }
+
       &.view-item-3 {
         @include shift(0);
       }

@@ -116,7 +116,9 @@ button {
     @include center-xy;
     color: #FFFFFF;
     text-shadow: 0px 1px 3px rgba(0,0,0,0.50);
-    width: 75%;
+    width: 100%;
+    max-width: $max-content-width;
+    padding: 0 42px;
 
     hr {
       width: 500px;
@@ -133,9 +135,14 @@ button {
       margin-top: 40px;
       margin-bottom: 0;
 
-      @media (max-width: $mobile-breakpoint) {  
+      @media (max-width: $hero-breakpoint) {  
+        font-size: 0.875rem;
         margin-top: 20px;
       }
+
+/*      @media (max-width: $mobile-breakpoint) {  
+        margin-top: 20px;
+      }*/
     }
   }
 }
@@ -223,23 +230,7 @@ button {
   }
 
   button {
-    min-width: 225px;
-  }
-
-  @media (max-width: $mobile-breakpoint) {  
-    padding: 25px 0;
-
-    #block-preservationsuccessstories {
-      padding: 0 25px;
-    }
-
-    #block-moresuccessstoriesbutton {
-      padding: 0 25px;
-    
-      button {
-        min-width: 0;
-      }
-    }
+    clear: both;
   }
 }
 

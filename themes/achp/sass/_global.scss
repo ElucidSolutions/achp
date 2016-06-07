@@ -13,7 +13,8 @@ $background-color-darkblue: #043B62;
 $background-color-grey: #F4F4F4;
 $background-color-lightblue: #E8F8FF;
 $base-text-size: 16px;
-$mobile-breakpoint: 600px;
+$mobile-breakpoint: 650px;
+$hero-breakpoint: 925px;
 
 /* Grid variables */
 $gutter: 0;
@@ -79,12 +80,16 @@ $grid-columns: 12;
 /* Maps for type changes*/
 $h1-font-sizes: (
   null: 1.25rem,
-  $mobile-breakpoint: 2.5rem
+    /*$mobile-breakpoint: 2.5rem*/
+  $mobile-breakpoint: 2rem,
+  $hero-breakpoint: 2.5rem
 );
 
 $h1-subtitle-font-sizes: (
   null: 1.25rem,
-  $mobile-breakpoint: 2.25rem
+  /*$mobile-breakpoint: 2.25rem*/
+  $mobile-breakpoint: 2rem,
+  $hero-breakpoint: 2.25rem
 );
 
 $h2-font-sizes: (
@@ -104,7 +109,9 @@ $button-font-sizes: (
 
 $hero-p-font-sizes: (
   null: $base-text-size,
-  $mobile-breakpoint: 1.375rem
+    /*$mobile-breakpoint: 1.375rem*/
+  $mobile-breakpoint: 1.25rem,
+  $hero-breakpoint: 1.375rem
 );
 
 $impact_number-font-sizes: (

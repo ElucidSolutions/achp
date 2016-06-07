@@ -72,9 +72,11 @@ html {
       margin-right: 0; }
     #block-views-block-latest-news-block .card .homepage_news_item {
       height: 220px; }
+    #block-views-block-latest-news-block .card.view-item-2 {
+      margin-top: 0; }
     #block-views-block-latest-news-block .card.view-item-3 {
       margin-left: 0%; } }
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   #block-views-block-latest-news-block {
     height: 240px;
     border-top: 6px solid #950306;
@@ -201,7 +203,7 @@ html {
     height: 425px; }
     #block-views-block-homepage-success-stories-block-1 .card .success_story {
       height: 395px; } }
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   #block-views-block-homepage-success-stories-block-1 .card {
     height: 400px;
     float: left;
@@ -264,13 +266,19 @@ h1, h2, h3 {
 
 h1 {
   font-size: 1.25rem; }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 650px) {
+    h1 {
+      font-size: 2rem; } }
+  @media screen and (min-width: 925px) {
     h1 {
       font-size: 2.5rem; } }
   h1.heading_subtitle {
     font-size: 1.25rem;
     font-weight: 300; }
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 650px) {
+      h1.heading_subtitle {
+        font-size: 2rem; } }
+    @media screen and (min-width: 925px) {
       h1.heading_subtitle {
         font-size: 2.25rem; } }
 
@@ -278,7 +286,7 @@ h1 {
 h2 {
   color: #043B62;
   font-size: 1.25rem; }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 650px) {
     h2 {
       font-size: 2rem; } }
 
@@ -288,7 +296,7 @@ h3 {
   color: #043B62;
   text-align: left;
   font-weight: 500; }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 650px) {
     h3 {
       font-size: 1.25rem; } }
   h3 a {
@@ -317,7 +325,7 @@ button {
   padding: 12px 35px 8px;
   margin: 0 auto 30px auto;
   display: block; }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 650px) {
     button {
       font-size: 16px; } }
 
@@ -355,7 +363,9 @@ button {
     transform: translateX(-50%) translateY(-50%);
     color: #FFFFFF;
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-    width: 75%; }
+    width: 100%;
+    max-width: 1024px;
+    padding: 0 42px; }
     #homepage_hero_region #homepage_hero_content hr {
       width: 500px;
       color: #FFFFFF;
@@ -367,14 +377,21 @@ button {
     #homepage_hero_region #homepage_hero_content p {
       font-size: 16px;
       margin-top: 0; }
-      @media screen and (min-width: 600px) {
+      @media screen and (min-width: 650px) {
+        #homepage_hero_region #homepage_hero_content p {
+          font-size: 1.25rem; } }
+      @media screen and (min-width: 925px) {
         #homepage_hero_region #homepage_hero_content p {
           font-size: 1.375rem; } }
     #homepage_hero_region #homepage_hero_content button {
       margin-top: 40px;
-      margin-bottom: 0; }
-      @media (max-width: 600px) {
+      margin-bottom: 0;
+      /*      @media (max-width: $mobile-breakpoint) {  
+              margin-top: 20px;
+            }*/ }
+      @media (max-width: 925px) {
         #homepage_hero_region #homepage_hero_content button {
+          font-size: 0.875rem;
           margin-top: 20px; } }
 
 #homepage_quicklinks_region {
@@ -394,7 +411,7 @@ button {
     padding: 0 25px; }
     #homepage_news_region #block-morenewsbutton button {
       clear: both; }
-  @media (max-width: 600px) {
+  @media (max-width: 650px) {
     #homepage_news_region {
       padding: 25px 0; } }
 
@@ -441,16 +458,7 @@ button {
   #homepage_success_region hr {
     width: 300px; }
   #homepage_success_region button {
-    min-width: 225px; }
-  @media (max-width: 600px) {
-    #homepage_success_region {
-      padding: 25px 0; }
-      #homepage_success_region #block-preservationsuccessstories {
-        padding: 0 25px; }
-      #homepage_success_region #block-moresuccessstoriesbutton {
-        padding: 0 25px; }
-        #homepage_success_region #block-moresuccessstoriesbutton button {
-          min-width: 0; } }
+    clear: both; }
 
 #homepage_issues_region {
   padding: 25px 50px;
@@ -489,7 +497,7 @@ button {
       font-size: 1.25rem;
       margin-top: 20px;
       font-weight: 500; }
-      @media screen and (min-width: 600px) {
+      @media screen and (min-width: 650px) {
         #homepage_impact_region .impact_item .impact_number {
           font-size: 1.625rem; } }
     #homepage_impact_region .impact_item p {
