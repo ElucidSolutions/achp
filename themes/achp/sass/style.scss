@@ -85,6 +85,10 @@ button {
   padding: 12px 35px 8px;
   margin: 0 auto 30px auto;
   display: block;
+
+  @media (max-width: $mobile-breakpoint) {  
+    padding: 8px 20px;
+  }
 }
 
 /* For standard coloring, text, etc; include mixin cardgroup for positioning when 3 cards are in a row */
@@ -135,15 +139,12 @@ button {
     button {
       margin-top: 40px;
       margin-bottom: 0;
+      @include font-size($button-font-sizes);
 
       @media (max-width: $hero-breakpoint) {  
         font-size: 0.875rem;
         margin-top: 20px;
       }
-
-/*      @media (max-width: $mobile-breakpoint) {  
-        margin-top: 20px;
-      }*/
     }
   }
 }
@@ -237,6 +238,15 @@ button {
   button {
     clear: both;
   }
+
+  @media (max-width: 384px) {
+    /* To accommodate 300-width story card */
+    padding: 10px;
+
+    #block-preservationsuccessstories {
+      padding: 40px;
+    }
+  } 
 }
 
 #homepage_issues_region {
