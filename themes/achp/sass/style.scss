@@ -88,6 +88,7 @@ button {
 
   @media (max-width: $mobile-breakpoint) {  
     padding: 8px 20px;
+    margin-bottom: 0;
   }
 }
 
@@ -240,11 +241,14 @@ button {
   }
 
   @media (max-width: 384px) {
-    /* To accommodate 300-width story card */
-    padding: 10px;
+    padding: 25px 10px;
 
     #block-preservationsuccessstories {
-      padding: 40px;
+      padding: 0 40px;
+    }
+
+    #block-moresuccessstoriesbutton {
+      padding: 0 40px;
     }
   } 
 }

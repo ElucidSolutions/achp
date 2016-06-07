@@ -346,7 +346,8 @@ button {
       font-size: 16px; } }
   @media (max-width: 650px) {
     button {
-      padding: 8px 20px; } }
+      padding: 8px 20px;
+      margin-bottom: 0; } }
 
 /* For standard coloring, text, etc; include mixin cardgroup for positioning when 3 cards are in a row */
 .card {
@@ -483,10 +484,11 @@ button {
     clear: both; }
   @media (max-width: 384px) {
     #homepage_success_region {
-      /* To accommodate 300-width story card */
-      padding: 10px; }
+      padding: 25px 10px; }
       #homepage_success_region #block-preservationsuccessstories {
-        padding: 40px; } }
+        padding: 0 40px; }
+      #homepage_success_region #block-moresuccessstoriesbutton {
+        padding: 0 40px; } }
 
 #homepage_issues_region {
   padding: 25px 50px;
