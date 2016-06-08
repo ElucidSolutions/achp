@@ -270,7 +270,14 @@ html, body {
 .content_wrapper {
   max-width: 1024px;
   margin: 0 auto;
-  position: relative; }
+  position: relative;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block; }
+  .header_container hr {
+    width: 60%; }
 
 h1, h2, h3 {
   font-family: "p22-underground", sans-serif;
@@ -386,7 +393,7 @@ button {
     max-width: 1024px;
     padding: 0 42px; }
     #homepage_hero_region #homepage_hero_content hr {
-      width: 60%;
+      /*width: 60%;*/
       color: #FFFFFF;
       background-color: #FFFFFF;
       /*border: 1px solid $color;*/
@@ -419,14 +426,14 @@ button {
   height: 200px;
   background-color: #F4F4F4; }
   #homepage_quicklinks_region hr {
-    width: 50px; }
+    /*width: 50px;*/ }
 
 /* See latest_news feature file for more */
 #homepage_news_region {
   padding: 25px 50px;
   height: auto; }
   #homepage_news_region hr {
-    width: 5%; }
+    /*width: 5%;*/ }
   #homepage_news_region #block-morenewsbutton {
     padding: 0 25px; }
     #homepage_news_region #block-morenewsbutton button {
@@ -448,14 +455,14 @@ button {
     /*border: 1px solid $color;*/
     border: none;
     height: 1px;
-    width: 50px; }
+    /*width: 50px;*/ }
 
 #homepage_flowchart_region {
   padding: 25px 50px;
   height: 200px;
   background-color: #E8F8FF; }
   #homepage_flowchart_region hr {
-    width: 100px; }
+    /*width: 100px;*/ }
 
 #homepage_map_region {
   padding: 25px 50px;
@@ -469,14 +476,14 @@ button {
     /*border: 1px solid $color;*/
     border: none;
     height: 1px;
-    width: 100px; }
+    /*width: 100px;*/ }
 
 #homepage_success_region {
   padding: 25px 50px;
   height: auto;
   background-color: #F4F4F4; }
   #homepage_success_region hr {
-    width: 25%; }
+    /*width: 25%;*/ }
   #homepage_success_region p {
     margin-bottom: 0; }
   #homepage_success_region button {
@@ -494,7 +501,7 @@ button {
   height: 200px;
   background-color: #E8F8FF; }
   #homepage_issues_region hr {
-    width: 100px; }
+    /*width: 100px;*/ }
 
 #homepage_impact_region {
   padding: 25px 50px;
@@ -502,7 +509,7 @@ button {
   #homepage_impact_region #block-ourimpact {
     margin: 0 auto; }
   #homepage_impact_region hr {
-    width: 20%; }
+    /*width: 20%;*/ }
   #homepage_impact_region .impact_item {
     float: left;
     display: block;
@@ -566,5 +573,9 @@ button {
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
+
+/* Footer styles */
+li {
+  list-style-type: none; }
 
 /*# sourceMappingURL=style.css.map */
