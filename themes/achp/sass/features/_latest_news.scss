@@ -1,147 +1,102 @@
 @import "../global";
 
-$news_card_margin_vert: 25px;
-$news_card_height: 350px;
+$card-margin-vert: 25px;
+$card-margin-horiz: 20px;
+$card-height: 400px;
+$card-width: 300px;
 
-#block-views-block-latest-news-block {
-  .card {
-    height: $news_card_height;
-    margin-top: $news_card_margin_vert;
-    margin-bottom: $news_card_margin_vert;
+#homepage_news_content {
+  #block-views-block-latest-news-block {
+    .homepage_news_item {
+      padding: 10px;
+      position: relative;
+      height: $card-height - 30px;
 
-  .homepage_news_item {
-    padding: 10px;
-    position: relative;
-    height: $news_card_height - 30px;
+      .news_item {
+        &_date {
+          color: $color-lightgrey;
+          margin-top: 15px;
+        }
 
-    .news_item {
-      &_date {
-        color: $color-lightgrey;
-        margin-top: 15px;
-      }
+        &_body p {
+          text-align: left;
+          font-family: $serif-text;
+          margin-top: 10px;
+          color: $color-grey;
+        }
 
-      &_body p {
-        text-align: left;
-        font-family: $serif-text;
-        margin-top: 10px;
-        color: $color-grey;
-      }
+        &_link {
+          position: absolute;
+          bottom: 0;
 
-      &_link {
-        position: absolute;
-        bottom: 0;
+          img {
+            margin-left: 5px;
+            vertical-align: -1px;
+          }
+        }
 
-        img {
-          margin-left: 5px;
-          vertical-align: -1px;
+        &_link_mobile {
+          display: none;
         }
       }
-
-      &_link_mobile {
-        display: none;
-      }
     }
-    }
-  }
 
-  @media (min-width: 1024px) {
-    .card {  
-      height: $news_card_height;
-      @include span-columns (4 of $grid-columns);
-    }     
-  }
+    @media (max-width: 700px) {
+      /* At this width, the cards turn into just the headlines */
+      $card-height: 80px;
+      height: 240px;
+      border-top: 6px solid $color-red;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+      margin: 25px 0 25px;
+      width: 100%;
 
-
-   @media (max-width: 1023px) {   
-    $news_card_height: 325px;
-
-    .card {
-      height: $news_card_height;
-      @include span-columns (6 of 12);
-
-      &.view-item-2 {
-        margin-right: 0;
-      }
- 
-      &.view-item-3 {
-        margin-top: 0;
-        @include shift(3);
-      }
-
-      .homepage_news_item {
-        height: $news_card_height - 30px;
-      }
-    }
-  }
-
-   @media (max-width: 775px) {   
-    $news_card_height: 250px;
-
-    .card {
-      @include span-columns (12 of 12);
-      height: $news_card_height;
-    
-      .homepage_news_item {
-        height: $news_card_height - 30px;
-      }
-
-      &.view-item-2 {
-        margin-top: 0;
-      }
-
-      &.view-item-3 {
-        @include shift(0);
-      }
-    }
-  }
-
-  @media (max-width: $mobile-breakpoint) {
-    height: 240px;
-    border-top: 6px solid $color-red;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
-    margin: 25px 0 25px;
-
-    .card {
-      height: 80px;
-      margin: 0;
-      @include span-columns (12 of 12);
-      box-shadow: none;
-      border-top: 1px solid rgba(0, 0, 0, 0.26);
-      position: relative;
-
-      .homepage_news_item {
-        height: 60px;
-        margin: 0 20px;
-        padding: 0;
+      .card.view-item-1, .card.view-item-2, .card.view-item-3 {
+        height: $card-height;
+        margin: 0;
         width: 100%;
-        @include center-y;
+        box-shadow: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.26);
+        position: relative;
 
-        .news_item {
-          &_date, &_body, &_link {
-            display: none;
-          }
+        &.view-item-1 {
+          border-top: none;
+        }
 
-          &_title {
-            width: 75%;
-            line-height: 24px;
-            @include center-y;
-          }
+        &.view-item-3 {
+          margin-left: 0;
+        }
 
-          &_link_mobile {
-            font-size: 0.875rem;
-            right: 60px;
-            display: inline-block;
-            @include center-y;
+        .homepage_news_item {
+          height: 60px;
+          margin: 0 20px;
+          padding: 0;
+          width: 100%;
+          @include center-y;
 
-            a {
-              text-decoration: none;
+          .news_item {
+            &_date, &_body, &_link {
+              display: none;
+            }
+
+            &_title {
+              width: 75%;
+              line-height: 24px;
+              @include center-y;
+            }
+
+            &_link_mobile {
+              font-size: 0.875rem;
+              right: 60px;
+              display: inline-block;
+              @include center-y;
+
+              a {
+                text-decoration: none;
+              }
             }
           }
         }
       }
-    }
-    .view-item-1 {
-      border-top: none;
     }
   }
 }

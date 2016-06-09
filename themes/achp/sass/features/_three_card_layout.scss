@@ -1,0 +1,44 @@
+@import "../global";
+
+/* These styles apply to the success stories and latest news views on the homepage */
+
+#block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
+  margin: 0 auto;
+  /* On wide screens, all 3 cards are on one row:; */
+  height: $card-height + $card-margin-vert * 2;
+  /* And the last card has no margin-right:; */
+  $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
+  width: $card-container-width;
+
+  .card {
+    height: $card-height;
+    width: $card-width;
+    margin: $card-margin-vert 0;
+    margin-right: $card-margin-horiz;
+    float: left;
+
+    &.view-item-3 {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 1023px) {   
+    /* At this width 2 cards are on the first row, and the third is on the second. */
+    /* First card has a margin-right, but second no longer does:; */
+    $card-container-width: $card-width * 2 + $card-margin-horiz; 
+    width: $card-container-width; 
+    /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+    height: $card-height * 2 + $card-margin-vert * 3; /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+
+    .card {
+      &.view-item-2 {
+        margin-right: 0;
+      }
+ 
+      &.view-item-3 {
+        $horiz-margin: ($card-container-width - $card-width) / 2;
+        margin: 0 $horiz-margin;
+      }
+    }
+  }
+}

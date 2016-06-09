@@ -5,6 +5,7 @@ html {
   box-sizing: inherit; }
 
 /* Global variables */
+/* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
@@ -12,89 +13,46 @@ html {
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-#block-views-block-latest-news-block .card {
-  height: 350px;
-  margin-top: 25px;
-  margin-bottom: 25px; }
-  #block-views-block-latest-news-block .card .homepage_news_item {
-    padding: 10px;
-    position: relative;
-    height: 320px; }
-    #block-views-block-latest-news-block .card .homepage_news_item .news_item_date {
-      color: #C6C6C6;
-      margin-top: 15px; }
-    #block-views-block-latest-news-block .card .homepage_news_item .news_item_body p {
-      text-align: left;
-      font-family: "minion-pro", serif;
-      margin-top: 10px;
-      color: #4F4F4F; }
-    #block-views-block-latest-news-block .card .homepage_news_item .news_item_link {
-      position: absolute;
-      bottom: 0; }
-      #block-views-block-latest-news-block .card .homepage_news_item .news_item_link img {
-        margin-left: 5px;
-        vertical-align: -1px; }
-    #block-views-block-latest-news-block .card .homepage_news_item .news_item_link_mobile {
-      display: none; }
-@media (min-width: 1024px) {
-  #block-views-block-latest-news-block .card {
-    height: 350px;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%; }
-    #block-views-block-latest-news-block .card:last-child {
-      margin-right: 0; } }
-@media (max-width: 1023px) {
-  #block-views-block-latest-news-block .card {
-    height: 325px;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    #block-views-block-latest-news-block .card:last-child {
-      margin-right: 0; }
-    #block-views-block-latest-news-block .card.view-item-2 {
-      margin-right: 0; }
-    #block-views-block-latest-news-block .card.view-item-3 {
-      margin-top: 0;
-      margin-left: 25.58941%; }
-    #block-views-block-latest-news-block .card .homepage_news_item {
-      height: 295px; } }
-@media (max-width: 775px) {
-  #block-views-block-latest-news-block .card {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    height: 250px; }
-    #block-views-block-latest-news-block .card:last-child {
-      margin-right: 0; }
-    #block-views-block-latest-news-block .card .homepage_news_item {
-      height: 220px; }
-    #block-views-block-latest-news-block .card.view-item-2 {
-      margin-top: 0; }
-    #block-views-block-latest-news-block .card.view-item-3 {
-      margin-left: 0%; } }
-@media (max-width: 650px) {
-  #block-views-block-latest-news-block {
+#homepage_news_content #block-views-block-latest-news-block .homepage_news_item {
+  padding: 10px;
+  position: relative;
+  height: 370px; }
+  #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_date {
+    color: #C6C6C6;
+    margin-top: 15px; }
+  #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_body p {
+    text-align: left;
+    font-family: "minion-pro", serif;
+    margin-top: 10px;
+    color: #4F4F4F; }
+  #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_link {
+    position: absolute;
+    bottom: 0; }
+    #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_link img {
+      margin-left: 5px;
+      vertical-align: -1px; }
+  #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_link_mobile {
+    display: none; }
+@media (max-width: 700px) {
+  #homepage_news_content #block-views-block-latest-news-block {
+    /* At this width, the cards turn into just the headlines */
     height: 240px;
     border-top: 6px solid #950306;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
-    margin: 25px 0 25px; }
-    #block-views-block-latest-news-block .card {
+    margin: 25px 0 25px;
+    width: 100%; }
+    #homepage_news_content #block-views-block-latest-news-block .card.view-item-1, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 {
       height: 80px;
       margin: 0;
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
       width: 100%;
       box-shadow: none;
       border-top: 1px solid rgba(0, 0, 0, 0.26);
       position: relative; }
-      #block-views-block-latest-news-block .card:last-child {
-        margin-right: 0; }
-      #block-views-block-latest-news-block .card .homepage_news_item {
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-1, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-1, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-1 {
+        border-top: none; }
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-3, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-3, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-3 {
+        margin-left: 0; }
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item {
         height: 60px;
         margin: 0 20px;
         padding: 0;
@@ -106,9 +64,9 @@ html {
         -ms-transform: translateY(-50%);
         -o-transform: translateY(-50%);
         transform: translateY(-50%); }
-        #block-views-block-latest-news-block .card .homepage_news_item .news_item_date, #block-views-block-latest-news-block .card .homepage_news_item .news_item_body, #block-views-block-latest-news-block .card .homepage_news_item .news_item_link {
+        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_link {
           display: none; }
-        #block-views-block-latest-news-block .card .homepage_news_item .news_item_title {
+        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title {
           width: 75%;
           line-height: 24px;
           position: absolute;
@@ -118,7 +76,7 @@ html {
           -ms-transform: translateY(-50%);
           -o-transform: translateY(-50%);
           transform: translateY(-50%); }
-        #block-views-block-latest-news-block .card .homepage_news_item .news_item_link_mobile {
+        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_link_mobile, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_link_mobile, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_link_mobile {
           font-size: 0.875rem;
           right: 60px;
           display: inline-block;
@@ -129,12 +87,11 @@ html {
           -ms-transform: translateY(-50%);
           -o-transform: translateY(-50%);
           transform: translateY(-50%); }
-          #block-views-block-latest-news-block .card .homepage_news_item .news_item_link_mobile a {
-            text-decoration: none; }
-    #block-views-block-latest-news-block .view-item-1 {
-      border-top: none; } }
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_link_mobile a, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_link_mobile a, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_link_mobile a {
+            text-decoration: none; } }
 
 /* Global variables */
+/* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
@@ -142,97 +99,92 @@ html {
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-#block-views-block-homepage-success-stories-block-1 {
-  margin: 0 auto;
-  /* On wide screens, all 3 cards are on one row*/
-  height: 450px;
-  width: 940px;
-  /* Last card has no margin-right */ }
-  #block-views-block-homepage-success-stories-block-1 .card {
-    height: 400px;
-    margin: 25px 0;
-    text-align: center;
-    /*@include span-columns (4 of $grid-columns);*/
-    background-color: #ffffff;
-    width: 300px;
-    float: left;
-    margin-right: 20px; }
-    #block-views-block-homepage-success-stories-block-1 .card.view-item-3 {
-      margin-right: 0; }
-    #block-views-block-homepage-success-stories-block-1 .card .success_story {
-      padding: 5px 10px;
-      position: relative;
-      height: 370px; }
-      #block-views-block-homepage-success-stories-block-1 .card .success_story_image {
-        height: 185px;
-        overflow: hidden;
-        margin-bottom: 15px; }
-        #block-views-block-homepage-success-stories-block-1 .card .success_story_image img {
-          height: auto;
-          min-height: 185px;
-          width: 100%; }
-      #block-views-block-homepage-success-stories-block-1 .card .success_story_title h3 {
-        text-align: inherit; }
-      #block-views-block-homepage-success-stories-block-1 .card .success_story_location {
-        color: #7C7C7C; }
-      #block-views-block-homepage-success-stories-block-1 .card .success_story_body p {
-        font-family: "minion-pro", serif;
-        margin: 5px; }
-      #block-views-block-homepage-success-stories-block-1 .card .success_story_link {
-        position: absolute;
-        left: 50%;
-        -webkit-transform: translateX(-50%);
-        -moz-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        -o-transform: translateX(-50%);
-        transform: translateX(-50%);
-        bottom: 0; }
-        #block-views-block-homepage-success-stories-block-1 .card .success_story_link img {
-          margin-left: 5px;
-          vertical-align: -1px; }
-  @media (max-width: 1023px) {
-    #block-views-block-homepage-success-stories-block-1 {
-      /* At this width 2 cards are on the first row, and the third is on the second */
-      /* First card has a margin-right, but second no longer does */
-      height: 875px;
-      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
-      width: 620px; }
-      #block-views-block-homepage-success-stories-block-1 .card {
-        /*@include span-columns (6 of 12);*/ }
-        #block-views-block-homepage-success-stories-block-1 .card.view-item-2 {
-          margin-right: 0; }
-        #block-views-block-homepage-success-stories-block-1 .card.view-item-3 {
-          /*margin-top: 0;*/
-          /*@include shift(3);*/
-          /*margin: 0 auto;*/
-          margin: 0 160px; } }
-  @media (max-width: 700px) {
-    #block-views-block-homepage-success-stories-block-1 {
-      /* At this width every card is in its own row */
-      height: 1300px;
-      width: 300px; }
-      #block-views-block-homepage-success-stories-block-1 .card {
-        margin: 25px 0 0;
-        height: 425px; }
-        #block-views-block-homepage-success-stories-block-1 .card .success_story {
-          height: 395px; }
-        #block-views-block-homepage-success-stories-block-1 .card.view-item-3 {
-          margin: 25px 0 25px; } }
-  @media (max-width: 650px) {
-    #block-views-block-homepage-success-stories-block-1 {
-      /* At this width cards 2 and 3 disappear, so the block only contains 1 card */
-      height: 450px;
-      width: 300px; }
-      #block-views-block-homepage-success-stories-block-1 .card {
-        margin: 25px 0;
-        height: 400px;
-        /*@include span-columns (12 of 12);*/ }
-        #block-views-block-homepage-success-stories-block-1 .card.view-item-2, #block-views-block-homepage-success-stories-block-1 .card.view-item-3 {
-          display: none; }
-        #block-views-block-homepage-success-stories-block-1 .card .success_story {
-          height: 370px; } }
+#homepage_success_content #block-views-block-homepage-success-stories-block .card {
+  text-align: center;
+  background-color: #ffffff; }
+  #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story {
+    padding: 5px 10px;
+    position: relative;
+    height: 370px; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image {
+      height: 185px;
+      overflow: hidden;
+      margin-bottom: 15px; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image img {
+        height: auto;
+        min-height: 185px;
+        width: 100%; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_title h3 {
+      text-align: inherit; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_location {
+      color: #7C7C7C; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_body p {
+      font-family: "minion-pro", serif;
+      margin: 5px; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+      bottom: 0; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link img {
+        margin-left: 5px;
+        vertical-align: -1px; }
+@media (max-width: 700px) {
+  #homepage_success_content #block-views-block-homepage-success-stories-block {
+    /* At this width cards 2 and 3 disappear, so the block only contains 1 card */
+    height: 450px;
+    width: 300px; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card {
+      margin: 25px 0;
+      height: 400px; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-2, #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-3 {
+        display: none; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story {
+        height: 370px; } }
 
 /* Global variables */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/* These styles apply to the success stories and latest news views on the homepage */
+#block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
+  margin: 0 auto;
+  /* On wide screens, all 3 cards are on one row:; */
+  height: 450px;
+  /* And the last card has no margin-right:; */
+  width: 940px; }
+  #block-views-block-latest-news-block .card, #block-views-block-homepage-success-stories-block .card {
+    height: 400px;
+    width: 300px;
+    margin: 25px 0;
+    margin-right: 20px;
+    float: left; }
+    #block-views-block-latest-news-block .card.view-item-3, #block-views-block-homepage-success-stories-block .card.view-item-3 {
+      margin-right: 0; }
+  @media (max-width: 1023px) {
+    #block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
+      /* At this width 2 cards are on the first row, and the third is on the second. */
+      /* First card has a margin-right, but second no longer does:; */
+      width: 620px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+      height: 875px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */ }
+      #block-views-block-latest-news-block .card.view-item-2, #block-views-block-homepage-success-stories-block .card.view-item-2 {
+        margin-right: 0; }
+      #block-views-block-latest-news-block .card.view-item-3, #block-views-block-homepage-success-stories-block .card.view-item-3 {
+        margin: 0 160px; } }
+
+/* Global variables */
+/* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
@@ -441,7 +393,7 @@ button {
     padding: 0 25px; }
     #homepage_news_region #block-morenewsbutton button {
       clear: both; }
-  @media (max-width: 650px) {
+  @media (max-width: 700px) {
     #homepage_news_region {
       padding: 25px 0; } }
 

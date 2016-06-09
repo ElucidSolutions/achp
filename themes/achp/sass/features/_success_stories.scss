@@ -5,130 +5,71 @@ $success-card-margin-horiz: 20px;
 $success-card-height: 400px;
 $success-card-width: 300px;
 
-#block-views-block-homepage-success-stories-block-1 {
-  margin: 0 auto;
-  /* On wide screens, all 3 cards are on one row*/
-  height: $success-card-height + $success-card-margin-vert * 2;
-  width: $success-card-width * 3 + $success-card-margin-horiz * 2; /* Last card has no margin-right */
+#homepage_success_content {
+  #block-views-block-homepage-success-stories-block {
+    .card {
+      text-align: center;
+      background-color: #ffffff;
 
-  .card {
-    height: $success-card-height;
-    margin: $success-card-margin-vert 0;
-    text-align: center;
-    /*@include span-columns (4 of $grid-columns);*/
-    background-color: #ffffff;
+      .success_story {
+        padding: 5px 10px;
+        position: relative;
+        height: $success-card-height - 30px;     
 
-    width: $success-card-width;
-    float: left;
-    margin-right: $success-card-margin-horiz;
+        &_image {
+          $success_story_image_height: 185px;
+          height: $success_story_image_height;
+          overflow: hidden;
+          margin-bottom: 15px;
 
-    &.view-item-3 {
-      margin-right: 0;
-    }
-
-    .success_story {
-      padding: 5px 10px;
-      position: relative;
-      height: $success-card-height - 30px;     
-
-      &_image {
-        $success_story_image_height: 185px;
-        height: $success_story_image_height;
-        overflow: hidden;
-        margin-bottom: 15px;
-
-        img {
-          height: auto;
-          min-height: $success_story_image_height;
-          width: 100%;
+          img {
+            height: auto;
+            min-height: $success_story_image_height;
+            width: 100%;
+          }
         }
-      }
 
-      &_title h3 {
-        text-align: inherit;
-      }
+        &_title h3 {
+          text-align: inherit;
+        }
 
-      &_location {
-        color: $color-lightgrey-2;
-      }
+        &_location {
+          color: $color-lightgrey-2;
+        }
 
-      &_body p {
-        font-family: $serif-text;
-        margin: 5px;
-      }
+        &_body p {
+          font-family: $serif-text;
+          margin: 5px;
+        }
 
-      &_link {
-        @include center-x;
-        bottom: 0;
+        &_link {
+          @include center-x;
+          bottom: 0;
 
-        img {
-          margin-left: 5px;
-          vertical-align: -1px;
+          img {
+            margin-left: 5px;
+            vertical-align: -1px;
+          }
         }
       }
     }
-  }
+    @media (max-width: 700px) { 
+      /* At this width cards 2 and 3 disappear, so the block only contains 1 card */
+      height: $success-card-height + $success-card-margin-vert * 2;
+      width: $success-card-width;
 
-  @media (max-width: 1023px) {  
-    /* At this width 2 cards are on the first row, and the third is on the second */
-    $success-container-width: $success-card-width * 2 + $success-card-margin-horiz; /* First card has a margin-right, but second no longer does */
-    height: $success-card-height * 2 + $success-card-margin-vert * 3; /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
-    width: $success-container-width; 
+      .card {
+        margin: $success-card-margin-vert 0;
+        $success-card-height: 400px;
+        height: $success-card-height;
 
-    .card {
-      /*@include span-columns (6 of 12);*/
+        &.view-item-2, &.view-item-3 {
+          display: none;
+        }
 
-      &.view-item-2 {
-        margin-right: 0;
-      }
- 
-      &.view-item-3 {
-        /*margin-top: 0;*/
-        /*@include shift(3);*/
-        /*margin: 0 auto;*/
-        $horiz-margin: ($success-container-width - $success-card-width) / 2;
-        margin: 0 $horiz-margin;
-      }
-    }
-  }
-
-  @media (max-width: 700px) { 
-    /* At this width every card is in its own row */
-    height: $success-card-height* 3 + $success-card-margin-vert * 4;
-    width: $success-card-width;
-
-    .card {
-      margin: $success-card-margin-vert 0 0;
-      $success-card-height: 425px;
-      height: $success-card-height;
-
-      .success_story {
-        height: $success-card-height - 30px;     
-      }
-
-      &.view-item-3 {
-        margin: $success-card-margin-vert 0 $success-card-margin-vert;
-      }
-    }
-  }
-
-  @media (max-width: $mobile-breakpoint) { 
-    /* At this width cards 2 and 3 disappear, so the block only contains 1 card */
-    height: $success-card-height + $success-card-margin-vert * 2;
-    width: $success-card-width;
-
-    .card {
-      margin: $success-card-margin-vert 0;
-      $success-card-height: 400px;
-      height: $success-card-height;
-      /*@include span-columns (12 of 12);*/
-
-      &.view-item-2, &.view-item-3 {
-        display: none;
-      }
-
-      .success_story {
-        height: $success-card-height - 30px;     
+        .success_story {
+          height: $success-card-height - 30px;     
+        }
       }
     }
   }
