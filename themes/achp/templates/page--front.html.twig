@@ -72,10 +72,31 @@
         {{ page.header_right }}
       </div>
     </header>
+
     <div id="outer_container">
-      <div id="menu" class="region_container">
+      
+      <div id="header_nav" class="region_container">
         {{ page.menu }}
+        <div id="nav_search_toggle_button"></div>
       </div>
+      {{ page.menu_search }}
+      <div id="subheader">
+        <div id="subheader_header">
+          <div id="subheader_header_title">
+            <h3>TABLE OF CONTENTS</h3>
+          </div>
+        </div>
+        <div id="subheader_collapsible">
+          <div id="subheader_search">
+          </div>
+          <div id="subheader_menu">
+          </div>
+          <div id="subheader_footer">
+            <div id="subheader_close_button">CLOSE</div>
+          </div>
+        </div>
+      </div>
+
       <div id="homepage_hero_region" class="region_container">
         {{ page.homepage_hero }}
       </div>

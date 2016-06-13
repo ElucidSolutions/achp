@@ -282,7 +282,6 @@ h3 {
 hr {
   color: #950306;
   background-color: #950306;
-  /*border: 1px solid $color;*/
   border: none;
   height: 1px;
   min-width: 50px; }
@@ -329,14 +328,19 @@ button {
 header {
   background-color: #043B62; }
 
-#menu {
+#header_nav {
   /*height: 100px;*/
   font-family: "p22-underground", sans-serif;
-  font-size: 0.875rem; }
-  #menu ul {
+  font-size: 0.875rem;
+  /*width: 100%;*/
+  position: relative; }
+  #header_nav ul {
     max-width: 1100px;
-    margin: 0 auto; }
-    #menu ul li {
+    height: 100px;
+    margin: 0 auto;
+    padding-left: 0;
+    /*position: relative;*/ }
+    #header_nav ul li {
       list-style-type: none;
       float: left;
       display: block;
@@ -345,10 +349,11 @@ header {
       text-align: left;
       padding: 20px 0;
       height: 100px;
-      position: relative; }
-      #menu ul li:last-child {
+      position: relative;
+      /*border: 1px solid purple;*/ }
+      #header_nav ul li:last-child {
         margin-right: 0; }
-      #menu ul li a {
+      #header_nav ul li a {
         text-decoration: none;
         color: #013B5E;
         position: absolute;
@@ -360,6 +365,21 @@ header {
         transform: translateY(-50%);
         width: 100%;
         text-align: center; }
+  #header_nav #nav_search_toggle_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url("../images/search-icon.svg") no-repeat;
+    background-size: 20px;
+    cursor: pointer;
+    /*float: right;*/
+    height: 20px;
+    margin: 40px 150px 0px 10px;
+    width: 20px;
+    /*border: 1px solid pink;*/ }
+
+#subheader {
+  display: none; }
 
 #homepage_hero_region {
   padding: 25px 50px;
@@ -386,7 +406,6 @@ header {
       /*width: 60%;*/
       color: #FFFFFF;
       background-color: #FFFFFF;
-      /*border: 1px solid $color;*/
       border: none;
       height: 1px;
       margin-top: 20px; }
@@ -444,7 +463,6 @@ header {
   #homepage_events_region hr {
     color: #FFFFFF;
     background-color: #FFFFFF;
-    /*border: 1px solid $color;*/
     border: none;
     height: 1px;
     /*width: 50px;*/ }
@@ -465,7 +483,6 @@ header {
   #homepage_map_region hr {
     color: #FFFFFF;
     background-color: #FFFFFF;
-    /*border: 1px solid $color;*/
     border: none;
     height: 1px;
     /*width: 100px;*/ }

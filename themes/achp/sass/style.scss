@@ -126,14 +126,19 @@ header {
   background-color: $color-darkblue;
 }
 
-#menu {
+#header_nav {
   /*height: 100px;*/
   font-family: $sans-text;
   font-size: 0.875rem;
+  /*width: 100%;*/
+  position: relative;
 
   ul {
     max-width: 1100px;
+    height: 100px;
     margin: 0 auto;
+    padding-left: 0;
+    /*position: relative;*/
    
     li {
       list-style-type: none;
@@ -142,6 +147,7 @@ header {
       padding: 20px 0;
       height: 100px;
       position: relative;
+      /*border: 1px solid purple;*/
 
       a {
         text-decoration: none;
@@ -152,6 +158,25 @@ header {
       }
     }
   }
+
+  #nav_search_toggle_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    $nav_search_toggle_button_height: 20px;
+    background: url("../images/search-icon.svg") no-repeat;
+    background-size: $nav_search_toggle_button_height;
+    cursor: pointer;
+    /*float: right;*/
+    height: $nav_search_toggle_button_height;
+    margin: 40px 150px 0px 10px;
+    width: $nav_search_toggle_button_height;
+    /*border: 1px solid pink;*/
+  }
+}
+
+#subheader {
+  display: none;
 }
 
 #homepage_hero_region {
