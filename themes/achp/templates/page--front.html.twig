@@ -74,25 +74,32 @@
     </header>
 
     <div id="outer_container">
-      
-      <div id="header_menu" class="region_container">
-        {{ page.menu }}
-        <div id="header_search_toggle_button"></div>
-      </div>
-      {{ page.header_search }}
-      <div id="subheader">
-        <div id="subheader_header">
-          <div id="subheader_header_title">
-            <h3>TABLE OF CONTENTS</h3>
-          </div>
+      <div id="header_region">
+        <div id="header_menu" class="region_container">
+          {{ page.menu }}
+          <div id="header_menu_search_toggle_button"></div>
         </div>
-        <div id="subheader_collapsible">
-          <div id="subheader_search">
+        {{ page.header_search }}
+        <div id="subheader">
+          <div id="subheader_widescreen">
+            <div id="subheader_widescreen_search_bar">
+            </div>
+            <div id="subheader_widescreen_submenu">
+            </div>
           </div>
-          <div id="subheader_menu">
-          </div>
-          <div id="subheader_footer">
-            <div id="subheader_close_button">CLOSE</div>
+          <div id="subheader_mobile">
+            <div id="subheader_mobile_header">
+              <h3 id="subheader_mobile_title">Table of Contents</h3>
+            </div>
+            <div id="subheader_mobile_collapsible">
+              <div id="subheader_mobile_search">
+              </div>
+              <div id="subheader_mobile_body">
+              </div>
+              <div id="subheader_mobile_footer">
+                <div id="subheader_mobile_close_button">CLOSE</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
