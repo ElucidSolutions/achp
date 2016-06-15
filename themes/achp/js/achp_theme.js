@@ -17,22 +17,26 @@
   var headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
 
   $(document).ready (function () {
-    // I Add expand/collapse click handler to subheader header.
+
+    // I. Create mobile menu slide
+    $('#subheader_mobile_body').append (createMenuSlides (getMenuList ()));
+
+    // II. Add expand/collapse click handler to subheader header.
     $('#subheader_mobile_header').click (function () {
       toggleSubheaderMenu ();
     });
 
-    // II. Add a collapse click handler to the subheader close button.
+    // III. Add a collapse click handler to the subheader close button.
     $('#subheader_mobile_close_button').click (function () {
       closeSubheaderMenu ();
     });
 
-    // III. Display the subheader search 
+    // IV. Display the subheader search 
     $('#header_menu_search_toggle_button').click (function () {
       toggleSearch ();
     });
 
-    // IV. Handle subheader menu item hover events
+    // V. Handle subheader menu item hover events
     $('#header_menu li[data-menu-level="0"]').hover (
       // On mouse enter, show submenu
       function () {
@@ -43,7 +47,14 @@
         closeWidescreenSubmenu ();
     });
 
-    // V. Move the Search and Menu Block elements at breakpoints.
+    // VI. Handle subheader menu click events
+    $('#header_menu li[data-menu-level="0"]').click (function () {
+      if (headerMenuState === HEADER_MENU_MOBILE_EXPANDED_STATE) {
+
+      }
+    });
+
+    // VII. Move the Search and Menu Block elements at breakpoints.
     $.breakpoint ((function () {
       return {
         condition: function () {
@@ -117,6 +128,164 @@
   });
 
 
+  /* 
+    Accepts two arguments:
+
+    * menuListItemIndex, an integer
+    * and menuList, a jQuery HTML Element that
+      represents a Drupal list of menu items.
+
+    If menuList is a nested list, menuListItemIndex is the index of 
+    menuList's parent. Otherwise menuListItemIndex should equal -1.
+
+    Assigns a menu item index attribute to each
+    list item in menuList, starting with
+    menuListItemIndex; and returns an integer
+    that represents the next available menu item
+    index value.
+  */
+  function setMenuItemIndices (menuListItemIndex, menuList) {
+    var parentIndex = menuListItemIndex;
+    $('>li', menuList).each (function (i, menuListItem) {
+      $(menuListItem).attr ('data-menu-item-index', ++menuListItemIndex)
+                     .attr ('data-menu-item-parent-index', parentIndex);
+      menuListItemIndex = setMenuItemIndices (menuListItemIndex, $('>ul', menuListItem));
+    });
+    return menuListItemIndex;
+  }
+
+  /*
+  Accepts one argument: menuList, a jQuery HTML Element that
+  represents a Drupal list of menu items; and returns a set of
+  menu slide elements as a jQuery HTML Element.
+  */
+  function createMenuSlides (menuList) {
+    setMenuItemIndices (0, menuList);
+    var containerElement = $('<div></div>').addClass ('menu_slide_container');
+    var menuListItems = $('>li', menuList).clone ();
+    containerElement.append (createSlide(0, 'Table of Contents', menuListItems));
+    menuListItems.each (function (i, menuListItem) {
+      containerElement.append (createSubmenuSlides (menuList, containerElement, $(menuListItem)));
+    });
+    return containerElement;
+  }
+
+  /*
+  Accepts one argument: menuListItem, a jQuery HTML Element that
+  represents a single Drupal menu item; and returns an array of
+  jQuery HTML elements that represents the item and all of its
+  descendants.
+  */
+  function createSubmenuSlides (menuList, containerElement, menuListItem) {
+    var index = $(menuListItem).attr('data-menu-item-index');
+    var parentIndex = $(menuListItem).attr('data-menu-item-parent-index');
+    var submenuListItems = $('>ul >li', menuListItem);
+    var slides = [];
+
+    // I. Create slide for menu list item
+    var slide = createSlide (index, $('>a', getMenuItem (menuList, index)), submenuListItems)
+      .attr('data-menu-slide-parent-index', parentIndex);
+
+    $('.menu_slide_header')
+      .append ($('<div></div>')
+        .addClass ('menu_slide_header_back_button')
+        .click (function () {
+          showMenuSlide (containerElement, parentIndex);
+          slide.hide ();
+        }));
+
+      // II. Add menu list item slide to slides array
+      slides.push (slide);
+
+      // III. Create submenu slides
+      submenuListItems.each (function (i, submenuListItem) {
+        Array.prototype.push.apply (slides, createSubmenuSlides (menuList, containerElement, $(submenuListItem)));
+      })
+
+      return slides;
+  }
+
+  /*
+  Accepts three arguments:
+
+  * index, an integer representing the slide item index
+  * titleElement, a jQuery HTML Element representing the slide title
+  * menuListItems, a jQuery set of list items that represent menu items
+
+  Returns a slide that has the given index, title element, and menu list 
+  items as a jQuery HTML Element.
+  */
+  function createSlide (index, titleElement, menuListItems) {
+    var slide = $('<div></div>')
+      .addClass ('menu_slide')
+      .attr('data-menu-slide-index', index)
+      .append ($('<div></div>')
+        .addClass ('menu_slide_header')
+        .append ($('<div></div>')
+          .addClass ('menu_slide_header_title')
+          .append ($('<h3></h3>')
+            .append (titleElement))))
+      .append ($('<div></div>')
+        .addClass ('menu_slide_body')
+        .append (menuListItems.length === 0 ? null : 
+          $('<ul></ul>')
+            .append (menuListItems.map (function (i, menuListItem) {
+              if ($('>ul', menuListItem).length === 0) {
+                return menuListItem;
+              } else {
+                var listItem = $('<li></li>')
+                  .addClass ('menu_slide_list_item')
+                  .click (function () {
+                    showMenuSlide (containerElement, $(listItem).attr ('data-menu-item-index'));
+                    slide.hide ();
+                  });
+                return listItem;
+              }
+            }))))
+      .append ($('<div></div>')
+        .addClass ('menu_slide_footer')
+        .append ($('<div></div>')
+          .addClass ('menu_slide_footer_close_button')
+          .click (function () {
+            closeSubheaderMenu ();
+          })));
+
+      return slide;
+  }
+
+  /*
+  Accepts two arguments: 
+
+  * menuList, a jQuery HTML Element that represents a Drupal menu
+    list element
+  * and menuItemIndex, an integer that represents a menu item 
+    index
+
+  Returns the menu item in menuList that has menuItemIndex, as a
+  jQuery HTML Element.
+  */
+  function getMenuItem (menuList, menuItemIndex) {
+    return $('li[data-menu-item-index="' + menuItemIndex + '"]', menuList);
+  }
+
+  /*
+  Accepts one argument: menuItemIndex, an integer; returns the referenced 
+  menu slide element as a jQuery HTML Element.
+  */
+  function getMenuSlide (containerElement, menuItemIndex) {
+    return $('div.menu_slide[data-menu-slide-index="' + menuItemIndex + '"]', containerElement);
+  }
+
+
+  /*
+  Accepts one argument: menuItemIndex, an integer; shows the menu slide element with
+  the given ID; and returns undefined;
+  */
+  function showMenuSlide (containerElement, menuItemIndex) {
+    var slide = getMenuSlide (containerElement, menuItemIndex);
+    slide.show();
+  }
+
   /*
   Accepts no arguments, shows the mobile subheader's header, and returns 
   undefined.
@@ -154,7 +323,6 @@
   */
   function openWidescreenSubmenu (submenu) {
     $('#subheader, #subheader_widescreen').show ();
-    // TO DO: Maybe clone the submenu element instead of appending?
     $('#subheader_widescreen_submenu').empty ().append (submenu).slideDown ();
   }
 
@@ -188,7 +356,6 @@
   undefined.
   */
   function openMobileCollapsible() {
-    moveHeaderMenuToMobileBody ();
     openMobileSubheader ();
     $('#subheader_mobile_collapsible').slideDown ();
   }
@@ -298,16 +465,6 @@
   }
 
   /*
-  Accepts no arguments, copies the navigation menu into mobile body element, displays it,
-  and returns undefined.
-  */
-  function moveHeaderMenuToMobileBody () {
-    $('#subheader_mobile_body').empty();
-    $('#block-achp-main-menu').clone ().appendTo ($('#subheader_mobile_body'));
-    $('#subheader_mobile_body').children ($('#block-achp-main-menu')).show ();
-  }
-
-  /*
   Accepts no arguments, moves search block to mobile search element,
   and returns undefined.
   */
@@ -345,6 +502,14 @@
   */
   function getMenuBlockElement () {
     return $('#block-achp-main-menu');
+  }
+
+  /*
+  Accepts no arguments and returns the main menu list element as a 
+  jQuery HTML Element.
+  */
+  function getMenuList () {
+    return $('>ul', getMenuBlockElement ());
   }
   
 })(jQuery);

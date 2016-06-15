@@ -4,8 +4,6 @@
   position: relative;
 
   ul {
-    /*float: left;*/
-    /*height: 100px;*/
     margin: 0 auto;
     padding-left: 0;
     width: 800px;
@@ -28,7 +26,7 @@
       width: 150px;
       display: inline-block;
       text-align: left;
-      padding: 20px 0;
+      padding: 0;
       height: 100px;
       position: relative;
 
@@ -51,18 +49,12 @@
     cursor: pointer;
     margin: 40px 0;
     float: left;
-
-/*    @media (max-width: $menu-breakpoint) {
-      float: right;
-      margin: 23px 40px;
-    }
-  }
-
-  @media (max-width: $menu-breakpoint) {
-    height: 20px;*/
   }
 }
 
+#subheader_widescreen_submenu {
+  float: left;
+}
 
 #header_search_region {
   display: none;
@@ -77,7 +69,7 @@
     width: 100%;
 
     #subheader_mobile_title {
-      /* Currently white, so invisible */
+      /* TODO: Currently white, so invisible */
       background-image: url('../images/menu-icon.svg');
       background-position: 0px 18px;
       background-repeat: no-repeat;
@@ -168,7 +160,7 @@
       }
     }
 
-    /* This is (currently inactive) code for the search icon as form submission - 
+    /* TODO: This is (currently inactive) code for the search icon as form submission - 
     need to confirm on which screens we want this behavior */
     .form-actions {
       display: none;

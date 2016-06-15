@@ -194,8 +194,6 @@ html {
   font-size: 0.875rem;
   position: relative; }
   #header_menu ul {
-    /*float: left;*/
-    /*height: 100px;*/
     margin: 0 auto;
     padding-left: 0;
     width: 800px; }
@@ -211,7 +209,7 @@ html {
       width: 150px;
       display: inline-block;
       text-align: left;
-      padding: 20px 0;
+      padding: 0;
       height: 100px;
       position: relative; }
       #header_menu ul li[data-menu-level="0"] a {
@@ -233,15 +231,10 @@ html {
     background-size: 20px;
     cursor: pointer;
     margin: 40px 0;
-    float: left;
-    /*    @media (max-width: $menu-breakpoint) {
-          float: right;
-          margin: 23px 40px;
-        }
-      }
-    
-      @media (max-width: $menu-breakpoint) {
-        height: 20px;*/ }
+    float: left; }
+
+#subheader_widescreen_submenu {
+  float: left; }
 
 #header_search_region {
   display: none; }
@@ -253,7 +246,7 @@ html {
     display: none;
     width: 100%; }
     #subheader #subheader_mobile_header #subheader_mobile_title {
-      /* Currently white, so invisible */
+      /* TODO: Currently white, so invisible */
       background-image: url("../images/menu-icon.svg");
       background-position: 0px 18px;
       background-repeat: no-repeat;
@@ -303,7 +296,7 @@ html {
   width: 100%; }
   #block-achp-search #search-block-form {
     height: 100%;
-    /* This is (currently inactive) code for the search icon as form submission - 
+    /* TODO: This is (currently inactive) code for the search icon as form submission - 
     need to confirm on which screens we want this behavior */ }
     #block-achp-search #search-block-form .form-item {
       float: left;
