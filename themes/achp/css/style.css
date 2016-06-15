@@ -4,7 +4,9 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-/* Global variables */
+/* Global variables: widths & breakpoints */
+/* Global variables: text */
+/* Global variables: colors */
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -90,7 +92,9 @@ html {
           #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_link_mobile a, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_link_mobile a, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_link_mobile a {
             text-decoration: none; } }
 
-/* Global variables */
+/* Global variables: widths & breakpoints */
+/* Global variables: text */
+/* Global variables: colors */
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -146,7 +150,9 @@ html {
       #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story {
         height: 370px; } }
 
-/* Global variables */
+/* Global variables: widths & breakpoints */
+/* Global variables: text */
+/* Global variables: colors */
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -183,43 +189,27 @@ html {
       #block-views-block-latest-news-block .card.view-item-3, #block-views-block-homepage-success-stories-block .card.view-item-3 {
         margin: 0 160px; } }
 
-/*#header_region {*/
-/*ul[data-menu-level="1"] {
-  display: none;
-}*/
-/*}*/
 #header_menu {
-  /*height: 100px;*/
   font-family: "p22-underground", sans-serif;
   font-size: 0.875rem;
-  /*width: 100%;*/
   position: relative; }
   #header_menu ul {
-    /*float: left;*/
-    /*max-width: 1100px;*/
+    float: left;
     height: 100px;
     margin: 0 auto;
     padding-left: 0;
-    /*position: relative;*/ }
+    width: 800px; }
     #header_menu ul[data-menu-level="1"] {
-      display: none;
-      list-style-type: none; }
-      #header_menu ul[data-menu-level="1"] li {
-        list-style-type: none;
-        font-family: "p22-underground", sans-serif; }
-    #header_menu ul li {
+      display: none; }
+    #header_menu ul li[data-menu-level="0"] {
       list-style-type: none;
-      /*@include span-columns (2 of 12);*/
       width: 150px;
-      /*width: auto;*/
       display: inline-block;
-      float: left;
       text-align: left;
       padding: 20px 0;
       height: 100px;
-      position: relative;
-      /*border: 1px solid purple;*/ }
-      #header_menu ul li a {
+      position: relative; }
+      #header_menu ul li[data-menu-level="0"] a {
         text-decoration: none;
         color: #013B5E;
         position: absolute;
@@ -232,103 +222,84 @@ html {
         width: 100%;
         text-align: center; }
   #header_menu #header_menu_search_toggle_button {
-    /*float: right;*/
     height: 20px;
     width: 20px;
     background: url("../images/search-icon.svg") no-repeat;
     background-size: 20px;
     cursor: pointer;
-    /*margin: 40px 150px 0px 10px;*/
-    float: right; }
+    margin: 40px 150px 0 0;
+    float: left;
+    /*    @media (max-width: $menu-breakpoint) {
+          float: right;
+          margin: 23px 40px;
+        }
+      }
+    
+      @media (max-width: $menu-breakpoint) {
+        height: 20px;*/ }
+
+#header_search_region {
+  display: none; }
 
 #subheader {
-  float: none;
-  width: 100%; }
-  #subheader_widescreen_submenu ul li {
-    list-style-type: none;
-    font-family: "p22-underground", sans-serif;
-    text-decoration: none; }
+  font-family: "p22-underground", sans-serif; }
   #subheader #subheader_mobile_header {
-    /* now subheader_mobile_header */
-    /*background-color: #4A4A4A;*/
     cursor: pointer;
     display: none;
-    /*height: $subheader-header-height;*/
     width: 100%; }
     #subheader #subheader_mobile_header #subheader_mobile_title {
-      /* now subheader_mobile_title*/
+      /* Currently white, so invisible */
       background-image: url("../images/menu-icon.svg");
       background-position: 0px 18px;
       background-repeat: no-repeat;
       text-align: center;
-      padding: 15px 0px;
-      /*width: 190px;*/
-      /*      > h3 {
-              color: white;
-              font-family: "Roboto", sans-serif;
-              font-size: 16px;
-              font-weight: normal;
-              margin: 0px;
-            }*/ }
-  #subheader #subheader_mobile {
-    display: none; }
-    #subheader #subheader_mobile #subheader_mobile_collapsible {
-      display: none;
-      padding-bottom: 12px;
-      font-family: "p22-underground", sans-serif; }
-      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body {
+      padding: 15px 0px; }
+  #subheader #subheader_mobile #subheader_mobile_collapsible {
+    display: none;
+    padding-bottom: 12px; }
+    #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body {
+      width: 100%;
+      height: auto; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu {
+        height: 100%;
         width: 100%;
-        border: 1px solid blue0px;
-        height: auto; }
-        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu {
-          height: 100%;
-          width: 100%;
-          display: block; }
-          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu a {
-            color: #4A4A4A; }
-          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu > ul {
+        display: block; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul {
+          margin: 0px;
+          padding: 0px;
+          width: 100%; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul li {
+            height: 100%;
+            border-bottom: 1px solid #4A4A4A;
+            display: block;
             margin: 0px;
-            padding: 0px;
-            width: 100%; }
-            #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu > ul > li {
-              height: 100%;
-              border-bottom: 1px solid #4A4A4A;
-              display: block;
-              margin: 0px;
-              padding: 10px 0px;
-              text-align: center;
-              list-style-type: none; }
-              #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu > ul > li > a {
-                text-decoration: none; }
-          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul[data-menu-level="1"] {
-            display: none;
-            border: 1px solid pink; }
-      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_search {
-        background-color: pink; }
-        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_search ul li {
-          float: none;
-          height: 45px; }
-      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_footer #subheader_mobile_close_button {
-        background-color: #FF7F20;
-        border-radius: 3px;
-        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
-        color: white;
-        cursor: pointer;
-        /*display: none;*/
-        margin: 13px auto 0px auto;
-        padding: 10px 0px;
-        text-align: center;
-        width: 100px; }
-
-#header_search_region {
-  display: none; }
+            padding: 10px 0px;
+            text-align: center;
+            list-style-type: none; }
+            #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul li a {
+              text-decoration: none;
+              color: #4A4A4A; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul[data-menu-level="1"] {
+          display: none; }
+    #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_footer #subheader_mobile_close_button {
+      background-color: #FF7F20;
+      border-radius: 3px;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+      color: white;
+      cursor: pointer;
+      margin: 13px auto 0px auto;
+      padding: 10px 0px;
+      text-align: center;
+      width: 100px; }
 
 #block-achp-search {
   height: 50px;
   margin: 0px;
   width: 100%; }
   #block-achp-search #search-block-form {
-    height: 100%; }
+    height: 100%;
+    /* This is (currently inactive) code for the search icon as form submission - 
+    need to confirm on which screens we want this behavior */ }
     #block-achp-search #search-block-form .form-item {
       float: left;
       height: 100%;
@@ -354,33 +325,14 @@ html {
         width: 100%; }
 
 @media screen and (max-width: 950px) {
-  /* collapse header table of contents */
-  header #block-blm-theme-branding {
-    float: none;
-    /*height: $branding-height;*/
-    width: 100%; }
-
-  #block-achp-main-menu {
-    display: none; }
-
-  #subheader #subheader_header {
-    display: block; }
-  #subheader #block-blm-theme-search #search-block-form .form-item {
-    width: 90%; }
-  #subheader #block-blm-theme-search #search-block-form .form-actions {
-    display: block; } }
-#subheader_menu {
-  font-family: "p22-underground", sans-serif;
-  line-height: 2;
-  text-align: center; }
-  #subheader_menu ul {
-    padding: 0; }
-    #subheader_menu ul li {
-      list-style-type: none; }
-      #subheader_menu ul li a {
-        text-decoration: none; }
-
-/* Global variables */
+  #header_menu {
+    height: 20px; }
+    #header_menu #header_menu_search_toggle_button {
+      float: right;
+      margin: 23px 40px; } }
+/* Global variables: widths & breakpoints */
+/* Global variables: text */
+/* Global variables: colors */
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
