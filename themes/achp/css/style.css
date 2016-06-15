@@ -194,14 +194,19 @@ html {
   font-size: 0.875rem;
   position: relative; }
   #header_menu ul {
-    float: left;
-    height: 100px;
+    /*float: left;*/
+    /*height: 100px;*/
     margin: 0 auto;
     padding-left: 0;
     width: 800px; }
-    #header_menu ul[data-menu-level="1"] {
+    #header_menu ul ul[data-menu-level="1"] {
       display: none; }
+      #header_menu ul ul[data-menu-level="1"] > li[data-menu-level="1"] {
+        list-style-type: none; }
+        #header_menu ul ul[data-menu-level="1"] > li[data-menu-level="1"] a {
+          text-decoration: none; }
     #header_menu ul li[data-menu-level="0"] {
+      float: left;
       list-style-type: none;
       width: 150px;
       display: inline-block;
@@ -227,7 +232,7 @@ html {
     background: url("../images/search-icon.svg") no-repeat;
     background-size: 20px;
     cursor: pointer;
-    margin: 40px 150px 0 0;
+    margin: 40px 0;
     float: left;
     /*    @media (max-width: $menu-breakpoint) {
           float: right;

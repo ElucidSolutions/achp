@@ -134,16 +134,14 @@
   }
 
   /* 
-  Accepts no arguments, hides the header menu, and returns
-  undefined.
+  Accepts no arguments, hides the widescreen header menu, and returns undefined.
   */
   function closeHeaderMenu () {
     $('#block-achp-main-menu').hide ();
   }
 
   /* 
-  Accepts no arguments, shows the header menu, and returns
-  undefined.
+  Accepts no arguments, shows the widescreen header menu, and returns undefined.
   */
   function openHeaderMenu () {
     $('#block-achp-main-menu').show ();
@@ -200,8 +198,6 @@
   undefined.
   */
   function closeMobileCollapsible() {
-    // moveNavMenuToMobileBody ();
-    // openMobileSubheader ();
     $('#subheader_mobile_collapsible').slideUp ();
   }
 
@@ -290,7 +286,6 @@
     switch (headerMenuState) {
       case HEADER_MENU_MOBILE_EXPANDED_STATE:
         headerMenuState = HEADER_MENU_MOBILE_DEFAULT_STATE;
-        // closeMobileSubheaderHeader ()
         return closeMobileSubheader ();
       case HEADER_MENU_MOBILE_DEFAULT_STATE:
         headerMenuState = HEADER_MENU_MOBILE_EXPANDED_STATE;
@@ -303,14 +298,13 @@
   }
 
   /*
-  Accepts no arguments, moves the navigation menu to mobile body element,
+  Accepts no arguments, copies the navigation menu into mobile body element, displays it,
   and returns undefined.
   */
   function moveHeaderMenuToMobileBody () {
-    // $('#subheader_mobile_body').append (getMenuBlockElement ());
     $('#subheader_mobile_body').empty();
-    $('#block-achp-main-menu').clone ().appendTo($('#subheader_mobile_body'));
-    $('#subheader_mobile_body').children($('#block-achp-main-menu')).show();
+    $('#block-achp-main-menu').clone ().appendTo ($('#subheader_mobile_body'));
+    $('#subheader_mobile_body').children ($('#block-achp-main-menu')).show ();
   }
 
   /*
