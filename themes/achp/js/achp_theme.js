@@ -162,8 +162,8 @@
   function createMenuSlides (menuList) {
     setMenuItemIndices (0, menuList);
     var containerElement = $('<div></div>').addClass ('menu_slide_container');
-    var menuListItems = $('>li', menuList).clone ();
-    containerElement.append (createSlide(0, 'Table of Contents', menuListItems));
+    var menuListItems = $('>li', menuList);
+    containerElement.append (createSlide(containerElement, 0, 'Table of Contents', menuListItems));
     menuListItems.each (function (i, menuListItem) {
       containerElement.append (createSubmenuSlides (menuList, containerElement, $(menuListItem)));
     });
@@ -183,7 +183,7 @@
     var slides = [];
 
     // I. Create slide for menu list item
-    var slide = createSlide (index, $('>a', getMenuItem (menuList, index)), submenuListItems)
+    var slide = createSlide (containerElement, index, $('>a', getMenuItem (menuList, index).clone ()), submenuListItems)
       .attr('data-menu-slide-parent-index', parentIndex);
 
     $('.menu_slide_header')
@@ -206,8 +206,10 @@
   }
 
   /*
-  Accepts three arguments:
+  Accepts four arguments:
 
+  * containerElement, a jQuery HTML Element representing the slide
+    container
   * index, an integer representing the slide item index
   * titleElement, a jQuery HTML Element representing the slide title
   * menuListItems, a jQuery set of list items that represent menu items
@@ -215,7 +217,20 @@
   Returns a slide that has the given index, title element, and menu list 
   items as a jQuery HTML Element.
   */
-  function createSlide (index, titleElement, menuListItems) {
+  function createSlide (containerElement, index, titleElement, menuListItems) {
+    var slideListItems = [];
+    menuListItems.each (function (i, menuListItem) {
+      slideListItems.push ($('>ul', menuListItem).length === 0 ?
+        slideListItem = $(menuListItem).clone () :
+        slideListItem = $('<li></li>')
+          .addClass ('menu_slide_list_item')
+          .html ($('>a', menuListItem).html ())
+          .click (function () {
+            showMenuSlide (containerElement, $(menuListItem).attr ('data-menu-item-index'));
+            slide.hide ();
+      }));
+    });
+
     var slide = $('<div></div>')
       .addClass ('menu_slide')
       .attr('data-menu-slide-index', index)
@@ -227,21 +242,7 @@
             .append (titleElement))))
       .append ($('<div></div>')
         .addClass ('menu_slide_body')
-        .append (menuListItems.length === 0 ? null : 
-          $('<ul></ul>')
-            .append (menuListItems.map (function (i, menuListItem) {
-              if ($('>ul', menuListItem).length === 0) {
-                return menuListItem;
-              } else {
-                var listItem = $('<li></li>')
-                  .addClass ('menu_slide_list_item')
-                  .click (function () {
-                    showMenuSlide (containerElement, $(listItem).attr ('data-menu-item-index'));
-                    slide.hide ();
-                  });
-                return listItem;
-              }
-            }))))
+        .append(menuListItems.length === 0 ? null : $('<ul></ul>').append (slideListItems)))
       .append ($('<div></div>')
         .addClass ('menu_slide_footer')
         .append ($('<div></div>')
