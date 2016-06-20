@@ -52,8 +52,6 @@
       e.preventDefault();
       // $('> ul', this).show();
       var self = $(this);
-      // console.log($(this));
-      // console.log(self);
       var topMenuItems = self.parent('ul').children();
       var clickedTopMenuItemIndex = self.attr('data-menu-item-index')
 
@@ -61,7 +59,6 @@
       $(this).addClass('selected');
       var submenu = ($('> ul', this).clone ());
       $('#header_dropdown_submenu').empty ().append (submenu).css ('display', 'inline-block').slideDown ();
-      console.log(this);
       // for (var i = 0; i < topMenuItems.length; i++) {
       //   switch (clickedTopMenuItemIndex) {
       //     case ($(topMenuItems[0]).attr('data-menu-item-index')):
@@ -225,16 +222,21 @@
     var slides = [];
 
     // I. Create slide for menu list item
-    var slide = createSlide (containerElement, index, $('>a', getMenuItem (menuList, index).clone ()), submenuListItems)
-      .attr('data-menu-slide-parent-index', parentIndex);
+    var slide = createSlide (containerElement, index, $('>a', getMenuItem (menuList, index).clone ()), submenuListItems, parentIndex)
+      .attr('data-menu-slide-parent-index', parentIndex)
+      // .append($('<div></div>')
+      //   .addClass('menu_slide_header'));
+
 
     $('.menu_slide_header')
       .append ($('<div></div>')
         .addClass ('menu_slide_header_back_button')
-        .click (function () {
-          showMenuSlide (containerElement, parentIndex);
-          slide.hide ();
-        }));
+        .html ('Back')
+        // .click (function () {
+        //   showMenuSlide (containerElement, parentIndex);
+        //   slide.hide ();
+        // })
+        );
 
       // II. Add menu list item slide to slides array
       slides.push (slide);
@@ -259,7 +261,7 @@
   Returns a slide that has the given index, title element, and menu list 
   items as a jQuery HTML Element.
   */
-  function createSlide (containerElement, index, titleElement, menuListItems) {
+  function createSlide (containerElement, index, titleElement, menuListItems, parentIndex) {
     var slideListItems = [];
     menuListItems.each (function (i, menuListItem) {
       slideListItems.push ($('>ul', menuListItem).length === 0 ?
@@ -281,7 +283,16 @@
         .append ($('<div></div>')
           .addClass ('menu_slide_header_title')
           .append ($('<h3></h3>')
-            .append (titleElement))))
+            .append (titleElement)))
+        // .append ($('<div></div>')
+        //   .addClass ('menu_slide_header_back_button')
+        //   .html ('Back')
+        //   .click (function () {
+        //       showMenuSlide (containerElement, parentIndex);
+        //       slide.hide ();
+        //     }
+        //   ))
+        )
       .append ($('<div></div>')
         .addClass ('menu_slide_body')
         .append(menuListItems.length === 0 ? null : $('<ul></ul>').append (slideListItems)))
@@ -292,6 +303,10 @@
           .click (function () {
             closeSubheaderMenu ();
           })));
+
+      // if (!parentIndex) {
+      //   $('.menu_slide_header_back_button').empty()
+      // }
 
       return slide;
   }
