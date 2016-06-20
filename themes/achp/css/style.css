@@ -189,20 +189,28 @@ html {
       #block-views-block-latest-news-block .card.view-item-3, #block-views-block-homepage-success-stories-block .card.view-item-3 {
         margin: 0 160px; } }
 
+#header_region {
+  height: 100px; }
+
 #header_menu {
   font-family: "p22-underground", sans-serif;
   font-size: 0.875rem;
-  position: relative; }
+  position: relative;
+  border-bottom: #043B62;
+  z-index: 99;
+  max-height: 100px; }
   #header_menu ul {
     margin: 0 auto;
     padding-left: 0;
     width: 800px; }
+    #header_menu ul li[data-menu-level="0"].selected {
+      border: 3px solid #950306;
+      border-bottom: none;
+      box-shadow: 0px -3px 0 0 white inset; }
+      #header_menu ul li[data-menu-level="0"].selected a {
+        color: #309AEE; }
     #header_menu ul ul[data-menu-level="1"] {
       display: none; }
-      #header_menu ul ul[data-menu-level="1"] > li[data-menu-level="1"] {
-        list-style-type: none; }
-        #header_menu ul ul[data-menu-level="1"] > li[data-menu-level="1"] a {
-          text-decoration: none; }
     #header_menu ul li[data-menu-level="0"] {
       float: left;
       list-style-type: none;
@@ -210,7 +218,7 @@ html {
       display: inline-block;
       text-align: left;
       padding: 0;
-      height: 100px;
+      height: 103px;
       position: relative; }
       #header_menu ul li[data-menu-level="0"] a {
         text-decoration: none;
@@ -232,6 +240,40 @@ html {
     cursor: pointer;
     margin: 40px 0;
     float: left; }
+
+#header_dropdown_submenu {
+  display: none;
+  width: 250px;
+  border: 3px solid #950306;
+  left: 300px;
+  /*top: -3px;*/
+  height: 200px;
+  position: relative;
+  z-index: 60;
+  background-color: white;
+  padding: 5px 25px 20px; }
+  #header_dropdown_submenu ul[data-menu-level="1"] {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 80%; }
+    #header_dropdown_submenu ul[data-menu-level="1"] li[data-menu-level="1"] {
+      list-style-type: none;
+      padding-top: 15px;
+      border-bottom: 1px solid #950306;
+      font-size: 1.25rem;
+      width: 100%;
+      /*padding: 0;*/ }
+      #header_dropdown_submenu ul[data-menu-level="1"] li[data-menu-level="1"] a {
+        text-decoration: none;
+        height: auto;
+        position: static;
+        font-family: "p22-underground", sans-serif;
+        color: #043B62; }
+    #header_dropdown_submenu ul[data-menu-level="1"] li[data-menu-level="2"] {
+      color: #262626;
+      font-size: 16px;
+      text-decoration: none; }
 
 #subheader_widescreen_submenu {
   float: left; }
@@ -258,6 +300,14 @@ html {
     #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body {
       width: 100%;
       height: auto; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide {
+        display: none; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide[data-menu-slide-index="0"] {
+          display: block; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide ul {
+          list-style-type: none; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide ul a {
+            text-decoration: none; }
       #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu {
         height: 100%;
         width: 100%;
@@ -323,6 +373,9 @@ html {
         width: 100%; }
 
 @media screen and (max-width: 950px) {
+  #header_region {
+    height: auto; }
+
   #header_menu {
     height: 20px; }
     #header_menu #header_menu_search_toggle_button {
@@ -481,7 +534,8 @@ header {
   position: relative;
   background-image: url("../images/columns-banner-bg.png");
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  /*z-index: 50;*/ }
   #homepage_hero_region #homepage_hero_content {
     position: absolute;
     top: 50%;

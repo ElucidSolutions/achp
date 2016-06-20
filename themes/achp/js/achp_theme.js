@@ -36,23 +36,63 @@
       toggleSearch ();
     });
 
-    // V. Handle subheader menu item hover events
-    $('#header_menu li[data-menu-level="0"]').hover (
-      // On mouse enter, show submenu
-      function () {
-        openWidescreenSubmenu ($('> ul', this).clone ());
-      }, 
-      // On mouse exit, hide submenu
-      function () {
-        closeWidescreenSubmenu ();
+    // // V. Handle subheader menu item hover events
+    // $('#header_menu li[data-menu-level="0"]').hover (
+    //   // On mouse enter, show submenu
+    //   function () {
+    //     openWidescreenSubmenu ($('> ul', this).clone ());
+    //   }, 
+    //   // On mouse exit, hide submenu
+    //   function () {
+    //     closeWidescreenSubmenu ();
+    // });
+
+    // For dev purposes
+    $('#header_menu li[data-menu-level="0"]').click (function(e) {
+      e.preventDefault();
+      // $('> ul', this).show();
+      var self = $(this);
+      // console.log($(this));
+      // console.log(self);
+      var topMenuItems = self.parent('ul').children();
+      var clickedTopMenuItemIndex = self.attr('data-menu-item-index')
+
+      $('#header_menu li[data-menu-level="0"]').removeClass('selected');
+      $(this).addClass('selected');
+      var submenu = ($('> ul', this).clone ());
+      $('#header_dropdown_submenu').empty ().append (submenu).css ('display', 'inline-block').slideDown ();
+
+      // for (var i = 0; i < topMenuItems.length; i++) {
+      //   switch (clickedTopMenuItemIndex) {
+      //     case ($(topMenuItems[0]).attr('data-menu-item-index')):
+      //       console.log('item 0 selected');
+      //       console.log(this);
+      //       console.log(self);
+      //       return;
+      //     case ($(topMenuItems[1]).attr('data-menu-item-index')):
+      //       console.log('item 1 selected');
+      //       return;
+      //     case ($(topMenuItems[2]).attr('data-menu-item-index')):
+      //       console.log('item 2 selected');
+      //       return;
+      //     case ($(topMenuItems[3]).attr('data-menu-item-index')):
+      //       console.log('item 3 selected');
+      //       return;
+      //     case ($(topMenuItems[4]).attr('data-menu-item-index')):
+      //       console.log('item 4 selected');
+      //       return;
+      //     default:
+      //       console.log('[achp_theme][document.ready] Warning: unrecognized top menu item selected');
+      //   }
+      // }
     });
 
     // VI. Handle subheader menu click events
-    $('#header_menu li[data-menu-level="0"]').click (function () {
-      if (headerMenuState === HEADER_MENU_MOBILE_EXPANDED_STATE) {
+    // $('#header_menu li[data-menu-level="0"]').click (function () {
+    //   if (headerMenuState === HEADER_MENU_MOBILE_EXPANDED_STATE) {
 
-      }
-    });
+    //   }
+    // });
 
     // VII. Move the Search and Menu Block elements at breakpoints.
     $.breakpoint ((function () {

@@ -2,7 +2,7 @@
 @import "neat/neat";
 @import "features";
 @import "global";
-  
+
 html, body {
   max-width: 100%;
   margin: 0;
@@ -133,6 +133,7 @@ header {
   background-image: url('../images/columns-banner-bg.png');
   background-size: cover;
   background-position: center;
+  /*z-index: 50;*/
 
   #homepage_hero_content {
     @include center-xy;
