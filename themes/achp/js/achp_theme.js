@@ -61,7 +61,7 @@
       $(this).addClass('selected');
       var submenu = ($('> ul', this).clone ());
       $('#header_dropdown_submenu').empty ().append (submenu).css ('display', 'inline-block').slideDown ();
-
+      console.log(this);
       // for (var i = 0; i < topMenuItems.length; i++) {
       //   switch (clickedTopMenuItemIndex) {
       //     case ($(topMenuItems[0]).attr('data-menu-item-index')):
@@ -143,6 +143,7 @@
               headerMenuState = HEADER_MENU_MOBILE_DEFAULT_STATE;
               closeWidescreenSubheader ();
               closeHeaderMenu();
+              closeWidescreenDropdownMenu ();
               openMobileSubheaderHeader ();
               return openMobileSubheader ();
             case HEADER_MENU_WIDESCREEN_SEARCH_STATE:
@@ -151,6 +152,7 @@
               headerMenuState = HEADER_MENU_MOBILE_EXPANDED_STATE;
               closeWidescreenSubheader ();
               closeHeaderMenu ();
+              closeWidescreenDropdownMenu ();
               openMobileSubheaderHeader ();
               moveSearchBlockToMobileSearch ();
               return openMobileCollapsible ();
@@ -379,8 +381,17 @@
   Accepts no arguments, closes widescreen subheader, and returns
   undefined.
   */
-  function closeWidescreenSubheader() {
+  function closeWidescreenSubheader () {
     $('#subheader_widescreen').hide ();
+  }
+
+  /*
+  Accepts no arguments, closes the widescreen dropdown submenu, 
+  and returns undefined.
+  */
+  function closeWidescreenDropdownMenu () {
+    $('#header_dropdown_submenu').hide ();
+    $('#header_menu li[data-menu-level="0"]').removeClass('selected');
   }
 
   /*
