@@ -1,6 +1,6 @@
 /**
  @file
- Responsive behaviors for the BLM Theme.
+ Responsive behaviors for the ACHP Theme.
 */
 (function ($) {
 
@@ -50,46 +50,15 @@
     // For dev purposes
     $('#header_menu li[data-menu-level="0"]').click (function(e) {
       e.preventDefault();
-      // $('> ul', this).show();
-      var self = $(this);
-      var topMenuItems = self.parent('ul').children();
-      var clickedTopMenuItemIndex = self.attr('data-menu-item-index')
-
-      $('#header_menu li[data-menu-level="0"]').removeClass('selected');
-      $(this).addClass('selected');
-      var submenu = ($('> ul', this).clone ());
-      $('#header_dropdown_submenu').empty ().append (submenu).css ('display', 'inline-block').slideDown ();
-      // for (var i = 0; i < topMenuItems.length; i++) {
-      //   switch (clickedTopMenuItemIndex) {
-      //     case ($(topMenuItems[0]).attr('data-menu-item-index')):
-      //       console.log('item 0 selected');
-      //       console.log(this);
-      //       console.log(self);
-      //       return;
-      //     case ($(topMenuItems[1]).attr('data-menu-item-index')):
-      //       console.log('item 1 selected');
-      //       return;
-      //     case ($(topMenuItems[2]).attr('data-menu-item-index')):
-      //       console.log('item 2 selected');
-      //       return;
-      //     case ($(topMenuItems[3]).attr('data-menu-item-index')):
-      //       console.log('item 3 selected');
-      //       return;
-      //     case ($(topMenuItems[4]).attr('data-menu-item-index')):
-      //       console.log('item 4 selected');
-      //       return;
-      //     default:
-      //       console.log('[achp_theme][document.ready] Warning: unrecognized top menu item selected');
-      //   }
-      // }
+      openWidescreenSubmenu ($('> ul', this).clone ());
     });
 
     // VI. Handle subheader menu click events
-    // $('#header_menu li[data-menu-level="0"]').click (function () {
-    //   if (headerMenuState === HEADER_MENU_MOBILE_EXPANDED_STATE) {
-
-    //   }
-    // });
+    $('#header_menu li[data-menu-level="0"]').click (function () {
+      if (headerMenuState === HEADER_MENU_MOBILE_EXPANDED_STATE) {
+        toggleSubheaderMenu ();
+      }
+    });
 
     // VII. Move the Search and Menu Block elements at breakpoints.
     $.breakpoint ((function () {
@@ -185,12 +154,52 @@
   */
   function setMenuItemIndices (menuListItemIndex, menuList) {
     var parentIndex = menuListItemIndex;
-    $('>li', menuList).each (function (i, menuListItem) {
+    var nestedListItems = $('>li', menuList);
+    menuList.attr ('data-menu-parent-index', parentIndex)
+            .attr ('data-menu-num-children', nestedListItems.length);
+    nestedListItems.each (function (i, menuListItem) {
+      var nestedList = $('>ul', menuListItem);
+      var numChildren = $('>li', nestedList).length;
       $(menuListItem).attr ('data-menu-item-index', ++menuListItemIndex)
-                     .attr ('data-menu-item-parent-index', parentIndex);
-      menuListItemIndex = setMenuItemIndices (menuListItemIndex, $('>ul', menuListItem));
+                     .attr ('data-menu-item-local-index', i)
+                     .attr ('data-menu-item-parent-index', parentIndex)
+                     .attr ('data-menu-item-num-children', numChildren);
+      menuListItemIndex = setMenuItemIndices (menuListItemIndex, nestedList);
     });
     return menuListItemIndex;
+  }
+
+  /*
+  Accepts no arguments, returns undefined, and sets menu-num-columns and 
+  menu-column-shift data attributes for the widescren dropdown menu
+  element, which are used for its positioning.
+  */
+  function setDropdownMenuOffsets () {
+    var dropdownSubmenu = $('#subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"]');
+    var numDropdownSubmenuColumns = $('>li', dropdownSubmenu).length;
+    var parentIndex = dropdownSubmenu.attr ('data-menu-parent-index');
+    var parentLocalIndex = $('#header_menu li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]').attr ('data-menu-item-local-index');
+    var numParentSiblings = $('#header_menu ul[data-menu-level="0"] > li[data-menu-level="0"]').length;
+    var numParentSiblingsRemaining = numParentSiblings - parentLocalIndex;
+    dropdownSubmenu
+      .attr ('data-menu-num-columns', numParentSiblings)
+      .attr ('data-menu-column-shift', 
+        numDropdownSubmenuColumns <= numParentSiblingsRemaining ?
+          parentLocalIndex : 
+          parentLocalIndex - (numDropdownSubmenuColumns - numParentSiblingsRemaining)
+      );
+  }
+
+  /*
+  Accepts one argument, submenu, a jQuery HTML Element; returns undefined; and 
+  adds the class 'menu_selected'to the selected ubmenu and its parent menu item.
+  */
+
+  function selectDropdownMenuParent (submenu) {
+    $('#header_menu li[data-menu-level="0"]').removeClass('menu_selected');
+    $(submenu).addClass('menu_selected');
+    var parentIndex = $(submenu).attr('data-menu-parent-index');
+    $('li[data-menu-item-index="' + parentIndex + '"]').addClass('menu_selected');
   }
 
   /*
@@ -368,7 +377,10 @@
   */
   function openWidescreenSubmenu (submenu) {
     $('#subheader, #subheader_widescreen').show ();
-    $('#subheader_widescreen_submenu').empty ().append (submenu).slideDown ();
+    $('#subheader_widescreen_submenu').empty ().append (submenu);
+    setDropdownMenuOffsets ();
+    selectDropdownMenuParent (submenu);
+    $('#subheader_widescreen_submenu').slideDown ();
   }
 
   /*
