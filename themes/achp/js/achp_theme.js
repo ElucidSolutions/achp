@@ -7,11 +7,9 @@
 
   // Represents the header menu states.
   var HEADER_MENU_WIDESCREEN_DEFAULT_STATE = 0;
-  var HEADER_MENU_WIDESCREEN_SEARCH_STATE = 1;
-  var HEADER_MENU_WIDESCREEN_HOVER_STATE = 2;
-  var HEADER_MENU_WIDESCREEN_SEARCH_AND_HOVER_STATE = 3;
-  var HEADER_MENU_MOBILE_DEFAULT_STATE = 4;
-  var HEADER_MENU_MOBILE_EXPANDED_STATE = 5;
+  var HEADER_MENU_WIDESCREEN_HOVER_STATE = 1;
+  var HEADER_MENU_MOBILE_DEFAULT_STATE = 2;
+  var HEADER_MENU_MOBILE_EXPANDED_STATE = 3;
 
   // Represents the current header state.
   var headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
@@ -77,17 +75,10 @@
               openHeaderMenu();
               closeMobileSubheaderHeader ();
               closeMobileSubheader ();
-              if (getSearchBlockElementValue () != '') {
-                headerMenuState = HEADER_MENU_WIDESCREEN_SEARCH_STATE;
-                moveSearchBlockToWidescreenSearch ();
-                return openWidescreenSearch ();
-              } else {
-                return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
-              }
+              moveSearchBlockToHeader ();
+              return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
-            case HEADER_MENU_WIDESCREEN_SEARCH_STATE:
-            case HEADER_MENU_WIDESCREEN_HOVER_STATE:               
-            case HEADER_MENU_WIDESCREEN_SEARCH_AND_HOVER_STATE:  
+            case HEADER_MENU_WIDESCREEN_HOVER_STATE:
               return openHeaderMenu();
             default:
               console.log('[achp_theme][document.ready] Warning: unrecognized header menu state "' + headerMenuState + '".');
@@ -112,9 +103,7 @@
               closeWidescreenDropdownMenu ();
               openMobileSubheaderHeader ();
               return openMobileSubheader ();
-            case HEADER_MENU_WIDESCREEN_SEARCH_STATE:
             case HEADER_MENU_WIDESCREEN_HOVER_STATE:               
-            case HEADER_MENU_WIDESCREEN_SEARCH_AND_HOVER_STATE:  
               headerMenuState = HEADER_MENU_MOBILE_EXPANDED_STATE;
               closeWidescreenSubheader ();
               closeHeaderMenu ();
@@ -441,20 +430,6 @@
   */
   function toggleSearch () {
     switch (headerMenuState) {
-      case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
-        headerMenuState = HEADER_MENU_WIDESCREEN_SEARCH_STATE;
-        moveSearchBlockToWidescreenSearch ();
-        return openWidescreenSearch ();
-      case HEADER_MENU_WIDESCREEN_HOVER_STATE:
-        headerMenuState = HEADER_MENU_WIDESCREEN_SEARCH_AND_HOVER_STATE;
-        moveSearchBlockToWidescreenSearch ();
-        return openWidescreenSearch ();
-      case HEADER_MENU_WIDESCREEN_SEARCH_STATE:
-        headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
-        return closeWidescreenSearch ();
-      case HEADER_MENU_WIDESCREEN_SEARCH_AND_HOVER_STATE:
-        headerMenuState = HEADER_MENU_WIDESCREEN_HOVER_STATE;
-        return closeWidescreenSearch ();
       case HEADER_MENU_MOBILE_DEFAULT_STATE:
       case HEADER_MENU_MOBILE_EXPANDED_STATE:
         return toggleSubheaderMenu();
@@ -467,27 +442,8 @@
   Accepts no arguments, moves search block into widescreen search
   element, returns undefined.
   */
-  function moveSearchBlockToWidescreenSearch () {
-    $('#subheader_widescreen_search_bar').append (getSearchBlockElement ());
-  }
-
-
-  /*
-  Accepts no arguments, displays search bar in widescreen, and
-  returns undefined. 
-  */
-  function openWidescreenSearch () {
-    $('#subheader, #subheader_widescreen').show ();
-    $('#subheader_mobile').hide ();
-    $('#subheader_widescreen_search_bar').slideDown ();
-  }
-
-  /* 
-  Accepts no arguments, hides search bar in widescreen, and returns
-  undefined.
-  */
-  function closeWidescreenSearch () {
-    $('#subheader_widescreen_search_bar').slideUp ();
+  function moveSearchBlockToHeader () {
+    $('#header_widescreen_search_bar').append (getSearchBlockElement ());
   }
 
   /*
