@@ -67,15 +67,17 @@
         enter: function () {
           switch (headerMenuState) {
             case HEADER_MENU_MOBILE_DEFAULT_STATE:
-              headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
               openHeaderMenu();
               closeMobileSubheaderHeader ();
-              return closeMobileSubheader ();
+              removeSelectedClassFromMenuItems ();
+              closeMobileSubheader ();
+              return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_MOBILE_EXPANDED_STATE:
               openHeaderMenu();
               closeMobileSubheaderHeader ();
               closeMobileSubheader ();
               moveSearchBlockToHeader ();
+              removeSelectedClassFromMenuItems ();
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
             case HEADER_MENU_WIDESCREEN_HOVER_STATE:
@@ -180,12 +182,20 @@
   }
 
   /*
+  Accepts no arguments, returns undefined, and removes the class 
+  menu_selected from the top-level menu options.
+  */
+  function removeSelectedClassFromMenuItems () {
+    $('#header_menu li[data-menu-level="0"]').removeClass('menu_selected');
+  }
+
+  /*
   Accepts one argument, submenu, a jQuery HTML Element; returns undefined; and 
-  adds the class 'menu_selected'to the selected ubmenu and its parent menu item.
+  adds the class 'menu_selected'to the selected submenu and its parent menu item.
   */
 
   function selectDropdownMenuParent (submenu) {
-    $('#header_menu li[data-menu-level="0"]').removeClass('menu_selected');
+    removeSelectedClassFromMenuItems ();
     $(submenu).addClass('menu_selected');
     var parentIndex = $(submenu).attr('data-menu-parent-index');
     $('li[data-menu-item-index="' + parentIndex + '"]').addClass('menu_selected');
@@ -267,16 +277,17 @@
         .addClass ('menu_slide_header')
         .append ($('<div></div>')
           .addClass ('menu_slide_header_title')
+          .append ($('<div></div>')
+            .addClass ('menu_slide_header_back_button')
+            .html ('BACK')
+            .click (function () {
+              showMenuSlide (containerElement, parentIndex);
+              slide.hide ();
+            })
+          )          
           .append ($('<h3></h3>')
             .append (titleElement)))
-        .append ($('<div></div>')
-          .addClass ('menu_slide_header_back_button')
-          .html ('Back')
-          .click (function () {
-            showMenuSlide (containerElement, parentIndex);
-            slide.hide ();
-          })
-        ))
+        )
       .append ($('<div></div>')
         .addClass ('menu_slide_body')
         .append(menuListItems.length === 0 ? null : $('<ul></ul>').append (slideListItems)))
@@ -291,6 +302,7 @@
 
     if (slide.attr('data-menu-slide-index') === '0') {
       slide.find('.menu_slide_header_back_button').empty();
+      slide.find('.menu_slide_header_title').empty();
     }
   
       return slide;

@@ -250,19 +250,20 @@
     width: 100%;
 
     #subheader_mobile_title {
-      /* TODO: Currently white, so invisible */
+      /* TODO: BG image Currently white, so invisible */
       background-image: url('../images/menu-icon.svg');
       background-position: 0px 18px;
       background-repeat: no-repeat;
       text-align: center;
       padding: 15px 0px;
+      color: $color-darkblue2;
     }
   }
 
   #subheader_mobile {
     #subheader_mobile_collapsible {
       display: none;
-      padding-bottom: 12px;
+      padding: 0 24px 12px;
 
       #subheader_mobile_body {
         width: 100%;
@@ -275,12 +276,32 @@
             display: block;
           }
 
-          .menu_slide_list_item, .menu_slide_header_back_button {
+          .menu_slide_header_back_button {
             cursor: pointer;
+            color: $color-grey;
+            font-size: 0.875rem;
+          }
+
+          .menu_slide_list_item, li[data-menu-level="2"] {
+            cursor: pointer;
+            padding: 16px 0;
+            border-bottom: 1px solid $color-grey3;
+            font-size: 0.875rem;
+
+            &:hover {
+              color: $color-lightblue;
+              background-color: $background-color-lightblue;
+            }
+          }
+
+          .menu_slide_list_item:after {
+            content: ">";
+            float: right;
           }
 
           ul {
             list-style-type: none;
+            padding: 0;
 
             a {
               text-decoration: none;
@@ -288,7 +309,7 @@
               padding-left: 0;
             }
           }
-        }s
+        }
 
         #block-achp-main-menu {
           height: 100%;
@@ -350,15 +371,16 @@
     .form-item {
       float: left;
       height: 100%;
-      margin: 0px;
+      margin: 10px 0;
       width: 100%;
 
       input.form-search {
-        background-color: #E8F8E0;
-        border: none;
+        /* TODO: Add mag glass*/
+        border: 1px solid #979797;
+        border-radius: 2px;
         height: 100%;
         outline: none;
-        padding: 0px 1%;
+        padding: 15px 11px 11px;
         width: 100%;
       }
     }
