@@ -368,6 +368,7 @@
   Accepts no arguments, shows the widescreen header menu, and returns undefined.
   */
   function openHeaderMenu () {
+    formatMenuHeaders ();
     $('#block-achp-main-menu').show ();
   }
 
@@ -381,7 +382,81 @@
     $('#subheader_widescreen_submenu').empty ().append (submenu);
     setDropdownMenuOffsets ();
     selectDropdownMenuParent (submenu);
+    alignSubmenuHeaders (); 
     $('#subheader_widescreen_submenu').slideDown ();
+  }
+
+  /*
+  Accepts no arguments, returns undefined, and sets the
+  height for each submenu's header elements.
+  */
+  function alignSubmenuHeaders () {
+    var submenuHeaders = $('#subheader_widescreen_submenu li[data-menu-level="1"] > a');
+    var headerHeight = submenuHeaders.toArray ().reduce (function (headerHeight, submenuHeader) {
+      return Math.max (headerHeight, $(submenuHeader).height ());
+    }, 0);
+    submenuHeaders.each (function (i, submenuHeader) {
+      $(submenuHeader).css ('display', 'table-cell')
+                      .css ('height', headerHeight)
+                      .css ('vertical-align', 'bottom');
+    })
+  }
+
+  /*
+  Accepts no arguments, returns undefined, and inserts <br> tags
+  into the header menu items so that they form two lines.
+  */
+  function formatMenuHeaders () {
+    $('#header_menu li[data-menu-level="0"] > a').each (function (i, titleElement) {
+      titleElement = $(titleElement);
+      titleElement.html (formatMenuHeader (maxNumLines, titleElement.html ()));
+    })
+  }
+
+  /*
+  Accepts one argument: title, a string; inserts <br> tags into title so
+  that it spans two lines; and returns the result as a string. 
+  */
+  function formatMenuHeader (title) {
+    return balanceLines ([[], title.split(' ')]).map (function (line) {
+      return line.join (' ');
+    }).join ('<br />');
+  }
+
+  /*
+  Accepts one argument: lines, an array of string arrays that represent
+  lines consisting of words; moves words between the lines so that they
+  are balanced; and returns the resulting array.
+  */
+  function balanceLines (lines) {
+    if (lines.length < 2) {
+      return lines;
+    }
+    var firstLine = lines[0];
+    var secondLine = lines[1];
+    if (secondLine.length === 0) {
+      return lines;
+    }
+    var word = secondLine[0];
+    if (lineLength (firstLine) + word.length > lineLength (secondLine) - word.length) {
+      return lines;
+    }
+    firstLine.push (secondLine.shift ());
+    lines.shift ();
+    lines = balanceLines (lines);
+    lines.unshift (firstLine);
+    return balanceLines (lines);
+  }
+
+  /*
+  Accepts one argument: line, a string array where every string represents
+  a word; and returns an integer representing the total number of characters
+  in all the words.
+  */
+  function lineLength (line) {
+    return line.reduce (function (length, word) {
+      return length + word.length;
+    }, 0);
   }
 
   /*
@@ -415,7 +490,7 @@
   */
   function openMobileSubheader() {
     openMobileSubheaderHeader ();
-    $('#subheader_mobile').show ();    
+    $('#subheader_mobile').show ();
   }
 
   /*
