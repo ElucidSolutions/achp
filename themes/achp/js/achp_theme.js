@@ -526,6 +526,19 @@
     }, 0);
   }
 
+  function removeMenuHeaderLineBreaks () {
+    $('.menu_slide[data-menu-slide-index="0"] .menu_slide_list_item').each (function (i, titleElement) {
+      titleElement = $(titleElement);
+      var titleElementText = $(titleElement).html();
+      titleElement.html (formatMenuHeader (titleElement.html ()));
+      if (titleElementText.indexOf('<br>') >= 0) {
+        var newTitleElementText = titleElementText.replace('<br>', ' ');
+        // console.log(newTitleElementText)
+        titleElement.html(newTitleElementText);
+      }
+    })
+  }
+
   /*
     Accepts no arguments, hides the widescreen subheader menu,
     and returns undefined.  
@@ -569,10 +582,6 @@
     $('#subheader_mobile_collapsible').slideDown ();
   }
 
-  /*
-  Accepts no arguments, closes widescreen collapsible, and returns
-  undefined.
-  */
   function closeMobileCollapsible() {
     $('#subheader_mobile_collapsible').slideUp ();
   }
