@@ -227,11 +227,17 @@
   #subheader_mobile {
     #subheader_mobile_collapsible {
       display: none;
-      padding: 0 24px 12px;
+      padding: 0;
+      border: $header-region-border-width solid $color-red2;
+      background-color: white;
+      z-index: 1000;
+      width: 100%;
+      position: absolute;
 
       #subheader_mobile_body {
         width: 100%;
         height: auto;
+              padding: 0 24px;
 
         .menu_slide_container .menu_slide {
           display: none;
@@ -240,10 +246,21 @@
             display: block;
           }
 
+          .menu_slide_header_title h3 {
+            border-bottom: 1px solid $color-red2;
+            display: inline-block;
+            width: 100%;
+            padding: 16px 0 7px;
+          }
+          
           .menu_slide_header_back_button {
             cursor: pointer;
             color: $color-grey;
             font-size: 0.875rem;
+
+            &:before {
+              content: url('../images/left-arrow-icon.svg');
+            }
           }
 
           .menu_slide_list_item, li[data-menu-level="2"], li[data-menu-level="1"] {
@@ -259,8 +276,11 @@
           }
 
           .menu_slide_list_item:after {
-            content: ">";
+            content: url('../images/right-arrow-icon.svg');
             float: right;
+            width: 5px;
+            height: 12px;
+            margin-right: 10px;
           }
 
           ul {
@@ -309,15 +329,11 @@
 
       #subheader_mobile_footer {
         #subheader_mobile_close_button {
-          background-color: #FF7F20;
-          border-radius: 3px;
-          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-          color: white;
+          color: $color-darkgrey;
           cursor: pointer;
-          margin: 13px auto 0px auto;
-          padding: 10px 0px;
+          margin: 15px auto 17px;
           text-align: center;
-          width: 100px;
+          font-size: 0.875rem;
         }
       }
     }
@@ -328,6 +344,7 @@
   height: 50px;
   margin: 0px;
   width: 100%;
+  padding: 0 24px 0;
 
   #search-block-form {
     height: 100%;
