@@ -78,9 +78,12 @@
     /*@include span-columns(5);*/
     margin: 0 auto;
     height: $header-region-height;    
+    -js-display: flex;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 
     li[data-menu-level="0"] {
-      float: left;
       text-align: center;
       height: $header-region-height + 3px;
       padding: 0 10px;

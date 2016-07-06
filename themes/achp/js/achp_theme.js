@@ -16,6 +16,11 @@
 
   $(document).ready (function () {
 
+    // Initialize display
+    formatMenuHeaders ();
+    setVerticalPositionHeader ();
+    flexibility(document.documentElement);
+
     // I. Create mobile menu slide
     $('#subheader_mobile_body').append (createMenuSlides (getMenuList ()));
 
@@ -101,7 +106,7 @@
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
               headerMenuState = HEADER_MENU_MOBILE_DEFAULT_STATE;
               closeWidescreenSubheader ();
-              closeHeaderMenu();
+              closeHeaderMenu ();
               closeWidescreenDropdownMenu ();
               openMobileSubheaderHeader ();
               return openMobileSubheader ();
@@ -368,27 +373,27 @@
   Accepts no arguments, shows the widescreen header menu, and returns undefined.
   */
   function openHeaderMenu () {
-    formatMenuHeaders ();
-    setHorizontalPositionHeader ();
-    setVerticalPositionHeader ();
+    // setHorizontalPositionHeader ();
+    // setVerticalPositionHeader ();
     $('#block-achp-main-menu').show ();
+    flexibility(document.documentElement);
   }
 
   /*
   Accepts no arguments, returns undefined, and horizontally
   centers header menu list.
   */
-  function setHorizontalPositionHeader () {
-    var menuElement = $('#header_menu');
-    var menuListElement = $('ul[data-menu-level="0"]', menuElement);
-    var menuListItemsTotalWidth = Math.ceil ($('li[data-menu-level="0"]', menuElement).toArray ().reduce (
-      function (totalWidth, menuItemElement) {
-        return totalWidth + $(menuItemElement).outerWidth (true);
-      }, 10)); // Setting initial value of 10 to account for borders being counted as part of content area
-    var horizontalOffset = (menuElement.width () / 2) - (menuListElement.width () / 2);
-    menuListElement.innerWidth (menuListItemsTotalWidth)
-                   .css ('transform', 'translateX(' + horizontalOffset + 'px)');
-  }  
+  // function setHorizontalPositionHeader () {
+  //   var menuElement = $('#header_menu');
+  //   var menuListElement = $('ul[data-menu-level="0"]', menuElement);
+  //   var menuListItemsTotalWidth = Math.ceil ($('li[data-menu-level="0"]', menuElement).toArray ().reduce (
+  //     function (totalWidth, menuItemElement) {
+  //       return totalWidth + $(menuItemElement).outerWidth (true);
+  //     }, 10)); // Setting initial value of 10 to account for borders being counted as part of content area
+  //   var horizontalOffset = (menuElement.width () / 2) - (menuListElement.width () / 2);
+  //   menuListElement.innerWidth (menuListItemsTotalWidth)
+  //                  .css ('transform', 'translateX(' + horizontalOffset + 'px)');
+  // }  
 
   /*
   Accepts no arguments, returns undefined, and vertically

@@ -248,9 +248,12 @@ html {
   #header_menu #block-achp-main-menu ul[data-menu-level="0"] {
     /*@include span-columns(5);*/
     margin: 0 auto;
-    height: 72px; }
+    height: 72px;
+    -js-display: flex;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; }
     #header_menu #block-achp-main-menu ul[data-menu-level="0"] li[data-menu-level="0"] {
-      float: left;
       text-align: center;
       height: 75px;
       padding: 0 10px;
