@@ -201,69 +201,43 @@ html {
   border-bottom: #043B62;
   z-index: 900;
   height: 72px;
-  /*  #header_menu_search_toggle_button {
-      $button_height: 20px;
-      height: $button_height;
-      width: $button_height;
-      background: url("../images/search-icon.svg") no-repeat;
-      background-size: $button_height;
-      cursor: pointer;
-      margin: 40px 0;
-      float: left;
-      left: 1000px;
-      top: -100px;
-      position: relative;
-    }*/ }
+  width: 1024px; }
   #header_menu ul {
     margin: 0 auto;
     padding-left: 0;
     z-index: 901; }
-    #header_menu ul li[data-menu-level="0"].menu_selected {
-      border: 3px solid #9B0008;
-      border-bottom: none;
-      background: white; }
-      #header_menu ul li[data-menu-level="0"].menu_selected a {
-        color: #008BFD; }
-    #header_menu ul li[data-menu-level="0"] {
-      border: 3px solid transparent;
-      list-style-type: none;
-      text-align: center;
-      /*      height: $header-region-height + 3px;*/
-      margin: 0 20px 0 0; }
-      #header_menu ul li[data-menu-level="0"] > a {
-        padding: 0;
-        margin: 0; }
-      #header_menu ul li[data-menu-level="0"] a {
-        text-decoration: none;
-        color: #013B5E;
-        width: 100%;
-        text-align: center; }
-    #header_menu ul ul[data-menu-level="1"] {
-      display: none; }
-
-#header_menu {
-  /*@include outer-container;*/
-  width: 1024px;
-  height: 72px; }
-  #header_menu #block-achp-main-menu ul[data-menu-level="0"] {
-    /*@include span-columns(5);*/
+  #header_menu ul[data-menu-level="0"] {
     margin: 0 auto;
     height: 72px;
     -js-display: flex;
     display: flex;
     justify-content: space-between;
     width: 100%; }
-    #header_menu #block-achp-main-menu ul[data-menu-level="0"] li[data-menu-level="0"] {
+    #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] {
+      border: 3px solid transparent;
+      list-style-type: none;
+      text-align: center;
+      margin: 0 20px 0 0;
       text-align: center;
       height: 75px;
-      padding: 0 10px;
-      /*      @include transform(translateY(50%));
-            position: relative;
-            top: -25%;*/ }
-      #header_menu #block-achp-main-menu ul[data-menu-level="0"] li[data-menu-level="0"] > a {
-        display: block;
+      padding: 0 10px; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected {
+        border: 3px solid #9B0008;
+        border-bottom: none;
+        background: white; }
+        #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected a {
+          color: #008BFD; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] > a {
         padding: 0;
-        margin: 0; }
+        margin: 0;
+        display: block; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] a {
+        text-decoration: none;
+        color: #013B5E;
+        width: 100%;
+        text-align: center; }
+    #header_menu ul[data-menu-level="0"] ul[data-menu-level="1"] {
+      display: none; }
 
 #subheader_widescreen {
   position: relative;
@@ -287,13 +261,7 @@ html {
     #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu {
       width: 1024px;
       margin: 0 auto;
-      /*border: 3px solid $color-red;*/
       padding: 0;
-      /*      &:after {
-              clear: both;
-              content: "";      
-              display: block; 
-            }*/
       /*      ul[data-menu-column-shift="1"] {
               @include shift(1 of 5);
             }
@@ -331,7 +299,6 @@ html {
           padding: 22px 15px 0 0;
           font-size: 1.25rem; }
           #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] li[data-menu-level="1"] > a {
-            /*border-bottom: 1px solid $color-red;*/
             color: #043B62;
             line-height: 1.25; }
       #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] {
@@ -351,8 +318,7 @@ html {
           height: 1px;
           width: 100%;
           background-color: #9B0008;
-          display: inline-block;
-          /*line-height: 1px;*/ }
+          display: inline-block; }
       #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"] {
         float: left;
         display: block;
@@ -455,12 +421,12 @@ html {
           cursor: pointer;
           color: #4F4F4F;
           font-size: 0.875rem; }
-        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"] {
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"], #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="1"] {
           cursor: pointer;
           padding: 16px 0;
           border-bottom: 1px solid #E2E2E2;
           font-size: 0.875rem; }
-          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"]:hover {
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="1"]:hover {
             color: #309AEE;
             background-color: #E8F8FF; }
         #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item:after {
@@ -544,11 +510,7 @@ html {
     width: auto; }
 
   #header_menu {
-    height: 20px;
-    /*    #header_menu_search_toggle_button {
-          float: right;
-          margin: 23px 40px;
-        }*/ } }
+    height: 20px; } }
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
