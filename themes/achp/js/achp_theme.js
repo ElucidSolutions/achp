@@ -275,6 +275,11 @@
       }));
     });
 
+    // To remove line breaks from slide titles that have them
+    if ($(titleElement).html() && $(titleElement).html().indexOf('<br>') >= 0) {
+      removeMenuItemLineBreaks (titleElement);
+    }
+
     var slide = $('<div></div>')
       .addClass ('menu_slide')
       .attr('data-menu-slide-index', index)
@@ -526,17 +531,30 @@
     }, 0);
   }
 
+  /*
+  Accepts no arguments, returns undefined, and filters the menu options
+  on the first slide for any with line breaks.
+  */
   function removeMenuHeaderLineBreaks () {
-    $('.menu_slide[data-menu-slide-index="0"] .menu_slide_list_item').each (function (i, titleElement) {
+    $('.menu_slide[data-menu-slide-index="0"] .menu_slide_list_item').each 
+      (function (i, titleElement) {
       titleElement = $(titleElement);
-      var titleElementText = $(titleElement).html();
-      titleElement.html (formatMenuHeader (titleElement.html ()));
-      if (titleElementText.indexOf('<br>') >= 0) {
-        var newTitleElementText = titleElementText.replace('<br>', ' ');
-        // console.log(newTitleElementText)
-        titleElement.html(newTitleElementText);
+      if (titleElement.html().indexOf('<br>') >= 0) {
+        removeMenuItemLineBreaks (titleElement);
       }
     })
+  }
+
+  /*
+  Accepts one argument: an HTML Element representing a menu item with a 
+  line break; returns the menu item with a space in place of the
+  line break.  
+  */
+  function removeMenuItemLineBreaks (menuItem) {
+    menuItem = $(menuItem);
+    if (menuItem.html().indexOf('<br>') >= 0) {
+      return menuItem.html(menuItem.html().replace('<br>', ' '));
+    }
   }
 
   /*
@@ -579,6 +597,7 @@
   */
   function openMobileCollapsible() {
     openMobileSubheader ();
+    removeMenuHeaderLineBreaks ()
     $('#subheader_mobile_collapsible').slideDown ();
   }
 
