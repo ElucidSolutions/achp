@@ -10,18 +10,17 @@
   position: relative;
   border-bottom: $color-darkblue;
   z-index: 900;
-  max-height: $header-region-height;
+  height: $header-region-height;
 
   ul {
     margin: 0 auto;
     padding-left: 0;
-    max-width: 1024px;
     z-index: 901;
 
     li[data-menu-level="0"].menu_selected {
       border: 3px solid $color-red2;
       border-bottom: none;
-      box-shadow: 0px -3px 0 0 white inset;
+      background: white;
 
       a {
         color: $color-lightblue2;
@@ -30,24 +29,20 @@
     }
 
     li[data-menu-level="0"] {
-      float: left;
+      border: 3px solid rgba(0,0,0,0);
       list-style-type: none;
-      width: 150px;
-      /*display: inline-block;*/
-      text-align: left;
-      padding: 0;
-      height: $header-region-height + 3px;
-      /* 3px is to account for the box-shadow height*/
-      position: relative;
+      text-align: center;
+/*      height: $header-region-height + 3px;*/
+      margin: 0 20px 0 0;
 
       > a {
-        padding: 10px;
+        padding: 0;
+        margin: 0;
       }
 
       a {
         text-decoration: none;
         color: $color-medblue;
-        @include center-y;
         width: 100%;
         text-align: center;
       }
@@ -75,16 +70,30 @@
 
 
 #header_menu {
-  @include outer-container;
+  /*@include outer-container;*/
   width: 1024px;
+  height: $header-region-height;
 
   #block-achp-main-menu ul[data-menu-level="0"] {
-    @include span-columns(5);
-    width: 100%;
+    /*@include span-columns(5);*/
     margin: 0 auto;
+    height: $header-region-height;    
 
     li[data-menu-level="0"] {
-      @include span-columns(1 of 5);
+      float: left;
+      text-align: center;
+      height: $header-region-height + 3px;
+      padding: 0 10px;
+
+      > a {
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+
+/*      @include transform(translateY(50%));
+      position: relative;
+      top: -25%;*/
     }
   }
 }
@@ -182,7 +191,6 @@
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 1);
-          /*@include omega;*/
         }
       }
       ul[data-menu-level="1"][data-menu-num-children="2"] {
@@ -190,7 +198,6 @@
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 2);
-          /*@include omega;*/
         }
       }
       ul[data-menu-level="1"][data-menu-num-children="3"] {
@@ -198,7 +205,7 @@
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 3);
-          /*@include omega;*/
+
         }
       }
       ul[data-menu-level="1"][data-menu-num-children="4"] {
@@ -206,7 +213,6 @@
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 4);
-          /*@include omega;*/
         }
       }
       ul[data-menu-level="1"][data-menu-num-children="5"] {
@@ -214,11 +220,10 @@
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 5);
-          /*@include omega;*/
         }
       }
 
-      ul[data-menu-column-shift="1"] {
+/*      ul[data-menu-column-shift="1"] {
         @include shift(1 of 5);
       }
 
@@ -232,7 +237,7 @@
 
       ul[data-menu-column-shift="4"] {
         @include shift(4 of 5);
-      }
+      }*/
     }
   }
 }

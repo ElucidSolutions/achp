@@ -165,21 +165,21 @@
   menu-column-shift data attributes for the widescren dropdown menu
   element, which are used for its positioning.
   */
-  function setDropdownMenuOffsets () {
-    var dropdownSubmenu = $('#subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"]');
-    var numDropdownSubmenuColumns = $('>li', dropdownSubmenu).length;
-    var parentIndex = dropdownSubmenu.attr ('data-menu-parent-index');
-    var parentLocalIndex = $('#header_menu li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]').attr ('data-menu-item-local-index');
-    var numParentSiblings = $('#header_menu ul[data-menu-level="0"] > li[data-menu-level="0"]').length;
-    var numParentSiblingsRemaining = numParentSiblings - parentLocalIndex;
-    dropdownSubmenu
-      .attr ('data-menu-num-columns', numParentSiblings)
-      .attr ('data-menu-column-shift', 
-        numDropdownSubmenuColumns <= numParentSiblingsRemaining ?
-          parentLocalIndex : 
-          parentLocalIndex - (numDropdownSubmenuColumns - numParentSiblingsRemaining)
-      );
-  }
+  // function setDropdownMenuOffsets () {
+  //   var dropdownSubmenu = $('#subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"]');
+  //   var numDropdownSubmenuColumns = $('>li', dropdownSubmenu).length;
+  //   var parentIndex = dropdownSubmenu.attr ('data-menu-parent-index');
+  //   var parentLocalIndex = $('#header_menu li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]').attr ('data-menu-item-local-index');
+  //   var numParentSiblings = $('#header_menu ul[data-menu-level="0"] > li[data-menu-level="0"]').length;
+  //   var numParentSiblingsRemaining = numParentSiblings - parentLocalIndex;
+  //   dropdownSubmenu
+  //     .attr ('data-menu-num-columns', numParentSiblings)
+  //     .attr ('data-menu-column-shift', 
+  //       numDropdownSubmenuColumns <= numParentSiblingsRemaining ?
+  //         parentLocalIndex : 
+  //         parentLocalIndex - (numDropdownSubmenuColumns - numParentSiblingsRemaining)
+  //     );
+  // }
 
   /*
   Accepts no arguments, returns undefined, and removes the class 
@@ -369,8 +369,40 @@
   */
   function openHeaderMenu () {
     formatMenuHeaders ();
+    setHorizontalPositionHeader ();
+    setVerticalPositionHeader ();
     $('#block-achp-main-menu').show ();
   }
+
+  /*
+  Accepts no arguments, returns undefined, and horizontally
+  centers header menu list.
+  */
+  function setHorizontalPositionHeader () {
+    var menuElement = $('#header_menu');
+    var menuListElement = $('ul[data-menu-level="0"]', menuElement);
+    var menuListItemsTotalWidth = Math.ceil ($('li[data-menu-level="0"]', menuElement).toArray ().reduce (
+      function (totalWidth, menuItemElement) {
+        return totalWidth + $(menuItemElement).outerWidth (true);
+      }, 10)); // Setting initial value of 10 to account for borders being counted as part of content area
+    var horizontalOffset = (menuElement.width () / 2) - (menuListElement.width () / 2);
+    menuListElement.innerWidth (menuListItemsTotalWidth)
+                   .css ('transform', 'translateX(' + horizontalOffset + 'px)');
+  }  
+
+  /*
+  Accepts no arguments, returns undefined, and vertically
+  centers header menu list items.
+  */
+  function setVerticalPositionHeader () {
+    var menuElement = $('#header_menu');
+    var menuElementOffset = menuElement.height () / 2;
+    $('li[data-menu-level="0"] > a', menuElement).each (function (i, menuItemElement) {
+      menuItemElement = $(menuItemElement);
+      var verticalOffset = menuElementOffset - (menuItemElement.height () / 2);
+      menuItemElement.css ('transform', 'translateY(' + verticalOffset + 'px)')
+    });
+  }  
 
   /*
     Accepts one argument: submenu, a jQuery HTML Element;
@@ -384,6 +416,36 @@
     selectDropdownMenuParent (submenu);
     alignSubmenuHeaders (); 
     $('#subheader_widescreen_submenu').slideDown ();
+  }
+
+  /*
+  Accepts no arguments, returns undefined, and sets menu-num-columns and 
+  menu-column-shift data attributes for the widescren dropdown menu
+  element, which are used for its positioning.
+  */
+  function setDropdownMenuOffsets () {
+    var dropdownSubmenu = $('#subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"]');
+    var numDropdownSubmenuColumns = $('>li', dropdownSubmenu).length;
+    var parentIndex = dropdownSubmenu.attr ('data-menu-parent-index');
+    var headerMenuElement = $('#header_menu');
+    var parentElement = $('li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]', headerMenuElement);
+    // var parentLocalIndex = $('#header_menu li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]').attr ('data-menu-item-local-index');
+    // var numParentSiblings = $('#header_menu ul[data-menu-level="0"] > li[data-menu-level="0"]').length;
+    // var numParentSiblingsRemaining = numParentSiblings - parentLocalIndex;
+    var parentElementOffset = parentElement.position ().left;
+    var remainingWidth = headerMenuElement.width () - parentElementOffset;
+    dropdownSubmenu
+      .css ('left', 
+        remainingWidth < dropdownSubmenu.width () ?
+          parentElementOffset - (dropdownSubmenu.width () - remainingWidth) :
+          parentElementOffset
+      );
+      // .attr ('data-menu-num-columns', numParentSiblings)
+      // .attr ('data-menu-column-shift', 
+      //   numDropdownSubmenuColumns <= numParentSiblingsRemaining ?
+      //     parentLocalIndex : 
+      //     parentLocalIndex - (numDropdownSubmenuColumns - numParentSiblingsRemaining)
+      // );
   }
 
   /*
@@ -409,8 +471,8 @@
   function formatMenuHeaders () {
     $('#header_menu li[data-menu-level="0"] > a').each (function (i, titleElement) {
       titleElement = $(titleElement);
-      titleElement.html (formatMenuHeader (maxNumLines, titleElement.html ()));
-    })
+      titleElement.html (formatMenuHeader (titleElement.html ()));
+    });
   }
 
   /*
