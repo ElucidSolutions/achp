@@ -19,7 +19,14 @@
     // Initialize display
     formatMenuHeaders ();
     setVerticalPositionHeader ();
+    appendIconToSearch ();
     flexibility(document.documentElement);
+
+    function appendIconToSearch () {
+      // $('#block-achp-search').append ('<embed src="/themes/achp/images/search-icon.svg" type="" id="svg-search-icon">');
+      $('#block-achp-search').append ('<object type="image/svg+xml" data="/themes/achp/images/search-icon.svg" id="svg-search-icon"></object>');
+
+    }
 
     // I. Create mobile menu slide
     $('#subheader_mobile_body').append (createMenuSlides (getMenuList ()));
@@ -272,7 +279,9 @@
           .click (function () {
             showMenuSlide (containerElement, $(menuListItem).attr ('data-menu-item-index'));
             slide.hide ();
-      }));
+          })
+          .append ('<embed src="/themes/achp/images/right-arrow-icon.svg" type="" class="menu_slide_list_item_arrow">')
+        );
     });
 
     // To remove line breaks from slide titles that have them

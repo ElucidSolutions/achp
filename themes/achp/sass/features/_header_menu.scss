@@ -237,7 +237,11 @@
       #subheader_mobile_body {
         width: 100%;
         height: auto;
-              padding: 0 24px;
+        border-top: 1px solid $color-grey3;
+
+        .menu_slide_container {
+          margin: 0;
+        }
 
         .menu_slide_container .menu_slide {
           display: none;
@@ -250,16 +254,26 @@
             border-bottom: 1px solid $color-red2;
             display: inline-block;
             width: 100%;
-            padding: 16px 0 7px;
+            padding: 16px 24px 7px;
+            margin: 0;
           }
           
           .menu_slide_header_back_button {
             cursor: pointer;
             color: $color-grey;
             font-size: 0.875rem;
+            padding: 10px 24px 0;
 
             &:before {
               content: url('../images/left-arrow-icon.svg');
+            }
+          }
+
+          .menu_slide_body {
+            padding: 0 24px;
+
+            > ul {
+              margin: 0;
             }
           }
 
@@ -275,12 +289,11 @@
             }
           }
 
-          .menu_slide_list_item:after {
-            content: url('../images/right-arrow-icon.svg');
+          .menu_slide_list_item_arrow {
+            /*content: url('../images/right-arrow-icon.svg');*/
             float: right;
-            width: 5px;
+            width: 8px;
             height: 12px;
-            margin-right: 10px;
           }
 
           ul {
@@ -341,11 +354,68 @@
   }
 }
 
+/*svg path {
+  fill: #fff !important;
+}
+
+#search-icon {
+  path {
+    fill: #fff;
+  }
+}
+*/
+#svg-search-icon {
+  fill: #fff;
+}
+
+#svg-search-icon path {
+  fill: #fff;
+}
+
+object {
+  fill: #fff;
+}
+
+object path {
+  fill: #fff;
+}
+
+
 #block-achp-search {
-  height: 50px;
-  margin: 0px;
+  height: 55px;
+  margin: 0;
   width: 100%;
-  padding: 0 24px 0;
+  padding: 0 24px 20px;
+
+  #svg-search-icon {
+    background-color: $color-blue;
+    background-size: 45%;
+    width: 35px;
+    height: 35px;
+    padding: 9px;
+    float: right;
+    top: -45px;
+    position: relative;
+    border-radius: 0 2px 2px 0;
+  }
+
+
+
+/*  &:after {
+    content: "";
+    background-image: url('../images/search-icon.svg');
+    background-position: center;
+    color: white;
+    background-repeat: no-repeat;
+    background-color: $color-blue;
+    background-size: 45%;
+    width: 35px;
+    height: 35px;
+    float: right;
+    top: -45px;
+    position: relative;
+    border-radius: 0 2px 2px 0;
+  }*/
 
   #search-block-form {
     height: 100%;
@@ -359,10 +429,12 @@
       input.form-search {
         /* TODO: Add mag glass*/
         border: 1px solid #979797;
+        font-size: 12px;
         border-radius: 2px;
         height: 100%;
+        line-height: 1.25;
         outline: none;
-        padding: 15px 11px 11px;
+        padding: 15px 11px;
         width: 100%;
       }
     }
@@ -377,7 +449,7 @@
       width: 10%;
 
       input.form-submit {
-        background: url('../images/search-icon.svg') no-repeat 50% 50%;
+        /*background: url('../images/search-icon.svg') no-repeat 50% 50%;*/
         border: none;
         height: 100%;
         width: 100%;

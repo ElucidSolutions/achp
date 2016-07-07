@@ -418,7 +418,9 @@ html {
     #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body {
       width: 100%;
       height: auto;
-      padding: 0 24px; }
+      border-top: 1px solid #E2E2E2; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container {
+        margin: 0; }
       #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide {
         display: none; }
         #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide[data-menu-slide-index="0"] {
@@ -427,13 +429,19 @@ html {
           border-bottom: 1px solid #9B0008;
           display: inline-block;
           width: 100%;
-          padding: 16px 0 7px; }
+          padding: 16px 24px 7px;
+          margin: 0; }
         #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_header_back_button {
           cursor: pointer;
           color: #4F4F4F;
-          font-size: 0.875rem; }
+          font-size: 0.875rem;
+          padding: 10px 24px 0; }
           #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_header_back_button:before {
             content: url("../images/left-arrow-icon.svg"); }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_body {
+          padding: 0 24px; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_body > ul {
+            margin: 0; }
         #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"], #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="1"] {
           cursor: pointer;
           padding: 16px 0;
@@ -442,12 +450,11 @@ html {
           #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="1"]:hover {
             color: #309AEE;
             background-color: #E8F8FF; }
-        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item:after {
-          content: url("../images/right-arrow-icon.svg");
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item_arrow {
+          /*content: url('../images/right-arrow-icon.svg');*/
           float: right;
-          width: 5px;
-          height: 12px;
-          margin-right: 10px; }
+          width: 8px;
+          height: 12px; }
         #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide ul {
           list-style-type: none;
           padding: 0; }
@@ -484,11 +491,58 @@ html {
       font-size: 0.875rem;
       font-weight: 500; }
 
+/*svg path {
+  fill: #fff !important;
+}
+
+#search-icon {
+  path {
+    fill: #fff;
+  }
+}
+*/
+#svg-search-icon {
+  fill: #fff; }
+
+#svg-search-icon path {
+  fill: #fff; }
+
+object {
+  fill: #fff; }
+
+object path {
+  fill: #fff; }
+
 #block-achp-search {
-  height: 50px;
-  margin: 0px;
+  height: 55px;
+  margin: 0;
   width: 100%;
-  padding: 0 24px 0; }
+  padding: 0 24px 20px;
+  /*  &:after {
+      content: "";
+      background-image: url('../images/search-icon.svg');
+      background-position: center;
+      color: white;
+      background-repeat: no-repeat;
+      background-color: $color-blue;
+      background-size: 45%;
+      width: 35px;
+      height: 35px;
+      float: right;
+      top: -45px;
+      position: relative;
+      border-radius: 0 2px 2px 0;
+    }*/ }
+  #block-achp-search #svg-search-icon {
+    background-color: #0990FE;
+    background-size: 45%;
+    width: 35px;
+    height: 35px;
+    padding: 9px;
+    float: right;
+    top: -45px;
+    position: relative;
+    border-radius: 0 2px 2px 0; }
   #block-achp-search #search-block-form {
     height: 100%;
     /* TODO: This is (currently inactive) code for the search icon as form submission - 
@@ -501,10 +555,12 @@ html {
       #block-achp-search #search-block-form .form-item input.form-search {
         /* TODO: Add mag glass*/
         border: 1px solid #979797;
+        font-size: 12px;
         border-radius: 2px;
         height: 100%;
+        line-height: 1.25;
         outline: none;
-        padding: 15px 11px 11px;
+        padding: 15px 11px;
         width: 100%; }
     #block-achp-search #search-block-form .form-actions {
       display: none;
@@ -513,7 +569,7 @@ html {
       margin: 0px;
       width: 10%; }
       #block-achp-search #search-block-form .form-actions input.form-submit {
-        background: url("../images/search-icon.svg") no-repeat 50% 50%;
+        /*background: url('../images/search-icon.svg') no-repeat 50% 50%;*/
         border: none;
         height: 100%;
         width: 100%; }
