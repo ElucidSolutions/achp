@@ -261,16 +261,18 @@
           .menu_slide_header_back_button {
             cursor: pointer;
             color: $color-grey;
-            font-size: 0.875rem;
-            padding: 10px 24px 0;
+            font-size: 0.75rem;
+            padding: 10px 24px 0 10px;
 
             &:before {
               content: url('../images/left-arrow-icon.svg');
+              height: 8px;
+              width: 8px;
             }
           }
 
           .menu_slide_body {
-            padding: 0 24px;
+            color: $color-grey2;
 
             > ul {
               margin: 0;
@@ -279,7 +281,7 @@
 
           .menu_slide_list_item, li[data-menu-level="2"], li[data-menu-level="1"] {
             cursor: pointer;
-            padding: 16px 0;
+            padding: 16px 24px;
             border-bottom: 1px solid $color-grey3;
             font-size: 0.875rem;
 
@@ -287,13 +289,26 @@
               color: $color-lightblue;
               background-color: $background-color-lightblue;
             }
-          }
 
-          .menu_slide_list_item_arrow {
-            /*content: url('../images/right-arrow-icon.svg');*/
-            float: right;
-            width: 8px;
-            height: 12px;
+/*            &:after {
+              content: "";
+              background-image: url('../images/right-arrow-icon.svg');
+              background-repeat: no-repeat;
+              width: 8px;
+              height: 16px;
+              position: absolute;
+              right: 24px;
+            }*/
+
+           .menu_slide_list_item_arrow {
+/*              content: "";
+              background-image: url('../images/right-arrow-icon.svg');
+              background-repeat: no-repeat;*/
+              width: 8px;
+              height: 16px;
+              position: absolute;
+              right: 24px;
+            }
           }
 
           ul {
@@ -387,7 +402,7 @@ object path {
   width: 100%;
   padding: 0 24px 20px;
 
-  #svg-search-icon {
+/*  #svg-search-icon {
     background-color: $color-blue;
     background-size: 45%;
     width: 35px;
@@ -397,25 +412,23 @@ object path {
     top: -45px;
     position: relative;
     border-radius: 0 2px 2px 0;
-  }
+  }*/
 
-
-
-/*  &:after {
+  &:after {
     content: "";
-    background-image: url('../images/search-icon.svg');
-    background-position: center;
-    color: white;
+    background: url('../images/search-icon.svg');
     background-repeat: no-repeat;
     background-color: $color-blue;
+    background-position: center;
     background-size: 45%;
     width: 35px;
     height: 35px;
+    padding: 9px;
     float: right;
     top: -45px;
     position: relative;
     border-radius: 0 2px 2px 0;
-  }*/
+  }
 
   #search-block-form {
     height: 100%;

@@ -19,13 +19,20 @@
     // Initialize display
     formatMenuHeaders ();
     setVerticalPositionHeader ();
-    appendIconToSearch ();
     flexibility(document.documentElement);
 
-    function appendIconToSearch () {
-      // $('#block-achp-search').append ('<embed src="/themes/achp/images/search-icon.svg" type="" id="svg-search-icon">');
-      $('#block-achp-search').append ('<object type="image/svg+xml" data="/themes/achp/images/search-icon.svg" id="svg-search-icon"></object>');
+    function hoverOnMobileMenu () {
+      console.log('reached');
+      console.log($('.menu_slide_list_item'));
+      $('.menu_slide_list_item').append ('<span class="menu_slide_list_item_arrow"><object type="image/svg+xml" data="/themes/achp/images/right-arrow-icon.svg"></object></span>');
 
+      $('.menu_slide_list_item').hover(
+        function (e) {
+          $(e.target).find($('.menu_slide_list_item_arrow')).html('<object type="image/svg+xml" data="/themes/achp/images/right-arrow-icon-blue.svg" class="menu_slide_list_item_arrow"></object>');
+        },
+        function (e) {
+          $(e.target).find($('.menu_slide_list_item_arrow')).html('<object type="image/svg+xml" data="/themes/achp/images/right-arrow-icon.svg" class="menu_slide_list_item_arrow"></object>');
+        })
     }
 
     // I. Create mobile menu slide
@@ -253,6 +260,8 @@
         Array.prototype.push.apply (slides, createSubmenuSlides (menuList, containerElement, $(submenuListItem)));
       })
 
+      hoverOnMobileMenu ();
+
       return slides;
   }
 
@@ -280,7 +289,7 @@
             showMenuSlide (containerElement, $(menuListItem).attr ('data-menu-item-index'));
             slide.hide ();
           })
-          .append ('<embed src="/themes/achp/images/right-arrow-icon.svg" type="" class="menu_slide_list_item_arrow">')
+          // .append ('<embed src="/themes/achp/images/right-arrow-icon.svg" type="" class="menu_slide_list_item_arrow">')
         );
     });
 
@@ -635,6 +644,7 @@
   */
   function moveSearchBlockToHeader () {
     $('#header_widescreen_search_bar').append (getSearchBlockElement ());
+    console.log('called')
   }
 
   /*
