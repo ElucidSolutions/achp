@@ -18,22 +18,7 @@
 
     // Initialize display
     formatMenuHeaders ();
-    setVerticalPositionHeader ();
     flexibility(document.documentElement);
-
-    function hoverOnMobileMenu () {
-      console.log('reached');
-      console.log($('.menu_slide_list_item'));
-      $('.menu_slide_list_item').append ('<span class="menu_slide_list_item_arrow"><object type="image/svg+xml" data="/themes/achp/images/right-arrow-icon.svg"></object></span>');
-
-      $('.menu_slide_list_item').hover(
-        function (e) {
-          $(e.target).find($('.menu_slide_list_item_arrow')).html('<object type="image/svg+xml" data="/themes/achp/images/right-arrow-icon-blue.svg" class="menu_slide_list_item_arrow"></object>');
-        },
-        function (e) {
-          $(e.target).find($('.menu_slide_list_item_arrow')).html('<object type="image/svg+xml" data="/themes/achp/images/right-arrow-icon.svg" class="menu_slide_list_item_arrow"></object>');
-        })
-    }
 
     // I. Create mobile menu slide
     $('#subheader_mobile_body').append (createMenuSlides (getMenuList ()));
@@ -145,7 +130,6 @@
     })());
   });
 
-
   /* 
     Accepts two arguments:
 
@@ -252,17 +236,15 @@
     var slide = createSlide (containerElement, index, $('>a', getMenuItem (menuList, index).clone ()), submenuListItems, parentIndex)
       .attr('data-menu-slide-parent-index', parentIndex);
 
-      // II. Add menu list item slide to slides array
-      slides.push (slide);
+    // II. Add menu list item slide to slides array
+    slides.push (slide);
 
-      // III. Create submenu slides
-      submenuListItems.each (function (i, submenuListItem) {
-        Array.prototype.push.apply (slides, createSubmenuSlides (menuList, containerElement, $(submenuListItem)));
-      })
+    // III. Create submenu slides
+    submenuListItems.each (function (i, submenuListItem) {
+      Array.prototype.push.apply (slides, createSubmenuSlides (menuList, containerElement, $(submenuListItem)));
+    })
 
-      hoverOnMobileMenu ();
-
-      return slides;
+    return slides;
   }
 
   /*
@@ -289,7 +271,22 @@
             showMenuSlide (containerElement, $(menuListItem).attr ('data-menu-item-index'));
             slide.hide ();
           })
-          // .append ('<embed src="/themes/achp/images/right-arrow-icon.svg" type="" class="menu_slide_list_item_arrow">')
+          .append ($('<span></span>')
+            .addClass('menu_slide_list_item_arrow')
+            .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" type="">')
+          )
+          .append ($('<span></span>')
+            .addClass('menu_slide_list_item_arrow_blue')
+            .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" type="">')
+          )          
+          .hover (function(e) {
+            var arrowToReplace = $('.menu_slide_list_item_arrow', $(e.target));
+            arrowToReplace.replaceWith ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" class="menu_slide_list_item_arrow" type="">')
+          },
+          function (e) {
+            var arrowToReplace = $('.menu_slide_list_item_arrow', $(e.target));
+            arrowToReplace.replaceWith ('<embed src="/themes/achp/images/right-arrow-icon.svg" class="menu_slide_list_item_arrow" type="">')
+          })
         );
     });
 
@@ -333,7 +330,7 @@
       slide.find('.menu_slide_header_title').empty();
     }
   
-      return slide;
+    return slide;
   }
 
   /*
@@ -422,15 +419,15 @@
   Accepts no arguments, returns undefined, and vertically
   centers header menu list items.
   */
-  function setVerticalPositionHeader () {
-    var menuElement = $('#header_menu');
-    var menuElementOffset = menuElement.height () / 2;
-    $('li[data-menu-level="0"] > a', menuElement).each (function (i, menuItemElement) {
-      menuItemElement = $(menuItemElement);
-      var verticalOffset = menuElementOffset - (menuItemElement.height () / 2);
-      menuItemElement.css ('transform', 'translateY(' + verticalOffset + 'px)')
-    });
-  }  
+  // function setVerticalPositionHeader () {
+  //   var menuElement = $('#header_menu');
+  //   var menuElementOffset = menuElement.height () / 2;
+  //   $('li[data-menu-level="0"] > a', menuElement).each (function (i, menuItemElement) {
+  //     menuItemElement = $(menuItemElement);
+  //     var verticalOffset = menuElementOffset - (menuItemElement.height () / 2);
+  //     menuItemElement.css ('transform', 'translateY(' + verticalOffset + 'px)')
+  //   });
+  // }  
 
   /*
     Accepts one argument: submenu, a jQuery HTML Element;
@@ -644,7 +641,6 @@
   */
   function moveSearchBlockToHeader () {
     $('#header_widescreen_search_bar').append (getSearchBlockElement ());
-    console.log('called')
   }
 
   /*

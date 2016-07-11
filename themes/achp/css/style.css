@@ -230,7 +230,15 @@ html {
       #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] > a {
         padding: 0;
         margin: 0;
-        display: block; }
+        display: block;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: relative; }
       #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] a {
         text-decoration: none;
         color: #013B5E;
@@ -457,14 +465,12 @@ html {
                         height: 16px;
                         position: absolute;
                         right: 24px;
-                      }*/ }
+                      }
+          */ }
           #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="1"]:hover {
             color: #309AEE;
             background-color: #E8F8FF; }
-          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item .menu_slide_list_item_arrow, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"] .menu_slide_list_item_arrow, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="1"] .menu_slide_list_item_arrow {
-            /*              content: "";
-                          background-image: url('../images/right-arrow-icon.svg');
-                          background-repeat: no-repeat;*/
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item .menu_slide_list_item_arrow, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_list_item .menu_slide_list_item_arrow_blue, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"] .menu_slide_list_item_arrow, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="2"] .menu_slide_list_item_arrow_blue, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="1"] .menu_slide_list_item_arrow, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide li[data-menu-level="1"] .menu_slide_list_item_arrow_blue {
             width: 8px;
             height: 16px;
             position: absolute;

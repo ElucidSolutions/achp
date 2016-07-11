@@ -34,7 +34,8 @@
       margin: 0 20px 0 0;
       text-align: center;
       height: $header-region-height + $header-region-border-width;
-      padding: 0 10px;      
+      padding: 0 10px;
+
 
       &.menu_selected {
         border: $header-region-border-width solid $color-red2;
@@ -50,6 +51,8 @@
         padding: 0;
         margin: 0;
         display: block;
+        @include center-y;
+        position: relative;
       }
 
       a {
@@ -298,17 +301,21 @@
               height: 16px;
               position: absolute;
               right: 24px;
-            }*/
-
-           .menu_slide_list_item_arrow {
-/*              content: "";
-              background-image: url('../images/right-arrow-icon.svg');
-              background-repeat: no-repeat;*/
+            }
+*/
+            .menu_slide_list_item_arrow, .menu_slide_list_item_arrow_blue {
               width: 8px;
               height: 16px;
               position: absolute;
               right: 24px;
             }
+
+            .menu_slide_list_item_arrow {
+            }
+
+            .menu_slide_list_item_arrow_blue {
+            }
+
           }
 
           ul {
