@@ -272,20 +272,19 @@
             slide.hide ();
           })
           .append ($('<span></span>')
-            .addClass('menu_slide_list_item_arrow')
-            .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" type="">')
-          )
-          .append ($('<span></span>')
             .addClass('menu_slide_list_item_arrow_blue')
-            .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" type="">')
-          )          
-          .hover (function(e) {
-            var arrowToReplace = $('.menu_slide_list_item_arrow', $(e.target));
-            arrowToReplace.replaceWith ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" class="menu_slide_list_item_arrow" type="">')
-          },
-          function (e) {
-            var arrowToReplace = $('.menu_slide_list_item_arrow', $(e.target));
-            arrowToReplace.replaceWith ('<embed src="/themes/achp/images/right-arrow-icon.svg" class="menu_slide_list_item_arrow" type="">')
+            .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
+          )   
+          .append ($('<span></span>')
+            .addClass('menu_slide_list_item_arrow')
+            .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
+          )       
+          .hover (
+            function (e) {
+              $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
+            },
+            function (e) {
+              $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
           })
         );
     });
