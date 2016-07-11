@@ -221,6 +221,8 @@ html {
       text-align: center;
       height: 75px;
       padding: 0 10px; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"]:last-of-type {
+        margin: 0; }
       #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected {
         border: 3px solid #9B0008;
         border-bottom: none;

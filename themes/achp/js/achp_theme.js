@@ -66,7 +66,7 @@
     $.breakpoint ((function () {
       return {
         condition: function () {
-          return window.matchMedia ('only screen and (min-width: 950px)').matches;
+          return window.matchMedia ('only screen and (min-width: 1150px)').matches;
         },
         enter: function () {
           switch (headerMenuState) {
@@ -98,7 +98,7 @@
     $.breakpoint ((function () {
       return {
         condition: function () {
-          return window.matchMedia ('only screen and (max-width: 950px)').matches;
+          return window.matchMedia ('only screen and (max-width: 1150px)').matches;
         },
         enter: function () {
           switch (headerMenuState) {

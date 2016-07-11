@@ -36,6 +36,10 @@
       height: $header-region-height + $header-region-border-width;
       padding: 0 10px;
 
+      &:last-of-type {
+        margin: 0;
+      }
+
 
       &.menu_selected {
         border: $header-region-border-width solid $color-red2;
