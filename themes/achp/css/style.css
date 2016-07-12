@@ -398,7 +398,8 @@ html {
     #subheader #subheader_mobile_header #subheader_mobile_title {
       text-align: center;
       padding: 15px 0px;
-      color: #003A5E; }
+      color: #003A5E;
+      line-height: 1; }
       #subheader #subheader_mobile_header #subheader_mobile_title:before {
         content: "";
         background-image: url("../images/menu-icon.svg");
@@ -437,7 +438,7 @@ html {
           cursor: pointer;
           color: #4F4F4F;
           font-size: 0.75rem;
-          padding: 10px 24px 0 10px; }
+          padding: 10px 24px 0; }
           #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide .menu_slide_header_back_button:before {
             content: url("../images/left-arrow-icon.svg");
             height: 8px;
@@ -541,7 +542,7 @@ html {
       #block-achp-search #search-block-form .form-item input.form-search {
         /* TODO: Add mag glass*/
         border: 1px solid #979797;
-        font-size: 12px;
+        font-size: 0.75rem;
         border-radius: 2px;
         height: 100%;
         line-height: 1.25;
@@ -565,7 +566,7 @@ html {
     width: auto; }
 
   #header_menu {
-    height: 20px; } }
+    height: auto; } }
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */

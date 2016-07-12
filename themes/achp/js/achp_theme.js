@@ -80,7 +80,7 @@
               openHeaderMenu();
               closeMobileSubheaderHeader ();
               closeMobileSubheader ();
-              // moveSearchBlockToHeader ();
+              moveSearchBlockToHeader ();
               removeSelectedClassFromMenuItems ();
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
@@ -115,7 +115,7 @@
               closeHeaderMenu ();
               closeWidescreenDropdownMenu ();
               openMobileSubheaderHeader ();
-              // moveSearchBlockToMobileSearch ();
+              moveSearchBlockToMobileSearch ();
               return openMobileCollapsible ();
             case HEADER_MENU_MOBILE_DEFAULT_STATE:
             case HEADER_MENU_MOBILE_EXPANDED_STATE:
@@ -699,7 +699,7 @@
         return closeMobileSubheader ();
       case HEADER_MENU_MOBILE_DEFAULT_STATE:
         headerMenuState = HEADER_MENU_MOBILE_EXPANDED_STATE;
-        // moveSearchBlockToMobileSearch ();
+        moveSearchBlockToMobileSearch ();
         openMobileSubheaderHeader ();
         return openMobileCollapsible ();
       default:
