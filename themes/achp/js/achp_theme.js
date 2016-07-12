@@ -39,21 +39,21 @@
     });
 
     // // V. Handle subheader menu item hover events
-    // $('#header_menu li[data-menu-level="0"]').hover (
-    //   // On mouse enter, show submenu
-    //   function () {
-    //     openWidescreenSubmenu ($('> ul', this).clone ());
-    //   }, 
-    //   // On mouse exit, hide submenu
-    //   function () {
-    //     closeWidescreenSubmenu ();
-    // });
+    $('#header_menu li[data-menu-level="0"]').hover (
+      // On mouse enter, show submenu
+      function () {
+        openWidescreenSubmenu ($('> ul', this).clone ());
+      }, 
+      // On mouse exit, hide submenu
+      function () {
+        closeWidescreenSubmenu ();
+    });
 
     // For dev purposes
-    $('#header_menu li[data-menu-level="0"]').click (function(e) {
-      e.preventDefault();
-      openWidescreenSubmenu ($('> ul', this).clone ());
-    });
+    // $('#header_menu li[data-menu-level="0"]').click (function(e) {
+    //   e.preventDefault();
+    //   openWidescreenSubmenu ($('> ul', this).clone ());
+    // });
 
     // VI. Handle subheader menu click events
     $('#header_menu li[data-menu-level="0"]').click (function () {
@@ -80,7 +80,7 @@
               openHeaderMenu();
               closeMobileSubheaderHeader ();
               closeMobileSubheader ();
-              moveSearchBlockToHeader ();
+              // moveSearchBlockToHeader ();
               removeSelectedClassFromMenuItems ();
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
@@ -115,7 +115,7 @@
               closeHeaderMenu ();
               closeWidescreenDropdownMenu ();
               openMobileSubheaderHeader ();
-              moveSearchBlockToMobileSearch ();
+              // moveSearchBlockToMobileSearch ();
               return openMobileCollapsible ();
             case HEADER_MENU_MOBILE_DEFAULT_STATE:
             case HEADER_MENU_MOBILE_EXPANDED_STATE:
@@ -247,6 +247,26 @@
     return slides;
   }
 
+  function createMobileMenuHoverHandler (slideListItem) {
+    slideListItem .addClass ('menu_slide_list_item')
+                  .append ($('<span></span>')
+                    .addClass('menu_slide_list_item_arrow_blue')
+                    .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
+                  )   
+                  .append ($('<span></span>')
+                    .addClass('menu_slide_list_item_arrow')
+                    .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
+                  )       
+                  .hover (
+                    function (e) {
+                      $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
+                    },
+                    function (e) {
+                      $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
+                  });
+    return slideListItem;
+  }
+
   /*
   Accepts four arguments:
 
@@ -262,8 +282,10 @@
   function createSlide (containerElement, index, titleElement, menuListItems, parentIndex) {
     var slideListItems = [];
     menuListItems.each (function (i, menuListItem) {
-      slideListItems.push ($('>ul', menuListItem).length === 0 ?
-        slideListItem = $(menuListItem).clone () :
+      slideListItems.push ($('>ul', menuListItem).length === 0 ? 
+         slideListItem = $(menuListItem).clone ()
+         // createMobileMenuHoverHandler (slideListItem)
+         : 
         slideListItem = $('<li></li>')
           .addClass ('menu_slide_list_item')
           .html ($('>a', menuListItem).html ())
@@ -271,6 +293,7 @@
             showMenuSlide (containerElement, $(menuListItem).attr ('data-menu-item-index'));
             slide.hide ();
           })
+        // createMobileMenuHoverHandler (slideListItem)
           .append ($('<span></span>')
             .addClass('menu_slide_list_item_arrow_blue')
             .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
@@ -576,7 +599,9 @@
     and returns undefined.  
   */
   function closeWidescreenSubmenu () {
-    $('#subheader_widescreen_submenu').slideUp ().empty ();    
+    $('#subheader_widescreen_submenu').empty ();
+    // $('#subheader_widescreen_submenu').slideUp ().empty ();
+    removeSelectedClassFromMenuItems ()
   }
 
   /*
@@ -674,7 +699,7 @@
         return closeMobileSubheader ();
       case HEADER_MENU_MOBILE_DEFAULT_STATE:
         headerMenuState = HEADER_MENU_MOBILE_EXPANDED_STATE;
-        moveSearchBlockToMobileSearch ();
+        // moveSearchBlockToMobileSearch ();
         openMobileSubheaderHeader ();
         return openMobileCollapsible ();
       default:

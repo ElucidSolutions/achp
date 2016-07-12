@@ -215,6 +215,7 @@ html {
     width: 100%; }
     #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] {
       border: 3px solid transparent;
+      border-bottom: none;
       list-style-type: none;
       text-align: center;
       margin: 0 20px 0 0;
@@ -271,22 +272,7 @@ html {
     #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu {
       width: 1024px;
       margin: 0 auto;
-      padding: 0;
-      /*      ul[data-menu-column-shift="1"] {
-              @include shift(1 of 5);
-            }
-      
-            ul[data-menu-column-shift="2"] {
-              @include shift(2 of 5);
-            }
-      
-            ul[data-menu-column-shift="3"] {
-              @include shift(3 of 5);
-            }
-      
-            ul[data-menu-column-shift="4"] {
-              @include shift(4 of 5);
-            }*/ }
+      padding: 0; }
       #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul {
         padding: 5px 25px 20px 25px;
         position: relative;
@@ -410,13 +396,19 @@ html {
     display: none;
     width: 100%; }
     #subheader #subheader_mobile_header #subheader_mobile_title {
-      /* TODO: BG image Currently white, so invisible */
-      background-image: url("../images/menu-icon.svg");
-      background-position: 0px 18px;
-      background-repeat: no-repeat;
       text-align: center;
       padding: 15px 0px;
       color: #003A5E; }
+      #subheader #subheader_mobile_header #subheader_mobile_title:before {
+        content: "";
+        background-image: url("../images/menu-icon.svg");
+        background-repeat: no-repeat;
+        /*background-position: center;*/
+        background-size: 88% 100%;
+        padding: 13px;
+        position: relative;
+        right: 10px;
+        bottom: 2px; }
   #subheader #subheader_mobile #subheader_mobile_collapsible {
     display: none;
     padding: 0;
@@ -483,11 +475,12 @@ html {
             z-index: 800; }
         #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide ul {
           list-style-type: none;
-          padding: 0; }
+          padding: 0;
+          color: #1E1E1E; }
           #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container .menu_slide ul a {
             text-decoration: none;
-            color: #1E1E1E;
-            padding-left: 0; }
+            padding-left: 0;
+            color: inherit; }
       #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu {
         height: 100%;
         width: 100%;
@@ -517,44 +510,12 @@ html {
       font-size: 0.875rem;
       font-weight: 500; }
 
-/*svg path {
-  fill: #fff !important;
-}
-
-#search-icon {
-  path {
-    fill: #fff;
-  }
-}
-*/
-#svg-search-icon {
-  fill: #fff; }
-
-#svg-search-icon path {
-  fill: #fff; }
-
-object {
-  fill: #fff; }
-
-object path {
-  fill: #fff; }
-
 #block-achp-search {
+  /*#subheader_mobile_search {*/
   height: 55px;
   margin: 0;
   width: 100%;
-  padding: 0 24px 20px;
-  /*  #svg-search-icon {
-      background-color: $color-blue;
-      background-size: 45%;
-      width: 35px;
-      height: 35px;
-      padding: 9px;
-      float: right;
-      top: -45px;
-      position: relative;
-      border-radius: 0 2px 2px 0;
-    }*/ }
+  padding: 0 24px 20px; }
   #block-achp-search:after {
     content: "";
     background: url("../images/search-icon.svg");
@@ -571,8 +532,7 @@ object path {
     border-radius: 0 2px 2px 0; }
   #block-achp-search #search-block-form {
     height: 100%;
-    /* TODO: This is (currently inactive) code for the search icon as form submission - 
-    need to confirm on which screens we want this behavior */ }
+    /* TODO: This is (currently inactive) code for the search icon as form submission*/ }
     #block-achp-search #search-block-form .form-item {
       float: left;
       height: 100%;
@@ -595,12 +555,11 @@ object path {
       margin: 0px;
       width: 10%; }
       #block-achp-search #search-block-form .form-actions input.form-submit {
-        /*background: url('../images/search-icon.svg') no-repeat 50% 50%;*/
         border: none;
         height: 100%;
         width: 100%; }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1150px) {
   #header_region {
     height: auto;
     width: auto; }
