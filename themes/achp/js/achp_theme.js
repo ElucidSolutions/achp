@@ -108,6 +108,7 @@
               closeHeaderMenu ();
               closeWidescreenDropdownMenu ();
               openMobileSubheaderHeader ();
+              moveSearchBlockToMobileSearch ();
               return openMobileSubheader ();
             case HEADER_MENU_WIDESCREEN_HOVER_STATE:               
               headerMenuState = HEADER_MENU_MOBILE_EXPANDED_STATE;
@@ -601,7 +602,7 @@
   function closeWidescreenSubmenu () {
     $('#subheader_widescreen_submenu').empty ();
     // $('#subheader_widescreen_submenu').slideUp ().empty ();
-    removeSelectedClassFromMenuItems ()
+    removeSelectedClassFromMenuItems ();
   }
 
   /*
