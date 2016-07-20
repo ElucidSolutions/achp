@@ -123,51 +123,6 @@ button {
   font-weight: 500;
 }
 
-header {
-  background-color: $color-darkblue;
-  height: 140px;
-  /*position: relative;*/
-  padding: 0 50px;
-  display: none;
-
-  #header-logo {
-    display: none;
-  }
-
-/*  #block-headerbranding {
-    @include center-y;*/
-
-    #header_branding_logo {
-      /*float: left;*/
-      @include span-columns (1 of 12)
-    }
-    #header_branding_title {
-      /*float: left;*/
-      color: #fff;
-      text-shadow: 0;
-      font-weight: 300;
-      font-size: 2rem;
-      display: inline-block;
-      text-shadow: none;
-      @include span-columns (5 of 12);
-      text-align: left;
-      padding: 25px;
-      padding-left: 40px;
-      /*@include center-y;*/
-  /*    position: absolute;
-        top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);*/
-      /*max-width: 350px;*/
-    }
-  /*}*/
-}
-
-
-
 #homepage_hero_region {
   padding: 25px 50px;
   height: 500px;

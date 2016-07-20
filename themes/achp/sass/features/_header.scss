@@ -1,0 +1,113 @@
+header {
+  background-color: $color-darkblue;
+  /*background-color: pink;*/
+  height: 140px;
+  width: 100%;
+  @include outer-container(100%);
+
+  #header-container {
+    width: 1024px;
+    margin: 0 auto;
+    height: 140px;
+    /*@include span-columns(12);*/
+  }
+
+/*  #header_region {
+    display: inline-block;
+    @include span-columns (12);
+  }*/
+
+  #header_left_half, #header_right_half {
+    /*@include span-columns(6 of 12);*/
+    max-height: 140px;
+  }
+
+  #block-headerbranding, #block-headerbranding3 {
+        max-height: 140px;
+      }
+
+    #header_branding_logo {
+      @include span-columns(1 of 12);
+    }
+
+    #header_branding_title {
+      color: #fff;
+      text-shadow: 0;
+      font-weight: 300;
+      font-size: 2rem;
+      display: inline-block;
+      text-shadow: none;
+      @include span-columns(5 of 12);
+      text-align: left;
+      padding: 25px;
+      padding-left: 40px;
+    }
+  }
+
+  #block-headertextdropdown, #block-headertextdropdown-3 {
+    @include span-columns(3 of 12);
+    color: white;
+    font-family: $sans-text;
+    font-size: 0.875rem;
+    max-height: 140px;
+
+    ul {
+      list-style-type: none;
+    }
+
+  #header_widescreen_search_bar {
+    @include span-columns(2 of 12);
+    height: 30px;
+
+    #block-achp-search {
+      height: auto;
+
+      &:after {
+        content: "";
+        background: url('../images/search-icon.svg');
+        background-repeat: no-repeat;
+        background-color: $color-blue;
+        background-position: center;
+        background-size: 50%;
+        width: 30px;
+        height: 32px;
+        padding: 0;
+        float: right;
+        bottom: 30px;
+        position: relative;
+        border-radius: 0 2px 2px 0;
+      }
+    }
+
+    .form-item {
+      height: 30px;
+      width: 100%;
+
+      input.form-search {
+        border: 1px solid #979797;
+        font-size: 0.75rem;
+        border-radius: 2px;
+        height: 100%;
+        line-height: 1.25;
+        outline: none;
+        padding: 15px 11px;
+        width: 100%;
+      }
+    }
+
+    .form-actions {
+      display: none;
+      float: right;
+      height: 100%;
+      margin: 0px;
+      width: 10%;
+
+      input.form-submit {
+        border: none;
+        height: 100%;
+        width: 100%;
+      }
+    }   
+  }
+
+}

@@ -193,10 +193,6 @@
   }
 }
 
-#header_search_region {
-  display: none;
-}
-
 #subheader {
   font-family: $sans-text;
 
@@ -377,68 +373,6 @@
   }
 }
 
-#block-achp-search {
-/*#subheader_mobile_search {*/
-  height: 55px;
-  margin: 0;
-  width: 100%;
-  padding: 0 24px 20px;
-
-  &:after {
-    content: "";
-    background: url('../images/search-icon.svg');
-    background-repeat: no-repeat;
-    background-color: $color-blue;
-    background-position: center;
-    background-size: 45%;
-    width: 35px;
-    height: 35px;
-    padding: 9px;
-    float: right;
-    top: -45px;
-    position: relative;
-    border-radius: 0 2px 2px 0;
-  }
-
-  #search-block-form {
-    height: 100%;
-
-    .form-item {
-      float: left;
-      height: 100%;
-      margin: 10px 0;
-      width: 100%;
-
-      input.form-search {
-        /* TODO: Add mag glass*/
-        border: 1px solid #979797;
-        font-size: 0.75rem;
-        border-radius: 2px;
-        height: 100%;
-        line-height: 1.25;
-        outline: none;
-        padding: 15px 11px;
-        width: 100%;
-      }
-    }
-
-    /* TODO: This is (currently inactive) code for the search icon as form submission*/
-    .form-actions {
-      display: none;
-      float: right;
-      height: 100%;
-      margin: 0px;
-      width: 10%;
-
-      input.form-submit {
-        border: none;
-        height: 100%;
-        width: 100%;
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 1150px) {
   #header_region {
     height: auto;
@@ -448,4 +382,64 @@
   #header_menu {
     height: auto;
   }
+
+  #block-achp-search {
+    height: 55px;
+    margin: 0;
+    width: 100%;
+    padding: 0 24px 20px;
+
+    &:after {
+      content: "";
+      background: url('../images/search-icon.svg');
+      background-repeat: no-repeat;
+      background-color: $color-blue;
+      background-position: center;
+      background-size: 45%;
+      width: 35px;
+      height: 35px;
+      padding: 9px;
+      float: right;
+      top: -45px;
+      position: relative;
+      border-radius: 0 2px 2px 0;
+    }
+
+    #search-block-form {
+      height: 100%;
+
+      .form-item {
+        float: left;
+        height: 100%;
+        margin: 10px 0;
+        width: 100%;
+
+        input.form-search {
+          /* TODO: Add mag glass*/
+          border: 1px solid #979797;
+          font-size: 0.75rem;
+          border-radius: 2px;
+          height: 100%;
+          line-height: 1.25;
+          outline: none;
+          padding: 15px 11px;
+          width: 100%;
+        }
+      }
+
+      .form-actions {
+        display: none;
+        float: right;
+        height: 100%;
+        margin: 0px;
+        width: 10%;
+
+        input.form-submit {
+          border: none;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }  
 }

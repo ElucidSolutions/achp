@@ -386,9 +386,6 @@ html {
           #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="5"] li[data-menu-level="1"]:last-child {
             margin-right: 0; }
 
-#header_search_region {
-  display: none; }
-
 #subheader {
   font-family: "p22-underground", sans-serif; }
   #subheader #subheader_mobile_header {
@@ -511,36 +508,151 @@ html {
       font-size: 0.875rem;
       font-weight: 500; }
 
-#block-achp-search {
-  /*#subheader_mobile_search {*/
-  height: 55px;
-  margin: 0;
+@media screen and (max-width: 1150px) {
+  #header_region {
+    height: auto;
+    width: auto; }
+
+  #header_menu {
+    height: auto; }
+
+  #block-achp-search {
+    height: 55px;
+    margin: 0;
+    width: 100%;
+    padding: 0 24px 20px; }
+    #block-achp-search:after {
+      content: "";
+      background: url("../images/search-icon.svg");
+      background-repeat: no-repeat;
+      background-color: #0990FE;
+      background-position: center;
+      background-size: 45%;
+      width: 35px;
+      height: 35px;
+      padding: 9px;
+      float: right;
+      top: -45px;
+      position: relative;
+      border-radius: 0 2px 2px 0; }
+    #block-achp-search #search-block-form {
+      height: 100%; }
+      #block-achp-search #search-block-form .form-item {
+        float: left;
+        height: 100%;
+        margin: 10px 0;
+        width: 100%; }
+        #block-achp-search #search-block-form .form-item input.form-search {
+          /* TODO: Add mag glass*/
+          border: 1px solid #979797;
+          font-size: 0.75rem;
+          border-radius: 2px;
+          height: 100%;
+          line-height: 1.25;
+          outline: none;
+          padding: 15px 11px;
+          width: 100%; }
+      #block-achp-search #search-block-form .form-actions {
+        display: none;
+        float: right;
+        height: 100%;
+        margin: 0px;
+        width: 10%; }
+        #block-achp-search #search-block-form .form-actions input.form-submit {
+          border: none;
+          height: 100%;
+          width: 100%; } }
+header {
+  background-color: #043B62;
+  /*background-color: pink;*/
+  height: 140px;
   width: 100%;
-  padding: 0 24px 20px; }
-  #block-achp-search:after {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  /*  #header_region {
+      display: inline-block;
+      @include span-columns (12);
+    }*/ }
+  header::after {
+    clear: both;
     content: "";
-    background: url("../images/search-icon.svg");
-    background-repeat: no-repeat;
-    background-color: #0990FE;
-    background-position: center;
-    background-size: 45%;
-    width: 35px;
-    height: 35px;
-    padding: 9px;
-    float: right;
-    top: -45px;
-    position: relative;
-    border-radius: 0 2px 2px 0; }
-  #block-achp-search #search-block-form {
-    height: 100%;
-    /* TODO: This is (currently inactive) code for the search icon as form submission*/ }
-    #block-achp-search #search-block-form .form-item {
-      float: left;
-      height: 100%;
-      margin: 10px 0;
+    display: table; }
+  header #header-container {
+    width: 1024px;
+    margin: 0 auto;
+    height: 140px;
+    /*@include span-columns(12);*/ }
+  header #header_left_half, header #header_right_half {
+    /*@include span-columns(6 of 12);*/
+    max-height: 140px; }
+  header #block-headerbranding, header #block-headerbranding3 {
+    max-height: 140px; }
+  header #header_branding_logo {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 8.33333%; }
+    header #header_branding_logo:last-child {
+      margin-right: 0; }
+  header #header_branding_title {
+    color: #fff;
+    text-shadow: 0;
+    font-weight: 300;
+    font-size: 2rem;
+    display: inline-block;
+    text-shadow: none;
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 41.66667%;
+    text-align: left;
+    padding: 25px;
+    padding-left: 40px; }
+    header #header_branding_title:last-child {
+      margin-right: 0; }
+
+#block-headertextdropdown, #block-headertextdropdown-3 {
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 25%;
+  color: white;
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.875rem;
+  max-height: 140px; }
+  #block-headertextdropdown:last-child, #block-headertextdropdown-3:last-child {
+    margin-right: 0; }
+  #block-headertextdropdown ul, #block-headertextdropdown-3 ul {
+    list-style-type: none; }
+  #block-headertextdropdown #header_widescreen_search_bar, #block-headertextdropdown-3 #header_widescreen_search_bar {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 16.66667%;
+    height: 30px; }
+    #block-headertextdropdown #header_widescreen_search_bar:last-child, #block-headertextdropdown-3 #header_widescreen_search_bar:last-child {
+      margin-right: 0; }
+    #block-headertextdropdown #header_widescreen_search_bar #block-achp-search, #block-headertextdropdown-3 #header_widescreen_search_bar #block-achp-search {
+      height: auto; }
+      #block-headertextdropdown #header_widescreen_search_bar #block-achp-search:after, #block-headertextdropdown-3 #header_widescreen_search_bar #block-achp-search:after {
+        content: "";
+        background: url("../images/search-icon.svg");
+        background-repeat: no-repeat;
+        background-color: #0990FE;
+        background-position: center;
+        background-size: 50%;
+        width: 30px;
+        height: 32px;
+        padding: 0;
+        float: right;
+        bottom: 30px;
+        position: relative;
+        border-radius: 0 2px 2px 0; }
+    #block-headertextdropdown #header_widescreen_search_bar .form-item, #block-headertextdropdown-3 #header_widescreen_search_bar .form-item {
+      height: 30px;
       width: 100%; }
-      #block-achp-search #search-block-form .form-item input.form-search {
-        /* TODO: Add mag glass*/
+      #block-headertextdropdown #header_widescreen_search_bar .form-item input.form-search, #block-headertextdropdown-3 #header_widescreen_search_bar .form-item input.form-search {
         border: 1px solid #979797;
         font-size: 0.75rem;
         border-radius: 2px;
@@ -549,24 +661,17 @@ html {
         outline: none;
         padding: 15px 11px;
         width: 100%; }
-    #block-achp-search #search-block-form .form-actions {
+    #block-headertextdropdown #header_widescreen_search_bar .form-actions, #block-headertextdropdown-3 #header_widescreen_search_bar .form-actions {
       display: none;
       float: right;
       height: 100%;
       margin: 0px;
       width: 10%; }
-      #block-achp-search #search-block-form .form-actions input.form-submit {
+      #block-headertextdropdown #header_widescreen_search_bar .form-actions input.form-submit, #block-headertextdropdown-3 #header_widescreen_search_bar .form-actions input.form-submit {
         border: none;
         height: 100%;
         width: 100%; }
 
-@media screen and (max-width: 1150px) {
-  #header_region {
-    height: auto;
-    width: auto; }
-
-  #header_menu {
-    height: auto; } }
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -710,52 +815,6 @@ button {
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500; }
-
-header {
-  background-color: #043B62;
-  height: 140px;
-  /*position: relative;*/
-  padding: 0 50px;
-  display: none;
-  /*  #block-headerbranding {
-      @include center-y;*/
-  /*}*/ }
-  header #header-logo {
-    display: none; }
-  header #header_branding_logo {
-    /*float: left;*/
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 8.33333%; }
-    header #header_branding_logo:last-child {
-      margin-right: 0; }
-  header #header_branding_title {
-    /*float: left;*/
-    color: #fff;
-    text-shadow: 0;
-    font-weight: 300;
-    font-size: 2rem;
-    display: inline-block;
-    text-shadow: none;
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 41.66667%;
-    text-align: left;
-    padding: 25px;
-    padding-left: 40px;
-    /*@include center-y;*/
-    /*    position: absolute;
-          top: 50%;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);*/
-    /*max-width: 350px;*/ }
-    header #header_branding_title:last-child {
-      margin-right: 0; }
 
 #homepage_hero_region {
   padding: 25px 50px;
