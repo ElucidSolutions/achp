@@ -570,9 +570,8 @@ header {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  /*  #header_region {
-      display: inline-block;
-      @include span-columns (12);
+  /*  #header_right {
+      padding-top: 10px;
     }*/ }
   header::after {
     clear: both;
@@ -583,7 +582,15 @@ header {
     margin: 0 auto;
     height: 140px;
     /*@include span-columns(12);*/ }
-  header #header_left_half, header #header_right_half {
+  header #header_region {
+    display: inline-block;
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    header #header_region:last-child {
+      margin-right: 0; }
+  header #header_left_container, header #header_right_container {
     /*@include span-columns(6 of 12);*/
     max-height: 140px; }
   header #block-headerbranding, header #block-headerbranding3 {
@@ -611,31 +618,53 @@ header {
     padding-left: 40px; }
     header #header_branding_title:last-child {
       margin-right: 0; }
-
-#block-headertextdropdown, #block-headertextdropdown-3 {
-  float: left;
-  display: block;
-  margin-right: 0%;
-  width: 25%;
-  color: white;
-  font-family: "p22-underground", sans-serif;
-  font-size: 0.875rem;
-  max-height: 140px; }
-  #block-headertextdropdown:last-child, #block-headertextdropdown-3:last-child {
-    margin-right: 0; }
-  #block-headertextdropdown ul, #block-headertextdropdown-3 ul {
-    list-style-type: none; }
-  #block-headertextdropdown #header_widescreen_search_bar, #block-headertextdropdown-3 #header_widescreen_search_bar {
+  header #block-headercontactlinks {
+    color: white;
+    font-weight: 300;
+    padding: 10px 0; }
+    header #block-headercontactlinks a {
+      color: white;
+      font-family: "p22-underground", sans-serif;
+      font-size: 0.875rem;
+      text-decoration: none;
+      padding: 10px; }
+    header #block-headercontactlinks img {
+      vertical-align: text-bottom;
+      padding: 0 5px; }
+  header #block-headertextdropdown, header #block-headertextdropdown-3 {
     float: left;
     display: block;
     margin-right: 0%;
-    width: 16.66667%;
+    width: 25%;
+    color: white;
+    font-weight: 300;
+    font-family: "p22-underground", sans-serif;
+    font-size: 0.875rem;
     height: 30px; }
-    #block-headertextdropdown #header_widescreen_search_bar:last-child, #block-headertextdropdown-3 #header_widescreen_search_bar:last-child {
+    header #block-headertextdropdown:last-child, header #block-headertextdropdown-3:last-child {
       margin-right: 0; }
-    #block-headertextdropdown #header_widescreen_search_bar #block-achp-search, #block-headertextdropdown-3 #header_widescreen_search_bar #block-achp-search {
+    header #block-headertextdropdown select, header #block-headertextdropdown-3 select {
+      color: #4F4F4F;
+      border: 1px solid #979797;
+      font-size: 0.75rem;
+      border-radius: 2px;
+      height: 100%;
+      line-height: 1.25;
+      outline: none;
+      padding: 7px;
+      width: 50%;
+      margin: 0 10px; }
+  header #header_widescreen_search_bar {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 25%;
+    height: 30px; }
+    header #header_widescreen_search_bar:last-child {
+      margin-right: 0; }
+    header #header_widescreen_search_bar #block-achp-search {
       height: auto; }
-      #block-headertextdropdown #header_widescreen_search_bar #block-achp-search:after, #block-headertextdropdown-3 #header_widescreen_search_bar #block-achp-search:after {
+      header #header_widescreen_search_bar #block-achp-search:after {
         content: "";
         background: url("../images/search-icon.svg");
         background-repeat: no-repeat;
@@ -649,10 +678,10 @@ header {
         bottom: 30px;
         position: relative;
         border-radius: 0 2px 2px 0; }
-    #block-headertextdropdown #header_widescreen_search_bar .form-item, #block-headertextdropdown-3 #header_widescreen_search_bar .form-item {
+    header #header_widescreen_search_bar .form-item {
       height: 30px;
       width: 100%; }
-      #block-headertextdropdown #header_widescreen_search_bar .form-item input.form-search, #block-headertextdropdown-3 #header_widescreen_search_bar .form-item input.form-search {
+      header #header_widescreen_search_bar .form-item input.form-search {
         border: 1px solid #979797;
         font-size: 0.75rem;
         border-radius: 2px;
@@ -661,13 +690,13 @@ header {
         outline: none;
         padding: 15px 11px;
         width: 100%; }
-    #block-headertextdropdown #header_widescreen_search_bar .form-actions, #block-headertextdropdown-3 #header_widescreen_search_bar .form-actions {
+    header #header_widescreen_search_bar .form-actions {
       display: none;
       float: right;
       height: 100%;
       margin: 0px;
       width: 10%; }
-      #block-headertextdropdown #header_widescreen_search_bar .form-actions input.form-submit, #block-headertextdropdown-3 #header_widescreen_search_bar .form-actions input.form-submit {
+      header #header_widescreen_search_bar .form-actions input.form-submit {
         border: none;
         height: 100%;
         width: 100%; }
