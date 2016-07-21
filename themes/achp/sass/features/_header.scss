@@ -33,6 +33,10 @@ header {
 
   #header_branding_logo {
     @include span-columns(1 of 12);
+
+    img {
+      height: 140px;
+    }
   }
 
   #header_branding_title {
@@ -52,6 +56,8 @@ header {
     color: white;
     font-weight: 300;
     padding: 10px 0;
+    float: right;
+    /*@include shift(2);*/
 
     a {
       color: white;
@@ -59,24 +65,42 @@ header {
       font-size: 0.875rem; 
       text-decoration: none;
       padding: 10px;
+
+      &.social_media {
+        padding: 0 5px;
+
+        &:last-of-type {
+          padding-right: 0;
+        }
+      }
+    }
+
+    .social_icons {
+      padding-left: 10px;
     }
 
     img {
       vertical-align: text-bottom;
-      padding: 0 5px;
+      /*padding: 0 5px;*/
     }
   }
   
   #block-headertextdropdown, #block-headertextdropdown-3 {
     @include span-columns(3 of 12);
+    /*@include row;*/
+        /*display: none;*/
     color: white;
     font-weight: 300;
     font-family: $sans-text;
     font-size: 0.875rem;
     height: 30px;
 
-    select {
-      color: $color-grey;
+    .header_dropdown_text {
+      vertical-align: text-top;
+    }
+
+    select.header_dropdown_menu {
+      font-family: $sans-text;
       border: 1px solid #979797;
       font-size: 0.75rem;
       border-radius: 2px;
@@ -86,10 +110,23 @@ header {
       padding: 7px;
       width: 50%;
       margin: 0 10px;
+      color: $color-lightgrey;
+      margin-top: 1px;
+      padding: 6px 7px;
+
+      option {
+        font-family: $sans-text;
+
+        &.selection {
+          color: #000;
+        }
+      }
+
     }
   }
 
   #header_widescreen_search_bar {
+    /*@include row;*/
     @include span-columns(3 of 12);
     height: 30px;
 
@@ -143,5 +180,29 @@ header {
       }
     }   
   }
+}
 
+@media screen and (max-width: 850px) {
+  header #block-headertextdropdown-3 {
+    display: none;
+  }
+  #block-headercontactlinks {
+    display: none;
+  }
+
+  #header_left {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+/*  #header_branding_logo {
+    @include span-columns(2);
+    @include shift(2);
+  }*/
+
+  #header_branding_title {
+/*    @include span-columns(8);
+    @include shift(0);*/
+    text-align: center;
+  }
 }
