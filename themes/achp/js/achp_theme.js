@@ -74,6 +74,7 @@
               openHeaderMenu();
               closeMobileSubheaderHeader ();
               removeSelectedClassFromMenuItems ();
+              moveSearchBlockToHeader ();
               closeMobileSubheader ();
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_MOBILE_EXPANDED_STATE:
@@ -85,6 +86,7 @@
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
             case HEADER_MENU_WIDESCREEN_HOVER_STATE:
+            // moveSearchBlockToHeader ();
               return openHeaderMenu();
             default:
               console.log('[achp_theme][document.ready] Warning: unrecognized header menu state "' + headerMenuState + '".');

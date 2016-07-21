@@ -1,6 +1,6 @@
 #header_region {
-  height: $header-region-height;
-  width: $header-region-widescreen-width;
+  height: $header-menu-height;
+  width: $header-menu-widescreen-width;
   margin: 0 auto;
 }
 
@@ -10,7 +10,7 @@
   position: relative;
   border-bottom: $color-darkblue;
   z-index: 900;
-  height: $header-region-height;
+  height: $header-menu-height;
   width: 1024px;
 
   ul {
@@ -21,20 +21,20 @@
 
   ul[data-menu-level="0"] {
     margin: 0 auto;
-    height: $header-region-height;    
+    height: $header-menu-height;    
     -js-display: flex;
     display: flex;
     justify-content: space-between;
     width: 100%;
 
     li[data-menu-level="0"] {
-      border: $header-region-border-width solid rgba(0,0,0,0);
+      border: $header-menu-border-width solid rgba(0,0,0,0);
       border-bottom: none;
       list-style-type: none;
       text-align: center;
       margin: 0 20px 0 0;
       text-align: center;
-      height: $header-region-height + $header-region-border-width;
+      height: $header-menu-height + $header-menu-border-width - 0.5px;
       padding: 0 10px;
 
       &:last-of-type {
@@ -43,7 +43,7 @@
 
 
       &.menu_selected {
-        border: $header-region-border-width solid $color-red2;
+        border: $header-menu-border-width solid $color-red2;
         border-bottom: none;
         background: white;
 
@@ -82,7 +82,7 @@
   #subheader_widescreen_submenu_region {
     width: 100%;
     position: absolute;
-    top: $header-region-height;
+    top: $header-menu-height;
     @include span-columns(5);
 
     #subheader_widescreen_submenu {
@@ -112,7 +112,7 @@
         padding: 0 5px 10px 15px;
 
         &.menu_selected {
-          border: $header-region-border-width solid $color-red2;
+          border: $header-menu-border-width solid $color-red2;
           box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.15);
           min-height: 200px;
         }
@@ -225,7 +225,7 @@
     #subheader_mobile_collapsible {
       display: none;
       padding: 0;
-      border: $header-region-border-width solid $color-red2;
+      border: $header-menu-border-width solid $color-red2;
       background-color: white;
       z-index: 1000;
       width: 100%;

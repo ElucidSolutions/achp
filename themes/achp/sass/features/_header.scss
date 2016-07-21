@@ -1,14 +1,15 @@
 header {
   background-color: $color-darkblue;
-  /*background-color: pink;*/
-  height: 140px;
+  overflow: hidden;
+  height: $header-height;
   width: 100%;
   @include outer-container(100%);
+  /*display: none;*/
 
   #header-container {
-    width: 1024px;
+    width: $max-content-width;
     margin: 0 auto;
-    height: 140px;
+    height: $header-height;
     /*@include span-columns(12);*/
   }
 
@@ -19,7 +20,7 @@ header {
 
   #header_left_container, #header_right_container {
     /*@include span-columns(6 of 12);*/
-    max-height: 140px;
+    max-height: $header-height;
   }
 
 /*  #header_right {
@@ -27,7 +28,7 @@ header {
   }*/
 
   #block-headerbranding, #block-headerbranding3 {
-        max-height: 140px;
+    max-height: $header-height;
   }
 
   #header_branding_logo {
