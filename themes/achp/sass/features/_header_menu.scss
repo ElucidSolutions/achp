@@ -242,6 +242,8 @@
 
         .menu_slide_container .menu_slide {
           display: none;
+          background-color: white;
+          /*box-sizing: border-box;*/
 
           &[data-menu-slide-index="0"] {
             display: block;
@@ -274,6 +276,15 @@
             > ul {
               margin: 0;
             }
+
+/*            .menu_slide_list_item_extra li {
+              list-style-type: none;
+
+              a {
+                text-decoration: none;
+              }
+
+            }*/
           }
 
           .menu_slide_list_item, li[data-menu-level="2"], li[data-menu-level="1"] {

@@ -250,26 +250,6 @@
     return slides;
   }
 
-  function createMobileMenuHoverHandler (slideListItem) {
-    slideListItem .addClass ('menu_slide_list_item')
-                  .append ($('<span></span>')
-                    .addClass('menu_slide_list_item_arrow_blue')
-                    .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
-                  )   
-                  .append ($('<span></span>')
-                    .addClass('menu_slide_list_item_arrow')
-                    .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
-                  )       
-                  .hover (
-                    function (e) {
-                      $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
-                    },
-                    function (e) {
-                      $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
-                  });
-    return slideListItem;
-  }
-
   /*
   Accepts four arguments:
 
@@ -287,16 +267,15 @@
     menuListItems.each (function (i, menuListItem) {
       slideListItems.push ($('>ul', menuListItem).length === 0 ? 
          slideListItem = $(menuListItem).clone ()
-         // createMobileMenuHoverHandler (slideListItem)
          : 
         slideListItem = $('<li></li>')
           .addClass ('menu_slide_list_item')
           .html ($('>a', menuListItem).html ())
           .click (function () {
             showMenuSlide (containerElement, $(menuListItem).attr ('data-menu-item-index'));
-            slide.hide ();
+            // slide.hide ();
+            hideMenuSlide(slide);
           })
-        // createMobileMenuHoverHandler (slideListItem)
           .append ($('<span></span>')
             .addClass('menu_slide_list_item_arrow_blue')
             .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
@@ -353,9 +332,48 @@
     if (slide.attr('data-menu-slide-index') === '0') {
       slide.find('.menu_slide_header_back_button').empty();
       slide.find('.menu_slide_header_title').empty();
+      appendExtraMenuItems(slide);
     }
   
     return slide;
+  }
+
+  /*
+  Accepts one argument: slide, an object representing a single 
+  menu screen; attaches additional list items to the screen;
+  and returns undefined.
+  */
+
+  function appendExtraMenuItems(slide) {
+    slide = $(slide);
+    slide.find('.menu_slide_body')
+         .append($('<ul></ul>')
+           .addClass('menu_slide_extras')
+           .append ($('<li></li>')
+             .addClass ('menu_slide_list_item')
+             .addClass ('menu_slide_extra_item')
+             .html ('<a href="#">CONTACT US</a>'))
+           .append ($('<li></li>')
+             .addClass ('menu_slide_list_item')
+             .addClass ('menu_slide_extra_item')
+             .html ('<a href="#">SIGN IN</a>')));
+
+    slide.find('.menu_slide_extra_item')
+         .append ($('<span></span>')
+           .addClass('menu_slide_list_item_arrow_blue')
+           .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
+         )   
+         .append ($('<span></span>')
+           .addClass('menu_slide_list_item_arrow')
+           .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
+         )       
+         .hover (
+           function (e) {
+             $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
+           },
+           function (e) {
+             $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
+         });
   }
 
   /*
@@ -381,14 +399,40 @@
     return $('div.menu_slide[data-menu-slide-index="' + menuItemIndex + '"]', containerElement);
   }
 
-
   /*
   Accepts one argument: menuItemIndex, an integer; shows the menu slide element with
   the given ID; and returns undefined;
   */
+  // function showMenuSlide (containerElement, menuItemIndex) {
+  //   var slide = getMenuSlide (containerElement, menuItemIndex);
+  //   slide.show();
+  // }
+
   function showMenuSlide (containerElement, menuItemIndex) {
     var slide = getMenuSlide (containerElement, menuItemIndex);
+    slide.css('position', 'absolute')
+         .css('right', '-100%')
+         .css('border', '3px solid #9B0008')
+         .css('border-top', 'none')
+         .css('width', '100.9%')
+          .append ($('<div></div>')
+            .addClass ('menu_slide_footer')
+            .append ($('<div></div>')
+              .addClass ('menu_slide_footer_close_button')
+              .click (function () {
+                closeSubheaderMenu ();
+              })));
     slide.show();
+    slide.animate({
+      left: '-3px'}
+    )
+  }
+
+  function hideMenuSlide (slide) {
+    slide.animate({
+      left: '-100%'
+    })
+    slide.hide();
   }
 
   /*
