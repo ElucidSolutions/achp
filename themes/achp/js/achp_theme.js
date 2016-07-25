@@ -33,6 +33,10 @@
       closeSubheaderMenu ();
     });
 
+    $('#subheader_mobile_close_button1').click (function () {
+      closeSubheaderMenu ();
+    });
+
     // IV. Display the subheader search 
     $('#header_menu_search_toggle_button').click (function () {
       toggleSearch ();
@@ -322,13 +326,15 @@
         .append(menuListItems.length === 0 ? null : $('<ul></ul>').append (slideListItems)))
       .append ($('<div></div>')
         .addClass ('menu_slide_footer')
-        .append ($('<div></div>')
-          .addClass ('menu_slide_footer_close_button')
-          .click (function () {
-            closeSubheaderMenu ();
-          })));
+        // .append ($('<div></div>')
+        //   .addClass ('menu_slide_footer_close_button')
+        //   .click (function () {
+        //     closeSubheaderMenu ();
+        //   }))
+        );
 
-
+    /* Special conditions for highest-level slide: empties Back button and
+    title; positions Close button */
     if (slide.attr('data-menu-slide-index') === '0') {
       slide.find('.menu_slide_header_back_button').empty();
       slide.find('.menu_slide_header_title').empty();
@@ -374,6 +380,8 @@
            function (e) {
              $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
          });
+
+    $('#subheader_mobile_collapsible').height('488');
   }
 
   /*
@@ -412,21 +420,21 @@
     var slide = getMenuSlide (containerElement, menuItemIndex);
     slide.css('position', 'absolute')
          .css('right', '-100%')
-         .css('border', '3px solid #9B0008')
-         .css('border-top', 'none')
-         .css('width', '100.9%')
+         .css('width', '100%')
           .append ($('<div></div>')
             .addClass ('menu_slide_footer')
             .append ($('<div></div>')
-              .addClass ('menu_slide_footer_close_button')
-              .click (function () {
-                closeSubheaderMenu ();
-              })));
+              ));
     slide.show();
+    assignCollapsibleMenuHeight (slide);
     slide.animate({
-      left: '-3px'}
+      left: '0px'}
     )
   }
+
+  function assignCollapsibleMenuHeight (slide) {
+    $('#subheader_mobile_collapsible').height ( $('.search-block-form').height() + $('.menu_slide_header').height() + slide.height() + 81);    
+  }  
 
   function hideMenuSlide (slide) {
     slide.animate({
@@ -683,8 +691,8 @@
   */
   function openMobileCollapsible() {
     openMobileSubheader ();
-    removeMenuHeaderLineBreaks ()
-    $('#subheader_mobile_collapsible').slideDown ();
+    removeMenuHeaderLineBreaks ();
+    $('#subheader_mobile_collapsible').slideDown ();    
   }
 
   function closeMobileCollapsible() {
