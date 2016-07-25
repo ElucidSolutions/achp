@@ -276,9 +276,8 @@
           .addClass ('menu_slide_list_item')
           .html ($('>a', menuListItem).html ())
           .click (function () {
-            showMenuSlide (containerElement, $(menuListItem).attr ('data-menu-item-index'));
-            // slide.hide ();
-            hideMenuSlide(slide);
+            slideOutToLeft (slide, index);            
+            slideInFromRight (containerElement, $(menuListItem).attr ('data-menu-item-index'));
           })
           .append ($('<span></span>')
             .addClass('menu_slide_list_item_arrow_blue')
@@ -313,9 +312,9 @@
           .append ($('<div></div>')
             .addClass ('menu_slide_header_back_button')
             .html ('BACK')
-            .click (function () {
-              showMenuSlide (containerElement, parentIndex);
-              slide.hide ();
+            .click (function () {     
+              slideInFromLeft (containerElement, parentIndex);  
+              slideOutToRight (slide, index);                            
             })
           )          
           .append ($('<h3></h3>')
@@ -408,39 +407,80 @@
   }
 
   /*
-  Accepts one argument: menuItemIndex, an integer; shows the menu slide element with
-  the given ID; and returns undefined;
-  */
-  // function showMenuSlide (containerElement, menuItemIndex) {
-  //   var slide = getMenuSlide (containerElement, menuItemIndex);
-  //   slide.show();
-  // }
+  Accepts two arguments: 
+  * menuItemIndex, an integer
+  * containerElement, a jQuery HTML Element representing the slide 
 
-  function showMenuSlide (containerElement, menuItemIndex) {
+  Animates the slide into view and returns undefined.
+  */
+  function slideInFromLeft (containerElement, menuItemIndex) {
     var slide = getMenuSlide (containerElement, menuItemIndex);
-    slide.css('position', 'absolute')
-         .css('right', '-100%')
-         .css('width', '100%')
-          .append ($('<div></div>')
-            .addClass ('menu_slide_footer')
-            .append ($('<div></div>')
-              ));
-    slide.show();
-    assignCollapsibleMenuHeight (slide);
-    slide.animate({
-      left: '0px'}
-    )
+    slide.css ('position', 'absolute')
+         .css ('width', '100%')
+         .css ('right', '150%')
+         .animate ({right: '0%', left: '0%'}, 800)       
+         .show();
+    calcSubheaderHeight (slide); 
   }
 
-  function assignCollapsibleMenuHeight (slide) {
-    $('#subheader_mobile_collapsible').height ( $('.search-block-form').height() + $('.menu_slide_header').height() + slide.height() + 81);    
-  }  
+  /*
+  Accepts two arguments: 
+  * menuItemIndex, an integer
+  * containerElement, a jQuery HTML Element representing the slide 
 
-  function hideMenuSlide (slide) {
-    slide.animate({
-      left: '-100%'
-    })
-    slide.hide();
+  Animates the slide into view and returns undefined.
+  */
+  function slideInFromRight (containerElement, menuItemIndex) {
+    var slide = getMenuSlide (containerElement, menuItemIndex);
+    slide.css ('position', 'absolute')
+         .css ('width', '100%')
+         .css ('left', '150%')
+         .animate ({right: '0%', left: '0%'}, 800)     
+         .show();
+    calcSubheaderHeight (slide); 
+  }
+
+  /*
+  Accepts one argument: slide, an object representing a single 
+  menu screen; calculates the height of the subheader element, 
+  animates the element to that height, and returns undefined.
+  */
+  function calcSubheaderHeight (slide) {
+    var subheaderHeight = $('.search-block-form').height() + $('.menu_slide_header').height() + slide.height() + 81;
+    subheaderHeight += 'px';
+    $('#subheader_mobile_collapsible').animate({height: subheaderHeight}, 800);    
+  }
+
+  /*
+  Accepts two arguments: 
+  * slide, an object representing a single menu screen
+  * index, an integer
+
+  Animates the slide out of view and returns undefined.
+  */
+  function slideOutToLeft (slide, index) {
+    var slideToHide = $('.menu_slide[data-menu-slide-index="' + index + '"]');
+    slideToHide.css('position', 'absolute')
+               .css('width', '100%')
+    slideToHide.animate({
+      left: '-150%'
+    }, 800);
+  }
+
+  /*
+  Accepts two arguments: 
+  * slide, an object representing a single menu screen
+  * index, an integer
+
+  Animates the slide out of view and returns undefined.
+  */
+  function slideOutToRight (slide, index) {
+    var slideToHide = $('.menu_slide[data-menu-slide-index="' + index + '"]');
+    slideToHide.css('position', 'absolute')
+               .css('width', '100%')
+    slideToHide.animate({
+      left: '150%'
+    }, 800);
   }
 
   /*
