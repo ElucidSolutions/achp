@@ -206,17 +206,23 @@
       padding: 15px 0px;
       color: $color-darkblue2;
       line-height: 1;
+/*      background-image: url('../images/menu-icon.svg');
+      background-repeat: no-repeat;
+      background-position: 0% 45%;
+      width: 100px;
+      padding-left: 20px;
+      margin: 0 auto;   */
 
       &:before {
         content: "";
         background-image: url('../images/menu-icon.svg');
         background-repeat: no-repeat;
-        /*background-position: center;*/
-        background-size: 88% 100%;
+        background-position: center;
         padding: 13px;
         position: relative;
         right: 10px;
         bottom: 2px;
+        vertical-align: middle;
       }
     }
   }  
@@ -443,7 +449,7 @@
           height: 100%;
           line-height: 1.25;
           outline: none;
-          padding: 15px 11px;
+          padding: 10px;
           width: 100%;
         }
       }

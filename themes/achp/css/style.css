@@ -396,17 +396,23 @@ html {
       text-align: center;
       padding: 15px 0px;
       color: #003A5E;
-      line-height: 1; }
+      line-height: 1;
+      /*      background-image: url('../images/menu-icon.svg');
+            background-repeat: no-repeat;
+            background-position: 0% 45%;
+            width: 100px;
+            padding-left: 20px;
+            margin: 0 auto;   */ }
       #subheader #subheader_mobile_header #subheader_mobile_title:before {
         content: "";
         background-image: url("../images/menu-icon.svg");
         background-repeat: no-repeat;
-        /*background-position: center;*/
-        background-size: 88% 100%;
+        background-position: center;
         padding: 13px;
         position: relative;
         right: 10px;
-        bottom: 2px; }
+        bottom: 2px;
+        vertical-align: middle; }
   #subheader #subheader_mobile #subheader_mobile_collapsible {
     display: none;
     padding: 0;
@@ -570,7 +576,7 @@ html {
           height: 100%;
           line-height: 1.25;
           outline: none;
-          padding: 15px 11px;
+          padding: 10px;
           width: 100%; }
       #block-achp-search #search-block-form .form-actions {
         display: none;

@@ -42,7 +42,7 @@
       toggleSearch ();
     });
 
-    // // V. Handle subheader menu item hover events
+    // V. Handle subheader menu item hover events
     $('#header_menu li[data-menu-level="0"]').hover (
       // On mouse enter, show submenu
       function () {
@@ -53,7 +53,7 @@
         closeWidescreenSubmenu ();
     });
 
-    // For dev purposes
+    // // For dev purposes
     // $('#header_menu li[data-menu-level="0"]').click (function(e) {
     //   e.preventDefault();
     //   openWidescreenSubmenu ($('> ul', this).clone ());
@@ -90,7 +90,6 @@
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
             case HEADER_MENU_WIDESCREEN_HOVER_STATE:
-            // moveSearchBlockToHeader ();
               return openHeaderMenu();
             default:
               console.log('[achp_theme][document.ready] Warning: unrecognized header menu state "' + headerMenuState + '".');
@@ -169,27 +168,6 @@
     });
     return menuListItemIndex;
   }
-
-  /*
-  Accepts no arguments, returns undefined, and sets menu-num-columns and 
-  menu-column-shift data attributes for the widescren dropdown menu
-  element, which are used for its positioning.
-  */
-  // function setDropdownMenuOffsets () {
-  //   var dropdownSubmenu = $('#subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"]');
-  //   var numDropdownSubmenuColumns = $('>li', dropdownSubmenu).length;
-  //   var parentIndex = dropdownSubmenu.attr ('data-menu-parent-index');
-  //   var parentLocalIndex = $('#header_menu li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]').attr ('data-menu-item-local-index');
-  //   var numParentSiblings = $('#header_menu ul[data-menu-level="0"] > li[data-menu-level="0"]').length;
-  //   var numParentSiblingsRemaining = numParentSiblings - parentLocalIndex;
-  //   dropdownSubmenu
-  //     .attr ('data-menu-num-columns', numParentSiblings)
-  //     .attr ('data-menu-column-shift', 
-  //       numDropdownSubmenuColumns <= numParentSiblingsRemaining ?
-  //         parentLocalIndex : 
-  //         parentLocalIndex - (numDropdownSubmenuColumns - numParentSiblingsRemaining)
-  //     );
-  // }
 
   /*
   Accepts no arguments, returns undefined, and removes the class 
@@ -276,7 +254,7 @@
           .addClass ('menu_slide_list_item')
           .html ($('>a', menuListItem).html ())
           .click (function () {
-            slideOutToLeft (slide, index);            
+            slideOutToLeft (index);            
             slideInFromRight (containerElement, $(menuListItem).attr ('data-menu-item-index'));
           })
           .append ($('<span></span>')
@@ -314,7 +292,7 @@
             .html ('BACK')
             .click (function () {     
               slideInFromLeft (containerElement, parentIndex);  
-              slideOutToRight (slide, index);                            
+              slideOutToRight (index);                            
             })
           )          
           .append ($('<h3></h3>')
@@ -325,11 +303,6 @@
         .append(menuListItems.length === 0 ? null : $('<ul></ul>').append (slideListItems)))
       .append ($('<div></div>')
         .addClass ('menu_slide_footer')
-        // .append ($('<div></div>')
-        //   .addClass ('menu_slide_footer_close_button')
-        //   .click (function () {
-        //     closeSubheaderMenu ();
-        //   }))
         );
 
     /* Special conditions for highest-level slide: empties Back button and
@@ -418,8 +391,9 @@
     slide.css ('position', 'absolute')
          .css ('width', '100%')
          .css ('right', '150%')
-         .animate ({right: '0%', left: '0%'}, 800)       
-         .show();
+         .delay (0) /* This seems to fix a Safari bug */
+         .animate ({ right: '0%', left: '0%' }, 800)     
+         .show ();
     calcSubheaderHeight (slide); 
   }
 
@@ -435,8 +409,9 @@
     slide.css ('position', 'absolute')
          .css ('width', '100%')
          .css ('left', '150%')
-         .animate ({right: '0%', left: '0%'}, 800)     
-         .show();
+         .delay (0) /* This seems to fix a Safari bug */
+         .animate ({ left: '0%', right: '0%' }, 800)
+         .show ();
     calcSubheaderHeight (slide); 
   }
 
@@ -446,41 +421,30 @@
   animates the element to that height, and returns undefined.
   */
   function calcSubheaderHeight (slide) {
-    var subheaderHeight = $('.search-block-form').height() + $('.menu_slide_header').height() + slide.height() + 81;
+    var subheaderHeight = $('.search-block-form').height () + $('.menu_slide_header').height () + slide.height () + 81;
     subheaderHeight += 'px';
-    $('#subheader_mobile_collapsible').animate({height: subheaderHeight}, 800);    
+    $('#subheader_mobile_collapsible').animate ({height: subheaderHeight}, 800);    
   }
 
   /*
-  Accepts two arguments: 
-  * slide, an object representing a single menu screen
-  * index, an integer
-
-  Animates the slide out of view and returns undefined.
+  Accepts one argument: index, an integer; animates the slide with 
+  that index out of view; and returns undefined.
   */
-  function slideOutToLeft (slide, index) {
-    var slideToHide = $('.menu_slide[data-menu-slide-index="' + index + '"]');
-    slideToHide.css('position', 'absolute')
-               .css('width', '100%')
-    slideToHide.animate({
-      left: '-150%'
-    }, 800);
+  function slideOutToLeft (index) {
+    $('.menu_slide[data-menu-slide-index="' + index + '"]').css ('position', 'absolute')
+                                                           .css ('width', '100%')
+                                                           .animate({ left: '-150%' }, 800);
+
   }
 
   /*
-  Accepts two arguments: 
-  * slide, an object representing a single menu screen
-  * index, an integer
-
-  Animates the slide out of view and returns undefined.
+  Accepts one argument: index, an integer; animates the slide with 
+  that index out of view; and returns undefined.
   */
-  function slideOutToRight (slide, index) {
-    var slideToHide = $('.menu_slide[data-menu-slide-index="' + index + '"]');
-    slideToHide.css('position', 'absolute')
-               .css('width', '100%')
-    slideToHide.animate({
-      left: '150%'
-    }, 800);
+  function slideOutToRight (index) {
+    $('.menu_slide[data-menu-slide-index="' + index + '"]').css ('position', 'absolute')
+                                                           .css ('width', '100%')
+                                                           .animate({ left: '150%' }, 800);
   }
 
   /*
@@ -510,41 +474,9 @@
   Accepts no arguments, shows the widescreen header menu, and returns undefined.
   */
   function openHeaderMenu () {
-    // setHorizontalPositionHeader ();
-    // setVerticalPositionHeader ();
     $('#block-achp-main-menu').show ();
     flexibility(document.documentElement);
   }
-
-  /*
-  Accepts no arguments, returns undefined, and horizontally
-  centers header menu list.
-  */
-  // function setHorizontalPositionHeader () {
-  //   var menuElement = $('#header_menu');
-  //   var menuListElement = $('ul[data-menu-level="0"]', menuElement);
-  //   var menuListItemsTotalWidth = Math.ceil ($('li[data-menu-level="0"]', menuElement).toArray ().reduce (
-  //     function (totalWidth, menuItemElement) {
-  //       return totalWidth + $(menuItemElement).outerWidth (true);
-  //     }, 10)); // Setting initial value of 10 to account for borders being counted as part of content area
-  //   var horizontalOffset = (menuElement.width () / 2) - (menuListElement.width () / 2);
-  //   menuListElement.innerWidth (menuListItemsTotalWidth)
-  //                  .css ('transform', 'translateX(' + horizontalOffset + 'px)');
-  // }  
-
-  /*
-  Accepts no arguments, returns undefined, and vertically
-  centers header menu list items.
-  */
-  // function setVerticalPositionHeader () {
-  //   var menuElement = $('#header_menu');
-  //   var menuElementOffset = menuElement.height () / 2;
-  //   $('li[data-menu-level="0"] > a', menuElement).each (function (i, menuItemElement) {
-  //     menuItemElement = $(menuItemElement);
-  //     var verticalOffset = menuElementOffset - (menuItemElement.height () / 2);
-  //     menuItemElement.css ('transform', 'translateY(' + verticalOffset + 'px)')
-  //   });
-  // }  
 
   /*
     Accepts one argument: submenu, a jQuery HTML Element;
@@ -571,9 +503,6 @@
     var parentIndex = dropdownSubmenu.attr ('data-menu-parent-index');
     var headerMenuElement = $('#header_menu');
     var parentElement = $('li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]', headerMenuElement);
-    // var parentLocalIndex = $('#header_menu li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]').attr ('data-menu-item-local-index');
-    // var numParentSiblings = $('#header_menu ul[data-menu-level="0"] > li[data-menu-level="0"]').length;
-    // var numParentSiblingsRemaining = numParentSiblings - parentLocalIndex;
     var parentElementOffset = parentElement.position ().left;
     var remainingWidth = headerMenuElement.width () - parentElementOffset;
     dropdownSubmenu
@@ -582,12 +511,6 @@
           parentElementOffset - (dropdownSubmenu.width () - remainingWidth) :
           parentElementOffset
       );
-      // .attr ('data-menu-num-columns', numParentSiblings)
-      // .attr ('data-menu-column-shift', 
-      //   numDropdownSubmenuColumns <= numParentSiblingsRemaining ?
-      //     parentLocalIndex : 
-      //     parentLocalIndex - (numDropdownSubmenuColumns - numParentSiblingsRemaining)
-      // );
   }
 
   /*
