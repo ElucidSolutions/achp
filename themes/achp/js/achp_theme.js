@@ -42,22 +42,27 @@
       toggleSearch ();
     });
 
-    // // V. Handle subheader menu item hover events
-    // $('#header_menu li[data-menu-level="0"]').hover (
-    //   // On mouse enter, show submenu
-    //   function () {
-    //     openWidescreenSubmenu ($('> ul', this).clone ());
-    //   }, 
-    //   // On mouse exit, hide submenu
-    //   function () {
-    //     closeWidescreenSubmenu ();
-    // });
+    // V. Handle subheader menu item hover events
+
+    $('#header_menu li[data-menu-level="0"]').mouseover (
+      // On mouse enter, show submenu
+      function () {
+        openWidescreenSubmenu ($('> ul', this).clone ());
+        // Hover event on submenu that the mouseover event opens
+        $('ul[data-menu-level="1"]').mouseleave (
+          // Close submenu when the mouse leaves it
+          function () {
+            closeWidescreenSubmenu ();
+          }
+        )
+      }
+    );
 
     // // For dev purposes
-    $('#header_menu li[data-menu-level="0"]').click (function(e) {
-      e.preventDefault();
-      openWidescreenSubmenu ($('> ul', this).clone ());
-    });
+    // $('#header_menu li[data-menu-level="0"]').click (function(e) {
+    //   e.preventDefault();
+    //   openWidescreenSubmenu ($('> ul', this).clone ());
+    // });
 
     // VI. Handle subheader menu click events
     $('#header_menu li[data-menu-level="0"]').click (function () {
@@ -392,8 +397,6 @@
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ right: '0%', left: '0%' }, 800)     
          .show ();
-    // setSubheaderHeight (slide); 
-    console.log('1')
     animateSubheaderHeight ( setSubheaderHeight (slide) );
   }
 
@@ -412,22 +415,24 @@
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ left: '0%', right: '0%' }, 800)
          .show ();
-    // setSubheaderHeight (slide); 
     animateSubheaderHeight ( setSubheaderHeight (slide) );
   }
 
   /*
   Accepts one argument: slide, an object representing a single 
-  menu screen; calculates the height of the subheader element, 
-  animates the element to that height, and returns undefined.
+  menu screen; returns a string representing the height of 
+  that slide's subheader element.
   */
   function setSubheaderHeight (slide) {
     var subheaderHeight = $('.search-block-form').height () + $('.menu_slide_header').height () + slide.height () + 81;
     subheaderHeight += 'px';
-    return subheaderHeight;
-    // $('#subheader_mobile_collapsible').animate ({height: subheaderHeight}, 800);    
+    return subheaderHeight;    
   }
 
+  /*
+  Accepts one argument: subheaderHeight, a string; animates
+  the subheader height to that height; and returns undefined.
+  */
   function animateSubheaderHeight (subheaderHeight) {
     $('#subheader_mobile_collapsible').animate ({height: subheaderHeight}, 800);    
   }
@@ -624,7 +629,6 @@
   */
   function closeWidescreenSubmenu () {
     $('#subheader_widescreen_submenu').empty ();
-    // $('#subheader_widescreen_submenu').slideUp ().empty ();
     removeSelectedClassFromMenuItems ();
   }
 
@@ -662,11 +666,9 @@
     openMobileSubheader ();
     removeMenuHeaderLineBreaks ();
     $('#subheader_mobile_collapsible').slideDown ();   
-        console.log($('#subheader_mobile_collapsible').height()) 
   }
 
   function closeMobileCollapsible() {
-        console.log($('#subheader_mobile_collapsible').height())
     $('#subheader_mobile_collapsible').slideUp ();
   }
 
@@ -728,28 +730,10 @@
         moveSearchBlockToMobileSearch ();
         openMobileSubheaderHeader ();
         return openMobileCollapsible ();
-        // return setMainSlideHeight();
       default:
         console.log('[achp_theme][toggleSubheaderMenu] Warning: unrecognized header menu state "' + headerMenuState + '".');
     }
   }
-
-  /*
-  Accepts no arguments, extends the slide height by the height of one
-  li element so that the Close button has sufficient space, and 
-  returns undefined.
-  */
-  // function setMainSlideHeight () {
-  //   var mainSlide = $('.menu_slide[data-menu-slide-index="0"]');
-  //   // console.log(mainSlide.find('li').length)
-  //   // console.log($('#subheader_mobile_collapsible').height() )
-  //   mainSlide.height ( mainSlide.height() + ( mainSlide.height() / mainSlide.find('li').length));
-  //   var mainSlideSubheaderHeight = $('.search-block-form').height () + $('.menu_slide_header').height () + mainSlide.height ();
-  //   // $('#subheader_mobile_collapsible').height(mainSlideSubheaderHeight);
-  //   // console.log($('#subheader_mobile_collapsible').height())
-  //   setSubheaderHeight (mainSlide);
-  //   console.log(1);
-  // }
 
   /*
   Accepts no arguments, moves search block to mobile search element,
