@@ -26,6 +26,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    /*overflow: auto;*/
 
     li[data-menu-level="0"] {
       border: $header-menu-border-width solid rgba(0,0,0,0);
@@ -34,8 +35,10 @@
       text-align: center;
       margin: 0 20px 0 0;
       text-align: center;
-      height: $header-menu-height + $header-menu-border-width - 0.5px;
+      /*height: 72px;*/
+      height: $header-menu-height + $header-menu-border-width !important;
       padding: 0 10px;
+      box-sizing: border-box !important;
 
       &:last-of-type {
         margin: 0;
@@ -236,6 +239,7 @@
       z-index: 1000;
       width: 100%;
       position: absolute;
+      height: 494px;
 
       #subheader_mobile_body {
         width: 100%;
