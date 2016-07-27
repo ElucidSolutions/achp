@@ -341,22 +341,22 @@
              .addClass ('menu_slide_extra_item')
              .html ('<a href="#">SIGN IN</a>')));
 
-    slide.find('.menu_slide_extra_item')
-         .append ($('<span></span>')
-           .addClass('menu_slide_list_item_arrow_blue')
-           .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
-         )   
-         .append ($('<span></span>')
-           .addClass('menu_slide_list_item_arrow')
-           .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
-         )       
-         .hover (
-           function (e) {
-             $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
-           },
-           function (e) {
-             $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
-         });
+    // slide.find('.menu_slide_extra_item')
+    //      .append ($('<span></span>')
+    //        .addClass('menu_slide_list_item_arrow_blue')
+    //        .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
+    //      )   
+    //      .append ($('<span></span>')
+    //        .addClass('menu_slide_list_item_arrow')
+    //        .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
+    //      )       
+    //      .hover (
+    //        function (e) {
+    //          $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
+    //        },
+    //        function (e) {
+    //          $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
+    //      });
   }
 
   /*
@@ -393,9 +393,9 @@
     var slide = getMenuSlide (containerElement, menuItemIndex);
     slide.css ('position', 'absolute')
          .css ('width', '100%')
-         .css ('right', '150%')
+         .css ('right', '100%')
          .delay (0) /* This seems to fix a Safari bug */
-         .animate ({ right: '0%', left: '0%' }, 800)     
+         .animate ({ right: '0%', left: '0%' }, 250, "linear")     
          .show ();
     animateSubheaderHeight ( setSubheaderHeight (slide) );
   }
@@ -411,9 +411,9 @@
     var slide = getMenuSlide (containerElement, menuItemIndex);
     slide.css ('position', 'absolute')
          .css ('width', '100%')
-         .css ('left', '150%')
+         .css ('left', '100%')
          .delay (0) /* This seems to fix a Safari bug */
-         .animate ({ left: '0%', right: '0%' }, 800)
+         .animate ({ left: '0%', right: '0%' }, 250, "linear")
          .show ();
     animateSubheaderHeight ( setSubheaderHeight (slide) );
   }
@@ -434,7 +434,7 @@
   the subheader height to that height; and returns undefined.
   */
   function animateSubheaderHeight (subheaderHeight) {
-    $('#subheader_mobile_collapsible').animate ({height: subheaderHeight}, 800);    
+    $('#subheader_mobile_collapsible').animate ({height: subheaderHeight}, 250);    
   }
 
   /*
@@ -442,9 +442,10 @@
   that index out of view; and returns undefined.
   */
   function slideOutToLeft (index) {
+    console.log('hr')
     $('.menu_slide[data-menu-slide-index="' + index + '"]').css ('position', 'absolute')
                                                            .css ('width', '100%')
-                                                           .animate({ left: '-150%' }, 800);
+                                                           .animate({ left: '-101%' }, 250, "linear");
 
   }
 
@@ -455,7 +456,7 @@
   function slideOutToRight (index) {
     $('.menu_slide[data-menu-slide-index="' + index + '"]').css ('position', 'absolute')
                                                            .css ('width', '100%')
-                                                           .animate({ left: '150%' }, 800);
+                                                           .animate({ left: '101%' }, 250, "linear");
   }
 
   /*

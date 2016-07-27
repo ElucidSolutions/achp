@@ -26,16 +26,15 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    /*overflow: auto;*/
 
     li[data-menu-level="0"] {
       border: $header-menu-border-width solid rgba(0,0,0,0);
       border-bottom: none;
       list-style-type: none;
       text-align: center;
-      margin: 0 20px 0 0;
+      margin: 0 10px 0 0;
       text-align: center;
-      padding: 0 10px;
+      padding: 0 40px;
       height: $header-menu-height + $header-menu-border-width !important;
       box-sizing: border-box !important;
 
@@ -208,12 +207,6 @@
       padding: 15px 0px;
       color: $color-darkblue2;
       line-height: 1;
-/*      background-image: url('../images/menu-icon.svg');
-      background-repeat: no-repeat;
-      background-position: 0% 45%;
-      width: 100px;
-      padding-left: 20px;
-      margin: 0 auto;   */
 
       &:before {
         content: "";
@@ -251,8 +244,6 @@
 
         .menu_slide_container .menu_slide {
           display: none;
-          /*background-color: white;*/
-          /*box-sizing: border-box;*/
 
           &[data-menu-slide-index="0"] {
             display: block;
@@ -285,18 +276,9 @@
             > ul {
               margin: 0;
             }
-
-/*            .menu_slide_list_item_extra li {
-              list-style-type: none;
-
-              a {
-                text-decoration: none;
-              }
-
-            }*/
           }
 
-          .menu_slide_list_item, li[data-menu-level="2"], li[data-menu-level="1"] {
+          .menu_slide_list_item, li[data-menu-level="1"], li[data-menu-level="2"] {
             cursor: pointer;
             padding: 16px 24px;
             border-bottom: 1px solid $color-grey3;
@@ -307,16 +289,6 @@
               background-color: $background-color-lightblue;
             }
 
-/*            &:after {
-              content: "";
-              background-image: url('../images/right-arrow-icon.svg');
-              background-repeat: no-repeat;
-              width: 8px;
-              height: 16px;
-              position: absolute;
-              right: 24px;
-            }
-*/
             .menu_slide_list_item_arrow, .menu_slide_list_item_arrow_blue {
               width: 8px;
               height: 16px;
@@ -392,10 +364,6 @@
           text-align: center;
           font-size: 0.875rem;
           font-weight: 500;
-          /*position: absolute;*/
-          /*bottom: 0;*/
-          position: relative;
-          /*@include center-xy;*/
         }
       }
     }

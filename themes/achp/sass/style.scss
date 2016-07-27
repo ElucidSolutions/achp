@@ -98,6 +98,11 @@ button {
   padding: 12px 35px 8px;
   margin: 0 auto 30px auto;
   display: block;
+  transition: background-color 0.25s;  /* This fade-in and -out will not work on IE9, but the hover itself still should */
+
+  &:hover {
+    background-color: #71bffe;
+  }
 
   @media (max-width: $mobile-breakpoint) {  
     padding: 8px 20px;
