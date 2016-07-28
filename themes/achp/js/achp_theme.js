@@ -43,20 +43,29 @@
     });
 
     // V. Handle subheader menu item hover events
-
-    $('#header_menu li[data-menu-level="0"]').mouseover (
-      // On mouse enter, show submenu
+    $('#header_menu li[data-menu-level="0"]').hover (
+      // When mouse hovers on menu, show drop-down submenu
       function () {
         openWidescreenSubmenu ($('> ul', this).clone ());
-        // Hover event on submenu that the mouseover event opens
-        $('ul[data-menu-level="1"]').mouseleave (
-          // Close submenu when the mouse leaves it
+      },
+      // When mouse leaves, listen to see if it has gone to the drop-down or not 
+      function () {       
+        $('ul[data-menu-level="1"]').hover (
           function () {
+            // If yes, keep submenu open and do nothing
+          }, function () {
+            // If no, close submenu
             closeWidescreenSubmenu ();
-          }
-        )
+          })
       }
-    );
+    )
+
+    $('#header').mouseover ( 
+      function () {
+        closeWidescreenSubmenu ();
+      })
+
+    $('document').mouseleave ( function() { console.log('goodbye')});
 
     // // For dev purposes
     // $('#header_menu li[data-menu-level="0"]').click (function(e) {
@@ -262,22 +271,8 @@
             slideOutToLeft (index);            
             slideInFromRight (containerElement, $(menuListItem).attr ('data-menu-item-index'));
           })
-          .append ($('<span></span>')
-            .addClass('menu_slide_list_item_arrow_blue')
-            .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
-          )   
-          .append ($('<span></span>')
-            .addClass('menu_slide_list_item_arrow')
-            .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
-          )       
-          .hover (
-            function (e) {
-              $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
-            },
-            function (e) {
-              $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
-          })
         );
+        toggleArrows (slideListItem);
     });
 
     // To remove line breaks from slide titles that have them
@@ -322,6 +317,29 @@
   }
 
   /*
+  Accepts one argument, an HTML Element; appends blue and grey arrow icons to the 
+  element, toggling between them upon hover; and returns undefined.
+  */
+
+  function toggleArrows (item) {
+    $(item).append ($('<span></span>')
+             .addClass('arrow')
+             .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
+           )   
+           .append ($('<span></span>')
+             .addClass('arrow_blue')
+             .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
+           )       
+           .hover (
+             function (e) {
+               $('.arrow_blue', $(e.target)).css ('z-index', '1000');
+             },
+             function (e) {
+               $('.arrow_blue', $(e.target)).css ('z-index', '800');
+          });
+  }
+
+  /*
   Accepts one argument: slide, an object representing a single 
   menu screen; attaches additional list items to the screen;
   and returns undefined.
@@ -339,24 +357,8 @@
            .append ($('<li></li>')
              .addClass ('menu_slide_list_item')
              .addClass ('menu_slide_extra_item')
-             .html ('<a href="#">SIGN IN</a>')));
-
-    // slide.find('.menu_slide_extra_item')
-    //      .append ($('<span></span>')
-    //        .addClass('menu_slide_list_item_arrow_blue')
-    //        .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
-    //      )   
-    //      .append ($('<span></span>')
-    //        .addClass('menu_slide_list_item_arrow')
-    //        .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
-    //      )       
-    //      .hover (
-    //        function (e) {
-    //          $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
-    //        },
-    //        function (e) {
-    //          $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
-    //      });
+             .html ('<a href="#">SIGN IN</a>'))
+          );
   }
 
   /*

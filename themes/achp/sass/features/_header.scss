@@ -42,7 +42,7 @@ header {
     /*@include span-columns(1 of 12);*/
 
     img {
-      height: 140px;
+      height: $header-height;
 
       @media (max-width: 500px) {
         height: 100px;
@@ -60,8 +60,9 @@ header {
     /*@include span-columns(8 of 12);*/
     max-width: 400px;
     text-align: left;
-    padding: 25px;
+    padding: 10px;
     padding-left: 40px;
+    line-height: 1.25;
 
     @media (max-width: 500px) {
       font-size: 1.25rem;
@@ -73,7 +74,7 @@ header {
   #block-headercontactlinks {
     color: white;
     font-weight: 300;
-    padding: 10px 0;
+    padding: 15px 0 5px;
     float: right;
 
     a {
@@ -81,12 +82,8 @@ header {
       font-family: $sans-text;
       font-size: 0.875rem; 
       text-decoration: none;
-      padding: 10px;
-      transition: color 0.25s;
-
-      &:hover {
-        color: #71bffe;
-      }
+      /*margin: 10px;*/
+      @include hover-transition-content;
     }
 
     .text_links a {
@@ -96,19 +93,16 @@ header {
 
     .social_icons {
       vertical-align: sub;
-      padding-left: 15px;
+      margin-left: 15px;
 
       .social_media {
-        padding: 10px;
+        padding-right: 10px;
+        @include hover-transition-content;
 
         &:last-of-type {
           padding-right: 0;
         }
       }
-    }
-
-    .social_icons {
-      padding-left: 10px;
     }
 
     img {
@@ -161,52 +155,45 @@ header {
     #block-achp-search {
       height: auto;
 
-/*      &:after {
-        content: "";
-        background: url('../images/search-icon.svg');
-        background-repeat: no-repeat;
-        background-color: $color-blue;
-        background-position: center;
-        background-size: 50%;
-        width: 30px;
-        height: 32px;
-        padding: 0;
+      .form-item {
+        height: 30px;
+        width: 90%;
+
+        input.form-search {
+          border: 1px solid #979797;
+          font-size: 0.75rem;
+          border-radius: 2px;
+          height: 100%;
+          line-height: 1.25;
+          outline: none;
+          padding: 15px 11px;
+          width: 101%;
+        }
+      }
+
+      .form-actions {
         float: right;
-        bottom: 30px;
-        position: relative;
-        border-radius: 0 2px 2px 0;
-      }*/
+        height: 32px; /* 30px height of text input, plus 1px each for top and bottom borders*/
+        margin: 0;
+        width: 11%;
+
+        input.form-submit {
+          border: none;
+          border-radius: 0 2px 2px 0;          
+          height: 100%;
+          width: 100%;
+          position: relative;
+          bottom: 30px;
+          background-image: url('../images/search-icon.svg');
+          background-repeat: no-repeat;
+          background-color: $color-blue;
+          background-position: center;
+          background-size: 63%;
+          cursor: pointer;
+          @include hover-transition-background;
+        }
+      }   
     }
-
-    .form-item {
-      height: 30px;
-      width: 90%;
-
-      input.form-search {
-        border: 1px solid #979797;
-        font-size: 0.75rem;
-        border-radius: 2px;
-        height: 100%;
-        line-height: 1.25;
-        outline: none;
-        padding: 15px 11px;
-        width: 100%;
-      }
-    }
-
-    .form-actions {
-      display: none;
-      float: right;
-      height: 100%;
-      margin: 0px;
-      width: 10%;
-
-      input.form-submit {
-        border: none;
-        height: 100%;
-        width: 100%;
-      }
-    }   
   }
 }
 

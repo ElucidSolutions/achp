@@ -3,7 +3,7 @@ $max-content-width: 1024px;
 $mobile-breakpoint: 650px;
 $hero-breakpoint: 925px;
 $menu-breakpoint: 950px;
-$header-height: 140px;
+$header-height: 100px;
 $header-menu-height: 72px;
 $header-menu-widescreen-width: 1024px;
 $header-menu-border-width: 3px;
@@ -11,6 +11,8 @@ $header-title-medium-width: 350px;
 $header-title-small-width: 225px;
 $header-logo-width: 89px;
 $header-logo-small-width: 64px;
+$arrow-width: 8px;
+$arrow-padding: 5px;
 
 /* Global variables: text */
 $sans-text: 'p22-underground', sans-serif;
@@ -86,6 +88,23 @@ $grid-columns: 12;
   background-color: $color;
   border: none;
   height: 1px;
+}
+
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+@mixin hover-transition-content {
+  transition: color 0.25s;
+
+  &:hover {
+    color: #71bffe;
+  }
+}
+
+@mixin hover-transition-background {
+  transition: background-color 0.25s;
+
+  &:hover {
+    background-color: #71bffe;
+  }
 }
 
 /* Mixin for responsive type size */

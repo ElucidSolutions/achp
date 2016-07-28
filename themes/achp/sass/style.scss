@@ -95,14 +95,11 @@ button {
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
   border: none;
   border-radius: 2px;
-  padding: 12px 35px 8px;
+  padding: 12px 53px 8px;
   margin: 0 auto 30px auto;
   display: block;
-  transition: background-color 0.25s;  /* This fade-in and -out will not work on IE9, but the hover itself still should */
-
-  &:hover {
-    background-color: #71bffe;
-  }
+  @include hover-transition-background;
+  cursor: pointer;
 
   @media (max-width: $mobile-breakpoint) {  
     padding: 8px 20px;
@@ -119,13 +116,56 @@ button {
   text-align: left;
 }
 
-/* For 'READ MORE >' buttons at bottom of */
-.read_more a {
-  color: $color-grey;
-  text-decoration: none;
+/* For 'READ MORE >' buttons at bottom of card items*/
+.read_more {
   cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
+
+  a {
+    color: $color-grey;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    /*margin-right: $arrow-width + $arrow-padding; */
+    /* offset for correct horizontal centering*/
+    @include hover-transition-content;
+
+    &:after {
+      content: "";
+      background-image: url('../images/right-arrow-icon.svg');
+      background-repeat: no-repeat;
+      /*background-color: $color-blue;*/
+      background-position: center;
+      /*background-size: 45%;*/
+      width: 20px;
+      height: 21px;
+      position: absolute;
+      /*line-height: 2;*/
+      /*display: inline-block;*/
+      /*padding-left: $arrow-padding;*/
+      cursor: pointer;
+      transition: background-image 0.25s;
+    }
+
+    &:hover:after {
+      background-image: url('../images/right-arrow-icon-pale-blue.svg')      
+    }
+
+
+  }
+
+/*  .arrow, .arrow_blue {
+    width: 55;
+    height: 16px;
+    position: absolute;
+    line-height: 2;
+    display: inline-block;
+    padding-left: $arrow-padding;
+    cursor: pointer;
+  }
+
+  .arrow_blue {
+    display: none;
+  }*/
 }
 
 #homepage_hero_region {
