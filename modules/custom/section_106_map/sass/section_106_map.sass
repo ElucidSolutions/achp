@@ -1,0 +1,176 @@
+/*
+  The Section 106 Map Sass library defines the default
+  styling for the Section 106 Case Map module.
+
+
+$feature_height: 500px
+$feature_width:  100%
+.section_106_map
+  height: $feature_height
+  width:  $feature_width
+
+  $feature_header_height: 150px
+  $feature_header_width:  100%
+  .section_106_map_header
+    height: $feature_header_height
+    width:  $feature_header_width
+
+    $feature_header_header_height: $feature_header_height / 2
+    $feature_header_header_width:  100%
+    .section_106_map_header_header
+      height: $feature_header_header_height
+      width:  $feature_header_header_width
+
+      .section_106_map_header_header_title
+        color: white
+        font-size: 2rem
+
+    $feature_header_body_height: $feature_header_height - $feature_header_header_height
+    $feature_header_body_width:  100%
+    .section_106_map_header_body
+      height: $feature_header_body_height
+      width:  $feature_header_body_width
+
+      $feature_header_body_tabs_height: $feature_header_body_height
+      $feature_header_body_tabs_width:  300px
+      .section_106_map_header_body_tabs
+        border-top: solid white 1px
+        height:     $feature_header_body_tabs_height
+        width:      $feature_header_body_tabs_width
+        margin:     0px auto
+
+        .section_106_map_header_body_tab
+          color:  white
+          float:  left
+          padding-top: $feature_header_body_tabs_height / 2
+          width:  $feature_header_body_tabs_width / 2
+
+        .section_106_map_map_tab
+          background: url('../images/map-icon.svg') no-repeat 50% ($feature_header_body_tabs_height / 4)
+          background-size: 15px
+
+        .section_106_map_grid_tab
+          background: url('../images/grid-icon.svg') no-repeat 50% ($feature_header_body_tabs_height / 4)
+          background-size: 15px
+
+  $feature_body_height: $feature_height - $feature_header_height
+  $feature_body_width:  100%
+  .section_106_map_body
+    height: $feature_body_height
+    width:  $feature_body_width
+
+    .section_106_map_map_container
+      height: 100%
+      width:  100%
+
+      .leaflet-div-icon
+        background: none
+        border: none
+
+      .section_106_map_state_marker
+        transform: translate(-50%, -100%)
+
+        &.section_106_map_selected
+          #Front-Marker 
+            fill: rgba(253, 164, 133, 1)
+
+      .section_106_map_multiple_cases_state_marker
+
+        .section_106_map_state_marker_label
+          fill:        #ffffff
+          font-size:   25px
+          font-family: 'Open Sans'
+          transform:   translate(25px, 25px)
+          text-anchor: middle
+
+      .section_106_map_cluster_marker
+        transform: translate(-50%, -50%)
+
+        .section_106_map_cluster_marker_label
+          fill:        #ffffff
+          font-size:   25px
+          font-family: 'Open Sans'
+          transform:   translate(30px, 25px)
+          text-anchor: middle
+
+    .section_106_map_grid
+      height: 100%
+      width:  100%
+
+    $blue_color: rgb(5,60,93)  
+    $red_color:  rgb(151,0,14)
+    $panel_height:  $feature_body_height
+    $panel_padding: 10px
+    $panel_width:   300px
+    .section_106_map_panel
+      background: white
+      border-top: $red_color 5px solid
+      height:     $panel_height
+      max-width:  $panel_width
+      overflow-y: scroll
+      position:   absolute
+      right:      0px // Fix to right-most edge
+      text-align: left
+      z-index:    10 // Position above the map layer
+
+      .section_106_map_state_panel
+
+        $state_panel_header_height: 50px
+        $state_panel_header_width:  $panel_width
+        .section_106_map_state_panel_header
+          height:  $state_panel_header_height
+          padding: $panel_padding
+          width:   $state_panel_header_width
+
+          $state_panel_header_close_button_width: 25px
+          .section_106_map_state_panel_header_close_button
+            background: url('../images/close-icon.svg') no-repeat 50% 50%
+            cursor:     pointer
+            float:      left
+            height:     100%
+            width:      $state_panel_header_close_button_width
+            -moz-transition: all .25s ease
+            -webkit-transition: all .25s ease
+            -o-transition: all .25s ease
+            transition: all .25s ease
+
+            &:hover
+              -moz-transform: rotate(180deg)
+              -webkit-transform: rotate(180deg)
+              -o-transform: rotate(180deg)
+              transform: rotate(180deg)
+
+          $state_panel_header_title_width: $state_panel_header_width - 2 * $panel_padding - $state_panel_header_close_button_width
+          .section_106_map_state_panel_header_title
+            color:  $blue_color
+            float:  left
+            height: 100%
+            width:  $state_panel_header_title_width
+
+        .section_106_map_state_panel_body
+          border-top: $red_color 1px solid
+          padding:    $panel_padding
+
+          .section_106_map_state_panel_state_cases_list
+            color:           $red_color
+            list-style-type: decimal-leading-zero
+            margin:          0px
+            padding:         0px
+
+            .section_106_map_state_panel_state_case
+              margin-left: 30px
+
+              .section_106_map_state_panel_state_case_header_title
+                color: $blue_color
+
+              .section_106_map_state_panel_state_case_body
+                color:       black
+
+                .section_106_map_state_panel_state_case_body_description
+                  p
+                    margin:     0px
+                    padding:    0px
+                    text-align: left
+
+                .section_106_map_state_panel_state_case_body_agency_header_title
+                  color: $blue_color

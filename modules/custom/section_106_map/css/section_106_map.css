@@ -1,0 +1,117 @@
+/* The Section 106 Map Sass library defines the default
+ * styling for the Section 106 Case Map module. */
+.section_106_map {
+  height: 500px;
+  width: 100%; }
+  .section_106_map .section_106_map_header {
+    height: 150px;
+    width: 100%; }
+    .section_106_map .section_106_map_header .section_106_map_header_header {
+      height: 75px;
+      width: 100%; }
+      .section_106_map .section_106_map_header .section_106_map_header_header .section_106_map_header_header_title {
+        color: white;
+        font-size: 2rem; }
+    .section_106_map .section_106_map_header .section_106_map_header_body {
+      height: 75px;
+      width: 100%; }
+      .section_106_map .section_106_map_header .section_106_map_header_body .section_106_map_header_body_tabs {
+        border-top: solid white 1px;
+        height: 75px;
+        width: 300px;
+        margin: 0px auto; }
+        .section_106_map .section_106_map_header .section_106_map_header_body .section_106_map_header_body_tabs .section_106_map_header_body_tab {
+          color: white;
+          float: left;
+          padding-top: 37.5px;
+          width: 150px; }
+        .section_106_map .section_106_map_header .section_106_map_header_body .section_106_map_header_body_tabs .section_106_map_map_tab {
+          background: url("../images/map-icon.svg") no-repeat 50% 18.75px;
+          background-size: 15px; }
+        .section_106_map .section_106_map_header .section_106_map_header_body .section_106_map_header_body_tabs .section_106_map_grid_tab {
+          background: url("../images/grid-icon.svg") no-repeat 50% 18.75px;
+          background-size: 15px; }
+  .section_106_map .section_106_map_body {
+    height: 350px;
+    width: 100%; }
+    .section_106_map .section_106_map_body .section_106_map_map_container {
+      height: 100%;
+      width: 100%; }
+      .section_106_map .section_106_map_body .section_106_map_map_container .leaflet-div-icon {
+        background: none;
+        border: none; }
+      .section_106_map .section_106_map_body .section_106_map_map_container .section_106_map_state_marker {
+        transform: translate(-50%, -100%); }
+        .section_106_map .section_106_map_body .section_106_map_map_container .section_106_map_state_marker.section_106_map_selected #Front-Marker {
+          fill: #fda485; }
+      .section_106_map .section_106_map_body .section_106_map_map_container .section_106_map_multiple_cases_state_marker .section_106_map_state_marker_label {
+        fill: #ffffff;
+        font-size: 25px;
+        font-family: "Open Sans";
+        transform: translate(25px, 25px);
+        text-anchor: middle; }
+      .section_106_map .section_106_map_body .section_106_map_map_container .section_106_map_cluster_marker {
+        transform: translate(-50%, -50%); }
+        .section_106_map .section_106_map_body .section_106_map_map_container .section_106_map_cluster_marker .section_106_map_cluster_marker_label {
+          fill: #ffffff;
+          font-size: 25px;
+          font-family: "Open Sans";
+          transform: translate(30px, 25px);
+          text-anchor: middle; }
+    .section_106_map .section_106_map_body .section_106_map_grid {
+      height: 100%;
+      width: 100%; }
+    .section_106_map .section_106_map_body .section_106_map_panel {
+      background: white;
+      border-top: #97000e 5px solid;
+      height: 350px;
+      max-width: 300px;
+      overflow-y: scroll;
+      position: absolute;
+      right: 0px;
+      text-align: left;
+      z-index: 10; }
+      .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_header {
+        height: 50px;
+        padding: 10px;
+        width: 300px; }
+        .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_header .section_106_map_state_panel_header_close_button {
+          background: url("../images/close-icon.svg") no-repeat 50% 50%;
+          cursor: pointer;
+          float: left;
+          height: 100%;
+          width: 25px;
+          -moz-transition: all 0.25s ease;
+          -webkit-transition: all 0.25s ease;
+          -o-transition: all 0.25s ease;
+          transition: all 0.25s ease; }
+          .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_header .section_106_map_state_panel_header_close_button:hover {
+            -moz-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg); }
+        .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_header .section_106_map_state_panel_header_title {
+          color: #053c5d;
+          float: left;
+          height: 100%;
+          width: 255px; }
+      .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_body {
+        border-top: #97000e 1px solid;
+        padding: 10px; }
+        .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list {
+          color: #97000e;
+          list-style-type: decimal-leading-zero;
+          margin: 0px;
+          padding: 0px; }
+          .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_state_panel_state_case {
+            margin-left: 30px; }
+            .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_state_panel_state_case .section_106_map_state_panel_state_case_header_title {
+              color: #053c5d; }
+            .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_state_panel_state_case .section_106_map_state_panel_state_case_body {
+              color: black; }
+              .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_state_panel_state_case .section_106_map_state_panel_state_case_body .section_106_map_state_panel_state_case_body_description p {
+                margin: 0px;
+                padding: 0px;
+                text-align: left; }
+              .section_106_map .section_106_map_body .section_106_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_state_panel_state_case .section_106_map_state_panel_state_case_body .section_106_map_state_panel_state_case_body_agency_header_title {
+                color: #053c5d; }
