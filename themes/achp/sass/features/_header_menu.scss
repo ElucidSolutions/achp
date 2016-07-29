@@ -412,7 +412,6 @@
         width: 100%;
 
         input.form-search {
-          /* TODO: Add mag glass*/
           border: 1px solid #979797;
           font-size: 0.75rem;
           font-family: $sans-text;
@@ -422,6 +421,9 @@
           outline: none;
           padding: 10px;
           width: 100%;
+          /* The following two lines override Safari rounding the input's corners */
+          appearance: none;
+          -webkit-appearance: none; 
         }
       }
 

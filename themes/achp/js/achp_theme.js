@@ -65,7 +65,10 @@
         closeWidescreenSubmenu ();
       })
 
-    $('document').mouseleave ( function() { console.log('goodbye')});
+    $('#homepage_hero_region').mouseover ( 
+      function () {
+        closeWidescreenSubmenu ();
+      })
 
     // // For dev purposes
     // $('#header_menu li[data-menu-level="0"]').click (function(e) {
@@ -444,7 +447,6 @@
   that index out of view; and returns undefined.
   */
   function slideOutToLeft (index) {
-    console.log('hr')
     $('.menu_slide[data-menu-slide-index="' + index + '"]').css ('position', 'absolute')
                                                            .css ('width', '100%')
                                                            .animate({ left: '-101%' }, 250, "linear");
