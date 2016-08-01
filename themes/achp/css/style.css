@@ -298,7 +298,7 @@ html {
       #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] {
         background-color: white;
         margin: 0;
-        padding: 0 5px 10px 15px; }
+        padding: 0 10px 10px 25px; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"].menu_selected {
           border: 3px solid #9B0008;
           box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
@@ -761,8 +761,9 @@ header {
     display: block;
     margin-right: 0%;
     width: 25%;
-    margin-left: 25%;
-    float: right; }
+    /*@include shift(3);*/
+    float: right;
+    width: 26.5%; }
     header #header_widescreen_search_bar:last-child {
       margin-right: 0; } }
 @media (max-width: 1150px) {
