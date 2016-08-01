@@ -83,6 +83,8 @@
       }
     });
 
+    // toggleArrows ($('#homepage_quicklinks_content .views-row')) 
+
     // VII. Move the Search and Menu Block elements at breakpoints.
     $.breakpoint ((function () {
       return {
