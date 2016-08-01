@@ -43,7 +43,7 @@ h1, h2, h3 {
   font-family: $sans-text; 
   text-align: center;
   margin: 0;
-  padding: 0;
+  /*padding: 0;*/
   font-weight: normal;
 }
 
@@ -210,12 +210,9 @@ button {
 
 #homepage_quicklinks_region {
   padding: 25px 50px;
-  height: 500px;
+  /*height: 500px;*/
+  height: auto;
   background-color: $background-color-grey;
-
-  hr {
-    /*width: 50px;*/
-  }
 }
 
 /* See latest_news feature file for more */

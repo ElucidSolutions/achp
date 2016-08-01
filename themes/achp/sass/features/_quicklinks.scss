@@ -1,0 +1,82 @@
+@import "../global";
+
+#homepage_quicklinks_region {
+  #block-quicklinks {
+    @include span-columns(12 of 12);
+  }
+
+  #homepage_quicklinks_content {
+    $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
+    width: $card-container-width;
+
+    .views-element-container {
+      @extend .card;
+      padding: 0;
+      @include span-columns(4 of 12);
+      background-color: #FFFFFF;
+      margin-right: 20px;
+      height: $card-height;
+      width: $card-width;
+      margin: $card-margin-vert 0;
+      margin-right: $card-margin-horiz;
+      float: left;
+
+/*      &.view-item-3 {
+        margin-right: 0;
+      }*/
+
+      h2 {
+        @extend h3;
+        padding: 20px 15px 5px;
+        display: table-cell;
+        vertical-align: bottom;
+        height: 80px;
+      }
+
+      .views-row {
+        border-top: 1px solid $color-grey3;
+        padding: 10px 25px;
+        width: 100%;
+
+        a {
+          text-decoration: none;
+          color: $color-grey;
+          letter-spacing: 0px;
+          line-height: 22.39px;
+          display: inline-block;
+          width: 95%;
+        }
+
+        &:after {
+          content: ">";
+          float: right;
+          color: pink;
+        }
+        
+      }
+    }
+  }
+}
+
+#homepage_quicklinks_region > #homepage_quicklinks_content {
+    @media (max-width: 1023px) {   
+      /* At this width 2 cards are on the first row, and the third is on the second. */
+      /* First card has a margin-right, but second no longer does:; */
+      $card-container-width: $card-width * 2 + $card-margin-horiz; 
+      width: $card-container-width; 
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+      height: $card-height * 2 + $card-margin-vert * 3; /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+
+      .views-element-container {
+        /*margin-right: 0;*/
+        &:nth-last-of-type(2) {
+          margin-right: 0px;
+        }
+
+        &:last-of-type {
+          $horiz-margin: ($card-container-width - $card-width) / 2;
+          margin: 0 $horiz-margin;
+        }
+      }
+    }
+  }
