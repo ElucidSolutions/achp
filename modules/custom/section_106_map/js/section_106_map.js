@@ -4,49 +4,68 @@
 */
 (function ($) {
 
-  // I. The Initialization function
+  // I. Global variables
+
+  // The Lunr Search Index.
+  var lunrIndex = null;
+
+  // The Section 106 consultation cases.
+  var cases = [];
+
+  // II. The Initialization function
 
   $(document).ready (function () {
-    $('.section_106_map').each (function (i, containerElement) {
-      // Create states.
-      var states = createStates (drupalSettings.section_106_map.cases);
+    // Retrieve the section 106 consultation cases.
+    cases = drupalSettings.section_106_map.cases;
 
+    // Initialize the Lunr search index.
+    lunrIndex = lunr (function () {
+      this.field ('id');
+      this.field ('title', 100);
+      this.field ('body');
+      this.field ('agency', 100);
+      this.field ('state', 100);
+      this.field ('status');
+    });
+
+    // Remove the stemmer pipeline function due to problems handling incomplete words.
+    // See: https://github.com/olivernn/lunr.js/issues/38
+    lunrIndex.pipeline.reset ();
+
+    // Index the case records.
+    indexCases (cases);
+
+    $('.section_106_map').each (function (i, containerElement) {
       // Create and attach the feature instance.
-      var instance = new FeatureInstance (states, $(containerElement));
+      var instance = new FeatureInstance ($(containerElement));
     });
   });
 
-  // II. The Feature Instance Class
+  // III. The Feature Instance Class
 
   /*
-    Accepts two arguments: 
-
-    * states, a State object array
-    * and containerElement, a jQuery HTML Element
-
-    and creates and attaches a Section 106 Map
-    Feature Instance to containerElement and
-    returns the instance as a FeatureInstance
-    object.
+    Accepts one argument: containerElement,
+    a jQuery HTML Element; and creates and
+    attaches a Section 106 Map Feature Instance
+    to containerElement and returns the instance
+    as a FeatureInstance object.
   */
-  function FeatureInstance (states, containerElement) {
-    this._states          = states;
-
+  function FeatureInstance (containerElement) {
     // I. Create and attach the instance element.
     this._instanceElement = this.createInstanceElement ();
     containerElement.append (this._instanceElement);
 
     // II. Load the map.
-    this._map             = this.loadMap ();
-  }
+    this._map          = this.loadMap ();
 
-  /*
-    Accepts no arguments and returns a copy of
-    those States and U.S. territories plotted on
-    this instance's map as a State object array.
-  */
-  FeatureInstance.prototype.getStates = function () {
-    return this._states.slice ();
+    // III. Create the marker cluster group.
+    this._clusterGroup = this.createStateMarkerClusterGroup ();
+
+    // IV. Add the marker cluster group to the map. 
+    this._map.addLayer (this._clusterGroup);
+
+    // V. Set the state markers.
+    this.setMarkers (); 
   }
 
   /*
@@ -65,6 +84,15 @@
   */
   FeatureInstance.prototype.getMap = function () {
     return this._map;
+  }
+
+  /*
+    Accepts no arguments and returns the Leafet
+    Marker Cluster Group displayed in this
+    instance's map.
+  */
+  FeatureInstance.prototype.getClusterGroup = function () {
+    return this._clusterGroup;
   }
 
   /*
@@ -114,6 +142,7 @@
   FeatureInstance.prototype.createBodyElement = function () {
     return $('<div></div>')
       .addClass ('section_106_map_body')
+      .append (this.createSearchElement ())
       .append (this.createPanelElement ())
       .append (this.createMapContainerElement ())
       .append (this.createGridElement ());
@@ -153,12 +182,36 @@
     zooms/centers the map on the remaining items.
   */
   FeatureInstance.prototype.createSearchElement = function () {
+    var self = this;
+
+    var inputElement = $('<input></input>')
+      .attr ('type', 'text')
+      .addClass ('section_106_map_search_input')
+      .on ('input', function () {
+          inputElement.val () === '' ? clearElement.hide () : clearElement.show ();
+          self.setMarkers (inputElement.val ());
+        });
+
+    var clearElement = $('<div></div>')
+      .addClass ('section_106_map_search_clear')
+      .click (function () {
+          inputElement.val ('');
+          self.setMarkers ();
+          clearElement.hide ();
+        })
+      .hide ();
+
     return $('<div></div>')
       .addClass ('section_106_map_search')
       .append ($('<div></div>')
-        .addClass ('section_106_map_search_input'))
-      .append ($('<div></div>')
-        .addClass ('section_106_map_search_button'));
+        .addClass ('section_106_map_search_form')
+        .append (inputElement)
+        .append (clearElement)
+        .append ($('<div></div>')
+          .addClass ('section_106_map_search_button')
+          .click (function () {
+              self.setMarkers (inputElement.val ());
+            })));
   }
 
   /*
@@ -168,9 +221,7 @@
     106 cases in each state.
   */
   FeatureInstance.prototype.createPanelElement = function () {
-    return $('<div></div>')
-      .addClass ('section_106_map_panel')
-      .append (this.getStates ().map (this.createStatePanelElement, this));
+    return $('<div></div>').addClass ('section_106_map_panel');
   }
 
   /*
@@ -200,8 +251,7 @@
           .addClass ('section_106_map_state_panel_state_cases_list')
           .append (this.createStatePanelStateCaseElements (state))))
       .append ($('<div></div>')
-        .addClass ('section_106_map_state_panel_footer'))
-      .hide ();
+        .addClass ('section_106_map_state_panel_footer'));
   }
 
   /*
@@ -220,31 +270,33 @@
     represents _case as a jQuery HTML Element.
   */
   FeatureInstance.prototype.createStatePanelStateCaseElement = function (_case) {
-    return $('<li></li>')
+    return $('<div></div>')
       .addClass ('section_106_map_state_panel_state_case')
       .attr ('data-section-106-map-case-id', _case.id)
-      .append ($('<div></div>')
-        .addClass ('section_106_map_state_panel_state_case_header')
+      .append ($('<li></li>')
+        .addClass ('section_106_map_state_panel_state_case_item')
         .append ($('<div></div>')
-          .addClass ('section_106_map_state_panel_state_case_header_title')
-          .text (_case.title)))
-      .append ($('<div></div>')
-        .addClass ('section_106_map_state_panel_state_case_body')
-        .append ($('<div></div>')
-          .addClass ('section_106_map_state_panel_state_case_body_description')
-          .html (_case.body))
-        .append ($('<div></div>')
-          .addClass ('section_106_map_state_panel_state_case_body_agency')
+          .addClass ('section_106_map_state_panel_state_case_header')
           .append ($('<div></div>')
-            .addClass ('section_106_map_state_panel_state_case_body_agency_header')
-            .append ($('<div></div>')
-              .addClass ('section_106_map_state_panel_state_case_body_agency_header_title')
-              .text ('Agency Involved:'))
-            .append ($('<div></div>')
-              .addClass ('section_106_map_state_panel_state_case_body_agency_body')
-              .text (_case.agency.title))))
+            .addClass ('section_106_map_state_panel_state_case_header_title')
+            .text (_case.title)))
         .append ($('<div></div>')
-          .addClass ('section_106_map_state_panel_state_case_body_contact')));
+          .addClass ('section_106_map_state_panel_state_case_body')
+          .append ($('<div></div>')
+            .addClass ('section_106_map_state_panel_state_case_body_description')
+            .html (_case.body))
+          .append ($('<div></div>')
+            .addClass ('section_106_map_state_panel_state_case_body_agency')
+            .append ($('<div></div>')
+              .addClass ('section_106_map_state_panel_state_case_body_agency_header')
+              .append ($('<div></div>')
+                .addClass ('section_106_map_state_panel_state_case_body_agency_header_title')
+                .text ('Agency Involved:'))
+              .append ($('<div></div>')
+                .addClass ('section_106_map_state_panel_state_case_body_agency_body')
+                .text (_case.agency.title))))
+          .append ($('<div></div>')
+            .addClass ('section_106_map_state_panel_state_case_body_contact'))));
   }
 
   /*
@@ -269,12 +321,10 @@
     // Embed the Mapbox map object.
     var map = L.mapbox.map (mapContainerElementID, 'mapbox.streets');
 
-    // Create the state marker cluster group and add it to the map.
-    map.addLayer (this.createStateMarkerClusterGroup ());
-
     // Return the map.
     return map;
   }
+
 
   /*
     Accepts no arguments and returns a Leaflet
@@ -283,22 +333,13 @@
     the states in states.
   */
   FeatureInstance.prototype.createStateMarkerClusterGroup = function () {
-    // I. Create marker cluster group.
     var self = this;
-    var markerClusterGroup = new L.MarkerClusterGroup ({
+    return new L.MarkerClusterGroup ({
+      showCoverageOnHover: false,
       iconCreateFunction: function (cluster) {
         return self.createClusterIcon (cluster);
       }
     });
-
-    // II. Create markers and add them to the cluster group.
-    this.createStateMarkers ().forEach (
-      function (marker) {
-        markerClusterGroup.addLayer (marker);
-    });
-
-    // III. Return the marker cluster group.
-    return markerClusterGroup;
   }
 
   /*
@@ -322,7 +363,7 @@
     var self = this;
     return getClusterMarkers (cluster).reduce (
       function (numCases, marker) {
-        return numCases + marker.options.numCases;
+        return numCases + marker.options.state.cases.length;
     }, 0);
   }
 
@@ -341,12 +382,14 @@
   }
 
   /*
-    Accepts no arguments and returns a Leaflet
-    Marker array containing a Leaflet marker
-    for every state in this instance.
+    Accepts one argument: query, a string that
+    represents a search/filter query; and returns
+    markers for those states and territories
+    that have cases that match query as a State
+    object array.
   */
-  FeatureInstance.prototype.createStateMarkers = function () {
-    return this.getStates ().map (this.createStateMarker, this);
+  FeatureInstance.prototype.createStateMarkers = function (query) {
+    return createStates (filterCases (query)).map (this.createStateMarker, this);
   }
 
   /*
@@ -363,7 +406,7 @@
       {
         icon:     createStateIcon (state),
         title:    state.name,
-        numCases: state.cases.length
+        state:    state
       }
     ).on ('click', function () {
       // select the state marker.
@@ -371,20 +414,36 @@
       self.selectStateMarkerElement (state.abbreviation);
 
       // show state panel.
-      self.showStatePanelElement (state.abbreviation);
+      self.showStatePanelElement (state);
     });
     state.markerID = marker._leaflet_id;
     return marker;
   }
 
   /*
-    Accepts one argument: markerID, a string
-    that represents a Leaflet marker ID; and
-    returns the state represented by the given
-    marker as a State object.
+    Accepts one argument: query, a search/filter
+    query string; removes the markers in this
+    instance's marker cluster group; creates new
+    markers for those states and territories
+    that have cases that match query; and add
+    those markers to this instance's marker
+    cluster group.
+
+    If query is null or undefined, this function
+    adds markers for all of this instance's
+    cases.
   */
-  FeatureInstance.prototype.getMarkerState = function (markerID) {
-    return this.findStateByMarkerID (this.getStates (), markerID);
+  FeatureInstance.prototype.setMarkers = function (query) {
+    var clusterGroup = this.getClusterGroup ();
+
+    // Remove markers.
+    clusterGroup.clearLayers ();
+
+    // Add the newly filtered markers back in.
+    this.createStateMarkers (query).forEach (clusterGroup.addLayer, clusterGroup);
+
+    // Zoom and center on the filtered markers.
+    // clusterGroup.zoomToShowLayer ();
   }
 
   /*
@@ -417,14 +476,10 @@
     the state referenced by stateAbbreviation
     as a jQuery HTML Element.
   */
-  FeatureInstance.prototype.showStatePanelElement = function (stateAbbreviation) {
-    // I. Hide other state panel elements.
-    this.hideStatePanelElements ();
+  // FeatureInstance.prototype.showStatePanelElement = function (stateAbbreviation) {
+  FeatureInstance.prototype.showStatePanelElement = function (state) {
+    $('.section_106_map_panel').empty ().append (this.createStatePanelElement (state));
 
-    // II. Show the referenced state's panel element.
-    var statePanelElement = this.getStatePanelElement (stateAbbreviation);
-    statePanelElement ? statePanelElement.show () :
-      console.log ('[section_106_map] Error: An error occured while trying to display a state panel for "' + stateAbbreviation + '". There does not exist a state panel for "' + stateAbbreviation + '".');
   }
 
   /*
@@ -484,7 +539,7 @@
     return $('.section_106_map_panel', this.getInstanceElement ());
   }
 
-  // III. SVG Icon Functions
+  // IV. SVG Icon Functions
 
   /*
     Accepts one argument: label, a string; and
@@ -578,7 +633,7 @@
     return svgElementString;
   }
 
-  // IV. State Functions
+  // V. State Functions
 
   /*
     Accepts one argument: cases, an array of
@@ -642,6 +697,59 @@
       coordinates:  coordinates,
       cases:        []
     } : null;
+  }
+
+  /*
+    Accepts one argument: query, a string that
+    represents a search/filter query; and returns
+    those cases that match the query as an array
+    of Case objects.
+
+    Note: this function uses the "Filter Score
+    Threshold" module setting to determine the
+    threshold for Lunr's similarity score.
+  */
+  function filterCases (query) {
+    if (!query) { return cases; }
+
+    // Retrieve the filter score threshold.
+    var threshold = drupalSettings.section_106_map.filter_score_threshold;
+
+    // Filter the case records.
+    return _.compact (lunrIndex.search (query).map (
+      function (result) {
+        return result.score < threshold ? null :
+          _.find (cases,
+            function (_case) {
+              return _case.id === result.ref;
+          });
+    }));
+  }
+
+  /*
+    Accepts one argument: cases, an array of
+    Case objects that represent a set of section
+    106 consultations; and adds cases to the
+    Lunr index.
+  */
+  function indexCases (cases) {
+    cases.forEach (indexCase);
+  }
+
+  /*
+    Accepts one argument: case, a Case object
+    that represents a section 106 consultation;
+    and adds case to the Lunr index.
+  */ 
+  function indexCase (_case) {
+    lunrIndex.add ({
+      id:     _case.id,
+      title:  _case.title,
+      body:   _case.body,
+      agency: _case.agency.title,
+      state:  _case.state,
+      status: _case.status
+    });
   }
 
   /*

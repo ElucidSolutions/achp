@@ -35,6 +35,11 @@ class Section106MapSettingsForm extends ConfigFormBase {
       '#title' => $this->t ('Mapbox Access Token'),
       '#default_value' => $config->get ('mapbox_access_token')
     );  
+    $form['filter_score_threshold'] = array (
+      '#type' => 'textfield',
+      '#title' => $this->t ('Filter Score Threshold'),
+      '#default_value' => $config->get ('filter_score_threshold')
+    );  
     return parent::buildForm ($form, $form_state);
   }
 
@@ -43,7 +48,8 @@ class Section106MapSettingsForm extends ConfigFormBase {
    */
   public function submitForm (array &$form, FormStateInterface $form_state) {
     $this->config ('section_106_map.settings')
-      ->set ('mapbox_access_token', $form_state->getValue ('mapbox_access_token'))
+      ->set ('mapbox_access_token',    $form_state->getValue ('mapbox_access_token'))
+      ->set ('filter_score_threshold', $form_state->getValue ('filter_score_threshold'))
       ->save ();
     parent::submitForm ($form, $form_state);
   }

@@ -24,8 +24,9 @@ class Section106MapBlock extends BlockBase {
         'library' => array ('section_106_map/section_106_map_library'),
         'drupalSettings' => array (
           'section_106_map' => array (
-            'mapbox_access_token' => $config->get ('mapbox_access_token'),
-            'cases'               => $cases
+            'mapbox_access_token'    => $config->get ('mapbox_access_token'),
+            'filter_score_threshold' => $config->get ('filter_score_threshold'),
+            'cases'                  => $cases
         ))
       ),
       // disable caching so that setting updates will take immediate effect. 
