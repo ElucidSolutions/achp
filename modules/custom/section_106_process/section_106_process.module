@@ -1,0 +1,13 @@
+<?php
+/**
+ *  Defines the Section 106 Process module which defines
+ *  a block presenting a flowchart of the Federal Preservation
+ *  Section 106 Process.
+ */
+
+// Implements hook_theme ()
+function section_106_process_theme () {
+  return [
+    'section_106_proces' => ['variables' => []]
+  ];
+}
