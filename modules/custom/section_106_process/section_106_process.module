@@ -8,6 +8,11 @@
 // Implements hook_theme ()
 function section_106_process_theme () {
   return [
-    'section_106_proces' => ['variables' => []]
+    'section_106_process' => ['variables' => []]
   ];
+}
+
+function embedViewInSection106ProcessBlock() {
+  $view_content = views_embed_view('section_106_process', 'section_106_process');
+  print render($view_content);
 }
