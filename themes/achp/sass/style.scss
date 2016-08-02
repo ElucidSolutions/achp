@@ -13,6 +13,7 @@ html, body {
   box-sizing: border-box;
   font-family: $serif-text;
   overflow-x: hidden;
+  letter-spacing: 0.02rem;
 }
 
 #outer_container {
@@ -49,12 +50,12 @@ h1, h2, h3 {
 
 h1 {
   @include font-size($h1-font-sizes);
-  font-weight: 500;
+  font-weight: 400;
   text-shadow: 0px 1px 3px rgba(0,0,0,0.50);
 
   &.heading_subtitle {
     @include font-size($h1-subtitle-font-sizes);
-    font-weight: 300;
+    font-weight: 100;
   }
 }
 
@@ -98,8 +99,9 @@ button {
   padding: 12px 53px 8px;
   margin: 0 auto 30px auto;
   display: block;
-  @include hover-transition-background;
+  letter-spacing: 0.02rem;
   cursor: pointer;
+  @include hover-transition-background;
 
   @media (max-width: $mobile-breakpoint) {  
     padding: 8px 20px;
@@ -108,7 +110,7 @@ button {
 }
 
 .card {
-  /*padding: 10px;*/
+  padding: 10px;
   font-family: $sans-text;
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
   border-top: 6px solid $color-red;
@@ -133,15 +135,10 @@ button {
       content: "";
       background-image: url('../images/right-arrow-icon.svg');
       background-repeat: no-repeat;
-      /*background-color: $color-blue;*/
       background-position: center;
-      /*background-size: 45%;*/
       width: 20px;
       height: 21px;
       position: absolute;
-      /*line-height: 2;*/
-      /*display: inline-block;*/
-      /*padding-left: $arrow-padding;*/
       cursor: pointer;
       transition: background-image 0.25s;
     }
@@ -149,23 +146,7 @@ button {
     &:hover:after {
       background-image: url('../images/right-arrow-icon-pale-blue.svg')      
     }
-
-
   }
-
-/*  .arrow, .arrow_blue {
-    width: 55;
-    height: 16px;
-    position: absolute;
-    line-height: 2;
-    display: inline-block;
-    padding-left: $arrow-padding;
-    cursor: pointer;
-  }
-
-  .arrow_blue {
-    display: none;
-  }*/
 }
 
 #homepage_hero_region {
@@ -185,7 +166,6 @@ button {
     padding: 0 42px;
 
     hr {
-      /*width: 60%;*/
       @include hr(#FFFFFF);
       margin-top: 20px;
     }
@@ -210,7 +190,6 @@ button {
 
 #homepage_quicklinks_region {
   padding: 25px 50px;
-  /*height: 500px;*/
   height: auto;
   background-color: $background-color-grey;
 }
@@ -219,10 +198,6 @@ button {
 #homepage_news_region {
   padding: 25px 50px;
   height: auto;
-
-  hr {
-    /*width: 5%;*/
-  }
 
   #block-morenewsbutton {
     padding: 0 25px;
@@ -251,7 +226,6 @@ button {
 
   hr {
     @include hr(#FFFFFF);
-    /*width: 50px;*/
   }
 }
 
@@ -259,10 +233,6 @@ button {
   padding: 25px 50px;
   height: 200px;
   background-color: $background-color-lightblue;
-
-  hr {
-    /*width: 100px;*/
-  }
 }
 
 #homepage_map_region {
@@ -276,7 +246,6 @@ button {
 
   hr {
     @include hr(#FFFFFF);
-    /*width: 100px;*/
   }
 }
 
@@ -284,10 +253,6 @@ button {
   padding: 25px 50px;
   height: auto;
   background-color: $background-color-grey;
-
-  hr {
-    /*width: 25%;*/
-  }
 
   p {
     margin-bottom: 0;
@@ -314,10 +279,6 @@ button {
   padding: 25px 50px;
   height: 200px;
   background-color: $background-color-lightblue;
-
-  hr {
-    /*width: 100px;*/
-  }
 }
 
 #homepage_impact_region {
@@ -326,10 +287,6 @@ button {
 
   #block-ourimpact {
     margin: 0 auto;
-  }
-
-  hr {
-    /*width: 20%;*/
   }
 
   .impact_item {
@@ -414,10 +371,6 @@ footer {
   height: 500px;
   background-color: $background-color-lightblue;
   border: 1px solid $background-color-lightblue;
-
- /* a {
-    margin-bottom: 10px;
-  }*/
 
   p {
     font-size: 1.125rem;

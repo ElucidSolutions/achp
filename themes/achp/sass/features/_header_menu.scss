@@ -141,7 +141,8 @@
 
           a {
             font-size: 1rem;
-            color: $color-grey;        
+            color: $color-grey;  
+            @include hover-transition-content; 
           }
         }
 

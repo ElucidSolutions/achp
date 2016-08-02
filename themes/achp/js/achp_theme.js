@@ -399,10 +399,10 @@
   function slideInFromLeft (containerElement, menuItemIndex) {
     var slide = getMenuSlide (containerElement, menuItemIndex);
     slide.css ('position', 'absolute')
-         .css ('width', '100%')
-         .css ('right', '100%')
+         .css ('width', '100vw')
+         .css ('right', '100vw')
          .delay (0) /* This seems to fix a Safari bug */
-         .animate ({ right: '0%', left: '0%' }, 250, "linear")     
+         .animate ({ right: '0vw', left: '0vw' }, 250, "linear")     
          .show ();
     animateSubheaderHeight ( setSubheaderHeight (slide) );
   }
@@ -417,10 +417,10 @@
   function slideInFromRight (containerElement, menuItemIndex) {
     var slide = getMenuSlide (containerElement, menuItemIndex);
     slide.css ('position', 'absolute')
-         .css ('width', '100%')
-         .css ('left', '100%')
+         .css ('width', '100vw')
+         .css ('left', '100vw')
          .delay (0) /* This seems to fix a Safari bug */
-         .animate ({ left: '0%', right: '0%' }, 250, "linear")
+         .animate ({ left: '0vw', right: '0vw' }, 250, "linear")
          .show ();
     animateSubheaderHeight ( setSubheaderHeight (slide) );
   }
@@ -449,9 +449,10 @@
   that index out of view; and returns undefined.
   */
   function slideOutToLeft (index) {
+    console.log('1dee')
     $('.menu_slide[data-menu-slide-index="' + index + '"]').css ('position', 'absolute')
-                                                           .css ('width', '100%')
-                                                           .animate({ left: '-101%' }, 250, "linear");
+                                                           .css ('width', '100vw')
+                                                           .animate({ left: '-100vw' }, 250, "linear");
 
   }
 
@@ -461,8 +462,8 @@
   */
   function slideOutToRight (index) {
     $('.menu_slide[data-menu-slide-index="' + index + '"]').css ('position', 'absolute')
-                                                           .css ('width', '100%')
-                                                           .animate({ left: '101%' }, 250, "linear");
+                                                           .css ('width', '100vw')
+                                                           .animate({ left: '100vw' }, 250, "linear");
   }
 
   /*
