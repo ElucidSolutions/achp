@@ -7,8 +7,9 @@ $feature_height: 500px
 $feature_width:  100%
 $section_106_map_search_left: 40px
 .section_106_map
-  height: $feature_height
-  width:  $feature_width
+  height:     $feature_height
+  text-align: center
+  width:      $feature_width
 
   .leaflet-container
     .leaflet-control-attribution
@@ -160,6 +161,9 @@ $section_106_map_search_left: 40px
     $panel_padding: 10px
     $panel_width:   300px
     .section_106_map_panel
+      -moz-box-shadow: -2px 1px 15px rgba(0, 0, 0, 0.4)
+      -webkit-box-shadow: -2px 1px 15px rgba(0, 0, 0, 0.4)
+      box-shadow: -2px 1px 15px rgba(0, 0, 0, 0.4)
       background: white
       border-top: $red_color 5px solid
       height:     $panel_height

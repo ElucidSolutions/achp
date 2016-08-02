@@ -2,6 +2,7 @@
  * styling for the Section 106 Case Map module. */
 .section_106_map {
   height: 500px;
+  text-align: center;
   width: 100%; }
   .section_106_map .leaflet-container .leaflet-control-attribution {
     display: none; }
@@ -104,6 +105,9 @@
       height: 100%;
       width: 100%; }
     .section_106_map .section_106_map_body .section_106_map_panel {
+      -moz-box-shadow: -2px 1px 15px rgba(0, 0, 0, 0.4);
+      -webkit-box-shadow: -2px 1px 15px rgba(0, 0, 0, 0.4);
+      box-shadow: -2px 1px 15px rgba(0, 0, 0, 0.4);
       background: white;
       border-top: #97000e 5px solid;
       height: 350px;

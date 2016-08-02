@@ -221,7 +221,7 @@
     106 cases in each state.
   */
   FeatureInstance.prototype.createPanelElement = function () {
-    return $('<div></div>').addClass ('section_106_map_panel');
+    return $('<div></div>').addClass ('section_106_map_panel').hide ();
   }
 
   /*
@@ -243,7 +243,7 @@
         .append ($('<div></div>')
           .addClass ('section_106_map_state_panel_header_close_button'))
           .click (function () {
-              self.hideStatePanelElements ();
+              self.hidePanelElement ();
             }))
       .append ($('<div></div>')
         .addClass ('section_106_map_state_panel_body')
@@ -319,7 +319,10 @@
     L.mapbox.accessToken = accessToken;
 
     // Embed the Mapbox map object.
-    var map = L.mapbox.map (mapContainerElementID, 'mapbox.streets');
+    var map = L.mapbox.map (mapContainerElementID, 'mapbox.streets', {
+      minZoom:   2,
+      maxZoom:   7,
+    }).setView ([46.0, -102.0], 2);
 
     // Return the map.
     return map;
@@ -416,7 +419,6 @@
       // show state panel.
       self.showStatePanelElement (state);
     });
-    state.markerID = marker._leaflet_id;
     return marker;
   }
 
@@ -443,7 +445,7 @@
     this.createStateMarkers (query).forEach (clusterGroup.addLayer, clusterGroup);
 
     // Zoom and center on the filtered markers.
-    // clusterGroup.zoomToShowLayer ();
+    this.getMap ().fitBounds (clusterGroup.getBounds ());
   }
 
   /*
@@ -476,18 +478,16 @@
     the state referenced by stateAbbreviation
     as a jQuery HTML Element.
   */
-  // FeatureInstance.prototype.showStatePanelElement = function (stateAbbreviation) {
   FeatureInstance.prototype.showStatePanelElement = function (state) {
-    $('.section_106_map_panel').empty ().append (this.createStatePanelElement (state));
-
+    this.getPanelElement ().empty ().append (this.createStatePanelElement (state)).show ();
   }
 
   /*
     Accepts no arguments and hides this instance
     element's state panel elements.
   */
-  FeatureInstance.prototype.hideStatePanelElements = function () {
-    this.getStatePanelElements ().hide ();
+  FeatureInstance.prototype.hidePanelElement = function () {
+    this.getPanelElement ().hide ();
   }
 
   /*
@@ -508,27 +508,6 @@
   */
   FeatureInstance.prototype.getStateMarkerElements = function () {
     return $('.section_106_map_state_marker', this.getInstanceElement ());
-  }
-
-  /*
-    Accepts one argument: stateAbbreviation, a
-    string that represents a state abbreviation;
-    and returns the state panel element in this
-    instance's element that is associated with
-    the state referenced by stateAbbreviation
-    as a jQuery HTML Element.
-  */
-  FeatureInstance.prototype.getStatePanelElement = function (stateAbbreviation) {
-    return $('.section_106_map_state_panel[data-section-106-map-state-abbreviation="' + stateAbbreviation + '"]', this.getInstanceElement ());
-  }
-
-  /*
-    Accepts no arguments and returns this
-    instance's state panel elements as a jQuery
-    HTML Result Set.
-  */
-  FeatureInstance.prototype.getStatePanelElements = function () {
-    return $('.section_106_map_state_panel', this.getInstanceElement ());
   }
 
   /*
