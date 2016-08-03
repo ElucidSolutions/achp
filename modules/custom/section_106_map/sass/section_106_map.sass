@@ -70,9 +70,13 @@ $section_106_map_search_left: 40px
     $section_106_map_search_height: 35px
     .section_106_map_search
       background-color: white
+      -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4)
+      -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4)
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4)
       display:          table
       height:           $section_106_map_search_height
       left:             $section_106_map_search_left
+      max-width:        400px
       position:         absolute
       top:              20px
       width:            30%
@@ -83,11 +87,12 @@ $section_106_map_search_left: 40px
         height:  100%
 
         .section_106_map_search_input
+          background: url('../images/filter-icon.png') no-repeat 10px 50%
           border: none
           display: table-cell
           height: 100%
           margin: 0px
-          padding: 0px 10px
+          padding: 0px 10px 0px 40px
           width: 100%
 
           &:focus
@@ -96,13 +101,6 @@ $section_106_map_search_left: 40px
         .section_106_map_search_clear
           background: url('../images/close-icon.svg') no-repeat 50% 50%
           cursor:     pointer
-          display: table-cell
-          height: 100%
-          width: $section_106_map_search_height
-
-        $search_button_color: rgb(29,147,251)
-        .section_106_map_search_button
-          background: $search_button_color url('../images/search-icon.svg') no-repeat 50% 50%
           display: table-cell
           height: 100%
           width: $section_106_map_search_height
@@ -157,11 +155,11 @@ $section_106_map_search_left: 40px
     $panel_padding: 10px
     $panel_width:   343px
     .section_106_map_panel
+      background: white
+      border-top: $red_color 5px solid
       -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
       -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
       box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
-      background: white
-      border-top: $red_color 5px solid
       font-size:  16px
       height:     $panel_height
       max-width:  $panel_width

@@ -183,6 +183,7 @@
 
     var inputElement = $('<input></input>')
       .attr ('type', 'text')
+      .attr ('placeholder', 'Filter Cases')
       .addClass ('section_106_map_search_input')
       .on ('input', function () {
           inputElement.val () === '' ? clearElement.hide () : clearElement.show ();
@@ -203,12 +204,7 @@
       .append ($('<div></div>')
         .addClass ('section_106_map_search_form')
         .append (inputElement)
-        .append (clearElement)
-        .append ($('<div></div>')
-          .addClass ('section_106_map_search_button')
-          .click (function () {
-              self.setMarkers (inputElement.val ());
-            })));
+        .append (clearElement));
   }
 
   /*
