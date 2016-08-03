@@ -6,6 +6,10 @@
 
   // I. Global variables
 
+  // Feature Instance States
+  MAP_MODE  = 0;
+  GRID_MODE = 1;
+
   // The Lunr Search Index.
   var lunrIndex = null;
 
@@ -24,6 +28,7 @@
       this.field ('title', 100);
       this.field ('body');
       this.field ('agency', 100);
+      this.field ('poc_name', 100);
       this.field ('state', 100);
       this.field ('status');
     });
@@ -51,6 +56,9 @@
     as a FeatureInstance object.
   */
   function FeatureInstance (containerElement) {
+    this._mode = MAP_MODE;
+    this._currentPage = 0;
+
     // I. Create and attach the instance element.
     this._instanceElement = this.createInstanceElement ();
     containerElement.append (this._instanceElement);
@@ -66,6 +74,14 @@
 
     // V. Set the state markers.
     this.setMarkers (); 
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's current mode.
+  */
+  FeatureInstance.prototype.getMode = function () {
+    return this._mode;
   }
 
   /*
@@ -113,6 +129,7 @@
     header as a jQuery HTML Element.
   */
   FeatureInstance.prototype.createHeaderElement = function () {
+    var self = this;
     return $('<div></div>')
       .addClass ('section_106_map_header')
       .append ($('<div></div>')
@@ -124,11 +141,17 @@
           .append ($('<div></div>')
             .addClass ('section_106_map_header_body_tab')
             .addClass ('section_106_map_map_tab')
-            .text ('Map'))
+            .text ('Map')
+            .click (function () {
+                self.toMapMode ();
+              }))
           .append ($('<div></div>')
             .addClass ('section_106_map_header_body_tab')
             .addClass ('section_106_map_grid_tab')
-            .text ('Grid'))));
+            .text ('Grid')
+            .click (function () {
+                self.toGridMode (0);
+              }))));
   }
 
   /*
@@ -139,8 +162,9 @@
   FeatureInstance.prototype.createBodyElement = function () {
     return $('<div></div>')
       .addClass ('section_106_map_body')
-      .append (this.createSearchElement ())
+      .append (this.createOverlayElement ())
       .append (this.createPanelElement ())
+      .append (this.createSearchElement ())
       .append (this.createMapContainerElement ())
       .append (this.createGridElement ());
   }
@@ -169,7 +193,15 @@
     associated with each state.
   */
   FeatureInstance.prototype.createGridElement = function () {
-    return $('<div></div>').addClass ('section_106_map_grid').hide ();
+    return $('<div></div>')
+      .addClass ('section_106_map_grid')
+      .append ($('<div></div>')
+        .addClass ('section_106_map_grid_header'))
+      .append ($('<div></div>')
+        .addClass ('section_106_map_grid_body'))
+      .append ($('<div></div>')
+        .addClass ('section_106_map_grid_footer'))
+      .hide ();
   }
 
   /*
@@ -187,14 +219,24 @@
       .addClass ('section_106_map_search_input')
       .on ('input', function () {
           inputElement.val () === '' ? clearElement.hide () : clearElement.show ();
-          self.setMarkers (inputElement.val ());
+          switch (self.getMode ()) {
+            case GRID_MODE:
+              self.toGridMode (0);
+            case MAP_MODE:
+              self.setMarkers (inputElement.val ());
+          }
         });
 
     var clearElement = $('<div></div>')
       .addClass ('section_106_map_search_clear')
       .click (function () {
           inputElement.val ('');
-          self.setMarkers ();
+          switch (self.getMode ()) {
+            case GRID_MODE:
+              self.toGridMode (0);
+            case MAP_MODE:
+              self.setMarkers ();
+          }
           clearElement.hide ();
         })
       .hide ();
@@ -205,6 +247,28 @@
         .addClass ('section_106_map_search_form')
         .append (inputElement)
         .append (clearElement));
+  }
+
+  /*
+    Accepts no arguments and returns an overlay
+    element that is used to present detailed
+    information about cases in Grid mode as a
+    JQuery HTML Element.
+  */
+  FeatureInstance.prototype.createOverlayElement = function () {
+    var self = this;
+    return $('<div></div>')
+      .addClass ('section_106_map_overlay')
+      .append ($('<div></div>')
+        .addClass ('section_106_map_overlay_header')
+        .append ($('<div></div>')
+          .addClass ('section_106_map_overlay_close_button')
+          .click (function () {
+              self.hideOverlayElement ();
+            })))
+      .append ($('<div></div>')
+        .addClass ('section_106_map_overlay_body'))
+      .hide ();
   }
 
   /*
@@ -242,7 +306,7 @@
         .addClass ('section_106_map_state_panel_body')
         .append ($('<ol></ol>')
           .addClass ('section_106_map_state_panel_state_cases_list')
-          .append (this.createStatePanelStateCaseElements (state))))
+          .append (this.createCaseElements (state))))
       .append ($('<div></div>')
         .addClass ('section_106_map_state_panel_footer'));
   }
@@ -253,16 +317,16 @@
     elements that represent state's cases as an
     array of jQuery HTML Elements.
   */
-  FeatureInstance.prototype.createStatePanelStateCaseElements = function (state) {
-    return state.cases.map (this.createStatePanelStateCaseElement, this);
+  FeatureInstance.prototype.createCaseElements = function (state) {
+    return state.cases.map (this.createCaseElement, this);
   }
 
   /*
     Accepts one argument: _case, a Case object;
-    and returns a state case panel element that
+    and returns a state case details element that
     represents _case as a jQuery HTML Element.
   */
-  FeatureInstance.prototype.createStatePanelStateCaseElement = function (_case) {
+  FeatureInstance.prototype.createCaseElement = function (_case) {
     return $('<div></div>')
       .addClass ('section_106_map_case')
       .attr ('data-section-106-map-case-id', _case.id)
@@ -312,6 +376,33 @@
               .addClass ('section_106_map_case_contact_phone')
               .text (_case.poc.phone)))
           ));
+  }
+
+  /*
+    Accepts no arguments and changes this
+    instance to Map mode.
+  */
+  FeatureInstance.prototype.toMapMode = function () {
+    if (this._mode === MAP_MODE) { return; }
+    this.hideOverlayElement ();
+    this.hideGridElement ();
+    this.showMapContainerElement ();
+    this._mode = MAP_MODE;
+  }
+
+  /*
+    Accepts one argument: page, an integer that
+    represents a page number; and changes this
+    instance to Grid mode and sets the current
+    page to page.
+  */
+  FeatureInstance.prototype.toGridMode = function (page) {
+    this.hidePanelElement ();
+    this.hideMapContainerElement ();
+    this._currentPage = page;
+    this.loadGridCases ();
+    this.showGridElement ();
+    this._mode = GRID_MODE;
   }
 
   /*
@@ -407,7 +498,7 @@
     object array.
   */
   FeatureInstance.prototype.createStateMarkers = function (query) {
-    return createStates (filterCases (query)).map (this.createStateMarker, this);
+    return createStates (this.getCurrentCases ()).map (this.createStateMarker, this);
   }
 
   /*
@@ -464,6 +555,142 @@
   }
 
   /*
+    Accepts no arguments; loads the case
+    cards into the grid element; and sets the
+    navigation element.
+  */
+  FeatureInstance.prototype.loadGridCases = function () {
+    var gridElement = this.getGridElement ();
+    var cases = this.getCurrentCases ();
+
+    var numCasesPerPage = 2;
+    var numPages = cases.length / numCasesPerPage;
+
+    var startCaseIndex = numCasesPerPage * this._currentPage;
+    var endCaseIndex = Math.min (startCaseIndex + numCasesPerPage, cases.length);
+
+    var maxNumLinks = 5;
+    $('.section_106_map_grid_body', gridElement)
+      .empty ()
+      .append (this.createCaseCards (cases.slice (startCaseIndex, endCaseIndex)));
+    $('.section_106_map_grid_footer', gridElement)
+      .empty ()
+      .append ($('<div></div>')
+        .addClass ('section_106_map_nav')
+        .append ($('<div></div>')
+          .addClass ('section_106_map_nav_links')
+          .append ($('<div></div>')
+            .addClass ('section_106_map_nav_prev'))
+          .append (_.range (0, Math.min (numPages, maxNumLinks)).map (this.createNavLinkElement, this))
+          .append (numPages > maxNumLinks ? this.createNavLinkElement (numPages - 1) : null)
+          .append ($('<div></div>')
+            .addClass ('section_106_map_nav_next')))
+        .append ($('<div></div>')
+          .addClass ('section_106_map_nav_stats')
+          .text ((startCaseIndex + 1) + '-' + endCaseIndex + ' of ' + cases.length + ' Section 106 Cases')));
+  }
+
+  /*
+    Accepts one argument: i, an integer that
+    denotes a page number; and returns a nav
+    link element as a JQuery HTML Element.
+  */
+  FeatureInstance.prototype.createNavLinkElement = function (i) {
+    var self = this;
+    return $('<div></div>')
+      .addClass ('section_106_map_nav_link')
+      .text (i + 1)
+      .click (function () {
+          self.toGridMode (i);
+        });
+  }
+
+  /*
+    Accepts on argument: cases, an array of Case
+    objects; and returns a set of case cards
+    that represent cases as an array of JQuery
+    HTML Elements.
+  */
+  FeatureInstance.prototype.createCaseCards = function (cases) {
+    return cases.map (this.createCaseCard, this);
+  }
+
+  /*
+    Accepts one argument: case, a Case object
+    that represents a section 106 consultation
+    case; and returns a JQuery HTML Element that
+    represents case as a case card element.
+  */
+  FeatureInstance.prototype.createCaseCard = function (_case) {
+    var self = this;
+    return $('<div></div>')
+      .addClass ('section_106_map_case_card')
+      .attr ('data-section-106-map-case', _case.id)
+      .append ($('<div></div>')
+        .addClass ('section_106_map_case_card_title')
+        .text (_case.title))
+      .append ($('<div></div>')
+        .addClass ('section_106_map_case_card_state')
+        .text (_case.state))
+      .click (function () {
+          self.showCaseOverlayElement (_case);
+        });
+  }
+
+  /*
+    Accepts no arguments and returns those cases
+    that match the current filter query in an
+    array of Case objects.
+
+    Note: this function uses the "Filter Score
+    Threshold" module setting to determine the
+    threshold for Lunr's similarity score.
+  */
+  FeatureInstance.prototype.getCurrentCases = function () {
+    var query = this.getCurrentQuery ();
+    if (!query) { return cases; }
+
+    // Retrieve the filter score threshold.
+    var threshold = drupalSettings.section_106_map.filter_score_threshold;
+
+    // Filter the case records.
+    return _.compact (lunrIndex.search (query).map (
+      function (result) {
+        return result.score < threshold ? null :
+          _.find (cases,
+            function (_case) {
+              return _case.id === result.ref;
+          });
+    }));
+  }
+
+  /*
+    Accepts no arguments and returns the current
+    filter query entered into this instance's
+    filter form as a string.
+  */
+  FeatureInstance.prototype.getCurrentQuery = function () {
+    return this.getFilterInputElement ().val ();
+  }
+
+  /*
+    Accepts no arguments and clears the current
+    filter query.
+  */
+  FeatureInstance.prototype.clearCurrentQuery = function () {
+    this.setCurrentQuery ('');
+  }
+
+  /*
+    Accepts one argument: query, a string that
+    represents a valid filter query; and sets
+    this instance's filter query to equal query.
+  */
+  FeatureInstance.prototype.setCurrentQuery = function (query) {
+    this.getFilterInputElement ().val (query);
+  }
+
+  /*
     Accepts one argument: stateAbbreviation,
     a string that represents a state
     abbreviation; and selects the state marker
@@ -486,7 +713,18 @@
   }
 
   /*
-    Accepts argument: stateAbbreviation, a
+    Accepts one argument: case, a Case object;
+    and displays the case details element in
+    this instance's overlay element.
+  */
+  FeatureInstance.prototype.showCaseOverlayElement = function (_case) {
+    var overlayElement = this.getOverlayElement ();
+    $('.section_106_map_overlay_body', overlayElement).empty ().append (this.createCaseElement (_case))
+    overlayElement.show ();
+  }
+
+  /*
+    Accepts one argument: stateAbbreviation, a
     string that represents a state abbreviation;
     and shows the state panel element in this
     instance's element that is associated with
@@ -498,11 +736,60 @@
   }
 
   /*
+    Accepts no arguments and displays this
+    instance's map container element.
+  */
+  FeatureInstance.prototype.showMapContainerElement = function () {
+    this.getMapContainerElement ().show ();
+  }
+
+  /*
+    Accepts no arguments and displays this
+    instance's grid element.
+  */
+  FeatureInstance.prototype.showGridElement = function () {
+    this.getGridElement ().show ();
+  }
+
+  /*
+    Accepts no arguments and hides this
+    instance's overlay element.
+  */
+  FeatureInstance.prototype.hideOverlayElement = function () {
+    this.getOverlayElement ().hide ();
+  }
+
+  /*
     Accepts no arguments and hides this instance
     element's state panel elements.
   */
   FeatureInstance.prototype.hidePanelElement = function () {
     this.getPanelElement ().hide ();
+  }
+
+  /*
+    Accepts no arguments and hides this instance
+    element's map container element.
+  */
+  FeatureInstance.prototype.hideMapContainerElement = function () {
+    this.getMapContainerElement ().hide ();
+  }
+
+  /*
+    Accepts no arguments and hides this instance
+    element's grid element.
+  */
+  FeatureInstance.prototype.hideGridElement = function () {
+    this.getGridElement ().hide ();
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's filter input element as a JQuery
+    HTML Element.
+  */
+  FeatureInstance.prototype.getFilterInputElement = function () {
+    return $('.section_106_map_search_input', this.getInstanceElement ());
   }
 
   /*
@@ -526,11 +813,43 @@
   }
 
   /*
-    Accepts no arguments and and returns this
+    Accepts no arguments and returns this
+    instance's overlay element.
+  */
+  FeatureInstance.prototype.getOverlayElement = function () {
+    return $('.section_106_map_overlay', this.getInstanceElement ());
+  }
+
+  /*
+    Accepts no arguments and returns this
     instance's panel element.
   */
   FeatureInstance.prototype.getPanelElement = function () {
     return $('.section_106_map_panel', this.getInstanceElement ());
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's map container element.
+  */
+  FeatureInstance.prototype.getMapContainerElement = function () {
+    return $('.section_106_map_map_container', this.getInstanceElement ());
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's grid element.
+  */
+  FeatureInstance.prototype.getGridElement = function () {
+    return $('.section_106_map_grid', this.getInstanceElement ());
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's nav element.
+  */
+  FeatureInstance.prototype.getNavElement = function () {
+    return $('.section_106_map_nav', this.getInstanceElement ());
   }
 
   // IV. SVG Icon Functions
@@ -737,12 +1056,13 @@
   */ 
   function indexCase (_case) {
     lunrIndex.add ({
-      id:     _case.id,
-      title:  _case.title,
-      body:   _case.body,
-      agency: _case.agency.title,
-      state:  _case.state,
-      status: _case.status
+      id:       _case.id,
+      title:    _case.title,
+      body:     _case.body,
+      agency:   _case.agency.title,
+      poc_name: _case.poc.name,
+      state:    _case.state,
+      status:   _case.status
     });
   }
 
