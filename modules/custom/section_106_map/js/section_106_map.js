@@ -116,10 +116,7 @@
     return $('<div></div>')
       .addClass ('section_106_map_header')
       .append ($('<div></div>')
-        .addClass ('section_106_map_header_header')
-        .append ($('<div></div>')
-          .addClass ('section_106_map_header_header_title')
-          .text ('ACHP Involvement Around the United States')))
+        .addClass ('section_106_map_header_header'))
       .append ($('<div></div>')
         .addClass ('section_106_map_header_body')
         .append ($('<div></div>')
@@ -271,32 +268,54 @@
   */
   FeatureInstance.prototype.createStatePanelStateCaseElement = function (_case) {
     return $('<div></div>')
-      .addClass ('section_106_map_state_panel_state_case')
+      .addClass ('section_106_map_case')
       .attr ('data-section-106-map-case-id', _case.id)
       .append ($('<li></li>')
-        .addClass ('section_106_map_state_panel_state_case_item')
+        .addClass ('section_106_map_case_item')
         .append ($('<div></div>')
-          .addClass ('section_106_map_state_panel_state_case_header')
+          .addClass ('section_106_map_case_header')
           .append ($('<div></div>')
-            .addClass ('section_106_map_state_panel_state_case_header_title')
-            .text (_case.title)))
+            .addClass ('section_106_map_case_title')
+            .append ($('<a></a>')
+              .attr ('href', _case.url)
+              .text (_case.title))))
         .append ($('<div></div>')
-          .addClass ('section_106_map_state_panel_state_case_body')
+          .addClass ('section_106_map_case_body')
           .append ($('<div></div>')
-            .addClass ('section_106_map_state_panel_state_case_body_description')
+            .addClass ('section_106_map_case_description')
             .html (_case.body))
           .append ($('<div></div>')
-            .addClass ('section_106_map_state_panel_state_case_body_agency')
+            .addClass ('section_106_map_case_body_agency')
             .append ($('<div></div>')
-              .addClass ('section_106_map_state_panel_state_case_body_agency_header')
+              .addClass ('section_106_map_case_body_agency_header')
               .append ($('<div></div>')
-                .addClass ('section_106_map_state_panel_state_case_body_agency_header_title')
+                .addClass ('section_106_map_case_body_agency_header_title')
                 .text ('Agency Involved:'))
               .append ($('<div></div>')
-                .addClass ('section_106_map_state_panel_state_case_body_agency_body')
+                .addClass ('section_106_map_case_agency')
                 .text (_case.agency.title))))
           .append ($('<div></div>')
-            .addClass ('section_106_map_state_panel_state_case_body_contact'))));
+            .addClass ('section_106_map_case_body_contact')
+            .append ($('<div></div>')
+              .addClass ('section_106_map_case_body_contact_header')
+              .append ($('<div></div>')
+                .addClass ('section_106_map_case_body_contact_header_title')
+                .text ('Federal Point of Contact:')))
+            .append ($('<div></div>')
+              .addClass ('section_106_map_case_contact_name_title')
+              .append ($('<span></span>')
+                .addClass ('section_106_map_case_contact_name')
+                .text (_case.poc.name))
+              .append ($('<span></span>')
+                .addClass ('section_106_map_case_contact_title')
+                .text (_case.poc.title)))
+            .append ($('<div></div>')
+              .addClass ('section_106_map_case_contact_email')
+              .text (_case.poc.email))
+            .append ($('<div></div>')
+              .addClass ('section_106_map_case_contact_phone')
+              .text (_case.poc.phone)))
+          ));
   }
 
   /*
@@ -321,8 +340,8 @@
     // Embed the Mapbox map object.
     var map = L.mapbox.map (mapContainerElementID, 'mapbox.streets', {
       minZoom:   2,
-      maxZoom:   7,
-    }).setView ([46.0, -102.0], 2);
+      maxZoom:   7
+    });
 
     // Return the map.
     return map;

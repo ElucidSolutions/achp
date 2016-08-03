@@ -20,21 +20,17 @@ $section_106_map_search_left: 40px
       margin-left: $section_106_map_search_left
       margin-top: 65px
 
-  $feature_header_height: 150px
+  $feature_header_height: 75px
   $feature_header_width:  100%
   .section_106_map_header
     height: $feature_header_height
     width:  $feature_header_width
 
-    $feature_header_header_height: $feature_header_height / 2
+    $feature_header_header_height: 0px
     $feature_header_header_width:  100%
     .section_106_map_header_header
       height: $feature_header_header_height
       width:  $feature_header_header_width
-
-      .section_106_map_header_header_title
-        color: white
-        font-size: 2rem
 
     $feature_header_body_height: $feature_header_height - $feature_header_header_height
     $feature_header_body_width:  100%
@@ -159,13 +155,14 @@ $section_106_map_search_left: 40px
     $red_color:  rgb(151,0,14)
     $panel_height:  $feature_body_height
     $panel_padding: 10px
-    $panel_width:   300px
+    $panel_width:   343px
     .section_106_map_panel
-      -moz-box-shadow: -2px 1px 15px rgba(0, 0, 0, 0.4)
-      -webkit-box-shadow: -2px 1px 15px rgba(0, 0, 0, 0.4)
-      box-shadow: -2px 1px 15px rgba(0, 0, 0, 0.4)
+      -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+      -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+      box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
       background: white
       border-top: $red_color 5px solid
+      font-size:  16px
       height:     $panel_height
       max-width:  $panel_width
       overflow-y: scroll
@@ -217,26 +214,37 @@ $section_106_map_search_left: 40px
             margin:          0px
             padding:         0px
 
-            .section_106_map_state_panel_state_case
+            .section_106_map_case
               padding: 10px
 
               &:nth-child(even)
                 background-color: rgb(246, 246, 246)
 
-              .section_106_map_state_panel_state_case_item
+              .section_106_map_case_item
                 margin-left: 30px
 
-                .section_106_map_state_panel_state_case_header_title
-                  color: $blue_color
+                .section_106_map_case_title
+                  a
+                    color: $blue_color
+                    text-decoration: none
 
-                .section_106_map_state_panel_state_case_body
+                .section_106_map_case_body
                   color:       black
 
-                  .section_106_map_state_panel_state_case_body_description
+                  .section_106_map_case_description
                     p
                       margin:     0px
                       padding:    0px
                       text-align: left
 
-                  .section_106_map_state_panel_state_case_body_agency_header_title
+                  .section_106_map_case_body_agency_header_title,
+                  .section_106_map_case_body_contact_header_title
                     color: $blue_color
+
+                  .section_106_map_case_body_agency_header,
+                  .section_106_map_case_body_contact_header
+                    margin-top: 10px
+
+                  .section_106_map_case_contact_title
+                    color: rgb(186,186,186)
+                    margin-left: 10px

@@ -50,12 +50,20 @@ class Section106MapBlock extends BlockBase {
     $result = $query->execute ();
     foreach (array_keys ($result) as $nid) {
       $node = \Drupal\node\Entity\Node::load ($nid);
+      $url  = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ('absolute' => true));
 
       $cases [] = array (
         'id'     => $nid,
+        'url'    => $url->toString (),
         'title'  => $node->getTitle (),
         'body'   => $node->get ('body')->value,
         'agency' => $this->getAgency   ($node->get ('field_case_federal_agency')->target_id),
+        'poc'    => array (
+                      'name'  => $node->get ('field_case_poc_name')->value,
+                      'title' => $node->get ('field_case_poc_title')->value,
+                      'email' => $node->get ('field_case_poc_email')->value,
+                      'phone' => $node->get ('field_case_poc_phone')->value
+                    ),
         'state'  => $this->getTermName ($node->get ('field_case_location')->target_id),
         'status' => $this->getTermName ($node->get ('field_case_status')->target_id)
       );
