@@ -183,13 +183,6 @@
           @include span-columns(1 of 4);
         }
       }
-/*      ul[data-menu-level="1"][data-menu-num-children="5"] {
-        @include span-columns(5 of 5);
-
-        li[data-menu-level="1"] {
-          @include span-columns(1 of 5);
-        }
-      }*/
     }
   }
 }
@@ -232,6 +225,7 @@
       width: 100%;
       position: absolute;
       height: 494px;
+      overflow: hidden;
 
       #subheader_mobile_body {
         width: 100%;
@@ -240,10 +234,13 @@
 
         .menu_slide_container {
           margin: 0;
+          /*display: none;*/
         }
 
-        .menu_slide_container .menu_slide {
+        .menu_slide {
+          position: absolute;
           display: none;
+          width: 100vw;
 
           &[data-menu-slide-index="0"] {
             display: block;
@@ -278,47 +275,52 @@
             }
           }
 
-          .menu_slide_list_item, li[data-menu-level="1"], li[data-menu-level="2"] {
+          .menu_slide_list_item, li[data-menu-level="1"], li[data-menu-level="2"]  {
             cursor: pointer;
             padding: 16px 24px;
             border-bottom: 1px solid $color-grey3;
             font-size: 0.875rem;
+            width: 100%;
 
             &:hover {
               color: $color-lightblue;
               background-color: $background-color-lightblue;
             }
+          }
 
-            .arrow, .arrow_blue {
-              width: 8px;
-              height: 16px;
+          .menu_slide_list_item, li[data-menu-level="1"] {
+          
+            &:after {
+              content: "";
+              background-image: url('../images/right-arrow-icon.svg');
+              background-repeat: no-repeat;
+              background-position: center;
+              width: 20px;
+              height: 21px;
+              right: 40px;
               position: absolute;
-              right: 24px;
+              cursor: pointer;
+              transition: background-image 0.25s;
             }
 
-            .arrow {
-              z-index: 900;
+            &:hover:after {
+              background-image: url('../images/right-arrow-icon-pale-blue.svg')      
             }
-
-            .arrow_blue {
-              z-index: 800;
-            }
-
-          }
-
-          ul {
-            list-style-type: none;
-            padding: 0;
-            color: $color-darkgrey2;
-
-            a {
-              text-decoration: none;
-              padding-left: 0;
-              color: inherit;
-            }
-          }
+          } 
         }
 
+        ul {
+          list-style-type: none;
+          padding: 0;
+          color: $color-darkgrey2;
+
+          a {
+            text-decoration: none;
+            padding-left: 0;
+            color: inherit;
+          }
+        }
+        
         #block-achp-main-menu {
           height: 100%;
           width: 100%;
@@ -386,22 +388,6 @@
     margin: 0;
     width: 100%;
     padding: 0 24px 20px;
-
-/*    &:after {
-      content: "";
-      background: url('../images/search-icon.svg');
-      background-repeat: no-repeat;
-      background-color: $color-blue;
-      background-position: center;
-      background-size: 45%;
-      width: 35px;
-      height: 35px;
-      padding: 9px;
-      float: right;
-      top: -45px;
-      position: relative;
-      border-radius: 0 2px 2px 0;
-    }*/
 
     #search-block-form {
       height: 100%;

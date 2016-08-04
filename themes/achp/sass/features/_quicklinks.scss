@@ -1,5 +1,6 @@
 @import "../global";
 
+
 #homepage_quicklinks_region {
   #block-quicklinks {
     @include span-columns(12 of 12);
@@ -15,22 +16,36 @@
       @include span-columns(4 of 12);
       background-color: #FFFFFF;
       margin-right: 20px;
-      height: $card-height;
+      height: auto;
       width: $card-width;
       margin: $card-margin-vert 0;
       margin-right: $card-margin-horiz;
       float: left;
+      position: relative;
 
-/*      &.view-item-3 {
-        margin-right: 0;
-      }*/
+      header {
+        background-color: #fff;
+        height: 300px;
+/*        display: table-cell;
+        vertical-align: bottom;*/
 
-      h2 {
-        @extend h3;
-        padding: 20px 15px 5px;
-        display: table-cell;
-        vertical-align: bottom;
-        height: 85px;
+        .views-row {
+          border-top: none;
+          padding: 0;
+          height: 100%;
+          padding: 15px 15px 5px;
+          position: static;
+          color: pink;
+          transform: none;
+        }
+
+        .views-field-field-quicklink-image {
+          @include fit-and-center-image(200px);    
+        }
+
+        h3 {
+          padding-top: 20px;
+        }
       }
 
       .views-row {
@@ -39,6 +54,11 @@
         width: 100%;
         height: 67px;
         display: inline-block;
+
+        .quicklink-item-title {
+          @include center-y;
+          position: relative;
+        }
 
         a {
           text-decoration: none;
@@ -63,41 +83,104 @@
             @include center-y;
           }
 
-    &:hover:after {
-      background-image: url('../images/right-arrow-icon-pale-blue.svg')      
-    }
+          &:hover:after {
+            background-image: url('../images/right-arrow-icon-pale-blue.svg')      
+          }
         }
-
-/*        &:after {
-          content: ">";
-          float: right;
-          color: pink;
-        }*/
-        
-      }
+      }  
     }
+
+    .quicklinks-column {
+      footer {
+        background: $color-lightgrey;
+        font-weight: 500;
+        color: #4F4F4F;
+        font-size:  0.875rem;
+        border: none;
+        position: absolute;
+        height: $more-quicklinks-height;
+        width: 100%;
+        @include hover-transition-background;
+
+        a {
+          display: inline-block;
+          text-decoration: none;
+          width: 100%;
+          color: inherit;
+          padding: 0 25px;
+          @include center-y;   
+
+          &:after {
+            content: "";
+            background-image: url('../images/more-dots-icon.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            cursor: pointer;
+            right: 13px;
+            @include center-y;
+          }
+        }
+      }
+    }      
   }
 }
 
 #homepage_quicklinks_region > #homepage_quicklinks_content {
-    @media (max-width: 1023px) {   
-      /* At this width 2 cards are on the first row, and the third is on the second. */
-      /* First card has a margin-right, but second no longer does:; */
-      $card-container-width: $card-width * 2 + $card-margin-horiz; 
-      width: $card-container-width; 
-      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
-      height: $card-height * 2 + $card-margin-vert * 3; /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+/*  At this width 2 cards are on the first row, and the third is on the second.
+    First card has a margin-right, but second no longer does:*/
+  @media (max-width: 1023px) {   
+    $card-container-width: $card-width * 2 + $card-margin-horiz; 
+    width: $card-container-width; 
+    /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+    height: $card-height * 2 + $card-margin-vert * 3; /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
 
-      .views-element-container {
-        /*margin-right: 0;*/
-        &:nth-last-of-type(2) {
-          margin-right: 0px;
-        }
+    .views-element-container {
+      /*margin-right: 0;*/
+      &:nth-last-of-type(2) {
+        margin-right: 0px;
+      }
 
-        &:last-of-type {
-          $horiz-margin: ($card-container-width - $card-width) / 2;
-          margin: 0 $horiz-margin;
+      &:last-of-type {
+        $horiz-margin: ($card-container-width - $card-width) / 2;
+        margin: 0 $horiz-margin;
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    height: auto;
+    width: 100%;
+    padding: 20px 0;
+    margin: 0;
+
+    .views-element-container {
+      @include span-columns(12 of 12);
+      margin: 15px auto 0;
+      height: auto !important;
+      display: block;
+
+      &:last-of-type {
+        margin: 15px auto 0;
+      }
+
+      .quicklinks-column > .views-row, img, footer {
+        display: none;
+      }
+
+      header {
+        height: auto;
+        display: block;
+
+        .views-row {
+          padding: 0 10px;          
+
+          h3 {
+            padding: 10px 20px;
+          }
         }
       }
     }
   }
+}

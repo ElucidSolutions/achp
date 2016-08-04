@@ -83,9 +83,14 @@
       }
     });
 
-    // toggleArrows ($('#homepage_quicklinks_content .views-row')) 
+    // VII. Handle Quicklinks mobile click events
+    $('.quicklinks-column .views-field-title').click (function (e) {
+      e.preventDefault();
+      console.log(e.target);
+      // console.log('You clicked');
+    })
 
-    // VII. Move the Search and Menu Block elements at breakpoints.
+    // VIII. Move the Search and Menu Block elements at breakpoints.
     $.breakpoint ((function () {
       return {
         condition: function () {
@@ -277,7 +282,7 @@
             slideInFromRight (containerElement, $(menuListItem).attr ('data-menu-item-index'));
           })
         );
-        toggleArrows (slideListItem);
+        // toggleArrows (slideListItem);
     });
 
     // To remove line breaks from slide titles that have them
@@ -326,23 +331,23 @@
   element, toggling between them upon hover; and returns undefined.
   */
 
-  function toggleArrows (item) {
-    $(item).append ($('<span></span>')
-             .addClass('arrow')
-             .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
-           )   
-           .append ($('<span></span>')
-             .addClass('arrow_blue')
-             .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
-           )       
-           .hover (
-             function (e) {
-               $('.arrow_blue', $(e.target)).css ('z-index', '1000');
-             },
-             function (e) {
-               $('.arrow_blue', $(e.target)).css ('z-index', '800');
-          });
-  }
+  // function toggleArrows (item) {
+  //   $(item).append ($('<span></span>')
+  //            .addClass('arrow')
+  //            .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
+  //          )   
+  //          .append ($('<span></span>')
+  //            .addClass('arrow_blue')
+  //            .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
+  //          )       
+  //          .hover (
+  //            function (e) {
+  //              $('.arrow_blue', $(e.target)).css ('z-index', '1000');
+  //            },
+  //            function (e) {
+  //              $('.arrow_blue', $(e.target)).css ('z-index', '800');
+  //         });
+  // }
 
   /*
   Accepts one argument: slide, an object representing a single 
@@ -399,12 +404,12 @@
   function slideInFromLeft (containerElement, menuItemIndex) {
     var slide = getMenuSlide (containerElement, menuItemIndex);
     slide.css ('position', 'absolute')
-         .css ('width', '100vw')
          .css ('right', '100vw')
          .delay (0) /* This seems to fix a Safari bug */
-         .animate ({ right: '0vw', left: '0vw' }, 250, "linear")     
+         .animate ({ right: '0', left: '0' }, 250, "linear")     
          .show ();
     animateSubheaderHeight ( setSubheaderHeight (slide) );
+    console.log(slide)
   }
 
   /*
@@ -417,10 +422,9 @@
   function slideInFromRight (containerElement, menuItemIndex) {
     var slide = getMenuSlide (containerElement, menuItemIndex);
     slide.css ('position', 'absolute')
-         .css ('width', '100vw')
          .css ('left', '100vw')
          .delay (0) /* This seems to fix a Safari bug */
-         .animate ({ left: '0vw', right: '0vw' }, 250, "linear")
+         .animate ({ left: '0', right: '0' }, 250, "linear")
          .show ();
     animateSubheaderHeight ( setSubheaderHeight (slide) );
   }
@@ -449,10 +453,9 @@
   that index out of view; and returns undefined.
   */
   function slideOutToLeft (index) {
-    console.log('1dee')
-    $('.menu_slide[data-menu-slide-index="' + index + '"]').css ('position', 'absolute')
-                                                           .css ('width', '100vw')
-                                                           .animate({ left: '-100vw' }, 250, "linear");
+    $('.menu_slide[data-menu-slide-index="' + index + '"]')
+      .css ('position', 'absolute')
+      .animate({ left: '-100vw' }, 250, "linear");
 
   }
 
@@ -461,9 +464,9 @@
   that index out of view; and returns undefined.
   */
   function slideOutToRight (index) {
-    $('.menu_slide[data-menu-slide-index="' + index + '"]').css ('position', 'absolute')
-                                                           .css ('width', '100vw')
-                                                           .animate({ left: '100vw' }, 250, "linear");
+    $('.menu_slide[data-menu-slide-index="' + index + '"]')
+      .css ('position', 'absolute')
+      .animate({ left: '100vw' }, 250, "linear");
   }
 
   /*

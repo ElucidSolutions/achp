@@ -15,6 +15,7 @@ $header-logo-small-width: 64px;
 $header-logo-mobile-width: 48px;
 $arrow-width: 8px;
 $arrow-padding: 5px;
+$more-quicklinks-height: 50px;
 
 /* Global variables: text */
 $sans-text: 'p22-underground', sans-serif;
@@ -90,6 +91,21 @@ $grid-columns: 12;
   background-color: $color;
   border: none;
   height: 1px;
+}
+
+@mixin fit-and-center-image($height) {
+  position: relative;
+  height: $height;
+  width: 100%;
+  overflow: hidden;
+
+  /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
+  img {
+    @include center-xy;
+    height: 100%;
+    width: auto;
+    min-width: 100%;
+  }
 }
 
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
