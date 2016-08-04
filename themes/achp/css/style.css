@@ -427,8 +427,7 @@ html {
       height: auto;
       border-top: 1px solid #E2E2E2; }
       #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container {
-        margin: 0;
-        /*display: none;*/ }
+        margin: 0; }
       #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide {
         position: absolute;
         display: none;
@@ -994,6 +993,43 @@ header {
             #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header .views-row h3 {
               padding: 10px 20px; } }
 
+.main_wrapper {
+  /*@extend .card;*/ }
+
+#content_region {
+  padding: 50px 48px;
+  max-width: 1024px;
+  margin: 0 auto; }
+  #content_region a {
+    transition: color 0.25s;
+    color: inherit; }
+    #content_region a:hover {
+      color: #71bffe; }
+  #content_region #block-achp-page-title h1 {
+    font-size: 1.25rem;
+    line-height: 1;
+    text-shadow: none;
+    text-align: left; }
+    @media screen and (min-width: 650px) {
+      #content_region #block-achp-page-title h1 {
+        font-size: 2rem; } }
+    @media screen and (min-width: 925px) {
+      #content_region #block-achp-page-title h1 {
+        font-size: 2.25rem; } }
+  #content_region #block-achp-local-tasks ul {
+    list-style-type: none;
+    padding-left: 0; }
+    #content_region #block-achp-local-tasks ul li {
+      display: inline; }
+      #content_region #block-achp-local-tasks ul li a {
+        font-family: "p22-underground", sans-serif; }
+  #content_region footer {
+    background-color: #fff;
+    height: auto;
+    margin-bottom: 20px; }
+  #content_region #block-achp-content p {
+    text-align: left; }
+
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -1046,31 +1082,31 @@ html, body {
   .header_container hr {
     width: 60%; }
 
-h1, h2, h3 {
+h1, #content_region #block-achp-page-title h1, h2, h3 {
   font-family: "p22-underground", sans-serif;
   text-align: center;
   margin: 0;
   /*padding: 0;*/
   font-weight: normal; }
 
-h1 {
+h1, #content_region #block-achp-page-title h1 {
   font-size: 1.25rem;
   font-weight: 400;
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
   @media screen and (min-width: 650px) {
-    h1 {
+    h1, #content_region #block-achp-page-title h1 {
       font-size: 2rem; } }
   @media screen and (min-width: 925px) {
-    h1 {
+    h1, #content_region #block-achp-page-title h1 {
       font-size: 2.5rem; } }
-  h1.heading_subtitle {
+  h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
     font-size: 1.25rem;
     font-weight: 100; }
     @media screen and (min-width: 650px) {
-      h1.heading_subtitle {
+      h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
         font-size: 2rem; } }
     @media screen and (min-width: 925px) {
-      h1.heading_subtitle {
+      h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
         font-size: 2.25rem; } }
 
 /* Section titles */

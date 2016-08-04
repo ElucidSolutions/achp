@@ -403,13 +403,11 @@
   */
   function slideInFromLeft (containerElement, menuItemIndex) {
     var slide = getMenuSlide (containerElement, menuItemIndex);
-    slide.css ('position', 'absolute')
-         .css ('right', '100vw')
+    slide.css ('right', '100vw')
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ right: '0', left: '0' }, 250, "linear")     
          .show ();
     animateSubheaderHeight ( setSubheaderHeight (slide) );
-    console.log(slide)
   }
 
   /*
@@ -421,8 +419,7 @@
   */
   function slideInFromRight (containerElement, menuItemIndex) {
     var slide = getMenuSlide (containerElement, menuItemIndex);
-    slide.css ('position', 'absolute')
-         .css ('left', '100vw')
+    slide.css ('left', '100vw')
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ left: '0', right: '0' }, 250, "linear")
          .show ();
@@ -454,7 +451,6 @@
   */
   function slideOutToLeft (index) {
     $('.menu_slide[data-menu-slide-index="' + index + '"]')
-      .css ('position', 'absolute')
       .animate({ left: '-100vw' }, 250, "linear");
 
   }
@@ -465,7 +461,6 @@
   */
   function slideOutToRight (index) {
     $('.menu_slide[data-menu-slide-index="' + index + '"]')
-      .css ('position', 'absolute')
       .animate({ left: '100vw' }, 250, "linear");
   }
 
