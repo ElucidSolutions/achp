@@ -551,7 +551,13 @@
     this.createStateMarkers (query).forEach (clusterGroup.addLayer, clusterGroup);
 
     // Zoom and center on the filtered markers.
-    this.getMap ().fitBounds (clusterGroup.getBounds ());
+    var bounds = clusterGroup.getBounds ();
+    var margin = .2;
+    bounds._northEast.lat += margin;
+    bounds._northEast.lng += margin;
+    bounds._southWest.lat -= margin;
+    bounds._southWest.lng -= margin;
+    this.getMap ().fitBounds (bounds);
   }
 
   /*
@@ -732,7 +738,7 @@
     as a jQuery HTML Element.
   */
   FeatureInstance.prototype.showStatePanelElement = function (state) {
-    this.getPanelElement ().empty ().append (this.createStatePanelElement (state)).show ();
+    this.getPanelElement ().empty ().append (this.createStatePanelElement (state)).animate ({scrollTop: 0}, 200).show ();
   }
 
   /*

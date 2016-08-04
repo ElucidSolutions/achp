@@ -60,13 +60,94 @@ $section_106_map_search_left: 40px
           background: url('../images/grid-icon.svg') no-repeat 50% ($feature_header_body_tabs_height / 4)
           background-size: 15px
 
+  $red_color:  rgb(151,0,14)
+  $blue_color: rgb(5,60,93)  
   $feature_body_height: $feature_height - $feature_header_height
   $feature_body_width:  100%
   .section_106_map_body
-    background: white
+    background: rgb(173,207,255)
     position:   relative
     height:     $feature_body_height
     width:      $feature_body_width
+
+    .section_106_map_case
+      padding:    10px
+      text-align: left
+
+      &:nth-child(even)
+        background-color: rgb(246, 246, 246)
+
+      .section_106_map_case_item
+        margin-left: 30px
+
+        .section_106_map_case_title
+          a
+            color: $blue_color
+            text-decoration: none
+
+        .section_106_map_case_body
+          color:       black
+
+          .section_106_map_case_description
+            p
+              margin:     0px
+              padding:    0px
+              text-align: left
+
+          .section_106_map_case_body_agency_header_title,
+          .section_106_map_case_body_contact_header_title
+            color: $blue_color
+
+          .section_106_map_case_body_agency_header,
+          .section_106_map_case_body_contact_header
+            margin-top: 10px
+
+          .section_106_map_case_contact_title
+            color: rgb(186,186,186)
+            margin-left: 10px
+
+    .section_106_map_overlay
+      background: white
+      border-top: $red_color 5px solid
+      -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+      -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+      box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+      height: 94%
+      left: 0px
+      margin: 1% 2%
+      overflow-x: hidden
+      overflow-y: auto
+      position: absolute
+      top: 0px
+      width: 96%
+      z-index: 15
+
+      .section_106_map_overlay_close_button
+        background: url('../images/close-icon.svg') no-repeat 50% 50%
+        cursor:     pointer
+        float:      right
+        height:     25px
+        width:      25px
+        -moz-transition: all .25s ease
+        -webkit-transition: all .25s ease
+        -o-transition: all .25s ease
+        transition: all .25s ease
+
+        &:hover
+          -moz-transform: rotate(180deg)
+          -webkit-transform: rotate(180deg)
+          -o-transform: rotate(180deg)
+          transform: rotate(180deg)
+
+      .section_106_map_case_item
+        list-style: none
+        max-width: 400px
+        margin: 0 auto
+
+    .section_106_map_grid_footer
+      bottom:   10px
+      left:     $section_106_map_search_left
+      position: absolute
 
     $section_106_map_search_height: 35px
     .section_106_map_search
@@ -150,8 +231,6 @@ $section_106_map_search_left: 40px
       height: 100%
       width:  100%
 
-    $blue_color: rgb(5,60,93)  
-    $red_color:  rgb(151,0,14)
     $panel_height:  $feature_body_height
     $panel_padding: 10px
     $panel_width:   343px
@@ -167,7 +246,6 @@ $section_106_map_search_left: 40px
       overflow-y: scroll
       position:   absolute
       right:      0px // Fix to right-most edge
-      text-align: left
       z-index:    10 // Position above the map layer
 
       .section_106_map_state_panel
@@ -212,38 +290,3 @@ $section_106_map_search_left: 40px
             list-style-type: decimal-leading-zero
             margin:          0px
             padding:         0px
-
-            .section_106_map_case
-              padding: 10px
-
-              &:nth-child(even)
-                background-color: rgb(246, 246, 246)
-
-              .section_106_map_case_item
-                margin-left: 30px
-
-                .section_106_map_case_title
-                  a
-                    color: $blue_color
-                    text-decoration: none
-
-                .section_106_map_case_body
-                  color:       black
-
-                  .section_106_map_case_description
-                    p
-                      margin:     0px
-                      padding:    0px
-                      text-align: left
-
-                  .section_106_map_case_body_agency_header_title,
-                  .section_106_map_case_body_contact_header_title
-                    color: $blue_color
-
-                  .section_106_map_case_body_agency_header,
-                  .section_106_map_case_body_contact_header
-                    margin-top: 10px
-
-                  .section_106_map_case_contact_title
-                    color: rgb(186,186,186)
-                    margin-left: 10px
