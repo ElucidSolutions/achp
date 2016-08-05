@@ -68,10 +68,10 @@ $card-width: 300px;
 
         .homepage_news_item {
           height: 60px;
-          margin: 0 20px;
           padding: 0;
           width: 100%;
           @include center-y;
+          position: relative;
 
           .news_item {
             &_date, &_body, &_link {
@@ -79,19 +79,14 @@ $card-width: 300px;
             }
 
             &_title {
-              width: 75%;
+              width: 95%;
+              padding: 15px;
               line-height: 24px;
-              @include center-y;
-            }
-
-            &_link_mobile {
-              font-size: 0.875rem;
-              right: 60px;
-              display: inline-block;
               @include center-y;
 
               a {
                 text-decoration: none;
+                @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-pale-blue.svg', 0);
               }
             }
           }

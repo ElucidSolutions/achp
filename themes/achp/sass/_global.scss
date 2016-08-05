@@ -93,6 +93,7 @@ $grid-columns: 12;
   height: 1px;
 }
 
+/* Mixin for centering and cropping to fit images*/
 @mixin fit-and-center-image($height) {
   position: relative;
   height: $height;
@@ -105,6 +106,45 @@ $grid-columns: 12;
     height: 100%;
     width: auto;
     min-width: 100%;
+  }
+}
+
+/* Mixin for attaching icons as right after-elements */
+@mixin after-element-icon-with-hover($icon-path, $icon-hover-path, $right-positioning) {
+  @include hover-transition-content;
+
+  &:after {
+    content: "";
+    background-image: url($icon-path);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    padding-left: 15px;
+    right: $right-positioning;
+    cursor: pointer;
+    transition: background-image 0.25s;
+    @include center-y;
+  }
+
+  &:hover:after {
+    background-image: url($icon-hover-path);      
+  }
+}
+
+/* Same mixin as above, except for use where the icon should not change color upon hover*/
+@mixin after-element-icon-no-hover($icon-path, $right-positioning) {
+  &:after {
+    content: "";
+    background-image: url($icon-path);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    padding-left: 15px;
+    right: $right-positioning;
+    cursor: pointer;
+    @include center-y;
   }
 }
 

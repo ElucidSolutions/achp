@@ -16,7 +16,7 @@
       @include span-columns(4 of 12);
       background-color: #FFFFFF;
       margin-right: 20px;
-      height: auto;
+      height: 550px;
       width: $card-width;
       margin: $card-margin-vert 0;
       margin-right: $card-margin-horiz;
@@ -26,8 +26,6 @@
       header {
         background-color: #fff;
         height: 300px;
-/*        display: table-cell;
-        vertical-align: bottom;*/
 
         .views-row {
           border-top: none;
@@ -67,25 +65,7 @@
           display: inline-block;
           width: 95%;
           position: relative;
-          @include hover-transition-content;
-
-          &:after {
-            content: "";
-            background-image: url('../images/right-arrow-icon.svg');
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 20px;
-            height: 21px;
-            position: absolute;
-            cursor: pointer;
-            right: -25px;
-            transition: background-image 0.25s;
-            @include center-y;
-          }
-
-          &:hover:after {
-            background-image: url('../images/right-arrow-icon-pale-blue.svg')      
-          }
+          @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-pale-blue.svg', -25px);
         }
       }  
     }
@@ -98,6 +78,7 @@
         font-size:  0.875rem;
         border: none;
         position: absolute;
+        bottom: 0;
         height: $more-quicklinks-height;
         width: 100%;
         @include hover-transition-background;
@@ -108,20 +89,8 @@
           width: 100%;
           color: inherit;
           padding: 0 25px;
-          @include center-y;   
-
-          &:after {
-            content: "";
-            background-image: url('../images/more-dots-icon.svg');
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            cursor: pointer;
-            right: 13px;
-            @include center-y;
-          }
+          @include center-y;
+          @include after-element-icon-no-hover('../images/more-dots-icon.svg', 13px);
         }
       }
     }      
@@ -138,7 +107,6 @@
     height: $card-height * 2 + $card-margin-vert * 3; /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
 
     .views-element-container {
-      /*margin-right: 0;*/
       &:nth-last-of-type(2) {
         margin-right: 0px;
       }
@@ -152,33 +120,43 @@
   @media (max-width: 700px) {
     height: auto;
     width: 100%;
-    padding: 20px 0;
-    margin: 0;
 
     .views-element-container {
       @include span-columns(12 of 12);
       margin: 15px auto 0;
-      height: auto !important;
-      display: block;
+      height: auto;
 
       &:last-of-type {
         margin: 15px auto 0;
       }
 
-      .quicklinks-column > .views-row, img, footer {
+      .quicklinks-column > .views-row, .views-field-field-quicklink-image, footer {
         display: none;
       }
 
       header {
-        height: auto;
-        display: block;
+        height: 75px;
 
         .views-row {
-          padding: 0 10px;          
+          height: 75px;
+          padding: 10px;
+        }
 
-          h3 {
-            padding: 10px 20px;
-          }
+        .views-field {
+          height: 100%;
+          width: 100%;
+          position: relative;
+        }
+
+        h3 {
+          height: auto;
+          top: 0;
+          @include center-y;
+          padding: 15px;
+          width: 95%;
+          position: absolute;
+          cursor: pointer;
+          @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-pale-blue.svg', 0);
         }
       }
     }

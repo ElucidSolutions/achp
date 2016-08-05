@@ -127,25 +127,8 @@ button {
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 500;
-    /*margin-right: $arrow-width + $arrow-padding; */
-    /* offset for correct horizontal centering*/
-    @include hover-transition-content;
-
-    &:after {
-      content: "";
-      background-image: url('../images/right-arrow-icon.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 20px;
-      height: 21px;
-      position: absolute;
-      cursor: pointer;
-      transition: background-image 0.25s;
-    }
-
-    &:hover:after {
-      background-image: url('../images/right-arrow-icon-pale-blue.svg')      
-    }
+    vertical-align: bottom;
+    @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-pale-blue.svg', -20px);
   }
 }
 
@@ -189,14 +172,14 @@ button {
 }
 
 #homepage_quicklinks_region {
-  padding: 25px 50px;
+  padding: 25px 50px 25px 100px;
   height: auto;
   background-color: $background-color-grey;
   overflow-y: visible;
 
   @media (max-width: 700px) {
-    /*height: 500px;*/
-    padding: 0;
+    height: auto;
+    padding: 25px 0;
   }
 
   @media (max-width: 384px) {
