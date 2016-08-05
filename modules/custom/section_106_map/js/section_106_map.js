@@ -4,24 +4,13 @@
 */
 (function ($) {
 
-  // I. Global variables
-
-  // Feature Instance States
-  MAP_MODE  = 0;
-  GRID_MODE = 1;
-
   // The Lunr Search Index.
   var lunrIndex = null;
 
   // The Section 106 consultation cases.
   var cases = [];
 
-  // II. The Initialization function
-
   $(document).ready (function () {
-    // Retrieve the section 106 consultation cases.
-    cases = drupalSettings.section_106_map.cases;
-
     // Initialize the Lunr search index.
     lunrIndex = lunr (function () {
       this.field ('id');
@@ -37,986 +26,27 @@
     // See: https://github.com/olivernn/lunr.js/issues/38
     lunrIndex.pipeline.reset ();
 
-    // Index the case records.
-    indexCases (cases);
+    // Retrieve the section 106 consultation cases.
+    cases = drupalSettings.section_106_map.cases;
 
+    // Index the case records.
+    cases.forEach (function (_case) {
+      lunrIndex.add ({
+        id:       _case.id,
+        title:    _case.title,
+        body:     _case.body,
+        agency:   _case.agency.title,
+        poc_name: _case.poc.name,
+        state:    _case.state,
+        status:   _case.status
+      });
+    });
+
+    // Create and attach the feature instances.
     $('.section_106_map').each (function (i, containerElement) {
-      // Create and attach the feature instance.
       var instance = new FeatureInstance ($(containerElement));
     });
   });
-
-  // III. The Feature Instance Class
-
-  /*
-    Accepts one argument: containerElement,
-    a jQuery HTML Element; and creates and
-    attaches a Section 106 Map Feature Instance
-    to containerElement and returns the instance
-    as a FeatureInstance object.
-  */
-  function FeatureInstance (containerElement) {
-    this._mode = MAP_MODE;
-    this._currentPage = 0;
-
-    // I. Create and attach the instance element.
-    this._instanceElement = this.createInstanceElement ();
-    containerElement.append (this._instanceElement);
-
-    // II. Load the map.
-    this._map          = this.loadMap ();
-
-    // III. Create the marker cluster group.
-    this._clusterGroup = this.createStateMarkerClusterGroup ();
-
-    // IV. Add the marker cluster group to the map. 
-    this._map.addLayer (this._clusterGroup);
-
-    // V. Set the state markers.
-    this.setMarkers (); 
-  }
-
-  /*
-    Accepts no arguments and returns this
-    instance's current mode.
-  */
-  FeatureInstance.prototype.getMode = function () {
-    return this._mode;
-  }
-
-  /*
-    Accepts no arguments and returns the HTML
-    element that represents this instance as a
-    jQuery HTML Element.
-  */
-  FeatureInstance.prototype.getInstanceElement = function () {
-    return this._instanceElement;
-  }
-
-  /*
-    Accepts no arguments and returns the Mapbox
-    map object displayed in this instance's
-    HTML element.
-  */
-  FeatureInstance.prototype.getMap = function () {
-    return this._map;
-  }
-
-  /*
-    Accepts no arguments and returns the Leafet
-    Marker Cluster Group displayed in this
-    instance's map.
-  */
-  FeatureInstance.prototype.getClusterGroup = function () {
-    return this._clusterGroup;
-  }
-
-  /*
-    Accepts no arguments and returns an HTML
-    element that represents this instance as a
-    JQuery HTML Element.
-  */
-  FeatureInstance.prototype.createInstanceElement = function () {
-    return $('<div></div>')
-      .addClass ('section_106_map_feature')
-      .append (this.createHeaderElement ())
-      .append (this.createBodyElement ());
-  }
-
-  /*
-    Accepts no arguments and returns an HTML
-    element that represents the map feature
-    header as a jQuery HTML Element.
-  */
-  FeatureInstance.prototype.createHeaderElement = function () {
-    var self = this;
-    return $('<div></div>')
-      .addClass ('section_106_map_header')
-      .append ($('<div></div>')
-        .addClass ('section_106_map_header_header'))
-      .append ($('<div></div>')
-        .addClass ('section_106_map_header_body')
-        .append ($('<div></div>')
-          .addClass ('section_106_map_header_body_tabs')
-          .append ($('<div></div>')
-            .addClass ('section_106_map_header_body_tab')
-            .addClass ('section_106_map_map_tab')
-            .text ('Map')
-            .click (function () {
-                self.toMapMode ();
-              }))
-          .append ($('<div></div>')
-            .addClass ('section_106_map_header_body_tab')
-            .addClass ('section_106_map_grid_tab')
-            .text ('Grid')
-            .click (function () {
-                self.toGridMode (0);
-              }))));
-  }
-
-  /*
-    Accepts no arguments and returns an HTML
-    Element that represents the map feature body
-    as a jQuery HTML Element.
-  */
-  FeatureInstance.prototype.createBodyElement = function () {
-    return $('<div></div>')
-      .addClass ('section_106_map_body')
-      .append (this.createOverlayElement ())
-      .append (this.createPanelElement ())
-      .append (this.createSearchElement ())
-      .append (this.createMapContainerElement ())
-      .append (this.createGridElement ());
-  }
-
-  /*
-    Accepts no arguments and returns a map
-    container element as a jQuery HTML Element.
-
-    Note: this function adds a unique HTML
-    element ID to the container element.
-
-    Note: Mapbox maps can not be loaded into a
-    map container elements until the container
-    element has been attached to the document
-    DOM.
-  */
-  FeatureInstance.prototype.createMapContainerElement = function () {
-    return $('<div></div>')
-      .attr ('id', _.uniqueId ('section_106_map'))
-      .addClass ('section_106_map_map_container');
-  }
-
-  /*
-    Accepts no arguments and returns a grid
-    element listing the Section 106 cases
-    associated with each state.
-  */
-  FeatureInstance.prototype.createGridElement = function () {
-    return $('<div></div>')
-      .addClass ('section_106_map_grid')
-      .append ($('<div></div>')
-        .addClass ('section_106_map_grid_header'))
-      .append ($('<div></div>')
-        .addClass ('section_106_map_grid_body'))
-      .append ($('<div></div>')
-        .addClass ('section_106_map_grid_footer'))
-      .hide ();
-  }
-
-  /*
-    Accepts no arguments and returns a search
-    element that when clicked filters the state
-    markers displayed on this instance's map and
-    zooms/centers the map on the remaining items.
-  */
-  FeatureInstance.prototype.createSearchElement = function () {
-    var self = this;
-
-    var inputElement = $('<input></input>')
-      .attr ('type', 'text')
-      .attr ('placeholder', 'Filter Cases')
-      .addClass ('section_106_map_search_input')
-      .on ('input', function () {
-          inputElement.val () === '' ? clearElement.hide () : clearElement.show ();
-          switch (self.getMode ()) {
-            case GRID_MODE:
-              self.toGridMode (0);
-            case MAP_MODE:
-              self.setMarkers (inputElement.val ());
-          }
-        });
-
-    var clearElement = $('<div></div>')
-      .addClass ('section_106_map_search_clear')
-      .click (function () {
-          inputElement.val ('');
-          switch (self.getMode ()) {
-            case GRID_MODE:
-              self.toGridMode (0);
-            case MAP_MODE:
-              self.setMarkers ();
-          }
-          clearElement.hide ();
-        })
-      .hide ();
-
-    return $('<div></div>')
-      .addClass ('section_106_map_search')
-      .append ($('<div></div>')
-        .addClass ('section_106_map_search_form')
-        .append (inputElement)
-        .append (clearElement));
-  }
-
-  /*
-    Accepts no arguments and returns an overlay
-    element that is used to present detailed
-    information about cases in Grid mode as a
-    JQuery HTML Element.
-  */
-  FeatureInstance.prototype.createOverlayElement = function () {
-    var self = this;
-    return $('<div></div>')
-      .addClass ('section_106_map_overlay')
-      .append ($('<div></div>')
-        .addClass ('section_106_map_overlay_header')
-        .append ($('<div></div>')
-          .addClass ('section_106_map_overlay_close_button')
-          .click (function () {
-              self.hideOverlayElement ();
-            })))
-      .append ($('<div></div>')
-        .addClass ('section_106_map_overlay_body'))
-      .hide ();
-  }
-
-  /*
-    Accepts no arguments and returns an
-    information panel as a jQuery HTML Element
-    that lists information about the section
-    106 cases in each state.
-  */
-  FeatureInstance.prototype.createPanelElement = function () {
-    return $('<div></div>').addClass ('section_106_map_panel').hide ();
-  }
-
-  /*
-    Accepts argument: states, a State object
-    array; and returns an information panel for
-    the state as a jQuery HTML Element.
-  */
-  FeatureInstance.prototype.createStatePanelElement = function (state) {
-    var self = this;
-    return $('<div></div>')
-      .addClass ('section_106_map_state_panel')
-      .attr ('data-section-106-map-state-name', state.name)
-      .attr ('data-section-106-map-state-abbreviation', state.abbreviation)
-      .append ($('<div></div>')
-        .addClass ('section_106_map_state_panel_header')
-        .append ($('<div></div>')
-          .addClass ('section_106_map_state_panel_header_title')
-          .text ('Active Section 106 Cases'))
-        .append ($('<div></div>')
-          .addClass ('section_106_map_state_panel_header_close_button'))
-          .click (function () {
-              self.hidePanelElement ();
-            }))
-      .append ($('<div></div>')
-        .addClass ('section_106_map_state_panel_body')
-        .append ($('<ol></ol>')
-          .addClass ('section_106_map_state_panel_state_cases_list')
-          .append (this.createCaseElements (state))))
-      .append ($('<div></div>')
-        .addClass ('section_106_map_state_panel_footer'));
-  }
-
-  /*
-    Accepts one argument: state, a State object;
-    and returns an array of state case panel
-    elements that represent state's cases as an
-    array of jQuery HTML Elements.
-  */
-  FeatureInstance.prototype.createCaseElements = function (state) {
-    return state.cases.map (this.createCaseElement, this);
-  }
-
-  /*
-    Accepts one argument: _case, a Case object;
-    and returns a state case details element that
-    represents _case as a jQuery HTML Element.
-  */
-  FeatureInstance.prototype.createCaseElement = function (_case) {
-    return $('<div></div>')
-      .addClass ('section_106_map_case')
-      .attr ('data-section-106-map-case-id', _case.id)
-      .append ($('<li></li>')
-        .addClass ('section_106_map_case_item')
-        .append ($('<div></div>')
-          .addClass ('section_106_map_case_header')
-          .append ($('<div></div>')
-            .addClass ('section_106_map_case_title')
-            .append ($('<a></a>')
-              .attr ('href', _case.url)
-              .text (_case.title))))
-        .append ($('<div></div>')
-          .addClass ('section_106_map_case_body')
-          .append ($('<div></div>')
-            .addClass ('section_106_map_case_description')
-            .html (_case.body))
-          .append ($('<div></div>')
-            .addClass ('section_106_map_case_body_agency')
-            .append ($('<div></div>')
-              .addClass ('section_106_map_case_body_agency_header')
-              .append ($('<div></div>')
-                .addClass ('section_106_map_case_body_agency_header_title')
-                .text ('Agency Involved:'))
-              .append ($('<div></div>')
-                .addClass ('section_106_map_case_agency')
-                .text (_case.agency.title))))
-          .append ($('<div></div>')
-            .addClass ('section_106_map_case_body_contact')
-            .append ($('<div></div>')
-              .addClass ('section_106_map_case_body_contact_header')
-              .append ($('<div></div>')
-                .addClass ('section_106_map_case_body_contact_header_title')
-                .text ('Federal Point of Contact:')))
-            .append ($('<div></div>')
-              .addClass ('section_106_map_case_contact_name_title')
-              .append ($('<span></span>')
-                .addClass ('section_106_map_case_contact_name')
-                .text (_case.poc.name))
-              .append ($('<span></span>')
-                .addClass ('section_106_map_case_contact_title')
-                .text (_case.poc.title)))
-            .append ($('<div></div>')
-              .addClass ('section_106_map_case_contact_email')
-              .text (_case.poc.email))
-            .append ($('<div></div>')
-              .addClass ('section_106_map_case_contact_phone')
-              .text (_case.poc.phone)))
-          ));
-  }
-
-  /*
-    Accepts no arguments and changes this
-    instance to Map mode.
-  */
-  FeatureInstance.prototype.toMapMode = function () {
-    if (this._mode === MAP_MODE) { return; }
-    this.hideOverlayElement ();
-    this.hideGridElement ();
-    this.showMapContainerElement ();
-    this._mode = MAP_MODE;
-  }
-
-  /*
-    Accepts one argument: page, an integer that
-    represents a page number; and changes this
-    instance to Grid mode and sets the current
-    page to page.
-  */
-  FeatureInstance.prototype.toGridMode = function (page) {
-    this.hidePanelElement ();
-    this.hideMapContainerElement ();
-    this._currentPage = page;
-    this.loadGridCases ();
-    this.showGridElement ();
-    this._mode = GRID_MODE;
-  }
-
-  /*
-    Accepts no arguments; loads a Mapbox map
-    that plots the Section 106 cases given in
-    states into this instance's map container
-    element; and returns the loaded map as a
-    Mapbox Map object.
-  */
-  FeatureInstance.prototype.loadMap = function () {
-    var instanceElement = this.getInstanceElement ();
-
-    // Get the map container element ID.
-    var mapContainerElementID = $('.section_106_map_map_container', instanceElement).attr ('id');
-
-    // Get the Mapbox access token.
-    var accessToken = drupalSettings.section_106_map.mapbox_access_token;
-
-    // Set the Mapbox access token.
-    L.mapbox.accessToken = accessToken;
-
-    // Embed the Mapbox map object.
-    var map = L.mapbox.map (mapContainerElementID, 'mapbox.streets', {
-      minZoom:   2,
-      maxZoom:   7
-    });
-
-    // Return the map.
-    return map;
-  }
-
-
-  /*
-    Accepts no arguments and returns a Leaflet
-    Marker Cluster object that represents a
-    marker cluster group containing markers for
-    the states in states.
-  */
-  FeatureInstance.prototype.createStateMarkerClusterGroup = function () {
-    var self = this;
-    return new L.MarkerClusterGroup ({
-      showCoverageOnHover: false,
-      iconCreateFunction: function (cluster) {
-        return self.createClusterIcon (cluster);
-      }
-    });
-  }
-
-  /*
-    Accepts one argument: cluster, a Leaflet
-    Cluster object; and returns a Leaflet Icon
-    object that represents the cluster.
-  */
-  FeatureInstance.prototype.createClusterIcon = function (cluster) {
-    return new L.DivIcon ({
-      'html': getClusterIconSVG (this.getClusterNumCases (cluster).toString ())
-    });
-  }
-
-  /*
-    Accepts one argument: cluster, a Leaflet
-    Cluster object; and returns the number of
-    cases represented by the markers nested
-    within cluster as an integer.
-  */
-  FeatureInstance.prototype.getClusterNumCases = function (cluster) {
-    var self = this;
-    return getClusterMarkers (cluster).reduce (
-      function (numCases, marker) {
-        return numCases + marker.options.state.cases.length;
-    }, 0);
-  }
-
-  /*
-    Accepts one argument: cluster, a Leaflet
-    Cluster object; and returns the markers
-    nested within cluster as an array of Leaflet
-    Marker objects.
-  */
-  function getClusterMarkers (cluster) {
-    return cluster._childClusters.reduce (
-      function (markers, childCluster) {
-        Array.prototype.push.apply (markers, getClusterMarkers (childCluster));
-        return markers;
-    }, cluster._markers.slice ());
-  }
-
-  /*
-    Accepts one argument: query, a string that
-    represents a search/filter query; and returns
-    markers for those states and territories
-    that have cases that match query as a State
-    object array.
-  */
-  FeatureInstance.prototype.createStateMarkers = function (query) {
-    return createStates (this.getCurrentCases ()).map (this.createStateMarker, this);
-  }
-
-  /*
-    Accepts one argument: state, a State object;
-    and returns a Leaflet Marker object that
-    represents state.
-
-    See: https://www.mapbox.com/mapbox.js/api/v2.2.4/l-marker/
-  */
-  FeatureInstance.prototype.createStateMarker = function (state) {
-    var self = this;
-    var marker = new L.marker (
-      [state.coordinates.latitude, state.coordinates.longitude],
-      {
-        icon:     createStateIcon (state),
-        title:    state.name,
-        state:    state
-      }
-    ).on ('click', function () {
-      // select the state marker.
-      self.deselectStateMarkerElements ();
-      self.selectStateMarkerElement (state.abbreviation);
-
-      // show state panel.
-      self.showStatePanelElement (state);
-    });
-    return marker;
-  }
-
-  /*
-    Accepts one argument: query, a search/filter
-    query string; removes the markers in this
-    instance's marker cluster group; creates new
-    markers for those states and territories
-    that have cases that match query; and add
-    those markers to this instance's marker
-    cluster group.
-
-    If query is null or undefined, this function
-    adds markers for all of this instance's
-    cases.
-  */
-  FeatureInstance.prototype.setMarkers = function (query) {
-    var clusterGroup = this.getClusterGroup ();
-
-    // Remove markers.
-    clusterGroup.clearLayers ();
-
-    // Add the newly filtered markers back in.
-    this.createStateMarkers (query).forEach (clusterGroup.addLayer, clusterGroup);
-
-    // Zoom and center on the filtered markers.
-    var bounds = clusterGroup.getBounds ();
-    var margin = .2;
-    bounds._northEast.lat += margin;
-    bounds._northEast.lng += margin;
-    bounds._southWest.lat -= margin;
-    bounds._southWest.lng -= margin;
-    this.getMap ().fitBounds (bounds);
-  }
-
-  /*
-    Accepts no arguments; loads the case
-    cards into the grid element; and sets the
-    navigation element.
-  */
-  FeatureInstance.prototype.loadGridCases = function () {
-    var gridElement = this.getGridElement ();
-    var cases = this.getCurrentCases ();
-
-    var numCasesPerPage = 2;
-    var numPages = cases.length / numCasesPerPage;
-
-    var startCaseIndex = numCasesPerPage * this._currentPage;
-    var endCaseIndex = Math.min (startCaseIndex + numCasesPerPage, cases.length);
-
-    var maxNumLinks = 5;
-    $('.section_106_map_grid_body', gridElement)
-      .empty ()
-      .append (this.createCaseCards (cases.slice (startCaseIndex, endCaseIndex)));
-    $('.section_106_map_grid_footer', gridElement)
-      .empty ()
-      .append ($('<div></div>')
-        .addClass ('section_106_map_nav')
-        .append ($('<div></div>')
-          .addClass ('section_106_map_nav_links')
-          .append ($('<div></div>')
-            .addClass ('section_106_map_nav_prev'))
-          .append (_.range (0, Math.min (numPages, maxNumLinks)).map (this.createNavLinkElement, this))
-          .append (numPages > maxNumLinks ? this.createNavLinkElement (numPages - 1) : null)
-          .append ($('<div></div>')
-            .addClass ('section_106_map_nav_next')))
-        .append ($('<div></div>')
-          .addClass ('section_106_map_nav_stats')
-          .text ((startCaseIndex + 1) + '-' + endCaseIndex + ' of ' + cases.length + ' Section 106 Cases')));
-  }
-
-  /*
-    Accepts one argument: i, an integer that
-    denotes a page number; and returns a nav
-    link element as a JQuery HTML Element.
-  */
-  FeatureInstance.prototype.createNavLinkElement = function (i) {
-    var self = this;
-    return $('<div></div>')
-      .addClass ('section_106_map_nav_link')
-      .text (i + 1)
-      .click (function () {
-          self.toGridMode (i);
-        });
-  }
-
-  /*
-    Accepts on argument: cases, an array of Case
-    objects; and returns a set of case cards
-    that represent cases as an array of JQuery
-    HTML Elements.
-  */
-  FeatureInstance.prototype.createCaseCards = function (cases) {
-    return cases.map (this.createCaseCard, this);
-  }
-
-  /*
-    Accepts one argument: case, a Case object
-    that represents a section 106 consultation
-    case; and returns a JQuery HTML Element that
-    represents case as a case card element.
-  */
-  FeatureInstance.prototype.createCaseCard = function (_case) {
-    var self = this;
-    return $('<div></div>')
-      .addClass ('section_106_map_case_card')
-      .attr ('data-section-106-map-case', _case.id)
-      .append ($('<div></div>')
-        .addClass ('section_106_map_case_card_title')
-        .text (_case.title))
-      .append ($('<div></div>')
-        .addClass ('section_106_map_case_card_state')
-        .text (_case.state))
-      .click (function () {
-          self.showCaseOverlayElement (_case);
-        });
-  }
-
-  /*
-    Accepts no arguments and returns those cases
-    that match the current filter query in an
-    array of Case objects.
-
-    Note: this function uses the "Filter Score
-    Threshold" module setting to determine the
-    threshold for Lunr's similarity score.
-  */
-  FeatureInstance.prototype.getCurrentCases = function () {
-    var query = this.getCurrentQuery ();
-    if (!query) { return cases; }
-
-    // Retrieve the filter score threshold.
-    var threshold = drupalSettings.section_106_map.filter_score_threshold;
-
-    // Filter the case records.
-    return _.compact (lunrIndex.search (query).map (
-      function (result) {
-        return result.score < threshold ? null :
-          _.find (cases,
-            function (_case) {
-              return _case.id === result.ref;
-          });
-    }));
-  }
-
-  /*
-    Accepts no arguments and returns the current
-    filter query entered into this instance's
-    filter form as a string.
-  */
-  FeatureInstance.prototype.getCurrentQuery = function () {
-    return this.getFilterInputElement ().val ();
-  }
-
-  /*
-    Accepts no arguments and clears the current
-    filter query.
-  */
-  FeatureInstance.prototype.clearCurrentQuery = function () {
-    this.setCurrentQuery ('');
-  }
-
-  /*
-    Accepts one argument: query, a string that
-    represents a valid filter query; and sets
-    this instance's filter query to equal query.
-  */
-  FeatureInstance.prototype.setCurrentQuery = function (query) {
-    this.getFilterInputElement ().val (query);
-  }
-
-  /*
-    Accepts one argument: stateAbbreviation,
-    a string that represents a state
-    abbreviation; and selects the state marker
-    in featureElement associated with the state
-    referenced by stateAbbreviation.
-  */
-  FeatureInstance.prototype.selectStateMarkerElement = function (stateAbbreviation) {
-    this.getStateMarkerElement (stateAbbreviation).get (0).classList.add ('section_106_map_selected');
-  }
-
-  /*
-    Accepts no arguments and deselects all of
-    the state markers in the this instance's map.
-  */
-  FeatureInstance.prototype.deselectStateMarkerElements = function () {
-    this.getStateMarkerElements ().each (
-      function (i, markerElement) {
-        markerElement.classList.remove ('section_106_map_selected');
-    });
-  }
-
-  /*
-    Accepts one argument: case, a Case object;
-    and displays the case details element in
-    this instance's overlay element.
-  */
-  FeatureInstance.prototype.showCaseOverlayElement = function (_case) {
-    var overlayElement = this.getOverlayElement ();
-    $('.section_106_map_overlay_body', overlayElement).empty ().append (this.createCaseElement (_case))
-    overlayElement.show ();
-  }
-
-  /*
-    Accepts one argument: stateAbbreviation, a
-    string that represents a state abbreviation;
-    and shows the state panel element in this
-    instance's element that is associated with
-    the state referenced by stateAbbreviation
-    as a jQuery HTML Element.
-  */
-  FeatureInstance.prototype.showStatePanelElement = function (state) {
-    this.getPanelElement ().empty ().append (this.createStatePanelElement (state)).animate ({scrollTop: 0}, 200).show ();
-  }
-
-  /*
-    Accepts no arguments and displays this
-    instance's map container element.
-  */
-  FeatureInstance.prototype.showMapContainerElement = function () {
-    this.getMapContainerElement ().show ();
-  }
-
-  /*
-    Accepts no arguments and displays this
-    instance's grid element.
-  */
-  FeatureInstance.prototype.showGridElement = function () {
-    this.getGridElement ().show ();
-  }
-
-  /*
-    Accepts no arguments and hides this
-    instance's overlay element.
-  */
-  FeatureInstance.prototype.hideOverlayElement = function () {
-    this.getOverlayElement ().hide ();
-  }
-
-  /*
-    Accepts no arguments and hides this instance
-    element's state panel elements.
-  */
-  FeatureInstance.prototype.hidePanelElement = function () {
-    this.getPanelElement ().hide ();
-  }
-
-  /*
-    Accepts no arguments and hides this instance
-    element's map container element.
-  */
-  FeatureInstance.prototype.hideMapContainerElement = function () {
-    this.getMapContainerElement ().hide ();
-  }
-
-  /*
-    Accepts no arguments and hides this instance
-    element's grid element.
-  */
-  FeatureInstance.prototype.hideGridElement = function () {
-    this.getGridElement ().hide ();
-  }
-
-  /*
-    Accepts no arguments and returns this
-    instance's filter input element as a JQuery
-    HTML Element.
-  */
-  FeatureInstance.prototype.getFilterInputElement = function () {
-    return $('.section_106_map_search_input', this.getInstanceElement ());
-  }
-
-  /*
-    Accepts argument: stateAbbreviation, a string
-    that represents a state abbreviation; and
-    returns a jQuery HTML Element that represents
-    the state marker in this instance for the
-    state referenced by stateAbbreviation.
-  */
-  FeatureInstance.prototype.getStateMarkerElement = function (stateAbbreviation) {
-    return $('.section_106_map_state_marker[data-section-106-map-state-marker-state="' + stateAbbreviation + '"]', this.getInstanceElement ());
-  }
-
-  /*
-    Accepts no arguments and returns a jQuery
-    HTML Element Set containing all of the state
-    marker elements in this instance.
-  */
-  FeatureInstance.prototype.getStateMarkerElements = function () {
-    return $('.section_106_map_state_marker', this.getInstanceElement ());
-  }
-
-  /*
-    Accepts no arguments and returns this
-    instance's overlay element.
-  */
-  FeatureInstance.prototype.getOverlayElement = function () {
-    return $('.section_106_map_overlay', this.getInstanceElement ());
-  }
-
-  /*
-    Accepts no arguments and returns this
-    instance's panel element.
-  */
-  FeatureInstance.prototype.getPanelElement = function () {
-    return $('.section_106_map_panel', this.getInstanceElement ());
-  }
-
-  /*
-    Accepts no arguments and returns this
-    instance's map container element.
-  */
-  FeatureInstance.prototype.getMapContainerElement = function () {
-    return $('.section_106_map_map_container', this.getInstanceElement ());
-  }
-
-  /*
-    Accepts no arguments and returns this
-    instance's grid element.
-  */
-  FeatureInstance.prototype.getGridElement = function () {
-    return $('.section_106_map_grid', this.getInstanceElement ());
-  }
-
-  /*
-    Accepts no arguments and returns this
-    instance's nav element.
-  */
-  FeatureInstance.prototype.getNavElement = function () {
-    return $('.section_106_map_nav', this.getInstanceElement ());
-  }
-
-  // IV. SVG Icon Functions
-
-  /*
-    Accepts one argument: label, a string; and
-    returns an SVG element string that represents
-    a Cluster Icon labeled label.
-  */
-  function getClusterIconSVG (label) {
-    var svgElementString = '<div></div>';
-    $.ajax (
-      'modules/custom/section_106_map/images/marker-group-icon.svg',
-      {
-        async: false, 
-        success: function (svgDocument) {
-          // Get the SVG element.
-          var svgElement = svgDocument.documentElement;
-
-          // Add a class attribute to the icon element.
-          svgElement.classList.add ('section_106_map_cluster_marker');
-
-          // Add cluster child count to the icon element.
-          labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
-          labelElement.classList.add ('section_106_map_cluster_marker_label');
-          labelElement.textContent = label;
-          svgElement.appendChild (labelElement);
-
-          // Serialize icon element as a string.
-          svgElementString = new XMLSerializer ().serializeToString (svgElement);
-        },
-        error: function () {
-          console.log ('[section_106_map] Error: an error occured while trying to load a cluster icon.'); 
-        }
-    });
-    return svgElementString;
-  }
-
-  /*
-    Accepts no arguments and returns a Leaflet
-    Icon object that represents the State
-    marker icon.
-
-    See: https://www.mapbox.com/mapbox.js/api/v2.4.0/l-icon/
-  */
-  function createStateIcon (state) {
-    return new L.DivIcon ({
-      'html': createStateIconSVG (state)
-    });
-  }
-
-  /*
-    Accepts one argument: state, a State object;
-    and returns an SVG Element string that
-    represents a marker element for state.
-  */
-  function createStateIconSVG (state) {
-    var svgElementString = '<div></div>';
-    if (state.cases.length > 0) {
-      $.ajax (
-        state.cases.length > 1 ?
-          'modules/custom/section_106_map/images/multiple-cases-state-marker-icon.svg':
-          'modules/custom/section_106_map/images/single-case-state-marker-icon.svg',
-        {
-          async: false,
-          success: function (svgDocument) {
-            // Get the SVG element.
-            var svgElement = svgDocument.documentElement;
-
-            // Add a class attribute to the icon element.
-            svgElement.setAttribute ('data-section-106-map-state-marker-state', state.abbreviation);
-            svgElement.classList.add ('section_106_map_state_marker');
-            svgElement.classList.add (state.cases.length > 1 ?
-              'section_106_map_multiple_cases_state_marker':
-              'section_106_map_single_case_state_marker'
-            );
-
-            if (state.cases.length > 1) {
-              // Add cluster child count to the icon element.
-              labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
-              labelElement.classList.add ('section_106_map_state_marker_label');
-              labelElement.textContent = state.cases.length.toString ();
-              svgElement.appendChild (labelElement);
-            }
-
-            // Serialize icon element as a string.
-            svgElementString = new XMLSerializer ().serializeToString (svgElement);
-          },
-          error: function () {
-            console.log ('[section_106_map] Error: an error occured while trying to load a state icon.');
-          }
-      });
-    }
-    return svgElementString;
-  }
-
-  // V. State Functions
-
-  /*
-    Accepts one argument: cases, an array of
-    Case objects; and returns an array of State
-    objects representing all of the states
-    referenced by the cases in cases with the
-    cases partitioned between them.
-  */
-  function createStates (cases) {
-    return cases.reduce (
-      function (states, _case) {
-        var state = findStateByName (states, _case.state);
-        if (!state) {
-          state = createState (_case.state);
-          if (!state) {
-            return states;
-          }
-          states.push (state);
-        }
-        state.cases.push (_case);
-        return states;
-    }, []);
-  }
-
-  /*
-    Accepts two arguments:
-
-    * states, an array of State objects
-    * and name, a string denoting the name of
-      a state or territory
-
-    and returns the state in states that has
-    the given name.
-
-    If none of the states in states has the given
-    name, this function returns null.
-  */
-  function findStateByName (states, name) {
-    return _.find (states, function (state) {
-      return state.name === name;
-    });
-  }
-
-  /*
-    Accepts one argument: stateName, a string
-    that represents a state or territory name;
-    and returns a State object that represents
-    the given state.
-
-    Note: This function returns State objects
-    without any cases. You may need to add cases
-    to the objects returned by this function.
-  */
-  function createState (stateName) {
-    var abbreviation = getStateAbbreviation (stateName);
-    var coordinates  = abbreviation ? getStateCoordinates (abbreviation) : null;
-
-    return abbreviation && coordinates ? {
-      name:         stateName,
-      abbreviation: abbreviation,
-      coordinates:  coordinates,
-      cases:        []
-    } : null;
-  }
 
   /*
     Accepts one argument: query, a string that
@@ -1045,31 +75,1001 @@
     }));
   }
 
+  // II. Feature Instance.
+
+  // Feature Instance modes
+  MAP_MODE  = 0;
+  GRID_MODE = 1;
+
+  /*
+    Accepts one argument: containerElement,
+    a JQuery HTML Element; creates a Section
+    106 Map Feature Instance; creates an HTML
+    element that represents the instance;
+    attaches the element to containerElement;
+    and returns the instance as a FeatureInstance
+    object.
+  */
+  function FeatureInstance (containerElement) {
+    var self = this;
+
+    // Create the feature instance element.
+    var bodyElement = this.createBodyElement ();
+
+    containerElement.append (this.createInstanceElement (bodyElement));
+
+    // Create and attach the map and grid components.
+    this._map = new Map (bodyElement);
+    this._grid = new Grid (bodyElement);
+
+    // Initialize the components.
+    this._mode = MAP_MODE;
+    this._map.setMarkers (cases);
+    this._grid.setPage (cases, 0);
+  }
+
+  /*
+  */
+  FeatureInstance.prototype.createInstanceElement = function (bodyElement) {
+    var self = this;
+    var classPrefix = getModuleClassPrefix () + '_feature';
+    return $('<div></div>')
+      .addClass (classPrefix)
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_header')
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_header_header'))
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_header_body')
+          .append ($('<div></div>')
+            .addClass (classPrefix + '_header_body_tabs')
+            .append ($('<div></div>')
+              .addClass (classPrefix + '_header_body_tab')
+              .addClass (classPrefix + '_map_tab')
+              .text ('Map')
+              .click (function () { self.toMapMode (); }))
+            .append ($('<div></div>')
+              .addClass (classPrefix + '_header_body_tab')
+              .addClass (classPrefix + '_grid_tab')
+              .text ('Grid')
+              .click (function () { self.toGridMode (); })))))
+      .append (bodyElement);
+  }
+
+  /*
+  */
+  FeatureInstance.prototype.createBodyElement = function () {
+    return $('<div></div>')
+      .addClass (getModuleClassPrefix () + '_feature_body')
+      .append (this.createFilterElement ());
+  }
+
+  /*
+  */
+  FeatureInstance.prototype.createFilterElement = function () {
+    var self = this;
+    var classPrefix = getModuleClassPrefix () + '_filter';
+
+    var inputElement = $('<input></input>')
+      .attr ('type', 'text')
+      .attr ('placeholder', 'Filter Cases')
+      .addClass (classPrefix + '_form_input')
+      .on ('input', function () {
+          var query = inputElement.val ();
+
+          query === '' ? clearElement.hide () : clearElement.show ();
+
+          var filteredCases = filterCases (query.trim ());
+          self.getGrid ().setPage (filteredCases, 0);
+          self.getMap ().setMarkers (filteredCases);
+        });
+
+    var clearElement = $('<div></div>')
+      .addClass (classPrefix + '_form_clear')
+      .click (function () {
+          inputElement.val ('');
+          self.getGrid ().setPage (cases, 0);
+          self.getMap ().setMarkers (cases);
+          $(this).hide ();
+        })
+      .hide ();
+
+    return $('<div></div>')
+      .addClass (classPrefix)
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_form')
+          .append (inputElement)
+          .append (clearElement));
+  }
+
+  /*
+    Accepts no arguments and returns the cases
+    that should be displayed in this instance.
+  */
+  FeatureInstance.prototype.getCases = function () {
+    return this._cases.slice ();
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's map component as a Map object.
+  */
+  FeatureInstance.prototype.getMap = function () {
+    return this._map;
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's grid component as a Grid object.
+  */
+  FeatureInstance.prototype.getGrid = function () {
+    return this._grid;
+  }
+
+  /*
+    Accepts no arguments; hides the grid
+    component element; displays the map component
+    element; sets this instance's mode to Map
+    mode; and returns undefined.
+  */
+  FeatureInstance.prototype.toMapMode = function () {
+    this.getGrid ().hideComponentElement ();
+    this.getMap  ().showComponentElement ();
+    this._mode = MAP_MODE;
+  }
+
+  /*
+    Accepts no arguments; hides the map component
+    element; displays the grid component element;
+    sets this instance's mode to Grid Mode;
+    and returns undefined.
+  */
+  FeatureInstance.prototype.toGridMode = function () {
+    this.getMap  ().hideComponentElement ();
+    this.getGrid ().showComponentElement ();
+    this._mode = GRID_MODE;
+  }
+
+  // II. Map Component.
+  
+  /*
+    Accepts one argument: containerElement,
+    a JQuery HTML element that has already been
+    attached to the DOM; creates a Map Component
+    object; appends the component's elements to
+    containerElement; and returns the component.
+  */
+  function Map (containerElement) {
+    // Create the map container element.
+    var mapContainerElement = createMapContainerElement ();
+
+    // Create the component element.
+    this._componentElement = createMapComponentElement (mapContainerElement);
+
+    /*
+      Append the component element.
+
+      Note: Mapbox maps can not be loaded into a
+      map container elements until the container
+      element has been attached to the document
+      DOM.
+    */
+    containerElement.append (this._componentElement);
+
+    // Create and Embed the Mapbox Map object.
+    this._map = createMap (mapContainerElement.attr ('id'));
+
+    // Create the Mapbox Cluster Group object.
+    this._clusterGroup = createClusterGroup ();
+
+    // Add the marker cluster group to the map. 
+    this._map.addLayer (this._clusterGroup);
+  }
+
+  /*
+    Accepts one argument: mapContainerElement,
+    a JQuery HTML Element; and returns a JQuery
+    HTML Element that represents a map component
+    element.
+  */
+  function createMapComponentElement (mapContainerElement) {
+    return $('<div></div>')
+      .addClass (getModuleClassPrefix () + '_map')
+      .append (createPanelElement ())
+      .append (mapContainerElement);
+  }
+
+  /*
+    Accepts no arguments and returns a map panel
+    element as a JQuery HTML Element.
+  */
+  function createPanelElement () {
+    return $('<div></div>').addClass (getPanelElementClassName ()).hide ();
+  }
+
+  /*
+    Accepts no arguments and returns a map
+    container element as a jQuery HTML Element.
+
+    Note: this function adds a unique HTML
+    element ID to the container element.
+  */
+  function createMapContainerElement () {
+    return $('<div></div>')
+      .attr ('id', _.uniqueId (getModuleClassPrefix ()))
+      .addClass (getModuleClassPrefix () + '_map_container');
+  }
+
+  /*
+    Accepts no arguments and returns this
+    component's component element.
+  */
+  Map.prototype.getComponentElement = function () {
+    return this._componentElement;
+  }
+
+  /*
+    Accepts no arguments and returns this
+    component's Leaflet Map.
+  */
+  Map.prototype.getMap = function () {
+    return this._map;
+  }
+
+  /*
+    Accepts no arguments and returns this
+    component's Leaflet Cluster Group.
+  */
+  Map.prototype.getClusterGroup = function () {
+    return this._clusterGroup;
+  }
+
+  /*
+    Accepts one argument: id, an HTML ID string;
+    loads a Mapbox Map into the HTML element
+    referenced by id; and returns undefined.
+  */
+  function createMap (id) {
+    // Set the Mapbox access token.
+    L.mapbox.accessToken = drupalSettings.section_106_map.mapbox_access_token;
+
+    // Create and Embed the Mapbox Map object.
+    return L.mapbox.map (id, 'mapbox.streets', {
+      minZoom:   2,
+      maxZoom:   7
+    });
+  }
+
+  /*
+    Accepts no arguments and returns a Mapbox
+    Marker Cluster Group.
+  */
+  function createClusterGroup () {
+    return new L.MarkerClusterGroup ({
+      showCoverageOnHover: false,
+      iconCreateFunction: createClusterIcon
+    });
+  }
+
+  /*
+    Accepts one argument: cases, a Case object
+    array; removes the markers in this
+    component's cluster group; creates new
+    markers for those states and territories that
+    contain cases that match this component's
+    current feature instance's filter query;
+    adds those markers to this component's
+    cluster group; and returns undefined.
+  */
+  Map.prototype.setMarkers = function (cases) {
+    var clusterGroup = this.getClusterGroup ();
+
+    // Remove markers.
+    clusterGroup.clearLayers ();
+
+    // Add the newly filtered markers back in.
+    this.createMarkers (cases).forEach (clusterGroup.addLayer, clusterGroup);
+
+    // Zoom and center on the filtered markers.
+    var bounds = clusterGroup.getBounds ();
+    var margin = .2;
+    bounds._northEast.lat += margin;
+    bounds._northEast.lng += margin;
+    bounds._southWest.lat -= margin;
+    bounds._southWest.lng -= margin;
+    this.getMap ().fitBounds (bounds);
+  }
+
+  /*
+    Accepts one argument: cases, a Case object
+    array; creates State objects that represent
+    those states and territories that contain
+    the cases in cases; creates Leaflet Marker
+    objects that represent these states; and
+    returns these markers in a Leaflet Marker
+    object array.
+  */
+  Map.prototype.createMarkers = function (cases) {
+    return createStates (cases).map (this.createMarker, this);
+  }
+
   /*
     Accepts one argument: cases, an array of
-    Case objects that represent a set of section
-    106 consultations; and adds cases to the
-    Lunr index.
+    Case objects; and returns an array of State
+    objects representing those states and
+    territories referenced by the cases in
+    cases and partitions the cases between them.
+
+    Note: this function will only create State
+    objects for those states and territories
+    listed in STATE_ABBREVIATIONS.
   */
-  function indexCases (cases) {
-    cases.forEach (indexCase);
+  function createStates (cases) {
+    return _.chain (cases)
+      .groupBy (function (_case) { return _case.state; })
+      .map     (function (stateCases, stateName) { return createState (stateName, stateCases); })
+      .compact ()
+      .value   ();
+  }
+
+  /*
+    Accepts one argument: state, a State object;
+    and returns a State Leaflet Marker object
+    that represents state.
+
+    See: https://www.mapbox.com/mapbox.js/api/v2.2.4/l-marker/
+  */
+  Map.prototype.createMarker = function (state) {
+    var self = this;
+    var marker = new L.marker (
+      [state.coordinates.latitude, state.coordinates.longitude],
+      {
+        icon:     createMarkerIcon (state),
+        title:    state.name,
+        state:    state
+      }
+    ).on ('click', function () {
+      // select the state marker.
+      self.deselectMarkerElements ();
+      self.selectMarkerElement (state.abbreviation);
+
+      // show state panel.
+      self.showStatePanelElement (state);
+    });
+    return marker;
+  }
+
+  /*
+    Accepts two arguments:
+
+    * stateName, a string that represents a
+      state or territory name
+    * and cases, a Case object array 
+
+    and returns a State object that represents
+    the given state.
+
+    Note: This function will only create State
+    objects for those states and territories
+    listed in STATE_ABBREVIATIONS. If stateName
+    is not listed in this array, this function
+    will return null.
+  */
+  function createState (stateName, cases) {
+    var abbreviation = getStateAbbreviation (stateName);
+    var coordinates  = abbreviation ? getStateCoordinates (abbreviation) : null;
+
+    return abbreviation && coordinates ? {
+      name:         stateName,
+      abbreviation: abbreviation,
+      coordinates:  coordinates,
+      cases:        cases
+    } : null;
+  }
+
+  /*
+    Accepts no arguments and returns a Mapbox
+    Icon object that represents the State
+    marker icon.
+
+    See: https://www.mapbox.com/mapbox.js/api/v2.4.0/l-icon/
+  */
+  function createMarkerIcon (state) {
+    return new L.DivIcon ({
+      'html': createMarkerIconSVG (state)
+    });
+  }
+
+  /*
+    Accepts one argument: cluster, a State
+    Marker Cluster object; and returns a Leaflet
+    Icon object that represents the cluster.
+  */
+  function createClusterIcon (cluster) {
+    return new L.DivIcon ({
+      'html': createClusterIconSVG (getClusterNumCases (cluster).toString ())
+    });
+  }
+
+  /*
+    Accepts one argument: cluster, a State
+    Marker Cluster object; and returns the
+    number of cases represented by the markers
+    nested within cluster as an integer.
+  */
+  function getClusterNumCases (cluster) {
+    return getClusterMarkers (cluster).reduce (
+      function (numCases, marker) {
+        return numCases + marker.options.state.cases.length;
+    }, 0);
+  }
+
+  /*
+    Accepts one argument: cluster, a Mapbox
+    Marker Cluster object; and returns the markers
+    nested within cluster as an array of Leaflet
+    Marker objects.
+  */
+  function getClusterMarkers (cluster) {
+    return cluster._childClusters.reduce (
+      function (markers, childCluster) {
+        Array.prototype.push.apply (markers, getClusterMarkers (childCluster));
+        return markers;
+    }, cluster._markers.slice ());
+  }
+
+  /*
+    Accepts one argument: state, a State object;
+    and returns an SVG Element string that
+    represents a marker element for state.
+  */
+  function createMarkerIconSVG (state) {
+    var svgElementString = '<div></div>';
+    if (state.cases.length > 0) {
+      $.ajax (
+        state.cases.length > 1 ?
+          'modules/custom/section_106_map/images/multiple-cases-marker-icon.svg':
+          'modules/custom/section_106_map/images/single-case-marker-icon.svg',
+        {
+          async: false,
+          success: function (svgDocument) {
+            var prefix = getModuleClassPrefix ();
+
+            // Get the SVG element.
+            var svgElement = svgDocument.documentElement;
+
+            // Add a class attribute to the icon element.
+            svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
+            svgElement.classList.add (getMarkerClassName ());
+            svgElement.classList.add (state.cases.length > 1 ?
+              prefix + '_multiple_cases_marker':
+              prefix + '_single_case_marker'
+            );
+
+            if (state.cases.length > 1) {
+              // Add cluster child count to the icon element.
+              labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+              labelElement.classList.add (prefix +  '_marker_label');
+              labelElement.textContent = state.cases.length.toString ();
+              svgElement.appendChild (labelElement);
+            }
+
+            // Serialize icon element as a string.
+            svgElementString = new XMLSerializer ().serializeToString (svgElement);
+          },
+          error: function () {
+            console.log ('[section_106_map] Error: an error occured while trying to load a state icon.');
+          }
+      });
+    }
+    return svgElementString;
+  }
+
+  /*
+    Accepts one argument: label, a string; and
+    returns an SVG element string that represents
+    a Cluster Icon labeled label.
+  */
+  function createClusterIconSVG (label) {
+    var svgElementString = '<div></div>';
+    $.ajax (
+      'modules/custom/section_106_map/images/marker-group-icon.svg',
+      {
+        async: false, 
+        success: function (svgDocument) {
+          var prefix = getModuleClassPrefix ();
+
+          // Get the SVG element.
+          var svgElement = svgDocument.documentElement;
+
+          // Add a class attribute to the icon element.
+          svgElement.classList.add (prefix + '_cluster_marker');
+
+          // Add cluster child count to the icon element.
+          labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+          labelElement.classList.add (prefix + '_cluster_marker_label');
+          labelElement.textContent = label;
+          svgElement.appendChild (labelElement);
+
+          // Serialize icon element as a string.
+          svgElementString = new XMLSerializer ().serializeToString (svgElement);
+        },
+        error: function () {
+          console.log ('[section_106_map] Error: an error occured while trying to load a cluster icon.'); 
+        }
+    });
+    return svgElementString;
+  }
+
+  /*
+    Accepts one argument: state, a State
+    object; and returns a JQuery HTML Element
+    that represents a state panel element
+    representing state.
+  */
+  Map.prototype.createStatePanelElement = function (state) {
+    var self = this;
+    var classPrefix = getModuleClassPrefix () + '_state_panel';
+    var dataPrefix  = getModuleDataPrefix () + '-state-panel';
+    return $('<div></div>')
+      .addClass (classPrefix)
+      .attr (dataPrefix + '-state-name', state.name)
+      .attr (dataPrefix + '-state-abbreviation', state.abbreviation)
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_header')
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_header_title')
+          .text ('Active Section 106 Cases'))
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_header_close_button'))
+          .click (_.bind (this.hidePanelElement, this)))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_body')
+        .append ($('<ol></ol>')
+          .addClass (classPrefix + '_state_cases_list')
+          .append (state.cases.map (createCaseElement))))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_footer'));
+  }
+
+  /*
+    Accepts no arguments; displays this
+    component's element; and returns undefined.
+  */
+  Map.prototype.showComponentElement = function () {
+    this.getComponentElement ().show ();
+  }
+
+  /*
+    Accepts no arguments; hides this component's
+    element; and returns undefined.
+  */
+  Map.prototype.hideComponentElement = function () {
+    this.getComponentElement ().hide ();
+  }
+
+  /*
+    Accepts one argument: state, a State object;
+    creates a state panel element that represents
+    state; adds that element to this component's
+    panel element; displays the panel element;
+    and returns undefined.
+  */
+  Map.prototype.showStatePanelElement = function (state) {
+    this.getPanelElement ().empty ().append (this.createStatePanelElement (state)).animate ({scrollTop: 0}, 200).show ();
+  }
+
+  /*
+    Accepts no arguments and hides this
+    component's panel element.
+  */
+  Map.prototype.hidePanelElement = function () {
+    this.getPanelElement ().hide ();
+  }
+
+  /*
+    Accepts one argument: stateAbbreviation,
+    a string that represents a state
+    abbreviation; and selects the marker
+    associated with the state referenced by
+    stateAbbreviation.
+  */
+  Map.prototype.selectMarkerElement = function (stateAbbreviation) {
+    this.getMarkerElement (stateAbbreviation).get (0).classList.add (getSelectedMarkerClassName ());
+  }
+
+  /*
+    Accepts no arguments and deselects all of
+    the markers.
+  */
+  Map.prototype.deselectMarkerElements = function () {
+    this.getMarkerElements ().each (
+      function (i, markerElement) {
+        markerElement.classList.remove (getSelectedMarkerClassName ());
+    });
+  }
+
+  /*
+    Accepts no arguments and returns this
+    component's panel element as a JQuery HTML
+    Element.
+  */
+  Map.prototype.getPanelElement = function () {
+    return $('.' + getPanelElementClassName (), this.getComponentElement ());
+  }
+
+  /*
+    Accepts argument: stateAbbreviation, a string
+    that represents a state abbreviation; and
+    returns a jQuery HTML Element that represents
+    the marker for the state referenced by
+    stateAbbreviation.
+  */
+  Map.prototype.getMarkerElement = function (stateAbbreviation) {
+    return $('.' + getMarkerClassName () + '[' + getMarkerStateAttribName () + '="' + stateAbbreviation + '"]', this.getComponentElement ());
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element Set containing all of this
+    component's marker elements.
+  */
+  Map.prototype.getMarkerElements = function () {
+    return $('.' + getMarkerClassName (), this.getComponentElement ());
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the class name used to label
+    panel elements.
+  */
+  function getPanelElementClassName () {
+    return getModuleClassPrefix () + '_map_panel';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the class name used to label
+    selected markers.
+  */
+  function getSelectedMarkerClassName () {
+    return getModuleClassPrefix () + '_selected';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the class name used to label
+    markers.
+  */
+  function getMarkerClassName () {
+    return getModuleClassPrefix () + '_marker';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the name of the marker state
+    data attribute.
+  */
+  function getMarkerStateAttribName () {
+    return getModuleDataPrefix () + '-marker-state';
+  }
+
+  // III. Grid Component.
+
+  /*
+    Accepts one argument: containerElement, a
+    JQuery HTML Element; creates a Grid object;
+    creates an HTML element that represents
+    the grid object; appends the element to
+    containerElement; and returns the grid
+    object.
+  */
+  function Grid (containerElement) {
+    this._currentPage = 0;
+    this._componentElement = this.createComponentElement ();
+    containerElement.append (this._componentElement);
+  }
+
+  /*
+    Accepts no arguments and returns this
+    component's component element as a JQuery
+    HTML Element.
+  */
+  Grid.prototype.getComponentElement = function () {
+    return this._componentElement;
+  }
+
+  /*
+    Accepts no arguments and returns a grid
+    element listing the Section 106 cases
+    associated with each state.
+  */
+  Grid.prototype.createComponentElement = function () {
+    var classPrefix = getComponentClassName ();
+    return $('<div></div>')
+      .addClass (classPrefix)
+      .append (this.createOverlayElement ())
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_header'))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_body'))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_footer'))
+      .hide ();
+  }
+
+  /*
+    Accepts no arguments and returns an overlay
+    element that is used to present detailed
+    information about cases in Grid mode as a
+    JQuery HTML Element.
+  */
+  Grid.prototype.createOverlayElement = function () {
+    var self = this;
+    var classPrefix = getOverlayClassName ();
+    return $('<div></div>')
+      .addClass (classPrefix)
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_header')
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_close_button')
+          .click (function () {
+              self.hideOverlayElement ();
+            })))
+      .append ($('<div></div>')
+        .addClass (getOverlayBodyClassName ()))
+      .hide ();
+  }
+
+  /*
+    Accepts two arguments:
+
+    * cases, an array of Case objects
+    * and page, an integer that represents a
+      page number
+
+    displays cases; sets the current page to
+    page; and returns undefined.
+  */
+  Grid.prototype.setPage = function (cases, page) {
+    this._currentPage = page;
+
+    var componentElement = this.getComponentElement ();
+
+    var numCasesPerPage = 2;
+    var numPages = cases.length / numCasesPerPage;
+
+    var startCaseIndex = numCasesPerPage * this._currentPage;
+    var endCaseIndex = Math.min (startCaseIndex + numCasesPerPage, cases.length);
+
+    var maxNumLinks = 5;
+    var classPrefix = getModuleClassPrefix () + '_grid';
+    $('.' + classPrefix + '_body', componentElement)
+      .empty ()
+      .append (this.createCaseCards (cases.slice (startCaseIndex, endCaseIndex)));
+
+    var self = this;
+    $('.' + classPrefix + '_footer', componentElement)
+      .empty ()
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_nav')
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_nav_links')
+          .append (this.createNavLinkElement (cases, this._currentPage > 0 ? this._currentPage - 1 : 0, '')
+            .addClass (classPrefix + '_nav_prev'))
+          .append (_.range (0, Math.min (numPages, maxNumLinks)).map (function (i) {
+              return self.createNavLinkElement (cases, i, i + 1)
+            }))
+          .append (numPages > maxNumLinks ? this.createNavLinkElement (cases, numPages - 1, '') : null)
+          .append (this.createNavLinkElement (cases, this._currentPage < numPages - 1 ? this._currentPage + 1: numPages - 1, '')
+            .addClass (classPrefix + '_nav_next')))
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_nav_stats')
+          .text ((startCaseIndex + 1) + '-' + endCaseIndex + ' of ' + cases.length + ' Section 106 Cases')));
+  }
+
+  /*
+    Accepts two arguments:
+
+      * i, an integer that denotes a page number
+      * and label, a string
+
+    and returns a nav link element as a JQuery
+    HTML Element.
+  */
+  Grid.prototype.createNavLinkElement = function (cases, i, label) {
+    var self = this;
+    return $('<div></div>')
+      .addClass (getModuleClassPrefix () + '_nav_link')
+      .text (label)
+      .click (function () {
+          self.setPage (cases, i);
+        });
+  }
+
+  /*
+    Accepts on argument: cases, an array of Case
+    objects; and returns a set of case cards
+    that represent cases as an array of JQuery
+    HTML Elements.
+  */
+  Grid.prototype.createCaseCards = function (cases) {
+    return cases.map (this.createCaseCard, this);
   }
 
   /*
     Accepts one argument: case, a Case object
-    that represents a section 106 consultation;
-    and adds case to the Lunr index.
-  */ 
-  function indexCase (_case) {
-    lunrIndex.add ({
-      id:       _case.id,
-      title:    _case.title,
-      body:     _case.body,
-      agency:   _case.agency.title,
-      poc_name: _case.poc.name,
-      state:    _case.state,
-      status:   _case.status
-    });
+    that represents a section 106 consultation
+    case; and returns a JQuery HTML Element that
+    represents case as a case card element.
+  */
+  Grid.prototype.createCaseCard = function (_case) {
+    var self = this;
+    var classPrefix = getModuleClassPrefix () + '_case_card';
+    return $('<div></div>')
+      .addClass (classPrefix)
+      .attr (getModuleDataPrefix () + '-map-case', _case.id)
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_title')
+        .text (_case.title))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_state')
+        .text (_case.state))
+      .click (function () {
+          self.showCaseOverlayElement (_case);
+        });
+  }
+
+  /*
+    Accepts one argument: case, a Case object;
+    and displays the case details element in
+    this instance's overlay element.
+  */
+  Grid.prototype.showCaseOverlayElement = function (_case) {
+    var overlayElement = this.getOverlayElement ();
+    $('.' + getOverlayBodyClassName (), overlayElement)
+      .empty ()
+      .append (createCaseElement (_case));
+    overlayElement.show ();
+  }
+
+  /*
+    Accepts no arguments and displays this
+    instance's grid element.
+  */
+  Grid.prototype.showComponentElement = function () {
+    this.getComponentElement ().show ();
+  }
+
+  /*
+    Accepts no arguments and hides this
+    instance's overlay element.
+  */
+  Grid.prototype.hideOverlayElement = function () {
+    this.getOverlayElement ().hide ();
+  }
+
+  /*
+    Accepts no arguments and hides this instance
+    element's grid element.
+  */
+  Grid.prototype.hideComponentElement = function () {
+    this.getComponentElement ().hide ();
+  }
+
+  /*
+    Accepts no arguments and returns this
+    component's overlay element.
+  */
+  Grid.prototype.getOverlayElement = function () {
+    return $('.' + getOverlayClassName (), this.getComponentElement ());
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the class name used to label
+    overlay body elements.
+  */
+  function getOverlayBodyClassName () {
+    return getOverlayClassName () + '_body';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the class name used to label
+    overlay elements.
+  */
+  function getOverlayClassName () {
+    return getComponentClassName () + '_overlay';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the class name used to label
+    grid elements.
+  */
+  function getComponentClassName () {
+    return getModuleClassPrefix () + '_grid';
+  }
+
+  // IV. Auxiliary functions.
+
+  /*
+    Accepts one argument: _case, a Case object;
+    and returns a case details element that
+    represents _case as a jQuery HTML Element.
+  */
+  function createCaseElement (_case) {
+    var classPrefix = getModuleClassPrefix () + '_case';
+    var dataPrefix  = getModuleDataPrefix () + '-case';
+    return $('<div></div>')
+      .addClass (classPrefix)
+      .attr (dataPrefix + '-id', _case.id)
+      .append ($('<li></li>')
+        .addClass (classPrefix + '_item')
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_header')
+          .append ($('<div></div>')
+            .addClass (classPrefix + '_title')
+            .append ($('<a></a>')
+              .attr ('href', _case.url)
+              .text (_case.title))))
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_body')
+          .append ($('<div></div>')
+            .addClass (classPrefix + '_description')
+            .html (_case.body))
+          .append ($('<div></div>')
+            .addClass (classPrefix + '_body_agency')
+            .append ($('<div></div>')
+              .addClass (classPrefix + '_body_agency_header')
+              .append ($('<div></div>')
+                .addClass (classPrefix + '_body_agency_header_title')
+                .text ('Agency Involved:'))
+              .append ($('<div></div>')
+                .addClass (classPrefix + '_agency')
+                .text (_case.agency.title))))
+          .append ($('<div></div>')
+            .addClass (classPrefix + '_body_contact')
+            .append ($('<div></div>')
+              .addClass (classPrefix + '_body_contact_header')
+              .append ($('<div></div>')
+                .addClass (classPrefix + '_body_contact_header_title')
+                .text ('Federal Point of Contact:')))
+            .append ($('<div></div>')
+              .addClass (classPrefix + '_contact_name_title')
+              .append ($('<span></span>')
+                .addClass (classPrefix + '_contact_name')
+                .text (_case.poc.name))
+              .append ($('<span></span>')
+                .addClass (classPrefix + '_contact_title')
+                .text (_case.poc.title)))
+            .append ($('<div></div>')
+              .addClass (classPrefix + '_contact_email')
+              .text (_case.poc.email))
+            .append ($('<div></div>')
+              .addClass (classPrefix + '_contact_phone')
+              .text (_case.poc.phone)))
+          ));
+  }
+
+  /*
+    Accepts no arguments and returns the standard
+    class prefix that should be used by all HTML
+    classes created by this module as a string.
+  */
+  function getModuleClassPrefix () {
+    return 'section_106_map';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the standard data attribute
+    prefix that should be used by all HTML data
+    attributes created by this module.
+  */
+  function getModuleDataPrefix () {
+    return 'data-section-106-map';
   }
 
   /*

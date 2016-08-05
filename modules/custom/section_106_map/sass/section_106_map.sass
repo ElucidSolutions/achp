@@ -22,41 +22,41 @@ $section_106_map_search_left: 40px
 
   $feature_header_height: 75px
   $feature_header_width:  100%
-  .section_106_map_header
+  .section_106_map_feature_header
     height: $feature_header_height
     width:  $feature_header_width
 
     $feature_header_header_height: 0px
     $feature_header_header_width:  100%
-    .section_106_map_header_header
+    .section_106_map_feature_header_header
       height: $feature_header_header_height
       width:  $feature_header_header_width
 
     $feature_header_body_height: $feature_header_height - $feature_header_header_height
     $feature_header_body_width:  100%
-    .section_106_map_header_body
+    .section_106_map_feature_header_body
       height: $feature_header_body_height
       width:  $feature_header_body_width
 
       $feature_header_body_tabs_height: $feature_header_body_height
       $feature_header_body_tabs_width:  300px
-      .section_106_map_header_body_tabs
+      .section_106_map_feature_header_body_tabs
         border-top: solid white 1px
         height:     $feature_header_body_tabs_height
         width:      $feature_header_body_tabs_width
         margin:     0px auto
 
-        .section_106_map_header_body_tab
+        .section_106_map_feature_header_body_tab
           color:  white
           float:  left
           padding-top: $feature_header_body_tabs_height / 2
           width:  $feature_header_body_tabs_width / 2
 
-        .section_106_map_map_tab
+        .section_106_map_feature_map_tab
           background: url('../images/map-icon.svg') no-repeat 50% ($feature_header_body_tabs_height / 4)
           background-size: 15px
 
-        .section_106_map_grid_tab
+        .section_106_map_feature_grid_tab
           background: url('../images/grid-icon.svg') no-repeat 50% ($feature_header_body_tabs_height / 4)
           background-size: 15px
 
@@ -64,7 +64,7 @@ $section_106_map_search_left: 40px
   $blue_color: rgb(5,60,93)  
   $feature_body_height: $feature_height - $feature_header_height
   $feature_body_width:  100%
-  .section_106_map_body
+  .section_106_map_feature_body
     background: rgb(173,207,255)
     position:   relative
     height:     $feature_body_height
@@ -106,51 +106,159 @@ $section_106_map_search_left: 40px
             color: rgb(186,186,186)
             margin-left: 10px
 
-    .section_106_map_overlay
-      background: white
-      border-top: $red_color 5px solid
-      -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
-      -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
-      box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
-      height: 94%
-      left: 0px
-      margin: 1% 2%
-      overflow-x: hidden
-      overflow-y: auto
-      position: absolute
-      top: 0px
-      width: 96%
-      z-index: 15
+    .section_106_map_map
+      height: 100%
+      width: 100%
 
-      .section_106_map_overlay_close_button
-        background: url('../images/close-icon.svg') no-repeat 50% 50%
-        cursor:     pointer
-        float:      right
-        height:     25px
-        width:      25px
-        -moz-transition: all .25s ease
-        -webkit-transition: all .25s ease
-        -o-transition: all .25s ease
-        transition: all .25s ease
+      .section_106_map_map_container
+        height: 100%
+        width:  100%
 
-        &:hover
-          -moz-transform: rotate(180deg)
-          -webkit-transform: rotate(180deg)
-          -o-transform: rotate(180deg)
-          transform: rotate(180deg)
+        .leaflet-div-icon
+          background: none
+          border:     none
 
-      .section_106_map_case_item
-        list-style: none
-        max-width: 400px
-        margin: 0 auto
+        .section_106_map_marker
+          transform: translate(-50%, -100%)
 
-    .section_106_map_grid_footer
-      bottom:   10px
-      left:     $section_106_map_search_left
-      position: absolute
+          &.section_106_map_selected,
+          &:hover
+            #Front-Marker,
+            #Back-Marker 
+              fill: rgba(253, 164, 133, 1)
+
+        .section_106_map_multiple_cases_marker
+
+          .section_106_map_marker_label
+            fill:        #ffffff
+            font-size:   25px
+            font-family: 'Open Sans'
+            transform:   translate(25px, 25px)
+            text-anchor: middle
+
+        .section_106_map_cluster_marker
+          transform: translate(-50%, -50%)
+
+          &:hover
+            #Oval-35
+              fill: rgba(253, 164, 133, 1)
+
+          .section_106_map_cluster_marker_label
+            fill:        #ffffff
+            font-size:   25px
+            font-family: 'Open Sans'
+            transform:   translate(30px, 25px)
+            text-anchor: middle
+
+      $panel_height:  $feature_body_height
+      $panel_padding: 10px
+      $panel_width:   343px
+      .section_106_map_map_panel
+        background: white
+        border-top: $red_color 5px solid
+        -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+        -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+        box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+        font-size:  16px
+        height:     $panel_height
+        max-width:  $panel_width
+        overflow-y: scroll
+        position:   absolute
+        right:      0px // Fix to right-most edge
+        z-index:    10 // Position above the map layer
+
+        .section_106_map_state_panel
+
+          $state_panel_header_height: 50px
+          $state_panel_header_width:  $panel_width - 20px
+          .section_106_map_state_panel_header
+            height:  $state_panel_header_height
+            padding: $panel_padding
+            width:   $state_panel_header_width
+
+            $state_panel_header_close_button_width: 25px
+            .section_106_map_state_panel_header_close_button
+              background: url('../images/close-icon.svg') no-repeat 50% 50%
+              cursor:     pointer
+              float:      left
+              height:     100%
+              width:      $state_panel_header_close_button_width
+              -moz-transition: all .25s ease
+              -webkit-transition: all .25s ease
+              -o-transition: all .25s ease
+              transition: all .25s ease
+
+              &:hover
+                -moz-transform: rotate(180deg)
+                -webkit-transform: rotate(180deg)
+                -o-transform: rotate(180deg)
+                transform: rotate(180deg)
+
+            $state_panel_header_title_width: $state_panel_header_width - 2 * $panel_padding - $state_panel_header_close_button_width
+            .section_106_map_state_panel_header_title
+              color:  $blue_color
+              float:  left
+              height: 100%
+              width:  $state_panel_header_title_width
+
+          .section_106_map_state_panel_body
+            border-top: $red_color 1px solid
+
+            .section_106_map_state_panel_state_cases_list
+              color:           $red_color
+              list-style-type: decimal-leading-zero
+              margin:          0px
+              padding:         0px
+
+    .section_106_map_grid
+      height: 100%
+      width:  100%
+
+      .section_106_map_grid_footer
+        bottom:   10px
+        left:     $section_106_map_search_left
+        position: absolute
+
+      .section_106_map_grid_overlay
+        background: white
+        border-top: $red_color 5px solid
+        -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+        -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+        box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+        height: 94%
+        left: 0px
+        margin: 1% 2%
+        overflow-x: hidden
+        overflow-y: auto
+        position: absolute
+        top: 0px
+        width: 96%
+        z-index: 15
+
+        .section_106_map_grid_overlay_close_button
+          background: url('../images/close-icon.svg') no-repeat 50% 50%
+          cursor:     pointer
+          float:      right
+          height:     25px
+          width:      25px
+          -moz-transition: all .25s ease
+          -webkit-transition: all .25s ease
+          -o-transition: all .25s ease
+          transition: all .25s ease
+
+          &:hover
+            -moz-transform: rotate(180deg)
+            -webkit-transform: rotate(180deg)
+            -o-transform: rotate(180deg)
+            transform: rotate(180deg)
+
+        .section_106_map_case_item
+          list-style: none
+          max-width: 400px
+          margin: 0 auto
 
     $section_106_map_search_height: 35px
-    .section_106_map_search
+    .section_106_map_filter
       background-color: white
       -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4)
       -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4)
@@ -164,11 +272,11 @@ $section_106_map_search_left: 40px
       width:            30%
       z-index:          10
 
-      .section_106_map_search_form
+      .section_106_map_filter_form
         display: table-row
         height:  100%
 
-        .section_106_map_search_input
+        .section_106_map_filter_form_input
           background: url('../images/filter-icon.png') no-repeat 10px 50%
           border: none
           display: table-cell
@@ -180,113 +288,9 @@ $section_106_map_search_left: 40px
           &:focus
             outline: none
 
-        .section_106_map_search_clear
+        .section_106_map_filter_form_clear
           background: url('../images/close-icon.svg') no-repeat 50% 50%
           cursor:     pointer
           display: table-cell
           height: 100%
           width: $section_106_map_search_height
-
-    .section_106_map_map_container
-      height: 100%
-      width:  100%
-
-      .leaflet-div-icon
-        background: none
-        border:     none
-
-      .section_106_map_state_marker
-        transform: translate(-50%, -100%)
-
-        &.section_106_map_selected,
-        &:hover
-          #Front-Marker,
-          #Back-Marker 
-            fill: rgba(253, 164, 133, 1)
-
-      .section_106_map_multiple_cases_state_marker
-
-        .section_106_map_state_marker_label
-          fill:        #ffffff
-          font-size:   25px
-          font-family: 'Open Sans'
-          transform:   translate(25px, 25px)
-          text-anchor: middle
-
-      .section_106_map_cluster_marker
-        transform: translate(-50%, -50%)
-
-        &:hover
-          #Oval-35
-            fill: rgba(253, 164, 133, 1)
-
-        .section_106_map_cluster_marker_label
-          fill:        #ffffff
-          font-size:   25px
-          font-family: 'Open Sans'
-          transform:   translate(30px, 25px)
-          text-anchor: middle
-
-    .section_106_map_grid
-      height: 100%
-      width:  100%
-
-    $panel_height:  $feature_body_height
-    $panel_padding: 10px
-    $panel_width:   343px
-    .section_106_map_panel
-      background: white
-      border-top: $red_color 5px solid
-      -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
-      -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
-      box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
-      font-size:  16px
-      height:     $panel_height
-      max-width:  $panel_width
-      overflow-y: scroll
-      position:   absolute
-      right:      0px // Fix to right-most edge
-      z-index:    10 // Position above the map layer
-
-      .section_106_map_state_panel
-
-        $state_panel_header_height: 50px
-        $state_panel_header_width:  $panel_width - 20px
-        .section_106_map_state_panel_header
-          height:  $state_panel_header_height
-          padding: $panel_padding
-          width:   $state_panel_header_width
-
-          $state_panel_header_close_button_width: 25px
-          .section_106_map_state_panel_header_close_button
-            background: url('../images/close-icon.svg') no-repeat 50% 50%
-            cursor:     pointer
-            float:      left
-            height:     100%
-            width:      $state_panel_header_close_button_width
-            -moz-transition: all .25s ease
-            -webkit-transition: all .25s ease
-            -o-transition: all .25s ease
-            transition: all .25s ease
-
-            &:hover
-              -moz-transform: rotate(180deg)
-              -webkit-transform: rotate(180deg)
-              -o-transform: rotate(180deg)
-              transform: rotate(180deg)
-
-          $state_panel_header_title_width: $state_panel_header_width - 2 * $panel_padding - $state_panel_header_close_button_width
-          .section_106_map_state_panel_header_title
-            color:  $blue_color
-            float:  left
-            height: 100%
-            width:  $state_panel_header_title_width
-
-        .section_106_map_state_panel_body
-          border-top: $red_color 1px solid
-
-          .section_106_map_state_panel_state_cases_list
-            color:           $red_color
-            list-style-type: decimal-leading-zero
-            margin:          0px
-            padding:         0px
