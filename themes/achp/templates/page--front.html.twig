@@ -62,12 +62,6 @@
 <div id="page-wrapper">
   <div id="page">
     <header id="header">
-<!--       <div id="header-logo">
-        <img src="{{ logo }}" alt="ACHP's Logo"/>
-      </div>
-      <div id="header-title">
-        <h1>{{ site_name }}</h1>
-      </div> -->
       <div id="header-container">
         <div class="header_left_container">
           {{ page.header_left }}
@@ -76,8 +70,8 @@
           {{ page.header_right}}
           <div id="header_widescreen_search_bar">
             {{ page.header_search }} 
-            <!-- <input value="" data-drupal-selector="edit-submit" type="submit" id="edit-submit" class="button js-form-submit form-submit search-button"> -->
           </div>
+        </div>
       </div>
     </header>
 
@@ -85,13 +79,12 @@
       <div id="header_region">
         <div id="header_menu" class="region_container">
           {{ page.menu }}
-        </div>
+        </div> 
         <div id="header_dropdown_submenu"></div>
         <div id="subheader">
           <div id="subheader_widescreen">
             <div id="subheader_widescreen_submenu_region">
-              <div id="subheader_widescreen_submenu">
-              </div>
+              <div id="subheader_widescreen_submenu"></div>
             </div>
           </div>
           <div id="subheader_mobile">
@@ -99,10 +92,8 @@
               <h3 id="subheader_mobile_title">MENU</h3>
             </div>
             <div id="subheader_mobile_collapsible">
-              <div id="subheader_mobile_search">
-              </div>
-              <div id="subheader_mobile_body">
-              </div>
+              <div id="subheader_mobile_search"></div>
+              <div id="subheader_mobile_body"></div>
               <div id="subheader_mobile_footer">
                 <div id="subheader_mobile_close_button">CLOSE</div>
               </div>
@@ -142,8 +133,8 @@
         {{ page.homepage_preserveamerica }}
       </div>
     </div>
-  <footer id="footer">
-    {{ page.footer }}
-  </footer>
+    <footer id="footer">
+      {{ page.footer }}
+    </footer>
   </div>
 </div>

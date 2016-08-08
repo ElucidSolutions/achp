@@ -630,23 +630,18 @@ header {
   header #header_branding_logo img {
     height: 100px; }
   header #header_branding_title {
-    color: #fff;
-    text-shadow: 0;
-    font-weight: 100;
     font-size: 2rem;
     display: inline-block;
-    text-shadow: none;
-    /*@include span-columns(8 of 12);*/
     max-width: 400px;
     text-align: left;
     padding: 10px;
     padding-left: 40px;
-    line-height: 1.25;
-    /*    @media (max-width: 500px) {
-          font-size: 1.25rem;
-          width: $header-title-small-width;
-          padding: 20px 0 20px 20px;
-        }*/ }
+    line-height: 1.25; }
+    header #header_branding_title a {
+      color: #fff;
+      font-weight: 100;
+      text-shadow: none;
+      text-decoration: none; }
   header #block-headercontactlinks {
     color: white;
     font-weight: 300;
@@ -1054,6 +1049,9 @@ header {
 .main_wrapper {
   /*@extend .card;*/ }
 
+/*#menu {
+  display: none;
+}*/
 #content_region {
   padding: 50px 48px;
   max-width: 1024px;

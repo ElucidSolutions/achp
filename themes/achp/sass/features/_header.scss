@@ -43,24 +43,20 @@ header {
   }
 
   #header_branding_title {
-    color: #fff;
-    text-shadow: 0;
-    font-weight: 100;
     font-size: 2rem;
     display: inline-block;
-    text-shadow: none;
-    /*@include span-columns(8 of 12);*/
     max-width: 400px;
     text-align: left;
     padding: 10px;
     padding-left: 40px;
     line-height: 1.25;
 
-/*    @media (max-width: 500px) {
-      font-size: 1.25rem;
-      width: $header-title-small-width;
-      padding: 20px 0 20px 20px;
-    }*/
+    a {
+      color: #fff;
+      font-weight: 100;
+      text-shadow: none;
+      text-decoration: none;
+    }
   }
 
   #block-headercontactlinks {
