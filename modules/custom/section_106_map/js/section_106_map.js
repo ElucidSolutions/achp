@@ -1,6 +1,10 @@
 /**
   @file
-  Generates the Mapbox-based Section 106 Case map. 
+  Defines the Section 106 Case Map Feature
+  behavior. Section 106 Case Maps are Drupal
+  blocks that display ongoing Section 106
+  consultations that the Advisory Council on
+  Historic Preservation (ACHP) is involved in.
 */
 (function ($) {
 
@@ -9,6 +13,9 @@
 
   // The Section 106 consultation cases.
   var cases = [];
+
+  // The set of feature instances
+  var instances = [];
 
   $(document).ready (function () {
     // Initialize the Lunr search index.
@@ -44,9 +51,16 @@
 
     // Create and attach the feature instances.
     $('.section_106_map').each (function (i, containerElement) {
-      var instance = new FeatureInstance ($(containerElement));
+      instances.push (new FeatureInstance ($(containerElement)));
     });
   });
+
+  $(window).resize (function () {
+    // resize each instance's map element.
+    instances.forEach (function (instance) {
+      instance.getMap ().getMap ().invalidateSize ();
+    });
+  })
 
   /*
     Accepts one argument: query, a string that
@@ -91,28 +105,31 @@
     object.
   */
   function FeatureInstance (containerElement) {
-    var self = this;
-
     // Create the feature instance element.
     var bodyElement = this.createBodyElement ();
+    this._instanceElement = this.createInstanceElement (bodyElement);
+    containerElement.append (this._instanceElement);
 
-    containerElement.append (this.createInstanceElement (bodyElement));
+    // Set mode and cases.
+    this._mode  = MAP_MODE;
+    this._cases = cases;
 
     // Create and attach the map and grid components.
     this._map = new Map (bodyElement);
     this._grid = new Grid (bodyElement);
 
     // Initialize the components.
-    this._mode = MAP_MODE;
-    this._map.setMarkers (cases);
-    this._grid.setPage (cases, 0);
+    this.toMapMode ();
   }
 
   /*
+    Accepts one argument: bodyElement, a JQuery
+    HTML Element that represents a feature
+    instance body element; and returns an
+    instance element as a JQuery HTML Element.
   */
   FeatureInstance.prototype.createInstanceElement = function (bodyElement) {
-    var self = this;
-    var classPrefix = getModuleClassPrefix () + '_feature';
+    var classPrefix = getFeatureClassName ();
     return $('<div></div>')
       .addClass (classPrefix)
       .append ($('<div></div>')
@@ -124,27 +141,33 @@
           .append ($('<div></div>')
             .addClass (classPrefix + '_header_body_tabs')
             .append ($('<div></div>')
-              .addClass (classPrefix + '_header_body_tab')
-              .addClass (classPrefix + '_map_tab')
+              .addClass (getTabClassName ())
+              .addClass (getMapTabClassName ())
               .text ('Map')
-              .click (function () { self.toMapMode (); }))
+              .click (_.bind (this.toMapMode, this)))
             .append ($('<div></div>')
-              .addClass (classPrefix + '_header_body_tab')
-              .addClass (classPrefix + '_grid_tab')
+              .addClass (getTabClassName ())
+              .addClass (getGridTabClassName ())
               .text ('Grid')
-              .click (function () { self.toGridMode (); })))))
+              .click (_.bind (this.toGridMode, this))))))
       .append (bodyElement);
   }
 
   /*
+    Accepts no arguments and returns a JQuery
+    HTML Element that represents a feature
+    instance body element.
   */
   FeatureInstance.prototype.createBodyElement = function () {
     return $('<div></div>')
-      .addClass (getModuleClassPrefix () + '_feature_body')
+      .addClass (getFeatureClassName () + '_body')
       .append (this.createFilterElement ());
   }
 
   /*
+    Accepts no arguments and returns a JQuery
+    HTML Element that represents a feature
+    instance filter element.
   */
   FeatureInstance.prototype.createFilterElement = function () {
     var self = this;
@@ -157,19 +180,43 @@
       .on ('input', function () {
           var query = inputElement.val ();
 
+          // toggle the clear element.
           query === '' ? clearElement.hide () : clearElement.show ();
 
-          var filteredCases = filterCases (query.trim ());
-          self.getGrid ().setPage (filteredCases, 0);
-          self.getMap ().setMarkers (filteredCases);
+          // filter cases.
+          self._cases = filterCases (query.trim ());
+
+          // update the active component
+          switch (self.getMode ()) {
+            case MAP_MODE:
+              self.getMap ().setMarkers (self.getCases ());
+              break;
+            case GRID_MODE:
+              self.getGrid ().setPage (self.getCases (), 0);
+              break;
+          }
         });
 
     var clearElement = $('<div></div>')
       .addClass (classPrefix + '_form_clear')
       .click (function () {
+          // clear the current input.
           inputElement.val ('');
-          self.getGrid ().setPage (cases, 0);
-          self.getMap ().setMarkers (cases);
+
+          // reset the cases.
+          self._cases = cases;
+
+          // update the active component.
+          switch (self.getMode ()) {
+            case MAP_MODE:
+              self.getMap ().setMarkers (self.getCases ());
+              break;
+            case GRID_MODE:
+              self.getGrid ().setPage (self.getCases (), 0);
+              break;
+          }
+
+          // hide the clear element.
           $(this).hide ();
         })
       .hide ();
@@ -180,6 +227,22 @@
         .addClass (classPrefix + '_form')
           .append (inputElement)
           .append (clearElement));
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's instance element.
+  */
+  FeatureInstance.prototype.getInstanceElement = function () {
+    return this._instanceElement;
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's current mode.
+  */
+  FeatureInstance.prototype.getMode = function () {
+    return this._mode;
   }
 
   /*
@@ -209,25 +272,138 @@
   /*
     Accepts no arguments; hides the grid
     component element; displays the map component
-    element; sets this instance's mode to Map
-    mode; and returns undefined.
+    element; and returns undefined.
   */
   FeatureInstance.prototype.toMapMode = function () {
+    // get the map component.
+    var map = this.getMap ();
+
+    // set the markers on the map.
+    map.setMarkers (this.getCases ());
+
+    // diplay the map component.
+    this.selectMapTabElement ();
     this.getGrid ().hideComponentElement ();
-    this.getMap  ().showComponentElement ();
+    map.showComponentElement ();
+
+    // resize the map to fill its container.
+    map.getMap ().invalidateSize ();
+
+    // update the mode.
     this._mode = MAP_MODE;
   }
 
   /*
     Accepts no arguments; hides the map component
     element; displays the grid component element;
-    sets this instance's mode to Grid Mode;
     and returns undefined.
   */
   FeatureInstance.prototype.toGridMode = function () {
+    // get the grid component.
+    var grid = this.getGrid ();
+
+    // load the cases into the grid.
+    grid.setPage (this.getCases (), 0);
+
+    // display the grid component.
+    this.selectGridTabElement ();
     this.getMap  ().hideComponentElement ();
-    this.getGrid ().showComponentElement ();
+    grid.showComponentElement ();
+
+    // layout the card elements.
+    flexibility (grid.getComponentElement ().get (0));
+
+    // update the mode.
     this._mode = GRID_MODE;
+  }
+
+  /*
+    Accepts no arguments and selects the grid
+    tab element.
+  */
+  FeatureInstance.prototype.selectGridTabElement = function () {
+    this.deselectTabElements ();
+    this.getGridTabElement ().addClass (getSelectedClassName ());
+  }
+
+  /*
+    Accepts no arguments and selects the map
+    tab element.
+  */
+  FeatureInstance.prototype.selectMapTabElement = function () {
+    this.deselectTabElements ();
+    this.getMapTabElement ().addClass (getSelectedClassName ());
+  }
+
+  /*
+    Accepts no arguments and deselects the
+    tab elements.
+  */
+  FeatureInstance.prototype.deselectTabElements = function () {
+    this.getTabElements ().removeClass (getSelectedClassName ());
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's map tab element as a JQuery
+    HTML Element.
+  */
+  FeatureInstance.prototype.getMapTabElement = function () {
+    return $('.' + getMapTabClassName (), this.getInstanceElement ());
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's grid tab element as a JQuery
+    HTML Element.
+  */
+  FeatureInstance.prototype.getGridTabElement = function () {
+    return $('.' + getGridTabClassName (), this.getInstanceElement ());
+  }
+
+  /*
+    Accepts no arguments and returns this
+    instance's tab element as a JQuery HTML
+    Element.
+  */
+  FeatureInstance.prototype.getTabElements = function () {
+    return $('.' + getTabClassName (), this.getInstanceElement ());    
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the name of the class used to
+    label the map tab.
+  */
+  function getMapTabClassName () {
+    return getFeatureClassName () + '_map_tab';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the name of the class used to
+    label the grid tab.
+  */
+  function getGridTabClassName () {
+    return getFeatureClassName () + '_grid_tab';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the name of the class used to
+    label the tab elements.
+  */
+  function getTabClassName () {
+    return getFeatureClassName () + '_tab';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the name of the class used to
+    label feature instance elements.
+  */
+  function getFeatureClassName () {
+    return getModuleClassPrefix () + '_feature';
   }
 
   // II. Map Component.
@@ -372,12 +548,14 @@
 
     // Zoom and center on the filtered markers.
     var bounds = clusterGroup.getBounds ();
-    var margin = .2;
-    bounds._northEast.lat += margin;
-    bounds._northEast.lng += margin;
-    bounds._southWest.lat -= margin;
-    bounds._southWest.lng -= margin;
-    this.getMap ().fitBounds (bounds);
+    if (bounds && bounds._northEast && bounds._southWest) {
+      var margin = .2;
+      bounds._northEast.lat += margin;
+      bounds._northEast.lng += margin;
+      bounds._southWest.lat -= margin;
+      bounds._southWest.lng -= margin;
+      this.getMap ().fitBounds (bounds);
+    }
   }
 
   /*
@@ -675,7 +853,7 @@
     stateAbbreviation.
   */
   Map.prototype.selectMarkerElement = function (stateAbbreviation) {
-    this.getMarkerElement (stateAbbreviation).get (0).classList.add (getSelectedMarkerClassName ());
+    this.getMarkerElement (stateAbbreviation).get (0).classList.add (getSelectedClassName ());
   }
 
   /*
@@ -685,7 +863,7 @@
   Map.prototype.deselectMarkerElements = function () {
     this.getMarkerElements ().each (
       function (i, markerElement) {
-        markerElement.classList.remove (getSelectedMarkerClassName ());
+        markerElement.classList.remove (getSelectedClassName ());
     });
   }
 
@@ -725,15 +903,6 @@
   */
   function getPanelElementClassName () {
     return getModuleClassPrefix () + '_map_panel';
-  }
-
-  /*
-    Accepts no arguments and returns a string
-    representing the class name used to label
-    selected markers.
-  */
-  function getSelectedMarkerClassName () {
-    return getModuleClassPrefix () + '_selected';
   }
 
   /*
@@ -801,8 +970,8 @@
   /*
     Accepts no arguments and returns an overlay
     element that is used to present detailed
-    information about cases in Grid mode as a
-    JQuery HTML Element.
+    information about cases as a JQuery HTML
+    Element.
   */
   Grid.prototype.createOverlayElement = function () {
     var self = this;
@@ -836,7 +1005,7 @@
 
     var componentElement = this.getComponentElement ();
 
-    var numCasesPerPage = 2;
+    var numCasesPerPage = 3;
     var numPages = cases.length / numCasesPerPage;
 
     var startCaseIndex = numCasesPerPage * this._currentPage;
@@ -844,6 +1013,7 @@
 
     var maxNumLinks = 5;
     var classPrefix = getModuleClassPrefix () + '_grid';
+
     $('.' + classPrefix + '_body', componentElement)
       .empty ()
       .append (this.createCaseCards (cases.slice (startCaseIndex, endCaseIndex)));
@@ -856,13 +1026,16 @@
         .append ($('<div></div>')
           .addClass (classPrefix + '_nav_links')
           .append (this.createNavLinkElement (cases, this._currentPage > 0 ? this._currentPage - 1 : 0, '')
-            .addClass (classPrefix + '_nav_prev'))
+            .addClass (classPrefix + '_nav_prev')
+            .addClass (this._currentPage > 0 ? null : getDisabledClassName ()))
           .append (_.range (0, Math.min (numPages, maxNumLinks)).map (function (i) {
               return self.createNavLinkElement (cases, i, i + 1)
+                .addClass (i === self._currentPage ? getSelectedClassName () : null);
             }))
           .append (numPages > maxNumLinks ? this.createNavLinkElement (cases, numPages - 1, '') : null)
           .append (this.createNavLinkElement (cases, this._currentPage < numPages - 1 ? this._currentPage + 1: numPages - 1, '')
-            .addClass (classPrefix + '_nav_next')))
+            .addClass (classPrefix + '_nav_next')
+            .addClass (this._currentPage < numPages - 1 ? null : getDisabledClassName ())))
         .append ($('<div></div>')
           .addClass (classPrefix + '_nav_stats')
           .text ((startCaseIndex + 1) + '-' + endCaseIndex + ' of ' + cases.length + ' Section 106 Cases')));
@@ -909,6 +1082,8 @@
     return $('<div></div>')
       .addClass (classPrefix)
       .attr (getModuleDataPrefix () + '-map-case', _case.id)
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_expand_button'))
       .append ($('<div></div>')
         .addClass (classPrefix + '_title')
         .text (_case.title))
@@ -1051,6 +1226,24 @@
               .addClass (classPrefix + '_contact_phone')
               .text (_case.poc.phone)))
           ));
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the name of the class used to
+    label disabled elements.
+  */
+  function getDisabledClassName () {
+    return getModuleClassPrefix () + '_disabled';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the name of the class used to
+    label "selected" elements.
+  */
+  function getSelectedClassName () {
+    return getModuleClassPrefix () + '_selected';
   }
 
   /*

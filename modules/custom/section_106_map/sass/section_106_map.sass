@@ -2,14 +2,21 @@
   The Section 106 Map Sass library defines the default
   styling for the Section 106 Case Map module.
 
+$light_blue_color: rgb(9,144,254)
+$dark_blue_color: rgb(5,60,93)  
+$red_color: rgb(151,0,14)
 
 $feature_height: 500px
 $feature_width:  100%
 $section_106_map_search_left: 40px
 .section_106_map
-  height:     $feature_height
   text-align: center
   width:      $feature_width
+
+  &::after
+    content: ''
+    display: block
+    clear:   both
 
   .leaflet-container
     .leaflet-control-attribution
@@ -46,11 +53,16 @@ $section_106_map_search_left: 40px
         width:      $feature_header_body_tabs_width
         margin:     0px auto
 
-        .section_106_map_feature_header_body_tab
+        .section_106_map_feature_tab
           color:  white
+          cursor: pointer
           float:  left
+          height: 100%
           padding-top: $feature_header_body_tabs_height / 2
           width:  $feature_header_body_tabs_width / 2
+
+          &.section_106_map_selected
+            border-bottom: 5px solid $light_blue_color
 
         .section_106_map_feature_map_tab
           background: url('../images/map-icon.svg') no-repeat 50% ($feature_header_body_tabs_height / 4)
@@ -60,14 +72,12 @@ $section_106_map_search_left: 40px
           background: url('../images/grid-icon.svg') no-repeat 50% ($feature_header_body_tabs_height / 4)
           background-size: 15px
 
-  $red_color:  rgb(151,0,14)
-  $blue_color: rgb(5,60,93)  
   $feature_body_height: $feature_height - $feature_header_height
   $feature_body_width:  100%
   .section_106_map_feature_body
     background: rgb(173,207,255)
     position:   relative
-    height:     $feature_body_height
+    height:     100%
     width:      $feature_body_width
 
     .section_106_map_case
@@ -82,7 +92,7 @@ $section_106_map_search_left: 40px
 
         .section_106_map_case_title
           a
-            color: $blue_color
+            color: $dark_blue_color
             text-decoration: none
 
         .section_106_map_case_body
@@ -96,7 +106,7 @@ $section_106_map_search_left: 40px
 
           .section_106_map_case_body_agency_header_title,
           .section_106_map_case_body_contact_header_title
-            color: $blue_color
+            color: $dark_blue_color
 
           .section_106_map_case_body_agency_header,
           .section_106_map_case_body_contact_header
@@ -107,7 +117,7 @@ $section_106_map_search_left: 40px
             margin-left: 10px
 
     .section_106_map_map
-      height: 100%
+      height: $feature_body_height
       width: 100%
 
       .section_106_map_map_container
@@ -196,7 +206,7 @@ $section_106_map_search_left: 40px
 
             $state_panel_header_title_width: $state_panel_header_width - 2 * $panel_padding - $state_panel_header_close_button_width
             .section_106_map_state_panel_header_title
-              color:  $blue_color
+              color:  $dark_blue_color
               float:  left
               height: 100%
               width:  $state_panel_header_title_width
@@ -210,14 +220,11 @@ $section_106_map_search_left: 40px
               margin:          0px
               padding:         0px
 
+    $section_106_footer_height: 30px
     .section_106_map_grid
-      height: 100%
+      margin-bottom: $section_106_footer_height
+      min-height: $feature_body_height
       width:  100%
-
-      .section_106_map_grid_footer
-        bottom:   10px
-        left:     $section_106_map_search_left
-        position: absolute
 
       .section_106_map_grid_overlay
         background: white
@@ -256,6 +263,103 @@ $section_106_map_search_left: 40px
           list-style: none
           max-width: 400px
           margin: 0 auto
+
+      .section_106_map_grid_header
+        height: 60px
+
+      .section_106_map_grid_body
+        align-content: center
+        display: flex
+        -js-display: flex
+        flex-wrap: wrap
+        justify-content: center
+
+        .section_106_map_case_card
+          background: white
+          border-top: 5px solid $red_color
+          box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+          -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+          -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
+          cursor: pointer
+          flex:   none
+          height: 100px
+          margin: 20px
+          width:  300px
+
+          &:hover
+            border-top-color: $light_blue_color
+
+            .section_106_map_case_card_title
+              color: $light_blue_color
+
+            .section_106_map_case_card_state
+              color: $light_blue_color
+
+          .section_106_map_case_card_expand_button
+            background: url('../images/expand-icon.svg') no-repeat 50% 50%
+            background-size: 20px
+            cursor:     pointer
+            float:      right
+            height:     30px
+            width:      30px
+            
+            &:hover
+              -moz-transform: scale(1.1)
+              -webkit-transform: scale(1.1)
+              -o-transform: scale(1.1)
+              transform: scale(1.1)
+
+          .section_106_map_case_card_title
+            color: $dark_blue_color
+
+          .section_106_map_case_card_state
+            color: $red_color
+
+      .section_106_map_grid_footer
+        bottom:   10px
+        height:   $section_106_footer_height
+        position: absolute
+        width:    100%
+       
+        .section_106_map_grid_nav
+          display:         flex
+          -js-display:     flex
+          height:          100%
+          justify-content: center
+          align-items:     center
+
+          .section_106_map_grid_nav_links
+            height: 100%
+
+            .section_106_map_nav_link
+              cursor:      pointer
+              float:       left
+              height:      100%
+              line-height: $section_106_footer_height
+              width:       $section_106_footer_height
+
+              &.section_106_map_selected
+                background-color: $light_blue_color
+                border-radius: 50%
+                color: white
+
+            .section_106_map_grid_nav_prev
+              background: url('../images/left-arrow-icon.svg') no-repeat 50% 50%
+              background-size: 12px
+
+              &.section_106_map_disabled
+                background: url('../images/left-arrow-icon-disabled.svg') no-repeat 50% 50%
+
+            .section_106_map_grid_nav_next
+              background: url('../images/right-arrow-icon.svg') no-repeat 50% 50%
+              background-size: 12px
+
+              &.section_106_map_disabled
+                background: url('../images/right-arrow-icon-disabled.svg') no-repeat 50% 50%
+
+          .section_106_map_grid_nav_stats
+            height:      100%
+            line-height: $section_106_footer_height
 
     $section_106_map_search_height: 35px
     .section_106_map_filter

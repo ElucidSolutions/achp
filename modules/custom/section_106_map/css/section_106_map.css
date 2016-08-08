@@ -1,9 +1,12 @@
 /* The Section 106 Map Sass library defines the default
  * styling for the Section 106 Case Map module. */
 .section_106_map {
-  height: 500px;
   text-align: center;
   width: 100%; }
+  .section_106_map::after {
+    content: "";
+    display: block;
+    clear: both; }
   .section_106_map .leaflet-container .leaflet-control-attribution {
     display: none; }
   .section_106_map .leaflet-top .leaflet-control {
@@ -23,11 +26,15 @@
         height: 75px;
         width: 300px;
         margin: 0px auto; }
-        .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_header_body_tab {
+        .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_tab {
           color: white;
+          cursor: pointer;
           float: left;
+          height: 100%;
           padding-top: 37.5px;
           width: 150px; }
+          .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_tab.section_106_map_selected {
+            border-bottom: 5px solid #0990fe; }
         .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_map_tab {
           background: url("../images/map-icon.svg") no-repeat 50% 18.75px;
           background-size: 15px; }
@@ -37,7 +44,7 @@
   .section_106_map .section_106_map_feature_body {
     background: #adcfff;
     position: relative;
-    height: 425px;
+    height: 100%;
     width: 100%; }
     .section_106_map .section_106_map_feature_body .section_106_map_case {
       padding: 10px;
@@ -65,7 +72,7 @@
             color: #bababa;
             margin-left: 10px; }
     .section_106_map .section_106_map_feature_body .section_106_map_map {
-      height: 100%;
+      height: 425px;
       width: 100%; }
       .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container {
         height: 100%;
@@ -140,12 +147,9 @@
             margin: 0px;
             padding: 0px; }
     .section_106_map .section_106_map_feature_body .section_106_map_grid {
-      height: 100%;
+      margin-bottom: 30px;
+      min-height: 425px;
       width: 100%; }
-      .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer {
-        bottom: 10px;
-        left: 40px;
-        position: absolute; }
       .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_overlay {
         background: white;
         border-top: #97000e 5px solid;
@@ -180,6 +184,83 @@
           list-style: none;
           max-width: 400px;
           margin: 0 auto; }
+      .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_header {
+        height: 60px; }
+      .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body {
+        align-content: center;
+        display: flex;
+        -js-display: flex;
+        flex-wrap: wrap;
+        justify-content: center; }
+        .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card {
+          background: white;
+          border-top: 5px solid #97000e;
+          box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
+          -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
+          -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
+          cursor: pointer;
+          flex: none;
+          height: 100px;
+          margin: 20px;
+          width: 300px; }
+          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover {
+            border-top-color: #0990fe; }
+            .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover .section_106_map_case_card_title {
+              color: #0990fe; }
+            .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover .section_106_map_case_card_state {
+              color: #0990fe; }
+          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_expand_button {
+            background: url("../images/expand-icon.svg") no-repeat 50% 50%;
+            background-size: 20px;
+            cursor: pointer;
+            float: right;
+            height: 30px;
+            width: 30px; }
+            .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_expand_button:hover {
+              -moz-transform: scale(1.1);
+              -webkit-transform: scale(1.1);
+              -o-transform: scale(1.1);
+              transform: scale(1.1); }
+          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_title {
+            color: #053c5d; }
+          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_state {
+            color: #97000e; }
+      .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer {
+        bottom: 10px;
+        height: 30px;
+        position: absolute;
+        width: 100%; }
+        .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav {
+          display: flex;
+          -js-display: flex;
+          height: 100%;
+          justify-content: center;
+          align-items: center; }
+          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links {
+            height: 100%; }
+            .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_nav_link {
+              cursor: pointer;
+              float: left;
+              height: 100%;
+              line-height: 30px;
+              width: 30px; }
+              .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_nav_link.section_106_map_selected {
+                background-color: #0990fe;
+                border-radius: 50%;
+                color: white; }
+            .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_prev {
+              background: url("../images/left-arrow-icon.svg") no-repeat 50% 50%;
+              background-size: 12px; }
+              .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_prev.section_106_map_disabled {
+                background: url("../images/left-arrow-icon-disabled.svg") no-repeat 50% 50%; }
+            .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_next {
+              background: url("../images/right-arrow-icon.svg") no-repeat 50% 50%;
+              background-size: 12px; }
+              .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_next.section_106_map_disabled {
+                background: url("../images/right-arrow-icon-disabled.svg") no-repeat 50% 50%; }
+          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_stats {
+            height: 100%;
+            line-height: 30px; }
     .section_106_map .section_106_map_feature_body .section_106_map_filter {
       background-color: white;
       -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
