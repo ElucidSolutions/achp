@@ -998,12 +998,14 @@ header {
         #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-of-type {
           margin: 15px auto 0; }
         #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row, #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-field-field-quicklink-image, #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container footer {
-          display: none; }
+          display: none;
+          /*@include center-y;*/ }
         #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header {
           height: 75px; }
           #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header .views-row {
             height: 75px;
-            padding: 10px; }
+            padding: 10px;
+            /*@include center-y;*/ }
           #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header .views-field {
             height: 100%;
             width: 100%;

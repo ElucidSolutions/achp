@@ -60,6 +60,7 @@
       }
     )
 
+    // Continuation of part V: edge cases that should close submenu
     $('#header').mouseover ( 
       function () {
         closeWidescreenSubmenu ();
@@ -83,14 +84,21 @@
       }
     });
 
-    // VII. Handle Quicklinks mobile click events
-    $('.quicklinks-column .views-field-title').click (function (e) {
+    // VI. Handle Quicklinks mobile click events
+    $('.quicklinks-column > header').click (function (e) {
       e.preventDefault();
-      console.log(e.target);
+      var quicklinkItems = $(e.target).parents('.quicklinks-column').children('.views-row')
+      console.log(quicklinkItems);
+      if (quicklinkItems.css ('display') == 'none') {
+        quicklinkItems.slideDown ();
+      } else {
+        quicklinkItems.slideUp ();
+      }
+      console.log('1')
       // console.log('You clicked');
     })
 
-    // VIII. Move the Search and Menu Block elements at breakpoints.
+    // VII. Move the Search and Menu Block elements at breakpoints.
     $.breakpoint ((function () {
       return {
         condition: function () {

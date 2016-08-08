@@ -132,6 +132,7 @@
 
       .quicklinks-column > .views-row, .views-field-field-quicklink-image, footer {
         display: none;
+        /*@include center-y;*/
       }
 
       header {
@@ -140,6 +141,7 @@
         .views-row {
           height: 75px;
           padding: 10px;
+          /*@include center-y;*/
         }
 
         .views-field {
