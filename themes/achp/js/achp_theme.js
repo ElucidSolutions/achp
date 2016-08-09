@@ -182,7 +182,6 @@
   function mobileQuicklinkClickListener () {
     $('.quicklinks-column').children ('.views-row').hide ();
     $('.quicklinks-column > header').click (function (e) {
-      e.preventDefault();
       var quicklinkHeader = $(e.target).parents ('.quicklinks-column').find ('h3');
       var quicklinkItems = $(e.target).parents ('.quicklinks-column').children ('.views-row');
       if (quicklinkItems.css ('display') == 'none') {
@@ -408,11 +407,9 @@
          .append($('<ul></ul>')
            .addClass('menu_slide_extras')
            .append ($('<li></li>')
-             .addClass ('menu_slide_list_item')
              .addClass ('menu_slide_extra_item')
              .html ('<a href="#">CONTACT US</a>'))
            .append ($('<li></li>')
-             .addClass ('menu_slide_list_item')
              .addClass ('menu_slide_extra_item')
              .html ('<a href="#">SIGN IN</a>'))
           );
