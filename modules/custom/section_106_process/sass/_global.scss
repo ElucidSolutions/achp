@@ -1,0 +1,147 @@
+/* Global variables: widths, heights, & breakpoints */
+$max-content-width: 1024px;
+$mobile-breakpoint: 650px;
+$hero-breakpoint: 925px;
+$menu-breakpoint: 950px;
+$header-menu-height: 72px;
+$header-menu-widescreen-width: 1024px;
+$header-menu-border-width: 3px;
+
+/* Global variables: text */
+$sans-text: 'p22-underground', sans-serif;
+$serif-text: 'minion-pro', serif;
+$base-text-size: 16px;
+
+/* Global variables: colors */
+$color-darkblue: #043B62;
+$color-darkblue2: #003A5E;
+$color-medblue: #013B5E;
+$color-blue: #0990FE;
+$color-lightblue: #309AEE;
+$color-lightblue2: #008BFD;
+$color-red: #950306;
+$color-red2: #9B0008; 
+$color-grey: #4F4F4F;
+$color-grey2: #4A4A4A;
+$color-grey3: #E2E2E2;
+$color-darkgrey: #262626;
+$color-darkgrey2: #1E1E1E;
+$color-lightgrey: #C6C6C6;
+$color-lightgrey-2: #7C7C7C;
+$background-color-grey: #F4F4F4;
+$background-color-lightblue: #E8F8FF;
+
+/* Variables for homepage cards */
+$card-margin-vert: 25px;
+$card-margin-horiz: 20px;
+$card-height: 400px;
+$card-width: 300px;
+
+/* Grid variables */
+$gutter: 0;
+$grid-columns: 12;
+
+/* Mixin for centering horizontally */
+@mixin center-x {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* Mixin for centering vertically */
+@mixin center-y {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Mixin for centering vertically & horizontally */
+@mixin center-xy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Mixin for generating solid-colored hr elements*/
+@mixin hr($color) {
+  color: $color;
+  background-color: $color;
+  border: none;
+  height: 1px;
+}
+
+/* Mixin for responsive type size */
+@mixin font-size($fs-map) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    }
+    @else {
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}
+
+/* Maps for type changes*/
+$h1-font-sizes: (
+  null: 1.25rem,
+  $mobile-breakpoint: 2rem,
+  $hero-breakpoint: 2.5rem
+);
+
+$h1-subtitle-font-sizes: (
+  null: 1.25rem,
+  $mobile-breakpoint: 2rem,
+  $hero-breakpoint: 2.25rem
+);
+
+$h2-font-sizes: (
+  null: 1.25rem,
+  $mobile-breakpoint: 2rem
+);
+
+$h3-font-sizes: (
+  null: 1.125rem,
+  $mobile-breakpoint: 1.25rem
+);
+
+$button-font-sizes: (
+  null: 0.75rem,
+  $mobile-breakpoint: $base-text-size
+);
+
+$hero-p-font-sizes: (
+  null: $base-text-size,
+  $mobile-breakpoint: 1.25rem,
+  $hero-breakpoint: 1.375rem
+);
+
+$impact_number-font-sizes: (
+  null: 1.25rem,
+  $mobile-breakpoint: 1.625rem
+);
+
+$footer_menu_second-font-sizes: (
+  null: 0.875rem,
+  900px: 1rem
+);
+
+$footer_menu_third-font-sizes: (
+  null: 0.750rem,
+  900px: 1rem
+);

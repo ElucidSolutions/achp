@@ -1,0 +1,65 @@
+/*
+** This Sass file defines the styles for the 
+** Section 106 Process module.
+*/
+/* Global variables: widths, heights, & breakpoints */
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+#homepage_flowchart_content .section_106_process {
+  margin: 0 auto;
+  height: 450px;
+  max-width: 940px; }
+  #homepage_flowchart_content .section_106_process .section_106_process_feature_step_weight {
+    background: #CD1803;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    font-size: 23px;
+    text-align: center;
+    z-index: 2;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-transition: background 0.25s linear;
+    transition: background 0.25s linear; }
+    #homepage_flowchart_content .section_106_process .section_106_process_feature_step_weight a {
+      text-decoration: none;
+      color: #FFFFFF !important; }
+  #homepage_flowchart_content .section_106_process .section_106_process_feature_step_image {
+    margin-top: 192px;
+    overflow: hidden;
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 7px;
+    border-radius: 50%; }
+    #homepage_flowchart_content .section_106_process .section_106_process_feature_step_image img {
+      width: 100%;
+      height: 100%;
+      border: 0; }
+    #homepage_flowchart_content .section_106_process .section_106_process_feature_step_image .section_106_process_feature_step_image_overlay {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #C3F7F2;
+      border-radius: 50%;
+      opacity: .5;
+      display: block;
+      text-indent: -9999em;
+      line-height: 0;
+      font-size: 0;
+      -webkit-font-smoothing: subpixel-antialiased;
+      -webkit-transition: opacity 0.25s linear;
+      transition: opacity 0.25s linear; }
+
+/*# sourceMappingURL=section_106_process.css.map */

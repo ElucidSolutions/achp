@@ -1,0 +1,63 @@
+/*
+** This Sass file defines the styles for the 
+** Section 106 Process module.
+*/
+
+@import "bourbon/bourbon";
+@import "global";
+#homepage_flowchart_content {
+	.section_106_process {
+		margin: 0 auto;
+		height: 450px;
+		max-width: 940px;
+		.section_106_process_feature_step_weight {
+			background: #CD1803;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			line-height: 40px;
+			font-size: 23px;
+			text-align: center;
+			z-index: 2;
+			-webkit-font-smoothing: subpixel-antialiased;
+			-webkit-transition: background 0.25s linear;
+			transition: background 0.25s linear;
+			a {
+				text-decoration: none;
+				color: #FFFFFF !important;
+			}
+		}
+		.section_106_process_feature_step_image {
+			margin-top: 192px;
+			overflow: hidden;
+			position: relative;
+			width: 140px;
+			height: 140px;
+			margin-bottom: 7px;
+			border-radius: 50%;
+			img {
+				width: 100%;
+				height: 100%;
+				border: 0;
+			}
+			.section_106_process_feature_step_image_overlay {
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #C3F7F2;
+				border-radius: 50%;
+				opacity: .5;
+				display: block;
+				text-indent: -9999em;
+				line-height: 0;
+				font-size: 0;
+				-webkit-font-smoothing: subpixel-antialiased;
+				-webkit-transition: opacity 0.25s linear;
+				transition: opacity 0.25s linear;
+			}
+		}
+	}
+}
