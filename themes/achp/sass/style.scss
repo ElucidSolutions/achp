@@ -50,12 +50,12 @@ h1, h2, h3 {
 
 h1 {
   @include font-size($h1-font-sizes);
-  font-weight: 400;
+  font-weight: 500;
   text-shadow: 0px 1px 3px rgba(0,0,0,0.50);
 
   &.heading_subtitle {
     @include font-size($h1-subtitle-font-sizes);
-    font-weight: 100;
+    font-weight: 300;
   }
 }
 
@@ -172,7 +172,7 @@ button {
 }
 
 #homepage_quicklinks_region {
-  padding: 25px 50px 25px 100px;
+  padding: 25px 50px;
   height: auto;
   background-color: $background-color-grey;
   overflow-y: visible;

@@ -84,20 +84,6 @@
       }
     });
 
-    // VI. Handle Quicklinks mobile click events
-    $('.quicklinks-column > header').click (function (e) {
-      e.preventDefault();
-      var quicklinkItems = $(e.target).parents('.quicklinks-column').children('.views-row')
-      console.log(quicklinkItems);
-      if (quicklinkItems.css ('display') == 'none') {
-        quicklinkItems.slideDown ();
-      } else {
-        quicklinkItems.slideUp ();
-      }
-      console.log('1')
-      // console.log('You clicked');
-    })
-
     // VII. Move the Search and Menu Block elements at breakpoints.
     $.breakpoint ((function () {
       return {
@@ -112,6 +98,7 @@
               removeSelectedClassFromMenuItems ();
               moveSearchBlockToHeader ();
               closeMobileSubheader ();
+              // unbindQuicklinkClickListener ();
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_MOBILE_EXPANDED_STATE:
               openHeaderMenu();
@@ -119,9 +106,11 @@
               closeMobileSubheader ();
               moveSearchBlockToHeader ();
               removeSelectedClassFromMenuItems ();
+              // unbindQuicklinkClickListener ();
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
             case HEADER_MENU_WIDESCREEN_HOVER_STATE:
+              // unbindQuicklinkClickListener ();
               return openHeaderMenu();
             default:
               console.log('[achp_theme][document.ready] Warning: unrecognized header menu state "' + headerMenuState + '".');
@@ -146,6 +135,7 @@
               closeWidescreenDropdownMenu ();
               openMobileSubheaderHeader ();
               moveSearchBlockToMobileSearch ();
+              // mobileQuicklinkClickListener ()
               return openMobileSubheader ();
             case HEADER_MENU_WIDESCREEN_HOVER_STATE:               
               headerMenuState = HEADER_MENU_MOBILE_EXPANDED_STATE;
@@ -154,6 +144,7 @@
               closeWidescreenDropdownMenu ();
               openMobileSubheaderHeader ();
               moveSearchBlockToMobileSearch ();
+              // mobileQuicklinkClickListener ();
               return openMobileCollapsible ();
             case HEADER_MENU_MOBILE_DEFAULT_STATE:
             case HEADER_MENU_MOBILE_EXPANDED_STATE:
@@ -166,7 +157,61 @@
         }
       };
     })());
+
+    $.breakpoint ((function () {
+      return {
+        condition: function () {
+          return window.matchMedia ('only screen and (max-width: 700px)').matches;
+        },
+        enter: function () {
+          mobileQuicklinkClickListener ();
+        },
+        exit: function () {
+          unbindQuicklinkClickListener ()
+        }
+      };
+    })());
+
   });
+
+/*
+  Accepts no arguments; hides individual links in Quicklinks section
+  and sets a click listener that:
+
+  * toggles display of a Quicklink topic's links, and 
+  * toggles the 'open' class on a clicked Quicklink topic's header.
+
+  Returns undefined.
+*/
+
+  function mobileQuicklinkClickListener () {
+    // $('.quicklinks-column').children ('.views-row').hide ();
+    console.log('click listener on!');
+    $('.quicklinks-column > header').click (function (e) {
+      e.preventDefault();
+      $(e.target).find ('h3').addClass ('open');
+      var quicklinkItems = $(e.target).parents ('.quicklinks-column').children ('.views-row');
+      if (quicklinkItems.css ('display') == 'none') {
+        quicklinkItems.slideDown ();
+      } else {
+        quicklinkItems.slideUp ();
+      }
+    })
+  }
+
+/*
+  Accepts no arguments; displays all individual links in Quicklinks 
+  section, removes the 'open' class on any Quicklink topic header,
+  and unbinds the click listener on the header; returns undefined.
+*/  
+
+  function unbindQuicklinkClickListener () {
+    $('.quicklinks-column').children ('.views-row').show ();
+    $('.quicklinks-column').find ('h3').removeClass ('open');
+    $('.quicklinks-column > header').unbind ('click');   
+    console.log('click listener off!');
+ 
+  }
 
   /* 
     Accepts two arguments:
