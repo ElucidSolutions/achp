@@ -490,13 +490,13 @@ html {
           color: #4A4A4A; }
           #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_body > ul {
             margin: 0; }
-        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"], #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"] {
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide l i[data-menu-level="1"], #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"] {
           cursor: pointer;
           padding: 16px 24px;
           border-bottom: 1px solid #E2E2E2;
           font-size: 0.875rem;
           width: 100%; }
-          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"]:hover {
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide l i[data-menu-level="1"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"]:hover {
             color: #309AEE;
             background-color: #E8F8FF; }
         #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:after, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:after {
@@ -1437,7 +1437,7 @@ button {
   background-size: cover;
   background-position: center;
   /* When this region has actual content determining its height, check different positions to see which looks best */
-  height: 200px; }
+  height: auto; }
   #homepage_events_region h2 {
     color: #FFFFFF; }
   #homepage_events_region hr {
