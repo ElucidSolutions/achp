@@ -43,8 +43,8 @@
           background-size: 15px; }
   .section_106_map .section_106_map_feature_body {
     background: #adcfff;
+    min-height: 425px;
     position: relative;
-    height: 100%;
     width: 100%; }
     .section_106_map .section_106_map_feature_body .section_106_map_case {
       padding: 10px;
@@ -75,12 +75,16 @@
       height: 425px;
       width: 100%; }
       .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container {
-        height: 100%;
+        height: 425px;
         width: 100%; }
         .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .leaflet-div-icon {
           background: none;
           border: none; }
         .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .section_106_map_marker {
+          -webkit-transform: translate(-50%, -100%);
+          -moz-transform: translate(-50%, -100%);
+          -ms-transform: translate(-50%, -100%);
+          -o-transform: translate(-50%, -100%);
           transform: translate(-50%, -100%); }
           .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .section_106_map_marker.section_106_map_selected #Front-Marker,
           .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .section_106_map_marker.section_106_map_selected #Back-Marker, .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .section_106_map_marker:hover #Front-Marker,
@@ -90,9 +94,12 @@
           fill: #ffffff;
           font-size: 25px;
           font-family: "Open Sans";
-          transform: translate(25px, 25px);
           text-anchor: middle; }
         .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .section_106_map_cluster_marker {
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
           .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .section_106_map_cluster_marker:hover #Oval-35 {
             fill: #fda485; }
@@ -100,7 +107,6 @@
             fill: #ffffff;
             font-size: 25px;
             font-family: "Open Sans";
-            transform: translate(30px, 25px);
             text-anchor: middle; }
       .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel {
         background: white;
@@ -147,7 +153,6 @@
             margin: 0px;
             padding: 0px; }
     .section_106_map .section_106_map_feature_body .section_106_map_grid {
-      margin-bottom: 30px;
       min-height: 425px;
       width: 100%; }
       .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_overlay {
@@ -187,11 +192,7 @@
       .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_header {
         height: 60px; }
       .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body {
-        align-content: center;
-        display: flex;
-        -js-display: flex;
-        flex-wrap: wrap;
-        justify-content: center; }
+        min-height: 295px; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card {
           background: white;
           border-top: 5px solid #97000e;
@@ -199,7 +200,7 @@
           -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
           -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
           cursor: pointer;
-          flex: none;
+          display: inline-block;
           height: 100px;
           margin: 20px;
           width: 300px; }
@@ -226,22 +227,17 @@
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_state {
             color: #97000e; }
       .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer {
-        bottom: 10px;
         height: 30px;
-        position: absolute;
-        width: 100%; }
+        margin: 20px; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav {
-          display: flex;
-          -js-display: flex;
-          height: 100%;
-          justify-content: center;
-          align-items: center; }
+          height: 100%; }
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links {
+            display: inline-block;
             height: 100%; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_nav_link {
               cursor: pointer;
               float: left;
-              height: 100%;
+              height: 30px;
               line-height: 30px;
               width: 30px; }
               .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_nav_link.section_106_map_selected {
@@ -259,6 +255,7 @@
               .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_next.section_106_map_disabled {
                 background: url("../images/right-arrow-icon-disabled.svg") no-repeat 50% 50%; }
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_stats {
+            float: left;
             height: 100%;
             line-height: 30px; }
     .section_106_map .section_106_map_feature_body .section_106_map_filter {
@@ -269,27 +266,27 @@
       display: table;
       height: 35px;
       left: 40px;
-      max-width: 400px;
+      max-width: 30%;
       position: absolute;
       top: 20px;
-      width: 30%;
+      width: 300px;
       z-index: 10; }
       .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form {
-        display: table-row;
-        height: 100%; }
-        .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_form_input {
+        display: table-row; }
+        .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input {
           background: url("../images/filter-icon.png") no-repeat 10px 50%;
           border: none;
           display: table-cell;
-          height: 100%;
+          height: 35px;
           margin: 0px;
           padding: 0px 10px 0px 40px;
           width: 100%; }
-          .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_form_input:focus {
+          .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input:focus {
             outline: none; }
-        .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_form_clear {
+          .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input::-ms-clear {
+            display: none; }
+        .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_clear {
           background: url("../images/close-icon.svg") no-repeat 50% 50%;
           cursor: pointer;
           display: table-cell;
-          height: 100%;
           width: 35px; }

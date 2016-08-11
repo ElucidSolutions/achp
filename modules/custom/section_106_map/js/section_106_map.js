@@ -176,7 +176,7 @@
     var inputElement = $('<input></input>')
       .attr ('type', 'text')
       .attr ('placeholder', 'Filter Cases')
-      .addClass (classPrefix + '_form_input')
+      .addClass (classPrefix + '_input')
       .on ('input', function () {
           var query = inputElement.val ();
 
@@ -198,7 +198,7 @@
         });
 
     var clearElement = $('<div></div>')
-      .addClass (classPrefix + '_form_clear')
+      .addClass (classPrefix + '_clear')
       .click (function () {
           // clear the current input.
           inputElement.val ('');
@@ -225,8 +225,8 @@
       .addClass (classPrefix)
       .append ($('<div></div>')
         .addClass (classPrefix + '_form')
-          .append (inputElement)
-          .append (clearElement));
+        .append (inputElement)
+        .append (clearElement));
   }
 
   /*
@@ -309,9 +309,6 @@
     this.selectGridTabElement ();
     this.getMap  ().hideComponentElement ();
     grid.showComponentElement ();
-
-    // layout the card elements.
-    flexibility (grid.getComponentElement ().get (0));
 
     // update the mode.
     this._mode = GRID_MODE;
@@ -503,7 +500,7 @@
   /*
     Accepts one argument: id, an HTML ID string;
     loads a Mapbox Map into the HTML element
-    referenced by id; and returns undefined.
+    referenced by id; and returns the map object.
   */
   function createMap (id) {
     // Set the Mapbox access token.
@@ -718,16 +715,16 @@
 
             // Add a class attribute to the icon element.
             svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
-            svgElement.classList.add (getMarkerClassName ());
-            svgElement.classList.add (state.cases.length > 1 ?
-              prefix + '_multiple_cases_marker':
-              prefix + '_single_case_marker'
-            );
+            svgElement.className.baseVal = svgElement.className.baseVal + ' ' + getMarkerClassName () + ' ' +
+              (state.cases.length > 1 ?
+                prefix + '_multiple_cases_marker':
+                prefix + '_single_case_marker');
 
             if (state.cases.length > 1) {
               // Add cluster child count to the icon element.
               labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
-              labelElement.classList.add (prefix +  '_marker_label');
+              labelElement.setAttribute ('transform', 'translate(25, 25)');
+              labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix +  '_marker_label';
               labelElement.textContent = state.cases.length.toString ();
               svgElement.appendChild (labelElement);
             }
@@ -761,11 +758,12 @@
           var svgElement = svgDocument.documentElement;
 
           // Add a class attribute to the icon element.
-          svgElement.classList.add (prefix + '_cluster_marker');
+          svgElement.className.baseVal = svgElement.className.baseVal + ' ' + prefix + '_cluster_marker';
 
           // Add cluster child count to the icon element.
           labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
-          labelElement.classList.add (prefix + '_cluster_marker_label');
+          labelElement.setAttribute ('transform', 'translate(30, 25)');
+          labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix + '_cluster_marker_label';
           labelElement.textContent = label;
           svgElement.appendChild (labelElement);
 
@@ -853,7 +851,8 @@
     stateAbbreviation.
   */
   Map.prototype.selectMarkerElement = function (stateAbbreviation) {
-    this.getMarkerElement (stateAbbreviation).get (0).classList.add (getSelectedClassName ());
+    var markerElement= this.getMarkerElement (stateAbbreviation).get (0);
+    markerElement.className.baseVal = markerElement.className.baseVal + ' ' + getSelectedClassName ();
   }
 
   /*
@@ -861,9 +860,10 @@
     the markers.
   */
   Map.prototype.deselectMarkerElements = function () {
+    var className = getSelectedClassName ();
     this.getMarkerElements ().each (
       function (i, markerElement) {
-        markerElement.classList.remove (getSelectedClassName ());
+        markerElement.className.baseVal = markerElement.className.baseVal.replace (className, '').trim ();
     });
   }
 
@@ -1035,10 +1035,10 @@
           .append (numPages > maxNumLinks ? this.createNavLinkElement (cases, numPages - 1, '') : null)
           .append (this.createNavLinkElement (cases, this._currentPage < numPages - 1 ? this._currentPage + 1: numPages - 1, '')
             .addClass (classPrefix + '_nav_next')
-            .addClass (this._currentPage < numPages - 1 ? null : getDisabledClassName ())))
-        .append ($('<div></div>')
-          .addClass (classPrefix + '_nav_stats')
-          .text ((startCaseIndex + 1) + '-' + endCaseIndex + ' of ' + cases.length + ' Section 106 Cases')));
+            .addClass (this._currentPage < numPages - 1 ? null : getDisabledClassName ()))
+          .append ($('<div></div>')
+            .addClass (classPrefix + '_nav_stats')
+            .text ((startCaseIndex + 1) + '-' + endCaseIndex + ' of ' + cases.length + ' Section 106 Cases'))));
   }
 
   /*

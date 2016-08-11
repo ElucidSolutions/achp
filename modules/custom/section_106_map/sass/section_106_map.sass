@@ -2,6 +2,8 @@
   The Section 106 Map Sass library defines the default
   styling for the Section 106 Case Map module.
 
+@import "bourbon/bourbon"
+
 $light_blue_color: rgb(9,144,254)
 $dark_blue_color: rgb(5,60,93)  
 $red_color: rgb(151,0,14)
@@ -76,9 +78,9 @@ $section_106_map_search_left: 40px
   $feature_body_width:  100%
   .section_106_map_feature_body
     background: rgb(173,207,255)
-    position:   relative
-    height:     100%
-    width:      $feature_body_width
+    min-height: $feature_body_height
+    position: relative
+    width: $feature_body_width
 
     .section_106_map_case
       padding:    10px
@@ -121,7 +123,7 @@ $section_106_map_search_left: 40px
       width: 100%
 
       .section_106_map_map_container
-        height: 100%
+        height: $feature_body_height
         width:  100%
 
         .leaflet-div-icon
@@ -129,7 +131,7 @@ $section_106_map_search_left: 40px
           border:     none
 
         .section_106_map_marker
-          transform: translate(-50%, -100%)
+          @include transform(translate(-50%, -100%))
 
           &.section_106_map_selected,
           &:hover
@@ -143,11 +145,10 @@ $section_106_map_search_left: 40px
             fill:        #ffffff
             font-size:   25px
             font-family: 'Open Sans'
-            transform:   translate(25px, 25px)
             text-anchor: middle
 
         .section_106_map_cluster_marker
-          transform: translate(-50%, -50%)
+          @include transform(translate(-50%, -50%))
 
           &:hover
             #Oval-35
@@ -157,7 +158,6 @@ $section_106_map_search_left: 40px
             fill:        #ffffff
             font-size:   25px
             font-family: 'Open Sans'
-            transform:   translate(30px, 25px)
             text-anchor: middle
 
       $panel_height:  $feature_body_height
@@ -220,9 +220,11 @@ $section_106_map_search_left: 40px
               margin:          0px
               padding:         0px
 
-    $section_106_footer_height: 30px
+    $grid_header_height: 60px
+    $grid_footer_height: 30px
+    $grid_footer_margin: 20px
+    $grid_body_height: $feature_body_height - $grid_header_height - $grid_footer_height - 2 * $grid_footer_margin
     .section_106_map_grid
-      margin-bottom: $section_106_footer_height
       min-height: $feature_body_height
       width:  100%
 
@@ -265,14 +267,10 @@ $section_106_map_search_left: 40px
           margin: 0 auto
 
       .section_106_map_grid_header
-        height: 60px
+        height: $grid_header_height
 
       .section_106_map_grid_body
-        align-content: center
-        display: flex
-        -js-display: flex
-        flex-wrap: wrap
-        justify-content: center
+        min-height: $grid_body_height
 
         .section_106_map_case_card
           background: white
@@ -281,7 +279,7 @@ $section_106_map_search_left: 40px
           -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
           -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4)
           cursor: pointer
-          flex:   none
+          display: inline-block
           height: 100px
           margin: 20px
           width:  300px
@@ -316,27 +314,22 @@ $section_106_map_search_left: 40px
             color: $red_color
 
       .section_106_map_grid_footer
-        bottom:   10px
-        height:   $section_106_footer_height
-        position: absolute
-        width:    100%
+        height: $grid_footer_height
+        margin: $grid_footer_margin
        
         .section_106_map_grid_nav
-          display:         flex
-          -js-display:     flex
-          height:          100%
-          justify-content: center
-          align-items:     center
+          height: 100%
 
           .section_106_map_grid_nav_links
+            display: inline-block
             height: 100%
 
             .section_106_map_nav_link
-              cursor:      pointer
-              float:       left
-              height:      100%
-              line-height: $section_106_footer_height
-              width:       $section_106_footer_height
+              cursor: pointer
+              float: left
+              height: $grid_footer_height
+              line-height: $grid_footer_height
+              width: $grid_footer_height
 
               &.section_106_map_selected
                 background-color: $light_blue_color
@@ -358,8 +351,9 @@ $section_106_map_search_left: 40px
                 background: url('../images/right-arrow-icon-disabled.svg') no-repeat 50% 50%
 
           .section_106_map_grid_nav_stats
-            height:      100%
-            line-height: $section_106_footer_height
+            float: left
+            height: 100%
+            line-height: $grid_footer_height
 
     $section_106_map_search_height: 35px
     .section_106_map_filter
@@ -367,24 +361,23 @@ $section_106_map_search_left: 40px
       -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4)
       -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4)
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4)
-      display:          table
-      height:           $section_106_map_search_height
-      left:             $section_106_map_search_left
-      max-width:        400px
-      position:         absolute
-      top:              20px
-      width:            30%
-      z-index:          10
+      display: table
+      height: $section_106_map_search_height
+      left: $section_106_map_search_left
+      max-width: 30%
+      position: absolute
+      top: 20px
+      width: 300px
+      z-index: 10
 
       .section_106_map_filter_form
         display: table-row
-        height:  100%
 
-        .section_106_map_filter_form_input
+        .section_106_map_filter_input
           background: url('../images/filter-icon.png') no-repeat 10px 50%
           border: none
           display: table-cell
-          height: 100%
+          height: $section_106_map_search_height
           margin: 0px
           padding: 0px 10px 0px 40px
           width: 100%
@@ -392,9 +385,11 @@ $section_106_map_search_left: 40px
           &:focus
             outline: none
 
-        .section_106_map_filter_form_clear
+          &::-ms-clear
+            display: none
+
+        .section_106_map_filter_clear
           background: url('../images/close-icon.svg') no-repeat 50% 50%
-          cursor:     pointer
+          cursor: pointer
           display: table-cell
-          height: 100%
           width: $section_106_map_search_height
