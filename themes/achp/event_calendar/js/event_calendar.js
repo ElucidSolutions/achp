@@ -7,7 +7,41 @@
   $(document).ready (function () {
 
     var instance = new FeatureInstance ();
+    $('#block-eventsmeetings').append(instance.getInstanceElement ());
+
   });
+
+  /*
+  Accepts no arguments, returns an array of all Event objects.
+  */
+  function getAllEvents () {
+    return [
+      { 
+        title: 'Section 106 Training',
+        start_date: '2015-08-04 15:00', 
+        end_date: '2015-08-04 17:00',
+        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
+        description: 'Learn about Section 106',
+        url: '/node/3'
+      },
+      { 
+        title: 'Annual Native American Summit',
+        start_date: '2016-08-06 14:00',
+        end_date: '2016-08-09 17:00',
+        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
+        description: 'Learn about Native American issues',
+        url: '/node/4'
+      },
+      { 
+        title: 'Directory Staff Committee Meeting',
+        start_date: '2016-08-30 12:00',
+        end_date: '2016-09-07 18:00',
+        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
+        description: 'Meeting for staff members.',
+        url: '/node/5'        
+      }
+    ]
+  }  
 
   // I. Defining the feature instance
   /*
@@ -36,7 +70,7 @@
         .addClass(classPrefix + '_body'))
       .append($('<div></div>')
         .addClass(classPrefix + '_footer')
-        .append($('<button><button>')
+        .append($('<button></button>')
           .addClass(classPrefix + '_full_calendar_button')
           .text('View the full calendar')));
   }
@@ -60,15 +94,16 @@
   }
 
   /*
-  Accepts a Date object, displays the the events matching that 
+  Accepts a Moment object, displays the the events matching that 
   date, and returns undefined.
   */
-  function showEvents (date) {
-
+  FeatureInstance.prototype.showEvents = function (date) {
+    // TODO: n parameter should be Drupal setting
+    this.getGrid ().displayEvents (getNEventsAfterDate (3, date));
   }
 
   /*
-  Accepts one argument, a Date object, filters through all events to
+  Accepts one argument, a Moment object, filters through all events to
   determine which ones occur on that date, and returns an Event array
   containing the events that do.
   */
@@ -77,29 +112,32 @@
   }
 
   /*
+  Accepts two parameters:
+
+  * n, an integer
+  * date, a string
+
+  Returns an Event array of the next n events that end on or after date.
   */
   function getNEventsAfterDate (n, date) {
-
-  }
-
-  /*
-  Accepts no arguments, returns an array of all
-  Event objects.
-  */
-  function getAllEvents () {
-    // TODO
+    return getAllEvents()
+      .sort(function (event1, event2) {
+        return moment(event1.start_date).isSameOrAfter(event2.start_date);
+      }).filter (function (event) {
+        return moment(event.end_date).isSameOrAfter(date);
+      }).slice (0, n);
   }
 
   /*
   Accepts two arguments:
 
   * event, an Event object
-  * date, a Date object
+  * date, a string
 
-  Returns true iff event occurs on given date.
+  Returns true iff event occurs on same day as given date.
   */
-  function eventHasDate (event, date) {
-    // TODO
+  function eventHasDay (event, date) {
+    return moment (event.date).isSame (date, 'day');
   }
 
   /*
@@ -111,16 +149,16 @@
   }
 
   /*
-  Accepts no arguments and returns the instance's
-  body class name as a string.  
+  Accepts no arguments and returns the instance's body class 
+  name as a string.  
   */
   function instanceBodyClassName () {
     return getFeatureClassPrefix () + '_body';
   }  
 
   /*
-    Accepts no arguments and returns a string that
-    represents the standard prefix for feature classes.
+  Accepts no arguments and returns a string that represents 
+  the standard prefix for feature classes.
   */
   function getFeatureClassPrefix () {
     return getModuleClassPrefix () + '_feature';
@@ -134,9 +172,16 @@
     var self = this;
     // Create component element 
     var componentElement = createCalendarComponentElement ();
+    var events = _.chain (getAllEvents ())
+        .map (function (event) { return getDaysBetween(event.start_date, event.end_date); })
+        .flatten ()
+        .uniq ()
+        .map (function (date) { return { date: date }; })
+        .value ();
 
     // Embed CLNDR element
     componentElement.clndr({
+      events: events,
       clickEvents: {
         click: self.onClick
       }
@@ -144,6 +189,21 @@
 
     // Attach component element to container
     containerElement.append(componentElement);
+  }
+
+  /*
+  Accepts two arguments, strings representing dates. Returns an Array
+  of strings representing all the days between startDate and endDate,
+  inclusive.
+  */
+  function getDaysBetween (startDate, endDate) {
+    var format = 'YYYY MM DD';
+    var dates = [moment(startDate).format(format)];
+    for (var date = moment(startDate); date.isBefore(endDate); date.add(1, 'days')) {
+      dates.push(date.format(format));
+    }
+    dates.push(moment(endDate).format(format));
+    return dates;
   }
 
   /*
@@ -165,16 +225,16 @@
   }
 
   /*
-    Accepts one argument: target, a CLNDR Target object; and handles click events on
-    the embedded CLNDR object.
+  Accepts one argument: target, a CLNDR Target object; and handles click events on
+  the embedded CLNDR object.
   */
   Calendar.prototype.onClick = function (target) {
-
+    return;
   }
 
   /*
-    Accepts no arguments and returns a string that
-    represents the standard prefix for calendar classes.
+  Accepts no arguments and returns a string that
+  represents the standard prefix for calendar classes.
   */
   function getCalendarClassPrefix () {
     return getModuleClassPrefix () + '_calendar';
@@ -240,6 +300,10 @@
         .addClass(classPrefix + '_body')
         .append ($('<div></div>')
           .addClass(classPrefix + '_date'))
+          .text (moment (event.start_date).isSame (event.end_date, 'day') ?
+            moment(event.start_date).format('MMM Do YYYY hh:mm a') + 'to' + moment(event.end_date).format('hh:mm a') :
+            moment(event.start_date).format('MMM Do YYYY hh:mm a') + 'to' + moment(event.end_date).format('MMM Do YYYY hh:mm a') 
+            )
         .append ($('<div></div>')
           .addClass(classPrefix + '_location')
           .text(event.location)))

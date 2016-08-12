@@ -1194,6 +1194,13 @@ header {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
+#block-eventsmeetings {
+  border: 2px solid green;
+  height: 2000px; }
+  #block-eventsmeetings .clndr table {
+    font-family: "p22-underground", sans-serif;
+    border: 2px solid pink; }
+
 html, body {
   max-width: 100%;
   margin: 0;
@@ -1306,6 +1313,7 @@ button {
   display: block;
   letter-spacing: 0.02rem;
   cursor: pointer;
+  text-transform: uppercase;
   transition: background-color 0.25s; }
   @media screen and (min-width: 650px) {
     button {
@@ -1436,7 +1444,7 @@ button {
   background-image: url("../images/blue-columns-background.jpg");
   background-size: cover;
   background-position: center;
-  /* When this region has actual content determining its height, check different positions to see which looks best */
+  /* TODO: When this region has actual content (& therefore height), check different positions to see which looks best w/ image*/
   height: auto; }
   #homepage_events_region h2 {
     color: #FFFFFF; }
