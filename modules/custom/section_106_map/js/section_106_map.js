@@ -847,7 +847,7 @@
               positionClass: 'toast-bottom-center',
               preventDuplicates: true
             };
-            toastr.info ('Link Copied to Clipboard.' + new Date ().toString ());
+            toastr.info ('Link Copied to Clipboard.');
           });
         });
   }
@@ -1135,7 +1135,7 @@
           positionClass: 'toast-bottom-center',
           preventDuplicates: true
         };
-        toastr.info ('Link Copied to Clipboard.' + new Date ().toString ());
+        toastr.info ('Link Copied to Clipboard.');
       });
     });
   }
