@@ -832,7 +832,14 @@
     and returns undefined.
   */
   Map.prototype.showStatePanelElement = function (state) {
-    this.getPanelElement ().empty ().append (this.createStatePanelElement (state)).animate ({scrollTop: 0}, 200).show ();
+    this.getPanelElement ()
+      .empty ()
+      .append (this.createStatePanelElement (state))
+      .animate ({scrollTop: 0}, 200)
+      .show (function () {
+          // create case share elements.
+          a2a.init_all ('page');
+        });
   }
 
   /*
@@ -1102,10 +1109,15 @@
   */
   Grid.prototype.showCaseOverlayElement = function (_case) {
     var overlayElement = this.getOverlayElement ();
+
     $('.' + getOverlayBodyClassName (), overlayElement)
       .empty ()
       .append (createCaseElement (_case));
-    overlayElement.show ();
+
+    overlayElement.show (function () {
+      // create case share elements.
+      a2a.init_all ('page');
+    });
   }
 
   /*
@@ -1225,7 +1237,110 @@
             .append ($('<div></div>')
               .addClass (classPrefix + '_contact_phone')
               .text (_case.poc.phone)))
-          ));
+          )
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_footer')
+          .append (createShareElement (_case))));
+  }
+
+  /*
+    Accepts one argument: _case, a Case object;
+    and returns an HTML element that contains
+    multiple sharing options for _case as a
+    JQuery HTML Element.
+
+    Note: This function displays
+    elements created by the AddToAny
+    (https://www.drupal.org/project/addtoany)
+    module.
+  */
+  function createShareElement (_case) {
+    var classPrefix = getShareClassName ();
+    var dataPrefix = getModuleDataPrefix () + '-share';
+
+    return $('<div></div>')
+      .addClass (classPrefix)
+      .attr (dataPrefix + '-case-id', _case.id)
+      .addClass ('a2a_kit a2a_kit_size_32 a2a_default_style')
+      .attr ('data-a2a-url', _case.url)
+      .attr ('data-a2a-title', _case.title)
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_label')
+        .text ('SHARE'))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_button')
+        .addClass (classPrefix + '_facebook')
+        .append ($('<a></a>')
+          .addClass ('a2a_button_facebook')
+          .append ($('<img></img>')
+            .addClass (classPrefix + '_icon')
+            .addClass (classPrefix + '_facebook_icon')
+            .attr ('src', '/modules/custom/section_106_map/images/facebook-icon.svg')
+            .attr ('alt', 'Facebook'))))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_button')
+        .addClass (classPrefix + '_twitter')
+        .append ($('<a></a>')
+          .addClass ('a2a_button_twitter')
+          .append ($('<img></img>')
+            .addClass (classPrefix + '_icon')
+            .addClass (classPrefix + '_twitter_icon')
+            .attr ('src', '/modules/custom/section_106_map/images/twitter-icon.svg')
+            .attr ('alt', 'Twitter'))))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_button')
+        .addClass (classPrefix + '_mail')
+        .append ($('<a></a>')
+          .addClass (classPrefix + '_mail_link')
+          .attr ('href', 'mailto:?subject=Take%20a%20look%20at%20this%20&body=Take%20a%20look%20at%20this%20%3A%0A%0A' + _case.url)
+          .append ($('<img></img>')
+            .addClass (classPrefix + '_icon')
+            .addClass (classPrefix + '_mail_icon')
+            .attr ('src', '/modules/custom/section_106_map/images/email-icon.svg')
+            .attr ('alt', 'Email'))))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_button')
+        .addClass (classPrefix + '_print')
+        .append ($('<img></img>')
+          .addClass (classPrefix + '_icon')
+          .addClass (classPrefix + '_print_icon')
+          .attr ('src', '/modules/custom/section_106_map/images/print-icon.svg')
+          .attr ('alt', 'Print')
+          .click (function () {
+              printCase (_case);
+            })));
+  }
+
+  /*
+    Accepts one argument: _case, a Case object;
+    and returns a printable HTML document that
+    represents _case as an HTML string.
+  */
+  function getCasePrintContent (_case) {
+    var htmlHeader = '<!DOCTYPE html><html lang="en">';
+    htmlHeader += '<head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><link rel="Shortcut Icon" href="../../images/favicon.ico" type="image/x-icon" /><meta charset="utf-8" /><title>Section 106 Case View</title>';
+    htmlHeader += '<link rel="stylesheet" type="text/css" href="css/print.css" />';
+    htmlHeader += '<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,600italic,400,500,700,800,300" rel="stylesheet" type="text/css" />';
+    htmlHeader += '</head><body>';
+
+    var caseElement = $('<div></div>').append (createCaseElement (_case).clone ());
+    $('.' + getShareClassName (), caseElement).remove ();
+
+    var htmlBody = caseElement.html ();
+    var htmlFooter = "</body></html>";
+    return htmlHeader + htmlBody + htmlFooter;
+  }
+
+  /*
+    Accepts one argument: _case, a Case object;
+    and prints _case.
+  */
+  function printCase (_case) {
+    var printWindow = window.open ("", "processPrint");
+    printWindow.document.open ();
+    printWindow.document.write (getCasePrintContent(_case));
+    printWindow.document.close ();
+    printWindow.print ();
   }
 
   /*
@@ -1244,6 +1359,14 @@
   */
   function getSelectedClassName () {
     return getModuleClassPrefix () + '_selected';
+  }
+
+  /*
+    Accepts no arguments and returns the string
+    used to label share elements.
+  */
+  function getShareClassName () {
+    return getModuleClassPrefix () + '_share';
   }
 
   /*
