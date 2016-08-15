@@ -187,8 +187,10 @@
       }
     });
 
+
     // Attach component element to container
-    containerElement.append(componentElement);
+    containerElement.append (componentElement);
+    // customizeCalendarComponentElement (containerElement);
   }
 
   /*
@@ -217,7 +219,7 @@
         .addClass(classPrefix + '_header')
         .append ($('<h3></h3>')
           .addClass(classPrefix + '_title')
-          .text('Calendar')))
+          .text('Calendar!')))
       .append ($('<div></div>')
         .addClass(classPrefix + '_body')
         .append($('<div></div>')
@@ -268,7 +270,7 @@
         .addClass(classPrefix + '_header')
         .append ($('<h3></h3>')
           .addClass(classPrefix + '_title')
-          .text('Calendar')))
+          .text('Upcoming Events & Meetings')))
       .append ($('<div></div>')
         .addClass(getGridBodyClassName ()));
   }

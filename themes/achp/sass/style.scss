@@ -3,7 +3,7 @@ $gutter: 0em !global;
 @import "neat/neat";
 @import "features";
 @import "global";
-@import "../event_calendar/sass/event_calendar.scss";
+/*@import "../event_calendar/sass/event_calendar.scss";*/
 
 html, body {
   max-width: 100%;
@@ -460,5 +460,97 @@ footer {
         display: none;
       }
     }
+  }
+}
+
+/* TODO: move to separate file when it you figure out how to get sass to watch it */
+#block-eventsmeetings {
+  .event_calendar_feature {
+    padding-top: 30px;
+  }
+
+  h3 {
+    color: #FFFFFF;
+    font-size: 1.75rem;
+    font-weight: 300;
+  }
+
+  .event_calendar_calendar {
+    font-family: $sans-text;
+    @extend .card;
+    background-color: #fff;
+    @include span-columns (4 of 12);
+    color: $color-lightgrey-2;
+
+    .clndr-controls {
+      position: relative;
+      height: 40px;
+
+      .month {
+        font-size: 1.5625rem;
+        text-transform: uppercase;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        text-align: center;
+        /*display: inline;*/
+      }
+
+      .clndr-previous-button {
+        position: absolute;
+        top: 9px;
+        left: 15px;
+        /*line-height: 1.5625rem;*/
+                /*display: inline;*/
+                float: left;
+      }
+
+      .clndr-next-button {
+        position: absolute;
+        float: right;
+                /*line-height: 1.5625rem;*/
+        top: 9px;
+        right: 15px;
+                /*display: inline;*/
+      }
+    }
+
+      .clndr-table {
+        border: none;
+        width: 100%;
+        text-align: center;
+        font-size: 0.75rem;
+
+        thead {
+          font-family: $serif-text;
+          font-weight: bold;
+        }
+
+        tbody {
+          .adjacent-month {
+            color: $color-lightgrey;
+          }
+
+          .today {
+            color: #fff;
+            background-color: $color-blue;
+          }
+
+        }
+
+        .day, .header-day {
+          line-height: 3.5;
+        }
+      }
+  }
+
+  .event_calendar_grid {
+    @include span-columns (8 of 12); 
+    padding-left: 20px;   
+  }
+
+  .event_calendar_feature_footer {
+    margin-top: 30px;
+    @include span-columns (12 of 12);  
   }
 }
