@@ -795,7 +795,7 @@
         .addClass (classPrefix + '_header')
         .append ($('<div></div>')
           .addClass (classPrefix + '_header_title')
-          .text ('Active Section 106 Cases'))
+          .text ('Cases in ' + state.name))
         .append ($('<div></div>')
           .addClass (classPrefix + '_header_close_button'))
           .click (_.bind (this.hidePanelElement, this)))
@@ -839,6 +839,16 @@
       .show (function () {
           // create case share elements.
           a2a.init_all ('page');
+
+          // enable the link button.
+          var clipboard = new Clipboard ('.' + getShareLinkClassName ());
+          clipboard.on ('success', function (event) {
+            toastr.options = {
+              positionClass: 'toast-bottom-center',
+              preventDuplicates: true
+            };
+            toastr.info ('Link Copied to Clipboard.' + new Date ().toString ());
+          });
         });
   }
 
@@ -1117,6 +1127,16 @@
     overlayElement.show (function () {
       // create case share elements.
       a2a.init_all ('page');
+
+      // enable the link button.
+      var clipboard = new Clipboard ('.' + getShareLinkClassName ());
+      clipboard.on ('success', function (event) {
+        toastr.options = {
+          positionClass: 'toast-bottom-center',
+          preventDuplicates: true
+        };
+        toastr.info ('Link Copied to Clipboard.' + new Date ().toString ());
+      });
     });
   }
 
@@ -1300,47 +1320,13 @@
             .attr ('alt', 'Email'))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_button')
-        .addClass (classPrefix + '_print')
+        .addClass (getShareLinkClassName ())
+        .attr ('data-clipboard-text', _case.url) // Uses clipboard.js to copy URLS to clipboards.
         .append ($('<img></img>')
           .addClass (classPrefix + '_icon')
-          .addClass (classPrefix + '_print_icon')
-          .attr ('src', '/modules/custom/section_106_map/images/print-icon.svg')
-          .attr ('alt', 'Print')
-          .click (function () {
-              printCase (_case);
-            })));
-  }
-
-  /*
-    Accepts one argument: _case, a Case object;
-    and returns a printable HTML document that
-    represents _case as an HTML string.
-  */
-  function getCasePrintContent (_case) {
-    var htmlHeader = '<!DOCTYPE html><html lang="en">';
-    htmlHeader += '<head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><link rel="Shortcut Icon" href="../../images/favicon.ico" type="image/x-icon" /><meta charset="utf-8" /><title>Section 106 Case View</title>';
-    htmlHeader += '<link rel="stylesheet" type="text/css" href="css/print.css" />';
-    htmlHeader += '<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,600italic,400,500,700,800,300" rel="stylesheet" type="text/css" />';
-    htmlHeader += '</head><body>';
-
-    var caseElement = $('<div></div>').append (createCaseElement (_case).clone ());
-    $('.' + getShareClassName (), caseElement).remove ();
-
-    var htmlBody = caseElement.html ();
-    var htmlFooter = "</body></html>";
-    return htmlHeader + htmlBody + htmlFooter;
-  }
-
-  /*
-    Accepts one argument: _case, a Case object;
-    and prints _case.
-  */
-  function printCase (_case) {
-    var printWindow = window.open ("", "processPrint");
-    printWindow.document.open ();
-    printWindow.document.write (getCasePrintContent(_case));
-    printWindow.document.close ();
-    printWindow.print ();
+          .addClass (classPrefix + '_link_icon')
+          .attr ('src', '/modules/custom/section_106_map/images/link-icon.svg')
+          .attr ('alt', 'Link')));
   }
 
   /*
@@ -1359,6 +1345,14 @@
   */
   function getSelectedClassName () {
     return getModuleClassPrefix () + '_selected';
+  }
+
+  /*
+    Accepts no arguments and returns the string
+    used to label share link elements.
+  */
+  function getShareLinkClassName () {
+    return getShareClassName () + '_link';
   }
 
   /*
