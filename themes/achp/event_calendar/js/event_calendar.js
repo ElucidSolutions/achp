@@ -9,6 +9,11 @@
     var instance = new FeatureInstance ();
     $('#block-eventsmeetings').append(instance.getInstanceElement ());
 
+    $('.month').click (function (e) {
+      var date = moment($(e.target).text()).date(1)
+      console.log(date)
+    })
+
   });
 
   /*
@@ -25,32 +30,68 @@
         url: '/node/3'
       },
       { 
+        title: 'Upcoming Event 2',
+        start_date: '2016-10-06 9:00',
+        end_date: '2016-10-07 15:00',
+        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
+        description: 'Event 2.',
+        url: '/node/7'        
+      },      
+      { 
+        title: 'Directory Staff Committee Meeting',
+        start_date: '2016-08-24 12:00',
+        end_date: '2016-08-30 18:00',
+        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
+        description: 'Meeting for staff members.',
+        url: '/node/5'        
+      },
+      { 
+        title: 'Upcoming Event 1',
+        start_date: '2016-09-12 12:00',
+        end_date: '2016-09-12 15:00',
+        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
+        description: 'Event 1.',
+        url: '/node/6'        
+      },
+      { 
+        title: 'Upcoming Event 3',
+        start_date: '2016-12-27 12:00',
+        end_date: '2017-01-08 15:00',
+        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
+        description: 'Event 3.',
+        url: '/node/8'        
+      }, 
+      { 
         title: 'Annual Native American Summit',
         start_date: '2016-08-06 14:00',
         end_date: '2016-08-09 17:00',
         location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
         description: 'Learn about Native American issues',
         url: '/node/4'
-      },
-      { 
-        title: 'Directory Staff Committee Meeting',
-        start_date: '2016-08-30 12:00',
-        end_date: '2016-09-07 18:00',
-        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
-        description: 'Meeting for staff members.',
-        url: '/node/5'        
       }
-    ]
+    ].sort(function (event1, event2) {
+      return moment(event1.start_date).isSameOrAfter(event2.start_date);
+    });
   }  
 
   // I. Defining the feature instance
   /*
   */
   function FeatureInstance () {
+    var self = this;
     this._instanceElement = createInstanceElement ();
     var bodyElement = this.getBodyElement ();
     this._calendar = new Calendar (bodyElement);
     this._grid = new Grid (bodyElement);
+    this._calendar.onClick (function (target) {
+      self._grid.displayEvents (getEventsOnDay (target.date));
+    })
+    this._calendar.monthChange (function (month) {
+      self._grid.displayEvents (getNEventsAfterDate (3, month._d));
+    })
+    // this._calendar.monthClick (function () {
+
+    // })
   }
 
   /*
@@ -107,8 +148,22 @@
   determine which ones occur on that date, and returns an Event array
   containing the events that do.
   */
-  function filterEvents (date) {
-    return getAllEvents ().filter (function (event) { return eventHasDate (event, date); });
+  function getEventsOnDay (date) {
+    return getAllEvents ().filter (function (event) { return eventOnDay (event, date); });
+  }
+
+  /*
+  Accepts two parameters:
+
+  * event, an Event object
+  * date, a Moment object
+
+  Returns true iff the event's start date is on or before the same 
+  day as date, and the end date is on or after the same day as date.
+
+  */
+  function eventOnDay (event, date) {
+    return moment (event.start_date).isSameOrBefore (date, 'day') && moment (event.end_date).isSameOrAfter (date, 'day');
   }
 
   /*
@@ -121,9 +176,7 @@
   */
   function getNEventsAfterDate (n, date) {
     return getAllEvents()
-      .sort(function (event1, event2) {
-        return moment(event1.start_date).isSameOrAfter(event2.start_date);
-      }).filter (function (event) {
+      .filter (function (event) {
         return moment(event.end_date).isSameOrAfter(date);
       }).slice (0, n);
   }
@@ -171,7 +224,7 @@
   function Calendar (containerElement) {
     var self = this;
     // Create component element 
-    var componentElement = createCalendarComponentElement ();
+    this._componentElement = createCalendarComponentElement ();
     var events = _.chain (getAllEvents ())
         .map (function (event) { return getDaysBetween(event.start_date, event.end_date); })
         .flatten ()
@@ -180,17 +233,16 @@
         .value ();
 
     // Embed CLNDR element
-    componentElement.clndr({
+    this.getContainerElement().clndr({
       events: events,
       clickEvents: {
-        click: self.onClick
+        click: _.bind (self.callOnClick, self),
+        onMonthChange: _.bind (self.callMonthChange, self)       
       }
     });
 
-
     // Attach component element to container
-    containerElement.append (componentElement);
-    // customizeCalendarComponentElement (containerElement);
+    containerElement.append (this._componentElement);
   }
 
   /*
@@ -219,19 +271,79 @@
         .addClass(classPrefix + '_header')
         .append ($('<h3></h3>')
           .addClass(classPrefix + '_title')
-          .text('Calendar!')))
+          .text('Calendar')))
       .append ($('<div></div>')
         .addClass(classPrefix + '_body')
         .append($('<div></div>')
-          .addClass(classPrefix + '_container')));
+          .addClass(getCalendarContainerClassName ())));
   }
 
   /*
   Accepts one argument: target, a CLNDR Target object; and handles click events on
   the embedded CLNDR object.
   */
-  Calendar.prototype.onClick = function (target) {
+  Calendar.prototype._onClick = function (target) {
     return;
+  }
+
+  /*
+    Accepts one argument: target, a CLNDR Target object; and calls this 
+    component's onClick event handler on target. 
+  */
+  Calendar.prototype.callOnClick = function (target) {
+    this._onClick (target);
+  }
+
+  /*
+  Accepts one argument, a function that accepts a calendar target object and
+  registers eventHandler as the function to be called when the user clicks
+  on the calendar.
+  */
+  Calendar.prototype.onClick = function (eventHandler) {
+    this._onClick = eventHandler;
+  }
+
+  /*
+  */
+  Calendar.prototype._monthChange = function (target) {
+    return;
+  }
+
+  /*
+  */
+  Calendar.prototype.callMonthChange = function (target) {
+    this._monthChange (target);
+  }
+
+  /*
+  */
+  Calendar.prototype.monthChange = function (eventHandler) {
+    this._monthChange = eventHandler;
+  }
+
+
+  /*
+  Accepts no arguments, and returns the calendar container as a 
+  jQuery Element.
+  */
+  Calendar.prototype.getContainerElement = function () {
+    return $('.' + getCalendarContainerClassName(), this.getComponentElement ());
+  }
+
+  /*
+  Accepts no arguments; returns the Calendar object's 
+  component element as a jQuery HTML Element.
+  */
+  Calendar.prototype.getComponentElement = function () {
+    return this._componentElement;
+  }
+
+  /*
+  Accepts no arguments and returns a string that
+  represents the calendar container element's class name.
+  */
+  function getCalendarContainerClassName () {
+    return getCalendarClassPrefix () + '_container';
   }
 
   /*
@@ -249,6 +361,7 @@
   function Grid (containerElement) {
     this._componentElement = createGridComponentElement ();
     containerElement.append(this._componentElement);
+    this.displayEvents(getNEventsAfterDate (3, moment().format()));
   }
 
   /*
@@ -281,7 +394,7 @@
   them; and returns undefined.
   */
   Grid.prototype.displayEvents = function (events) {
-    getGridBodyElement().empty().append(events.map (createCardElement));
+    this.getGridBodyElement().empty().append(events.map (createCardElement));
   }
 
   /*
@@ -292,10 +405,12 @@
     var classPrefix = getGridClassPrefix () + '_card';  
 
     return $('<div></div>')
+    .addClass(classPrefix + '_container')
+      .append ($('<div></div>')
       .addClass(classPrefix)
       .append ($('<div></div>')
         .addClass(classPrefix + '_header')
-        .append ($('<h4></h4>')
+        .append ($('<h3></h3>')
           .addClass(classPrefix + '_title')
           .text(event.title)))
       .append ($('<div></div>')
@@ -303,8 +418,8 @@
         .append ($('<div></div>')
           .addClass(classPrefix + '_date'))
           .text (moment (event.start_date).isSame (event.end_date, 'day') ?
-            moment(event.start_date).format('MMM Do YYYY hh:mm a') + 'to' + moment(event.end_date).format('hh:mm a') :
-            moment(event.start_date).format('MMM Do YYYY hh:mm a') + 'to' + moment(event.end_date).format('MMM Do YYYY hh:mm a') 
+            moment(event.start_date).format('MMMM Do, YYYY h:mm A') + ' to ' + moment(event.end_date).format('hh:mm A') :
+            moment(event.start_date).format('MMMM Do, YYYY h:mm A') + ' to ' + moment(event.end_date).format('MMMM Do, YYYY h:mm A') 
             )
         .append ($('<div></div>')
           .addClass(classPrefix + '_location')
@@ -317,15 +432,15 @@
             .attr('href', event.url)
             .text('READ MORE')))
         .append ($('<div></div>')
-          .addClass(classPrefix + '_google_calendar')));
+          .addClass(classPrefix + '_google_calendar'))));
   }
 
   /*
   Accepts no arguments, and returns the component's body
   element as a jQuery HTML Element.
   */
-  function getGridBodyElement () {
-    return $('.' + gridBodyClassName (), getComponentElement());
+  Grid.prototype.getGridBodyElement = function () {
+    return $('.' + getGridBodyClassName (), this.getComponentElement());
   }
 
   /*
