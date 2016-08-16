@@ -192,7 +192,7 @@
               self.getMap ().setMarkers (self.getCases ());
               break;
             case GRID_MODE:
-              self.getGrid ().setPage (self.getCases (), 0);
+              self.getGrid ().displayCases (self.getCases ());
               break;
           }
         });
@@ -212,7 +212,7 @@
               self.getMap ().setMarkers (self.getCases ());
               break;
             case GRID_MODE:
-              self.getGrid ().setPage (self.getCases (), 0);
+              self.getGrid ().displayCases (self.getCases ());
               break;
           }
 
@@ -303,7 +303,7 @@
     var grid = this.getGrid ();
 
     // load the cases into the grid.
-    grid.setPage (this.getCases (), 0);
+    grid.displayCases (this.getCases ());
 
     // display the grid component.
     this.selectGridTabElement ();
@@ -951,9 +951,26 @@
     object.
   */
   function Grid (containerElement) {
+    this._cases = [];
     this._currentPage = 0;
     this._componentElement = this.createComponentElement ();
     containerElement.append (this._componentElement);
+  }
+
+  /*
+    Accepts no arguments and returns an array of
+    the Case objects displayed in this component.
+  */
+  Grid.prototype.getCases = function () {
+    return this._cases;
+  }
+
+  /*
+    Accepts no arguments and returns this
+    component's current page as an integer.
+  */
+  Grid.prototype.getCurrentPage = function () {
+    return this._currentPage;
   }
 
   /*
@@ -1008,73 +1025,129 @@
   }
 
   /*
-    Accepts two arguments:
-
-    * cases, an array of Case objects
-    * and page, an integer that represents a
-      page number
-
-    displays cases; sets the current page to
-    page; and returns undefined.
+    Accepts one argument: cases, a Case array;
+    and displays the given cases in this
+    component.
   */
-  Grid.prototype.setPage = function (cases, page) {
+  Grid.prototype.displayCases = function (cases) {
+    this._cases = cases;
+    this.setPage (0);
+  }
+
+  /*
+    Accepts one argument: page, an integer that
+    represents a page index; and displays the
+    given page.
+  */
+  Grid.prototype.setPage = function (page) {
+    // Update the current page index.
     this._currentPage = page;
 
-    var componentElement = this.getComponentElement ();
+    // Update the body element.
+    this.getBodyElement ().empty ().append (this.getCurrentPageCards ());
 
-    var numCasesPerPage = 3;
-    var numPages = cases.length / numCasesPerPage;
+    // Update the nav element.
+    this.getFooterElement ().empty ().append (this.createNavElement ());
+  }
 
-    var startCaseIndex = numCasesPerPage * this._currentPage;
-    var endCaseIndex = Math.min (startCaseIndex + numCasesPerPage, cases.length);
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents this component's
+    nav element.
+  */
+  Grid.prototype.createNavElement = function () {
+    return $('<div></div>')
+      .addClass (getNavClassName ())
+      .append (this.createNavLinksElement ());
+  }
 
-    var maxNumLinks = 5;
-    var classPrefix = getModuleClassPrefix () + '_grid';
-
-    $('.' + classPrefix + '_body', componentElement)
-      .empty ()
-      .append (this.createCaseCards (cases.slice (startCaseIndex, endCaseIndex)));
-
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents this component's
+    nav links element.
+  */
+  Grid.prototype.createNavLinksElement = function () {
     var self = this;
-    $('.' + classPrefix + '_footer', componentElement)
-      .empty ()
-      .append ($('<div></div>')
-        .addClass (classPrefix + '_nav')
-        .append ($('<div></div>')
-          .addClass (classPrefix + '_nav_links')
-          .append (this.createNavLinkElement (cases, this._currentPage > 0 ? this._currentPage - 1 : 0, '')
-            .addClass (classPrefix + '_nav_prev')
-            .addClass (this._currentPage > 0 ? null : getDisabledClassName ()))
-          .append (_.range (0, Math.min (numPages, maxNumLinks)).map (function (i) {
-              return self.createNavLinkElement (cases, i, i + 1)
-                .addClass (i === self._currentPage ? getSelectedClassName () : null);
-            }))
-          .append (numPages > maxNumLinks ? this.createNavLinkElement (cases, numPages - 1, '') : null)
-          .append (this.createNavLinkElement (cases, this._currentPage < numPages - 1 ? this._currentPage + 1: numPages - 1, '')
-            .addClass (classPrefix + '_nav_next')
-            .addClass (this._currentPage < numPages - 1 ? null : getDisabledClassName ()))
-          .append ($('<div></div>')
-            .addClass (classPrefix + '_nav_stats')
-            .text ((startCaseIndex + 1) + '-' + endCaseIndex + ' of ' + cases.length + ' Section 106 Cases'))));
+    return $('<div></div>')
+      .addClass (getNavClassName () + '_links')
+      .append (this.createPrevLinkElement ())
+      .append (_.range (0, Math.min (this.getNumPages (), getMaxNumLinks ()))
+        .map (function (page) {
+          return self.createNavLinkElement (page, page + 1, true);
+        }))
+      .append (this.getNumPages () > getMaxNumLinks () &&
+        this.createNavLinkElement (this.getNumPages () - 1, true))
+      .append (this.createNextLinkElement ())
+      .append (this.createNavStatsElement ());
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents this component's
+    nav stats element.
+  */
+  Grid.prototype.createNavStatsElement = function () {
+    return $('<div></div>')
+      .addClass (getNavClassName () + '_stats')
+      .text ((this.getCurrentPageStart () + 1) + '-' + this.getCurrentPageEnd () + ' of ' + this.getCases ().length + ' Section 106 Cases');
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents a link to this
+    component's next page.
+  */
+  Grid.prototype.createNextLinkElement = function () {
+     return (this.currentPageIsLast () ?
+        this.createNavLinkElement (this.getCurrentPage (), '', false) :
+        this.createNavLinkElement (this.getCurrentPage () + 1, '', true))
+      .addClass (getNavClassName () + '_next');
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents a link to this
+    component's previous page.
+  */
+  Grid.prototype.createPrevLinkElement = function () {
+     return (this.currentPageIsFirst () ?
+        this.createNavLinkElement (this.getCurrentPage (), '', false) :
+        this.createNavLinkElement (this.getCurrentPage () - 1, '', true))
+      .addClass (getNavClassName () + '_prev');
   }
 
   /*
     Accepts two arguments:
 
-      * i, an integer that denotes a page number
-      * and label, a string
+    * page, an integer that represents a page index
+    * label, a string
+    * and enabled, a boolean value
 
-    and returns a nav link element as a JQuery
-    HTML Element.
+    and returns a jQuery HTML Element that
+    represents a nav link element that when
+    clicked while enabled sets this component's
+    current page to page.
   */
-  Grid.prototype.createNavLinkElement = function (cases, i, label) {
+  Grid.prototype.createNavLinkElement = function (page, label, enabled) {
     var self = this;
+    var classPrefix = getNavClassName ();
     return $('<div></div>')
-      .addClass (getModuleClassPrefix () + '_nav_link')
+      .addClass (classPrefix + '_link')
+      .addClass (enabled ? '' : getDisabledClassName ())
       .text (label)
       .click (function () {
-          self.setPage (cases, i);
-        });
+        enabled && self.setPage (page);
+      });
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element array that represents the
+    case cards that should be displayed on this
+    component's current page.
+  */
+  Grid.prototype.getCurrentPageCards = function () {
+    return this.createCaseCards (this.getCurrentPageCases ());
   }
 
   /*
@@ -1173,6 +1246,24 @@
   }
 
   /*
+    Accepts no arguments and returns this
+    component's body element as a jQuery HTML
+    Element.
+  */
+  Grid.prototype.getBodyElement = function () {
+    return $('.' + getGridBodyClassName (), this.getComponentElement ());
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents this component's
+    footer element.
+  */
+  Grid.prototype.getFooterElement = function () {
+    return $('.' + getGridFooterClassName (), this.getComponentElement ());
+  }
+
+  /*
     Accepts no arguments and returns a string
     representing the class name used to label
     overlay body elements.
@@ -1192,11 +1283,162 @@
 
   /*
     Accepts no arguments and returns a string
+    that represents the class name used to label
+    grid nav elements.
+  */
+  function getNavClassName () {
+    return getComponentClassName () + '_nav';
+  }
+
+  /*
+    Accepts no arguments and returns the class
+    name used to label grid body elements as
+    a string.
+  */
+  function getGridBodyClassName () {
+    return getComponentClassName () + '_body';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the class named used to label
+    grid footer elements.
+  */
+  function getGridFooterClassName () {
+    return getComponentClassName () + '_footer';
+  }
+
+  /*
+    Accepts no arguments and returns a string
     representing the class name used to label
     grid elements.
   */
   function getComponentClassName () {
     return getModuleClassPrefix () + '_grid';
+  }
+
+  /*
+    Accepts no arguments and returns a Case
+    array containing those cases that should be
+    displayed on this component's current page.
+  */
+  Grid.prototype.getCurrentPageCases = function () {
+    return this.getPageCases (this.getCurrentPage ());
+  }
+
+  /*
+    Accepts one argument: page, an integer that
+    represents a page index; and returns a Case
+    array containing those cases that should be
+    displayed on the referenced page.
+  */
+  Grid.prototype.getPageCases = function (page) {
+    return this.getCases ().slice (this.getPageStart (page), this.getPageEnd (page));
+  }
+
+  /*
+    Accepts no arguments and returns an integer
+    that representing the index of the last
+    case in this component's case array that
+    should be displayed on the current page.
+  */
+  Grid.prototype.getCurrentPageEnd = function () {
+    return this.getPageEnd (this.getCurrentPage ());
+  }
+
+  /*
+    Accepts one argument: page, an integer that
+    represents a page index; and returns the
+    index of the last case in this component's
+    cases array that should be displayed on the
+    referenced page.
+  */
+  Grid.prototype.getPageEnd = function (page) {
+    return Math.min (this.getPageStart (page) + getNumCasesPerPage (), this.getCases ().length);
+  }
+
+  /*
+    Accepts no arguments and returns an integer
+    that representing the index of the first
+    case in this component's case array that
+    should be displayed on the current page.
+  */
+  Grid.prototype.getCurrentPageStart = function () {
+    return this.getPageStart (this.getCurrentPage ());
+  }
+
+  /*
+    Accepts one argument: page, an integer that
+    represents a page index; and returns the
+    index of the first case in this component's
+    cases array that should be displayed on the
+    referenced page.
+  */
+  Grid.prototype.getPageStart = function (page) {
+    return getNumCasesPerPage () * page;
+  }
+
+  /*
+    Accepts no arguments and returns true
+    iff this component's current page is the
+    last page.
+  */
+  Grid.prototype.currentPageIsLast = function () {
+    return this.isLastPage (this.getCurrentPage ());
+  }
+
+  /*
+    Accepts no arguments and returns true
+    iff this component's current page is the
+    first page.
+  */
+  Grid.prototype.currentPageIsFirst = function () {
+    return this.isFirstPage (this.getCurrentPage ());
+  }
+
+  /*
+    Accepts one argument: page, an integer that
+    represents a page index; and returns true iff
+    page references this component's last page.
+  */
+  Grid.prototype.isLastPage = function (page) {
+    return page === this.getNumPages () - 1;
+  }
+
+  /*
+    Accepts one argument: page, an integer that
+    represents a page index; and returns true iff
+    page references this component's first page.
+  */
+  Grid.prototype.isFirstPage = function (page) {
+    return page === 0;
+  }
+
+  /*
+    Accepts no arguments and returns an integer
+    that represents the number of pages that
+    this component has.
+  */
+  Grid.prototype.getNumPages = function () {
+    return Math.ceil (this.getCases ().length / getNumCasesPerPage ());
+  }
+
+  /*
+    Accepts no arguments and returns an integer
+    that represents the maximum number of links
+    that should be displayed in nav elements.
+  */
+  function getMaxNumLinks () {
+    return 5;
+  }
+
+  /*
+    Accepts no arguments and returns the maximum
+    number of cases that should be displayed on
+    each page as an integer.
+  */
+  function getNumCasesPerPage () {
+    return 3;
   }
 
   // IV. Auxiliary functions.
