@@ -135,13 +135,29 @@
        */
       FeatureInstance.prototype.registerTabEventHandler() = function () {
         var classPrefix = this.getFeatureClassName();
+
+
         $('ul.' + classPrefix + TABS + 'li').click(function (event) {
           var tabs = $('.' + classPrefix + TAB + CONTENT);
+
+          // Hide all the tab content
           tabs.each(function (tab) {
-
-
+            tab.css("display", "none");
           });
+
+          // Turn off active tab
+          var activeTab = $('.' + classPrefix + TAB + LINK + '.active');
+          activeTab.removeClass('active');
+
+          var selectedTab = $(this);
+          console.log(selectedTab);
+
         });
+
+
+
+
+
       }
 
       /**
