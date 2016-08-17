@@ -402,7 +402,8 @@
       if (currentElementIndex > 0) {
         currentElementIndex--;
         var step = $(stepElements[currentElementIndex]);
-        self.selectStep(step);
+        // Center the step element
+        self.centerStepElement(step);
       }
     });
     // Move to the right one step
@@ -410,7 +411,7 @@
       if (currentElementIndex < (stepElements.length - 1)) {
         currentElementIndex++;
         var step = $(stepElements[currentElementIndex]);
-        self.selectStep(step);
+        self.centerStepElement(step);
       }
     });
   }
