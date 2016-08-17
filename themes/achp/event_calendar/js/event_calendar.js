@@ -13,7 +13,6 @@
       var date = moment($(e.target).text()).date(1)
       console.log(date)
     })
-
   });
 
   /*
@@ -40,14 +39,14 @@
       { 
         title: 'Directory Staff Committee Meeting',
         start_date: '2016-08-24 12:00',
-        end_date: '2016-08-30 18:00',
+        end_date: '2016-08-24 18:00',
         location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
         description: 'Meeting for staff members.',
         url: '/node/5'        
       },
       { 
         title: 'Upcoming Event 1',
-        start_date: '2016-09-12 12:00',
+        start_date: '2016-09-12 13:00',
         end_date: '2016-09-12 15:00',
         location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
         description: 'Event 1.',
@@ -62,12 +61,20 @@
         url: '/node/8'        
       }, 
       { 
-        title: 'Annual Native American Summit',
+        title: 'Native American Summit',
         start_date: '2016-08-06 14:00',
         end_date: '2016-08-09 17:00',
         location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
         description: 'Learn about Native American issues',
         url: '/node/4'
+      },
+      { 
+        title: 'Upcoming Event 4',
+        start_date: '2016-10-06 14:00',
+        end_date: '2016-`0-09 17:00',
+        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
+        description: 'Learn about Native American issues',
+        url: '/node/9'
       }
     ].sort(function (event1, event2) {
       return moment(event1.start_date).isSameOrAfter(event2.start_date);
@@ -87,7 +94,7 @@
       self._grid.displayEvents (getEventsOnDay (target.date));
     })
     this._calendar.monthChange (function (month) {
-      self._grid.displayEvents (getNEventsAfterDate (3, month._d));
+      self._grid.displayEvents (getNEventsAfterDate (5, month._d));
     })
     // this._calendar.monthClick (function () {
 
@@ -140,7 +147,7 @@
   */
   FeatureInstance.prototype.showEvents = function (date) {
     // TODO: n parameter should be Drupal setting
-    this.getGrid ().displayEvents (getNEventsAfterDate (3, date));
+    this.getGrid ().displayEvents (getNEventsAfterDate (5, date));
   }
 
   /*
@@ -361,7 +368,7 @@
   function Grid (containerElement) {
     this._componentElement = createGridComponentElement ();
     containerElement.append(this._componentElement);
-    this.displayEvents(getNEventsAfterDate (3, moment().format()));
+    this.displayEvents(getNEventsAfterDate (5, moment().format()));
   }
 
   /*
@@ -416,22 +423,23 @@
       .append ($('<div></div>')
         .addClass(classPrefix + '_body')
         .append ($('<div></div>')
-          .addClass(classPrefix + '_date'))
+          .addClass(classPrefix + '_date')
           .text (moment (event.start_date).isSame (event.end_date, 'day') ?
             moment(event.start_date).format('MMMM Do, YYYY h:mm A') + ' to ' + moment(event.end_date).format('hh:mm A') :
             moment(event.start_date).format('MMMM Do, YYYY h:mm A') + ' to ' + moment(event.end_date).format('MMMM Do, YYYY h:mm A') 
-            )
+            ))
         .append ($('<div></div>')
           .addClass(classPrefix + '_location')
           .text(event.location)))
       .append($('<div></div>')
         .addClass(classPrefix + '_footer')
         .append ($('<div></div>')
-          .addClass(classPrefix + '_read_more')
+          .addClass(classPrefix + '_link read_more')
           .append($('<a></a>')
             .attr('href', event.url)
             .text('READ MORE')))
-        .append ($('<div></div>')
+        .append ($('<a></a>')
+          .attr('href', '#')
           .addClass(classPrefix + '_google_calendar'))));
   }
 
@@ -468,6 +476,15 @@
   function getModuleClassPrefix () {
     return 'event_calendar';
   } 
+
+  // function positionGridCards () {
+  //   console.log($('.event_calendar_grid_card_container').length)
+  //   if ($('.event_calendar_grid_card_container').length % 2 !== 0) {
+  //     $('.event_calendar_grid_card_container').last()
+  //       .parent('.event_calendar_grid_card_container')
+  //       .addClass('.event_calendar_grid_card_container_last');
+  //   }
+  // }
 
 
 }(jQuery));

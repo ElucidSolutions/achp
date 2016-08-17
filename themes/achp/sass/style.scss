@@ -120,6 +120,18 @@ button {
   text-align: left;
 }
 
+.card_date {
+  color: $color-lightgrey;
+  margin-top: 15px;
+}
+
+.card_body {
+  text-align: left;
+  font-family: $serif-text;
+  margin-top: 10px;
+  color: $color-grey;
+}
+
 /* For 'READ MORE >' buttons at bottom of card items*/
 .read_more {
   cursor: pointer;
@@ -548,6 +560,9 @@ footer {
     }
   }
 
+  $event-grid-column-padding: 20px;
+  $event-meeting-grid-column-content-width: $max-content-width / 3 - $event-grid-column-padding;
+
   .event_calendar_grid {
     @include span-columns (8 of 12); 
 
@@ -560,8 +575,19 @@ footer {
 
     .event_calendar_grid_card_container {
       @include span-columns (4 of 8);
-      padding: 0 0 20px 20px;
-      min-height: 230px;
+      padding: 0 0 $event-grid-column-padding $event-grid-column-padding;
+
+      &:nth-of-type(2n + 1) {
+        clear: both;
+      }
+
+/*      &:nth-of-type(2n) {
+        float: right;
+      }
+
+      &:nth-of-type(2n + 1):last-of-type {
+        @include span-columns (8 of 8);    
+      }*/
     }
 
     .event_calendar_grid_card {
@@ -569,7 +595,36 @@ footer {
       width: 100%;
       background-color: #fff;
       padding: 10px;
-      /*margin: 0 0 20px 20px;*/
+      max-width: $event-meeting-grid-column-content-width;
+
+      &_date {
+        @extend .card_date;
+        font-size: 12px;
+      }
+
+      &_location {
+        @extend .card_body;
+        margin-bottom: 10px;
+      }
+
+      &_footer {
+        height: 20px;
+        width: 100%;
+        position: relative;
+
+        .read_more {
+          position: absolute;
+        }
+
+        .event_calendar_grid_card_google_calendar {
+          display: block;
+          background-image: url('../images/add-calendar-icon.svg');
+          float: right;
+          background-repeat: no-repeat;
+          height: 20px;
+          width: 20px;
+        }
+      }
     }
   }
 

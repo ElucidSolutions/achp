@@ -14,15 +14,11 @@ $card-width: 300px;
 
       .news_item {
         &_date {
-          color: $color-lightgrey;
-          margin-top: 15px;
+          @extend .card_date;
         }
 
         &_body p {
-          text-align: left;
-          font-family: $serif-text;
-          margin-top: 10px;
-          color: $color-grey;
+          @extend .card_body;
         }
 
         &_link {
