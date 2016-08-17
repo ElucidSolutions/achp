@@ -271,7 +271,6 @@
    */
   FeatureInstance.prototype.selectStep = function (step) {
 
-    console.log('selectStep() called.');
     // First, let's remove any selected step and dim down the step
     var stepClassName = this.getFeatureClassName() + STEP;
 
