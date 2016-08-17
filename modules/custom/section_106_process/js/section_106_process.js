@@ -258,7 +258,7 @@
       cursoropacitymax: .7,
       cursorborder: 0,
       enablekeyboard: false,
-      touchbehavior: false
+      touchbehavior: true
     });
 
     flowchart.scrollLeft(0);
@@ -543,8 +543,7 @@
     featureInstance.registerNavigationClickEventHandler();
 
     /**
-     * Register navigation button click handler to
-     * move the flowchart left or right
+     * Reposition the flowchart based on the window size.
      */
     featureInstance.registerWindowResizeEventHandler();
 
