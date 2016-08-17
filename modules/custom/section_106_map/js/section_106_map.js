@@ -1067,16 +1067,10 @@
     nav links element.
   */
   Grid.prototype.createNavLinksElement = function () {
-    var self = this;
     return $('<div></div>')
       .addClass (getNavClassName () + '_links')
       .append (this.createPrevLinkElement ())
-      .append (_.range (0, Math.min (this.getNumPages (), getMaxNumLinks ()))
-        .map (function (page) {
-          return self.createNavLinkElement (page, page + 1, true);
-        }))
-      .append (this.getNumPages () > getMaxNumLinks () &&
-        this.createNavLinkElement (this.getNumPages () - 1, true))
+      .append (this.createNavLinkElements ())
       .append (this.createNextLinkElement ())
       .append (this.createNavStatsElement ());
   }
@@ -1089,7 +1083,7 @@
   Grid.prototype.createNavStatsElement = function () {
     return $('<div></div>')
       .addClass (getNavClassName () + '_stats')
-      .text ((this.getCurrentPageStart () + 1) + '-' + this.getCurrentPageEnd () + ' of ' + this.getCases ().length + ' Section 106 Cases');
+      .text ((this.getCases ().length > 0 ? this.getCurrentPageStart () + 1 : '0') + '-' + this.getCurrentPageEnd () + ' of ' + this.getCases ().length + ' Section 106 Cases');
   }
 
   /*
@@ -1114,6 +1108,45 @@
         this.createNavLinkElement (this.getCurrentPage (), '', false) :
         this.createNavLinkElement (this.getCurrentPage () - 1, '', true))
       .addClass (getNavClassName () + '_prev');
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element array that represents the direct
+    page links that should be displayed in this
+    component's nav element centered on the
+    current page.
+  */
+  Grid.prototype.createNavLinkElements = function () {
+    var self = this;
+    var classPrefix = getNavClassName ();
+
+    // get the page indicies range.
+    var range = this.getNavLinkRange ();
+
+    // create main links.
+    var linkElements = _.range (range.start, range.end)
+      .map (function (page) {
+        return self.createNavLinkElement (page, page + 1, true)
+          .addClass (self.getCurrentPage () === page && getSelectedClassName ());
+      });
+
+    // create quick links.
+    if (range.start > 0) {
+      linkElements.unshift (this.createNavLinkElement (0, '1', true)
+        .addClass (classPrefix + '_quick_link')
+        .addClass (classPrefix + '_quick_link_start'));
+      
+    }
+    var numPages = this.getNumPages ();
+    if (range.end < numPages) {
+      linkElements.push (this.createNavLinkElement (numPages - 1, numPages, true)
+        .addClass (classPrefix + '_quick_link')
+        .addClass (classPrefix + '_quick_link_end'));
+    }
+
+    // return link elements.
+    return linkElements;
   }
 
   /*
@@ -1402,7 +1435,7 @@
     page references this component's last page.
   */
   Grid.prototype.isLastPage = function (page) {
-    return page === this.getNumPages () - 1;
+    return page >= this.getNumPages () - 1;
   }
 
   /*
@@ -1411,7 +1444,45 @@
     page references this component's first page.
   */
   Grid.prototype.isFirstPage = function (page) {
-    return page === 0;
+    return page <= 0;
+  }
+
+  /*
+    Accepts no arguments and returns an integer
+    range that specifies the indicies of the
+    first and last pages that should be linked
+    to in the nav element.
+
+    Note: the returned range, r, is half
+    closed. Specifically, [r.start, r.end).
+  */
+  Grid.prototype.getNavLinkRange = function () {
+    var numLinks = this.getNumLinks ();
+    var currentPage = this.getCurrentPage ();
+
+    var minFirstPage = 0;
+    var maxLastPage = this.getNumPages ();
+
+    var nominalFirstPage = currentPage - Math.floor ((numLinks - 1) / 2);
+    var nominalLastPage = currentPage + Math.ceil ((numLinks + 1) / 2);
+
+    var leftOverflow = Math.max (minFirstPage - nominalFirstPage, 0);
+    var rightOverflow = Math.max (nominalLastPage - maxLastPage, 0);
+
+    return {
+      start: Math.max (nominalFirstPage - rightOverflow, minFirstPage),
+      end:   Math.min (nominalLastPage + leftOverflow, maxLastPage)
+    };
+  }
+
+  /*
+    Accepts no arguments and returns an integer
+    that represents the number of direct page
+    links that should be displayed in this
+    component's nav element.
+  */
+  Grid.prototype.getNumLinks = function () {
+    return Math.min (this.getNumPages (), getMaxNumLinks ());
   }
 
   /*
