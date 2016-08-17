@@ -80,7 +80,6 @@
      * element of the outter most div with a class name
      * of section_106_process as define in the twig template.
      */
-    var instanceClassName = this.getModuleClassPrefix()
     containerElement.append(bodyElement);
   }
 
@@ -336,10 +335,9 @@
   FeatureInstance.prototype.registerStepClickEventHandler = function () {
     var stepElements = $('.' + this.getFeatureClassName() + STEP);
     var featureInstance = this;
-    stepElements.each(function (index) {
-      var stepElement = $(this);
-      stepElement.click(function (event) {
-        featureInstance.selectStep(stepElement);
+    stepElements.forEach(function (step) {
+      step.click(function (event) {
+        featureInstance.selectStep(step);
       });
     });
   }
