@@ -1721,6 +1721,7 @@ footer {
         font-size: 1.5625rem;
         text-transform: uppercase;
         top: 0;
+        width: 250px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -1742,7 +1743,17 @@ footer {
         transform: translateY(-50%);
         left: 15px;
         float: left;
-        cursor: pointer; }
+        cursor: pointer;
+        background-image: url("../images/right-arrow-icon.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        /*padding-left: 15px;*/
+        /*right: $right-positioning;*/
+        /*cursor: pointer;*/
+        /*transition: background-image 0.25s;*/
+        /*@include center-y;*/ }
       #block-eventsmeetings .event_calendar_calendar_body .clndr-controls .clndr-next-button {
         position: absolute;
         float: right;

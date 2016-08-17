@@ -9,11 +9,9 @@
     var instance = new FeatureInstance ();
     $('#block-eventsmeetings').append(instance.getInstanceElement ());
 
-    $('.month').click (function (e) {
-      var date = moment($(e.target).text()).date(1)
-      console.log(date)
-    })
   });
+
+
 
   /*
   Accepts no arguments, returns an array of all Event objects.
@@ -22,8 +20,8 @@
     return [
       { 
         title: 'Section 106 Training',
-        start_date: '2015-08-04 15:00', 
-        end_date: '2015-08-04 17:00',
+        start_date: '2016-07-04 15:00', 
+        end_date: '2016-07-04 17:00',
         location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
         description: 'Learn about Section 106',
         url: '/node/3'
@@ -70,8 +68,8 @@
       },
       { 
         title: 'Upcoming Event 4',
-        start_date: '2016-10-06 14:00',
-        end_date: '2016-`0-09 17:00',
+        start_date: '2016-10-30 14:00',
+        end_date: '2016-11-02 17:00',
         location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
         description: 'Learn about Native American issues',
         url: '/node/9'
@@ -96,9 +94,15 @@
     this._calendar.monthChange (function (month) {
       self._grid.displayEvents (getNEventsAfterDate (5, month._d));
     })
-    // this._calendar.monthClick (function () {
+    $(bodyElement).on('click', '.month', function (e) {
+      var date = moment($(e.target).text()).date(1);
+      self._grid.displayEvents (getNEventsInMonth (5, date));
+    })
+    // $(bodyElement).on('click', '.month', this._calendar.monthClick (function (e) {
+    //   var date = moment($(e.target).text()).date(1);
+    //   self._grid.displayEvents (getNEventsInMonth (5, date));
+    // }))
 
-    // })
   }
 
   /*
@@ -188,6 +192,14 @@
       }).slice (0, n);
   }
 
+  function getNEventsInMonth (n, date) {
+    return getAllEvents()
+      .filter (function (event) {  
+        return moment(event.end_date).get('month') === moment(date).get('month')
+          || moment(event.start_date).get('month') === moment(date).get('month');
+      }).slice (0, n);
+  }
+
   /*
   Accepts two arguments:
 
@@ -241,11 +253,43 @@
 
     // Embed CLNDR element
     this.getContainerElement().clndr({
+      template:         
+        "<div class='clndr-controls'>" +
+            "<div class='clndr-control-button'>" +
+                "<span class='clndr-previous-button'></span>" +
+            "</div>" +
+            "<div class='month'><%= month %> <%= year %></div>" +
+            "<div class='clndr-control-button rightalign'>" +
+                "<span class='clndr-next-button'></span>" +
+            "</div>" +
+        "</div>" +
+        "<table class='clndr-table' border='0' cellspacing='0' cellpadding='0'>" +
+            "<thead>" +
+                "<tr class='header-days'>" +
+                "<% for(var i = 0; i < daysOfTheWeek.length; i++) { %>" +
+                    "<td class='header-day'><%= daysOfTheWeek[i] %></td>" +
+                "<% } %>" +
+                "</tr>" +
+            "</thead>" +
+            "<tbody>" +
+            "<% for(var i = 0; i < numberOfRows; i++){ %>" +
+                "<tr>" +
+                "<% for(var j = 0; j < 7; j++){ %>" +
+                "<% var d = j + i * 7; %>" +
+                    "<td class='<%= days[d].classes %>'>" +
+                        "<div class='day-contents'><%= days[d].day %></div>" +
+                    "</td>" +
+                "<% } %>" +
+                "</tr>" +
+            "<% } %>" +
+            "</tbody>" +
+        "</table>",
       events: events,
       clickEvents: {
         click: _.bind (self.callOnClick, self),
-        onMonthChange: _.bind (self.callMonthChange, self)       
-      }
+        onMonthChange: _.bind (self.callMonthChange, self)
+        } 
+      
     });
 
     // Attach component element to container
@@ -328,6 +372,23 @@
     this._monthChange = eventHandler;
   }
 
+  /*
+  */
+  Calendar.prototype._monthClick = function (target) {
+    return;
+  }
+
+  /*
+  */
+  Calendar.prototype.callMonthClick = function (target) {
+    this._monthClick (target);
+  }
+
+  /*
+  */
+  Calendar.prototype.monthClick = function (eventHandler) {
+    this._monthClick = eventHandler;
+  }
 
   /*
   Accepts no arguments, and returns the calendar container as a 
@@ -419,7 +480,9 @@
         .addClass(classPrefix + '_header')
         .append ($('<h3></h3>')
           .addClass(classPrefix + '_title')
-          .text(event.title)))
+          .append($('<a></a>')
+            .attr('href', event.url)
+            .text(event.title))))
       .append ($('<div></div>')
         .addClass(classPrefix + '_body')
         .append ($('<div></div>')
