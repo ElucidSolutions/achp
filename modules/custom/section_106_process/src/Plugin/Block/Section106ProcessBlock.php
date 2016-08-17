@@ -23,7 +23,7 @@ class Section106ProcessBlock extends BlockBase {
         'drupalSettings' => array (
           'section_106_process' => array (
             'steps' => $steps
-        ))
+        )) 
       ),
       '#theme' => 'section_106_process'
     );
@@ -53,9 +53,9 @@ class Section106ProcessBlock extends BlockBase {
       $steps [] = array (
         'id'     => $nid,
         'url'    => $url->toString (),        
-        'imageURI'  => $node->get ('field_process_step_image')->entity->url(),
-        'title' => $node->get ('field_title')->value,
-        'body' => $node->get ('body')->value,
+        'imageURL'  => $node->get ('field_process_step_image')->entity->url(),
+        'title' => $node->get ('title')->value,
+        'body' => $node->get ('field_process_step_summary')->value,
         'weight' => $node->get ('field_process_step_weight')->value
       );
     }

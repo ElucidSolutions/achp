@@ -3,61 +3,206 @@
 ** Section 106 Process module.
 */
 
-@import "bourbon/bourbon";
 @import "global";
-#homepage_flowchart_content {
-	.section_106_process {
-		margin: 0 auto;
-		height: 450px;
-		max-width: 940px;
-		.section_106_process_feature_step_weight {
-			background: #CD1803;
-			width: 40px;
-			height: 40px;
-			border-radius: 50%;
-			line-height: 40px;
-			font-size: 23px;
-			text-align: center;
-			z-index: 2;
-			-webkit-font-smoothing: subpixel-antialiased;
-			-webkit-transition: background 0.25s linear;
-			transition: background 0.25s linear;
-			a {
-				text-decoration: none;
-				color: #FFFFFF !important;
-			}
-		}
-		.section_106_process_feature_step_image {
-			margin-top: 192px;
-			overflow: hidden;
-			position: relative;
-			width: 140px;
-			height: 140px;
-			margin-bottom: 7px;
-			border-radius: 50%;
-			img {
-				width: 100%;
-				height: 100%;
-				border: 0;
-			}
-			.section_106_process_feature_step_image_overlay {
-				position: absolute;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: #C3F7F2;
-				border-radius: 50%;
-				opacity: .5;
-				display: block;
-				text-indent: -9999em;
-				line-height: 0;
-				font-size: 0;
-				-webkit-font-smoothing: subpixel-antialiased;
-				-webkit-transition: opacity 0.25s linear;
-				transition: opacity 0.25s linear;
-			}
-		}
-	}
+#block-section106processblock {
+  height: 377px;
+  width: 100%;
+}
+
+.section_106_process {
+  .section_106_process_feature_flowchart_navigation {
+    .section_106_process_feature_flowchart_navigation_previous,
+    .section_106_process_feature_flowchart_navigation_next {
+      position: absolute;
+      background-color: $color-blue;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      transition: background-image 0.25s;
+      z-index: 5;
+      height: 377px;
+      width: 30px;
+      opacity: 0;
+      cursor: pointer;
+      transition: opacity .25s ease-in-out;
+      -moz-transition: opacity .25s ease-in-out;
+      -webkit-transition: opacity .25s ease-in-out;
+    }
+    .section_106_process_feature_flowchart_navigation_previous {
+      left: 0px;
+      background-image: url("../images/left-arrow-icon-white.svg");
+    }
+    .section_106_process_feature_flowchart_navigation_next {
+      right: 0px;
+      background-image: url("../images/right-arrow-icon-white.svg");
+    }
+  }
+}
+
+.section_106_process {
+  margin: 0 auto;
+  min-height: 377px;
+  width: 100%;
+  background-color: white;
+  a {
+    text-decoration: none;
+  }
+  .section_106_process_feature_body {
+    position: relative;
+    min-height: 377px;
+    //margin: 0 auto;
+    padding-top: 10px;
+    .section_106_process_feature_body_horizontal_line {
+      position: absolute;
+      left: 0;
+      top: 92px;
+      z-index: 0;
+    }
+    .section_106_process_feature_step {
+      display: inline-block;
+      position: relative;
+      width: 350px;
+      z-index: 1;
+      padding-right: 70px;
+      a.section_106_process_feature_step_weight_link {
+        z-index: 2;
+        position: absolute;
+        top: 53px;
+        left: 0px;
+        background: $color-red3;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        // not sure why this padding is needed, ask Bobby.
+        padding-top: 5px;
+        font-family: $sans-text;
+        font-weight: 300;
+        color: #FFFFFF !important;
+        @include rem('font-size',
+        23px);
+      }
+      a.section_106_process_feature_step_weight_link:before {
+        content: '';
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .section_106_process_feature_step_inner_container {
+        position: absolute;
+        top: 0;
+        left: 70px;
+        vertical-align: top;
+        width: 250px;
+        z-index: 2;
+        .section_106_process_feature_step_image,
+        .section_106_process_feature_step_title,
+        .section_106_process_feature_step_body {
+          z-index: 3;
+          text-align: left;
+        }
+        .section_106_process_feature_step_image {
+          overflow: hidden;
+          position: relative;
+          max-width: 150px;
+          max-height: 150px;
+          border-radius: 50%;
+          margin-bottom: 10px;
+          a.section_106_process_feature_step_image_link {
+            display: block;
+            img {
+              max-width: 100%;
+              max-height: 100%;
+              border: 0;
+            }
+          }
+          .section_106_process_feature_step_image_overlay {
+            position: absolute;
+            z-index: 3;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #BDBDBD;
+            border-radius: 50%;
+            opacity: 0.5;
+            -webkit-font-smoothing: subpixel-antialiased;
+            -webkit-transition: opacity 0.25s linear;
+            transition: opacity 0.25s linear;
+          }
+        }
+        a.section_106_process_feature_step_title_link {
+          display: block;
+          font-family: $sans-text;
+          color: rgba(0, 0, 0, 1);
+          @include rem('font-size',
+          16px);
+          @include rem('line-height',
+          22.4px);
+          color: #000000;
+          font-weight: 500;
+          text-transform: uppercase;
+          text-align: left;
+          width: 200px;
+          padding: 10px 0px;
+        }
+        a.section_106_process_feature_step_body_link {
+          display: block;
+          text-align: left;
+          font-family: $serif-text;
+          @include rem('font-size',
+          14px);
+          @include rem('line-height',
+          19.2px);
+          color: $color-grey;
+          color: rgba(74, 74, 74, 1);
+          width: 230px;
+        }
+        a.section_106_process_feature_step_read_more_link {
+          display: block;
+          color: $color-grey;
+          font-family: $sans-text;
+          @include rem('font-size',
+          14px);
+          @include rem('line-height',
+          19.2px);
+          font-weight: 500;
+          text-align: left;
+          text-decoration: none;
+          text-transform: uppercase;
+          margin: 10px 0px;
+          width: 230px;
+        }
+        a.section_106_process_feature_step_read_more_link:after {
+          content: "";
+          background-image: url("../images/right-arrow-icon.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20px;
+          height: 20px;
+          padding-left: 25px;
+          cursor: pointer;
+          transition: background-image 0.25s;
+        }
+      }
+    }
+    .section_106_process_feature_step.current-step,
+    .section_106_process_feature_step:hover {
+      .section_106_process_feature_step_weight_link {
+        background-color: $color-blue;
+      }
+      .section_106_process_feature_step_inner_container {
+        .section_106_process_feature_step_image {
+          .section_106_process_feature_step_image_overlay {
+            opacity: 0;
+          }
+        }
+        a.section_106_process_feature_step_read_more_link {
+          color: $color-blue;
+        }
+        a.section_106_process_feature_step_read_more_link:after {
+          background-image: url("../images/right-arrow-icon-blue.svg");
+        }
+      }
+    }
+  }
 }
