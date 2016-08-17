@@ -830,6 +830,14 @@ header {
 ** This Sass file defines the styles for the 
 ** Section 106 Process module.
 */
+.flowchart_content_wrapper {
+  margin: 0 auto;
+  text-align: center; }
+
+#block-readmoreaboutthefederalpreservationprocess div button {
+  margin: 20px auto 30px auto;
+  text-transform: uppercase; }
+
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -1096,9 +1104,6 @@ button {
   background-color: #E8F8FF; }
   #homepage_flowchart_region hr {
     /*width: 100px;*/ }
-  @media (max-width: 500) {
-    #homepage_flowchart_region p.section-106-flowchart-read-more button {
-      padding: 20px 20px; } }
 
 #homepage_map_region {
   padding: 25px 50px;

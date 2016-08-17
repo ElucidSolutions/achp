@@ -137,7 +137,10 @@
         var classPrefix = this.getFeatureClassName();
         $('ul.' + classPrefix + TABS + 'li').click(function (event) {
           var tabs = $('.' + classPrefix + TAB + CONTENT);
-          tabs.each(function (tab) {});
+          tabs.each(function (tab) {
+
+
+          });
         });
       }
 
