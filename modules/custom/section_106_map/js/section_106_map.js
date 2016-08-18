@@ -181,7 +181,7 @@
           var query = inputElement.val ();
 
           // toggle the clear element.
-          query === '' ? clearElement.css ({opacity: 0}) : clearElement.css ({opacity: 1});
+          query === '' ? clearElement.hide () : clearElement.show ();
 
           // filter cases.
           self._cases = filterCases (query.trim ());
@@ -217,9 +217,9 @@
           }
 
           // hide the clear element.
-          $(this).css ({opacity: 0});
+          $(this).hide ();
         })
-      .css ({opacity: 0});
+      .hide ();
 
     return $('<div></div>')
       .addClass (classPrefix)
@@ -725,6 +725,16 @@
                 prefix + '_multiple_cases_marker':
                 prefix + '_single_case_marker');
 
+            // Set/Create the marker's title (hover text).
+            titleElements = svgElement.getElementsByTagName ('title');
+            if (titleElements.length > 0) {
+              titleElements.item (0).textContent = state.name;
+            } else {
+              var titleElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'title');
+              titleElement.textContent = state.name;
+              svgElement.appendChild (titleElement);
+            }
+
             if (state.cases.length > 1) {
               // Add cluster child count to the icon element.
               labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
@@ -764,6 +774,12 @@
 
           // Add a class attribute to the icon element.
           svgElement.className.baseVal = svgElement.className.baseVal + ' ' + prefix + '_cluster_marker';
+
+          // Remove the title element (hover text).
+          var titleElements = svgElement.getElementsByTagName ('title');
+          if (titleElements.length > 0) {
+            titleElements.item (0).textContent = '';
+          }
 
           // Add cluster child count to the icon element.
           labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
