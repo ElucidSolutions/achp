@@ -72,6 +72,7 @@
             color: #bababa;
             margin-left: 10px; }
     .section_106_map .section_106_map_feature_body .section_106_map_map {
+      cursor: pointer;
       height: 425px;
       width: 100%; }
       .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container {
@@ -275,25 +276,30 @@
       top: 20px;
       width: 300px;
       z-index: 10; }
-      .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form {
-        display: table-row; }
-        .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input {
-          background: url("../images/filter-icon.png") no-repeat 10px 50%;
-          border: none;
-          display: table-cell;
-          height: 35px;
-          margin: 0px;
-          padding: 0px 10px 0px 40px;
-          width: 100%; }
-          .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input:focus {
-            outline: none; }
-          .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input::-ms-clear {
-            display: none; }
-        .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_clear {
-          background: url("../images/close-icon.svg") no-repeat 50% 50%;
-          cursor: pointer;
-          display: table-cell;
-          width: 35px; }
+      .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_icon {
+        background: url("../images/filter-icon.png") no-repeat 10px 50%;
+        float: left;
+        height: 35px;
+        width: 35px; }
+      .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input {
+        border: none;
+        float: left;
+        height: 35px;
+        margin: 0px;
+        overflow: hidden;
+        padding: 0px 10px 0px 10px;
+        width: 230px; }
+        .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input:focus {
+          outline: none; }
+        .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input::-ms-clear {
+          display: none; }
+      .section_106_map .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_clear {
+        background: url("../images/close-icon.svg") no-repeat 50% 50%;
+        cursor: pointer;
+        display: table-cell;
+        height: 35px;
+        float: left;
+        width: 35px; }
   .section_106_map .section_106_map_share {
     border-top: solid 1px grey;
     border-bottom: solid 1px gray;

@@ -181,7 +181,7 @@
           var query = inputElement.val ();
 
           // toggle the clear element.
-          query === '' ? clearElement.hide () : clearElement.show ();
+          query === '' ? clearElement.css ({opacity: 0}) : clearElement.css ({opacity: 1});
 
           // filter cases.
           self._cases = filterCases (query.trim ());
@@ -217,14 +217,16 @@
           }
 
           // hide the clear element.
-          $(this).hide ();
+          $(this).css ({opacity: 0});
         })
-      .hide ();
+      .css ({opacity: 0});
 
     return $('<div></div>')
       .addClass (classPrefix)
       .append ($('<div></div>')
         .addClass (classPrefix + '_form')
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_icon'))
         .append (inputElement)
         .append (clearElement));
   }
@@ -507,10 +509,13 @@
     L.mapbox.accessToken = drupalSettings.section_106_map.mapbox_access_token;
 
     // Create and Embed the Mapbox Map object.
-    return L.mapbox.map (id, 'mapbox.streets', {
+    var map = L.mapbox.map (id, 'mapbox.streets', {
       minZoom:   2,
       maxZoom:   7
     });
+    map.scrollWheelZoom.disable ();
+
+    return map;
   }
 
   /*
