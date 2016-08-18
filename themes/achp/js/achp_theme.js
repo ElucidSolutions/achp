@@ -18,7 +18,14 @@
 
     // Initialize display
     formatMenuHeaders ();
-    flexibility(document.documentElement);
+
+    // TEMP: function to delay onset of Flexibility in IE
+    if (window.navigator.userAgent.indexOf("Trident") > -1) {
+      console.log('IE detected')
+      window.setTimeout(function () {
+        flexibility(document.documentElement);
+      }, 700)
+    };
 
     // I. Create mobile menu slide
     $('#subheader_mobile_body').append (createMenuSlides (getMenuList ()));
@@ -153,7 +160,8 @@
       };
     })());
 
-  });
+    });
+
 
   /* 
     Accepts two arguments:

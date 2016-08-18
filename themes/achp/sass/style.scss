@@ -518,7 +518,7 @@ footer {
         float: left;
         cursor: pointer;
 
-        background-image: url('../images/right-arrow-icon.svg');
+        background-image: url('../images/left-arrow-icon.svg');
         background-repeat: no-repeat;
         background-position: center;
         width: 20px;
@@ -528,7 +528,6 @@ footer {
         /*cursor: pointer;*/
         /*transition: background-image 0.25s;*/
         /*@include center-y;*/
-
       }
 
       .clndr-next-button {
@@ -537,6 +536,12 @@ footer {
         @include center-y;
         right: 15px;
         cursor: pointer;
+
+        background-image: url('../images/right-arrow-icon.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
       }
     }
 

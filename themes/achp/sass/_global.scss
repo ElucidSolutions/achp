@@ -125,10 +125,12 @@ $grid-columns: 12;
     cursor: pointer;
     transition: background-image 0.25s;
     @include center-y;
+    /*border: none;*/
   }
 
   &:hover:after {
-    background-image: url($icon-hover-path);      
+    background-image: url($icon-hover-path);    
+    /*border: none;  */
   }
 }
 
@@ -145,6 +147,7 @@ $grid-columns: 12;
     right: $right-positioning;
     cursor: pointer;
     @include center-y;
+    /*border: none;*/
   }
 }
 
