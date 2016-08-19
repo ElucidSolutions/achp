@@ -204,7 +204,8 @@
           display: inline-block;
           height: 100px;
           margin: 20px;
-          width: 300px; }
+          width: 300px;
+          vertical-align: middle; }
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover {
             border-top-color: #0990fe; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover .section_106_map_case_card_title {
@@ -316,5 +317,12 @@
       line-height: 18px;
       padding-left: 18px; }
       .section_106_map .section_106_map_share .section_106_map_share_button .section_106_map_share_icon {
-        border: none;
         height: 18px; }
+
+@media all and (max-width: 600px) {
+  .section_106_map .section_106_map_feature .section_106_map_feature_body .section_106_map_filter {
+    width: 200px; }
+    .section_106_map .section_106_map_feature .section_106_map_feature_body .section_106_map_filter .section_106_map_filter_form .section_106_map_filter_input {
+      width: 130px; }
+  .section_106_map .section_106_map_feature .section_106_map_feature_body .section_106_map_map .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card {
+    margin: 20px; } }
