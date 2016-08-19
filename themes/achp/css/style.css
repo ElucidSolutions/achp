@@ -90,7 +90,6 @@ html {
               padding-left: 15px;
               right: 0;
               cursor: pointer;
-              transition: background-image 0.25s;
               position: absolute;
               top: 50%;
               -webkit-transform: translateY(-50%);
@@ -98,6 +97,7 @@ html {
               -ms-transform: translateY(-50%);
               -o-transform: translateY(-50%);
               transform: translateY(-50%);
+              transition: background-image 0.25s;
               /*border: none;*/ }
             #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title a:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block #block-eventsmeetings .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title a:hover:after, #block-eventsmeetings #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block #block-eventsmeetings .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title a:hover:after, #block-eventsmeetings .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title a:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block #block-eventsmeetings .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title a:hover:after, #block-eventsmeetings #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block #block-eventsmeetings .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title a:hover:after, #block-eventsmeetings .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title a:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block #block-eventsmeetings .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title a:hover:after, #block-eventsmeetings #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title a:hover:after, #homepage_news_content #block-views-block-latest-news-block #block-eventsmeetings .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title a:hover:after, #block-eventsmeetings .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title a:hover:after {
               background-image: url("../images/right-arrow-icon-blue.svg");
@@ -626,8 +626,7 @@ header {
   width: 100%;
   max-width: 100%;
   margin-left: auto;
-  margin-right: auto;
-  /*display: none;*/ }
+  margin-right: auto; }
   header::after {
     clear: both;
     content: "";
@@ -660,12 +659,11 @@ header {
     text-align: left;
     padding: 10px;
     padding-left: 40px;
-    line-height: 1.25; }
-    header #header_branding_title a {
-      color: #fff;
-      font-weight: 100;
-      text-shadow: none;
-      text-decoration: none; }
+    line-height: 1.25;
+    color: #fff;
+    font-weight: 100;
+    text-shadow: none;
+    text-decoration: none; }
   header #block-headercontactlinks {
     color: white;
     font-weight: 300;
@@ -800,13 +798,14 @@ header {
       height: 75px; }
     header #header_left {
       margin: 0 auto;
-      text-align: center;
       width: 348px;
       position: relative; }
     header #header_branding_logo {
-      float: left; }
+      float: left;
+      /*border: 1px solid purple;*/ }
       header #header_branding_logo img {
-        height: 75px; }
+        height: 75px;
+        /*border: 1px solid pink;*/ }
     header #header_branding_title {
       text-align: center;
       float: left;
@@ -821,7 +820,8 @@ header {
       -ms-transform: translateY(-50%);
       -o-transform: translateY(-50%);
       transform: translateY(-50%);
-      top: 37.5px; }
+      top: 37.5px;
+      /*border: 1px solid green;*/ }
     header #block-headercontactlinks {
       display: none; } }
 @media (max-width: 500px) {
@@ -939,7 +939,6 @@ header {
           padding-left: 15px;
           right: -25px;
           cursor: pointer;
-          transition: background-image 0.25s;
           position: absolute;
           top: 50%;
           -webkit-transform: translateY(-50%);
@@ -947,6 +946,7 @@ header {
           -ms-transform: translateY(-50%);
           -o-transform: translateY(-50%);
           transform: translateY(-50%);
+          transition: background-image 0.25s;
           /*border: none;*/ }
         #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .views-row a:hover:after {
           background-image: url("../images/right-arrow-icon-blue.svg");
@@ -1040,7 +1040,6 @@ header {
             padding-left: 15px;
             right: -14px;
             cursor: pointer;
-            transition: background-image 0.25s;
             position: absolute;
             top: 50%;
             -webkit-transform: translateY(-50%);
@@ -1048,6 +1047,7 @@ header {
             -ms-transform: translateY(-50%);
             -o-transform: translateY(-50%);
             transform: translateY(-50%);
+            transition: background-image 0.25s;
             /*border: none;*/ }
           #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:hover:after {
             background-image: url("../images/right-arrow-icon-blue.svg");
@@ -1088,7 +1088,6 @@ header {
               padding-left: 15px;
               right: 0;
               cursor: pointer;
-              transition: background-image 0.25s;
               position: absolute;
               top: 50%;
               -webkit-transform: translateY(-50%);
@@ -1096,6 +1095,7 @@ header {
               -ms-transform: translateY(-50%);
               -o-transform: translateY(-50%);
               transform: translateY(-50%);
+              transition: background-image 0.25s;
               /*border: none;*/ }
             #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:hover:after {
               background-image: url("../images/down-arrow-icon-blue.svg");
@@ -1114,7 +1114,6 @@ header {
                 padding-left: 15px;
                 right: 0;
                 cursor: pointer;
-                transition: background-image 0.25s;
                 position: absolute;
                 top: 50%;
                 -webkit-transform: translateY(-50%);
@@ -1122,6 +1121,7 @@ header {
                 -ms-transform: translateY(-50%);
                 -o-transform: translateY(-50%);
                 transform: translateY(-50%);
+                transition: background-image 0.25s;
                 /*border: none;*/ }
               #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:hover:after {
                 background-image: url("../images/up-arrow-icon-blue.svg");
@@ -1182,70 +1182,6 @@ header {
   #content_region #block-achp-content p {
     text-align: left; }
 
-/*#block-eventsmeetings {
-  .event_calendar_feature {
-    padding-top: 30px;
-  }
-
-  h3 {
-    color: #FFFFFF;
-    font-size: 1.75rem;
-    font-weight: 300;
-    color: pink;
-  }
-
-  .event_calendar_calendar {
-    font-family: $sans-text;
-    @extend .card;
-    background-color: #fff;
-    @include span-columns (4 of 12);
-    color: $color-grey2;
-
-    .clndr-controls {
-      .month {
-        font-size: 1.5625rem;
-        text-transform: uppercase;
-      }
-    }
-
-      .clndr-table {
-        border: none;
-        width: 100%;
-        text-align: center;
-        font-size: 0.75rem;
-
-        thead {
-          font-family: $serif-text;
-        }
-
-        tbody {
-          .adjacent-month {
-            color: $color-lightgrey;
-          }
-
-          .today {
-            color: #fff;
-            background-color: $color-blue;
-          }
-
-        }
-
-        .day, .header-day {
-          line-height: 3.5;
-        }
-      }
-  }
-
-  .event_calendar_grid {
-    @include span-columns (8 of 12); 
-    padding-left: 20px;   
-  }
-
-  .event_calendar_feature_footer {
-    margin-top: 30px;
-    @include span-columns (12 of 12);  
-  }
-}*/
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -1261,7 +1197,6 @@ header {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/*@import "../event_calendar/sass/event_calendar.scss";*/
 html, body {
   max-width: 100%;
   margin: 0;
@@ -1426,7 +1361,6 @@ button {
       padding-left: 15px;
       right: -20px;
       cursor: pointer;
-      transition: background-image 0.25s;
       position: absolute;
       top: 50%;
       -webkit-transform: translateY(-50%);
@@ -1434,6 +1368,7 @@ button {
       -ms-transform: translateY(-50%);
       -o-transform: translateY(-50%);
       transform: translateY(-50%);
+      transition: background-image 0.25s;
       /*border: none;*/ }
     .read_more a:hover:after {
       background-image: url("../images/right-arrow-icon-blue.svg");
@@ -1745,31 +1680,16 @@ footer {
         transform: translateX(-50%) translateY(-50%);
         text-align: center;
         cursor: pointer; }
-      #block-eventsmeetings .event_calendar_calendar_body .clndr-controls .clndr-previous-button {
-        position: absolute;
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        left: 15px;
-        float: left;
-        cursor: pointer;
-        background-image: url("../images/left-arrow-icon.svg");
+      #block-eventsmeetings .event_calendar_calendar_body .clndr-controls .clndr-previous-button:after {
+        content: "";
+        background-image: url("../images/left-calendar-arrow.svg");
         background-repeat: no-repeat;
         background-position: center;
         width: 20px;
         height: 20px;
-        /*padding-left: 15px;*/
-        /*right: $right-positioning;*/
-        /*cursor: pointer;*/
-        /*transition: background-image 0.25s;*/
-        /*@include center-y;*/ }
-      #block-eventsmeetings .event_calendar_calendar_body .clndr-controls .clndr-next-button {
-        position: absolute;
-        float: right;
+        padding-left: 15px;
+        cursor: pointer;
+        left: 12px;
         position: absolute;
         top: 50%;
         -webkit-transform: translateY(-50%);
@@ -1777,13 +1697,35 @@ footer {
         -ms-transform: translateY(-50%);
         -o-transform: translateY(-50%);
         transform: translateY(-50%);
-        right: 15px;
-        cursor: pointer;
-        background-image: url("../images/right-arrow-icon.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 20px;
-        height: 20px; }
+        transition: background-image 0.25s; }
+      #block-eventsmeetings .event_calendar_calendar_body .clndr-controls .clndr-previous-button:hover:after {
+        background-image: url("../images/left-calendar-arrow-blue.svg"); }
+      #block-eventsmeetings .event_calendar_calendar_body .clndr-controls .clndr-next-button {
+        transition: color 0.25s; }
+        #block-eventsmeetings .event_calendar_calendar_body .clndr-controls .clndr-next-button:hover {
+          color: #71bffe; }
+        #block-eventsmeetings .event_calendar_calendar_body .clndr-controls .clndr-next-button:after {
+          content: "";
+          background-image: url("../images/right-calendar-arrow.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20px;
+          height: 20px;
+          padding-left: 15px;
+          right: 15px;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+          transition: background-image 0.25s;
+          /*border: none;*/ }
+        #block-eventsmeetings .event_calendar_calendar_body .clndr-controls .clndr-next-button:hover:after {
+          background-image: url("../images/right-calendar-arrow-blue.svg");
+          /*border: none;  */ }
     #block-eventsmeetings .event_calendar_calendar_body .clndr-table {
       border: none;
       width: 100%;
@@ -1831,12 +1773,13 @@ footer {
     #block-eventsmeetings .event_calendar_grid .event_calendar_grid_card_container:nth-of-type(2n + 1) {
       clear: both; }
   #block-eventsmeetings .event_calendar_grid .event_calendar_grid_card {
+    height: 215px;
     width: 100%;
     background-color: #fff;
     padding: 10px;
     max-width: 321.33333px; }
     #block-eventsmeetings .event_calendar_grid .event_calendar_grid_card_date {
-      font-size: 12px; }
+      /*font-size: 12px;*/ }
     #block-eventsmeetings .event_calendar_grid .event_calendar_grid_card_location {
       margin-bottom: 10px; }
     #block-eventsmeetings .event_calendar_grid .event_calendar_grid_card_footer {

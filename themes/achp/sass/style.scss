@@ -3,7 +3,6 @@ $gutter: 0em !global;
 @import "neat/neat";
 @import "features";
 @import "global";
-/*@import "../event_calendar/sass/event_calendar.scss";*/
 
 html, body {
   max-width: 100%;
@@ -512,36 +511,27 @@ footer {
       }
 
       .clndr-previous-button {
-        position: absolute;
-        @include center-y;
-        left: 15px;
-        float: left;
-        cursor: pointer;
+        &:after {
+          content: "";
+          background-image: url('../images/left-calendar-arrow.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20px;
+          height: 20px;
+          padding-left: 15px;
+          cursor: pointer;
+          left: 12px;
+          @include center-y;
+          transition: background-image 0.25s;
+        }
 
-        background-image: url('../images/left-arrow-icon.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 20px;
-        height: 20px;
-        /*padding-left: 15px;*/
-        /*right: $right-positioning;*/
-        /*cursor: pointer;*/
-        /*transition: background-image 0.25s;*/
-        /*@include center-y;*/
+         &:hover:after {
+          background-image: url('../images/left-calendar-arrow-blue.svg');
+        }
       }
-
+      
       .clndr-next-button {
-        position: absolute;
-        float: right;
-        @include center-y;
-        right: 15px;
-        cursor: pointer;
-
-        background-image: url('../images/right-arrow-icon.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 20px;
-        height: 20px;
+        @include after-element-icon-with-hover('../images/right-calendar-arrow.svg', '../images/right-calendar-arrow-blue.svg', 15px);
       }
     }
 
@@ -609,7 +599,8 @@ footer {
     }
 
     .event_calendar_grid_card {
-      @extend .card;      
+      @extend .card;  
+      height: 215px;    
       width: 100%;
       background-color: #fff;
       padding: 10px;
@@ -617,7 +608,7 @@ footer {
 
       &_date {
         @extend .card_date;
-        font-size: 12px;
+        /*font-size: 12px;*/
       }
 
       &_location {

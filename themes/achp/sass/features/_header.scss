@@ -6,7 +6,6 @@ header {
   height: $header-height;
   width: 100%;
   @include outer-container(100%);
-  /*display: none;*/
 
   #header-container {
     max-width: $max-content-width;
@@ -52,13 +51,10 @@ header {
     padding: 10px;
     padding-left: 40px;
     line-height: 1.25;
-
-    a {
-      color: #fff;
-      font-weight: 100;
-      text-shadow: none;
-      text-decoration: none;
-    }
+    color: #fff;
+    font-weight: 100;
+    text-shadow: none;
+    text-decoration: none;
   }
 
   #block-headercontactlinks {
@@ -219,16 +215,17 @@ header {
 
     #header_left {
       margin: 0 auto;
-      text-align: center;
       width: $header-logo-mobile-width + $header-title-medium-width;
       position: relative;
     }
 
     #header_branding_logo {
       float: left;
+      /*border: 1px solid purple;*/
 
       img {
         height: $header-mobile-height;
+        /*border: 1px solid pink;*/
       }
     }
 
@@ -241,6 +238,7 @@ header {
       right: 0;
       @include center-y;
       top: $header-mobile-height / 2;
+      /*border: 1px solid green;*/
     }
 
     #block-headercontactlinks {

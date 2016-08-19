@@ -6,12 +6,14 @@
 
   $(document).ready (function () {
 
+    /*
+    Instantiates an event calendar feature and appends it to the
+    appropriate block
+    */
     var instance = new FeatureInstance ();
     $('#block-eventsmeetings').append(instance.getInstanceElement ());
 
   });
-
-
 
   /*
   Accepts no arguments, returns an array of all Event objects.
@@ -80,7 +82,10 @@
   }  
 
   // I. Defining the feature instance
+
   /*
+  Accepts no arguments. Creates Calendar and Grid objects and sets their click events
+  and returns undefined.
   */
   function FeatureInstance () {
     var self = this;
@@ -92,11 +97,11 @@
       self._grid.displayEvents (getEventsOnDay (target.date));
     })
     this._calendar.monthChange (function (month) {
-      self._grid.displayEvents (getNEventsAfterDate (5, month._d));
+      self._grid.displayEvents (getNEventsAfterDate (3, month._d));
     })
     $(bodyElement).on('click', '.month', function (e) {
       var date = moment($(e.target).text()).date(1);
-      self._grid.displayEvents (getNEventsInMonth (5, date));
+      self._grid.displayEvents (getNEventsInMonth (3, date));
     })
     // $(bodyElement).on('click', '.month', this._calendar.monthClick (function (e) {
     //   var date = moment($(e.target).text()).date(1);
@@ -128,18 +133,24 @@
   }
 
   /*
+  Accepts no arguments and returns the calendar belonging to
+  Feature instance.
   */
   FeatureInstance.prototype.getCalendar = function () {
     return this._calendar;
   }
 
   /*
+  Accepts no arguments and returns the grid belonging to
+  Feature instance.
   */
   FeatureInstance.prototype.getGrid = function () {
     return this._grid;
   } 
 
   /*
+  Accepts no arguments and returns the Feature instance
+  HTML Element.
   */
   FeatureInstance.prototype.getInstanceElement = function() {
     return this._instanceElement;
@@ -151,7 +162,7 @@
   */
   FeatureInstance.prototype.showEvents = function (date) {
     // TODO: n parameter should be Drupal setting
-    this.getGrid ().displayEvents (getNEventsAfterDate (5, date));
+    this.getGrid ().displayEvents (getNEventsAfterDate (3, date));
   }
 
   /*
@@ -178,7 +189,7 @@
   }
 
   /*
-  Accepts two parameters:
+  Accepts two arguments:
 
   * n, an integer
   * date, a string
@@ -192,6 +203,15 @@
       }).slice (0, n);
   }
 
+  /*
+  Accepts two arguments:
+
+  * n, an integer
+  * date, a string
+
+  Returns an Event array of the next n events that either begin or end during
+  the given date's month.
+  */  
   function getNEventsInMonth (n, date) {
     return getAllEvents()
       .filter (function (event) {  
@@ -239,6 +259,8 @@
   // II. Defining the calendar component class
 
   /*
+  Accepts one argument, an HTML Element; creates the CLNDR template 
+  element and appends it to the container; and returns undefined.
   */
   function Calendar (containerElement) {
     var self = this;
@@ -312,6 +334,8 @@
   }
 
   /*
+  Accepts no arguments and returns a jQuery Element representig
+  the calendar component.
   */
   function createCalendarComponentElement () {
     var classPrefix = getCalendarClassPrefix ();
@@ -338,8 +362,8 @@
   }
 
   /*
-    Accepts one argument: target, a CLNDR Target object; and calls this 
-    component's onClick event handler on target. 
+  Accepts one argument: target, a CLNDR Target object; and calls this 
+  component's onClick event handler on target. 
   */
   Calendar.prototype.callOnClick = function (target) {
     this._onClick (target);
@@ -348,43 +372,57 @@
   /*
   Accepts one argument, a function that accepts a calendar target object and
   registers eventHandler as the function to be called when the user clicks
-  on the calendar.
+  on a calendar date.
   */
   Calendar.prototype.onClick = function (eventHandler) {
     this._onClick = eventHandler;
   }
 
   /*
+  Accepts one argument: target, a CLNDR Target object; and handles click events on
+  the month navigation arrows on the calendar.
   */
   Calendar.prototype._monthChange = function (target) {
     return;
   }
 
   /*
+  Accepts one argument: target, a CLNDR Target object; and calls this 
+  component's onClick event handler on target.
   */
   Calendar.prototype.callMonthChange = function (target) {
     this._monthChange (target);
   }
 
   /*
+  Accepts one argument, a function that accepts a calendar target object and
+  registers eventHandler as the function to be called when the user clicks
+  on the calendar's navigation arrows.
   */
   Calendar.prototype.monthChange = function (eventHandler) {
     this._monthChange = eventHandler;
   }
 
   /*
+  Accepts one argument: target, a CLNDR Target object; and handles click events on
+  the month title element the calendar.
   */
   Calendar.prototype._monthClick = function (target) {
     return;
   }
 
   /*
+  Accepts one argument: target, a CLNDR Target object; and calls this 
+  component's onClick event handler on target.
   */
   Calendar.prototype.callMonthClick = function (target) {
     this._monthClick (target);
   }
 
   /*
+  Accepts one argument, a function that accepts a calendar target object and
+  registers eventHandler as the function to be called when the user clicks
+  on the calendar's month title element.
   */
   Calendar.prototype.monthClick = function (eventHandler) {
     this._monthClick = eventHandler;
@@ -425,22 +463,26 @@
   // III. Defining the grid component class
 
   /*
+  Accepts one argument, an HTML Element; creates the Grid object's 
+  component element and appends it to the container; and returns undefined.
   */
   function Grid (containerElement) {
     this._componentElement = createGridComponentElement ();
     containerElement.append(this._componentElement);
-    this.displayEvents(getNEventsAfterDate (5, moment().format()));
+    this.displayEvents(getNEventsAfterDate (3, moment().format()));
   }
 
   /*
-  Accepts no arguments; returns the Grid object's 
-  component element as a jQuery HTML Element.
+  Accepts no arguments; returns the Grid object's component element
+  as a jQuery HTML Element.
   */
   Grid.prototype.getComponentElement = function () {
     return this._componentElement;
   }
 
   /*
+  Accepts no arguments and returns a jQuery Element representig
+  the grid component.
   */
   function createGridComponentElement () {
     var classPrefix = getGridClassPrefix ();    
@@ -521,8 +563,9 @@
   function getGridBodyClassName () {
     return getGridClassPrefix () + '_body';
   }
-
   /*
+  Accepts no arguments, and returns a string indicating
+  the grid module's class prefix.
   */
   function getGridClassPrefix () {
     return getModuleClassPrefix () + '_grid';
@@ -539,15 +582,5 @@
   function getModuleClassPrefix () {
     return 'event_calendar';
   } 
-
-  // function positionGridCards () {
-  //   console.log($('.event_calendar_grid_card_container').length)
-  //   if ($('.event_calendar_grid_card_container').length % 2 !== 0) {
-  //     $('.event_calendar_grid_card_container').last()
-  //       .parent('.event_calendar_grid_card_container')
-  //       .addClass('.event_calendar_grid_card_container_last');
-  //   }
-  // }
-
 
 }(jQuery));
