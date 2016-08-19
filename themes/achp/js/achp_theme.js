@@ -19,12 +19,12 @@
     // Initialize display
     formatMenuHeaders ();
 
-    // TEMP: function to delay onset of Flexibility in IE
-    if (window.navigator.userAgent.indexOf("Trident") > -1) {
-      console.log('IE detected')
+    // TEMP: function to delay onset of Flexibility in IE9
+    if (navigator.userAgent.indexOf('MSIE 9.0') > -1) {
+      console.log('IE9 detected')
       window.setTimeout(function () {
         flexibility(document.documentElement);
-      }, 700)
+      }, 1000)
     };
 
     // I. Create mobile menu slide
@@ -493,7 +493,7 @@
   */
   function openHeaderMenu () {
     $('#block-achp-main-menu').show ();
-    flexibility(document.documentElement);
+    // flexibility(document.documentElement);
   }
 
   /*
