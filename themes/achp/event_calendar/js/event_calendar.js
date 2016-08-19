@@ -11,7 +11,7 @@
     appropriate block
     */
     var instance = new FeatureInstance ();
-    $('#block-eventsmeetings').append(instance.getInstanceElement ());
+    $('#block-eventsmeetings').append (instance.getInstanceElement ());
 
   });
 
@@ -76,8 +76,8 @@
         description: 'Learn about Native American issues',
         url: '/node/9'
       }
-    ].sort(function (event1, event2) {
-      return moment(event1.start_date).isSameOrAfter(event2.start_date);
+    ].sort (function (event1, event2) {
+      return moment (event1.start_date).isSameOrAfter (event2.start_date);
     });
   }  
 
@@ -100,7 +100,7 @@
       self._grid.displayEvents (getNEventsAfterDate (3, month._d));
     })
     $(bodyElement).on('click', '.month', function (e) {
-      var date = moment($(e.target).text()).date(1);
+      var date = moment ($(e.target).text ()).date (1);
       self._grid.displayEvents (getNEventsInMonth (3, date));
     })
     // $(bodyElement).on('click', '.month', this._calendar.monthClick (function (e) {
@@ -118,18 +118,18 @@
     var classPrefix = getFeatureClassPrefix ();
 
     return $('<div></div>')
-      .addClass(classPrefix)
+      .addClass (classPrefix)
       .append ($('<div></div>')
-        .addClass(classPrefix + '_header')
+        .addClass (classPrefix + '_header')
         .append ($('<h2></h2>')
-          .addClass(classPrefix + '_title')))
+          .addClass (classPrefix + '_title')))
       .append ($('<div></div>')
-        .addClass(classPrefix + '_body'))
-      .append($('<div></div>')
-        .addClass(classPrefix + '_footer')
-        .append($('<button></button>')
-          .addClass(classPrefix + '_full_calendar_button')
-          .text('View the full calendar')));
+        .addClass (classPrefix + '_body'))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_footer')
+        .append ($('<button></button>')
+          .addClass (classPrefix + '_full_calendar_button')
+          .text ('View the full calendar')));
   }
 
   /*
@@ -152,7 +152,7 @@
   Accepts no arguments and returns the Feature instance
   HTML Element.
   */
-  FeatureInstance.prototype.getInstanceElement = function() {
+  FeatureInstance.prototype.getInstanceElement = function () {
     return this._instanceElement;
   }
 
@@ -171,7 +171,11 @@
   containing the events that do.
   */
   function getEventsOnDay (date) {
-    return getAllEvents ().filter (function (event) { return eventOnDay (event, date); });
+    return getAllEvents ().filter (function (event) { return eventOnDay (event, date); })
+    // if (eventsOnDay.length === 0) {
+    //   console.log('No events on this day') } else {
+    //   return eventsOnDay; 
+    // }
   }
 
   /*
@@ -185,7 +189,8 @@
 
   */
   function eventOnDay (event, date) {
-    return moment (event.start_date).isSameOrBefore (date, 'day') && moment (event.end_date).isSameOrAfter (date, 'day');
+    return moment (event.start_date).isSameOrBefore (date, 'day') 
+      && moment (event.end_date).isSameOrAfter (date, 'day');
   }
 
   /*
@@ -197,9 +202,9 @@
   Returns an Event array of the next n events that end on or after date.
   */
   function getNEventsAfterDate (n, date) {
-    return getAllEvents()
+    return getAllEvents ()
       .filter (function (event) {
-        return moment(event.end_date).isSameOrAfter(date);
+        return moment (event.end_date).isSameOrAfter (date);
       }).slice (0, n);
   }
 
@@ -213,10 +218,10 @@
   the given date's month.
   */  
   function getNEventsInMonth (n, date) {
-    return getAllEvents()
+    return getAllEvents ()
       .filter (function (event) {  
-        return moment(event.end_date).get('month') === moment(date).get('month')
-          || moment(event.start_date).get('month') === moment(date).get('month');
+        return moment (event.end_date).get ('month') === moment (date).get ('month')
+          || moment (event.start_date).get ('month') === moment (date).get ('month');
       }).slice (0, n);
   }
 
@@ -237,7 +242,7 @@
   element as a jQuery HTML Element.
   */
   FeatureInstance.prototype.getBodyElement = function () {
-    return $('.' + instanceBodyClassName (), this.getInstanceElement());
+    return $('.' + instanceBodyClassName (), this.getInstanceElement ());
   }
 
   /*
@@ -267,14 +272,14 @@
     // Create component element 
     this._componentElement = createCalendarComponentElement ();
     var events = _.chain (getAllEvents ())
-        .map (function (event) { return getDaysBetween(event.start_date, event.end_date); })
+        .map (function (event) { return getDaysBetween (event.start_date, event.end_date); })
         .flatten ()
         .uniq ()
         .map (function (date) { return { date: date }; })
         .value ();
 
     // Embed CLNDR element
-    this.getContainerElement().clndr({
+    this.getContainerElement().clndr ({
       template:         
         "<div class='clndr-controls'>" +
             "<div class='clndr-control-button'>" +
@@ -325,11 +330,11 @@
   */
   function getDaysBetween (startDate, endDate) {
     var format = 'YYYY MM DD';
-    var dates = [moment(startDate).format(format)];
-    for (var date = moment(startDate); date.isBefore(endDate); date.add(1, 'days')) {
-      dates.push(date.format(format));
+    var dates = [moment (startDate).format (format)];
+    for (var date = moment (startDate); date.isBefore (endDate); date.add (1, 'days')) {
+      dates.push (date.format (format));
     }
-    dates.push(moment(endDate).format(format));
+    dates.push (moment (endDate).format (format));
     return dates;
   }
 
@@ -341,16 +346,16 @@
     var classPrefix = getCalendarClassPrefix ();
 
     return $('<div></div>')
-      .addClass(classPrefix)
+      .addClass (classPrefix)
       .append ($('<div></div>')
-        .addClass(classPrefix + '_header')
+        .addClass (classPrefix + '_header')
         .append ($('<h3></h3>')
-          .addClass(classPrefix + '_title')
-          .text('Calendar')))
+          .addClass (classPrefix + '_title')
+          .text ('Calendar')))
       .append ($('<div></div>')
-        .addClass(classPrefix + '_body')
-        .append($('<div></div>')
-          .addClass(getCalendarContainerClassName ())));
+        .addClass (classPrefix + '_body')
+        .append ($('<div></div>')
+          .addClass (getCalendarContainerClassName ())));
   }
 
   /*
@@ -403,6 +408,7 @@
     this._monthChange = eventHandler;
   }
 
+  // TODO: make following 3 functions work?
   /*
   Accepts one argument: target, a CLNDR Target object; and handles click events on
   the month title element the calendar.
@@ -433,7 +439,7 @@
   jQuery Element.
   */
   Calendar.prototype.getContainerElement = function () {
-    return $('.' + getCalendarContainerClassName(), this.getComponentElement ());
+    return $('.' + getCalendarContainerClassName (), this.getComponentElement ());
   }
 
   /*
@@ -468,8 +474,8 @@
   */
   function Grid (containerElement) {
     this._componentElement = createGridComponentElement ();
-    containerElement.append(this._componentElement);
-    this.displayEvents(getNEventsAfterDate (3, moment().format()));
+    containerElement.append (this._componentElement);
+    this.displayEvents (getNEventsAfterDate (3, moment ().format ()));
   }
 
   /*
@@ -488,14 +494,14 @@
     var classPrefix = getGridClassPrefix ();    
 
     return $('<div></div>')
-      .addClass(classPrefix)
+      .addClass (classPrefix)
       .append ($('<div></div>')
-        .addClass(classPrefix + '_header')
+        .addClass (classPrefix + '_header')
         .append ($('<h3></h3>')
-          .addClass(classPrefix + '_title')
-          .text('Upcoming Events & Meetings')))
+          .addClass (classPrefix + '_title')
+          .text ('Upcoming Events & Meetings')))
       .append ($('<div></div>')
-        .addClass(getGridBodyClassName ()));
+        .addClass (getGridBodyClassName ()));
   }
 
   /*
@@ -504,7 +510,9 @@
   them; and returns undefined.
   */
   Grid.prototype.displayEvents = function (events) {
-    this.getGridBodyElement().empty().append(events.map (createCardElement));
+    events.length > 0 ?
+      this.getGridBodyElement ().empty ().append (events.map (createCardElement)) :
+      console.log('no events received');
   }
 
   /*
@@ -515,37 +523,37 @@
     var classPrefix = getGridClassPrefix () + '_card';  
 
     return $('<div></div>')
-    .addClass(classPrefix + '_container')
+    .addClass (classPrefix + '_container')
       .append ($('<div></div>')
-      .addClass(classPrefix)
+      .addClass (classPrefix)
       .append ($('<div></div>')
-        .addClass(classPrefix + '_header')
+        .addClass (classPrefix + '_header')
         .append ($('<h3></h3>')
-          .addClass(classPrefix + '_title')
-          .append($('<a></a>')
-            .attr('href', event.url)
-            .text(event.title))))
+          .addClass (classPrefix + '_title')
+          .append ($('<a></a>')
+            .attr ('href', event.url)
+            .text (event.title))))
       .append ($('<div></div>')
-        .addClass(classPrefix + '_body')
+        .addClass (classPrefix + '_body')
         .append ($('<div></div>')
-          .addClass(classPrefix + '_date')
+          .addClass (classPrefix + '_date')
           .text (moment (event.start_date).isSame (event.end_date, 'day') ?
-            moment(event.start_date).format('MMMM Do, YYYY h:mm A') + ' to ' + moment(event.end_date).format('hh:mm A') :
-            moment(event.start_date).format('MMMM Do, YYYY h:mm A') + ' to ' + moment(event.end_date).format('MMMM Do, YYYY h:mm A') 
+            moment (event.start_date).format ('MMMM Do, YYYY h:mm A') + ' to ' + moment (event.end_date).format ('hh:mm A') :
+            moment (event.start_date).format ('MMMM Do, YYYY h:mm A') + ' to ' + moment (event.end_date).format ('MMMM Do, YYYY h:mm A') 
             ))
         .append ($('<div></div>')
-          .addClass(classPrefix + '_location')
-          .text(event.location)))
-      .append($('<div></div>')
-        .addClass(classPrefix + '_footer')
+          .addClass (classPrefix + '_location')
+          .text (event.location)))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_footer')
         .append ($('<div></div>')
-          .addClass(classPrefix + '_link read_more')
-          .append($('<a></a>')
-            .attr('href', event.url)
-            .text('READ MORE')))
+          .addClass (classPrefix + '_link read_more')
+          .append ($('<a></a>')
+            .attr ('href', event.url)
+            .text ('READ MORE')))
         .append ($('<a></a>')
-          .attr('href', '#')
-          .addClass(classPrefix + '_google_calendar'))));
+          .attr ('href', '#')
+          .addClass (classPrefix + '_google_calendar'))));
   }
 
   /*
@@ -553,7 +561,7 @@
   element as a jQuery HTML Element.
   */
   Grid.prototype.getGridBodyElement = function () {
-    return $('.' + getGridBodyClassName (), this.getComponentElement());
+    return $('.' + getGridBodyClassName (), this.getComponentElement ());
   }
 
   /*

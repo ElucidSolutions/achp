@@ -55,6 +55,11 @@ header {
     font-weight: 100;
     text-shadow: none;
     text-decoration: none;
+
+      a {
+        color: #fff;
+        text-decoration: none;  
+      }
   }
 
   #block-headercontactlinks {
@@ -194,7 +199,7 @@ header {
     }
 
     #header_branding_title {
-      @include span-columns(8 of 12);    
+      @include span-columns(8 of 12);
     }
 
     #header_widescreen_search_bar {
