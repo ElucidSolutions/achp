@@ -58,25 +58,54 @@
  * @see html.html.twig
  */
 #}
+
 <div id="page-wrapper">
   <div id="page">
     <header id="header">
-      <div id="header-logo">
-        <a href="/"><img src="{{ logo }}" alt="ACHP's Logo"/></a>
-      </div>
-      <div id="header-title">
-        <h1>{{ site_name }}</h1>
-      </div>
-      <div id="header-right">
-        {{ page.header_right }}
-      </div>
-      <div id="header-test">
-        {{ page.header }}
+      <div id="header-container">
+        <div class="header_left_container">
+          {{ page.header_left }}
+        </div>
+        <div class="header_right_container">
+          {{ page.header_right}}
+          <div id="header_widescreen_search_bar">
+            {{ page.header_search }} 
+          </div>
+        </div>
       </div>
     </header>
-    <div id="menu">
-      {{ page.menu }}
+
+    <div id="outer_container">
+      <div id="header_region">
+        <div id="header_menu" class="region_container">
+          {{ page.menu }}
+        </div>
+        <div id="header_dropdown_submenu"></div>
+        <div id="subheader">
+          <div id="subheader_widescreen">
+            <div id="subheader_widescreen_submenu_region">
+              <div id="subheader_widescreen_submenu">
+              </div>
+            </div>
+          </div>
+          <div id="subheader_mobile">
+            <div id="subheader_mobile_header">
+              <h3 id="subheader_mobile_title">MENU</h3>
+            </div>
+            <div id="subheader_mobile_collapsible">
+              <div id="subheader_mobile_search">
+              </div>
+              <div id="subheader_mobile_body">
+              </div>
+              <div id="subheader_mobile_footer">
+                <div id="subheader_mobile_close_button">CLOSE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div id="main-wrapper">
       <div id="main">
         <main id="content" role="main">
@@ -86,8 +115,7 @@
       </div>
     </div>
     <footer id="footer">
-      {{ page.footer }}
+      
     </footer>
   </div>
 </div>
-

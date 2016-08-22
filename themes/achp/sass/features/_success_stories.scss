@@ -18,15 +18,8 @@ $success-card-width: 300px;
 
         &_image {
           $success_story_image_height: 185px;
-          height: $success_story_image_height;
-          overflow: hidden;
           margin-bottom: 15px;
-
-          img {
-            height: auto;
-            min-height: $success_story_image_height;
-            width: 100%;
-          }
+          @include fit-and-center-image($success_story_image_height);    
         }
 
         &_title h3 {
@@ -45,6 +38,7 @@ $success-card-width: 300px;
         &_link {
           @include center-x;
           bottom: 0;
+          padding-right: 20px;
 
           img {
             margin-left: 5px;

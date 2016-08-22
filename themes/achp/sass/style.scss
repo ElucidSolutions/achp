@@ -3,6 +3,7 @@ $gutter: 0em !global;
 @import "neat/neat";
 @import "features";
 @import "global";
+
 html,
 body {
   max-width: 100%;
@@ -13,6 +14,7 @@ body {
   box-sizing: border-box;
   font-family: $serif-text;
   overflow-x: hidden;
+  letter-spacing: 0.02rem;
 }
 
 #outer_container {
@@ -44,7 +46,7 @@ h3 {
   font-family: $sans-text;
   text-align: center;
   margin: 0;
-  padding: 0;
+  /*padding: 0;*/
   font-weight: normal;
 }
 
@@ -98,17 +100,22 @@ button {
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
   border: none;
   border-radius: 2px;
-  padding: 12px 35px 8px;
+  padding: 12px 53px 8px;
   margin: 0 auto 30px auto;
   display: block;
-  @media (max-width: $mobile-breakpoint) {
+  letter-spacing: 0.02rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  @include hover-transition-background;
+
+  @media (max-width: $mobile-breakpoint) {  
     padding: 8px 20px;
     margin-bottom: 0;
   }
 }
 
 .card {
-  padding: 10px;
+  /*padding: 10px;*/
   font-family: $sans-text;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
   border-top: 6px solid $color-red;
@@ -116,15 +123,30 @@ button {
   text-align: left;
 }
 
+.card_date {
+  color: $color-lightgrey;
+  margin-top: 15px;
+}
 
-/* For 'READ MORE >' buttons at bottom of */
-
-.read_more a {
+.card_body {
+  text-align: left;
+  font-family: $serif-text;
+  margin-top: 10px;
   color: $color-grey;
-  text-decoration: none;
+}
+
+/* For 'READ MORE >' buttons at bottom of card items*/
+.read_more {
   cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
+
+  a {
+    color: $color-grey;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    vertical-align: bottom;
+    @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -20px);
+  }
 }
 
 #homepage_hero_region {
@@ -142,7 +164,6 @@ button {
     max-width: $max-content-width;
     padding: 0 42px;
     hr {
-      /*width: 60%;*/
       @include hr(#FFFFFF);
       margin-top: 20px;
     }
@@ -164,11 +185,18 @@ button {
 
 #homepage_quicklinks_region {
   padding: 25px 50px;
-  height: 200px;
+  height: auto;
   background-color: $background-color-grey;
-  hr {
-    /*width: 50px;*/
+  overflow-y: visible;
+
+  @media (max-width: 700px) {
+    height: auto;
+    padding: 25px 0;
   }
+
+  @media (max-width: 384px) {
+    /*padding: 25px 10px;*/
+  } 
 }
 
 
@@ -177,9 +205,6 @@ button {
 #homepage_news_region {
   padding: 25px 50px;
   height: auto;
-  hr {
-    /*width: 5%;*/
-  }
   #block-morenewsbutton {
     padding: 0 25px;
     button {
@@ -196,14 +221,14 @@ button {
   background-image: url('../images/blue-columns-background.jpg');
   background-size: cover;
   background-position: center;
-  /* When this region has actual content determining its height, check different positions to see which looks best */
-  height: 200px;
+  /* TODO: When this region has actual content (& therefore height), check different positions to see which looks best w/ image*/
+  height: auto;
+
   h2 {
     color: #FFFFFF;
   }
   hr {
     @include hr(#FFFFFF);
-    /*width: 50px;*/
   }
 }
 
@@ -211,21 +236,16 @@ button {
   padding: 25px 0px 0px 0px;
   width: 100%;
   background-color: $background-color-lightblue;
-  hr {
-    /*width: 100px;*/
-  }
 }
 
 #homepage_map_region {
-  padding: 25px 50px;
-  height: 200px;
+  padding: 25px 0px 0px 0px;
   background-color: $color-darkblue;
   h2 {
     color: #FFFFFF;
   }
   hr {
     @include hr(#FFFFFF);
-    /*width: 100px;*/
   }
 }
 
@@ -233,9 +253,6 @@ button {
   padding: 25px 50px;
   height: auto;
   background-color: $background-color-grey;
-  hr {
-    /*width: 25%;*/
-  }
   p {
     margin-bottom: 0;
   }
@@ -257,9 +274,6 @@ button {
   padding: 25px 0px 0px 0px;
   height: auto;
   background-color: $background-color-lightblue;
-  hr {
-    /*width: 100px;*/
-  }
 }
 
 #homepage_impact_region {
@@ -267,9 +281,6 @@ button {
   margin: 0 auto;
   #block-ourimpact {
     margin: 0 auto;
-  }
-  hr {
-    /*width: 20%;*/
   }
   .impact_item {
     @include span-columns (4 of 12);
@@ -347,9 +358,6 @@ footer {
   height: 500px;
   background-color: $background-color-lightblue;
   border: 1px solid $background-color-lightblue;
-  /* a {
-    margin-bottom: 10px;
-  }*/
   p {
     font-size: 1.125rem;
     font-color: $color-darkgrey;
@@ -427,5 +435,174 @@ footer {
         display: none;
       }
     }
+  }
+}
+
+/* TODO: move to separate file when it you figure out how to get sass to watch it */
+#block-eventsmeetings {
+  .event_calendar_feature {
+    padding-top: 30px;
+  }
+
+  .event_calendar_calendar {
+    @include span-columns (4 of 12);
+
+    &_title {
+      margin-bottom: 5px;
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      font-weight: 300;      
+    }
+
+    &_body {
+      @extend .card;
+      background-color: #fff;
+      color: $color-lightgrey-2;
+      font-family: $sans-text;
+
+    .clndr-controls {
+      position: relative;
+      height: 40px;
+
+      .month {
+        font-size: 1.5625rem;
+        text-transform: uppercase;
+        top: 0;
+        width: 250px;
+        @include center-xy;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .clndr-previous-button {
+        position: absolute;
+        @include center-y;
+        left: 15px;
+        float: left;
+        cursor: pointer;
+
+        background-image: url('../images/left-arrow-icon.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        /*padding-left: 15px;*/
+        /*right: $right-positioning;*/
+        /*cursor: pointer;*/
+        /*transition: background-image 0.25s;*/
+        /*@include center-y;*/
+      }
+
+      .clndr-next-button {
+        position: absolute;
+        float: right;
+        @include center-y;
+        right: 15px;
+        cursor: pointer;
+
+        background-image: url('../images/right-arrow-icon.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+      .clndr-table {
+        border: none;
+        width: 100%;
+        text-align: center;
+        font-size: 0.75rem;
+
+        thead {
+          font-family: $serif-text;
+          font-weight: bold;
+        }
+
+        tbody {
+          .adjacent-month {
+            color: $color-lightgrey;
+          }
+
+          .today {
+            color: #fff;
+            background-color: $color-blue;
+          }
+
+          .event {
+            cursor: pointer;
+          }
+        }
+
+        .day, .header-day {
+          line-height: 3.5;
+        }
+      }
+    }
+  }
+
+  $event-grid-column-padding: 20px;
+  $event-meeting-grid-column-content-width: $max-content-width / 3 - $event-grid-column-padding;
+
+  .event_calendar_grid {
+    @include span-columns (8 of 12); 
+
+    &_title {
+      margin: 0 0 5px 20px;
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      font-weight: 300;      
+    }
+
+    .event_calendar_grid_card_container {
+      @include span-columns (4 of 8);
+      padding: 0 0 $event-grid-column-padding $event-grid-column-padding;
+
+      &:nth-of-type(2n + 1) {
+        clear: both;
+      }
+    }
+
+    .event_calendar_grid_card {
+      @extend .card;      
+      width: 100%;
+      background-color: #fff;
+      padding: 10px;
+      max-width: $event-meeting-grid-column-content-width;
+
+      &_date {
+        @extend .card_date;
+        font-size: 12px;
+      }
+
+      &_location {
+        @extend .card_body;
+        margin-bottom: 10px;
+      }
+
+      &_footer {
+        height: 20px;
+        width: 100%;
+        position: relative;
+
+        .read_more {
+          position: absolute;
+        }
+
+        .event_calendar_grid_card_google_calendar {
+          display: block;
+          background-image: url('../images/add-calendar-icon.svg');
+          float: right;
+          background-repeat: no-repeat;
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  .event_calendar_feature_footer {
+    margin-top: 30px;
+    @include span-columns (12 of 12);  
   }
 }

@@ -1,0 +1,172 @@
+@import "../global";
+
+
+#homepage_quicklinks_region {
+  #block-quicklinks {
+    @include span-columns(12 of 12);
+  }
+
+  #homepage_quicklinks_content {
+    $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
+    width: $card-container-width;
+
+    .views-element-container {
+      @extend .card;
+      padding: 0;
+      @include span-columns(4 of 12);
+      background-color: #FFFFFF;
+      margin-right: 20px;
+      height: 550px;
+      width: $card-width;
+      margin: $card-margin-vert 0;
+      margin-right: $card-margin-horiz;
+      float: left;
+      position: relative;
+
+      header {
+        background-color: #fff;
+        height: 300px;
+
+        .views-row {
+          border-top: none;
+          padding: 0;
+          height: 100%;
+          padding: 15px 15px 5px;
+          position: static;
+          color: pink;
+          transform: none;
+        }
+
+        .views-field-field-quicklink-image {
+          @include fit-and-center-image(200px);    
+        }
+
+        h3 {
+          padding-top: 20px;
+        }
+      }
+
+      .views-row {
+        border-top: 1px solid $color-grey3;
+        padding: 10px 25px;
+        width: 100%;
+        height: 67px;
+        display: inline-block;
+
+        .quicklink-item-title, .views-field-field-short-title {
+          @include center-y;
+          position: relative;
+        }
+
+        a {
+          text-decoration: none;
+          color: $color-grey;
+          line-height: 22.39px;
+          display: block;
+          width: 95%;
+          position: relative;
+          @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -25px);
+        }
+      }  
+    }
+
+    .quicklinks-column {
+      footer {
+        background: $color-lightgrey;
+        font-weight: 500;
+        color: #4F4F4F;
+        font-size:  0.875rem;
+        border: none;
+        position: absolute;
+        bottom: 0;
+        height: $more-quicklinks-height;
+        width: 100%;
+        @include hover-transition-background;
+
+        a {
+          display: inline-block;
+          text-decoration: none;
+          width: 100%;
+          color: inherit;
+          padding: 0 25px;
+          @include center-y;
+          @include after-element-icon-no-hover('../images/more-dots-icon.svg', 13px);
+        }
+      }
+    }      
+  }
+}
+
+#homepage_quicklinks_region > #homepage_quicklinks_content {
+/*  At this width 2 cards are on the first row, and the third is on the second.
+    First card has a margin-right, but second no longer does:*/
+  @media (max-width: 1023px) {   
+    $card-container-width: $card-width * 2 + $card-margin-horiz; 
+    width: $card-container-width; 
+    /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+    height: $card-height * 2 + $card-margin-vert * 3; /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+
+    .views-element-container {
+      &:nth-last-of-type(2) {
+        margin-right: 0px;
+      }
+
+      &:last-of-type {
+        $horiz-margin: ($card-container-width - $card-width) / 2;
+        margin: 0 $horiz-margin;
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    height: auto;
+    width: 100%;
+
+    .views-element-container {
+      @include span-columns(12 of 12);
+      margin: 15px auto 0;
+      height: auto;
+
+      &:last-of-type {
+        margin: 15px auto 0;
+      }
+
+      .quicklinks-column > .views-row, .views-field-field-quicklink-image, footer {
+        display: none;
+      }
+
+      .views-row a {
+        @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px);
+      }
+
+      header {
+        height: 75px;
+
+        .views-row {
+          height: 75px;
+          padding: 10px;
+        }
+
+        .views-field {
+          height: 100%;
+          width: 100%;
+          position: relative;
+        }
+
+        h3 {
+          height: auto;
+          top: 0;
+          @include center-y;
+          padding: 15px;
+          width: 95%;
+          position: absolute;
+          cursor: pointer;
+          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0);
+
+          &.open {
+            @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0);
+          }
+        }
+      }
+    }
+  }
+}

@@ -18,7 +18,14 @@
 
     // Initialize display
     formatMenuHeaders ();
-    flexibility(document.documentElement);
+
+    // TEMP: function to delay onset of Flexibility in IE9
+    if (navigator.userAgent.indexOf('MSIE 9.0') > -1) {
+      console.log('IE9 detected')
+      window.setTimeout(function () {
+        flexibility(document.documentElement);
+      }, 1000)
+    };
 
     // I. Create mobile menu slide
     $('#subheader_mobile_body').append (createMenuSlides (getMenuList ()));
@@ -33,23 +40,45 @@
       closeSubheaderMenu ();
     });
 
+    $('#subheader_mobile_close_button1').click (function () {
+      closeSubheaderMenu ();
+    });
+
     // IV. Display the subheader search 
     $('#header_menu_search_toggle_button').click (function () {
       toggleSearch ();
     });
 
-    // // V. Handle subheader menu item hover events
+    // V. Handle subheader menu item hover events
     $('#header_menu li[data-menu-level="0"]').hover (
-      // On mouse enter, show submenu
+      // When mouse hovers on menu, show drop-down submenu
       function () {
         openWidescreenSubmenu ($('> ul', this).clone ());
-      }, 
-      // On mouse exit, hide submenu
+      },
+      // When mouse leaves, listen to see if it has gone to the drop-down or not 
+      function () {       
+        $('ul[data-menu-level="1"]').hover (
+          function () {
+            // If yes, keep submenu open and do nothing
+          }, function () {
+            // If no, close submenu
+            closeWidescreenSubmenu ();
+          })
+      }
+    )
+
+    // Continuation of part V: edge cases that should close submenu
+    $('#header').mouseover ( 
       function () {
         closeWidescreenSubmenu ();
-    });
+      })
 
-    // For dev purposes
+    $('#homepage_hero_region').mouseover ( 
+      function () {
+        closeWidescreenSubmenu ();
+      })
+
+    // // For dev purposes
     // $('#header_menu li[data-menu-level="0"]').click (function(e) {
     //   e.preventDefault();
     //   openWidescreenSubmenu ($('> ul', this).clone ());
@@ -86,7 +115,6 @@
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
             case HEADER_MENU_WIDESCREEN_HOVER_STATE:
-            // moveSearchBlockToHeader ();
               return openHeaderMenu();
             default:
               console.log('[achp_theme][document.ready] Warning: unrecognized header menu state "' + headerMenuState + '".');
@@ -131,7 +159,9 @@
         }
       };
     })());
-  });
+
+    });
+
 
   /* 
     Accepts two arguments:
@@ -165,27 +195,6 @@
     });
     return menuListItemIndex;
   }
-
-  /*
-  Accepts no arguments, returns undefined, and sets menu-num-columns and 
-  menu-column-shift data attributes for the widescren dropdown menu
-  element, which are used for its positioning.
-  */
-  // function setDropdownMenuOffsets () {
-  //   var dropdownSubmenu = $('#subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"]');
-  //   var numDropdownSubmenuColumns = $('>li', dropdownSubmenu).length;
-  //   var parentIndex = dropdownSubmenu.attr ('data-menu-parent-index');
-  //   var parentLocalIndex = $('#header_menu li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]').attr ('data-menu-item-local-index');
-  //   var numParentSiblings = $('#header_menu ul[data-menu-level="0"] > li[data-menu-level="0"]').length;
-  //   var numParentSiblingsRemaining = numParentSiblings - parentLocalIndex;
-  //   dropdownSubmenu
-  //     .attr ('data-menu-num-columns', numParentSiblings)
-  //     .attr ('data-menu-column-shift', 
-  //       numDropdownSubmenuColumns <= numParentSiblingsRemaining ?
-  //         parentLocalIndex : 
-  //         parentLocalIndex - (numDropdownSubmenuColumns - numParentSiblingsRemaining)
-  //     );
-  // }
 
   /*
   Accepts no arguments, returns undefined, and removes the class 
@@ -250,26 +259,6 @@
     return slides;
   }
 
-  function createMobileMenuHoverHandler (slideListItem) {
-    slideListItem .addClass ('menu_slide_list_item')
-                  .append ($('<span></span>')
-                    .addClass('menu_slide_list_item_arrow_blue')
-                    .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
-                  )   
-                  .append ($('<span></span>')
-                    .addClass('menu_slide_list_item_arrow')
-                    .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
-                  )       
-                  .hover (
-                    function (e) {
-                      $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
-                    },
-                    function (e) {
-                      $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
-                  });
-    return slideListItem;
-  }
-
   /*
   Accepts four arguments:
 
@@ -287,32 +276,16 @@
     menuListItems.each (function (i, menuListItem) {
       slideListItems.push ($('>ul', menuListItem).length === 0 ? 
          slideListItem = $(menuListItem).clone ()
-         // createMobileMenuHoverHandler (slideListItem)
          : 
         slideListItem = $('<li></li>')
           .addClass ('menu_slide_list_item')
           .html ($('>a', menuListItem).html ())
           .click (function () {
-            showMenuSlide (containerElement, $(menuListItem).attr ('data-menu-item-index'));
-            slide.hide ();
-          })
-        // createMobileMenuHoverHandler (slideListItem)
-          .append ($('<span></span>')
-            .addClass('menu_slide_list_item_arrow_blue')
-            .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
-          )   
-          .append ($('<span></span>')
-            .addClass('menu_slide_list_item_arrow')
-            .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
-          )       
-          .hover (
-            function (e) {
-              $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '1000');
-            },
-            function (e) {
-              $('.menu_slide_list_item_arrow_blue', $(e.target)).css ('z-index', '800');
+            slideOutToLeft (index);            
+            slideInFromRight (containerElement, $(menuListItem).attr ('data-menu-item-index'));
           })
         );
+        // toggleArrows (slideListItem);
     });
 
     // To remove line breaks from slide titles that have them
@@ -330,9 +303,9 @@
           .append ($('<div></div>')
             .addClass ('menu_slide_header_back_button')
             .html ('BACK')
-            .click (function () {
-              showMenuSlide (containerElement, parentIndex);
-              slide.hide ();
+            .click (function () {     
+              slideInFromLeft (containerElement, parentIndex);  
+              slideOutToRight (index);                            
             })
           )          
           .append ($('<h3></h3>')
@@ -343,19 +316,60 @@
         .append(menuListItems.length === 0 ? null : $('<ul></ul>').append (slideListItems)))
       .append ($('<div></div>')
         .addClass ('menu_slide_footer')
-        .append ($('<div></div>')
-          .addClass ('menu_slide_footer_close_button')
-          .click (function () {
-            closeSubheaderMenu ();
-          })));
+        );
 
-
+    /* Special conditions for highest-level slide: empties Back button and
+    title; positions Close button */
     if (slide.attr('data-menu-slide-index') === '0') {
       slide.find('.menu_slide_header_back_button').empty();
       slide.find('.menu_slide_header_title').empty();
+      appendExtraMenuItems(slide);
     }
   
     return slide;
+  }
+
+  /*
+  Accepts one argument, an HTML Element; appends blue and grey arrow icons to the 
+  element, toggling between them upon hover; and returns undefined.
+  */
+
+  // function toggleArrows (item) {
+  //   $(item).append ($('<span></span>')
+  //            .addClass('arrow')
+  //            .html ('<embed src="/themes/achp/images/right-arrow-icon.svg" />')
+  //          )   
+  //          .append ($('<span></span>')
+  //            .addClass('arrow_blue')
+  //            .html ('<embed src="/themes/achp/images/right-arrow-icon-blue.svg" />')
+  //          )       
+  //          .hover (
+  //            function (e) {
+  //              $('.arrow_blue', $(e.target)).css ('z-index', '1000');
+  //            },
+  //            function (e) {
+  //              $('.arrow_blue', $(e.target)).css ('z-index', '800');
+  //         });
+  // }
+
+  /*
+  Accepts one argument: slide, an object representing a single 
+  menu screen; attaches additional list items to the screen;
+  and returns undefined.
+  */
+
+  function appendExtraMenuItems(slide) {
+    slide = $(slide);
+    slide.find('.menu_slide_body')
+         .append($('<ul></ul>')
+           .addClass('menu_slide_extras')
+           .append ($('<li></li>')
+             .addClass ('menu_slide_extra_item')
+             .html ('<a href="#">CONTACT US</a>'))
+           .append ($('<li></li>')
+             .addClass ('menu_slide_extra_item')
+             .html ('<a href="#">SIGN IN</a>'))
+          );
   }
 
   /*
@@ -381,14 +395,74 @@
     return $('div.menu_slide[data-menu-slide-index="' + menuItemIndex + '"]', containerElement);
   }
 
+  /*
+  Accepts two arguments: 
+  * menuItemIndex, an integer
+  * containerElement, a jQuery HTML Element representing the slide 
+
+  Animates the slide into view and returns undefined.
+  */
+  function slideInFromLeft (containerElement, menuItemIndex) {
+    var slide = getMenuSlide (containerElement, menuItemIndex);
+    slide.css ('right', '100vw')
+         .delay (0) /* This seems to fix a Safari bug */
+         .animate ({ right: '0', left: '0' }, 250, "linear")     
+         .show ();
+    animateSubheaderHeight ( setSubheaderHeight (slide) );
+  }
 
   /*
-  Accepts one argument: menuItemIndex, an integer; shows the menu slide element with
-  the given ID; and returns undefined;
+  Accepts two arguments: 
+  * menuItemIndex, an integer
+  * containerElement, a jQuery HTML Element representing the slide 
+
+  Animates the slide into view and returns undefined.
   */
-  function showMenuSlide (containerElement, menuItemIndex) {
+  function slideInFromRight (containerElement, menuItemIndex) {
     var slide = getMenuSlide (containerElement, menuItemIndex);
-    slide.show();
+    slide.css ('left', '100vw')
+         .delay (0) /* This seems to fix a Safari bug */
+         .animate ({ left: '0', right: '0' }, 250, "linear")
+         .show ();
+    animateSubheaderHeight ( setSubheaderHeight (slide) );
+  }
+
+  /*
+  Accepts one argument: slide, an object representing a single 
+  menu screen; returns a string representing the height of 
+  that slide's subheader element.
+  */
+  function setSubheaderHeight (slide) {
+    var subheaderHeight = $('.search-block-form').height () + $('.menu_slide_header').height () + slide.height () + 81;
+    subheaderHeight += 'px';
+    return subheaderHeight;    
+  }
+
+  /*
+  Accepts one argument: subheaderHeight, a string; animates
+  the subheader height to that height; and returns undefined.
+  */
+  function animateSubheaderHeight (subheaderHeight) {
+    $('#subheader_mobile_collapsible').animate ({height: subheaderHeight}, 250);    
+  }
+
+  /*
+  Accepts one argument: index, an integer; animates the slide with 
+  that index out of view; and returns undefined.
+  */
+  function slideOutToLeft (index) {
+    $('.menu_slide[data-menu-slide-index="' + index + '"]')
+      .animate({ left: '-100vw' }, 250, "linear");
+
+  }
+
+  /*
+  Accepts one argument: index, an integer; animates the slide with 
+  that index out of view; and returns undefined.
+  */
+  function slideOutToRight (index) {
+    $('.menu_slide[data-menu-slide-index="' + index + '"]')
+      .animate({ left: '100vw' }, 250, "linear");
   }
 
   /*
@@ -418,41 +492,9 @@
   Accepts no arguments, shows the widescreen header menu, and returns undefined.
   */
   function openHeaderMenu () {
-    // setHorizontalPositionHeader ();
-    // setVerticalPositionHeader ();
     $('#block-achp-main-menu').show ();
-    flexibility(document.documentElement);
+    // flexibility(document.documentElement);
   }
-
-  /*
-  Accepts no arguments, returns undefined, and horizontally
-  centers header menu list.
-  */
-  // function setHorizontalPositionHeader () {
-  //   var menuElement = $('#header_menu');
-  //   var menuListElement = $('ul[data-menu-level="0"]', menuElement);
-  //   var menuListItemsTotalWidth = Math.ceil ($('li[data-menu-level="0"]', menuElement).toArray ().reduce (
-  //     function (totalWidth, menuItemElement) {
-  //       return totalWidth + $(menuItemElement).outerWidth (true);
-  //     }, 10)); // Setting initial value of 10 to account for borders being counted as part of content area
-  //   var horizontalOffset = (menuElement.width () / 2) - (menuListElement.width () / 2);
-  //   menuListElement.innerWidth (menuListItemsTotalWidth)
-  //                  .css ('transform', 'translateX(' + horizontalOffset + 'px)');
-  // }  
-
-  /*
-  Accepts no arguments, returns undefined, and vertically
-  centers header menu list items.
-  */
-  // function setVerticalPositionHeader () {
-  //   var menuElement = $('#header_menu');
-  //   var menuElementOffset = menuElement.height () / 2;
-  //   $('li[data-menu-level="0"] > a', menuElement).each (function (i, menuItemElement) {
-  //     menuItemElement = $(menuItemElement);
-  //     var verticalOffset = menuElementOffset - (menuItemElement.height () / 2);
-  //     menuItemElement.css ('transform', 'translateY(' + verticalOffset + 'px)')
-  //   });
-  // }  
 
   /*
     Accepts one argument: submenu, a jQuery HTML Element;
@@ -479,9 +521,6 @@
     var parentIndex = dropdownSubmenu.attr ('data-menu-parent-index');
     var headerMenuElement = $('#header_menu');
     var parentElement = $('li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]', headerMenuElement);
-    // var parentLocalIndex = $('#header_menu li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]').attr ('data-menu-item-local-index');
-    // var numParentSiblings = $('#header_menu ul[data-menu-level="0"] > li[data-menu-level="0"]').length;
-    // var numParentSiblingsRemaining = numParentSiblings - parentLocalIndex;
     var parentElementOffset = parentElement.position ().left;
     var remainingWidth = headerMenuElement.width () - parentElementOffset;
     dropdownSubmenu
@@ -490,12 +529,6 @@
           parentElementOffset - (dropdownSubmenu.width () - remainingWidth) :
           parentElementOffset
       );
-      // .attr ('data-menu-num-columns', numParentSiblings)
-      // .attr ('data-menu-column-shift', 
-      //   numDropdownSubmenuColumns <= numParentSiblingsRemaining ?
-      //     parentLocalIndex : 
-      //     parentLocalIndex - (numDropdownSubmenuColumns - numParentSiblingsRemaining)
-      // );
   }
 
   /*
@@ -603,7 +636,6 @@
   */
   function closeWidescreenSubmenu () {
     $('#subheader_widescreen_submenu').empty ();
-    // $('#subheader_widescreen_submenu').slideUp ().empty ();
     removeSelectedClassFromMenuItems ();
   }
 
@@ -639,8 +671,8 @@
   */
   function openMobileCollapsible() {
     openMobileSubheader ();
-    removeMenuHeaderLineBreaks ()
-    $('#subheader_mobile_collapsible').slideDown ();
+    removeMenuHeaderLineBreaks ();
+    $('#subheader_mobile_collapsible').slideDown ();   
   }
 
   function closeMobileCollapsible() {
