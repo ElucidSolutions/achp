@@ -834,9 +834,43 @@ header {
   margin: 0 auto;
   text-align: center; }
 
-#block-readmoreaboutthefederalpreservationprocess div button {
-  margin: 20px auto 30px auto;
-  text-transform: uppercase; }
+.header_container {
+  width: auto;
+  display: inline-block;
+  padding: 0px 20px; }
+  .header_container hr {
+    width: 60%; }
+
+#homepage_issues_region {
+  padding: 25px 0px 0px 0px; }
+
+#block-readmoreaboutthefederalpreservationprocess div {
+  margin: 20px 20px 30px 20px; }
+  #block-readmoreaboutthefederalpreservationprocess div button {
+    text-transform: uppercase; }
+
+/*
+** This Sass file defines the styles for the 
+** Section 106 Process module.
+*/
+.issues_content_wrapper {
+  margin: 0 auto;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block;
+  padding: 0px 20px; }
+  .header_container hr {
+    width: 60%; }
+
+#homepage_issues_region {
+  padding: 25px 0px 0px 0px; }
+
+#block-readmoreaboutpreservationissues div {
+  margin: 20px 20px 30px 20px; }
+  #block-readmoreaboutpreservationissues div button {
+    text-transform: uppercase; }
 
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
@@ -1137,8 +1171,8 @@ button {
         padding: 0 40px; } }
 
 #homepage_issues_region {
-  padding: 25px 50px;
-  height: 200px;
+  padding: 25px 0px 0px 0px;
+  height: auto;
   background-color: #E8F8FF; }
   #homepage_issues_region hr {
     /*width: 100px;*/ }
