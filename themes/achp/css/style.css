@@ -19,6 +19,29 @@ html {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
 #homepage_news_content #block-views-block-latest-news-block .homepage_news_item {
   padding: 10px;
   position: relative;
@@ -118,6 +141,29 @@ html {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
 #homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block #block-eventsmeetings .event_calendar_calendar_body, #block-eventsmeetings #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block #block-eventsmeetings .event_calendar_grid .event_calendar_grid_card, #block-eventsmeetings .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card {
   text-align: center;
   background-color: #ffffff; }
@@ -192,6 +238,29 @@ html {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
 /* These styles apply to the success stories and latest news views on the homepage */
 #block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
   margin: 0 auto;
@@ -236,6 +305,29 @@ html {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
 #header_region {
   height: 72px;
   width: 1024px;
@@ -619,6 +711,29 @@ html {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
 header {
   background-color: #043B62;
   overflow: hidden;
@@ -848,6 +963,29 @@ header {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
 #homepage_quicklinks_region #block-quicklinks {
   float: left;
   display: block;
@@ -1142,6 +1280,29 @@ header {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
 .main_wrapper {
   /*@extend .card;*/ }
 
@@ -1246,6 +1407,52 @@ header {
     @include span-columns (12 of 12);  
   }
 }*/
+/*
+** This Sass file defines the styles for the 
+** Section 106 Process module.
+*/
+.flowchart_content_wrapper {
+  margin: 0 auto;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block;
+  padding: 0px 20px; }
+  .header_container hr {
+    width: 60%; }
+
+#homepage_issues_region {
+  padding: 25px 0px 0px 0px; }
+
+#block-readmoreaboutthefederalpreservationprocess div {
+  margin: 20px 20px 30px 20px; }
+  #block-readmoreaboutthefederalpreservationprocess div button {
+    text-transform: uppercase; }
+
+/*
+** This Sass file defines the styles for the 
+** Section 106 Process module.
+*/
+.issues_content_wrapper {
+  margin: 0 auto;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block;
+  padding: 0px 20px; }
+  .header_container hr {
+    width: 60%; }
+
+#homepage_issues_region {
+  padding: 25px 0px 0px 0px; }
+
+#block-readmoreaboutpreservationissues div {
+  margin: 20px 20px 30px 20px; }
+  #block-readmoreaboutpreservationissues div button {
+    text-transform: uppercase; }
+
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -1261,8 +1468,31 @@ header {
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/*@import "../event_calendar/sass/event_calendar.scss";*/
-html, body {
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+html,
+body {
   max-width: 100%;
   margin: 0;
   padding: 0;
@@ -1302,7 +1532,9 @@ html, body {
   .header_container hr {
     width: 60%; }
 
-h1, #content_region #block-achp-page-title h1, h2, h3 {
+h1, #content_region #block-achp-page-title h1,
+h2,
+h3 {
   font-family: "p22-underground", sans-serif;
   text-align: center;
   margin: 0;
@@ -1528,8 +1760,8 @@ button {
     height: 1px; }
 
 #homepage_flowchart_region {
-  padding: 25px 50px;
-  height: 200px;
+  padding: 25px 0px 0px 0px;
+  width: 100%;
   background-color: #E8F8FF; }
 
 #homepage_map_region {
@@ -1560,8 +1792,8 @@ button {
         padding: 0 40px; } }
 
 #homepage_issues_region {
-  padding: 25px 50px;
-  height: 200px;
+  padding: 25px 0px 0px 0px;
+  height: auto;
   background-color: #E8F8FF; }
 
 #homepage_impact_region {
@@ -1612,7 +1844,8 @@ button {
         margin-left: 0; }
       #homepage_impact_region .impact_item_3 {
         margin-bottom: 25px; }
-      #homepage_impact_region .impact_item .impact_number, #homepage_impact_region .impact_item p {
+      #homepage_impact_region .impact_item .impact_number,
+      #homepage_impact_region .impact_item p {
         margin: 0; }
       #homepage_impact_region .impact_item img {
         height: 60px; } }
@@ -1704,7 +1937,8 @@ footer {
         text-align: center; }
         footer .content_wrapper ul.menu_base > li:last-child {
           margin-right: 0; }
-      footer .content_wrapper ul.menu_second, footer .content_wrapper ul.menu_third {
+      footer .content_wrapper ul.menu_second,
+      footer .content_wrapper ul.menu_third {
         display: none; } }
 
 /* TODO: move to separate file when it you figure out how to get sass to watch it */
@@ -1817,14 +2051,7 @@ footer {
     display: block;
     margin-right: 0%;
     width: 50%;
-    padding: 0 0 20px 20px;
-    /*      &:nth-of-type(2n) {
-            float: right;
-          }
-    
-          &:nth-of-type(2n + 1):last-of-type {
-            @include span-columns (8 of 8);    
-          }*/ }
+    padding: 0 0 20px 20px; }
     #block-eventsmeetings .event_calendar_grid .event_calendar_grid_card_container:last-child {
       margin-right: 0; }
     #block-eventsmeetings .event_calendar_grid .event_calendar_grid_card_container:nth-of-type(2n + 1) {
