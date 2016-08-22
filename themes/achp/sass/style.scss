@@ -219,12 +219,16 @@ button {
 }
 
 #homepage_events_region {
-  padding: 25px 50px;
+  /*padding: 25px 50px;*/
   background-image: url('../images/blue-columns-background.jpg');
   background-size: cover;
   background-position: center;
   /* TODO: When this region has actual content (& therefore height), check different positions to see which looks best w/ image*/
   height: auto;
+
+  .header_container {
+    padding: 25px 50px;
+  }
 
   h2 {
     color: #FFFFFF;
@@ -476,11 +480,15 @@ footer {
 /* TODO: move to separate file when it you figure out how to get sass to watch it */
 #block-eventsmeetings {
   .event_calendar_feature {
-    padding-top: 30px;
+    padding: 0 50px;
   }
 
   .event_calendar_calendar {
     @include span-columns (4 of 12);
+
+    .clndr {
+      padding: 5px;
+    }
 
     &_title {
       margin-bottom: 5px;
@@ -551,12 +559,18 @@ footer {
           }
 
           .today {
-            color: #fff;
-            background-color: $color-blue;
+            /*color: #fff;*/
+            background-color: $color-lightblue3;
           }
 
           .event {
             cursor: pointer;
+            background-color: $color-lightgrey;
+          }
+
+          .event:hover, .today:hover {
+            color: #fff;
+            background-color: $color-darkblue3;           
           }
         }
 
@@ -587,19 +601,11 @@ footer {
       &:nth-of-type(2n + 1) {
         clear: both;
       }
-
-/*      &:nth-of-type(2n) {
-        float: right;
-      }
-
-      &:nth-of-type(2n + 1):last-of-type {
-        @include span-columns (8 of 8);    
-      }*/
     }
 
     .event_calendar_grid_card {
       @extend .card;  
-      height: 215px;    
+      height: 240px;    
       width: 100%;
       background-color: #fff;
       padding: 10px;
@@ -607,7 +613,10 @@ footer {
 
       &_date {
         @extend .card_date;
-        /*font-size: 12px;*/
+      }
+
+      &_mobile_date {
+        display: none;
       }
 
       &_location {
@@ -639,5 +648,88 @@ footer {
   .event_calendar_feature_footer {
     margin-top: 30px;
     @include span-columns (12 of 12);  
+  }
+
+  @media (max-width: 1024px) {
+    .event_calendar_feature {
+      padding: 0 25px;
+
+      .event_calendar_calendar {
+        display: none;
+      }
+
+      .event_calendar_grid {
+        @include span-columns (12 of 12);
+
+        &_title {
+          display: none;
+        }
+
+        &_card_container {
+          @include span-columns (12 of 12);  
+          height: $mobile-card-item-height;
+          margin: 10px 0;
+          width: 100%;
+          position: relative;
+          padding: 0;
+
+          .event_calendar_grid_card {
+            width: 100%;
+            height: 100%;
+            height: $mobile-card-item-height;
+            padding: 0;
+            position: absolute;
+            max-width: 100%;
+            border: 0;
+            /*@include span-columns (12 of 12);      */
+
+            &_header {
+              height: $mobile-card-item-height;
+              /*width: 100%;*/
+              background-color: #fff;
+              /*position: absolute;*/
+              margin-left: 75px;
+              position: relative;
+            }
+
+            &_title {
+              @include center-y;
+              /*@include hover-transition-content;*/
+              cursor: pointer;
+              width: 95%;
+              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px);
+            }
+            
+
+              &_date, &_location, &_footer {
+                display: none;
+              }
+
+              &_mobile_date {
+                line-height: 1.1;
+                padding: 15px 5px;
+                display: inline-block;
+                width: 60px;
+                float: left;
+                height: $mobile-card-item-height;
+                background-color: $color-red;
+                text-align: center;
+                position: absolute;
+                color: #fff;
+                top: 0;
+
+                &_month {
+                  text-transform: uppercase;
+                }
+
+                &_day {
+                  font-size: 2rem;    
+                  font-weight: 300;          
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
