@@ -150,11 +150,11 @@
     var tabContent = $('<div></div').attr("id", this.convertTitleToClassName(issue.title)).addClass(classPrefix + TAB + CONTENT);
 
     // create the image that represents the issue
-    var imageLink = $('<a></a>').addClass(classPrefix + TAB + CONTENT + IMAGE + LINK).attr('href', issue.url);
     var image = $('<div></div').addClass(classPrefix + TAB + CONTENT + IMAGE);
     image.css("background-image", "url(" + issue.imageURL + ")");
-    imageLink.append(image);
-    tabContent.append(imageLink);
+    var imageLink = $('<a></a>').addClass(classPrefix + TAB + CONTENT + IMAGE + LINK).attr('href', issue.url);    
+    image.append(imageLink);
+    tabContent.append(image);
 
     var leftContentContainer = $('<div></div').addClass(classPrefix + TAB + CONTENT + CONTAINER + LEFT);
     // create the issue title
@@ -166,8 +166,9 @@
     leftContentContainer.append(bodyLinkElement);
 
     // create a read more link
-    var readMoreLink = $('<a></a>').addClass(classPrefix + TAB + CONTENT + READ_MORE + LINK).attr('href', issue.url);
-    var readMoreText = $('<div></div>').addClass(classPrefix + TAB + CONTENT + READ_MORE + TEXT).html("Read More About" + " " + issue.title);
+    
+    var readMoreText = $('<div></div>').addClass(classPrefix + TAB + CONTENT + READ_MORE + TEXT);
+    var readMoreLink = $('<a></a>').addClass(classPrefix + TAB + CONTENT + READ_MORE + LINK).attr('href', issue.url).text("Read More About" + " " + issue.title);
     readMoreLink.append(readMoreText);
     leftContentContainer.append(readMoreLink);
 
@@ -216,10 +217,9 @@
           tabWidth = width;
         }
       });
-
-      // Set the tab width to the value calculated
       $(this).css("width", tabWidth);
-    });
+    });    
+
   }
 
   /**
@@ -244,6 +244,32 @@
       enablekeyboard: false,
       touchbehavior: true
     });
+
+
+    var previousElement = $('.' + classPrefix + TABS + NAVIGATION + PREVIOUS);
+    var nextElement = $('.' + classPrefix + TABS + NAVIGATION + NEXT);
+
+    niceScroll.onscrollend = function(data) {
+      
+      // If at the start
+      if (data.end.y <= 0) {        
+        console.log('start');
+        previousElement.addClass('disabled');
+      } else {
+        previousElement.removeClass('disabled');
+      }
+
+      // If at the end
+      if (data.end.y >= this.page.maxh) {
+        console.log('start');
+        nextElement.addClass('disabled');
+      } else {
+        nextElement.removeClass('disabled');
+      }
+    }
+
+    // Trigger the scrollend event right away to set the inital state
+    niceScroll.triggerScrollEnd(); 
 
     // Calculate the width of the tabbed menu
     var tabbedMenuWidth = this.calculateTabbedMenuWidth();
@@ -331,7 +357,7 @@
    * handler to show and hide next and previous 
    * buttons; and returns undefined.
    */
-   FeatureInstance.prototype.registerMouseMoveEventHandler = function (nicescroll) {
+   FeatureInstance.prototype.registerMouseMoveEventHandler = function () {
     var previousButton = $('.' + this.getFeatureClassName() + TABS + NAVIGATION + PREVIOUS);
     var nextButton = $('.' + this.getFeatureClassName() + TABS + NAVIGATION + NEXT);
     
@@ -476,6 +502,10 @@
   /**
    * Accepts no arguments; moves the tabs in the direction specified
    * by the distance specified; and returns undefined.
+   * 
+   * Alternatively, instead of setting the scrollLeft property, we
+   * could call niceScroll.doScrollBy(200) to move to the right by 200
+   * pixels or niceScroll.doScrollBy(-200) to move to the left 200 pixels.
    */
    FeatureInstance.prototype.slideTab = function (direction, distance) {
     var className = '.' + this.getFeatureClassName() + TABS + WRAPPER;
@@ -541,7 +571,7 @@
      * Register mousemove handler to turnon and turnoff previous
      * and next buttons.
      */
-     featureInstance.registerMouseMoveEventHandler(niceScroll);
+     featureInstance.registerMouseMoveEventHandler();
 
     /**
      * Register navigation button click handler to

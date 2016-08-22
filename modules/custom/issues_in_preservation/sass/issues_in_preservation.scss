@@ -11,8 +11,8 @@
 }
 
 .issues_in_preservation {
-  position: relative;
   display: block;
+  padding-top: 20px;
   .issues_in_preservation_feature_tabs_navigation {
     position: relative;
     .issues_in_preservation_feature_tabs_navigation_previous {
@@ -26,9 +26,12 @@
       z-index: 100;
       top: 0px;
       left: 0px;
-      height: 64px;
+      height: 62px;
       width: 30px;
       cursor: pointer;
+    }
+    .issues_in_preservation_feature_tabs_navigation_previous.disabled {
+      background-image: url("../images/left-arrow-icon-grey.svg");
     }
     .issues_in_preservation_feature_tabs_navigation_next {
       display: block;
@@ -41,9 +44,13 @@
       z-index: 100;
       top: 0px;
       right: 0px;
-      height: 64px;
+      height: 62px;
       width: 30px;
       cursor: pointer;
+    }
+
+    .issues_in_preservation_feature_tabs_navigation_next.disabled {
+      background-image: url("../images/right-arrow-icon-grey.svg");
     }
   }
 
@@ -55,11 +62,10 @@
       background-color: $background-color-lightblue;
       .issues_in_preservation_feature_tabs {
         display: table;
-        display: flex;
+        table-layout: fixed;
         list-style-type: none;
         margin: 0;
         border: none;
-        background-color: $background-color-lightblue;
       }
       @media (max-width: 414px) {
         .issues_in_preservation_feature_tabs {
@@ -67,16 +73,15 @@
           padding-left: 50px;
           padding-right: 50px;
         }
-      }
-    
-      .issues_in_preservation_feature_tab {      
-        display: inline-block;
-        box-sizing: border-box;
-        height: 64px;
-        margin: auto 30px;
-        .issues_in_preservation_feature_tab_link {      
+      }    
+      .issues_in_preservation_feature_tab {             
+        display: table-cell;
+        vertical-align: bottom;
+        height: 100%;
+        border-collapse: separate;
+        border-spacing: 30px 0px;
+        a.issues_in_preservation_feature_tab_link {   
           display: table-cell;
-          vertical-align: bottom;
           font-family: $sans-text;
           color: rgba(74, 74, 74, 1);
           @include rem('font-size', 16px);
@@ -87,13 +92,12 @@
           text-decoration: none;
           max-width: 140px;
           height: 100%;
-          box-sizing: border-box;
           padding-bottom: 15px;      
           border-bottom: 3px solid $background-color-lightblue;
         }  
 
         @media (max-width: 414px) {
-          .issues_in_preservation_feature_tab_link {
+          a.issues_in_preservation_feature_tab_link {
             @include rem('font-size', 12px);
             @include rem('line-height', 16.8px);
           }     
@@ -115,40 +119,42 @@
       }
     }
     .issues_in_preservation_feature_content_container {
-      display: flex;
-      justify-content: center;
+      position: relative;
       width: 100%;
       min-height: 265px;
       background-color: $color-darkblue;
       padding: 20px;
+      margin: auto auto; 
       .issues_in_preservation_feature_tab_content {
-        display: flex;
-        flex-direction: row;
-        align-self: center;
+        position: relative;
+        text-align: left;
         max-width: 650px;
-        min-height: 230px;
+        max-height: 230px;
         padding: 20px;
         border-top: 5px solid $color-red3;
         background-color: #FFF;
         box-sizing: border-box;
-        .issues_in_preservation_feature_tab_content_image_link {
-          display: block;
-          text-decoration: none;
-          .issues_in_preservation_feature_tab_content_image {
-            height: 185px;
-            width: 185px;
-            background-color: grey;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: auto 100%;
-            box-sizing: border-box;
+        .issues_in_preservation_feature_tab_content_image {
+          display: inline-block;          
+          height: 185px;
+          width: 185px;
+          background-color: grey;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: auto 100%;
+          box-sizing: border-box;
+          .issues_in_preservation_feature_tab_content_image_link {
+            display: block;
+            text-decoration: none;
+            height: 100%;
+            width: 100%;
           }
         }
         .issues_in_preservation_feature_tab_content_container_left {
-          position: relative;
-          min-height: 185px;
+          display: inline-block;
+          max-height: 185px;
           margin-left: 20px;
-          width: auto;
+          width: 100%;
           .issues_in_preservation_feature_tab_content_title_link {
             display: block;
             font-family: $sans-text;
@@ -156,7 +162,6 @@
             @include rem('font-size', 20px);
             @include rem('line-height', 28px);
             text-decoration: none;
-            text-align: left;
           }
           .issues_in_preservation_feature_tab_content_body_link {
             display: block;
@@ -167,14 +172,22 @@
             text-decoration: none;
             text-align: left;
           }
-          .issues_in_preservation_feature_tab_content_read_more_link {
+          .issues_in_preservation_feature_tab_content_read_more_text {
             display: block;
             position: absolute;
             left: 0;
             bottom: 0;
             text-decoration: none;
+            color: $color-grey;
+            font-family: $sans-text;
+            @include rem('font-size', 14px);
+            @include rem('line-height', 19.2px);          
+            font-weight: 500;
+            text-align: left;          
+            text-decoration: none;
+            text-transform: uppercase;
 
-            .issues_in_preservation_feature_tab_content_read_more_text {
+            .issues_in_preservation_feature_tab_content_read_more_link {
               display: block;
               color: $color-grey;
               font-family: $sans-text;
