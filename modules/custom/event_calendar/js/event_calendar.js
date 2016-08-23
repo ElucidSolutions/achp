@@ -11,7 +11,7 @@
     appropriate block
     */
     var instance = new FeatureInstance ();
-    $('#block-eventsmeetings').append (instance.getInstanceElement ());
+    $('.event_calendar').append (instance.getInstanceElement ());
 
   });
 
@@ -19,64 +19,8 @@
   Accepts no arguments, returns an array of all Event objects.
   */
   function getAllEvents () {
-    return [
-      { 
-        title: 'Section 106 Training',
-        start_date: '2016-07-04 15:00', 
-        end_date: '2016-07-04 17:00',
-        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
-        description: 'Learn about Section 106',
-        url: '/node/3'
-      },
-      { 
-        title: 'Upcoming Event 2',
-        start_date: '2016-10-06 9:00',
-        end_date: '2016-10-07 15:00',
-        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
-        description: 'Event 2.',
-        url: '/node/7'        
-      },      
-      { 
-        title: 'Directory Staff Committee Meeting',
-        start_date: '2016-08-24 12:00',
-        end_date: '2016-08-24 18:00',
-        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
-        description: 'Meeting for staff members.',
-        url: '/node/5'        
-      },
-      { 
-        title: 'Upcoming Event 1',
-        start_date: '2016-09-12 13:00',
-        end_date: '2016-09-12 15:00',
-        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
-        description: 'Event 1.',
-        url: '/node/6'        
-      },
-      { 
-        title: 'Upcoming Event 3',
-        start_date: '2016-12-27 12:00',
-        end_date: '2017-01-08 15:00',
-        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
-        description: 'Event 3.',
-        url: '/node/8'        
-      }, 
-      { 
-        title: 'Native American Summit',
-        start_date: '2016-08-06 14:00',
-        end_date: '2016-08-09 17:00',
-        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
-        description: 'Learn about Native American issues',
-        url: '/node/4'
-      },
-      { 
-        title: 'Upcoming Event 4',
-        start_date: '2016-10-30 14:00',
-        end_date: '2016-11-02 17:00',
-        location: 'ACHP Headquarters, Room 337 401 F St NW, Washington DC, 20001',
-        description: 'Learn about Native American issues',
-        url: '/node/9'
-      }
-    ].sort (function (event1, event2) {
+    return drupalSettings.event_calendar.events
+    .sort (function (event1, event2) {
       return moment (event1.start_date).isSameOrAfter (event2.start_date);
     });
   }  
@@ -97,11 +41,11 @@
       self._grid.displayEvents (getEventsOnDay (target.date));
     })
     this._calendar.monthChange (function (month) {
-      self._grid.displayEvents (getNEventsAfterDate (3, month._d));
+      self._grid.displayEvents (getNEventsAfterDate (drupalSettings.event_calendar.num_events, month._d));
     })
     $(bodyElement).on('click', '.month', function (e) {
       var date = moment ($(e.target).text ()).date (1);
-      self._grid.displayEvents (getNEventsInMonth (3, date));
+      self._grid.displayEvents (getNEventsInMonth (drupalSettings.event_calendar.num_events, date));
     })
     // $(bodyElement).on('click', '.month', this._calendar.monthClick (function (e) {
     //   var date = moment($(e.target).text()).date(1);
@@ -162,7 +106,7 @@
   */
   FeatureInstance.prototype.showEvents = function (date) {
     // TODO: n parameter should be Drupal setting
-    this.getGrid ().displayEvents (getNEventsAfterDate (3, date));
+    this.getGrid ().displayEvents (getNEventsAfterDate (drupalSettings.event_calendar.num_events, date));
   }
 
   /*
@@ -475,7 +419,7 @@
   function Grid (containerElement) {
     this._componentElement = createGridComponentElement ();
     containerElement.append (this._componentElement);
-    this.displayEvents (getNEventsAfterDate (3, moment ().format ()));
+    this.displayEvents (getNEventsAfterDate (drupalSettings.event_calendar.num_events, moment ().format ()));
   }
 
   /*

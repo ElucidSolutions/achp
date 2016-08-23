@@ -1,0 +1,14 @@
+<?php
+/*
+  Defines the Event Calendar module which
+  defines the event calendar block.
+*/
+
+// Implements hook_theme ()
+function event_calendar_theme () {
+  return [
+    'event_calendar' => [
+      'variables' => []
+    ]
+  ];
+}

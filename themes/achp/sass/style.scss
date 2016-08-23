@@ -478,7 +478,7 @@ footer {
 }
 
 /* TODO: move to separate file when it you figure out how to get sass to watch it */
-#block-eventsmeetings {
+.event_calendar {
   .event_calendar_feature {
     padding: 0 50px;
   }
@@ -650,7 +650,22 @@ footer {
     @include span-columns (12 of 12);  
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: $max-content-width) {
+    .event_calendar_calendar {
+      @include span-columns (6 of 12);
+    }
+
+    .event_calendar_grid {
+      @include span-columns (6 of 12); 
+
+      .event_calendar_grid_card_container {
+        @include span-columns (12 of 12);
+      /*padding: 0 0 $event-grid-column-padding $event-grid-column-padding;*/
+      }
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
     .event_calendar_feature {
       padding: 0 25px;
 
