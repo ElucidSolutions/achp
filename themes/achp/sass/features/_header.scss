@@ -74,7 +74,7 @@ header {
       font-size: 0.875rem; 
       text-decoration: none;
       /*margin: 10px;*/
-      @include hover-transition-content;
+      @include hover-transition-content(#71bffe);
     }
 
     .text_links a {
@@ -88,7 +88,7 @@ header {
 
       .social_media {
         padding-right: 10px;
-        @include hover-transition-content;
+        @include hover-transition-content(#71bffe);
 
         &:last-of-type {
           padding-right: 0;
@@ -177,11 +177,11 @@ header {
           bottom: 30px;
           background-image: url('../images/search-icon.svg');
           background-repeat: no-repeat;
-          background-color: $color-blue;
+          background-color: $color-blue-primary;
           background-position: center;
           background-size: 63%;
           cursor: pointer;
-          @include hover-transition-background;
+          @include hover-transition-background(#71bffe);;
         }
       }   
     }

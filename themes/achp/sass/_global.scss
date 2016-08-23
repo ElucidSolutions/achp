@@ -31,7 +31,7 @@ $color-darkblue: #043B62;
 $color-darkblue2: #003A5E;
 $color-darkblue3: #003A53;
 $color-medblue: #013B5E;
-$color-blue: #0990FE;
+$color-blue-primary: #0990FE;
 $color-lightblue: #309AEE;
 $color-lightblue2: #008BFD;
 $color-lightblue3: #E6F8FF;
@@ -46,6 +46,7 @@ $color-lightgrey: #C6C6C6;
 $color-lightgrey-2: #7C7C7C;
 $background-color-grey: #F4F4F4;
 $background-color-lightblue: #E8F8FF;
+/*#71bffe*/
 
 /* Variables for homepage cards */
 $card-margin-vert: 25px;
@@ -117,8 +118,8 @@ $grid-columns: 12;
 /* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 
 /* Mixin for attaching icons as right after-elements */
-@mixin after-element-icon-with-hover($icon-path, $icon-hover-path, $right-positioning) {
-  @include hover-transition-content;
+@mixin after-element-icon-with-hover($icon-path, $icon-hover-path, $right-positioning, $color) {
+  @include hover-transition-content($color);
 
   &:after {
     content: "";
@@ -141,8 +142,7 @@ $grid-columns: 12;
   }
 }
 
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
-@mixin after-element-icon-no-hover($icon-path, $right-positioning) {
+@mixin after-element-icon($icon-path, $right-positioning) {
   &:after {
     content: "";
     background-image: url($icon-path);
@@ -154,24 +154,33 @@ $grid-columns: 12;
     right: $right-positioning;
     cursor: pointer;
     @include center-y;
-    /*border: none;*/
   }
 }
 
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
-@mixin hover-transition-content {
+@mixin hover-transition-content($color) {
   transition: color 0.25s;
 
   &:hover {
-    color: #71bffe;
+    color: $color;
   }
 }
 
-@mixin hover-transition-background {
+@mixin hover-transition-background($color) {
   transition: background-color 0.25s;
 
   &:hover {
-    background-color: #71bffe;
+    background-color: $color;
+  }
+}
+
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+@mixin hover-transition-content-and-background($content-color, $background-color) {
+  transition: color 0.25s, background-color 0.25s;
+
+  &:hover {
+    color: $content-color;
+    background-color: $background-color;
   }
 }
 

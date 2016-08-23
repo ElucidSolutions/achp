@@ -144,7 +144,7 @@
           a {
             font-size: 1rem;
             color: $color-grey;  
-            @include hover-transition-content; 
+            @include hover-transition-content($color-blue-primary); 
           }
         }
 
@@ -276,7 +276,7 @@
             }
           }
 
-          .menu_slide_list_item, .menu_slide_extra_item,l i[data-menu-level="1"], li[data-menu-level="2"]  {
+          .menu_slide_list_item, .menu_slide_extra_item, li[data-menu-level="1"], li[data-menu-level="2"]  {
             cursor: pointer;
             padding: 16px 24px;
             border-bottom: 1px solid $color-grey3;
@@ -284,7 +284,7 @@
             width: 100%;
 
             &:hover {
-              color: $color-lightblue;
+              color: $color-blue-primary;
               background-color: $background-color-lightblue;
             }
           }
@@ -367,7 +367,7 @@
           text-align: center;
           font-size: 0.875rem;
           font-weight: 500;
-          @include hover-transition-content;    
+          @include hover-transition-content($color-blue-primary);    
         }
       }
     }
@@ -429,11 +429,11 @@
           position: relative;
           background-image: url('../images/search-icon.svg');
           background-repeat: no-repeat;
-          background-color: $color-blue;
+          background-color: $color-blue-primary;
           background-position: center;
           background-size: 57%;
           cursor: pointer;
-          @include hover-transition-background;
+          @include hover-transition-background(#71bffe);;
         }
       }
     }

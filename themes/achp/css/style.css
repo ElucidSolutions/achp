@@ -7,6 +7,7 @@ html {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -16,8 +17,8 @@ html {
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 #homepage_news_content #block-views-block-latest-news-block .homepage_news_item {
@@ -106,6 +107,7 @@ html {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -115,8 +117,8 @@ html {
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 #homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card {
@@ -181,6 +183,7 @@ html {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -190,8 +193,8 @@ html {
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 /* These styles apply to the success stories and latest news views on the homepage */
@@ -226,6 +229,7 @@ html {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -235,8 +239,8 @@ html {
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 #header_region {
@@ -361,7 +365,7 @@ html {
             color: #4F4F4F;
             transition: color 0.25s; }
             #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] > li a:hover {
-              color: #71bffe; }
+              color: #0990FE; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"]:before {
           content: "";
           height: 1px;
@@ -487,14 +491,14 @@ html {
           color: #4A4A4A; }
           #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_body > ul {
             margin: 0; }
-        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide l i[data-menu-level="1"], #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"] {
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"], #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"] {
           cursor: pointer;
           padding: 16px 24px;
           border-bottom: 1px solid #E2E2E2;
           font-size: 0.875rem;
           width: 100%; }
-          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide l i[data-menu-level="1"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"]:hover {
-            color: #309AEE;
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"]:hover {
+            color: #0990FE;
             background-color: #E8F8FF; }
         #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:after, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:after {
           content: "";
@@ -552,7 +556,7 @@ html {
         font-weight: 500;
         transition: color 0.25s; }
         #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_footer #subheader_mobile_close_button:hover {
-          color: #71bffe; }
+          color: #0990FE; }
 
 @media screen and (max-width: 1150px) {
   #header_region {
@@ -610,6 +614,7 @@ html {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -619,8 +624,8 @@ html {
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 header {
@@ -843,6 +848,7 @@ header {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -852,8 +858,8 @@ header {
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 #homepage_quicklinks_region #block-quicklinks {
@@ -914,7 +920,7 @@ header {
         padding-top: 20px; }
     #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row {
       border-top: 1px solid #E2E2E2;
-      padding: 10px 25px;
+      /*padding: 10px 25px;*/
       width: 100%;
       height: 67px;
       display: inline-block;
@@ -933,33 +939,37 @@ header {
           color: #4F4F4F;
           line-height: 22.39px;
           display: block;
+          padding: 20px 25px;
           width: 95%;
-          position: relative;
-          transition: color 0.25s; }
-          #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover {
-            color: #71bffe; }
-          #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:after {
-            content: "";
-            background-image: url("../images/right-arrow-icon.svg");
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 20px;
-            height: 20px;
-            padding-left: 15px;
-            right: -25px;
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
-            transition: background-image 0.25s;
-            /*border: none;*/ }
-          #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover:after {
-            background-image: url("../images/right-arrow-icon-blue.svg");
-            /*border: none;  */ }
+          height: 100%;
+          position: relative; }
+          @media (min-width: 701px) {
+            #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a {
+              transition: color 0.25s; }
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover {
+                color: #0990FE; }
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:after {
+                content: "";
+                background-image: url("../images/right-arrow-icon.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 20px;
+                height: 20px;
+                padding-left: 15px;
+                right: -2px;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                transform: translateY(-50%);
+                transition: background-image 0.25s;
+                /*border: none;*/ }
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover:after {
+                background-image: url("../images/right-arrow-icon-blue.svg");
+                /*border: none;  */ } }
   #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer {
     background: #C6C6C6;
     font-weight: 500;
@@ -970,9 +980,35 @@ header {
     bottom: 0;
     height: 50px;
     width: 100%;
-    transition: background-color 0.25s; }
+    transition: color 0.25s;
+    transition: color 0.25s, background-color 0.25s; }
     #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover {
-      background-color: #71bffe; }
+      color: #fff; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:after {
+      content: "";
+      background-image: url("../images/more-dots-icon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      padding-left: 15px;
+      right: 13px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      transition: background-image 0.25s;
+      /*border: none;*/ }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover:after {
+      background-image: url("../images/more-dots-icon-white.svg");
+      /*border: none;  */ }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover {
+      color: #fff;
+      background-color: #0990FE; }
     #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer a {
       display: inline-block;
       text-decoration: none;
@@ -986,24 +1022,6 @@ header {
       -ms-transform: translateY(-50%);
       -o-transform: translateY(-50%);
       transform: translateY(-50%); }
-      #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer a:after {
-        content: "";
-        background-image: url("../images/more-dots-icon.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 20px;
-        height: 20px;
-        padding-left: 15px;
-        right: 13px;
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        /*border: none;*/ }
 
 #homepage_quicklinks_region > #homepage_quicklinks_content {
   /*  At this width 2 cards are on the first row, and the third is on the second.
@@ -1038,7 +1056,7 @@ header {
         #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a {
           transition: color 0.25s; }
           #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:hover {
-            color: #71bffe; }
+            color: #0990FE; }
           #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:after {
             content: "";
             background-image: url("../images/right-arrow-icon.svg");
@@ -1047,7 +1065,7 @@ header {
             width: 20px;
             height: 20px;
             padding-left: 15px;
-            right: -14px;
+            right: 7px;
             cursor: pointer;
             position: absolute;
             top: 50%;
@@ -1086,7 +1104,7 @@ header {
             cursor: pointer;
             transition: color 0.25s; }
             #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:hover {
-              color: #71bffe; }
+              color: #0990FE; }
             #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:after {
               content: "";
               background-image: url("../images/down-arrow-icon.svg");
@@ -1112,7 +1130,7 @@ header {
             #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open {
               transition: color 0.25s; }
               #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:hover {
-                color: #71bffe; }
+                color: #0990FE; }
               #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:after {
                 content: "";
                 background-image: url("../images/up-arrow-icon.svg");
@@ -1139,6 +1157,7 @@ header {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -1148,8 +1167,8 @@ header {
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 .main_wrapper {
@@ -1195,6 +1214,7 @@ header {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -1204,8 +1224,8 @@ header {
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 html, body {
@@ -1877,7 +1897,7 @@ footer {
             /*width: 100%;*/
             background-color: #fff;
             /*position: absolute;*/
-            margin-left: 75px;
+            margin-left: 60px;
             position: relative; }
           .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title {
             position: absolute;
@@ -1887,7 +1907,7 @@ footer {
             -ms-transform: translateY(-50%);
             -o-transform: translateY(-50%);
             transform: translateY(-50%);
-            /*@include hover-transition-content;*/
+            /*@include hover-transition-content(#71bffe);*/
             cursor: pointer;
             width: 95%;
             transition: color 0.25s; }
@@ -1915,6 +1935,10 @@ footer {
             .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:hover:after {
               background-image: url("../images/right-arrow-icon-blue.svg");
               /*border: none;  */ }
+            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title a {
+              display: block;
+              width: 100%;
+              padding: 25px 0 25px 15px; }
           .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_footer {
             display: none; }
           .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date {

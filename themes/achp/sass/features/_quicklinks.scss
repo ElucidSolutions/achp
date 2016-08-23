@@ -47,7 +47,7 @@
 
       .quicklinks-column > .views-row {
         border-top: 1px solid $color-grey3;
-        padding: 10px 25px;
+        /*padding: 10px 25px;*/
         width: 100%;
         height: $quicklink-item-height;
         display: inline-block;
@@ -62,9 +62,14 @@
             color: $color-grey;
             line-height: 22.39px;
             display: block;
+            padding: 20px 25px;
             width: 95%;
+            height: 100%;
             position: relative;
-            @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -25px);
+
+            @media (min-width: 701px) {
+              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -2px, $color-blue-primary);
+            }
           }
         }  
       }
@@ -81,7 +86,8 @@
         bottom: 0;
         height: $more-quicklinks-height;
         width: 100%;
-        @include hover-transition-background;
+        @include after-element-icon-with-hover('../images/more-dots-icon.svg', '../images/more-dots-icon-white.svg', 13px, #fff);
+        @include hover-transition-content-and-background(#fff, $color-blue-primary);
 
         a {
           display: inline-block;
@@ -90,7 +96,6 @@
           color: inherit;
           padding: 0 25px;
           @include center-y;
-          @include after-element-icon-no-hover('../images/more-dots-icon.svg', 13px);
         }
       }
     }      
@@ -136,7 +141,7 @@
       }
 
       .views-row a {
-        @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px);
+        @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 7px, $color-blue-primary);
       }
 
       header {
@@ -161,10 +166,10 @@
           width: 95%;
           position: absolute;
           cursor: pointer;
-          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0);
+          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0, $color-blue-primary);
 
           &.open {
-            @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0);
+            @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0, $color-blue-primary);
           }
         }
       }
