@@ -269,7 +269,7 @@
     }
 
     // Trigger the scrollend event right away to set the inital state
-    niceScroll.triggerScrollEnd(); 
+    // niceScroll.triggerScrollEnd(); // LLEE: triggerScrollEnd is undefined.
 
     // Calculate the width of the tabbed menu
     var tabbedMenuWidth = this.calculateTabbedMenuWidth();
