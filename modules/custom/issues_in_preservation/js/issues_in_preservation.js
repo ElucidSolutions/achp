@@ -196,7 +196,7 @@
      * properties, and use JQuery to obtain the size. 
      * This is how we obtain the width of the widest word.
      */
-     var dummyElement = $('span').css({'font-size': fontSize, 'font-family': fontName, 'font-weight': fontWeight, 'text-transform': 'uppercase'});
+     var dummyElement = $('<span></span>').css({'font-size': fontSize, 'font-family': fontName, 'font-weight': fontWeight, 'text-transform': 'uppercase'});
 
     // Get the text of each tab
     tabs.each(function(tabIndex) {
@@ -213,7 +213,8 @@
        $.each(tokens, function(i) {
         dummyElement.text(tokens[i]);
         var width = dummyElement.outerWidth();
-        if (tabWidth < width) {
+        console.log(width);
+        if (width > tabWidth) {
           tabWidth = width;
         }
       });
@@ -245,32 +246,7 @@
       touchbehavior: true
     });
 
-
-    var previousElement = $('.' + classPrefix + TABS + NAVIGATION + PREVIOUS);
-    var nextElement = $('.' + classPrefix + TABS + NAVIGATION + NEXT);
-
-    niceScroll.onscrollend = function(data) {
-      
-      // If at the start
-      if (data.end.y <= 0) {        
-        console.log('start');
-        previousElement.addClass('disabled');
-      } else {
-        previousElement.removeClass('disabled');
-      }
-
-      // If at the end
-      if (data.end.y >= this.page.maxh) {
-        console.log('start');
-        nextElement.addClass('disabled');
-      } else {
-        nextElement.removeClass('disabled');
-      }
-    }
-
-    // Trigger the scrollend event right away to set the inital state
-    // niceScroll.triggerScrollEnd(); // LLEE: triggerScrollEnd is undefined.
-
+    
     // Calculate the width of the tabbed menu
     var tabbedMenuWidth = this.calculateTabbedMenuWidth();
     var tabs = $('.' + classPrefix + TABS);
