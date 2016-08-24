@@ -50,7 +50,7 @@
         /*padding: 10px 25px;*/
         width: 100%;
         height: $quicklink-item-height;
-        display: inline-block;
+        /*display: inline-block;*/
         position: relative;
 
         .views-field {
@@ -141,7 +141,7 @@
       }
 
       .views-row a {
-        @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 7px, $color-blue-primary);
+        @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 8px, $color-blue-primary);
       }
 
       header {

@@ -117,7 +117,8 @@
   function getEventsOnDay (date) {
     return getAllEvents ().filter (function (event) { return eventOnDay (event, date); })
     // if (eventsOnDay.length === 0) {
-    //   console.log('No events on this day') } else {
+    //   console.log('No events on this day') } 
+    // else {
     //   return eventsOnDay; 
     // }
   }
@@ -229,7 +230,7 @@
             "<div class='clndr-control-button'>" +
                 "<span class='clndr-previous-button'></span>" +
             "</div>" +
-            "<div class='month'><%= month %> <%= year %></div>" +
+            "<div class='month-container'><div class='month'><%= month %> <%= year %></div></div>" +
             "<div class='clndr-control-button rightalign'>" +
                 "<span class='clndr-next-button'></span>" +
             "</div>" +
@@ -456,7 +457,10 @@
   Grid.prototype.displayEvents = function (events) {
     events.length > 0 ?
       this.getGridBodyElement ().empty ().append (events.map (createCardElement)) :
-      console.log('no events received');
+      this.getGridBodyElement ().empty ().append ($('<p></p>')
+        .addClass('event_calendar_grid_message')
+        .text('No events scheduled on this date')
+        )
   }
 
   /*
@@ -481,10 +485,18 @@
         .addClass (classPrefix + '_body')
         .append ($('<div></div>')
           .addClass (classPrefix + '_date')
-          .text (moment (event.start_date).isSame (event.end_date, 'day') ?
-            moment (event.start_date).format ('MMMM Do, YYYY h:mm A') + ' to ' + moment (event.end_date).format ('hh:mm A') :
-            moment (event.start_date).format ('MMMM Do, YYYY h:mm A') + ' to ' + moment (event.end_date).format ('MMMM Do, YYYY h:mm A') 
-            ))
+          .append ($('<div></div>')
+            .addClass (classPrefix + '_day')
+            .text (moment (event.start_date).isSame (event.end_date, 'day') ?
+              moment (event.start_date).format ('MMMM D, YYYY') :
+              moment (event.start_date).format ('MMMM D, YYYY') + ' to ' + moment (event.end_date).format ('MMMM D, YYYY') 
+              ))
+           .append ($('<div></div>')
+            .addClass (classPrefix + '_time')
+            .text (moment (event.start_date).isSame (event.end_date, 'day') ?
+              moment (event.start_date).format ('h:mm A') + ' to ' + moment (event.end_date).format ('h:mm A') :
+              "")
+              ))           
         .append ($('<div></div>')
           .addClass (classPrefix + '_mobile_date')
           .append($('<div></div>')
@@ -507,7 +519,6 @@
           .attr ('href', '#')
           .addClass (classPrefix + '_google_calendar'))));
   }
-
   /*
   Accepts no arguments, and returns the component's body
   element as a jQuery HTML Element.

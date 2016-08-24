@@ -80,7 +80,7 @@ $card-width: 300px;
               line-height: 24px;
               cursor: pointer;
               @include center-y;
-              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 0, #71bffe);
+              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 0, $color-blue-primary);
             }
           }
         }
