@@ -196,31 +196,39 @@
      * properties, and use JQuery to obtain the size. 
      * This is how we obtain the width of the widest word.
      */
-     var dummyElement = $('<span></span>').css({'font-size': fontSize, 'font-family': fontName, 'font-weight': fontWeight, 'text-transform': 'uppercase'});
+     var dummyElement = $('<div></div>').css({'display': 'none', 'font-size': fontSize, 'font-family': fontName, 'font-weight': fontWeight, 'text-transform': 'uppercase'});
+
+     // append it to the first tab and then after 
+     // all is done, remove it from the first tab.
+     tabs.first().append(dummyElement);
 
     // Get the text of each tab
     tabs.each(function(tabIndex) {
-      var tokens = $(this).text().split(" ");
+      var stringTokens = $(this).text().split(" ");
       var tabWidth = 0;
+      var width = 0;
 
       /**
        * Append the token to the dummy element
        * and use JQuery width() to calculate
-       * width. Iterate through the tokens arry
-       * and just track the token that gives
+       * width. Iterate through the tokens array
+       * and track the token that gives
        * widest width.
        */
-       $.each(tokens, function(i) {
-        dummyElement.text(tokens[i]);
-        var width = dummyElement.outerWidth();
+       $.each(stringTokens, function(index) {
+        dummyElement.text(stringTokens[index]);
+        width = dummyElement.outerWidth();
         console.log(width);
         if (width > tabWidth) {
           tabWidth = width;
         }
       });
+
       $(this).css("width", tabWidth);
     });    
 
+    // Done so let's remove the dummy element.
+    dummyElement.remove();
   }
 
   /**
