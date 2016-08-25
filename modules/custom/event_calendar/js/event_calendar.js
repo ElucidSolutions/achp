@@ -26,7 +26,7 @@
           {
             'client_id': drupalSettings.event_calendar.google_client_id,
             'scope': 'https://www.googleapis.com/auth/calendar',
-            'immediate': false
+            'immediate': true
           }, function (authorizationResult) {
             handleGoogleAuthorization (authorizationResult, event)
           });
@@ -66,7 +66,7 @@
         {
           'client_id': drupalSettings.event_calendar.google_client_id,
           'scope': 'https://www.googleapis.com/auth/calendar',
-          'immediate': true
+          'immediate': false
         }, handleGoogleAuthorization);
     }
   }
