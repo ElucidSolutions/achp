@@ -70,7 +70,11 @@
             }
           }
         }).execute (function (googleEvent) {
-          googleEvent;
+          toastr.options = {
+             positionClass: 'toast-bottom-center',
+             preventDuplicates: true
+          };
+          toastr.info ('Event added to calendar.');
         }); 
       })
     } else {
