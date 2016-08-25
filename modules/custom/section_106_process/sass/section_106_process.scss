@@ -172,15 +172,23 @@
           width: 230px;
         }
         a.section_106_process_feature_step_read_more_link:after {
+          position: absolute;
+          top: 93.5%;
+          right: 45%;
           content: "";
           background-image: url("../images/right-arrow-icon.svg");
           background-repeat: no-repeat;
           background-position: center;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
           width: 20px;
           height: 20px;
-          padding-left: 25px;
+          padding-left: 15px;
+          margin-right: 20px;
           cursor: pointer;
-          transition: background-image 0.25s;
         }
       }
     }
