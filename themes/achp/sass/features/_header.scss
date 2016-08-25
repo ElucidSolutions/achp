@@ -57,10 +57,10 @@ header {
     text-shadow: none;
     text-decoration: none;
 
-      a {
-        color: #fff;
-        text-decoration: none;  
-      }
+    a {
+      color: #fff;
+      text-decoration: none;  
+    }
   }
 
   #block-headercontactlinks {
@@ -74,7 +74,6 @@ header {
       font-family: $sans-text;
       font-size: 0.875rem; 
       text-decoration: none;
-      /*margin: 10px;*/
       @include hover-transition-content(#71bffe);
     }
 
@@ -227,11 +226,9 @@ header {
 
     #header_branding_logo {
       float: left;
-      /*border: 1px solid purple;*/
 
       img {
         height: $header-mobile-height;
-        /*border: 1px solid pink;*/
       }
     }
 
@@ -244,7 +241,6 @@ header {
       right: 0;
       @include center-y;
       top: $header-mobile-height / 2;
-      /*border: 1px solid green;*/
     }
 
     #block-headercontactlinks {

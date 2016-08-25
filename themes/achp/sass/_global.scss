@@ -24,10 +24,8 @@ $mobile-card-item-height: 75px;
 
 /* Global variables: text */
 
-$sans-text: 'p22-underground',
-sans-serif;
-$serif-text: 'minion-pro',
-serif;
+$sans-text: 'p22-underground', sans-serif;
+$serif-text: 'minion-pro', serif;
 $base-text-size: 16px;
 
 /* Global variables: colors */
@@ -52,7 +50,6 @@ $color-lightgrey: #C6C6C6;
 $color-lightgrey-2: #7C7C7C;
 $background-color-grey: #F4F4F4;
 $background-color-lightblue: #E8F8FF;
-/*#71bffe*/
 
 /* Variables for homepage cards */
 
@@ -147,12 +144,10 @@ $grid-columns: 12;
     cursor: pointer;
     @include center-y;
     transition: background-image 0.25s;
-    /*border: none;*/
   }
 
   &:hover:after {
     background-image: url($icon-hover-path);    
-    /*border: none;  */
   }
 }
 

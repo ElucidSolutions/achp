@@ -402,6 +402,7 @@ footer {
         @include font-size($footer_menu_second-font-sizes);
         margin-bottom: 10px;
       }
+
       &.menu_third a {
         color: $color-blue-primary;
         padding-left: 0;
@@ -477,11 +478,6 @@ footer {
       height: 40px;
 
       .month-container {
-        font-size: 1.5625rem;
-        text-transform: uppercase;
-        top: 0;
-        width: 250px;
-        @include center-xy;
         position: relative;
         text-align: center;
 
