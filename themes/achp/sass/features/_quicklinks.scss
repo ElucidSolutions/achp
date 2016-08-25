@@ -1,9 +1,5 @@
 @import "../global";
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 68ff127b2c5c41561e07f50a4a7ef785d9459049
 #homepage_quicklinks_region {
   #block-quicklinks {
     @include span-columns(12 of 12);
@@ -19,11 +15,8 @@
       @include span-columns(4 of 12);
       background-color: #FFFFFF;
       margin-right: 20px;
-<<<<<<< HEAD
+
       height: 518px;
-=======
-      height: 550px;
->>>>>>> 68ff127b2c5c41561e07f50a4a7ef785d9459049
       width: $card-width;
       margin: $card-margin-vert 0;
       margin-right: $card-margin-horiz;
@@ -32,11 +25,7 @@
 
       header {
         background-color: #fff;
-<<<<<<< HEAD
         height: $quicklink-image-height + 100px;
-=======
-        height: 300px;
->>>>>>> 68ff127b2c5c41561e07f50a4a7ef785d9459049
 
         .views-row {
           border-top: none;
@@ -49,11 +38,7 @@
         }
 
         .views-field-field-quicklink-image {
-<<<<<<< HEAD
           @include fit-and-center-image($quicklink-image-height);    
-=======
-          @include fit-and-center-image(200px);    
->>>>>>> 68ff127b2c5c41561e07f50a4a7ef785d9459049
         }
 
         h3 {
@@ -61,7 +46,6 @@
         }
       }
 
-<<<<<<< HEAD
       .quicklinks-column > .views-row {
         border-top: 1px solid $color-grey3;
         width: 100%;
@@ -103,30 +87,6 @@
           }
         }  
       }
-=======
-      .views-row {
-        border-top: 1px solid $color-grey3;
-        padding: 10px 25px;
-        width: 100%;
-        height: 67px;
-        display: inline-block;
-
-        .quicklink-item-title, .views-field-field-short-title {
-          @include center-y;
-          position: relative;
-        }
-
-        a {
-          text-decoration: none;
-          color: $color-grey;
-          line-height: 22.39px;
-          display: block;
-          width: 95%;
-          position: relative;
-          @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -25px);
-        }
-      }  
->>>>>>> 68ff127b2c5c41561e07f50a4a7ef785d9459049
     }
 
     .quicklinks-column {
@@ -140,12 +100,9 @@
         bottom: 0;
         height: $more-quicklinks-height;
         width: 100%;
-<<<<<<< HEAD
+
         @include after-element-icon-with-hover('../images/more-dots-icon.svg', '../images/more-dots-icon-white.svg', 13px, #fff);
         @include hover-transition-content-and-background(#fff, $color-blue-primary);
-=======
-        @include hover-transition-background;
->>>>>>> 68ff127b2c5c41561e07f50a4a7ef785d9459049
 
         a {
           display: inline-block;
@@ -154,10 +111,6 @@
           color: inherit;
           padding: 0 25px;
           @include center-y;
-<<<<<<< HEAD
-=======
-          @include after-element-icon-no-hover('../images/more-dots-icon.svg', 13px);
->>>>>>> 68ff127b2c5c41561e07f50a4a7ef785d9459049
         }
       }
     }      
