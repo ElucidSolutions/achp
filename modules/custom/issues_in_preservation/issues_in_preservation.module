@@ -1,0 +1,12 @@
+<?php
+/**
+ *  Defines the Issues in Preservation module which defines
+ *  a block that displays the top issues in preservation.
+ */
+
+// Implements hook_theme ()
+function issues_in_preservation_theme () {
+  return [
+    'issues_in_preservation' => ['variables' => []]
+  ];
+}

@@ -1,0 +1,70 @@
+@import "../global";
+
+$success-card-margin-vert: 25px;
+$success-card-margin-horiz: 20px;
+$success-card-height: 400px;
+$success-card-width: 300px;
+
+#homepage_success_content {
+  #block-views-block-homepage-success-stories-block {
+    .card {
+      text-align: center;
+      background-color: #ffffff;
+
+      .success_story {
+        padding: 5px 10px;
+        position: relative;
+        height: $success-card-height - 30px;     
+
+        &_image {
+          $success_story_image_height: 185px;
+          margin-bottom: 15px;
+          @include fit-and-center-image($success_story_image_height);    
+        }
+
+        &_title h3 {
+          text-align: inherit;
+        }
+
+        &_location {
+          color: $color-lightgrey-2;
+        }
+
+        &_body p {
+          font-family: $serif-text;
+          margin: 5px;
+        }
+
+        &_link {
+          @include center-x;
+          bottom: 0;
+          padding-right: 20px;
+
+          img {
+            margin-left: 5px;
+            vertical-align: -1px;
+          }
+        }
+      }
+    }
+    @media (max-width: 700px) { 
+      /* At this width cards 2 and 3 disappear, so the block only contains 1 card */
+      height: $success-card-height + $success-card-margin-vert * 2;
+      width: $success-card-width;
+
+      .card {
+        margin: $success-card-margin-vert 0;
+        $success-card-height: 400px;
+        height: $success-card-height;
+
+        &.view-item-2, &.view-item-3 {
+          display: none;
+        }
+
+        .success_story {
+          height: $success-card-height - 30px;     
+        }
+      }
+    }
+  }
+}

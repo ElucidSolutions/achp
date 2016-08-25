@@ -1,0 +1,11 @@
+# Defines the paths for pages defined by the
+# Event Calendar module.
+
+# I. Event Calendar Module Settings Route.
+event_calendar.settings:
+  path: '/admin/structure/event_calendar/settings'
+  defaults:
+    _form: '\Drupal\event_calendar\EventCalendarSettingsForm'
+    _title: 'Event Calendar Settings'
+  requirements:
+    _permission: 'administer site configuration'

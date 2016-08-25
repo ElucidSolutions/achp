@@ -1,0 +1,15 @@
+event_calendar_library:
+  css:
+    theme:
+      css/event_calendar.css: {}
+  js:
+    js/event_calendar.js: {}
+    lib/moment.js: {}
+    lib/clndr/clndr.min.js: {}
+  dependencies:
+    - core/underscore
+    - core/jquery
+    - core/drupalSettings
+    - core/jquery.once
+    - core/modernizr
+    - core/drupal
