@@ -57,10 +57,10 @@ header {
     text-shadow: none;
     text-decoration: none;
 
-      a {
-        color: #fff;
-        text-decoration: none;  
-      }
+    a {
+      color: #fff;
+      text-decoration: none;  
+    }
   }
 
   #block-headercontactlinks {
@@ -74,8 +74,8 @@ header {
       font-family: $sans-text;
       font-size: 0.875rem; 
       text-decoration: none;
-      /*margin: 10px;*/
       @include hover-transition-content(#71bffe);
+      
     }
 
     .text_links a {

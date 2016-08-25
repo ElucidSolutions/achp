@@ -1,4 +1,5 @@
 /* Global variables: widths, heights, & breakpoints */
+
 $max-content-width: 1024px;
 $mobile-breakpoint: 650px;
 $hero-breakpoint: 925px;
@@ -22,11 +23,13 @@ $quicklink-header-height: 160px + 100px;
 $mobile-card-item-height: 75px;
 
 /* Global variables: text */
+
 $sans-text: 'p22-underground', sans-serif;
 $serif-text: 'minion-pro', serif;
 $base-text-size: 16px;
 
 /* Global variables: colors */
+
 $color-darkblue: #043B62;
 $color-darkblue2: #003A5E;
 $color-darkblue3: #003A53;
@@ -36,7 +39,8 @@ $color-lightblue: #309AEE;
 $color-lightblue2: #008BFD;
 $color-lightblue3: #E6F8FF;
 $color-red: #950306;
-$color-red2: #9B0008; 
+$color-red2: #9B0008;
+$color-red3: #CD1803;
 $color-grey: #4F4F4F;
 $color-grey2: #4A4A4A;
 $color-grey3: #E2E2E2;
@@ -49,16 +53,19 @@ $background-color-lightblue: #E8F8FF;
 /*#71bffe*/
 
 /* Variables for homepage cards */
+
 $card-margin-vert: 25px;
 $card-margin-horiz: 20px;
 $card-height: 400px;
 $card-width: 300px;
 
 /* Grid variables */
+
 $gutter: 0;
 $grid-columns: 12;
 
 /* Mixin for centering horizontally */
+
 @mixin center-x {
   position: absolute;
   left: 50%;
@@ -69,7 +76,9 @@ $grid-columns: 12;
   transform: translateX(-50%);
 }
 
+
 /* Mixin for centering vertically */
+
 @mixin center-y {
   position: absolute;
   top: 50%;
@@ -80,7 +89,9 @@ $grid-columns: 12;
   transform: translateY(-50%);
 }
 
+
 /* Mixin for centering vertically & horizontally */
+
 @mixin center-xy {
   position: absolute;
   top: 50%;
@@ -92,7 +103,9 @@ $grid-columns: 12;
   transform: translateX(-50%) translateY(-50%);
 }
 
+
 /* Mixin for generating solid-colored hr elements*/
+
 @mixin hr($color) {
   color: $color;
   background-color: $color;
@@ -106,7 +119,6 @@ $grid-columns: 12;
   height: $height;
   width: 100%;
   overflow: hidden;
-
   /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
   img {
     @include center-xy;
@@ -133,12 +145,10 @@ $grid-columns: 12;
     cursor: pointer;
     @include center-y;
     transition: background-image 0.25s;
-    /*border: none;*/
   }
 
   &:hover:after {
     background-image: url($icon-hover-path);    
-    /*border: none;  */
   }
 }
 
@@ -185,9 +195,11 @@ $grid-columns: 12;
 }
 
 /* Mixin for responsive type size */
+
 @mixin font-size($fs-map) {
-  @each $fs-breakpoint, $fs-font-size in $fs-map {
-    @if $fs-breakpoint == null {
+  @each $fs-breakpoint,
+  $fs-font-size in $fs-map {
+    @if $fs-breakpoint==null {
       font-size: $fs-font-size;
     }
     @else {
@@ -198,51 +210,68 @@ $grid-columns: 12;
   }
 }
 
+
 /* Maps for type changes*/
-$h1-font-sizes: (
-  null: 1.25rem,
-  $mobile-breakpoint: 2rem,
-  $hero-breakpoint: 2.5rem
-);
 
-$h1-subtitle-font-sizes: (
-  null: 1.25rem,
-  $mobile-breakpoint: 2rem,
-  $hero-breakpoint: 2.25rem
-);
+$h1-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem, $hero-breakpoint: 2.5rem);
+$h1-subtitle-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem, $hero-breakpoint: 2.25rem);
+$h2-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem);
+$h3-font-sizes: ( null: 1.125rem, $mobile-breakpoint: 1.25rem);
+$button-font-sizes: ( null: 0.75rem, $mobile-breakpoint: $base-text-size);
+$hero-p-font-sizes: ( null: $base-text-size, $mobile-breakpoint: 1.25rem, $hero-breakpoint: 1.375rem);
+$impact_number-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 1.625rem);
+$footer_menu_second-font-sizes: ( null: 0.875rem, 900px: 1rem);
+$footer_menu_third-font-sizes: ( null: 0.750rem, 900px: 1rem);
 
-$h2-font-sizes: (
-  null: 1.25rem,
-  $mobile-breakpoint: 2rem
-);
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
 
-$h3-font-sizes: (
-  null: 1.125rem,
-  $mobile-breakpoint: 1.25rem
-);
 
-$button-font-sizes: (
-  null: 0.75rem,
-  $mobile-breakpoint: $base-text-size
-);
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
 
-$hero-p-font-sizes: (
-  null: $base-text-size,
-  $mobile-breakpoint: 1.25rem,
-  $hero-breakpoint: 1.375rem
-);
-
-$impact_number-font-sizes: (
-  null: 1.25rem,
-  $mobile-breakpoint: 1.625rem
-);
-
-$footer_menu_second-font-sizes: (
-  null: 0.875rem,
-  900px: 1rem
-);
-
-$footer_menu_third-font-sizes: (
-  null: 0.750rem,
-  900px: 1rem
-);
+$baseline-px: 16px;
+@mixin rem($property, $px-values) {
+  // Convert the baseline into rems
+  $baseline-rem: $baseline-px / 1rem * 1;
+  // Print the first line in pixel values
+  #{$property}: $px-values;
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values)=="number" {
+    #{$property}: $px-values / $baseline-rem;
+  }
+  @else {
+    // Create an empty list that we can dump values into
+    $rem-values: ();
+    @each $value in $px-values {
+      // If the value is zero or not a number, return it
+      @if $value==0 or type-of( $value) !="number" {
+        $rem-values: append($rem-values, $value);
+      }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem);
+      }
+    }
+    // Return the property and its list of converted values
+    #{$property}: $rem-values;
+  }
+}

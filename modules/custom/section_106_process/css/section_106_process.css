@@ -1,0 +1,212 @@
+/*
+** This Sass file defines the styles for the 
+** Section 106 Process module.
+*/
+/* Global variables: widths, heights, & breakpoints */
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* Mixin for attaching icons as right after-elements */
+/* Same mixin as above, except for use where the icon should not change color upon hover*/
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+#block-section106processblock {
+  height: 377px;
+  width: 100%; }
+
+.section_106_process .section_106_process_feature_flowchart_navigation .section_106_process_feature_flowchart_navigation_previous,
+.section_106_process .section_106_process_feature_flowchart_navigation .section_106_process_feature_flowchart_navigation_next {
+  position: absolute;
+  background-color: #0990FE;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transition: background-image 0.25s;
+  z-index: 5;
+  height: 377px;
+  width: 30px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out; }
+.section_106_process .section_106_process_feature_flowchart_navigation .section_106_process_feature_flowchart_navigation_previous {
+  left: 0px;
+  background-image: url("../images/left-arrow-icon-white.svg"); }
+.section_106_process .section_106_process_feature_flowchart_navigation .section_106_process_feature_flowchart_navigation_next {
+  right: 0px;
+  background-image: url("../images/right-arrow-icon-white.svg"); }
+
+.section_106_process {
+  margin: 0 auto;
+  min-height: 377px;
+  width: 100%;
+  background-color: white; }
+  .section_106_process a {
+    text-decoration: none; }
+  .section_106_process .section_106_process_feature_body {
+    position: relative;
+    min-height: 377px;
+    padding-top: 10px; }
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_body_horizontal_line {
+      position: absolute;
+      left: 0;
+      top: 92px;
+      z-index: 0; }
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step {
+      display: inline-block;
+      position: relative;
+      width: 350px;
+      z-index: 1;
+      padding-right: 70px; }
+      .section_106_process .section_106_process_feature_body .section_106_process_feature_step a.section_106_process_feature_step_weight_link {
+        z-index: 2;
+        position: absolute;
+        top: 53px;
+        left: 0px;
+        background: #CD1803;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 5px;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 300;
+        color: #FFFFFF !important;
+        font-size: 23px;
+        font-size: 1.4375rem; }
+      .section_106_process .section_106_process_feature_body .section_106_process_feature_step a.section_106_process_feature_step_weight_link:before {
+        content: '';
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle; }
+      .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container {
+        position: absolute;
+        top: 0;
+        left: 70px;
+        vertical-align: top;
+        width: 250px;
+        z-index: 2; }
+        .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container .section_106_process_feature_step_image,
+        .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container .section_106_process_feature_step_title,
+        .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container .section_106_process_feature_step_body {
+          z-index: 3;
+          text-align: left; }
+        .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container .section_106_process_feature_step_image {
+          overflow: hidden;
+          position: relative;
+          max-width: 150px;
+          max-height: 150px;
+          border-radius: 50%;
+          margin-bottom: 10px; }
+          .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container .section_106_process_feature_step_image a.section_106_process_feature_step_image_link {
+            display: block; }
+            .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container .section_106_process_feature_step_image a.section_106_process_feature_step_image_link img {
+              max-width: 100%;
+              max-height: 100%;
+              border: 0; }
+          .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container .section_106_process_feature_step_image .section_106_process_feature_step_image_overlay {
+            position: absolute;
+            z-index: 3;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #BDBDBD;
+            border-radius: 50%;
+            opacity: 0.5;
+            -webkit-font-smoothing: subpixel-antialiased;
+            -webkit-transition: opacity 0.25s linear;
+            transition: opacity 0.25s linear; }
+        .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container a.section_106_process_feature_step_title_link {
+          display: block;
+          font-family: "p22-underground", sans-serif;
+          color: black;
+          font-size: 16px;
+          font-size: 1rem;
+          line-height: 22.4px;
+          line-height: 1.4rem;
+          color: #000000;
+          font-weight: 500;
+          text-transform: uppercase;
+          text-align: left;
+          width: 200px;
+          padding: 10px 0px; }
+        .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container a.section_106_process_feature_step_body_link {
+          display: block;
+          text-align: left;
+          font-family: "minion-pro", serif;
+          font-size: 14px;
+          font-size: 0.875rem;
+          line-height: 19.2px;
+          line-height: 1.2rem;
+          color: #4F4F4F;
+          color: #4a4a4a;
+          width: 230px; }
+        .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link {
+          display: block;
+          color: #4F4F4F;
+          font-family: "p22-underground", sans-serif;
+          font-size: 14px;
+          font-size: 0.875rem;
+          line-height: 19.2px;
+          line-height: 1.2rem;
+          font-weight: 500;
+          text-align: left;
+          text-decoration: none;
+          text-transform: uppercase;
+          margin: 10px 0px;
+          width: 230px; }
+        .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link:after {
+          content: "";
+          background-image: url("../images/right-arrow-icon.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20px;
+          height: 20px;
+          padding-left: 25px;
+          cursor: pointer;
+          transition: background-image 0.25s; }
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_weight_link,
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_weight_link {
+      background-color: #0990FE; }
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_inner_container .section_106_process_feature_step_image .section_106_process_feature_step_image_overlay,
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_inner_container .section_106_process_feature_step_image .section_106_process_feature_step_image_overlay {
+      opacity: 0; }
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link,
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link {
+      color: #0990FE; }
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link:after,
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link:after {
+      background-image: url("../images/right-arrow-icon-blue.svg"); }
+
+/*# sourceMappingURL=section_106_process.css.map */
