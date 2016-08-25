@@ -27,8 +27,7 @@ class EventCalendarBlock extends BlockBase {
           'event_calendar' => array (
             'num_events'        => $config->get ('event_calendar_num_events'),
             'google_client_id'  => $config->get ('event_calendar_google_client_id'),
-            'user_timezone'     => drupal_get_user_timezone (),
-            'system_timezone'   => date_default_timezone (),
+//            'system_timezone'   => date_default_timezone (),
             'events'            => $events
         ))
       ),
