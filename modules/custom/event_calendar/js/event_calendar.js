@@ -51,10 +51,12 @@
             'summary': event.title,
             'description': event.body,
             'start': {
-              dateTime: event.start_date
+              dateTime: event.start_date,
+              timeZone: 'America/New_York'
             },
             'end': {
-              dateTime: event.end_date
+              dateTime: event.end_date,
+              timeZone: 'America/New_York'
             }
           }
         }).execute (function (googleEvent) {
