@@ -16,6 +16,70 @@
   });
 
   /*
+  Accepts one argument, an Event object; uses the Google API to
+  add it to the user's Google Calendar; and returns undefined.
+  */
+  function addEventToGoogleCalendar (event) {
+    $.getScript ('https://apis.google.com/js/api.js', function () {
+      gapi.load ('client', function () {
+        gapi.auth.authorize ( 
+          {
+            'client_id': drupalSettings.event_calendar.google_client_id,
+            'scope': 'https://www.googleapis.com/auth/calendar',
+            'immediate': true
+          }, function (authorizationResult) {
+            handleGoogleAuthorization (authorizationResult, event)
+          });
+      })
+    });
+  }
+
+  /*
+  Accepts two arguments, an authorization result and an Event object.
+  If the authorization result shows client has permission to 
+  add the calendar event, it will add the event to the user's 
+  Google Calendar. Otherwise, it will prompt the user to log in and
+  authorize, then retry.
+  */
+  function handleGoogleAuthorization (authorizationResult, event) {
+    if (authorizationResult && !authorizationResult.error) {
+      gapi.client.load ('calendar', 'v3', function () {
+        gapi.client.calendar.events.insert ({
+          'calendarId': 'primary',
+          'resource': {
+            'kind': 'calendar#event',
+            'summary': event.title,
+            'description': event.body,
+            'start': {
+              dateTime: event.start_date
+            },
+            'end': {
+              dateTime: event.end_date
+            }
+          }
+        }).execute (function (googleEvent) {
+          googleEvent;
+        }); 
+      })
+    } else {
+      gapi.auth.authorize ( 
+        {
+          'client_id': drupalSettings.event_calendar.google_client_id,
+          'scope': 'https://www.googleapis.com/auth/calendar',
+          'immediate': true
+        }, handleGoogleAuthorization);
+    }
+  }
+
+  /*
+  Accepts no arguments, uses the Google API to add an event to the
+  Google calendar
+  */
+  function onGoogleAPIReady () {
+
+  }
+
+  /*
   Accepts no arguments, returns an array of all Event objects.
   */
   function getAllEvents () {
@@ -517,7 +581,10 @@
             .text ('READ MORE')))
         .append ($('<a></a>')
           .attr ('href', '#')
-          .addClass (classPrefix + '_google_calendar'))));
+          .addClass (classPrefix + '_google_calendar')
+          .click (function () {
+            addEventToGoogleCalendar (event);
+          }))));
   }
   /*
   Accepts no arguments, and returns the component's body

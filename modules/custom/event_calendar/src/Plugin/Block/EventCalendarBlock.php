@@ -25,8 +25,9 @@ class EventCalendarBlock extends BlockBase {
         'library' => array ('event_calendar/event_calendar_library'),
         'drupalSettings' => array (
           'event_calendar' => array (
-            'num_events'  => $config->get ('event_calendar_num_events'),
-            'events'      => $events
+            'num_events'        => $config->get ('event_calendar_num_events'),
+            'google_client_id'  => $config->get ('event_calendar_google_client_id'),
+            'events'            => $events
         ))
       ),
       // disable caching so that setting updates will take immediate effect. 
