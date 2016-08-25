@@ -595,8 +595,7 @@
           .append ($('<a></a>')
             .attr ('href', event.url)
             .text ('READ MORE')))
-        .append ($('<a></a>')
-          .attr ('href', '#')
+        .append ($('<div></div>')
           .addClass (classPrefix + '_google_calendar')
           .click (function () {
             addEventToGoogleCalendar (event);
