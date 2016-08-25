@@ -34,6 +34,16 @@
     });
   }
 
+
+  /*
+  Accepts one argument, date, a string that represents a date in the system
+  timezone, and returns a Moment object that represents that same date in UTC
+  time.
+  */
+  function convertToUTCTime (date) {
+    return moment (date).add (moment ().utcOffset (drupalSettings.event_calendar.system_timezone), 'minutes');
+  }
+
   /*
   Accepts two arguments, an authorization result and an Event object.
   If the authorization result shows client has permission to 
@@ -51,12 +61,12 @@
             'summary': event.title,
             'description': event.body,
             'start': {
-              dateTime: event.start_date,
-              timeZone: 'America/New_York'
+              dateTime: convertToUTCTime (event.start_date).format (),
+              timeZone: drupalSettings.event_calendar.system_timezone
             },
             'end': {
-              dateTime: event.end_date,
-              timeZone: 'America/New_York'
+              dateTime: convertToUTCTime (event.end_date).format (),
+              timeZone: drupalSettings.event_calendar.system_timezone
             }
           }
         }).execute (function (googleEvent) {
