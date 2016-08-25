@@ -27,7 +27,7 @@ class EventCalendarBlock extends BlockBase {
           'event_calendar' => array (
             'num_events'        => $config->get ('event_calendar_num_events'),
             'google_client_id'  => $config->get ('event_calendar_google_client_id'),
-//            'system_timezone'   => date_default_timezone (),
+            'system_timezone'   => variable_get ('date_default_timezone', 'UTC'),
             'events'            => $events
         ))
       ),
