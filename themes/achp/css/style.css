@@ -921,11 +921,12 @@ header {
         padding-top: 20px; }
     #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row {
       border-top: 1px solid #E2E2E2;
-      /*padding: 10px 25px;*/
       width: 100%;
       height: 67px;
-      /*display: inline-block;*/
-      position: relative; }
+      position: relative;
+      transition: background-color 0.25s; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row:hover {
+        background-color: #E8F8FF; }
       #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field {
         position: absolute;
         top: 50%;
@@ -943,10 +944,17 @@ header {
           padding: 20px 25px;
           width: 95%;
           height: 100%;
-          position: relative; }
+          position: relative;
+          transition: color 0.25s; }
+          #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover {
+            color: #0990FE; }
           @media (min-width: 701px) {
             #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a {
-              transition: color 0.25s; }
+              transition: color 0.25s;
+              /*              transition: color 0.25s, background-image 0.25s;
+              
+                            &:after {
+                              ;*/ }
               #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover {
                 color: #0990FE; }
               #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:after {
@@ -1129,6 +1137,7 @@ header {
               background-image: url("../images/down-arrow-icon-blue.svg");
               /*border: none;  */ }
             #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open {
+              color: #0990FE;
               transition: color 0.25s; }
               #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:hover {
                 color: #0990FE; }
@@ -1761,13 +1770,19 @@ footer {
         font-weight: bold; }
       .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month {
         color: #C6C6C6; }
-      .event_calendar .event_calendar_calendar_body .clndr-table tbody .today {
-        /*color: #fff;*/
-        background-color: #E6F8FF; }
+        .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event {
+          background-color: #fff; }
+          .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event:hover {
+            cursor: default;
+            background-color: #fff;
+            color: #c6c6c6; }
       .event_calendar .event_calendar_calendar_body .clndr-table tbody .event {
         cursor: pointer;
         background-color: #C6C6C6; }
-      .event_calendar .event_calendar_calendar_body .clndr-table tbody .event:hover, .event_calendar .event_calendar_calendar_body .clndr-table tbody .today:hover {
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .today {
+        /*color: #fff;*/
+        background-color: #E6F8FF; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .event:hover {
         color: #fff;
         background-color: #003A53; }
       .event_calendar .event_calendar_calendar_body .clndr-table .day, .event_calendar .event_calendar_calendar_body .clndr-table .header-day {

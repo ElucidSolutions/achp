@@ -573,19 +573,29 @@ footer {
         tbody {
           .adjacent-month {
             color: $color-lightgrey;
+
+            &.event {
+              background-color: #fff;
+
+              &:hover {
+                cursor: default;
+                background-color: #fff;
+                color: #c6c6c6;
+              }
+            }
           }
+
+          .event {
+            cursor: pointer;
+            background-color: $color-lightgrey;
+          }          
 
           .today {
             /*color: #fff;*/
             background-color: $color-lightblue3;
           }
 
-          .event {
-            cursor: pointer;
-            background-color: $color-lightgrey;
-          }
-
-          .event:hover, .today:hover {
+          .event:hover {
             color: #fff;
             background-color: $color-darkblue3;           
           }

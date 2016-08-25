@@ -47,11 +47,14 @@
 
       .quicklinks-column > .views-row {
         border-top: 1px solid $color-grey3;
-        /*padding: 10px 25px;*/
         width: 100%;
         height: $quicklink-item-height;
-        /*display: inline-block;*/
         position: relative;
+        transition: background-color 0.25s;
+
+        &:hover {
+          background-color: #E8F8FF;
+        }
 
         .views-field {
           @include center-y;
@@ -66,9 +69,19 @@
             width: 95%;
             height: 100%;
             position: relative;
+            transition: color 0.25s;
+
+            &:hover {
+              color: $color-blue-primary;
+            }
 
             @media (min-width: 701px) {
               @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -2px, $color-blue-primary);
+/*              transition: color 0.25s, background-image 0.25s;
+
+              &:after {
+                ;*/
+
             }
           }
         }  
@@ -169,6 +182,7 @@
           @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0, $color-blue-primary);
 
           &.open {
+            color: $color-blue-primary;
             @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0, $color-blue-primary);
           }
         }
