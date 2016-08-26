@@ -103,7 +103,11 @@
   and returns the URL string.
   */
   function createGoogleCalendarLink (event) {
-    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(removeHTMLTags(event.title || "")) + "&dates=" + convertToGoogleCalendarTime(event.start_date) + "/" + convertToGoogleCalendarTime(event.end_date) + "&details=" + encodeURIComponent(removeHTMLTags(event.body || "")) + "&location=" + encodeURIComponent(removeHTMLTags(event.location  || ""));
+    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" 
+      + encodeURIComponent(event.title || "") 
+      + "&dates=" + convertToGoogleCalendarTime(event.start_date) + "/" + convertToGoogleCalendarTime(event.end_date) 
+      + "&details=" + encodeURIComponent(removeHTMLTags(event.body || "")) 
+      + "&location=" + encodeURIComponent(event.location  || "");
   }
 
   /*
