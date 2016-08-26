@@ -103,7 +103,7 @@
   and returns the URL string.
   */
   function createGoogleCalendarLink (event) {
-    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(event.title) + "&dates=" + event.start_date + "/" + event.end_date + "&details=" + encodeURIComponent(event.description) + "&location=" + encodeURIComponent(event.location);
+    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(event.title) + "&dates=" + event.start_date + "/" + event.end_date + "&details=" + encodeURIComponent(event.body) + "&location=" + encodeURIComponent(event.location);
   }
 
   // I. Defining the feature instance
