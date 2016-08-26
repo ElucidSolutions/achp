@@ -18,20 +18,27 @@
   /*
   Accepts one argument, an Event object; uses the Google API to
   add it to the user's Google Calendar; and returns undefined.
+
+  Note: this function sets the achp.denyAuthorizeCalendar session
+  variable.
   */
   function addEventToGoogleCalendar (event) {
-    $.getScript ('https://apis.google.com/js/api.js', function () {
-      gapi.load ('client', function () {
-        gapi.auth.authorize ( 
-          {
-            'client_id': drupalSettings.event_calendar.google_client_id,
-            'scope': 'https://www.googleapis.com/auth/calendar',
-            'immediate': true
-          }, function (authorizationResult) {
-            handleGoogleAuthorization (authorizationResult, event)
-          });
-      })
-    });
+    if (sessionStorage.getItem('achp.denyAuthorizeCalendar')) {
+      window.open (createGoogleCalendarLink (event), '_blank');      
+    } else {
+      $.getScript ('https://apis.google.com/js/api.js', function () {
+        gapi.load ('client', function () {
+          gapi.auth.authorize ( 
+            {
+              'client_id': drupalSettings.event_calendar.google_client_id,
+              'scope': 'https://www.googleapis.com/auth/calendar',
+              'immediate': true
+            }, function (authorizationResult) {
+              handleGoogleAuthorization (authorizationResult, event)
+            });
+        })
+      });
+    }
   }
 
   /*
@@ -40,6 +47,9 @@
   add the calendar event, it will add the event to the user's 
   Google Calendar. Otherwise, it will prompt the user to log in and
   authorize, then retry.
+
+  Note: this function sets the achp.denyAuthorizeCalendar session
+  variable.
   */
   function handleGoogleAuthorization (authorizationResult, event) {
     if (authorizationResult && !authorizationResult.error) {
@@ -62,23 +72,19 @@
         }); 
       })
     } else {
-      gapi.auth.authorize ( 
-        {
-          'client_id': drupalSettings.event_calendar.google_client_id,
-          'scope': 'https://www.googleapis.com/auth/calendar',
-          'immediate': true
-        }, handleGoogleAuthorization);
+      if (authorizationResult && authorizationResult.error === "access_denied") {
+        window.open (createGoogleCalendarLink (event), '_blank');
+        sessionStorage.setItem('achp.denyAuthorizeCalendar', true);
+      } else {   
+        gapi.auth.authorize ( 
+          {
+            'client_id': drupalSettings.event_calendar.google_client_id,
+            'scope': 'https://www.googleapis.com/auth/calendar',
+            'immediate': false
+          }, handleGoogleAuthorization);
+      }
     }
   }
-
-  /*
-  Accepts no arguments, uses the Google API to add an event to the
-  Google calendar
-  */
-  function onGoogleAPIReady () {
-
-  }
-
   /*
   Accepts no arguments, returns an array of all Event objects.
   */
@@ -88,6 +94,15 @@
       return moment (event1.start_date).isSameOrAfter (event2.start_date);
     });
   }  
+
+  /*
+  Accepts one argument, an Event object; uses the properties of the object
+  to construct a link that will create an event in a user's Google calendar;
+  and returns the URL string.
+  */
+  function createGoogleCalendarLink (event) {
+    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(event.title) + "&dates=" + event.start_date + "/" + event.end_date + "&details=" + encodeURIComponent(event.description) + "&location=" + encodeURIComponent(event.location);
+  }
 
   // I. Defining the feature instance
 
@@ -579,8 +594,7 @@
           .append ($('<a></a>')
             .attr ('href', event.url)
             .text ('READ MORE')))
-        .append ($('<a></a>')
-          .attr ('href', '#')
+        .append ($('<div></div>')
           .addClass (classPrefix + '_google_calendar')
           .click (function () {
             addEventToGoogleCalendar (event);
