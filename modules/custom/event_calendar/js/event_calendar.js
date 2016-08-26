@@ -16,87 +16,6 @@
   });
 
   /*
-  Accepts one argument, an Event object; uses the Google API to
-  add it to the user's Google Calendar; and returns undefined.
-
-  Note: this function sets the achp.denyAuthorizeCalendar session
-  variable.
-  */
-  function addEventToGoogleCalendar (event) {
-    if (sessionStorage.getItem('achp.denyAuthorizeCalendar')) {
-      window.open (createGoogleCalendarLink (event), '_blank');      
-    } else {
-      $.getScript ('https://apis.google.com/js/api.js', function () {
-        gapi.load ('client', function () {
-          gapi.auth.init (
-            function () { 
-              gapi.auth.authorize ( 
-              {
-                'client_id': drupalSettings.event_calendar.google_client_id,
-                'scope': 'https://www.googleapis.com/auth/calendar',
-                'immediate': true
-              }, function (authorizationResult) {
-                handleGoogleAuthorization (authorizationResult, event);
-              });
-          });
-        });
-      });
-    }
-  }
-
-  /*
-  Accepts two arguments, an authorization result and an Event object.
-  If the authorization result shows client has permission to 
-  add the calendar event, it will add the event to the user's 
-  Google Calendar. Otherwise, it will prompt the user to log in and
-  authorize, then retry.
-
-  Note: this function sets the achp.denyAuthorizeCalendar session
-  variable.
-  */
-  function handleGoogleAuthorization (authorizationResult, event) {
-    if (authorizationResult && !authorizationResult.error) {
-      gapi.client.load ('calendar', 'v3', function () {
-        gapi.client.calendar.events.insert ({
-          'calendarId': 'primary',
-          'resource': {
-            'kind': 'calendar#event',
-            'summary': event.title,
-            'description': event.body,
-            'start': {
-              dateTime: convertToUTCTime (event.start_date).format (),
-              timeZone: drupalSettings.event_calendar.system_timezone
-            },
-            'end': {
-              dateTime: convertToUTCTime (event.end_date).format (),
-              timeZone: drupalSettings.event_calendar.system_timezone
-            }
-          }
-        }).execute (function (googleEvent) {
-          toastr.options = {
-            positionClass: 'toast-bottom-center',
-            preventDuplicates: true
-          };
-          toastr.info ('Event added to calendar.');
-        }); 
-      })
-    } else {
-      if (authorizationResult && authorizationResult.error === "access_denied") {
-        window.open (createGoogleCalendarLink (event), '_blank');
-        sessionStorage.setItem('achp.denyAuthorizeCalendar', true);
-      } else {   
-        gapi.auth.authorize ( 
-          {
-            'client_id': drupalSettings.event_calendar.google_client_id,
-            'scope': 'https://www.googleapis.com/auth/calendar',
-            'immediate': false
-          }, function (authorizationResult) {
-            handleGoogleAuthorization (authorizationResult, event);
-          });
-      }
-    }
-  }
-  /*
   Accepts no arguments, returns an array of all Event objects.
   */
   function getAllEvents () {
@@ -105,45 +24,6 @@
       return moment (event1.start_date).isSameOrAfter (event2.start_date);
     });
   }  
-
-  /*
-  Accepts one argument, an Event object; uses the properties of the object
-  to construct a link that will create an event in a user's Google calendar;
-  and returns the URL string.
-  */
-  function createGoogleCalendarLink (event) {
-    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" 
-      + encodeURIComponent(event.title || "") 
-      + "&dates=" + convertToGoogleCalendarTime(event.start_date) + "/" + convertToGoogleCalendarTime(event.end_date) 
-      + "&details=" + encodeURIComponent(removeHTMLTags(event.body || "")) 
-      + "&location=" + encodeURIComponent(event.location  || "");
-  }
-
-  /*
-  Accepts one argument, a date string; returns a string that represents
-  that date as a string in the UTC timezone in a format accepted by
-  Google Calendar.
-  */
-  function convertToGoogleCalendarTime (date) {
-    return convertToUTCTime (date).format('YYYYMMDDTHHmmss') + 'Z';
-  }
-
-  /*
-  Accepts one argument, date, a string that represents a date in the system
-  timezone, and returns a Moment object that represents that same date in UTC
-  time.
-  */
-  function convertToUTCTime (date) {
-    return moment (date).add (moment ().utcOffset (drupalSettings.event_calendar.system_timezone), 'minutes');
-  }
-
-  /*
-  Accepts one argument, html, an HTML string, strips it of its HTML tags, and 
-  returns a string.
-  */
-  function removeHTMLTags (html) {
-    return $('<div></div>').html (html).text ();
-  }
 
 
   // I. Defining the feature instance
@@ -639,9 +519,49 @@
         .append ($('<div></div>')
           .addClass (classPrefix + '_google_calendar')
           .click (function () {
-            addEventToGoogleCalendar (event);
+            window.open (createGoogleCalendarLink (event), '_blank'); 
           }))));
   }
+
+  /*
+  Accepts one argument, an Event object; uses the properties of the object
+  to construct a link that will create an event in a user's Google calendar;
+  and returns the URL string.
+  */
+  function createGoogleCalendarLink (event) {
+    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" 
+      + encodeURIComponent(event.title || "") 
+      + "&dates=" + convertToGoogleCalendarTime(event.start_date) + "/" + convertToGoogleCalendarTime(event.end_date) 
+      + "&details=" + encodeURIComponent(removeHTMLTags(event.body || "")) 
+      + "&location=" + encodeURIComponent(event.location  || "");
+  }
+
+  /*
+  Accepts one argument, a date string; returns a string that represents
+  that date as a string in the UTC timezone in a format accepted by
+  Google Calendar.
+  */
+  function convertToGoogleCalendarTime (date) {
+    return convertToUTCTime (date).format('YYYYMMDDTHHmmss') + 'Z';
+  }
+
+  /*
+  Accepts one argument, date, a string that represents a date in the system
+  timezone, and returns a Moment object that represents that same date in UTC
+  time.
+  */
+  function convertToUTCTime (date) {
+    return moment (date).add (moment ().utcOffset (drupalSettings.event_calendar.system_timezone), 'minutes');
+  }
+
+  /*
+  Accepts one argument, html, an HTML string, strips it of its HTML tags, and 
+  returns a string.
+  */
+  function removeHTMLTags (html) {
+    return $('<div></div>').html (html).text ();
+  }
+  
   /*
   Accepts no arguments, and returns the component's body
   element as a jQuery HTML Element.
