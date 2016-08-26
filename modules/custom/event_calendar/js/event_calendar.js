@@ -112,7 +112,7 @@
   Google Calendar.
   */
   function convertToGoogleCalendarTime (date) {
-    return convertToUTCTime (date).format('YYYYMMDDTHHmmssZ');
+    return convertToUTCTime (date).format('YYYYMMDDTHHmmss') + 'Z';
   }
 
   /*
