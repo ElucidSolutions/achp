@@ -28,15 +28,18 @@
     } else {
       $.getScript ('https://apis.google.com/js/api.js', function () {
         gapi.load ('client', function () {
-          gapi.auth.authorize ( 
-            {
-              'client_id': drupalSettings.event_calendar.google_client_id,
-              'scope': 'https://www.googleapis.com/auth/calendar',
-              'immediate': true
-            }, function (authorizationResult) {
-              handleGoogleAuthorization (authorizationResult, event);
-            });
-        })
+          gapi.auth.init (
+            function () { 
+              gapi.auth.authorize ( 
+              {
+                'client_id': drupalSettings.event_calendar.google_client_id,
+                'scope': 'https://www.googleapis.com/auth/calendar',
+                'immediate': true
+              }, function (authorizationResult) {
+                handleGoogleAuthorization (authorizationResult, event);
+              });
+          });
+        });
       });
     }
   }
