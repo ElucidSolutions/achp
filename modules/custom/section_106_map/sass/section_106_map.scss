@@ -2,6 +2,7 @@
  * styling for the Section 106 Case Map module. */
 
 @import "bourbon/bourbon";
+@import "neat/neat";
 
 $light_blue_color: rgb(9, 144, 254);
 $dark_blue_color: rgb(5, 60, 93);
@@ -17,6 +18,7 @@ $section_106_map_case_card_margin: 20px;
 .section_106_map {
   text-align: center;
   width: $feature_width;
+  font-family: 'p22-underground', sans-serif;
 
   &::after {
     content: "";
@@ -63,6 +65,7 @@ $section_106_map_case_card_margin: 20px;
       $feature_header_body_tabs_width: 300px;
 
       .section_106_map_feature_header_body_tabs {
+        text-transform: uppercase;
         border-top: solid white 1px;
         height: $feature_header_body_tabs_height;
         width: $feature_header_body_tabs_width;
@@ -331,7 +334,9 @@ $section_106_map_case_card_margin: 20px;
       }
 
       .section_106_map_grid_body {
+        @include outer-container;
         min-height: $grid_body_height;
+        /*max-width: 1024px;*/
 
         .section_106_map_case_card {
           background: white;
@@ -341,10 +346,16 @@ $section_106_map_case_card_margin: 20px;
           -webkit-box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
           cursor: pointer;
           display: inline-block;
-          height: 100px;
+          /*height: 100px;*/
+          height: 140px;
           margin: $section_106_map_case_card_margin;
-          width: 300px;
+          /*width: 300px;*/
           vertical-align: middle;
+          @include span-columns (4 of 12);
+          margin-left: 0;
+          text-align: left;
+          padding: 15px;
+          position: relative;
 
           &:hover {
             border-top-color: $light_blue_color;
@@ -377,10 +388,13 @@ $section_106_map_case_card_margin: 20px;
 
           .section_106_map_case_card_title {
             color: $dark_blue_color;
+            font-size: 1.125rem;
           }
 
           .section_106_map_case_card_state {
             color: $red_color;
+            position: absolute;
+            bottom: 15px;
           }
         }
       }
