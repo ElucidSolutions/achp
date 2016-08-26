@@ -61,11 +61,11 @@
             'summary': event.title,
             'description': event.body,
             'start': {
-              dateTime: convertToUTCTime (event.start_date.format ()),
+              dateTime: convertToUTCTime (event.start_date).format (),
               timeZone: drupalSettings.event_calendar.system_timezone
             },
             'end': {
-              dateTime: convertToUTCTime (event.end_date.format ()),
+              dateTime: convertToUTCTime (event.end_date).format (),
               timeZone: drupalSettings.event_calendar.system_timezone
             }
           }
