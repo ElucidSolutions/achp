@@ -61,14 +61,20 @@
             'summary': event.title,
             'description': event.body,
             'start': {
-              dateTime: event.start_date
+              dateTime: convertToUTCTime (event.start_date.format (),
+              timeZone: drupalSettings.event_calendar.system_timezone
             },
             'end': {
-              dateTime: event.end_date
+              dateTime: convertToUTCTime (event.end_date.format (),
+              timeZone: drupalSettings.event_calendar.system_timezone
             }
           }
         }).execute (function (googleEvent) {
-          googleEvent;
+          toastr.options = {
+            positionClass: 'toast-bottom-center',
+            preventDuplicates: true
+          };
+          toastr.info ('Event added to calendar.');
         }); 
       })
     } else {
