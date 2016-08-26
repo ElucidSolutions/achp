@@ -496,8 +496,7 @@
             .addClass (classPrefix + '_time')
             .text (moment (event.start_date).isSame (event.end_date, 'day') ?
               moment (event.start_date).format ('h:mm A') + ' to ' + moment (event.end_date).format ('h:mm A') :
-              "")
-              ))           
+              "")))
         .append ($('<div></div>')
           .addClass (classPrefix + '_mobile_date')
           .append($('<div></div>')
@@ -561,7 +560,7 @@
   function removeHTMLTags (html) {
     return $('<div></div>').html (html).text ();
   }
-  
+
   /*
   Accepts no arguments, and returns the component's body
   element as a jQuery HTML Element.
