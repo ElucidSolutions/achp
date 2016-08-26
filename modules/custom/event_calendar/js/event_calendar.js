@@ -103,7 +103,7 @@
   and returns the URL string.
   */
   function createGoogleCalendarLink (event) {
-    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(event.title || "") + "&dates=" + convertToGoogleCalendarTime(event.start_date) + "/" + convertToGoogleCalendarTime(event.end_date) + "&details=" + encodeURIComponent(event.body || "") + "&location=" + encodeURIComponent(event.location  || "");
+    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(removeHTMLTags(event.title || "")) + "&dates=" + convertToGoogleCalendarTime(event.start_date) + "/" + convertToGoogleCalendarTime(event.end_date) + "&details=" + encodeURIComponent(removeHTMLTags(event.body || "")) + "&location=" + encodeURIComponent(removeHTMLTags(event.location  || ""));
   }
 
   /*
@@ -122,6 +122,14 @@
   */
   function convertToUTCTime (date) {
     return moment (date).add (moment ().utcOffset (drupalSettings.event_calendar.system_timezone), 'minutes');
+  }
+
+  /*
+  Accepts one argument, html, an HTML string, strips it of its HTML tags, and 
+  returns a string.
+  */
+  function removeHTMLTags (html) {
+    return $('<div></div>').html (html).text ();
   }
 
 
