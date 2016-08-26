@@ -12,7 +12,7 @@
    var WRAPPER = '_wrapper';
    var CONTENT = '_content';
    var CONTAINER = '_container';
-   var LEFT = '_left';
+   var RIGHT = '_right';
    var BODY = '_body';
    var IMAGE = '_image';
    var LINK = '_link';
@@ -156,7 +156,7 @@
     image.append(imageLink);
     tabContent.append(image);
 
-    var leftContentContainer = $('<div></div').addClass(classPrefix + TAB + CONTENT + CONTAINER + LEFT);
+    var leftContentContainer = $('<div></div').addClass(classPrefix + TAB + CONTENT + CONTAINER + RIGHT);
     // create the issue title
     var titlelink = $('<a></a>').addClass(classPrefix + TAB + CONTENT + TITLE + LINK).attr('href', issue.url).text(issue.title);
     leftContentContainer.append(titlelink);
