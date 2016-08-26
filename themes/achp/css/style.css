@@ -1459,6 +1459,45 @@ header {
   #block-readmoreaboutpreservationissues div button {
     text-transform: uppercase; }
 
+#block-preserveamericaheader {
+  text-align: center; }
+  #block-preserveamericaheader .header_container {
+    width: auto;
+    display: inline-block;
+    margin: 0px auto; }
+    #block-preserveamericaheader .header_container hr {
+      width: 60%; }
+
+#block-views-block-community-spotlight-block-1 h2 {
+  display: inline-block; }
+#block-views-block-community-spotlight-block-1 .item-list {
+  position: relative; }
+  #block-views-block-community-spotlight-block-1 .item-list ul {
+    position: relative;
+    display: block;
+    list-style: none;
+    text-align: left; }
+    #block-views-block-community-spotlight-block-1 .item-list ul li {
+      position: absolute;
+      display: inline-block;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 90%;
+      min-height: 230px;
+      padding: 20px;
+      border-top: 5px solid #950306;
+      background-color: #FFF;
+      box-sizing: border-box;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+      border-top: 6px solid #950306;
+      box-sizing: border-box;
+      text-decoration: none; }
+
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -1860,10 +1899,10 @@ button {
 
 #homepage_preserveamerica_region {
   padding: 25px 50px;
-  height: 200px;
+  height: auto;
   background-color: #F4F4F4; }
   #homepage_preserveamerica_region hr {
-    width: 100px; }
+    width: 60%; }
 
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
