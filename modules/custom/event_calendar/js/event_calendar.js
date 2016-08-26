@@ -103,8 +103,27 @@
   and returns the URL string.
   */
   function createGoogleCalendarLink (event) {
-    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(event.title) + "&dates=" + event.start_date + "/" + event.end_date + "&details=" + encodeURIComponent(event.body) + "&location=" + encodeURIComponent(event.location);
+    return "http://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(event.title || "") + "&dates=" + convertToGoogleCalendarTime(event.start_date) + "/" + convertToGoogleCalendarTime(event.end_date) + "&details=" + encodeURIComponent(event.body || "") + "&location=" + encodeURIComponent(event.location  || "");
   }
+
+  /*
+  Accepts one argument, a date string; returns a string that represents
+  that date as a string in the UTC timezone in a format accepted by
+  Google Calendar.
+  */
+  function convertToGoogleCalendarTime (date) {
+    return convertToUTCTime (date).format('YYYYMMDDTHHmmssZ');
+  }
+
+  /*
+  Accepts one argument, date, a string that represents a date in the system
+  timezone, and returns a Moment object that represents that same date in UTC
+  time.
+  */
+  function convertToUTCTime (date) {
+    return moment (date).add (moment ().utcOffset (drupalSettings.event_calendar.system_timezone), 'minutes');
+  }
+
 
   // I. Defining the feature instance
 
