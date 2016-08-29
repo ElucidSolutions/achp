@@ -51,38 +51,50 @@ html {
   margin-left: auto;
   margin-right: auto;
   background-color: #043B62;
-  max-width: 100%; }
+  color: white;
+  max-width: 100%;
+  padding-top: 40px; }
   #footer::after {
     clear: both;
     content: "";
     display: table; }
   #footer h1, #footer #content_region #block-achp-page-title h1, #content_region #block-achp-page-title #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer p {
     color: white;
-    text-align: left; }
+    text-align: left;
+    text-transform: uppercase; }
+  #footer a {
+    color: white;
+    text-decoration: none; }
+  #footer ul, #footer ol {
+    list-style-type: none;
+    padding: 0px; }
   #footer #footer_left {
     float: left;
     display: block;
     margin-right: 0%;
-    width: 33.33333%; }
+    width: 33.33333%;
+    padding: 0 5%; }
     #footer #footer_left:last-child {
       margin-right: 0; }
   #footer #footer_middle {
     float: left;
     display: block;
     margin-right: 0%;
-    width: 33.33333%; }
+    width: 33.33333%;
+    padding: 0 5%; }
     #footer #footer_middle:last-child {
       margin-right: 0; }
   #footer #footer_right {
     float: left;
     display: block;
     margin-right: 0%;
-    width: 33.33333%; }
+    width: 33.33333%;
+    padding: 0 5%; }
     #footer #footer_right:last-child {
       margin-right: 0; }
-
-.footer_section {
-  padding: 5%; }
+  #footer #block-footertwitterfeed {
+    margin: 0 auto;
+    max-width: 400px; }
 
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */

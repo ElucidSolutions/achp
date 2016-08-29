@@ -7,24 +7,41 @@
 #footer {
   @include outer-container;
   background-color: $color-darkblue;
+  color: white;
   max-width: 100%;
+  padding-top: 40px;
 
   h1, h2, h3, h4, h5, p {
     color: white;
     text-align: left;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  ul, ol {
+    list-style-type: none; 
+    padding: 0px;
   }
 
   #footer_left {
     @include span-columns(4);
+    padding: 0 5%;
   }
   #footer_middle {
     @include span-columns(4);
+    padding: 0 5%;
   }
   #footer_right {
     @include span-columns(4);
+    padding: 0 5%;
   }
-}
 
-.footer_section {
-  padding: 5%;
+  #block-footertwitterfeed {
+    margin: 0 auto;
+    max-width: 400px;
+  }
 }
