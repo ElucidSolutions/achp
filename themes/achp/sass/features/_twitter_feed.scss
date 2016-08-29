@@ -1,0 +1,19 @@
+/*
+  This module contains styles for the twitter
+  feed embedded within the footer.
+*/
+@import "../global";
+
+.twitter-timeline {
+  .timeline-Widget {
+    background-color: none; // make background transparent.
+
+    .timeline-Header {
+      display: none; // hide timeline header.
+    }
+
+    .timeline-Twee-media {
+      display: none; // hide images and other media embedded in tweets.
+    }
+  }
+}

@@ -1,0 +1,30 @@
+/*
+  This module contains styles for the page
+  footer element.
+*/
+@import "../global";
+
+#footer {
+  @include outer-container;
+  background-color: $color-darkblue;
+  max-width: 100%;
+
+  h1, h2, h3, h4, h5, p {
+    color: white;
+    text-align: left;
+  }
+
+  #footer_left {
+    @include span-columns(4);
+  }
+  #footer_middle {
+    @include span-columns(4);
+  }
+  #footer_right {
+    @include span-columns(4);
+  }
+}
+
+.footer_section {
+  padding: 5%;
+}
