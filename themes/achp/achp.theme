@@ -1,0 +1,9 @@
+<?php
+
+// Implements hook_preprocess ().
+function achp_preprocess_views_view__community_spotlight (&$variables) {
+  foreach ($variables['rows'] as $id => &$row) {
+    // Randomly select one row for display.
+    $row ['#rows'] = array ($row ['#rows'][array_rand ($row ['#rows'])]);
+  }
+}
