@@ -46,14 +46,46 @@ html {
  * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
  * then the variable below would be 10px.
  */
+/*
+  Accepts one argument: value, a px value;
+  and returns value in rems.
+*/
+/*
+  Accepts three arguments:
+
+  * $min, an integer
+  * $max, an integer
+  * $keys, a list
+
+  where $min < $max and $keys has two or more
+  elements; and returns a map in which every
+  value in $keys is mapped to an integer ranging
+  from $min to $max inclusive.
+*/
+/*
+  Accepts two integer arguments, $min and $max,
+  where $min < $max, and returns a list of
+  equally spaced integers ranging from $min to
+  $max such that there is one value for each
+  breakpoint in $breakpoints.
+*/
+/*
+  Accepts one argument: $font-sizes, a map
+  mapping px breakpoint values to px font sizes;
+  and expands into the standard set of directives
+  for headers.
+*/
 #footer {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   background-color: #043B62;
   color: white;
+  font-size: 0.875rem;
+  font-family: "p22-underground", sans-serif;
+  letter-spacing: 0.02rem;
   max-width: 100%;
-  padding-top: 40px; }
+  padding: 40px; }
   #footer::after {
     clear: both;
     content: "";
@@ -62,40 +94,106 @@ html {
     color: white;
     text-align: left;
     text-transform: uppercase; }
+  #footer h2 {
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.125rem; }
   #footer a {
+    color: #0990FE;
+    text-decoration: none;
     color: white;
+    font-size: 0.75rem;
     text-decoration: none; }
+    #footer a:hover {
+      color: #0990FE; }
   #footer ul, #footer ol {
     list-style-type: none;
     padding: 0px; }
-  #footer #footer_left {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 33.33333%;
-    padding: 0 5%; }
-    #footer #footer_left:last-child {
-      margin-right: 0; }
-  #footer #footer_middle {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 33.33333%;
-    padding: 0 5%; }
-    #footer #footer_middle:last-child {
-      margin-right: 0; }
-  #footer #footer_right {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 33.33333%;
-    padding: 0 5%; }
-    #footer #footer_right:last-child {
-      margin-right: 0; }
-  #footer #block-footertwitterfeed {
-    margin: 0 auto;
-    max-width: 400px; }
+    #footer ul li, #footer ol li {
+      margin-top: 10px; }
+      #footer ul li:last-of-type, #footer ol li:last-of-type {
+        margin-bottom: 10px; }
+  #footer .social_icons {
+    padding-top: 20px; }
+    #footer .social_icons .social_media {
+      padding-right: 20px; }
+  #footer .content_wrapper {
+    text-align: left; }
+    #footer .content_wrapper #footer_2_columns_left {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 66.66667%; }
+      #footer .content_wrapper #footer_2_columns_left:last-child {
+        margin-right: 0; }
+      #footer .content_wrapper #footer_2_columns_left #footer_left {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%;
+        padding-right: 40px; }
+        #footer .content_wrapper #footer_2_columns_left #footer_left:last-child {
+          margin-right: 0; }
+      #footer .content_wrapper #footer_2_columns_left #footer_middle {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%;
+        padding-right: 40px; }
+        #footer .content_wrapper #footer_2_columns_left #footer_middle:last-child {
+          margin-right: 0; }
+    #footer .content_wrapper #footer_right {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 33.33333%; }
+      #footer .content_wrapper #footer_right:last-child {
+        margin-right: 0; }
 
+@media (max-width: 925px) {
+  #footer .content_wrapper #footer_2_columns_left {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%; }
+    #footer .content_wrapper #footer_2_columns_left:last-child {
+      margin-right: 0; }
+    #footer .content_wrapper #footer_2_columns_left #footer_left {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%; }
+      #footer .content_wrapper #footer_2_columns_left #footer_left:last-child {
+        margin-right: 0; }
+    #footer .content_wrapper #footer_2_columns_left #footer_middle {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      margin-top: 40px; }
+      #footer .content_wrapper #footer_2_columns_left #footer_middle:last-child {
+        margin-right: 0; }
+  #footer .content_wrapper #footer_right {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%; }
+    #footer .content_wrapper #footer_right:last-child {
+      margin-right: 0; } }
+@media (max-width: 650px) {
+  #footer .content_wrapper #footer_2_columns_left {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #footer .content_wrapper #footer_2_columns_left:last-child {
+      margin-right: 0; }
+  #footer .content_wrapper #footer_right {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #footer .content_wrapper #footer_right:last-child {
+      margin-right: 0; } }
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */

@@ -4,44 +4,177 @@
 */
 @import "../global";
 
+// The font-size value for the html element measured in pxs.
+$root-element-font-size: 16px;
+
+// The standard breakpoints.
+$breakpoints: 300px 400px 500px 600px 700px 800px 900px 1000px;
+
+/*
+  Accepts one argument: value, a px value;
+  and returns value in rems.
+*/
+@function px-rem ($value) {
+  @return $value * 1rem / $root-element-font-size;
+}
+
+/*
+  Accepts three arguments:
+
+  * $min, an integer
+  * $max, an integer
+  * $keys, a list
+
+  where $min < $max and $keys has two or more
+  elements; and returns a map in which every
+  value in $keys is mapped to an integer ranging
+  from $min to $max inclusive.
+*/
+@function scale($min, $max, $keys) {
+  $map: ();
+  $n: length($keys);
+  $delta: ($max - $min) / ($n - 1);
+  @for $i from 1 through $n {
+    $map: map-merge($map, (nth($keys, $i): $min + (($i - 1) * $delta)));
+  }
+  @return $map;
+}
+
+/*
+  Accepts two integer arguments, $min and $max,
+  where $min < $max, and returns a list of
+  equally spaced integers ranging from $min to
+  $max such that there is one value for each
+  breakpoint in $breakpoints.
+*/
+@function scale-over-breakpoints($min, $max) {
+  @return scale($min, $max, $breakpoints);
+}
+
+/*
+  Accepts one argument: $font-sizes, a map
+  mapping px breakpoint values to px font sizes;
+  and expands into the standard set of directives
+  for headers.
+*/
+@mixin header-style($font-sizes) {
+  color: $color-darkblue2;
+  font-family: $sans-text;
+
+  @each $breakpoint, $size in $font-sizes {
+    @media screen and (min-width: $breakpoint) {
+      font-size: $size;
+    }
+  }
+}
+
+// The default link styles.
+@mixin link-style {
+  color: $color-blue;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-blue;
+  }
+}
+
+$footer-padding: 40px;
 #footer {
   @include outer-container;
   background-color: $color-darkblue;
   color: white;
+  font-size: px-rem(14px);
+  font-family: $sans-text;
+  letter-spacing: 0.02rem;
   max-width: 100%;
-  padding-top: 40px;
+  padding: $footer-padding;
 
-  h1, h2, h3, h4, h5, p {
+  h1, h2, h3, h4, h5, p{
     color: white;
     text-align: left;
     text-transform: uppercase;
   }
-
+  h2 {
+    font-family: $sans-text;
+    font-size: px-rem(18px);
+  }
   a {
+    @include link-style;
     color: white;
+    font-size: px-rem(12px);
     text-decoration: none;
   }
-
   ul, ol {
     list-style-type: none; 
     padding: 0px;
-  }
 
-  #footer_left {
-    @include span-columns(4);
-    padding: 0 5%;
-  }
-  #footer_middle {
-    @include span-columns(4);
-    padding: 0 5%;
-  }
-  #footer_right {
-    @include span-columns(4);
-    padding: 0 5%;
-  }
+    li {
+      margin-top: 10px;
 
-  #block-footertwitterfeed {
-    margin: 0 auto;
-    max-width: 400px;
+      &:last-of-type {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .social_icons {
+    padding-top: 20px;
+
+    .social_media {
+      padding-right: 20px;
+    }
+  }
+  .content_wrapper {
+    text-align: left;
+
+    #footer_2_columns_left {
+      @include span-columns(8);
+
+      #footer_left {
+        @include span-columns(6);
+        padding-right: $footer-padding;
+      }
+      #footer_middle {
+        @include span-columns(6);
+        padding-right: $footer-padding
+      }
+    }
+    #footer_right {
+      @include span-columns(4);
+    }
   }
 }
+
+@media (max-width: $hero-breakpoint) {
+  #footer {
+    .content_wrapper {
+      #footer_2_columns_left {
+        @include span-columns($grid-columns / 2);
+
+        #footer_left {
+          @include span-columns($grid-columns);
+        }
+        #footer_middle {
+          @include span-columns($grid-columns);
+          margin-top: $footer-padding;
+        }
+      }
+      #footer_right {
+        @include span-columns($grid-columns / 2);
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  #footer {
+    .content_wrapper {
+      #footer_2_columns_left {
+        @include span-columns($grid-columns);
+      }
+      #footer_right {
+        @include span-columns($grid-columns);
+      }
+    }
+  }
+}
+
