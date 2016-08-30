@@ -74,7 +74,14 @@
       </div>
     </div>
     <footer id="footer">
-      {{ page.footer }}
+      <div class="content_wrapper">
+        {{ page.footer }}
+        <div id="footer_2_columns_left">
+          {{ page.footer_left }}
+          {{ page.footer_middle }}
+        </div>
+        {{ page.footer_right }}
+      </div>
     </footer>
   </div>
 </div>

@@ -4,6 +4,196 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+/*
+  This module contains styles for the page
+  footer element.
+*/
+/* Global variables: widths, heights, & breakpoints */
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* Mixin for attaching icons as right after-elements */
+/* Same mixin as above, except for use where the icon should not change color upon hover*/
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+/*
+  Accepts one argument: value, a px value;
+  and returns value in rems.
+*/
+/*
+  Accepts three arguments:
+
+  * $min, an integer
+  * $max, an integer
+  * $keys, a list
+
+  where $min < $max and $keys has two or more
+  elements; and returns a map in which every
+  value in $keys is mapped to an integer ranging
+  from $min to $max inclusive.
+*/
+/*
+  Accepts two integer arguments, $min and $max,
+  where $min < $max, and returns a list of
+  equally spaced integers ranging from $min to
+  $max such that there is one value for each
+  breakpoint in $breakpoints.
+*/
+/*
+  Accepts one argument: $font-sizes, a map
+  mapping px breakpoint values to px font sizes;
+  and expands into the standard set of directives
+  for headers.
+*/
+#footer {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #043B62;
+  color: white;
+  font-size: 0.875rem;
+  font-family: "p22-underground", sans-serif;
+  letter-spacing: 0.02rem;
+  max-width: 100%;
+  padding: 40px; }
+  #footer::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #footer h1, #footer #content_region #block-achp-page-title h1, #content_region #block-achp-page-title #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer p {
+    color: white;
+    text-align: left;
+    text-transform: uppercase; }
+  #footer h2 {
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.125rem; }
+  #footer a {
+    color: #0990FE;
+    text-decoration: none;
+    color: white;
+    font-size: 0.75rem;
+    text-decoration: none; }
+    #footer a:hover {
+      color: #0990FE; }
+  #footer ul, #footer ol {
+    list-style-type: none;
+    padding: 0px; }
+    #footer ul li, #footer ol li {
+      margin-top: 10px; }
+      #footer ul li:last-of-type, #footer ol li:last-of-type {
+        margin-bottom: 10px; }
+  #footer .social_icons {
+    padding-top: 20px; }
+    #footer .social_icons .social_media {
+      padding-right: 20px; }
+  #footer .content_wrapper {
+    text-align: left; }
+    #footer .content_wrapper #footer_2_columns_left {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 66.66667%; }
+      #footer .content_wrapper #footer_2_columns_left:last-child {
+        margin-right: 0; }
+      #footer .content_wrapper #footer_2_columns_left #footer_left {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%;
+        padding-right: 40px; }
+        #footer .content_wrapper #footer_2_columns_left #footer_left:last-child {
+          margin-right: 0; }
+      #footer .content_wrapper #footer_2_columns_left #footer_middle {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%;
+        padding-right: 40px; }
+        #footer .content_wrapper #footer_2_columns_left #footer_middle:last-child {
+          margin-right: 0; }
+    #footer .content_wrapper #footer_right {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 33.33333%; }
+      #footer .content_wrapper #footer_right:last-child {
+        margin-right: 0; }
+
+@media (max-width: 925px) {
+  #footer .content_wrapper #footer_2_columns_left {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%; }
+    #footer .content_wrapper #footer_2_columns_left:last-child {
+      margin-right: 0; }
+    #footer .content_wrapper #footer_2_columns_left #footer_left {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%; }
+      #footer .content_wrapper #footer_2_columns_left #footer_left:last-child {
+        margin-right: 0; }
+    #footer .content_wrapper #footer_2_columns_left #footer_middle {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      margin-top: 40px; }
+      #footer .content_wrapper #footer_2_columns_left #footer_middle:last-child {
+        margin-right: 0; }
+  #footer .content_wrapper #footer_right {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%; }
+    #footer .content_wrapper #footer_right:last-child {
+      margin-right: 0; } }
+@media (max-width: 650px) {
+  #footer .content_wrapper #footer_2_columns_left {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #footer .content_wrapper #footer_2_columns_left:last-child {
+      margin-right: 0; }
+  #footer .content_wrapper #footer_right {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #footer .content_wrapper #footer_right:last-child {
+      margin-right: 0; } }
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -1831,83 +2021,93 @@ body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
 
 /* Footer styles */
+/*
 footer {
-  font-family: "p22-underground", sans-serif;
+  font-family: $sans-text;
   line-height: 1.3;
   height: 500px;
-  background-color: #E8F8FF;
-  border: 1px solid #E8F8FF; }
-  footer p {
+  background-color: $background-color-lightblue;
+  border: 1px solid $background-color-lightblue;
+  p {
     font-size: 1.125rem;
-    font-color: #262626; }
-  footer .content_wrapper {
+    font-color: $color-darkgrey;
+  }
+  .content_wrapper {
     padding: 0 42px;
-    text-align: left; }
-    footer .content_wrapper #block-organizationname {
-      display: none; }
-    footer .content_wrapper ul {
-      padding-left: 0; }
-      footer .content_wrapper ul li {
-        list-style-type: none; }
-        footer .content_wrapper ul li a {
+    text-align: left;
+    #block-organizationname {
+      display: none;
+    }
+    ul {
+      padding-left: 0;
+      li {
+        list-style-type: none;
+        a {
           list-style-type: none;
           text-decoration: none;
           font-weight: 500;
-          display: inline-block; }
-      footer .content_wrapper ul.menu_base > li {
-        float: left;
-        display: block;
-        margin-right: 0%;
-        width: 25%; }
-        footer .content_wrapper ul.menu_base > li:last-child {
-          margin-right: 0; }
-      footer .content_wrapper ul.menu_base a {
-        color: #262626;
-        margin-bottom: 10px; }
-      footer .content_wrapper ul.menu_second a {
-        color: #4F4F4F;
+          display: inline-block;
+        }
+      }
+      &.menu_base {
+        & > li {
+          @include span-columns(3 of 12);
+        }
+        a {
+          color: $color-darkgrey;
+          margin-bottom: 10px;
+        }
+      }
+      &.menu_second a {
+        color: $color-grey;
         padding-left: 0;
-        font-size: 0.875rem;
-        margin-bottom: 10px; }
-        @media screen and (min-width: 900px) {
-          footer .content_wrapper ul.menu_second a {
-            font-size: 1rem; } }
-      footer .content_wrapper ul.menu_third a {
-        color: #0990FE;
+        @include font-size($footer_menu_second-font-sizes);
+        margin-bottom: 10px;
+      }
+      &.menu_third a {
+        color: $color-blue;
         padding-left: 0;
-        font-size: 0.75rem;
-        margin-bottom: 10px; }
-        @media screen and (min-width: 900px) {
-          footer .content_wrapper ul.menu_third a {
-            font-size: 1rem; } }
+        @include font-size($footer_menu_third-font-sizes);
+        margin-bottom: 10px;
+      }
+    }
+  }
   @media (max-width: 900px) {
-    footer {
-      height: 400px; }
-      footer .content_wrapper ul.menu_base a {
-        margin-bottom: 2px; }
-      footer .content_wrapper ul.menu_second a {
-        margin-top: 5px;
-        margin-bottom: 0; }
-      footer .content_wrapper ul.menu_third a {
-        margin-bottom: 5px; } }
+    height: 400px;
+    .content_wrapper {
+      ul.menu {
+        &_base a {
+          margin-bottom: 2px;
+        }
+        &_second a {
+          margin-top: 5px;
+          margin-bottom: 0;
+        }
+        &_third a {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
   @media (max-width: 750px) {
-    footer {
-      height: 225px; }
-      footer .content_wrapper #block-organizationname {
-        display: block; }
-      footer .content_wrapper ul.menu_base > li {
-        float: left;
+    height: 225px;
+    .content_wrapper {
+      #block-organizationname {
         display: block;
-        margin-right: 0%;
-        width: 100%;
+      }
+      ul.menu_base > li {
+        @include span-columns (12 of 12);
         line-height: 2;
-        text-align: center; }
-        footer .content_wrapper ul.menu_base > li:last-child {
-          margin-right: 0; }
-      footer .content_wrapper ul.menu_second,
-      footer .content_wrapper ul.menu_third {
-        display: none; } }
-
+        text-align: center;
+      }
+      ul.menu_second,
+      ul.menu_third {
+        display: none;
+      }
+    }
+  }
+}
+*/
 /* TODO: move to separate file when it you figure out how to get sass to watch it */
 .event_calendar .event_calendar_feature {
   padding: 0 50px; }
