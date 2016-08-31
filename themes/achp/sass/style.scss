@@ -3,6 +3,7 @@ $gutter: 0em !global;
 @import "neat/neat";
 @import "features";
 @import "global";
+@import "pages";
 
 html,
 body {
@@ -342,11 +343,12 @@ button {
 }
 
 #homepage_preserveamerica_region {
+  display: inline-block;
   padding: 25px 50px;
-  height: 200px;
+  height: auto;
   background-color: $background-color-grey;
   hr {
-    width: 100px;
+    width: 60%;
   }
 }
 

@@ -521,13 +521,7 @@
         }
       }
     }
-    /**
-     * Else, we will default to the first step.
-     */
-    else {
-      featureInstance.selectStep($(stepClassName).first());
-    }
-
+    
     /**
      * Register mousemove handler to turnon and turnoff previous
      * and next buttons.

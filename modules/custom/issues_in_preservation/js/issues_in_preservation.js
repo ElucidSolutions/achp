@@ -12,7 +12,7 @@
    var WRAPPER = '_wrapper';
    var CONTENT = '_content';
    var CONTAINER = '_container';
-   var LEFT = '_left';
+   var RIGHT = '_right';
    var BODY = '_body';
    var IMAGE = '_image';
    var LINK = '_link';
@@ -156,7 +156,7 @@
     image.append(imageLink);
     tabContent.append(image);
 
-    var leftContentContainer = $('<div></div').addClass(classPrefix + TAB + CONTENT + CONTAINER + LEFT);
+    var leftContentContainer = $('<div></div').addClass(classPrefix + TAB + CONTENT + CONTAINER + RIGHT);
     // create the issue title
     var titlelink = $('<a></a>').addClass(classPrefix + TAB + CONTENT + TITLE + LINK).attr('href', issue.url).text(issue.title);
     leftContentContainer.append(titlelink);
@@ -196,30 +196,38 @@
      * properties, and use JQuery to obtain the size. 
      * This is how we obtain the width of the widest word.
      */
-     var dummyElement = $('span').css({'font-size': fontSize, 'font-family': fontName, 'font-weight': fontWeight, 'text-transform': 'uppercase'});
+     var dummyElement = $('<div></div>').css({'display': 'none', 'font-size': fontSize, 'font-family': fontName, 'font-weight': fontWeight, 'text-transform': 'uppercase'});
+
+     // append it to the first tab and then after 
+     // all is done, remove it from the first tab.
+     tabs.first().append(dummyElement);
 
     // Get the text of each tab
     tabs.each(function(tabIndex) {
-      var tokens = $(this).text().split(" ");
+      var stringTokens = $(this).text().split(" ");
       var tabWidth = 0;
+      var width = 0;
 
       /**
        * Append the token to the dummy element
        * and use JQuery width() to calculate
-       * width. Iterate through the tokens arry
-       * and just track the token that gives
+       * width. Iterate through the tokens array
+       * and track the token that gives
        * widest width.
        */
-       $.each(tokens, function(i) {
-        dummyElement.text(tokens[i]);
-        var width = dummyElement.outerWidth();
-        if (tabWidth < width) {
+       $.each(stringTokens, function(index) {
+        dummyElement.text(stringTokens[index]);
+        width = dummyElement.outerWidth();
+        if (width > tabWidth) {
           tabWidth = width;
         }
       });
+
       $(this).css("width", tabWidth);
     });    
 
+    // Done so let's remove the dummy element.
+    dummyElement.remove();
   }
 
   /**
@@ -242,35 +250,23 @@
       cursoropacitymax: .7,
       cursorborder: 0,
       enablekeyboard: false,
+      cursordragontouch: true,
       touchbehavior: true
     });
 
-
+    /**
+     * Get the previous and next elements;
+     * pass to niceScroll; disable next button
+     * at scrollend, and disable previous button
+     * at scrollstart.
+     */
     var previousElement = $('.' + classPrefix + TABS + NAVIGATION + PREVIOUS);
     var nextElement = $('.' + classPrefix + TABS + NAVIGATION + NEXT);
-
-    niceScroll.onscrollend = function(data) {
-      
-      // If at the start
-      if (data.end.y <= 0) {        
-        console.log('start');
-        previousElement.addClass('disabled');
-      } else {
-        previousElement.removeClass('disabled');
-      }
-
-      // If at the end
-      if (data.end.y >= this.page.maxh) {
-        console.log('start');
-        nextElement.addClass('disabled');
-      } else {
-        nextElement.removeClass('disabled');
-      }
+    var self = this;
+    niceScroll.onscrollend = function (data) {
+      self.enableDisableNavigation(niceScroll, previousElement, nextElement);
     }
-
-    // Trigger the scrollend event right away to set the inital state
-    // niceScroll.triggerScrollEnd(); // LLEE: triggerScrollEnd is undefined.
-
+    
     // Calculate the width of the tabbed menu
     var tabbedMenuWidth = this.calculateTabbedMenuWidth();
     var tabs = $('.' + classPrefix + TABS);
@@ -353,41 +349,6 @@
   }
 
   /**
-   * Accepts no arguments; registers a mouse move 
-   * handler to show and hide next and previous 
-   * buttons; and returns undefined.
-   */
-   FeatureInstance.prototype.registerMouseMoveEventHandler = function () {
-    var previousButton = $('.' + this.getFeatureClassName() + TABS + NAVIGATION + PREVIOUS);
-    var nextButton = $('.' + this.getFeatureClassName() + TABS + NAVIGATION + NEXT);
-    
-    nextButton.mouseover(function() {
-      $(this).css({
-        'background-image': 'url(\"/modules/custom/issues_in_preservation/images/right-arrow-icon-black.svg\")'      
-      });
-    });
-
-    previousButton.mouseover(function() {
-      $(this).css({
-        'background-image': 'url(\"/modules/custom/issues_in_preservation/images/left-arrow-icon-black.svg\")'      
-      });
-    });
-
-    nextButton.mouseleave(function() {
-      $(this).css({
-        'background-image': 'url(\"/modules/custom/issues_in_preservation/images/right-arrow-icon-grey.svg\")'      
-      });
-    });
-
-    previousButton.mouseleave(function() {
-      $(this).css({
-        'background-image': 'url(\"/modules/custom/issues_in_preservation/images/left-arrow-icon-grey.svg\")'      
-      });
-    });    
-
-  }
-
-  /**
    * Accepts no arguments; registers a mouse click handler 
    * to handle the sliding of the section 106 process 
    * flow chart; clicks previous will make the flowchart 
@@ -395,10 +356,11 @@
    * the flowchart moved to the left by 1 step; and returns 
    * undefined.
    */
-   FeatureInstance.prototype.registerNavigationClickEventHandler = function () {
-    var previousButton = $("." + this.getFeatureClassName() + TABS + NAVIGATION + PREVIOUS);
-    var nextButton = $("." + this.getFeatureClassName() + TABS + NAVIGATION + NEXT);
-    var tabs = $("." + this.getFeatureClassName() + TAB);
+   FeatureInstance.prototype.registerNavigationClickEventHandler = function (niceScroll) {
+    var classPrefix = this.getFeatureClassName();
+    var previousButton = $("." + classPrefix + TABS + NAVIGATION + PREVIOUS);
+    var nextButton = $("." + classPrefix + TABS + NAVIGATION + NEXT);
+    var tabs = $("." + classPrefix + TAB);
 
     /**
      * The distance of the slide is calculated by taking the
@@ -412,18 +374,49 @@
     previousButton.click(function (event) {
       if (currentTab > 0) {
         var distance = Math.abs(tabs.get(currentTab).offsetLeft - tabs.get(--currentTab).offsetLeft);
-        self.slideTab("left", distance);              
+        self.slideTab("left", distance);  
+        self.enableDisableNavigation(niceScroll, previousButton, nextButton);
       }
     });
     // Move to the right one tab
     nextButton.click(function (event) {
       if ((currentTab + 1) < numberOfTabs) {
         var distance = Math.abs(tabs.get(currentTab).offsetLeft - tabs.get(++currentTab).offsetLeft);
-        self.slideTab("right", distance);              
+        self.slideTab("right", distance);  
+        self.enableDisableNavigation(niceScroll, previousButton, nextButton);            
       }
-    });
+    });    
   }
 
+  /**
+   * Accepts three arguments; niceScroll object which
+   * controls the scrolling of the tabs, the previous
+   * element which scrolls the tabs to the right;
+   * the next element which scrolls the tabs to
+   * the left. The next element is disabled at scroll end
+   * state. The previous element is disabled at scroll
+   * start state. Both next and previous elements are
+   * enabled otherwise. This function returns
+   * an undefined object.
+   */
+   FeatureInstance.prototype.enableDisableNavigation = function (niceScroll, previousElement, nextElement) {
+    // If at scroll start (start of the tab list)
+    if (niceScroll.scrollvaluemaxw == niceScroll.scroll.x) {
+      previousElement.removeClass('disabled');
+      nextElement.addClass('disabled');      
+    } 
+
+    // Else if at scroll end (end of the tab list)
+    else if (niceScroll.scroll.x == 0) {
+      previousElement.addClass('disabled');
+      nextElement.removeClass('disabled');        
+    }
+    // Else, enable both buttons because there is room to move in both directions.
+    else {
+      previousElement.removeClass('disabled');
+      nextElement.removeClass('disabled');      
+    }    
+  }
   /**
    * Accepts one argument; a boolean flag which indicates
    * whether to hide or show the navigation; and returns 
@@ -568,16 +561,10 @@
      featureInstance.selectTab(0);
 
     /**
-     * Register mousemove handler to turnon and turnoff previous
-     * and next buttons.
-     */
-     featureInstance.registerMouseMoveEventHandler();
-
-    /**
      * Register navigation button click handler to
      * move the tabbed menu left or right
      */
-     featureInstance.registerNavigationClickEventHandler();
+     featureInstance.registerNavigationClickEventHandler(niceScroll);
 
     /**
      * Reposition the tabbed menu based on the window size.

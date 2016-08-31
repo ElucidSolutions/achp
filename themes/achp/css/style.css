@@ -11,6 +11,7 @@ html {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -18,9 +19,10 @@ html {
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 /**
@@ -98,13 +100,9 @@ html {
     font-family: "p22-underground", sans-serif;
     font-size: 1.125rem; }
   #footer a {
-    color: #0990FE;
-    text-decoration: none;
     color: white;
     font-size: 0.75rem;
     text-decoration: none; }
-    #footer a:hover {
-      color: #0990FE; }
   #footer ul, #footer ol {
     list-style-type: none;
     padding: 0px; }
@@ -1483,6 +1481,12 @@ header {
 ** This Sass file defines the styles for the 
 ** Section 106 Process module.
 */
+#homepage_flowchart_region {
+  padding: 25px 0px 0px 0px;
+  width: 100%;
+  height: auto;
+  background-color: #E8F8FF; }
+
 .flowchart_content_wrapper {
   margin: 0 auto;
   text-align: center; }
@@ -1494,7 +1498,7 @@ header {
   .header_container hr {
     width: 60%; }
 
-#homepage_issues_region {
+#homepage_flowchart_region {
   padding: 25px 0px 0px 0px; }
 
 #block-readmoreaboutthefederalpreservationprocess div {
@@ -1504,7 +1508,7 @@ header {
 
 /*
 ** This Sass file defines the styles for the 
-** Section 106 Process module.
+** Issues in Preservation module.
 */
 .issues_content_wrapper {
   margin: 0 auto;
@@ -1605,6 +1609,153 @@ header {
   #content_region #block-achp-content p {
     text-align: left; }
 
+#block-preserveamericaheader {
+  text-align: center; }
+  #block-preserveamericaheader .header_container {
+    width: auto;
+    display: inline-block;
+    margin: 0px auto; }
+    #block-preserveamericaheader .header_container hr {
+      width: 60%; }
+
+.preserveamerica_content_wrapper {
+  position: relative;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto; }
+  .preserveamerica_content_wrapper h2 {
+    display: inline-block; }
+  .preserveamerica_content_wrapper .views-element-container {
+    width: 100%; }
+    .preserveamerica_content_wrapper .views-element-container h2 {
+      position: relative; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul {
+      width: 100%;
+      list-style: none;
+      padding: 0px;
+      margin-top: 0px; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li {
+        position: relative;
+        margin: 0px auto; }
+        .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+          border-top: 5px solid #950306;
+          background-color: #FFF;
+          box-sizing: border-box;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          display: inline-block;
+          text-align: left;
+          width: 100%;
+          padding: 20px; }
+          .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .img {
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+            height: 185px;
+            width: 185px; }
+          .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
+            position: absolute;
+            left: 225px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+            padding-right: 20px; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:first-child {
+              position: relative;
+              display: block;
+              font-family: "p22-underground", sans-serif;
+              color: #043b62;
+              font-size: 20px;
+              font-size: 1.25rem;
+              line-height: 28px;
+              line-height: 1.75rem;
+              text-decoration: none; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right p {
+              font-family: "minion-pro", serif;
+              color: #1e1e1e;
+              font-size: 16px;
+              font-size: 1rem;
+              line-height: 22.4px;
+              line-height: 1.4rem;
+              text-decoration: none;
+              text-align: left;
+              margin-bottom: 20px; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:last-child {
+              position: relative;
+              bottom: 0px;
+              max-width: 100%;
+              color: #4F4F4F;
+              font-family: "p22-underground", sans-serif;
+              font-size: 14px;
+              font-size: 0.875rem;
+              line-height: 19.2px;
+              line-height: 1.2rem;
+              font-weight: 500;
+              text-align: left;
+              text-decoration: none;
+              text-transform: uppercase; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:last-child:after {
+              position: absolute;
+              top: 50%;
+              right: -45px;
+              content: "";
+              background-image: url("../images/right-arrow-icon.svg");
+              background-repeat: no-repeat;
+              background-position: center;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+              transform: translateY(-50%);
+              width: 20px;
+              height: 20px;
+              padding-left: 15px;
+              margin-right: 20px;
+              cursor: pointer; }
+
+/* Global variables: widths, heights, & breakpoints */
+/* Global variables: text */
+/* Global variables: colors */
+/*#71bffe*/
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+/*
+  This module defines the sass directives used
+  to style Section 106 Process Step pages.
+*/
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -2010,11 +2161,12 @@ button {
     clear: both; }
 
 #homepage_preserveamerica_region {
+  display: inline-block;
   padding: 25px 50px;
-  height: 200px;
+  height: auto;
   background-color: #F4F4F4; }
   #homepage_preserveamerica_region hr {
-    width: 100px; }
+    width: 60%; }
 
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
@@ -2064,8 +2216,9 @@ footer {
         @include font-size($footer_menu_second-font-sizes);
         margin-bottom: 10px;
       }
+
       &.menu_third a {
-        color: $color-blue;
+        color: $color-blue-primary;
         padding-left: 0;
         @include font-size($footer_menu_third-font-sizes);
         margin-bottom: 10px;
@@ -2482,5 +2635,3 @@ footer {
             .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_day {
               font-size: 2rem;
               font-weight: 300; } }
-
-/*# sourceMappingURL=style.css.map */
