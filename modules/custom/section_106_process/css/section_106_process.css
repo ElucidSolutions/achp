@@ -41,7 +41,7 @@
  * then the variable below would be 10px.
  */
 #block-section106processblock {
-  height: 377px;
+  height: auto;
   width: 100%; }
 
 .section_106_process .section_106_process_feature_flowchart_navigation .section_106_process_feature_flowchart_navigation_previous,
@@ -155,7 +155,6 @@
           font-size: 1rem;
           line-height: 22.4px;
           line-height: 1.4rem;
-          color: #000000;
           font-weight: 500;
           text-transform: uppercase;
           text-align: left;
@@ -187,15 +186,23 @@
           margin: 10px 0px;
           width: 230px; }
         .section_106_process .section_106_process_feature_body .section_106_process_feature_step .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link:after {
+          position: absolute;
+          top: 93.5%;
+          right: 45%;
           content: "";
           background-image: url("../images/right-arrow-icon.svg");
           background-repeat: no-repeat;
           background-position: center;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
           width: 20px;
           height: 20px;
-          padding-left: 25px;
-          cursor: pointer;
-          transition: background-image 0.25s; }
+          padding-left: 15px;
+          margin-right: 20px;
+          cursor: pointer; }
     .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_weight_link,
     .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_weight_link {
       background-color: #0990FE; }

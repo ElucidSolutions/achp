@@ -13,13 +13,14 @@
 .issues_in_preservation {
   display: block;
   padding-top: 20px;
+  height: auto;
   .issues_in_preservation_feature_tabs_navigation {
     position: relative;
     .issues_in_preservation_feature_tabs_navigation_previous {
       display: block;
       position: absolute;
       background-color: $background-color-lightblue;
-      background-image: url("../images/left-arrow-icon-grey.svg");
+      background-image: url("../images/left-arrow-icon-black.svg");
       background-repeat: no-repeat;
       background-position: 50% 50%;
       transition: background-image 0.25s;
@@ -37,7 +38,7 @@
       display: block;
       position: absolute;
       background-color: $background-color-lightblue;
-      background-image: url("../images/right-arrow-icon-grey.svg");
+      background-image: url("../images/right-arrow-icon-black.svg");
       background-repeat: no-repeat;
       background-position: 50% 50%;
       transition: background-image 0.25s;
@@ -48,23 +49,31 @@
       width: 30px;
       cursor: pointer;
     }
-
     .issues_in_preservation_feature_tabs_navigation_next.disabled {
       background-image: url("../images/right-arrow-icon-grey.svg");
+    }
+    @media (max-width: 730px) {
+      .issues_in_preservation_feature_tabs_navigation_previous,
+      .issues_in_preservation_feature_tabs_navigation_next {
+        display: none;
+      }
     }
   }
 
   .issues_in_preservation_feature_body {
-    min-height: 300px;
+    position: relative;
+    height: auto;
     width: 100%;
     background-color: $color-darkblue;
     .issues_in_preservation_feature_tabs_wrapper {
+      position: relative;
       background-color: $background-color-lightblue;
+      position: relative;
       .issues_in_preservation_feature_tabs {
         display: table;
         table-layout: fixed;
         list-style-type: none;
-        margin: 0;
+        margin: 0px auto;
         border: none;
       }
       @media (max-width: 414px) {
@@ -84,8 +93,8 @@
           display: table-cell;
           font-family: $sans-text;
           color: rgba(74, 74, 74, 1);
-          @include rem('font-size', 16px);
-          @include rem('line-height', 22.4px);
+          font-size: 16px;
+          line-height: 22.4px;
           font-weight: 500;
           text-transform: uppercase;
           text-align: center;
@@ -94,14 +103,7 @@
           height: 100%;
           padding-bottom: 15px;      
           border-bottom: 3px solid $background-color-lightblue;
-        }  
-
-        @media (max-width: 414px) {
-          a.issues_in_preservation_feature_tab_link {
-            @include rem('font-size', 12px);
-            @include rem('line-height', 16.8px);
-          }     
-        }
+        }         
       }
 
       .issues_in_preservation_feature_tab.active {    
@@ -124,17 +126,25 @@
       min-height: 265px;
       background-color: $color-darkblue;
       padding: 20px;
-      margin: auto auto; 
+      margin: auto auto;       
       .issues_in_preservation_feature_tab_content {
-        position: relative;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
         text-align: left;
-        max-width: 650px;
-        max-height: 230px;
+        width: 650px;
+        min-height: 230px;
         padding: 20px;
-        border-top: 5px solid $color-red3;
+        border-top: 5px solid $color-red;
         background-color: #FFF;
         box-sizing: border-box;
         .issues_in_preservation_feature_tab_content_image {
+          position: relative;
           display: inline-block;          
           height: 185px;
           width: 185px;
@@ -150,12 +160,20 @@
             width: 100%;
           }
         }
-        .issues_in_preservation_feature_tab_content_container_left {
+        @media (max-width: 730px) {
+          .issues_in_preservation_feature_tab_content_image {
+            display: none;
+          }
+        }
+        .issues_in_preservation_feature_tab_content_container_right {
+          position: relative;
           display: inline-block;
-          max-height: 185px;
+          vertical-align: top;
+          min-height: 185px;          
+          width: 380px;
           margin-left: 20px;
-          width: 100%;
           .issues_in_preservation_feature_tab_content_title_link {
+            position: relative;
             display: block;
             font-family: $sans-text;
             color: rgba(4, 59, 98, 1);
@@ -164,6 +182,7 @@
             text-decoration: none;
           }
           .issues_in_preservation_feature_tab_content_body_link {
+            position: relative;
             display: block;
             font-family: $serif-text;
             color: rgba(30, 30, 30, 1);
@@ -171,13 +190,17 @@
             @include rem('line-height', 22.4px);
             text-decoration: none;
             text-align: left;
+            margin-bottom: 20px;
           }
-          .issues_in_preservation_feature_tab_content_read_more_text {
-            display: block;
+          @media (max-width: 730px) {
+            .issues_in_preservation_feature_tab_content_body_link {
+              text-align: center;
+            }
+          }
+          .issues_in_preservation_feature_tab_content_read_more_link {
             position: absolute;
-            left: 0;
-            bottom: 0;
-            text-decoration: none;
+            bottom: 0px;
+            max-width: 100%;
             color: $color-grey;
             font-family: $sans-text;
             @include rem('font-size', 14px);
@@ -186,61 +209,108 @@
             text-align: left;          
             text-decoration: none;
             text-transform: uppercase;
+            transition: color 0.25s;            
+          } 
+          .issues_in_preservation_feature_tab_content_read_more_link:after {
+            position: absolute;
+            top: 50%;
+            right: -45px;
+            content: "";
+            background-image: url("../images/right-arrow-icon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            padding-left: 15px;            
+            margin-right: 20px;
+            cursor: pointer;
+          }  
 
-            .issues_in_preservation_feature_tab_content_read_more_link {
-              display: block;
-              color: $color-grey;
-              font-family: $sans-text;
-              @include rem('font-size', 14px);
-              @include rem('line-height', 19.2px);          
-              font-weight: 500;
-              text-align: left;          
-              text-decoration: none;
-              text-transform: uppercase;
+          @media (max-width: 730px) {
+            .issues_in_preservation_feature_tab_content_read_more_link {     
+              text-align: center;       
+              left: 50%;
+              -webkit-transform: translateX(-50%);
+              -moz-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
+              -o-transform: translateX(-50%);
+              transform: translateX(-50%);
+              text-align: left;
+              width: 200px;
             }
-            .issues_in_preservation_feature_tab_content_read_more_text:after {
+            .issues_in_preservation_feature_tab_content_read_more_link:after {
+              position: absolute;
+              top: 50%;
+              right: -45px;
               content: "";
               background-image: url("../images/right-arrow-icon.svg");
               background-repeat: no-repeat;
               background-position: center;
-              width: 20px;
-              height: 20px;            
-              padding-left: 25px;
-              cursor: pointer;
               transition: background-image 0.25s;
-            }
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+              transform: translateY(-50%);
+              width: 20px;
+              height: 20px;
+              padding-left: 15px;
+              cursor: pointer;
+            }  
+          }
+          .issues_in_preservation_feature_tab_content_read_more_link:hover {
+            color: $color-blue;
+          }    
+          .issues_in_preservation_feature_tab_content_read_more_link:hover:after {
+            background-image: url("../images/right-arrow-icon-blue.svg");
+          }              
+        }
+        @media (max-width: 730px) {
+          .issues_in_preservation_feature_tab_content_container_right {
+            text-align: center;       
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+            width: 90%;
+            height: 90%;
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
           }
         }
+      }      
+      @media (max-width: 730px) {
+        .issues_in_preservation_feature_tab_content {
+          width: 90%;
+          height: 90%;
+        }
+      }      
+    }
+    @media (max-width: 500px) {
+      .issues_in_preservation_feature_content_container {
+        height: 320px;
       }
     }
-    @media (max-width: 414px) {
+    @media (max-width: 415px) {
       .issues_in_preservation_feature_content_container {
-        min-height: 285px;
-        .issues_in_preservation_feature_tab_content {
-          min-height: 250px;          
-          .issues_in_preservation_feature_tab_content_image_link {
-            display: none;
-          }
-          .issues_in_preservation_feature_tab_content_container_left {            
-            min-height: 220px;
-            margin-left: 0px;
-            .issues_in_preservation_feature_tab_content_title_link {
-              text-align: center;
-              margin-bottom: 10px;
-              @include rem('font-size', 18px);
-              @include rem('line-height', 24px);
-            }
-            .issues_in_preservation_feature_tab_content_body_link {
-              text-align: center;
-            }
-            .issues_in_preservation_feature_tab_content_read_more_link {
-              .issues_in_preservation_feature_tab_content_read_more_text {
-                
-              }
-            }              
-          }
-        }     
+        height: 340px;
+      }
+    }
+    @media (max-width: 320px) {
+      .issues_in_preservation_feature_content_container {
+        height: 380px;
       }
     }
   }
 }
+
+
+

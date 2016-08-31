@@ -68,16 +68,6 @@ $breakpoints: 300px 400px 500px 600px 700px 800px 900px 1000px;
   }
 }
 
-// The default link styles.
-@mixin link-style {
-  color: $color-blue;
-  text-decoration: none;
-
-  &:hover {
-    color: $color-blue;
-  }
-}
-
 $footer-padding: 40px;
 #footer {
   @include outer-container;
@@ -99,7 +89,6 @@ $footer-padding: 40px;
     font-size: px-rem(18px);
   }
   a {
-    @include link-style;
     color: white;
     font-size: px-rem(12px);
     text-decoration: none;
