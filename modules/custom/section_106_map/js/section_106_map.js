@@ -1042,7 +1042,10 @@
             })))
       .append ($('<div></div>')
         .addClass (getOverlayBodyClassName ()))
-      .hide ();
+      .append ($('<div></div>')
+        .addClass (getOverlayBodyClassName () + '_default')
+        .text ('Select a case for background information and contact information.'));
+      // .hide ();
   }
 
   /*
@@ -1250,6 +1253,7 @@
     $('.' + getOverlayBodyClassName (), overlayElement)
       .empty ()
       .append (createCaseElement (_case));
+    $('.' + getOverlayBodyClassName () + '_default').empty ();
 
     overlayElement.show (function () {
       // create case share elements.
@@ -1552,6 +1556,7 @@
           .addClass (classPrefix + '_header')
           .append ($('<div></div>')
             .addClass (classPrefix + '_title')
+            .addClass ('section_106_case_field')
             .append ($('<a></a>')
               .attr ('href', _case.url)
               .text (_case.title))))
@@ -1559,6 +1564,7 @@
           .addClass (classPrefix + '_body')
           .append ($('<div></div>')
             .addClass (classPrefix + '_description')
+            .addClass ('section_106_case_field')            
             .html (_case.body))
           .append ($('<div></div>')
             .addClass (classPrefix + '_body_agency')
@@ -1569,6 +1575,7 @@
                 .text ('Agency Involved:'))
               .append ($('<div></div>')
                 .addClass (classPrefix + '_agency')
+                .addClass ('section_106_case_field')
                 .text (_case.agency.title))))
           .append ($('<div></div>')
             .addClass (classPrefix + '_body_contact')
@@ -1581,15 +1588,18 @@
               .addClass (classPrefix + '_contact_name_title')
               .append ($('<span></span>')
                 .addClass (classPrefix + '_contact_name')
+                .addClass ('section_106_case_field')
                 .text (_case.poc.name))
               .append ($('<span></span>')
                 .addClass (classPrefix + '_contact_title')
                 .text (_case.poc.title)))
             .append ($('<div></div>')
               .addClass (classPrefix + '_contact_email')
+              .addClass ('section_106_case_field')             
               .text (_case.poc.email))
             .append ($('<div></div>')
               .addClass (classPrefix + '_contact_phone')
+              .addClass ('section_106_case_field')
               .text (_case.poc.phone)))
           )
         .append ($('<div></div>')

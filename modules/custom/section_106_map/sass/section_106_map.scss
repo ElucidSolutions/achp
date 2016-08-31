@@ -8,6 +8,10 @@ $light_blue_color: rgb(9, 144, 254);
 $dark_blue_color: rgb(5, 60, 93);
 $red_color: rgb(151, 0, 14);
 
+$color-grey: #4F4F4F;
+$color-darkgrey: #262626;
+$serif-text: 'minion-pro', serif;
+
 $feature_height: 500px;
 $feature_width: 100%;
 $section_106_map_filter_left: 40px;
@@ -109,6 +113,7 @@ $section_106_map_case_card_margin: 20px;
     .section_106_map_case {
       padding: 10px;
       text-align: left;
+      /*@include (span-colujmns)*/
 
       &:nth-child(even) {
         background-color: rgb(246, 246, 246);
@@ -126,6 +131,10 @@ $section_106_map_case_card_margin: 20px;
 
         .section_106_map_case_body {
           color: black;
+
+          .section_106_case_field {
+            font-family: $serif-text;
+          }
 
           .section_106_map_case_description {
             p {
@@ -286,6 +295,7 @@ $section_106_map_case_card_margin: 20px;
     .section_106_map_grid {
       min-height: $feature_body_height;
       width: 100%;
+      @include outer-container;
 
       .section_106_map_grid_overlay {
         background: white;
@@ -293,17 +303,30 @@ $section_106_map_case_card_margin: 20px;
         -moz-box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
         -webkit-box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
         box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
-        height: 94%;
+        /*height: 94%;*/
+        height: 100%;
+        /* replace with max-height maybe? */
         left: 0px;
-        margin: 1% 2%;
+        /*margin: 1% 2%;*/
+        margin: 0 2%;
         overflow-x: hidden;
         overflow-y: auto;
         position: absolute;
         top: 0px;
-        width: 96%;
+        /*width: 96%;*/
         z-index: 15;
+        @include span-columns (4 of 12);
+        @include shift (8);
+
+        &_body_default {
+          color: $dark_blue_color;
+          text-align: left;
+          font-size: 1.125rem;
+          margin: 15px;
+        }
 
         .section_106_map_grid_overlay_close_button {
+          display: none;
           background: url("../images/close-icon.svg") no-repeat 50% 50%;
           cursor: pointer;
           float: right;
@@ -334,10 +357,9 @@ $section_106_map_case_card_margin: 20px;
       }
 
       .section_106_map_grid_body {
-        @include outer-container;
+        @include span-columns (8);        
         min-height: $grid_body_height;
-        /*max-width: 1024px;*/
-
+        
         .section_106_map_case_card {
           background: white;
           border-top: 5px solid $red_color;
@@ -351,11 +373,15 @@ $section_106_map_case_card_margin: 20px;
           margin: $section_106_map_case_card_margin;
           /*width: 300px;*/
           vertical-align: middle;
-          @include span-columns (4 of 12);
+          @include span-columns (4 of 8);
           margin-left: 0;
           text-align: left;
           padding: 15px;
           position: relative;
+
+          &:nth-of-type(2n) {
+            margin-right: 0;
+          }
 
           &:hover {
             border-top-color: $light_blue_color;
@@ -402,9 +428,11 @@ $section_106_map_case_card_margin: 20px;
       .section_106_map_grid_footer {
         height: $grid_footer_height;
         margin: $grid_footer_margin;
+        @include span-columns (8 of 12);
 
         .section_106_map_grid_nav {
           height: 100%;
+          clear: both;
 
           .section_106_map_grid_nav_links {
             display: inline-block;
@@ -416,6 +444,7 @@ $section_106_map_case_card_margin: 20px;
               height: $grid_footer_height;
               line-height: $grid_footer_height;
               width: $grid_footer_height;
+              color: $color-darkgrey;
 
               &.section_106_map_selected {
                 background-color: $light_blue_color;
@@ -454,6 +483,7 @@ $section_106_map_case_card_margin: 20px;
               float: left;
               height: 100%;
               line-height: $grid_footer_height;
+              color: $color-grey;
             }
           }
         }

@@ -11,6 +11,7 @@ html {
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
+/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -18,9 +19,10 @@ html {
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
-/* Same mixin as above, except for use where the icon should not change color upon hover*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 /**
@@ -1222,7 +1224,6 @@ header {
         height: 100%;
         padding: 15px 15px 5px;
         position: static;
-        color: pink;
         transform: none; }
       #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-field-field-quicklink-image {
         position: relative;
@@ -1252,7 +1253,7 @@ header {
       transition: background-color 0.25s; }
       #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row:hover {
         background-color: #E8F8FF; }
-      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field {
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title {
         position: absolute;
         top: 50%;
         -webkit-transform: translateY(-50%);
@@ -1261,7 +1262,7 @@ header {
         -o-transform: translateY(-50%);
         transform: translateY(-50%);
         position: relative; }
-        #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a {
+        #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a {
           text-decoration: none;
           color: #4F4F4F;
           line-height: 22.39px;
@@ -1271,18 +1272,18 @@ header {
           height: 100%;
           position: relative;
           transition: color 0.25s; }
-          #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover {
+          #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover {
             color: #0990FE; }
           @media (min-width: 701px) {
-            #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a {
+            #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a {
               transition: color 0.25s;
               /*              transition: color 0.25s, background-image 0.25s;
               
                             &:after {
                               ;*/ }
-              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover {
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover {
                 color: #0990FE; }
-              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:after {
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:after, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:after {
                 content: "";
                 background-image: url("../images/right-arrow-icon.svg");
                 background-repeat: no-repeat;
@@ -1300,7 +1301,7 @@ header {
                 -o-transform: translateY(-50%);
                 transform: translateY(-50%);
                 transition: background-image 0.25s; }
-              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover:after {
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover:after {
                 background-image: url("../images/right-arrow-icon-blue.svg"); } }
   #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer {
     background: #C6C6C6;
@@ -2064,8 +2065,9 @@ footer {
         @include font-size($footer_menu_second-font-sizes);
         margin-bottom: 10px;
       }
+
       &.menu_third a {
-        color: $color-blue;
+        color: $color-blue-primary;
         padding-left: 0;
         @include font-size($footer_menu_third-font-sizes);
         margin-bottom: 10px;
