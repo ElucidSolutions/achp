@@ -1,0 +1,28 @@
+/*
+  This module contains styles used by the
+  Homepage Events region.
+*/
+
+#homepage_events_region {
+  /*padding: 25px 50px;*/
+  background-image: url('../images/blue-columns-background.jpg');
+  background-size: cover;
+  background-position: center;
+  /* TODO: When this region has actual content (& therefore height), check different positions to see which looks best w/ image*/
+  height: auto;
+
+  .header_container {
+    padding: 25px 50px;
+
+    @media (min-width: $mobile-breakpoint) and (max-width: $max-content-width) {
+      padding-bottom: 0;
+    }
+  }
+
+  h2 {
+    color: #FFFFFF;
+  }
+  hr {
+    @include hr(#FFFFFF);
+  }
+}

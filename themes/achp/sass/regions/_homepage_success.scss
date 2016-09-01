@@ -1,0 +1,25 @@
+/*
+  This module contains styles used in the
+  Homepage Success region.
+*/
+
+#homepage_success_region {
+  padding: 25px 50px;
+  height: auto;
+  background-color: $background-color-grey;
+  p {
+    margin-bottom: 0;
+  }
+  button {
+    clear: both;
+  }
+  @media (max-width: 384px) {
+    padding: 25px 10px;
+    #block-preservationsuccessstories {
+      padding: 0 40px;
+    }
+    #block-moresuccessstoriesbutton {
+      padding: 0 40px;
+    }
+  }
+}
