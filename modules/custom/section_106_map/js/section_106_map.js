@@ -1042,10 +1042,7 @@
             })))
       .append ($('<div></div>')
         .addClass (getOverlayBodyClassName ()))
-      .append ($('<div></div>')
-        .addClass (getOverlayBodyClassName () + '_default')
-        .text ('Select a case for background information and contact information.'));
-      // .hide ();
+      .hide ();
   }
 
   /*
@@ -1228,6 +1225,7 @@
     var classPrefix = getModuleClassPrefix () + '_case_card';
     return $('<div></div>')
       .addClass (classPrefix)
+      .addClass ()
       .attr (getModuleDataPrefix () + '-map-case', _case.id)
       .append ($('<div></div>')
         .addClass (classPrefix + '_expand_button'))
@@ -1242,6 +1240,7 @@
         });
   }
 
+
   /*
     Accepts one argument: case, a Case object;
     and displays the case details element in
@@ -1253,7 +1252,6 @@
     $('.' + getOverlayBodyClassName (), overlayElement)
       .empty ()
       .append (createCaseElement (_case));
-    $('.' + getOverlayBodyClassName () + '_default').empty ();
 
     overlayElement.show (function () {
       // create case share elements.

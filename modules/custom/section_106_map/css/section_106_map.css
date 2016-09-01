@@ -56,8 +56,7 @@ html {
     width: 100%; }
     .section_106_map .section_106_map_feature_body .section_106_map_case {
       padding: 10px;
-      text-align: left;
-      /*@include (span-colujmns)*/ }
+      text-align: left; }
       .section_106_map .section_106_map_feature_body .section_106_map_case:nth-child(even) {
         background-color: #f6f6f6; }
       .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item {
@@ -169,7 +168,8 @@ html {
       width: 100%;
       max-width: 1200px;
       margin-left: auto;
-      margin-right: auto; }
+      margin-right: auto;
+      padding: 0 50px; }
       .section_106_map .section_106_map_feature_body .section_106_map_grid::after {
         clear: both;
         content: "";
@@ -180,32 +180,21 @@ html {
         -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
         -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
         box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
-        /*height: 94%;*/
-        height: 100%;
-        /* replace with max-height maybe? */
+        height: 94%;
         left: 0px;
-        /*margin: 1% 2%;*/
-        margin: 0 2%;
+        margin: 1% 2%;
         overflow-x: hidden;
         overflow-y: auto;
         position: absolute;
         top: 0px;
-        /*width: 96%;*/
-        z-index: 15;
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 31.76157%;
-        margin-left: 68.23843%; }
-        .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_overlay:last-child {
-          margin-right: 0; }
+        width: 96%;
+        z-index: 15; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_overlay_body_default {
           color: #053c5d;
           text-align: left;
           font-size: 1.125rem;
           margin: 15px; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_overlay .section_106_map_grid_overlay_close_button {
-          display: none;
           background: url("../images/close-icon.svg") no-repeat 50% 50%;
           cursor: pointer;
           float: right;
@@ -230,7 +219,7 @@ html {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 65.88078%;
+        width: 100%;
         min-height: 295px; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body:last-child {
           margin-right: 0; }
@@ -244,20 +233,21 @@ html {
           display: inline-block;
           /*height: 100px;*/
           height: 140px;
-          margin: 20px;
+          /*margin: $section_106_map_case_card_margin;*/
           /*width: 300px;*/
           vertical-align: middle;
           float: left;
           display: block;
-          margin-right: 3.57866%;
-          width: 48.21067%;
-          margin-left: 0;
+          margin-right: 2.35765%;
+          width: 31.76157%;
+          margin: 20px 20px 0 0;
           text-align: left;
           padding: 15px;
           position: relative; }
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:last-child {
             margin-right: 0; }
-          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:nth-of-type(2n) {
+          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:nth-of-type(3n) {
+            /*&.last_in_row {*/
             margin-right: 0; }
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover {
             border-top-color: #0990fe; }
@@ -291,7 +281,7 @@ html {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 65.88078%; }
+        width: 100%; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer:last-child {
           margin-right: 0; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav {
@@ -317,17 +307,21 @@ html {
               content: "..."; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_prev {
               background: url("../images/left-arrow-icon.svg") no-repeat 50% 50%;
-              background-size: 12px; }
+              background-size: 10px; }
               .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_prev.section_106_map_disabled {
-                background: url("../images/left-arrow-icon-disabled.svg") no-repeat 50% 50%; }
+                background: url("../images/left-arrow-icon-disabled.svg") no-repeat 50% 50%;
+                background-size: 10px; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_next {
               background: url("../images/right-arrow-icon.svg") no-repeat 50% 50%;
-              background-size: 12px; }
+              background-size: 10px; }
               .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_next.section_106_map_disabled {
-                background: url("../images/right-arrow-icon-disabled.svg") no-repeat 50% 50%; }
+                background: url("../images/right-arrow-icon-disabled.svg") no-repeat 50% 50%;
+                background-size: 10px; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_stats {
               float: left;
               height: 100%;
+              min-width: 215px;
+              text-align: right;
               line-height: 30px;
               color: #4F4F4F; }
     .section_106_map .section_106_map_feature_body .section_106_map_filter {

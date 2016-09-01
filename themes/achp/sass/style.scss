@@ -3,7 +3,6 @@ $gutter: 0em !global;
 @import "neat/neat";
 @import "features";
 @import "global";
-@import "pages";
 
 html,
 body {
@@ -55,6 +54,7 @@ h1 {
   @include font-size($h1-font-sizes);
   font-weight: 500;
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.50);
+  
   &.heading_subtitle {
     @include font-size($h1-subtitle-font-sizes);
     font-weight: 300;
@@ -343,12 +343,11 @@ button {
 }
 
 #homepage_preserveamerica_region {
-  display: inline-block;
   padding: 25px 50px;
-  height: auto;
+  height: 200px;
   background-color: $background-color-grey;
   hr {
-    width: 60%;
+    width: 100px;
   }
 }
 

@@ -19,6 +19,8 @@ $section_106_map_filter_height: 35px;
 $section_106_map_filter_width: 300px;
 $section_106_map_case_card_margin: 20px;
 
+$num-of-cases-per-grid-row: 3;
+
 .section_106_map {
   text-align: center;
   width: $feature_width;
@@ -113,7 +115,6 @@ $section_106_map_case_card_margin: 20px;
     .section_106_map_case {
       padding: 10px;
       text-align: left;
-      /*@include (span-colujmns)*/
 
       &:nth-child(even) {
         background-color: rgb(246, 246, 246);
@@ -296,6 +297,7 @@ $section_106_map_case_card_margin: 20px;
       min-height: $feature_body_height;
       width: 100%;
       @include outer-container;
+      padding: 0 50px;
 
       .section_106_map_grid_overlay {
         background: white;
@@ -303,20 +305,15 @@ $section_106_map_case_card_margin: 20px;
         -moz-box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
         -webkit-box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
         box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
-        /*height: 94%;*/
-        height: 100%;
-        /* replace with max-height maybe? */
+        height: 94%;
         left: 0px;
-        /*margin: 1% 2%;*/
-        margin: 0 2%;
+        margin: 1% 2%;
         overflow-x: hidden;
         overflow-y: auto;
         position: absolute;
         top: 0px;
-        /*width: 96%;*/
+        width: 96%;
         z-index: 15;
-        @include span-columns (4 of 12);
-        @include shift (8);
 
         &_body_default {
           color: $dark_blue_color;
@@ -326,7 +323,6 @@ $section_106_map_case_card_margin: 20px;
         }
 
         .section_106_map_grid_overlay_close_button {
-          display: none;
           background: url("../images/close-icon.svg") no-repeat 50% 50%;
           cursor: pointer;
           float: right;
@@ -357,7 +353,7 @@ $section_106_map_case_card_margin: 20px;
       }
 
       .section_106_map_grid_body {
-        @include span-columns (8);        
+        @include span-columns (12 of 12);        
         min-height: $grid_body_height;
         
         .section_106_map_case_card {
@@ -370,17 +366,18 @@ $section_106_map_case_card_margin: 20px;
           display: inline-block;
           /*height: 100px;*/
           height: 140px;
-          margin: $section_106_map_case_card_margin;
+          /*margin: $section_106_map_case_card_margin;*/
           /*width: 300px;*/
           vertical-align: middle;
-          @include span-columns (4 of 8);
-          margin-left: 0;
+          @include span-columns (4 of 12);
+          margin: $section_106_map_case_card_margin $section_106_map_case_card_margin 0 0;
           text-align: left;
           padding: 15px;
           position: relative;
 
-          &:nth-of-type(2n) {
-            margin-right: 0;
+          &:nth-of-type(#{$num-of-cases-per-grid-row}n) {
+          /*&.last_in_row {*/
+            @include omega();
           }
 
           &:hover {
@@ -428,7 +425,7 @@ $section_106_map_case_card_margin: 20px;
       .section_106_map_grid_footer {
         height: $grid_footer_height;
         margin: $grid_footer_margin;
-        @include span-columns (8 of 12);
+        @include span-columns (12 of 12);
 
         .section_106_map_grid_nav {
           height: 100%;
@@ -463,25 +460,29 @@ $section_106_map_case_card_margin: 20px;
 
             .section_106_map_grid_nav_prev {
               background: url("../images/left-arrow-icon.svg") no-repeat 50% 50%;
-              background-size: 12px;
+              background-size: 10px;
 
               &.section_106_map_disabled {
                 background: url("../images/left-arrow-icon-disabled.svg") no-repeat 50% 50%;
+                background-size: 10px;
               }
             }
 
             .section_106_map_grid_nav_next {
               background: url("../images/right-arrow-icon.svg") no-repeat 50% 50%;
-              background-size: 12px;
+              background-size: 10px;
 
               &.section_106_map_disabled {
                 background: url("../images/right-arrow-icon-disabled.svg") no-repeat 50% 50%;
+                background-size: 10px;
               }
             }
 
             .section_106_map_grid_nav_stats {
               float: left;
               height: 100%;
+              min-width: 215px;
+              text-align: right;
               line-height: $grid_footer_height;
               color: $color-grey;
             }
@@ -595,6 +596,4 @@ $section_106_map_case_card_margin: 20px;
       }
     } 
   }
-
-
 }
