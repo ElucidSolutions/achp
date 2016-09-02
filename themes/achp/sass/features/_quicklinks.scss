@@ -126,7 +126,7 @@
 
     .views-element-container {
       &:nth-last-of-type(2) {
-        margin-right: 0px;
+        @include omega();
       }
 
       &:last-of-type {
@@ -141,11 +141,11 @@
 
     .views-element-container {
       @include span-columns(12 of 12);
-      margin: 15px auto 0;
+      margin: 10px auto 0;
       height: auto;
 
       &:last-of-type {
-        margin: 15px auto 0;
+        margin: 10px auto 0;
       }
 
       .quicklinks-column > .views-row, .views-field-field-quicklink-image, footer {

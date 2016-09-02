@@ -9,9 +9,10 @@ html {
   footer element.
 */
 /* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
-/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -193,9 +194,10 @@ html {
     #footer .content_wrapper #footer_right:last-child {
       margin-right: 0; } }
 /* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
-/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -314,9 +316,10 @@ html {
             background-image: url("../images/right-arrow-icon-blue.svg"); } }
 
 /* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
-/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -413,9 +416,10 @@ html {
         height: 370px; } }
 
 /* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
-/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -482,9 +486,10 @@ html {
         margin: 0 160px; } }
 
 /* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
-/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -785,7 +790,7 @@ html {
           background-position: center;
           width: 20px;
           height: 21px;
-          right: 40px;
+          right: 55px;
           position: absolute;
           cursor: pointer;
           transition: background-image 0.25s; }
@@ -890,9 +895,10 @@ html {
           #block-achp-search #search-block-form .form-actions input.form-submit:hover {
             background-color: #71bffe; } }
 /* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
-/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -1147,9 +1153,10 @@ header {
     font-size: 1.25rem;
     width: 225px; } }
 /* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
-/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -1307,7 +1314,7 @@ header {
     border: none;
     position: absolute;
     bottom: 0;
-    height: 50px;
+    height: 51px;
     width: 100%;
     transition: color 0.25s;
     transition: color 0.25s, background-color 0.25s; }
@@ -1360,7 +1367,7 @@ header {
       height: 875px;
       /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */ }
       #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:nth-last-of-type(2) {
-        margin-right: 0px; }
+        margin-right: 0; }
       #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-of-type {
         margin: 0 160px; } }
   @media (max-width: 700px) {
@@ -1372,12 +1379,12 @@ header {
         display: block;
         margin-right: 0%;
         width: 100%;
-        margin: 15px auto 0;
+        margin: 10px auto 0;
         height: auto; }
         #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-child {
           margin-right: 0; }
         #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-of-type {
-          margin: 15px auto 0; }
+          margin: 10px auto 0; }
         #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row, #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-field-field-quicklink-image, #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container footer {
           display: none; }
         #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a {
@@ -1529,9 +1536,10 @@ header {
     text-transform: uppercase; }
 
 /* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
-/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -1712,53 +1720,10 @@ header {
               cursor: pointer; }
 
 /* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
-/*#71bffe*/
-/* Variables for homepage cards */
-/* Grid variables */
-/* Mixin for centering horizontally */
-/* Mixin for centering vertically */
-/* Mixin for centering vertically & horizontally */
-/* Mixin for generating solid-colored hr elements*/
-/* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
-/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
-/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
-/* Mixin for responsive type size */
-/* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
-/*
-  This module defines the sass directives used
-  to style Section 106 Process Step pages.
-*/
-/* Global variables: widths, heights, & breakpoints */
-/* Global variables: text */
-/* Global variables: colors */
-/*#71bffe*/
 /* Variables for homepage cards */
 /* Grid variables */
 /* Mixin for centering horizontally */
@@ -1916,7 +1881,7 @@ button {
     button {
       font-size: 16px; } }
   button:hover {
-    background-color: #71bffe; }
+    background-color: #71BFFE; }
   @media (max-width: 650px) {
     button {
       padding: 8px 20px;
@@ -2029,10 +1994,9 @@ button {
   @media (max-width: 700px) {
     #homepage_quicklinks_region {
       height: auto;
-      padding: 25px 0; } }
-  @media (max-width: 384px) {
-    #homepage_quicklinks_region {
-      /*padding: 25px 10px;*/ } }
+      padding: 25px 0; }
+      #homepage_quicklinks_region #block-quicklinks {
+        margin-bottom: 5px; } }
 
 /* See latest_news feature file for more */
 #homepage_news_region {
@@ -2160,12 +2124,11 @@ button {
     clear: both; }
 
 #homepage_preserveamerica_region {
-  display: inline-block;
   padding: 25px 50px;
-  height: auto;
+  height: 200px;
   background-color: #F4F4F4; }
   #homepage_preserveamerica_region hr {
-    width: 60%; }
+    width: 100px; }
 
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
@@ -2350,13 +2313,13 @@ footer {
             color: #c6c6c6; }
       .event_calendar .event_calendar_calendar_body .clndr-table tbody .event {
         cursor: pointer;
-        background-color: #C6C6C6; }
-      .event_calendar .event_calendar_calendar_body .clndr-table tbody .today {
-        /*color: #fff;*/
         background-color: #E6F8FF; }
-      .event_calendar .event_calendar_calendar_body .clndr-table tbody .event:hover {
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .today {
         color: #fff;
         background-color: #003A53; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .event:hover {
+        color: #fff;
+        background-color: #0990FE; }
       .event_calendar .event_calendar_calendar_body .clndr-table .day, .event_calendar .event_calendar_calendar_body .clndr-table .header-day {
         line-height: 3.5; }
 .event_calendar .event_calendar_grid {
@@ -2396,7 +2359,8 @@ footer {
     width: 100%;
     background-color: #fff;
     padding: 10px;
-    max-width: 321.33333px; }
+    max-width: 321.33333px;
+    position: relative; }
     .event_calendar .event_calendar_grid .event_calendar_grid_card_mobile_date {
       display: none; }
     .event_calendar .event_calendar_grid .event_calendar_grid_card_location {
@@ -2404,7 +2368,8 @@ footer {
     .event_calendar .event_calendar_grid .event_calendar_grid_card_footer {
       height: 20px;
       width: 100%;
-      position: relative; }
+      position: absolute;
+      bottom: 15px; }
       .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .read_more {
         position: absolute; }
       .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar {
@@ -2414,7 +2379,11 @@ footer {
         background-repeat: no-repeat;
         height: 20px;
         width: 20px;
-        cursor: pointer; }
+        cursor: pointer;
+        transition: background-image 0.25s;
+        margin-right: 25px; }
+        .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar:hover {
+          background-image: url("../images/add-calendar-icon-lightblue.svg"); }
 .event_calendar .event_calendar_feature_footer {
   margin-top: 30px;
   float: left;
@@ -2514,7 +2483,7 @@ footer {
             background-image: url("../images/right-arrow-icon-blue.svg"); }
           .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title a {
             display: block;
-            width: 100%;
+            width: 90%;
             padding: 25px 0 25px 15px; }
         .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_footer {
           display: none; }
@@ -2529,12 +2498,13 @@ footer {
           text-align: center;
           position: absolute;
           color: #fff;
-          top: 0; }
+          top: 0;
+          /*              &_start, &_end {
+                          font-size: 2rem;    
+                          font-weight: 300;          
+                        }*/ }
           .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_month {
-            text-transform: uppercase; }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_day {
-            font-size: 2rem;
-            font-weight: 300; } }
+            text-transform: uppercase; } }
 @media (max-width: 650px) {
   .event_calendar .event_calendar_feature {
     padding: 0 25px; }
@@ -2634,3 +2604,5 @@ footer {
             .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_day {
               font-size: 2rem;
               font-weight: 300; } }
+
+/*# sourceMappingURL=style.css.map */

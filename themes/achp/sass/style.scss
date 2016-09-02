@@ -107,7 +107,7 @@ button {
   letter-spacing: 0.02rem;
   cursor: pointer;
   text-transform: uppercase;
-  @include hover-transition-background(#71bffe);;
+  @include hover-transition-background($color-lightblue-primary);
 
   @media (max-width: $mobile-breakpoint) {  
     padding: 8px 20px;
@@ -193,11 +193,11 @@ button {
   @media (max-width: 700px) {
     height: auto;
     padding: 25px 0;
-  }
 
-  @media (max-width: 384px) {
-    /*padding: 25px 10px;*/
-  } 
+    #block-quicklinks {
+      margin-bottom: 5px;
+    }
+  }
 }
 
 
@@ -554,17 +554,17 @@ footer {
 
           .event {
             cursor: pointer;
-            background-color: $color-lightgrey;
+            background-color: $color-lightblue3;
           }          
 
           .today {
-            /*color: #fff;*/
-            background-color: $color-lightblue3;
+            color: #fff;
+            background-color: $color-darkblue3;
           }
 
           .event:hover {
             color: #fff;
-            background-color: $color-darkblue3;           
+            background-color: $color-blue-primary; 
           }
         }
 
@@ -613,6 +613,7 @@ footer {
       background-color: #fff;
       padding: 10px;
       max-width: $event-meeting-grid-column-content-width;
+      position: relative;
 
       &_date {
         @extend .card_date;
@@ -630,7 +631,8 @@ footer {
       &_footer {
         height: 20px;
         width: 100%;
-        position: relative;
+        position: absolute;
+        bottom: 15px;
 
         .read_more {
           position: absolute;
@@ -644,6 +646,13 @@ footer {
           height: 20px;
           width: 20px;
           cursor: pointer;
+          transition: background-image 0.25s;
+          margin-right: 25px;
+
+          &:hover {
+            background-image: url('../images/add-calendar-icon-lightblue.svg');
+          }
+
         }
       }
     }
@@ -715,7 +724,7 @@ footer {
             
               a {
                 display: block;
-                width: 100%;
+                width: 90%;
                 padding: 25px 0 25px 15px;
               }
             } 
@@ -741,17 +750,16 @@ footer {
                 text-transform: uppercase;
               }
 
-              &_day {
+/*              &_start, &_end {
                 font-size: 2rem;    
                 font-weight: 300;          
-              }
+              }*/
             }
           }
         }
       }
     }
   }
-  
 
   @media (max-width: $mobile-breakpoint) {
     .event_calendar_feature {

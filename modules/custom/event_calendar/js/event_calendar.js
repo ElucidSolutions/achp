@@ -261,8 +261,7 @@
       clickEvents: {
         click: _.bind (self.callOnClick, self),
         onMonthChange: _.bind (self.callMonthChange, self)
-        } 
-      
+      }      
     });
 
     // Attach component element to container
@@ -487,11 +486,15 @@
         .append ($('<div></div>')
           .addClass (classPrefix + '_date')
           .append ($('<div></div>')
-            .addClass (classPrefix + '_day')
+            .addClass (classPrefix + '_start')
             .text (moment (event.start_date).isSame (event.end_date, 'day') ?
               moment (event.start_date).format ('MMMM D, YYYY') :
-              moment (event.start_date).format ('MMMM D, YYYY') + ' to ' + moment (event.end_date).format ('MMMM D, YYYY') 
-              ))
+              moment (event.start_date).format ('MMMM D, YYYY') + " to"))
+          .append ($('<div></div>')
+            .addClass (classPrefix + '_end')
+            .text (moment (event.start_date).isSame (event.end_date, 'day') ?
+              "" :
+              moment (event.end_date).format ('MMMM D, YYYY')))
            .append ($('<div></div>')
             .addClass (classPrefix + '_time')
             .text (moment (event.start_date).isSame (event.end_date, 'day') ?
