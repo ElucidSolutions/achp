@@ -1253,6 +1253,7 @@
       .empty ()
       .append (createCaseElement (_case));
 
+    overlayElement.find($('.section_106_map_grid_overlay_body')).show ();
     overlayElement.show (function () {
       // create case share elements.
       a2a.init_all ('page');
@@ -1266,6 +1267,12 @@
         };
         toastr.info ('Link Copied to Clipboard.');
       });
+    }).animate ( {
+      top: 0,
+      width: "96%",
+      height: "94%",
+      left: 0,
+      margin: "1% 2%",
     });
   }
 
@@ -1278,11 +1285,20 @@
   }
 
   /*
-    Accepts no arguments and hides this
-    instance's overlay element.
+    Accepts no arguments and animates the
+    instance's overlay element out of view.
   */
   Grid.prototype.hideOverlayElement = function () {
-    this.getOverlayElement ().hide ();
+   overlayElement = this.getOverlayElement ();
+   overlayElement.find($('.section_106_map_grid_overlay_body')).hide ();
+   overlayElement.animate ({
+      width: 0,
+      height: 0,
+      top: '50%',
+      left: '50%'  
+    }, 'slow', function () {
+      overlayElement.hide ();
+    });  
   }
 
   /*

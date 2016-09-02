@@ -50,7 +50,7 @@ html {
           background: url("../images/grid-icon.svg") no-repeat 50% 18.75px;
           background-size: 15px; }
   .section_106_map .section_106_map_feature_body {
-    background: #adcfff;
+    background: #E8F8FF;
     min-height: 425px;
     position: relative;
     width: 100%; }
@@ -63,18 +63,24 @@ html {
         margin-left: 30px; }
         .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_title a {
           color: #053c5d;
-          text-decoration: none; }
+          text-decoration: none;
+          font-size: 1.75rem; }
         .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body {
           color: black; }
           .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body .section_106_case_field {
             font-family: "minion-pro", serif; }
+          .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body_contact > div, .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body_contact > span {
+            display: inline; }
+          .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body .section_106_map_case_contact_email {
+            margin: 0 25px; }
           .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body .section_106_map_case_description p {
             margin: 0px;
             padding: 0px;
             text-align: left; }
           .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body .section_106_map_case_body_agency_header_title,
           .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body .section_106_map_case_body_contact_header_title {
-            color: #053c5d; }
+            color: #053c5d;
+            margin-top: 10px; }
           .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body .section_106_map_case_body_agency_header,
           .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body .section_106_map_case_body_contact_header {
             margin-top: 10px; }
@@ -180,26 +186,22 @@ html {
         -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
         -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
         box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
-        height: 94%;
-        left: 0px;
-        margin: 1% 2%;
         overflow-x: hidden;
         overflow-y: auto;
         position: absolute;
-        top: 0px;
-        width: 96%;
-        z-index: 15; }
-        .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_overlay_body_default {
-          color: #053c5d;
-          text-align: left;
-          font-size: 1.125rem;
-          margin: 15px; }
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        z-index: 15;
+        /*transform: translateX(-50%) translateY(-50%);*/ }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_overlay .section_106_map_grid_overlay_close_button {
           background: url("../images/close-icon.svg") no-repeat 50% 50%;
           cursor: pointer;
           float: right;
           height: 25px;
           width: 25px;
+          margin: 5px 15px;
           -moz-transition: all 0.25s ease;
           -webkit-transition: all 0.25s ease;
           -o-transition: all 0.25s ease;
@@ -211,7 +213,7 @@ html {
             transform: rotate(180deg); }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_overlay .section_106_map_case_item {
           list-style: none;
-          max-width: 400px;
+          max-width: 800px;
           margin: 0 auto; }
       .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_header {
         height: 60px; }
@@ -359,24 +361,30 @@ html {
         height: 35px;
         float: left;
         width: 35px; }
-  .section_106_map .section_106_map_share {
+  .section_106_map .section_106_map_case_footer {
     border-top: solid 1px grey;
     border-bottom: solid 1px gray;
-    height: 38px;
-    margin: 10px 0px;
-    padding: 10px 0px; }
-    .section_106_map .section_106_map_share .section_106_map_share_label {
-      float: left;
-      height: 18px;
-      line-height: 18px; }
-    .section_106_map .section_106_map_share .section_106_map_share_button {
-      cursor: pointer;
-      float: left;
-      height: 18px;
-      line-height: 18px;
-      padding-left: 18px; }
-      .section_106_map .section_106_map_share .section_106_map_share_button .section_106_map_share_icon {
-        height: 18px; }
+    margin-top: 25px; }
+    .section_106_map .section_106_map_case_footer .section_106_map_share {
+      /*    border-top: solid 1px grey;
+          border-bottom: solid 1px gray;*/
+      height: 38px;
+      /*margin: 10px 0px;*/
+      padding: 10px 0px;
+      width: 230px;
+      margin: 0 auto; }
+      .section_106_map .section_106_map_case_footer .section_106_map_share .section_106_map_share_label {
+        float: left;
+        height: 18px;
+        line-height: 18px; }
+      .section_106_map .section_106_map_case_footer .section_106_map_share .section_106_map_share_button {
+        cursor: pointer;
+        float: left;
+        height: 18px;
+        line-height: 18px;
+        padding-left: 18px; }
+        .section_106_map .section_106_map_case_footer .section_106_map_share .section_106_map_share_button .section_106_map_share_icon {
+          height: 18px; }
 
 @media all and (max-width: 600px) {
   .section_106_map .section_106_map_feature .section_106_map_feature_body .section_106_map_filter {

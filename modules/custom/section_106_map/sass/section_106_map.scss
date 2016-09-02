@@ -11,6 +11,7 @@ $red_color: rgb(151, 0, 14);
 $color-grey: #4F4F4F;
 $color-darkgrey: #262626;
 $serif-text: 'minion-pro', serif;
+$background-color-lightblue: #E8F8FF;
 
 $feature_height: 500px;
 $feature_width: 100%;
@@ -107,7 +108,7 @@ $num-of-cases-per-grid-row: 3;
   $feature_body_width: 100%;
 
   .section_106_map_feature_body {
-    background: rgb(173, 207, 255);
+    background: $background-color-lightblue;
     min-height: $feature_body_height;
     position: relative;
     width: $feature_body_width;
@@ -127,6 +128,7 @@ $num-of-cases-per-grid-row: 3;
           a {
             color: $dark_blue_color;
             text-decoration: none;
+            font-size: 1.75rem;
           }
         }
 
@@ -135,6 +137,14 @@ $num-of-cases-per-grid-row: 3;
 
           .section_106_case_field {
             font-family: $serif-text;
+          }
+
+          &_contact > div, &_contact > span {
+            display: inline;
+          }
+
+          .section_106_map_case_contact_email {
+            margin: 0 25px;
           }
 
           .section_106_map_case_description {
@@ -148,6 +158,7 @@ $num-of-cases-per-grid-row: 3;
           .section_106_map_case_body_agency_header_title,
           .section_106_map_case_body_contact_header_title {
             color: $dark_blue_color;
+            margin-top: 10px;
           }
 
           .section_106_map_case_body_agency_header,
@@ -305,22 +316,15 @@ $num-of-cases-per-grid-row: 3;
         -moz-box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
         -webkit-box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
         box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
-        height: 94%;
-        left: 0px;
-        margin: 1% 2%;
         overflow-x: hidden;
         overflow-y: auto;
         position: absolute;
-        top: 0px;
-        width: 96%;
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
         z-index: 15;
-
-        &_body_default {
-          color: $dark_blue_color;
-          text-align: left;
-          font-size: 1.125rem;
-          margin: 15px;
-        }
+        /*transform: translateX(-50%) translateY(-50%);*/
 
         .section_106_map_grid_overlay_close_button {
           background: url("../images/close-icon.svg") no-repeat 50% 50%;
@@ -328,6 +332,7 @@ $num-of-cases-per-grid-row: 3;
           float: right;
           height: 25px;
           width: 25px;
+          margin: 5px 15px;
           -moz-transition: all 0.25s ease;
           -webkit-transition: all 0.25s ease;
           -o-transition: all 0.25s ease;
@@ -343,7 +348,7 @@ $num-of-cases-per-grid-row: 3;
 
         .section_106_map_case_item {
           list-style: none;
-          max-width: 400px;
+          max-width: 800px;
           margin: 0 auto;
         }
       }
@@ -544,28 +549,37 @@ $num-of-cases-per-grid-row: 3;
   $section_106_map_share_height: 18px;
   $section_106_map_share_padding: 10px;
 
-  .section_106_map_share {
+  .section_106_map_case_footer {
     border-top: solid 1px grey;
-    border-bottom: solid 1px gray;
-    height: $section_106_map_share_height + 2 * $section_106_map_share_padding;
-    margin: 10px 0px;
-    padding: 10px 0px;
+    border-bottom: solid 1px gray; 
+    margin-top: 25px;    
 
-    .section_106_map_share_label {
-      float: left;
-      height: $section_106_map_share_height;
-      line-height: $section_106_map_share_height;
-    }
+    .section_106_map_share {
+  /*    border-top: solid 1px grey;
+      border-bottom: solid 1px gray;*/
+      height: $section_106_map_share_height + 2 * $section_106_map_share_padding;
+      /*margin: 10px 0px;*/
+      padding: 10px 0px;
+      width: 230px;
+      margin: 0 auto;
 
-    .section_106_map_share_button {
-      cursor: pointer;
-      float: left;
-      height: $section_106_map_share_height;
-      line-height: $section_106_map_share_height;
-      padding-left: $section_106_map_share_height;
-
-      .section_106_map_share_icon {
+      .section_106_map_share_label {
+        float: left;
         height: $section_106_map_share_height;
+        line-height: $section_106_map_share_height;
+      }
+
+      .section_106_map_share_button {
+        cursor: pointer;
+        float: left;
+        height: $section_106_map_share_height;
+        line-height: $section_106_map_share_height;
+        padding-left: $section_106_map_share_height;
+
+        .section_106_map_share_icon {
+          height: $section_106_map_share_height;
+
+        }
       }
     }
   }
