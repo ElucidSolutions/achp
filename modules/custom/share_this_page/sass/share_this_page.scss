@@ -1,0 +1,61 @@
+/*
+  This module defines the default styles for
+  the Share This Page block.
+*/
+
+$share-this-page-element-margin: 40px;
+$share-this-page-element-height: 25px;
+$share-this-page-element-icon-width: $share-this-page-element-height;
+
+.share_this_page {
+  $border-style: 1px solid;
+  border-top: $border-style;
+  border-bottom: $border-style;
+  box-sizing: content-box;
+  height: $share-this-page-element-height;
+  width: 100%;
+  padding: 10px;
+
+  .share_this_page_buttons {
+    height: 100%;
+    text-align: center;
+    width: 100%;
+
+    @mixin share-this-page-element() {
+      display: inline-block;
+      height: 100%;
+    }
+    .share_this_page_label {
+      @include share-this-page-element();
+      line-height: $share-this-page-element-height;
+      vertical-align: top;
+    }
+    .share_this_page_button {
+      @include share-this-page-element();
+      cursor: pointer;
+      margin-left: $share-this-page-element-margin;
+
+      .share_this_page_button_icon {
+        height: 100%;
+        width: $share-this-page-element-icon-width;
+
+        svg {
+          height: 100%;
+          width: $share-this-page-element-icon-width;
+        }
+      }
+    }
+    .share_this_page_button_link {
+      display: block;
+      float: none;
+      height: 100%;
+      padding: 0px;
+      width: 100%;
+    }
+    .share_this_page_button_print {
+      border-left: 1px solid;
+      padding-left: $share-this-page-element-margin;
+      width: $share-this-page-element-icon-width;
+    }
+  }
+}

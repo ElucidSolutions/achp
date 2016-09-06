@@ -1436,6 +1436,17 @@ html {
     text-transform: uppercase; }
 
 /*
+  This module defines the styles for the Share
+  This Page block element.
+*/
+.share_this_page {
+  border-color: #4F4F4F; }
+  .share_this_page .share_this_page_label {
+    color: #950306; }
+  .share_this_page .share_this_page_button_icon:hover svg path {
+    fill: #0990FE; }
+
+/*
 ** This Sass file defines the styles for the 
 ** Issues in Preservation module.
 */
@@ -2387,32 +2398,6 @@ hr {
 
 p {
   text-align: center; }
-
-button {
-  font-family: "p22-underground", sans-serif;
-  font-size: 0.75rem;
-  color: white;
-  line-height: 1.4rem;
-  background-color: #0990FE;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
-  border: none;
-  border-radius: 2px;
-  padding: 12px 53px 8px;
-  margin: 0 auto 30px auto;
-  display: block;
-  letter-spacing: 0.02rem;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: background-color 0.25s; }
-  @media screen and (min-width: 650px) {
-    button {
-      font-size: 16px; } }
-  button:hover {
-    background-color: #71bffe; }
-  @media (max-width: 650px) {
-    button {
-      padding: 8px 20px;
-      margin-bottom: 0; } }
 
 #outer_container {
   max-width: 100%;
