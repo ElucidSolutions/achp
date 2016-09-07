@@ -1225,7 +1225,6 @@
     var classPrefix = getModuleClassPrefix () + '_case_card';
     return $('<div></div>')
       .addClass (classPrefix)
-      .addClass ()
       .attr (getModuleDataPrefix () + '-map-case', _case.id)
       .append ($('<div></div>')
         .addClass (classPrefix + '_expand_button'))
@@ -1249,31 +1248,36 @@
   Grid.prototype.showCaseOverlayElement = function (_case) {
     var overlayElement = this.getOverlayElement ();
 
-    $('.' + getOverlayBodyClassName (), overlayElement)
-      .empty ()
-      .append (createCaseElement (_case));
+    if ($(window).width () > 700) {
 
-    overlayElement.find($('.section_106_map_grid_overlay_body')).show ();
-    overlayElement.show (function () {
-      // create case share elements.
-      a2a.init_all ('page');
+      $('.' + getOverlayBodyClassName (), overlayElement)
+        .empty ()
+        .append (createCaseElement (_case));
 
-      // enable the link button.
-      var clipboard = new Clipboard ('.' + getShareLinkClassName ());
-      clipboard.on ('success', function (event) {
-        toastr.options = {
-          positionClass: 'toast-bottom-center',
-          preventDuplicates: true
-        };
-        toastr.info ('Link Copied to Clipboard.');
+      overlayElement.find($('.section_106_map_grid_overlay_body')).show ();
+      overlayElement.show (function () {
+        // create case share elements.
+        a2a.init_all ('page');
+
+        // enable the link button.
+        var clipboard = new Clipboard ('.' + getShareLinkClassName ());
+        clipboard.on ('success', function (event) {
+          toastr.options = {
+            positionClass: 'toast-bottom-center',
+            preventDuplicates: true
+          };
+          toastr.info ('Link Copied to Clipboard.');
+        });
+      }).animate ( {
+        top: 0,
+        width: "96%",
+        height: "94%",
+        left: 0,
+        margin: "1% 2%",
       });
-    }).animate ( {
-      top: 0,
-      width: "96%",
-      height: "94%",
-      left: 0,
-      margin: "1% 2%",
-    });
+    } else {
+      window.location.href = _case.url;
+    }
   }
 
   /*
@@ -1548,7 +1552,7 @@
     each page as an integer.
   */
   function getNumCasesPerPage () {
-    return 3;
+    return 6;
   }
 
   // IV. Auxiliary functions.
@@ -1614,7 +1618,7 @@
             .append ($('<div></div>')
               .addClass (classPrefix + '_contact_phone')
               .addClass ('section_106_case_field')
-              .text (_case.poc.phone)))
+              .text ("Phone: " + _case.poc.phone)))
           )
         .append ($('<div></div>')
           .addClass (classPrefix + '_footer')
