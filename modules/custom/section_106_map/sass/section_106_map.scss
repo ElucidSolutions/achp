@@ -83,6 +83,8 @@ $num-of-cases-per-grid-row: 3;
   }
 
   .leaflet-top {
+    z-index: 9;
+
     .leaflet-control {
       margin-left: $section_106_map_filter_left;
       margin-top: 65px;
@@ -165,18 +167,19 @@ $num-of-cases-per-grid-row: 3;
       }
 
       .section_106_map_case_item {
-        margin-left: 30px;
+        margin-left: 25px;
+        font-size: 1.75rem;
 
         .section_106_map_case_title {
           a {
             color: $dark_blue_color;
             text-decoration: none;
-            font-size: 1.75rem;
           }
         }
 
         .section_106_map_case_body {
           color: black;
+          font-size: 1rem;
 
           .section_106_case_field {
             font-family: $serif-text;
@@ -295,15 +298,16 @@ $num-of-cases-per-grid-row: 3;
 
           .section_106_map_state_panel_header {
             height: $state_panel_header_height;
-            padding: $panel_padding;
-            width: $state_panel_header_width;
+/*            padding: $panel_padding;*/
+            /*width: $state_panel_header_width;*/
+            padding: 10px 15px 10px 18px;
 
             $state_panel_header_close_button_width: 25px;
 
             .section_106_map_state_panel_header_close_button {
               background: url("../images/close-icon.svg") no-repeat 50% 50%;
               cursor: pointer;
-              float: left;
+              float: right;
               height: 100%;
               width: $state_panel_header_close_button_width;
               -moz-transition: all 0.25s ease;
@@ -325,18 +329,49 @@ $num-of-cases-per-grid-row: 3;
               color: $dark_blue_color;
               float: left;
               height: 100%;
-              width: $state_panel_header_title_width;
+              /*width: $state_panel_header_title_width;*/
+              font-size: 1.375rem;
+              text-align: left;
+              display: inline-block;
+
+              &:after {
+                content: "";
+                height: 1px;
+                width: 95%;
+                background-color: $red_color;
+                display: block;
+                /*position: relative;*/
+              }
             }
           }
 
           .section_106_map_state_panel_body {
-            border-top: $red_color 1px solid;
+            /*border-top: $red_color 1px solid;*/
 
             .section_106_map_state_panel_state_cases_list {
               color: $red_color;
               list-style-type: decimal-leading-zero;
               margin: 0px;
               padding: 0px;
+            }
+          }
+
+          .section_106_map_state_panel_body_map_mode {
+            .section_106_map_case {
+              padding: 10px 30px 10px 20px;
+
+              .section_106_map_case_title a, .section_106_map_case_item {
+                font-size: 1.25rem;
+              }
+
+              .section_106_map_case_body_contact > div {
+                display: block;
+                margin-left: 0;
+              }
+
+              .section_106_map_case_footer {
+                margin: 10px 0;
+              }
             }
           }
         }
@@ -597,21 +632,22 @@ $num-of-cases-per-grid-row: 3;
   .section_106_map_case_footer {
     border-top: solid 1px grey;
     border-bottom: solid 1px gray; 
-    margin-top: 25px;    
+    margin: 20px 0;
+    font-size: 1rem;   
 
     .section_106_map_share {
   /*    border-top: solid 1px grey;
       border-bottom: solid 1px gray;*/
       height: $section_106_map_share_height + 2 * $section_106_map_share_padding;
       /*margin: 10px 0px;*/
-      padding: 10px 0px;
-      width: 280px;
+      padding: $section_106_map_share_padding 0px;
+      width: 260px;
       margin: 0 auto;
 
       .section_106_map_share_label {
         float: left;
         height: $section_106_map_share_height;
-        line-height: $section_106_map_share_height;
+        line-height: $section_106_map_share_height + 2px;
       }
 
       .section_106_map_share_button {
@@ -619,7 +655,7 @@ $num-of-cases-per-grid-row: 3;
         float: left;
         height: $section_106_map_share_height;
         line-height: $section_106_map_share_height;
-        padding-left: $section_106_map_share_height + 12px;
+        padding-left: 25px;
 
         .section_106_map_share_icon {
           height: $section_106_map_share_height;
@@ -634,12 +670,13 @@ $num-of-cases-per-grid-row: 3;
   .section_106_map {
     .section_106_map_feature {
       .section_106_map_feature_body {
-        $section_106_map_filter_width: 200px;
+        /*$section_106_map_filter_width: 200px;*/
+         $section_106_map_filter_width: 100%;       
         .section_106_map_filter {
           width: $section_106_map_filter_width;
           .section_106_map_filter_form {
             .section_106_map_filter_input {
-              width: $section_106_map_filter_width - 2 * $section_106_map_filter_height;
+              /*width: $section_106_map_filter_width - 2 * $section_106_map_filter_height;*/
             }
           }
         }
@@ -674,9 +711,13 @@ $num-of-cases-per-grid-row: 3;
   .section_106_map .section_106_map_feature {
 
     .section_106_map_filter {
-      width: 100%;
       left: 0;
+
+      .section_106_map_filter_clear {
+        float: right;
+      }
     }
+
     .section_106_map_feature_body .section_106_map_grid {
       padding: 0;
 
@@ -693,22 +734,41 @@ $num-of-cases-per-grid-row: 3;
         .section_106_map_case_card {
           @include span-columns (12 of 12);
           @include omega ();
-          height: $card-height;
+          /*height: $card-height;*/
+          height: auto;
           margin: 0;
           width: 100%;
           box-shadow: none;
           border-top: 1px solid rgba(0, 0, 0, 0.26);
           position: relative;
           padding: 15px 20px;
-
-          &_title {
-            @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 20px, $color-blue-primary);
-          }
+          @include after-element-icon-with-hover('../../../../themes/achp/images/right-arrow-icon.svg', '../../../../themes/achp/images/right-arrow-icon-blue.svg', 20px, $color-blue-primary);
 
           .section_106_map_case_card_expand_button {
             display: none;
           }
+
+          .section_106_map_case_card_state {
+            position: static;
+          }
+
+          .section_106_map_case_card_title {
+            padding-right: 15px;
+          }
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .section_106_map .section_106_map_feature .section_106_map_feature_body .section_106_map_map {
+    .section_106_map_map_panel {
+      max-width: 100%;
+      width: 100%;
+
+      .section_106_map_state_panel_header {
+        width: 100%;
       }
     }
   }

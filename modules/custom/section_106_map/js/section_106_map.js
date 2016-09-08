@@ -822,6 +822,7 @@
           .click (_.bind (this.hidePanelElement, this)))
       .append ($('<div></div>')
         .addClass (classPrefix + '_body')
+        .addClass (classPrefix + '_body_map_mode')
         .append ($('<ol></ol>')
           .addClass (classPrefix + '_state_cases_list')
           .append (state.cases.map (createCaseElement))))
