@@ -1097,23 +1097,6 @@
       .append (this.createNavStatsElement ());
   }
 
-  Grid.prototype.getPrevCase = function (_case.id) {
-    // console.log (this.getCases ().length)
-    // var caseId = $('some_id').attr('data-section-106-map-id');
-    // go through this._cases and find which matches caseId
-    // var caseNum = the [#] of that case
-    // this._cases[caseNum - 1] ? 
-    // return this._cases[caseNum - 1] :
-    // return ""
-
-    // self.showCaseOverlayElement (_case)
-    // return this._cases[caseNum]
-    // console.log(this._cases)
-    // Find the data-section-106-map-id attribute of the case in overlay
-    // Then find the previous and next cases to it in _cases
-    // And attach each case's .url value to the a in line 1645 etc.
-  }
-
   /*
     Accepts no arguments and returns a jQuery
     HTML Element that represents this component's
@@ -1257,6 +1240,34 @@
         });
   }
 
+  /*
+    Takes two arguments:
+    1. overlayElement, an HTML Element representing a selected case, and
+    2. caseId, an integer
+
+    Attaches click events to the Previous and Next buttons that
+    navigate to those respective cases, if they exist. 
+  */
+  Grid.prototype.attachCaseNavListeners = function (overlayElement, caseId) {
+    var self = this;
+    var displayedCases = self.getCases ();
+    var prevButton = overlayElement.find ($('.section_106_map_case_nav_prev'));
+    var nextButton = overlayElement.find ($('.section_106_map_case_nav_next'));
+
+    var caseIndexInArray = displayedCases.findIndex (function (displayedCase) {
+      return displayedCase.id === caseId;
+    })
+
+    displayedCases[caseIndexInArray - 1] ? prevButton.click (function () {
+      self.showCaseOverlayElement (displayedCases[caseIndexInArray - 1]);
+    }) :
+    prevButton.addClass('section_106_map_case_nav_disabled');
+
+    displayedCases[caseIndexInArray + 1] ? nextButton.click (function () {
+      self.showCaseOverlayElement (displayedCases[caseIndexInArray + 1]);
+    }) :
+    nextButton.addClass('section_106_map_case_nav_disabled');
+  }
 
   /*
     Accepts one argument: case, a Case object;
@@ -1266,7 +1277,7 @@
   Grid.prototype.showCaseOverlayElement = function (_case) {
     var overlayElement = this.getOverlayElement ();
 
-    if ($(window).width () > 700) {
+    if ($(window).width () > 650) {
 
       $('.' + getOverlayBodyClassName (), overlayElement)
         .empty ()
@@ -1293,9 +1304,15 @@
         left: 0,
         margin: "1% 2%",
       });
+
+      // Attach click events to Previous and Next buttons on overlay
+      this.attachCaseNavListeners (overlayElement, _case.id);
+
     } else {
       window.location.href = _case.url;
     }
+    // console.log(overlayElement.find($('.section_106_map_case_title')).text());
+
   }
 
   /*
@@ -1583,7 +1600,6 @@
   function createCaseElement (_case) {
     var classPrefix = getModuleClassPrefix () + '_case';
     var dataPrefix  = getModuleDataPrefix () + '-case';
-    console.log(_case);
     return $('<div></div>')
       .addClass (classPrefix)
       .attr (dataPrefix + '-id', _case.id)
@@ -1650,13 +1666,7 @@
           .addClass (classPrefix + '_nav')
           .append ($('<span></span>')
             .addClass (classPrefix + '_nav_prev')
-            .text('PREVIOUS')
-            // .click ( function (_case.id) {
-              // this.getPrevCase (_case.id) ?
-              // self.showCaseOverlayElement (newCase) :
-              // console.log('no prev case')
-            // }
-            )
+            .text('PREVIOUS'))
           .append ($('<span></span>')
             .addClass (classPrefix + '_nav_next')
             .text('NEXT'))));

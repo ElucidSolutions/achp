@@ -409,7 +409,8 @@ html {
       .section_106_map .section_106_map_case_footer .section_106_map_share .section_106_map_share_label {
         float: left;
         height: 18px;
-        line-height: 20px; }
+        line-height: 20px;
+        color: #97000e; }
       .section_106_map .section_106_map_case_footer .section_106_map_share .section_106_map_share_button {
         cursor: pointer;
         float: left;
@@ -421,11 +422,74 @@ html {
   .section_106_map .section_106_map_case_nav {
     font-size: 0.875rem;
     width: 260px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    color: #4F4F4F;
+    font-weight: 500; }
     .section_106_map .section_106_map_case_nav .section_106_map_case_nav_prev {
-      float: right; }
-    .section_106_map .section_106_map_case_nav .section_106_map_case_nav_prev {
-      float: left; }
+      position: relative;
+      float: left;
+      /*padding: 0 10px;*/
+      cursor: pointer;
+      transition: color 0.25s;
+      /* TODO: Left arrow icon doesn't exist yet */ }
+      .section_106_map .section_106_map_case_nav .section_106_map_case_nav_prev:hover {
+        color: #0990FE; }
+      .section_106_map .section_106_map_case_nav .section_106_map_case_nav_prev:after {
+        content: "";
+        background-image: url("../../../../themes/achp/images/left-arrow-icon.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        padding-left: 15px;
+        right: 85px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        transition: background-image 0.25s; }
+      .section_106_map .section_106_map_case_nav .section_106_map_case_nav_prev:hover:after {
+        background-image: url("../../../../themes/achp/images/left-arrow-icon-blue.svg"); }
+      .section_106_map .section_106_map_case_nav .section_106_map_case_nav_prev:after {
+        position: relative;
+        top: -2px; }
+    .section_106_map .section_106_map_case_nav .section_106_map_case_nav_next {
+      position: relative;
+      float: right;
+      /*padding: 0 10px*/
+      cursor: pointer;
+      transition: color 0.25s; }
+      .section_106_map .section_106_map_case_nav .section_106_map_case_nav_next:hover {
+        color: #0990FE; }
+      .section_106_map .section_106_map_case_nav .section_106_map_case_nav_next:after {
+        content: "";
+        background-image: url("../../../../themes/achp/images/right-arrow-icon.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        padding-left: 15px;
+        right: -5px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        transition: background-image 0.25s; }
+      .section_106_map .section_106_map_case_nav .section_106_map_case_nav_next:hover:after {
+        background-image: url("../../../../themes/achp/images/right-arrow-icon-blue.svg"); }
+      .section_106_map .section_106_map_case_nav .section_106_map_case_nav_next:after {
+        position: relative;
+        top: -2px; }
+    .section_106_map .section_106_map_case_nav .section_106_map_case_nav_disabled {
+      color: #9B9B9B; }
 
 @media all and (max-width: 600px) {
   .section_106_map .section_106_map_feature .section_106_map_feature_body {
