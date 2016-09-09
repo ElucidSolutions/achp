@@ -64,10 +64,14 @@ html {
         background-color: #f6f6f6; }
       .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item {
         margin-left: 25px;
-        font-size: 1.75rem; }
+        /*font-size: 1.75rem;*/ }
         .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_title a {
           color: #053c5d;
-          text-decoration: none; }
+          text-decoration: none;
+          font-size: 1.75rem; }
+        .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_location {
+          color: #97000e;
+          font-size: 1.375rem; }
         .section_106_map .section_106_map_feature_body .section_106_map_case .section_106_map_case_item .section_106_map_case_body {
           color: black;
           font-size: 1rem; }
@@ -189,11 +193,16 @@ html {
           padding: 10px 30px 10px 20px; }
           .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body_map_mode .section_106_map_case .section_106_map_case_title a, .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body_map_mode .section_106_map_case .section_106_map_case_item {
             font-size: 1.25rem; }
+          .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body_map_mode .section_106_map_case .section_106_map_case_location {
+            color: #97000e;
+            font-size: 1rem; }
           .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body_map_mode .section_106_map_case .section_106_map_case_body_contact > div {
             display: block;
             margin-left: 0; }
           .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body_map_mode .section_106_map_case .section_106_map_case_footer {
             margin: 10px 0; }
+          .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body_map_mode .section_106_map_case .section_106_map_nav {
+            display: none; }
     .section_106_map .section_106_map_feature_body .section_106_map_grid {
       min-height: 425px;
       width: 100%;
@@ -263,19 +272,17 @@ html {
           /*margin: $section_106_map_case_card_margin;*/
           /*width: 300px;*/
           vertical-align: middle;
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 31.76157%;
+          /*@include span-columns (4 of 12);*/
           margin: 20px 20px 0 0;
           text-align: left;
           padding: 15px;
-          position: relative; }
-          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:last-child {
-            margin-right: 0; }
-          @media (min-width: 1024px) {
-            .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:nth-of-type(3n) {
-              margin-right: 0; } }
+          position: relative;
+          /*
+                    &:nth-of-type(3n) {
+                      @media (min-width: 1024px) {
+                        @include omega();
+                      }
+                    }*/ }
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover {
             border-top-color: #0990fe; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover .section_106_map_case_card_title {
@@ -411,6 +418,14 @@ html {
         padding-left: 25px; }
         .section_106_map .section_106_map_case_footer .section_106_map_share .section_106_map_share_button .section_106_map_share_icon {
           height: 18px; }
+  .section_106_map .section_106_map_case_nav {
+    font-size: 0.875rem;
+    width: 260px;
+    margin: 0 auto; }
+    .section_106_map .section_106_map_case_nav .section_106_map_case_nav_prev {
+      float: right; }
+    .section_106_map .section_106_map_case_nav .section_106_map_case_nav_prev {
+      float: left; }
 
 @media all and (max-width: 600px) {
   .section_106_map .section_106_map_feature .section_106_map_feature_body {
@@ -421,7 +436,17 @@ html {
         /*width: $section_106_map_filter_width - 2 * $section_106_map_filter_height;*/ }
     .section_106_map .section_106_map_feature .section_106_map_feature_body .section_106_map_map .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card {
       margin: 20px; } }
-@media (max-width: 1025px) {
+@media (min-width: 951px) {
+  .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:last-child {
+      margin-right: 0; }
+    .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:nth-of-type(3n) {
+      margin-right: 0; } }
+@media (max-width: 950px) and (min-width: 651px) {
   .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card {
     float: left;
     display: block;
@@ -431,7 +456,7 @@ html {
       margin-right: 0; }
     .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:nth-of-type(2n) {
       margin-right: 0; } }
-@media (max-width: 700px) {
+@media (max-width: 650px) {
   .section_106_map .section_106_map_feature .section_106_map_filter {
     left: 0; }
     .section_106_map .section_106_map_feature .section_106_map_filter .section_106_map_filter_clear {

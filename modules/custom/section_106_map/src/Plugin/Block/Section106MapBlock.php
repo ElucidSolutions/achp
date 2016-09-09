@@ -56,6 +56,7 @@ class Section106MapBlock extends BlockBase {
         'id'     => $nid,
         'url'    => $url->toString (),
         'title'  => $node->getTitle (),
+        'city'   => $node->get ('field_case_city')->value,
         'body'   => $node->get ('body')->value,
         'agency' => $this->getAgency   ($node->get ('field_case_federal_agency')->target_id),
         'poc'    => array (

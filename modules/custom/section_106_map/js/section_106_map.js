@@ -1097,6 +1097,23 @@
       .append (this.createNavStatsElement ());
   }
 
+  Grid.prototype.getPrevCase = function (_case.id) {
+    // console.log (this.getCases ().length)
+    // var caseId = $('some_id').attr('data-section-106-map-id');
+    // go through this._cases and find which matches caseId
+    // var caseNum = the [#] of that case
+    // this._cases[caseNum - 1] ? 
+    // return this._cases[caseNum - 1] :
+    // return ""
+
+    // self.showCaseOverlayElement (_case)
+    // return this._cases[caseNum]
+    // console.log(this._cases)
+    // Find the data-section-106-map-id attribute of the case in overlay
+    // Then find the previous and next cases to it in _cases
+    // And attach each case's .url value to the a in line 1645 etc.
+  }
+
   /*
     Accepts no arguments and returns a jQuery
     HTML Element that represents this component's
@@ -1234,7 +1251,7 @@
         .text (_case.title))
       .append ($('<div></div>')
         .addClass (classPrefix + '_state')
-        .text (_case.state))
+        .text (_case.city + ', ' + _case.state))
       .click (function () {
           self.showCaseOverlayElement (_case);
         });
@@ -1566,6 +1583,7 @@
   function createCaseElement (_case) {
     var classPrefix = getModuleClassPrefix () + '_case';
     var dataPrefix  = getModuleDataPrefix () + '-case';
+    console.log(_case);
     return $('<div></div>')
       .addClass (classPrefix)
       .attr (dataPrefix + '-id', _case.id)
@@ -1578,7 +1596,11 @@
             .addClass ('section_106_case_field')
             .append ($('<a></a>')
               .attr ('href', _case.url)
-              .text (_case.title))))
+              .text (_case.title)))
+          .append ($('<div></div>')
+            .addClass (classPrefix + '_location')
+            .addClass ('section_106_case_field')
+            .text(_case.city + ', ' + _case.state)))
         .append ($('<div></div>')
           .addClass (classPrefix + '_body')
           .append ($('<div></div>')
@@ -1623,7 +1645,21 @@
           )
         .append ($('<div></div>')
           .addClass (classPrefix + '_footer')
-          .append (createShareElement (_case))));
+          .append (createShareElement (_case)))
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_nav')
+          .append ($('<span></span>')
+            .addClass (classPrefix + '_nav_prev')
+            .text('PREVIOUS')
+            // .click ( function (_case.id) {
+              // this.getPrevCase (_case.id) ?
+              // self.showCaseOverlayElement (newCase) :
+              // console.log('no prev case')
+            // }
+            )
+          .append ($('<span></span>')
+            .addClass (classPrefix + '_nav_next')
+            .text('NEXT'))));
   }
 
   /*
