@@ -1234,7 +1234,7 @@
         .text (_case.title))
       .append ($('<div></div>')
         .addClass (classPrefix + '_state')
-        .text (_case.city + ', ' + _case.state))
+        .text ( _case.state))
       .click (function () {
           self.showCaseOverlayElement (_case);
         });
@@ -1251,8 +1251,8 @@
   Grid.prototype.attachCaseNavListeners = function (overlayElement, caseId) {
     var self = this;
     var displayedCases = self.getCases ();
-    var prevButton = overlayElement.find ($('.section_106_map_case_nav_prev'));
-    var nextButton = overlayElement.find ($('.section_106_map_case_nav_next'));
+    var prevButton = overlayElement.find ($('.section_106_map_case_nav_prev:not(.section_106_map_case_nav_disabled)'));
+    var nextButton = overlayElement.find ($('.section_106_map_case_nav_next:not(.section_106_map_case_nav_disabled)'));
 
     var caseIndexInArray = displayedCases.findIndex (function (displayedCase) {
       return displayedCase.id === caseId;
@@ -1616,7 +1616,7 @@
           .append ($('<div></div>')
             .addClass (classPrefix + '_location')
             .addClass ('section_106_case_field')
-            .text(_case.city + ', ' + _case.state)))
+            .text(_case.state)))
         .append ($('<div></div>')
           .addClass (classPrefix + '_body')
           .append ($('<div></div>')

@@ -371,8 +371,9 @@ $num-of-cases-per-grid-row: 3;
               }
 
               .section_106_map_case_location {
-                color: $red_color;
-                font-size: 1rem;
+/*                color: $red_color;
+                font-size: 1rem;*/
+                display: none;
               }
 
               .section_106_map_case_body_contact > div {
@@ -384,7 +385,7 @@ $num-of-cases-per-grid-row: 3;
                 margin: 10px 0;
               }
 
-              .section_106_map_nav {
+              .section_106_map_case_nav {
                 display: none;
               }
             }
@@ -688,36 +689,76 @@ $num-of-cases-per-grid-row: 3;
     margin: 0 auto;
     color: $color-grey;
     font-weight: 500;
+    @include span-columns (6 of 12);
+    @include shift(3);
 
     .section_106_map_case_nav_prev {
       position: relative;
       float: left;
-      /*padding: 0 10px;*/
       cursor: pointer;
-      @include after-element-icon-with-hover('../../../../themes/achp/images/left-arrow-icon.svg', '../../../../themes/achp/images/left-arrow-icon-blue.svg', 85px, $color-blue-primary);
-      /* TODO: Left arrow icon doesn't exist yet */
+      @include hover-transition-content($color-blue-primary);
 
-      &:after {
+      &:before {
+        content: "";
+        background-image: url('../images/left-arrow-large-dark.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        padding-left: 15px;
+        right: 5px;
+        cursor: pointer;
+        top: -1px;
+        transition: background-image 0.25s;
         position: relative;
-        top: -2px;
+      }
+
+      &:hover:before {
+        background-image: url('../images/left-arrow-large-blue.svg');    
       }
     }
 
     .section_106_map_case_nav_next {
       position: relative;
       float: right;
-      /*padding: 0 10px*/
       cursor: pointer;
-      @include after-element-icon-with-hover('../../../../themes/achp/images/right-arrow-icon.svg', '../../../../themes/achp/images/right-arrow-icon-blue.svg', -5px, $color-blue-primary);
+      @include after-element-icon-with-hover('../images/right-arrow-large-dark.svg', '../images/right-arrow-large-blue.svg', -5px, $color-blue-primary);
 
       &:after {
         position: relative;
-        top: -2px;
+        top: -1px;
       }
     }    
 
     .section_106_map_case_nav_disabled {
       color: #9B9B9B;
+
+      &:hover {
+        color: #9B9B9B;
+        cursor: default;
+      }
+
+      &.section_106_map_case_nav_prev:before {
+        background-image: url('../../../../themes/achp/images/left-calendar-arrow.svg');
+                 /*cursor: default;*/
+                 /*border: 1px solid pink;*/
+
+        &:hover {
+         background-image: url('../../../../themes/achp/images/left-calendar-arrow.svg');
+         cursor: default;
+        }
+      }
+
+      &.section_106_map_case_nav_next:after {
+        background-image: url('../../../../themes/achp/images/right-calendar-arrow.svg');
+                 /*cursor: default;*/
+
+        &:hover {
+         background-image: url('../../../../themes/achp/images/left-calendar-arrow.svg');
+         cursor: default;
+        }
+      }
+
     }
   }
 }
