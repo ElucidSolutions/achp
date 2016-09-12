@@ -2011,12 +2011,23 @@ button {
       padding: 25px 0; } }
 
 #homepage_events_region {
-  /*padding: 25px 50px;*/
   background-image: url("../images/blue-columns-background.jpg");
+  background-position: top;
   background-size: cover;
-  background-position: center;
-  /* TODO: When this region has actual content (& therefore height), check different positions to see which looks best w/ image*/
-  height: auto; }
+  height: auto;
+  min-height: 625px;
+  /*  #events_background_container {
+      background-image: url('../images/blue-columns-background.jpg');
+      background-position: top;    
+      background-size: cover;
+      height: 100%;
+    }
+  */ }
+  #homepage_events_region #homepage_events_content {
+    /*    background-image: url('../images/blue-columns-background.jpg');
+        background-position: top;    
+        background-size: cover;*/
+    height: 100%; }
   #homepage_events_region .header_container {
     padding: 25px 50px; }
     @media (min-width: 650px) and (max-width: 1024px) {
@@ -2230,7 +2241,8 @@ footer {
   float: left;
   display: block;
   margin-right: 0%;
-  width: 33.33333%; }
+  width: 33.33333%;
+  min-height: 400px; }
   .event_calendar .event_calendar_calendar:last-child {
     margin-right: 0; }
   .event_calendar .event_calendar_calendar .clndr {
@@ -2381,7 +2393,8 @@ footer {
         width: 20px;
         cursor: pointer;
         transition: background-image 0.25s;
-        margin-right: 25px; }
+        margin-right: 25px;
+        margin-top: 1px; }
         .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar:hover {
           background-image: url("../images/add-calendar-icon-lightblue.svg"); }
 .event_calendar .event_calendar_feature_footer {
@@ -2498,11 +2511,7 @@ footer {
           text-align: center;
           position: absolute;
           color: #fff;
-          top: 0;
-          /*              &_start, &_end {
-                          font-size: 2rem;    
-                          font-weight: 300;          
-                        }*/ }
+          top: 0; }
           .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_month {
             text-transform: uppercase; } }
 @media (max-width: 650px) {
@@ -2569,7 +2578,7 @@ footer {
               width: 20px;
               height: 20px;
               padding-left: 15px;
-              right: -14px;
+              right: -5px;
               cursor: pointer;
               position: absolute;
               top: 50%;

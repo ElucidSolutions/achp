@@ -43,16 +43,26 @@
     })
     this._calendar.monthChange (function (month) {
       self._grid.displayEvents (getNEventsAfterDate (drupalSettings.event_calendar.num_events, month._d));
+      // setHeightOfElement (getNEventsAfterDate (drupalSettings.event_calendar.num_events, month._d)) 
     })
     $(bodyElement).on('click', '.month', function (e) {
       var date = moment ($(e.target).text ()).date (1);
       self._grid.displayEvents (getNEventsInMonth (drupalSettings.event_calendar.num_events, date));
+      // setHeightOfElement (getNEventsInMonth (drupalSettings.event_calendar.num_events, date))
     })
     // $(bodyElement).on('click', '.month', this._calendar.monthClick (function (e) {
     //   var date = moment($(e.target).text()).date(1);
     //   self._grid.displayEvents (getNEventsInMonth (5, date));
     // }))
 
+  }
+
+  function setHeightOfElement (events) {
+    if (events.length < 3 && $('#homepage_events_region').css('height') != 'auto') { 
+      $('#homepage_events_region').animate ({height: '625px'}, 250, "linear");  
+    } else {
+      $('#homepage_events_region').animate ({height: $('#homepage_events_region').prop('scrollHeight') + 'px'}, 250, "linear");
+    }
   }
 
   /*
@@ -106,8 +116,8 @@
   date, and returns undefined.
   */
   FeatureInstance.prototype.showEvents = function (date) {
-    // TODO: n parameter should be Drupal setting
     this.getGrid ().displayEvents (getNEventsAfterDate (drupalSettings.event_calendar.num_events, date));
+
   }
 
   /*
@@ -452,7 +462,9 @@
   /*
   Accepts one argument: events, an array of Event objects;
   creates card elements to represent those events; displays
-  them; and returns undefined.
+  them; adjusts the content container to the appropriate
+  height depending on the number ofe vents; and returns 
+  undefined.
   */
   Grid.prototype.displayEvents = function (events) {
     events.length > 0 ?
@@ -461,7 +473,42 @@
         .addClass('event_calendar_grid_message')
         .text('No events scheduled on this date')
         )
+
+    // $('.event_calendar_feature').hide();
+    //  $('.event_calendar_feature').slideDown();   
+
+
+  // console.log($('#homepage_events_region').prop('scrollHeight'));
+// console.log(events.length);
+  // console.log($('#homepage_events_region').css('height') == 'auto');
+    if (events.length < 3 && $('#homepage_events_region').css('height') != 'auto') { 
+      $('#homepage_events_region').animate ({height: '625px'}, 250, "linear");  
+    } else {
+      $('#homepage_events_region').animate ({height: '800px'}, 250, "linear");
+    }
+
+    var numExtraRowsInEvent; 
+
+    if (events.length % 2 === 0) {
+      numRowsInEvent = events.length / 2;
+    } else {
+      numRowsInEvent = (events.length + 1) / 2;
+    }
+
+    var numExtraRowsInEvent = numRowsInEvent - 1;
+    var elementHeight = 625 + numExtraRowsInEvent * 250;
+    console.log(numExtraRowsInEvent);
+    console.log(elementHeight);
+
+    if (events.length < 3) { 
+      $('#homepage_events_region').animate ({height: '625px'}, 250, "linear");  
+    } else {
+      $('#homepage_events_region').animate ({height: elementHeight + 'px'}, 250, "linear");
+    }
+
   }
+
+
 
   /*
   Accepts one argument: event, an Event object; and returns

@@ -218,13 +218,26 @@ button {
 }
 
 #homepage_events_region {
-  /*padding: 25px 50px;*/
-  background-image: url('../images/blue-columns-background.jpg');
-  background-size: cover;
-  background-position: center;
-  /* TODO: When this region has actual content (& therefore height), check different positions to see which looks best w/ image*/
-  height: auto;
+    background-image: url('../images/blue-columns-background.jpg');
+    background-position: top;    
+    background-size: cover;
+    height: auto;
+    min-height: 625px;
 
+ #homepage_events_content {
+/*    background-image: url('../images/blue-columns-background.jpg');
+    background-position: top;    
+    background-size: cover;*/
+    height: 100%;
+ }
+
+/*  #events_background_container {
+    background-image: url('../images/blue-columns-background.jpg');
+    background-position: top;    
+    background-size: cover;
+    height: 100%;
+  }
+*/
   .header_container {
     padding: 25px 50px;
 
@@ -456,6 +469,7 @@ footer {
 
   .event_calendar_calendar {
     @include span-columns (4 of 12);
+    min-height: 400px;
 
     .clndr {
       padding: 5px;
