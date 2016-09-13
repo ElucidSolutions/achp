@@ -4,10 +4,10 @@
 */
 
 @import "global";
-#block-section106processblock {
+/*#block-section106processblock {
   height: auto;;
   width: 100%; 
-}
+}*/
 
 .section_106_process {
   .section_106_process_feature_flowchart_navigation {
@@ -63,7 +63,7 @@
       width: 350px;
       z-index: 1;
       padding-right: 70px;
-      a.section_106_process_feature_step_weight_link {
+      a.section_106_process_feature_step_number_link {
         z-index: 2;
         position: absolute;
         top: 53px;
@@ -81,7 +81,7 @@
         @include rem('font-size',
           23px);
       }
-      a.section_106_process_feature_step_weight_link:before {
+      a.section_106_process_feature_step_number_link:before {
         content: '';
         height: 100%;
         display: inline-block;
@@ -192,9 +192,15 @@
         }
       }
     }
-    .section_106_process_feature_step.current-step,
+ 
+    .section_106_process_feature_step.current-step {
+      .section_106_process_feature_step_number_link {
+        background-color: $color-blue;
+      }
+    }
+
     .section_106_process_feature_step:hover {
-      .section_106_process_feature_step_weight_link {
+      .section_106_process_feature_step_number_link {
         background-color: $color-blue;
       }
       .section_106_process_feature_step_inner_container {
