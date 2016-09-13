@@ -2011,23 +2011,15 @@ button {
       padding: 25px 0; } }
 
 #homepage_events_region {
-  background-image: url("../images/blue-columns-background.jpg");
-  background-position: top;
-  background-size: cover;
-  height: auto;
-  min-height: 625px;
-  /*  #events_background_container {
-      background-image: url('../images/blue-columns-background.jpg');
-      background-position: top;    
-      background-size: cover;
-      height: 100%;
-    }
-  */ }
+  height: auto; }
   #homepage_events_region #homepage_events_content {
-    /*    background-image: url('../images/blue-columns-background.jpg');
-        background-position: top;    
-        background-size: cover;*/
-    height: 100%; }
+    height: 100%;
+    overflow: hidden; }
+  #homepage_events_region #events_background_container {
+    background-image: url("../images/blue-columns-background.jpg");
+    background-position: top;
+    background-size: cover;
+    height: 1200px; }
   #homepage_events_region .header_container {
     padding: 25px 50px; }
     @media (min-width: 650px) and (max-width: 1024px) {
@@ -2242,7 +2234,8 @@ footer {
   display: block;
   margin-right: 0%;
   width: 33.33333%;
-  min-height: 400px; }
+  min-height: 400px;
+  padding-bottom: 20px; }
   .event_calendar .event_calendar_calendar:last-child {
     margin-right: 0; }
   .event_calendar .event_calendar_calendar .clndr {
@@ -2398,7 +2391,7 @@ footer {
         .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar:hover {
           background-image: url("../images/add-calendar-icon-lightblue.svg"); }
 .event_calendar .event_calendar_feature_footer {
-  margin-top: 30px;
+  margin-top: 10px;
   float: left;
   display: block;
   margin-right: 0%;
@@ -2415,7 +2408,7 @@ footer {
       margin-right: 0; } }
   @media (max-width: 1024px) and (min-width: 650px) {
     .event_calendar .event_calendar_feature .event_calendar_calendar {
-      padding-bottom: 0; }
+      padding-bottom: 20px; }
       .event_calendar .event_calendar_feature .event_calendar_calendar_title {
         padding-top: 38px; } }
 @media (max-width: 1024px) {

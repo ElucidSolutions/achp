@@ -14,7 +14,7 @@
           mobileQuicklinkClickListener ();
         },
         exit: function () {
-          unbindQuicklinkClickListener ()
+          unbindQuicklinkClickListener ();
         }
       };
     })());

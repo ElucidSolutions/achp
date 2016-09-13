@@ -4,7 +4,88 @@
 
 (function ($) {
 
+  var EVENT_CALENDAR_NEW_STATE = 0;
+  var EVENT_CALENDAR_WIDESCREEN_STATE = 1;
+  var EVENT_CALENDAR_MEDSCREEN_STATE = 2;
+  var EVENT_CALENDAR_MOBILE_STATE = 3;
+
+  // Represents the current header state.
+  var eventCalendarState = EVENT_CALENDAR_NEW_STATE;
+
   $(document).ready (function () {
+
+    $.breakpoint ((function () {
+      return {
+        condition: function () {
+          return window.matchMedia ('only screen and (min-width: 1024px)').matches;
+        },
+        enter: function () {
+          switch (eventCalendarState) {
+            case EVENT_CALENDAR_MEDSCREEN_STATE:
+            case EVENT_CALENDAR_MOBILE_STATE:
+              eventCalendarState = EVENT_CALENDAR_WIDESCREEN_STATE;
+              return calcElementHeightByGridHeight (eventCalendarState);
+            case EVENT_CALENDAR_WIDESCREEN_STATE:
+              return;
+            case EVENT_CALENDAR_NEW_STATE:
+              return eventCalendarState = EVENT_CALENDAR_WIDESCREEN_STATE;
+            default:
+              console.log('[event_calendar][document.ready] Warning: unrecognized event calendar state "' + eventCalendarState + '".');
+          }
+        },
+        exit: function () {
+        }
+      };
+    })());
+
+   $.breakpoint ((function () {
+      return {
+        condition: function () {
+          return window.matchMedia ('only screen and (min-width: 650px) and (max-width: 1023px)').matches;
+        },
+        enter: function () {
+          switch (eventCalendarState) {
+            case EVENT_CALENDAR_WIDESCREEN_STATE:
+            case EVENT_CALENDAR_MOBILE_STATE:
+              eventCalendarState = EVENT_CALENDAR_MEDSCREEN_STATE;
+              return calcElementHeightByGridHeight (eventCalendarState);
+            case EVENT_CALENDAR_MEDSCREEN_STATE:
+              return;
+            case EVENT_CALENDAR_NEW_STATE:
+              return eventCalendarState = EVENT_CALENDAR_MEDSCREEN_STATE;            
+            default:
+              console.log('[event_calendar][document.ready] Warning: unrecognized event calendar state "' + eventCalendarState + '".');
+          }
+        },
+        exit: function () {
+        }
+      };
+    })());
+
+   $.breakpoint ((function () {
+      return {
+        condition: function () {
+          return window.matchMedia ('only screen and (max-width: 649px)').matches;
+        },
+        enter: function () {
+          switch (eventCalendarState) {
+            case EVENT_CALENDAR_WIDESCREEN_STATE:
+            case EVENT_CALENDAR_MEDSCREEN_STATE:
+              eventCalendarState = EVENT_CALENDAR_MOBILE_STATE;
+              return calcElementHeightByGridHeight (eventCalendarState);
+            case EVENT_CALENDAR_MOBILE_STATE:
+              return;
+            case EVENT_CALENDAR_NEW_STATE:
+              return eventCalendarState = EVENT_CALENDAR_MOBILE_STATE;            
+            default:
+              console.log('[event_calendar][document.ready] Warning: unrecognized event calendar state "' + eventCalendarState + '".');
+          }
+        },
+        exit: function () {
+        }
+      };
+    })());
+
 
     /*
     Instantiates an event calendar feature and appends it to the
@@ -461,53 +542,66 @@
 
   /*
   Accepts one argument: events, an array of Event objects;
-  creates card elements to represent those events; displays
-  them; adjusts the content container to the appropriate
-  height depending on the number ofe vents; and returns 
-  undefined.
+  creates card elements to represent those events, and 
+  displays them. Returns undefined.
   */
   Grid.prototype.displayEvents = function (events) {
     events.length > 0 ?
       this.getGridBodyElement ().empty ().append (events.map (createCardElement)) :
       this.getGridBodyElement ().empty ().append ($('<p></p>')
-        .addClass('event_calendar_grid_message')
-        .text('No events scheduled on this date')
+        .addClass ('event_calendar_grid_message')
+        .text ('No events scheduled on this date')
         )
 
-    // $('.event_calendar_feature').hide();
-    //  $('.event_calendar_feature').slideDown();   
-
-
-  // console.log($('#homepage_events_region').prop('scrollHeight'));
-// console.log(events.length);
-  // console.log($('#homepage_events_region').css('height') == 'auto');
-    if (events.length < 3 && $('#homepage_events_region').css('height') != 'auto') { 
-      $('#homepage_events_region').animate ({height: '625px'}, 250, "linear");  
-    } else {
-      $('#homepage_events_region').animate ({height: '800px'}, 250, "linear");
-    }
-
-    var numExtraRowsInEvent; 
-
-    if (events.length % 2 === 0) {
-      numRowsInEvent = events.length / 2;
-    } else {
-      numRowsInEvent = (events.length + 1) / 2;
-    }
-
-    var numExtraRowsInEvent = numRowsInEvent - 1;
-    var elementHeight = 625 + numExtraRowsInEvent * 250;
-    console.log(numExtraRowsInEvent);
-    console.log(elementHeight);
-
-    if (events.length < 3) { 
-      $('#homepage_events_region').animate ({height: '625px'}, 250, "linear");  
-    } else {
-      $('#homepage_events_region').animate ({height: elementHeight + 'px'}, 250, "linear");
-    }
-
+    this.calcElementHeight (events);
   }
 
+  /*
+  Accepts one argument: events, an array of Event objects, and
+  adjusts the content container to the appropriate height, 
+  depending on the number of events and the width of the screen.
+  Returns that height value.
+  */
+  Grid.prototype.calcElementHeight = function (events) {
+    console.log(eventCalendarState)
+    switch (eventCalendarState) {
+      case EVENT_CALENDAR_WIDESCREEN_STATE:
+        events.length % 2 === 0 ? numRowsInEvent = events.length / 2 : 
+          numRowsInEvent = (events.length + 1) / 2;
+        return events.length < 3 ? $('#homepage_events_content').animate ({height: '625px'}, 250, "linear") :
+          $('#homepage_events_content').animate ({height: 625 + (numRowsInEvent - 1) * 200 + 'px'}, 250, "linear");
+      case EVENT_CALENDAR_MEDSCREEN_STATE:
+        return events.length < 3 ? $('#homepage_events_content').animate ({height: '625px'}, 250, "linear") :
+          $('#homepage_events_content').animate ({height: 600 + (events.length - 3) * 75 + 'px'});
+      case EVENT_CALENDAR_MOBILE_STATE:
+        return $('#homepage_events_content').animate ({height: 175 + events.length * 95 + 'px'});
+      default:
+        return;
+      }
+  }
+
+  /*
+  Accepts one argument: eventCalendarState, which represents 
+  the user's screen width, and returns the height of the
+  content container according to that screen width's grid 
+  element or calendar element height, whichever is larger.
+  */
+  function calcElementHeightByGridHeight (eventCalendarState) {
+    var elementHeight;
+    $('.event_calendar_grid').height () > $('.event_calendar_calendar').height () ?
+      elementHeight = $('.event_calendar_grid').height () : elementHeight = $('.event_calendar_calendar').height ();
+
+    switch (eventCalendarState) {
+      case EVENT_CALENDAR_WIDESCREEN_STATE:
+      case EVENT_CALENDAR_MEDSCREEN_STATE:
+        return $('#homepage_events_content').animate ({height: elementHeight + 200 + 'px'});
+      case EVENT_CALENDAR_MOBILE_STATE:
+        elementHeight = $('.event_calendar_grid').height ();
+        return $('#homepage_events_content').animate ({height: elementHeight + 200 + 'px'});
+      default:
+        return;
+      }
+  }
 
 
   /*
