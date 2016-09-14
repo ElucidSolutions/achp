@@ -4,16 +4,25 @@
 
 (function ($) {
 
+  // Represents the possible widths
   var EVENT_CALENDAR_NEW_STATE = 0;
   var EVENT_CALENDAR_WIDESCREEN_STATE = 1;
   var EVENT_CALENDAR_MEDSCREEN_STATE = 2;
   var EVENT_CALENDAR_MOBILE_STATE = 3;
 
-  // Represents the current header state.
+  // Represents the current calendar state
   var eventCalendarState = EVENT_CALENDAR_NEW_STATE;
 
   $(document).ready (function () {
 
+    /*
+    Determines the height of the calendar section at different breakpoints
+    when the user switches screen widths. The first time a user accesses the
+    site, the height is calculated with Grid.calcElementHeight, which sets
+    the value according to the number of events. When the screen size changes, 
+    since the elements inside the calendar have already been created, the function 
+    calcElementHeightByGridHeight sets the height depending on those elements. 
+    */ 
     $.breakpoint ((function () {
       return {
         condition: function () {
@@ -124,26 +133,12 @@
     })
     this._calendar.monthChange (function (month) {
       self._grid.displayEvents (getNEventsAfterDate (drupalSettings.event_calendar.num_events, month._d));
-      // setHeightOfElement (getNEventsAfterDate (drupalSettings.event_calendar.num_events, month._d)) 
     })
     $(bodyElement).on('click', '.month', function (e) {
-      var date = moment ($(e.target).text ()).date (1);
+      var date = moment ($(e.target).text (), 'MMMM YYYY').date(1);
       self._grid.displayEvents (getNEventsInMonth (drupalSettings.event_calendar.num_events, date));
-      // setHeightOfElement (getNEventsInMonth (drupalSettings.event_calendar.num_events, date))
     })
-    // $(bodyElement).on('click', '.month', this._calendar.monthClick (function (e) {
-    //   var date = moment($(e.target).text()).date(1);
-    //   self._grid.displayEvents (getNEventsInMonth (5, date));
-    // }))
 
-  }
-
-  function setHeightOfElement (events) {
-    if (events.length < 3 && $('#homepage_events_region').css('height') != 'auto') { 
-      $('#homepage_events_region').animate ({height: '625px'}, 250, "linear");  
-    } else {
-      $('#homepage_events_region').animate ({height: $('#homepage_events_region').prop('scrollHeight') + 'px'}, 250, "linear");
-    }
   }
 
   /*
@@ -208,11 +203,6 @@
   */
   function getEventsOnDay (date) {
     return getAllEvents ().filter (function (event) { return eventOnDay (event, date); })
-    // if (eventsOnDay.length === 0) {
-    //   console.log('No events on this day') } 
-    // else {
-    //   return eventsOnDay; 
-    // }
   }
 
   /*
@@ -563,7 +553,6 @@
   Returns that height value.
   */
   Grid.prototype.calcElementHeight = function (events) {
-    console.log(eventCalendarState)
     switch (eventCalendarState) {
       case EVENT_CALENDAR_WIDESCREEN_STATE:
         events.length % 2 === 0 ? numRowsInEvent = events.length / 2 : 
@@ -572,12 +561,12 @@
           $('#homepage_events_content').animate ({height: 625 + (numRowsInEvent - 1) * 200 + 'px'}, 250, "linear");
       case EVENT_CALENDAR_MEDSCREEN_STATE:
         return events.length < 3 ? $('#homepage_events_content').animate ({height: '625px'}, 250, "linear") :
-          $('#homepage_events_content').animate ({height: 600 + (events.length - 3) * 75 + 'px'});
+          $('#homepage_events_content').animate ({height: 625 + (events.length - 3) * 75 + 'px'});
       case EVENT_CALENDAR_MOBILE_STATE:
         return $('#homepage_events_content').animate ({height: 175 + events.length * 95 + 'px'});
       default:
         return;
-      }
+    }
   }
 
   /*
@@ -600,7 +589,7 @@
         return $('#homepage_events_content').animate ({height: elementHeight + 200 + 'px'});
       default:
         return;
-      }
+    }
   }
 
 
