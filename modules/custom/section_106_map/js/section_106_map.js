@@ -1265,6 +1265,7 @@
 
     displayedCases[caseIndexInArray + 1] ? nextButton.click (function () {
       self.showCaseOverlayElement (displayedCases[caseIndexInArray + 1]);
+      console.log('Clicked!')
     }) :
     nextButton.addClass('section_106_map_case_nav_disabled');
   }

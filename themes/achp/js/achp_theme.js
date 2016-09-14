@@ -4,7 +4,6 @@
 */
 (function ($) {
 
-
   // Represents the header menu states.
   var HEADER_MENU_WIDESCREEN_DEFAULT_STATE = 0;
   var HEADER_MENU_WIDESCREEN_HOVER_STATE = 1;
@@ -100,14 +99,15 @@
         enter: function () {
           switch (headerMenuState) {
             case HEADER_MENU_MOBILE_DEFAULT_STATE:
-              openHeaderMenu();
-              closeMobileSubheaderHeader ();
-              removeSelectedClassFromMenuItems ();
-              moveSearchBlockToHeader ();
-              closeMobileSubheader ();
+            console.log('switching');
+              openHeaderMenu ();
+              // closeMobileSubheaderHeader ();
+              // removeSelectedClassFromMenuItems ();
+              // moveSearchBlockToHeader ();
+              // closeMobileSubheader ();
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_MOBILE_EXPANDED_STATE:
-              openHeaderMenu();
+              openHeaderMenu ();
               closeMobileSubheaderHeader ();
               closeMobileSubheader ();
               moveSearchBlockToHeader ();
@@ -115,7 +115,7 @@
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_WIDESCREEN_DEFAULT_STATE:
             case HEADER_MENU_WIDESCREEN_HOVER_STATE:
-              return openHeaderMenu();
+              return openHeaderMenu ();
             default:
               console.log('[achp_theme][document.ready] Warning: unrecognized header menu state "' + headerMenuState + '".');
           }

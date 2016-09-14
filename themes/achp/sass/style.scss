@@ -744,10 +744,8 @@ footer {
               display: none;
             }
 
-            &_mobile_date {
+            &_mobile_date_container {
               line-height: 1.1;
-              padding: 15px 5px;
-              display: inline-block;
               width: 60px;
               float: left;
               height: $mobile-card-item-height;
@@ -756,9 +754,20 @@ footer {
               position: absolute;
               color: #fff;
               top: 0;
+            }
+
+            &_mobile_date {
+              display: inline-block;
+              @include center-y;
+              position: relative;
 
               &_month {
                 text-transform: uppercase;
+                font-size: 1.125rem;
+              }
+
+              &_day {
+                font-size: 2.125rem;
               }
             }
           }
@@ -823,32 +832,8 @@ footer {
               }
             }
             
-
-              &_date, &_location, &_footer {
-                display: none;
-              }
-
-              &_mobile_date {
-                line-height: 1.1;
-                padding: 15px 5px;
-                display: inline-block;
-                width: 60px;
-                float: left;
-                height: $mobile-card-item-height;
-                background-color: $color-red;
-                text-align: center;
-                position: absolute;
-                color: #fff;
-                top: 0;
-
-                &_month {
-                  text-transform: uppercase;
-                }
-
-                &_day {
-                  font-size: 2rem;    
-                  font-weight: 300;          
-              }
+            &_date, &_location, &_footer {
+              display: none;
             }
           }
         }

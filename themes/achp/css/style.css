@@ -546,20 +546,27 @@ $arrow-padding: 5px;*/
   #header_menu ul[data-menu-level="0"] {
     margin: 0 auto;
     height: 72px;
+    /*display: inline-block;    */
     -js-display: flex;
     display: flex;
     justify-content: space-between;
-    width: 100%; }
+    /*width: 100% !important;*/
+    /*min-width: 100% !important;*/
+    width: 1024px !important;
+    /*@span-columns*/ }
     #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] {
       border: 3px solid transparent;
       border-bottom: none;
       list-style-type: none;
       text-align: center;
-      margin: 0 10px 0 0;
+      margin: 0;
       text-align: center;
       padding: 0 40px;
       height: 75px !important;
-      box-sizing: border-box !important; }
+      box-sizing: border-box !important;
+      /*background-color: pink;*/
+      display: inline-block;
+      /*background-color: pink;*/ }
       #header_menu ul[data-menu-level="0"] li[data-menu-level="0"]:last-of-type {
         margin: 0; }
       #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected {
@@ -2494,10 +2501,8 @@ footer {
             padding: 25px 0 25px 15px; }
         .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_footer {
           display: none; }
-        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date {
+        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_container {
           line-height: 1.1;
-          padding: 15px 5px;
-          display: inline-block;
           width: 60px;
           float: left;
           height: 75px;
@@ -2506,8 +2511,21 @@ footer {
           position: absolute;
           color: #fff;
           top: 0; }
+        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date {
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+          position: relative; }
           .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_month {
-            text-transform: uppercase; } }
+            text-transform: uppercase;
+            font-size: 1.125rem; }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_day {
+            font-size: 2.125rem; } }
 @media (max-width: 650px) {
   .event_calendar .event_calendar_feature {
     padding: 0 25px; }
@@ -2589,23 +2607,6 @@ footer {
               width: 100%;
               padding: 25px 0 25px 15px; }
           .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_footer {
-            display: none; }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date {
-            line-height: 1.1;
-            padding: 15px 5px;
-            display: inline-block;
-            width: 60px;
-            float: left;
-            height: 75px;
-            background-color: #950306;
-            text-align: center;
-            position: absolute;
-            color: #fff;
-            top: 0; }
-            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_month {
-              text-transform: uppercase; }
-            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_day {
-              font-size: 2rem;
-              font-weight: 300; } }
+            display: none; } }
 
 /*# sourceMappingURL=style.css.map */
