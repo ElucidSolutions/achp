@@ -18,7 +18,6 @@ class Section106MapBlock extends BlockBase {
    */
   public function build () {
     $config = \Drupal::config ('section_106_map.settings');
-    $cases  = $this->getCases ();
     return array (
       '#attached' => array (
         'library' => array ('section_106_map/section_106_map_library'),
@@ -26,7 +25,7 @@ class Section106MapBlock extends BlockBase {
           'section_106_map' => array (
             'mapbox_access_token'    => $config->get ('mapbox_access_token'),
             'filter_score_threshold' => $config->get ('filter_score_threshold'),
-            'cases'                  => $cases
+            'cases'                  => $this->getCases ()
         ))
       ),
       // disable caching so that setting updates will take immediate effect. 
@@ -41,49 +40,147 @@ class Section106MapBlock extends BlockBase {
     106 Case nodes.
   */
   private function getCases () {
-    $cases  = array ();
-
     $query = \Drupal::entityQuery ('node')
       ->condition ('type', 'section_106_case_profile')
       ->condition ('status', 1);
-    
-    $result = $query->execute ();
+
+    $result = $query
+      ->condition (
+        $query->orConditionGroup ()
+          ->condition ('field_case_status', '59')
+          ->condition ('field_case_status', '133'))
+      ->execute ();
+
+    $cases  = [];
     foreach (array_keys ($result) as $nid) {
       $node = \Drupal\node\Entity\Node::load ($nid);
-      $url  = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ('absolute' => true));
-
-      $cases [] = array (
-        'id'     => $nid,
-        'url'    => $url->toString (),
-        'title'  => $node->getTitle (),
-        'body'   => $node->get ('body')->value,
-        'agency' => $this->getAgency   ($node->get ('field_case_federal_agency')->target_id),
-        'poc'    => array (
-                      'name'  => $node->get ('field_case_poc_name')->value,
-                      'title' => $node->get ('field_case_poc_title')->value,
-                      'email' => $node->get ('field_case_poc_email')->value,
-                      'phone' => $node->get ('field_case_poc_phone')->value
-                    ),
-        'state'  => $this->getTermName ($node->get ('field_case_location')->target_id),
-        'status' => $this->getTermName ($node->get ('field_case_status')->target_id)
-      );
+      $cases [] = $this->createCase ($node->toArray ());
     }
-
-    \Drupal::logger ('section_106_map')->notice ('[getCases] cases: <pre>' . print_r ($cases, true) . '</pre>');
     return $cases;
   }
 
   /*
-    Accepts one argument: $nid, a node ID that
-    refers to a Federal Agency node; and returns
-    the name of the referenced agency.
+    Accepts one argument: $node_array, an array
+    that represents a Section 106 Case node; and
+    returns an case record array that represents
+    the case node.
   */
-  private function getAgency ($nid) {
-    $node = \Drupal\node\Entity\Node::load ($nid);
-    return is_null ($node) ? null :
-      array (
-        'title' => $node->getTitle ()
-      );
+  private function createCase ($node_array) {
+    $nid = $this->getFieldValue ($node_array, 'nid');
+    $url = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ('absolute' => true));
+    return [
+      'id'     => $nid,
+      'url'    => $url->toString (),
+      'title'  => $this->getFieldValue ($node_array, 'field_case_name'),
+      'body'   => $this->getFieldValue ($node_array, 'body'),
+      'agency' => $this->getReferencedNodeTitle ($node_array, 'field_case_federal_agency'),
+      'poc'    => array (
+                    'name'  => $this->getFieldValue ($node_array, 'field_case_poc_name'),
+                    'title' => $this->getFieldValue ($node_array, 'field_case_poc_title'),
+                    'email' => $this->getFieldValue ($node_array, 'field_case_poc_email'),
+                    'phone' => $this->getFieldValue ($node_array, 'field_case_poc_phone')
+                  ),
+      'states' => $this->getReferencedTermsNames ($node_array, 'field_case_location'),
+      'status' => $this->getReferencedTermName ($node_array, 'field_case_status')
+    ];
+  }
+
+  /*
+    Accepts two arguments:
+
+    * $node_array, an array that represents
+      a node
+    * and $fieldName, a string that denotes
+      a field name
+
+    and returns the title of the node referenced
+    by the given field.
+  */
+  private function getReferencedNodeTitle ($node_array, $fieldName) {
+    $nid  = $this->getFieldValue ($node_array, $fieldName, 'target_id');
+    $node = is_null ($nid) ? null : \Drupal\node\Entity\Node::load ($nid);
+    return is_null ($node) ? null : $node->getTitle ();
+  }
+
+  /*
+    Accepts two arguments:
+
+    * $node_array, an array that represents
+      a node
+    * and $fieldName, a string that denotes
+      a field name
+
+    and returns the name of the term referenced
+    by the given field as a string or null
+    (if the field is empty).
+  */
+  private function getReferencedTermName ($node_array, $fieldName) {
+    $tid = $this->getFieldValue ($node_array, $fieldName, 'target_id');
+    return is_null ($tid) ? null : $this->getTermName ($tid);
+  }
+
+  /*
+    Accepts two arguments:
+
+    * $node_array, an array that represents
+      a node
+    * and $fieldName, a string that denotes
+      a field name
+
+    and returns a string array listing the names
+    of the terms referenced by the given field.
+  */
+  private function getReferencedTermsNames ($node_array, $fieldName) {
+    $names = [];
+    $tids = $this->getFieldValues ($node_array, $fieldName, 'target_id');
+    foreach ($tids as $tid) {
+      $name = $this->getTermName ($tid);
+      if ($name) {
+        $names [] = $name;
+      }
+    }
+    return $names;
+  }
+
+  /*
+    Accepts three arguments:
+
+    * $node_array, an array that represents
+      a node
+    * $fieldName, a string that denotes a
+      field name
+    * and $fieldValueKey (default: "value")
+      a string that specifies the key used to
+      extract values from field arrays
+
+    and returns either the field value as a
+    string or null (if the field is empty).
+  */
+  private function getFieldValue ($node_array, $fieldName, $fieldValueKey = 'value') {
+    return empty ($node_array [$fieldName]) ? null :
+      $node_array [$fieldName][0][$fieldValueKey];
+  }
+
+  /*
+    Accepts three arguments:
+
+    * $node_array, an array that represents
+      a node
+    * $fieldName, a string that denotes a
+      field name
+    * and $fieldValueKey (default: "value")
+      a string that specifies the key used to
+      extract values from field arrays
+
+    and returns an array listing the field's
+    values.
+  */
+  private function getFieldValues ($node_array, $fieldName, $fieldValueKey = 'value') {
+    $values = [];
+    foreach ($node_array [$fieldName] as $field) {
+      $values [] = $field [$fieldValueKey];
+    }
+    return $values;
   }
 
   /*
@@ -91,7 +188,7 @@ class Section106MapBlock extends BlockBase {
     and returns the title of the referenced term.
   */
   private function getTermName ($tid) {
-    $term = \Drupal::entityTypeManager () -> getStorage ('taxonomy_term')-> load ($tid);
+    $term = \Drupal::entityTypeManager ()->getStorage ('taxonomy_term')->load ($tid);
     return is_null ($term) ? null : $term->getName ();
   }
 }

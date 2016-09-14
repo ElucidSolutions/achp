@@ -25,7 +25,7 @@
       this.field ('body');
       this.field ('agency', 100);
       this.field ('poc_name', 100);
-      this.field ('state', 100);
+      this.field ('states', 100);
       this.field ('status');
     });
 
@@ -34,7 +34,10 @@
     lunrIndex.pipeline.reset ();
 
     // Retrieve the section 106 consultation cases.
-    cases = drupalSettings.section_106_map.cases;
+    cases = _.chain (drupalSettings.section_106_map.cases)
+      .filter (function (_case) { return _case.status === 'Open'; })
+      .sortBy (function (_case) { return _case.title; })
+      .value ();
 
     // Index the case records.
     cases.forEach (function (_case) {
@@ -42,9 +45,9 @@
         id:       _case.id,
         title:    _case.title,
         body:     _case.body,
-        agency:   _case.agency.title,
+        agency:   _case.agency ? _case.agency.title : '',
         poc_name: _case.poc.name,
-        state:    _case.state,
+        states:   _case.states.join (),
         status:   _case.status
       });
     });
@@ -586,8 +589,16 @@
   */
   function createStates (cases) {
     return _.chain (cases)
-      .groupBy (function (_case) { return _case.state; })
-      .map     (function (stateCases, stateName) { return createState (stateName, stateCases); })
+      .pluck   ('states')
+      .flatten ()
+      .sort    ()
+      .uniq    (true)
+      .map     (function (stateName) {
+        return createState (stateName, cases.filter (
+          function (_case) {
+            return _.contains (_case.states, stateName);
+          }));
+       })
       .compact ()
       .value   ();
   }
@@ -1233,7 +1244,7 @@
         .text (_case.title))
       .append ($('<div></div>')
         .addClass (classPrefix + '_state')
-        .text (_case.state))
+        .text (_case.states.join (', ')))
       .click (function () {
           self.showCaseOverlayElement (_case);
         });
@@ -1569,7 +1580,7 @@
                 .text ('Agency Involved:'))
               .append ($('<div></div>')
                 .addClass (classPrefix + '_agency')
-                .text (_case.agency.title))))
+                .text (_case.agency ? _case.agency.title : ''))))
           .append ($('<div></div>')
             .addClass (classPrefix + '_body_contact')
             .append ($('<div></div>')
