@@ -4,6 +4,7 @@
 */
 (function ($) {
 
+
   // Represents the header menu states.
   var HEADER_MENU_WIDESCREEN_DEFAULT_STATE = 0;
   var HEADER_MENU_WIDESCREEN_HOVER_STATE = 1;
@@ -101,10 +102,10 @@
             case HEADER_MENU_MOBILE_DEFAULT_STATE:
             console.log('switching');
               openHeaderMenu ();
-              // closeMobileSubheaderHeader ();
-              // removeSelectedClassFromMenuItems ();
-              // moveSearchBlockToHeader ();
-              // closeMobileSubheader ();
+              closeMobileSubheaderHeader ();
+              removeSelectedClassFromMenuItems ();
+              moveSearchBlockToHeader ();
+              closeMobileSubheader ();
               return headerMenuState = HEADER_MENU_WIDESCREEN_DEFAULT_STATE;
             case HEADER_MENU_MOBILE_EXPANDED_STATE:
               openHeaderMenu ();

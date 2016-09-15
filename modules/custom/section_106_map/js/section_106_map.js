@@ -8,6 +8,8 @@
 */
 (function ($) {
 
+  console.log('loaded');
+
   // The Lunr Search Index.
   var lunrIndex = null;
 
@@ -823,7 +825,7 @@
       .append ($('<div></div>')
         .addClass (classPrefix + '_body')
         .addClass (classPrefix + '_body_map_mode')
-        .append ($('<ol></ol>')
+        .append ($('<div></div>')
           .addClass (classPrefix + '_state_cases_list')
           .append (state.cases.map (createCaseElement))))
       .append ($('<div></div>')
@@ -872,6 +874,22 @@
             toastr.info ('Link Copied to Clipboard.');
           });
         });
+
+      this.prependNumbersToCases ();
+  }
+
+  /*
+    Accepts no arguments, adds an enumerating div
+    before each case, and returns undefined. Used 
+    to avoid IE9 bug. 
+  */
+  Map.prototype.prependNumbersToCases = function () {
+    for (var n = 0; n < $('.section_106_map_case_item').length; n++) {
+    $('.section_106_map_case_item').eq(n)
+      .prepend($('<div></div>')
+        .addClass(getModuleClassPrefix () + '_case_num')
+        .text( n < 10 ? '0' + (n + 1) : (n + 1) ));
+    }
   }
 
   /*
@@ -1254,18 +1272,23 @@
     var prevButton = overlayElement.find ($('.section_106_map_case_nav_prev:not(.section_106_map_case_nav_disabled)'));
     var nextButton = overlayElement.find ($('.section_106_map_case_nav_next:not(.section_106_map_case_nav_disabled)'));
 
-    var caseIndexInArray = displayedCases.findIndex (function (displayedCase) {
-      return displayedCase.id === caseId;
-    })
+    for (var i = 0; i < displayedCases.length; i++) {
+      if (displayedCases[i].id === caseId) {
+        var caseIndexInArray = $.inArray (displayedCases[i], displayedCases);
+        break;
+      }
+    }
 
-    displayedCases[caseIndexInArray - 1] ? prevButton.click (function () {
+    displayedCases[caseIndexInArray - 1] ? prevButton.click (function (e) {
+      e.preventDefault();
       self.showCaseOverlayElement (displayedCases[caseIndexInArray - 1]);
     }) :
     prevButton.addClass('section_106_map_case_nav_disabled');
 
-    displayedCases[caseIndexInArray + 1] ? nextButton.click (function () {
+    displayedCases[caseIndexInArray + 1] ? nextButton.click (function (e) {
+      e.preventDefault();
+      console.log('clicked again')
       self.showCaseOverlayElement (displayedCases[caseIndexInArray + 1]);
-      console.log('Clicked!')
     }) :
     nextButton.addClass('section_106_map_case_nav_disabled');
   }
@@ -1604,7 +1627,7 @@
     return $('<div></div>')
       .addClass (classPrefix)
       .attr (dataPrefix + '-id', _case.id)
-      .append ($('<li></li>')
+      .append ($('<div></div>')
         .addClass (classPrefix + '_item')
         .append ($('<div></div>')
           .addClass (classPrefix + '_header')
@@ -1643,23 +1666,25 @@
                 .addClass (classPrefix + '_body_contact_header_title')
                 .text ('Federal Point of Contact:')))
             .append ($('<div></div>')
-              .addClass (classPrefix + '_contact_name_title')
-              .append ($('<span></span>')
-                .addClass (classPrefix + '_contact_name')
+              .addClass (classPrefix + '_contact_info')
+              .append ($('<div></div>')
+                .addClass (classPrefix + '_contact_name_title')
+                .append ($('<span></span>')
+                  .addClass (classPrefix + '_contact_name')
+                  .addClass ('section_106_case_field')
+                  .text (_case.poc.name))
+                .append ($('<span></span>')
+                  .addClass (classPrefix + '_contact_title')
+                  .text (_case.poc.title)))
+              .append ($('<div></div>')
+                .addClass (classPrefix + '_contact_email')
+                .addClass ('section_106_case_field')             
+                .text (_case.poc.email))
+              .append ($('<div></div>')
+                .addClass (classPrefix + '_contact_phone')
                 .addClass ('section_106_case_field')
-                .text (_case.poc.name))
-              .append ($('<span></span>')
-                .addClass (classPrefix + '_contact_title')
-                .text (_case.poc.title)))
-            .append ($('<div></div>')
-              .addClass (classPrefix + '_contact_email')
-              .addClass ('section_106_case_field')             
-              .text (_case.poc.email))
-            .append ($('<div></div>')
-              .addClass (classPrefix + '_contact_phone')
-              .addClass ('section_106_case_field')
-              .text ("Phone: " + _case.poc.phone)))
-          )
+                .text ("Phone: " + _case.poc.phone)))
+            ))
         .append ($('<div></div>')
           .addClass (classPrefix + '_footer')
           .append (createShareElement (_case)))
