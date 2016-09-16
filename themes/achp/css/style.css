@@ -546,14 +546,9 @@ $arrow-padding: 5px;*/
   #header_menu ul[data-menu-level="0"] {
     margin: 0 auto;
     height: 72px;
-    /*display: inline-block;    */
-    -js-display: flex;
+    display: inline-block;
     display: flex;
-    justify-content: space-between;
-    /*width: 100% !important;*/
-    min-width: 100% !important;
-    width: 1024px !important;
-    /*@span-columns*/ }
+    justify-content: space-between; }
     #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] {
       border: 3px solid transparent;
       border-bottom: none;
@@ -564,9 +559,7 @@ $arrow-padding: 5px;*/
       padding: 0 40px;
       height: 75px !important;
       box-sizing: border-box !important;
-      /*background-color: pink;*/
-      display: inline-block;
-      /*background-color: pink;*/ }
+      display: inline-block; }
       #header_menu ul[data-menu-level="0"] li[data-menu-level="0"]:last-of-type {
         margin: 0; }
       #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected {
@@ -1020,7 +1013,6 @@ header {
     header #block-headercontactlinks img {
       vertical-align: text-bottom; }
   header #block-headertextdropdown, header #block-headertextdropdown-3 {
-    /*@include span-columns(3 of 12);*/
     color: white;
     font-weight: 300;
     font-family: "p22-underground", sans-serif;
@@ -1146,8 +1138,7 @@ header {
       -ms-transform: translateY(-50%);
       -o-transform: translateY(-50%);
       transform: translateY(-50%);
-      top: 37.5px;
-      /*border: 1px solid green;*/ }
+      top: 37.5px; }
     header #block-headercontactlinks {
       display: none; } }
 @media (max-width: 500px) {
@@ -1286,11 +1277,7 @@ $arrow-padding: 5px;*/
             color: #0990FE; }
           @media (min-width: 701px) {
             #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a {
-              transition: color 0.25s;
-              /*              transition: color 0.25s, background-image 0.25s;
-              
-                            &:after {
-                              ;*/ }
+              transition: color 0.25s; }
               #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover {
                 color: #0990FE; }
               #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:after, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:after {
@@ -1583,12 +1570,6 @@ $arrow-padding: 5px;*/
  * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
  * then the variable below would be 10px.
  */
-.main_wrapper {
-  /*@extend .card;*/ }
-
-/*#menu {
-  display: none;
-}*/
 #content_region {
   padding: 50px 48px;
   max-width: 1024px;
