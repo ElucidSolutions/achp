@@ -1274,7 +1274,7 @@
 
     for (var i = 0; i < displayedCases.length; i++) {
       if (displayedCases[i].id === caseId) {
-        var caseIndexInArray = $.inArray (displayedCases[i], displayedCases);
+        var caseIndexInArray = $.inArray(displayedCases[i], displayedCases);
         break;
       }
     }
