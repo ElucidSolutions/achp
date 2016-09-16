@@ -10,6 +10,8 @@
 
   .event_calendar_calendar {
     @include span-columns (4 of 12);
+    height: 400px;
+    padding-bottom: 20px;
 
     .clndr {
       padding: 5px;
@@ -108,17 +110,17 @@
 
           .event {
             cursor: pointer;
-            background-color: $color-lightgrey;
+            background-color: $color-lightblue3;
           }          
 
           .today {
-            /*color: #fff;*/
-            background-color: $color-lightblue3;
+            color: #fff;
+            background-color: $color-darkblue3;
           }
 
           .event:hover {
             color: #fff;
-            background-color: $color-darkblue3;           
+            background-color: $color-blue-primary; 
           }
         }
 
@@ -167,6 +169,7 @@
       background-color: #fff;
       padding: 10px;
       max-width: $event-meeting-grid-column-content-width;
+      position: relative;
 
       &_date {
         @extend .card_date;
@@ -184,7 +187,8 @@
       &_footer {
         height: 20px;
         width: 100%;
-        position: relative;
+        position: absolute;
+        bottom: 15px;
 
         .read_more {
           position: absolute;
@@ -198,13 +202,20 @@
           height: 20px;
           width: 20px;
           cursor: pointer;
+          transition: background-image 0.25s;
+          margin-right: 25px;
+          margin-top: 1px;
+
+          &:hover {
+            background-image: url('../images/add-calendar-icon-lightblue.svg');
+          }
         }
       }
     }
   }
 
   .event_calendar_feature_footer {
-    margin-top: 30px;
+    margin-top: 10px;
     @include span-columns (12 of 12);  
   }
 
@@ -212,9 +223,10 @@
     .event_calendar_feature { 
       .event_calendar_calendar {
         @include span-columns (6 of 12);
+        height: 450px;
 
         @media (min-width: $mobile-breakpoint) {
-          padding-bottom: 0;
+          padding-bottom: 20px;
 
           &_title {
             padding-top: 38px;
@@ -269,7 +281,7 @@
             
               a {
                 display: block;
-                width: 100%;
+                width: 90%;
                 padding: 25px 0 25px 15px;
               }
             } 
@@ -293,11 +305,6 @@
 
               &_month {
                 text-transform: uppercase;
-              }
-
-              &_day {
-                font-size: 2rem;    
-                font-weight: 300;          
               }
             }
           }

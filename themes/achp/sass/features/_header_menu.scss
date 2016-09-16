@@ -287,8 +287,7 @@
             }
           }
 
-          .menu_slide_list_item, li[data-menu-level="1"] {
-          
+          .menu_slide_list_item, li[data-menu-level="1"] {       
             &:after {
               content: "";
               background-image: url('../images/right-arrow-icon.svg');
@@ -296,7 +295,7 @@
               background-position: center;
               width: 20px;
               height: 21px;
-              right: 40px;
+              right: 55px;
               position: absolute;
               cursor: pointer;
               transition: background-image 0.25s;

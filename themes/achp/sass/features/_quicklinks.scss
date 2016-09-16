@@ -32,7 +32,6 @@
           height: 100%;
           padding: 15px 15px 5px;
           position: static;
-          color: pink;
           transform: none;
         }
 
@@ -56,7 +55,7 @@
           background-color: #E8F8FF;
         }
 
-        .views-field {
+        .views-field, .quicklink-item-title {
           @include center-y;
           position: relative;
 
@@ -77,6 +76,11 @@
 
             @media (min-width: 701px) {
               @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -2px, $color-blue-primary);
+/*              transition: color 0.25s, background-image 0.25s;
+
+              &:after {
+                ;*/
+
             }
           }
         }  
@@ -122,7 +126,7 @@
 
     .views-element-container {
       &:nth-last-of-type(2) {
-        margin-right: 0px;
+        @include omega();
       }
 
       &:last-of-type {
@@ -137,11 +141,11 @@
 
     .views-element-container {
       @include span-columns(12 of 12);
-      margin: 15px auto 0;
+      margin: 10px auto 0;
       height: auto;
 
       &:last-of-type {
-        margin: 15px auto 0;
+        margin: 10px auto 0;
       }
 
       .quicklinks-column > .views-row, .views-field-field-quicklink-image, footer {

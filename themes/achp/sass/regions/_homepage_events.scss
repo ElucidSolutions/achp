@@ -11,6 +11,18 @@
   /* TODO: When this region has actual content (& therefore height), check different positions to see which looks best w/ image*/
   height: auto;
 
+  #homepage_events_content {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #events_background_container {
+    background-image: url('../images/blue-columns-background.jpg');
+    background-position: top;    
+    background-size: cover;
+    height: 1200px;
+  }
+
   .header_container {
     padding: 25px 50px;
 
