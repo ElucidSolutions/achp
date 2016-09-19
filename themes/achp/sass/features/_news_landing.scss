@@ -1,0 +1,63 @@
+@import "../global";
+
+body {
+  background-color: $background-color-grey
+}
+
+.news-card-container {
+  margin-top: 2px; /* Leaves room for the header nav's box-shadow*/
+  @include span-columns (12);
+  height: 100%;
+  background-color: $background-color-grey;
+
+  header {
+    @include span-columns (12 of 12);
+    background-color: $background-color-grey;
+    position: relative;
+
+    .header_container {
+      width: auto;
+      display: inline-block;
+      @include center-xy;
+
+      h1 {
+        text-shadow: none;
+        font-weight: 500;
+        font-size: 2.25rem;
+        color: $color-darkblue;
+      }
+      
+      hr {
+        @include hr($color-red);
+        margin-top: 0;
+        width: 60%;
+      }  
+    }
+  }
+
+  .views-exposed-form {
+    @include span-columns (3 of 12);
+    padding-right: 20px;
+
+    .form-select {
+      WIDTH: 100%;
+    }
+  }
+
+  .news-item {
+    @include span-columns (9 of 12);
+    float: right;
+    background-color: #fff;
+
+    .views-field-field-news-photo {
+      img {
+        max-width: 300px;
+        max-height: 300px;
+      }
+    }
+  }
+}
+
+#footer {
+  display: none;
+}
