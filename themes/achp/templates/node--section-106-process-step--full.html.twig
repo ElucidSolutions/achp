@@ -77,8 +77,8 @@
       <div class="step-number">Step {{content.field_process_step_number}}</div>
       <div class="step-title">{{label}}</div>
       <div class="share-print"></div>
-      <div class="step-body-text">{{content.body}}</div>      
-      {% if content.field_determination_prompt %}
+      <div class="step-body-text">{{content.body}}</div> 
+      {% if content.field_determination_prompt[0] %}
         <div class="determination-section-title">Determination</div>   
         <hr />     
         <div class="determination-prompt">
