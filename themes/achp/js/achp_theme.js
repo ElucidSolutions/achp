@@ -20,12 +20,12 @@
     formatMenuHeaders ();
 
     // TEMP: function to delay onset of Flexibility in IE9
-    if (navigator.userAgent.indexOf('MSIE 9.0') > -1) {
-      console.log('IE9 detected')
-      window.setTimeout(function () {
-        flexibility(document.documentElement);
-      }, 1000)
-    };
+    // if (navigator.userAgent.indexOf('MSIE 9.0') > -1) {
+    //   console.log('IE9 detected')
+    //   window.setTimeout(function () {
+    //     flexibility(document.documentElement);
+    //   }, 1000)
+    // };
 
     // I. Create mobile menu slide
     $('#subheader_mobile_body').append (createMenuSlides (getMenuList ()));
