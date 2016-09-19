@@ -40,10 +40,10 @@
  * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
  * then the variable below would be 10px.
  */
-#block-section106processblock {
-  height: auto;
-  width: 100%; }
-
+/*#block-section106processblock {
+  height: auto;;
+  width: 100%; 
+}*/
 .section_106_process .section_106_process_feature_flowchart_navigation .section_106_process_feature_flowchart_navigation_previous,
 .section_106_process .section_106_process_feature_flowchart_navigation .section_106_process_feature_flowchart_navigation_next {
   position: absolute;
@@ -88,7 +88,7 @@
       width: 350px;
       z-index: 1;
       padding-right: 70px; }
-      .section_106_process .section_106_process_feature_body .section_106_process_feature_step a.section_106_process_feature_step_weight_link {
+      .section_106_process .section_106_process_feature_body .section_106_process_feature_step a.section_106_process_feature_step_number_link {
         z-index: 2;
         position: absolute;
         top: 53px;
@@ -104,7 +104,7 @@
         color: #FFFFFF !important;
         font-size: 23px;
         font-size: 1.4375rem; }
-      .section_106_process .section_106_process_feature_body .section_106_process_feature_step a.section_106_process_feature_step_weight_link:before {
+      .section_106_process .section_106_process_feature_body .section_106_process_feature_step a.section_106_process_feature_step_number_link:before {
         content: '';
         height: 100%;
         display: inline-block;
@@ -203,16 +203,14 @@
           padding-left: 15px;
           margin-right: 20px;
           cursor: pointer; }
-    .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_weight_link,
-    .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_weight_link {
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_number_link {
       background-color: #0990FE; }
-    .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_inner_container .section_106_process_feature_step_image .section_106_process_feature_step_image_overlay,
+    .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_number_link {
+      background-color: #0990FE; }
     .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_inner_container .section_106_process_feature_step_image .section_106_process_feature_step_image_overlay {
       opacity: 0; }
-    .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link,
     .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link {
       color: #0990FE; }
-    .section_106_process .section_106_process_feature_body .section_106_process_feature_step.current-step .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link:after,
     .section_106_process .section_106_process_feature_body .section_106_process_feature_step:hover .section_106_process_feature_step_inner_container a.section_106_process_feature_step_read_more_link:after {
       background-image: url("../images/right-arrow-icon-blue.svg"); }
 

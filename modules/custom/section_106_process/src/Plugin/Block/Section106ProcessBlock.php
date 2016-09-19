@@ -43,7 +43,7 @@ class Section106ProcessBlock extends BlockBase {
     $query = \Drupal::entityQuery ('node')
       ->condition ('type', 'section_106_process_step')      
       ->condition ('status', 1)
-      ->sort ('field_process_step_weight', 'ASC');
+      ->sort ('field_process_step_number', 'ASC');
     
     $result = $query->execute ();
     foreach (array_keys ($result) as $nid) {
@@ -56,7 +56,7 @@ class Section106ProcessBlock extends BlockBase {
         'imageURL'  => $node->get ('field_process_step_image')->entity->url(),
         'title' => $node->get ('title')->value,
         'body' => $node->get ('field_process_step_summary')->value,
-        'weight' => $node->get ('field_process_step_weight')->value
+        'step_number' => $node->get ('field_process_step_number')->value
       );
     }
 

@@ -1480,13 +1480,13 @@ $arrow-padding: 5px;*/
   #block-readmoreaboutpreservationissues div button {
     text-transform: uppercase; }
 
-#block-preserveamericaheader {
+.preserve-america-header-block {
   text-align: center; }
-  #block-preserveamericaheader .header_container {
+  .preserve-america-header-block .header_container {
     width: auto;
     display: inline-block;
     margin: 0px auto; }
-    #block-preserveamericaheader .header_container hr {
+    .preserve-america-header-block .header_container hr {
       width: 60%; }
 
 .preserveamerica_content_wrapper {
@@ -1523,6 +1523,9 @@ $arrow-padding: 5px;*/
             text-align: left;
             height: 185px;
             width: 185px; }
+          @media (max-width: 1096px) {
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item.img {
+              display: none; } }
           .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
             position: absolute;
             left: 225px;
@@ -2361,7 +2364,13 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
 /*
   This module defines the sass directives used
   to style Section 106 Process Step pages.
-*/
+  */
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 /* Global variables: widths, heights, & breakpoints */
 /*$arrow-width: 8px;
 $arrow-padding: 5px;*/
@@ -2403,6 +2412,183 @@ $arrow-padding: 5px;*/
  * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
  * then the variable below would be 10px.
  */
+#content_region {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 50px 0px; }
+
+.section_106_process {
+  background-color: #E6F8FF; }
+
+.step-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px; }
+  .step-container::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.step-content {
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 66.66667%;
+  margin-left: 16.66667%;
+  position: relative;
+  text-align: left; }
+  .step-content:last-child {
+    margin-right: 0; }
+
+.step-number {
+  position: relative;
+  font-family: "p22-underground", sans-serif;
+  color: #950306;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 33.6px;
+  line-height: 2.1rem;
+  text-transform: uppercase; }
+  .step-number div {
+    display: inline-block; }
+
+.step-title {
+  font-family: "p22-underground", sans-serif;
+  color: #043b62;
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 50.4px;
+  line-height: 3.15rem; }
+
+.determination-section-title {
+  font-family: "p22-underground", sans-serif;
+  color: #003a5e;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 30.8px;
+  line-height: 1.925rem; }
+
+div.step-content > hr {
+  background-color: #CCC; }
+
+.determination-prompt {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 20px 0px; }
+  .determination-prompt div {
+    display: inline-block;
+    vertical-align: middle; }
+  .determination-prompt div.determination-image + div {
+    position: relative;
+    display: inline-block;
+    color: #4a4a4a;
+    background-color: #e8f8ff;
+    font-family: "p22-underground", sans-serif;
+    font-size: 18px;
+    line-height: 51px;
+    width: 630px;
+    padding: 0px 30px; }
+
+.determination-image {
+  background-color: #013b5e;
+  background-image: url("/themes/achp/sass/pages/section_106_process/images/split-icon.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 51px;
+  width: 53px;
+  margin-right: -4px; }
+
+.determination-yes-wrapper {
+  display: inline-block;
+  white-space: nowrap;
+  padding-top: 20px; }
+  .determination-yes-wrapper div {
+    display: inline-block;
+    vertical-align: middle; }
+  .determination-yes-wrapper div.determination-prompt-yes + div {
+    position: relative;
+    display: inline-block;
+    color: #4a4a4a;
+    background-color: #d0efd7;
+    font-family: "p22-underground", sans-serif;
+    font-size: 18px;
+    line-height: 51px;
+    width: 630px;
+    padding: 0px 30px; }
+
+.determination-prompt-yes {
+  font-family: "p22-underground", sans-serif;
+  font-size: 18px;
+  line-height: 51px;
+  color: white;
+  background-color: #2b883f;
+  height: 51px;
+  width: 53px;
+  margin-right: -4px;
+  text-transform: uppercase;
+  text-align: center; }
+
+.yes-explaination-and-action div:first-child {
+  margin-left: 53px;
+  padding: 30px;
+  background-color: #f2fff5; }
+
+.determination-no-wrapper {
+  display: inline-block;
+  white-space: nowrap;
+  padding-top: 20px; }
+  .determination-no-wrapper div {
+    display: inline-block;
+    vertical-align: middle; }
+  .determination-no-wrapper div.determination-prompt-no + div {
+    position: relative;
+    display: inline-block;
+    color: #4a4a4a;
+    background-color: #e5e3e4;
+    font-family: "p22-underground", sans-serif;
+    font-size: 18px;
+    line-height: 51px;
+    width: 630px;
+    padding: 0px 30px; }
+
+.determination-prompt-no {
+  font-family: "p22-underground", sans-serif;
+  font-size: 18px;
+  line-height: 51px;
+  color: white;
+  background-color: #4a4a4a;
+  height: 51px;
+  width: 53px;
+  margin-right: -4px;
+  text-transform: uppercase;
+  text-align: center; }
+
+.no-explaination-and-action div:first-child {
+  margin-left: 53px;
+  padding: 30px;
+  background-color: #f4f4f4; }
+
+.no-further-action {
+  position: relative;
+  background-image: url("/themes/achp/sass/pages/section_106_process/images/stop-icon.svg");
+  background-repeat: no-repeat;
+  background-position: left 30px center;
+  font-family: "p22-underground", sans-serif;
+  font-size: 18px;
+  line-height: 51px;
+  margin-left: 53px;
+  padding: 5px 0px 0px 70px;
+  text-transform: uppercase; }
+
+.no-explaination-and-action .no-further-action {
+  background-color: #f4f4f4;
+  border-top: 1px solid #e5e3e4; }
+
+.yes-explaination-and-action .no-further-action {
+  background-color: #f2fff5;
+  border-top: 1px solid #d0efd7; }
+
 html,
 body {
   font-family: "minion-pro", serif;
