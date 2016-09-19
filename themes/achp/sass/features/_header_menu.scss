@@ -21,22 +21,29 @@
 
   ul[data-menu-level="0"] {
     margin: 0 auto;
-    height: $header-menu-height;    
+    height: $header-menu-height;
+    /*display: inline-block;    */
     -js-display: flex;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    /*width: 100% !important;*/
+    min-width: 100% !important;
+    width: 1024px !important;
+    /*@span-columns*/
 
     li[data-menu-level="0"] {
       border: $header-menu-border-width solid rgba(0,0,0,0);
       border-bottom: none;
       list-style-type: none;
       text-align: center;
-      margin: 0 10px 0 0;
+      margin: 0;
       text-align: center;
       padding: 0 40px;
       height: $header-menu-height + $header-menu-border-width !important;
       box-sizing: border-box !important;
+      /*background-color: pink;*/
+      display: inline-block;
+      /*background-color: pink;*/
 
       &:last-of-type {
         margin: 0;

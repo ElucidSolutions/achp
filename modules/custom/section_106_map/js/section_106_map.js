@@ -45,7 +45,7 @@
         id:       _case.id,
         title:    _case.title,
         body:     _case.body,
-        agency:   _case.agency ? _case.agency.title : '',
+        agency:   _case.agency,
         poc_name: _case.poc.name,
         states:   _case.states.join (),
         status:   _case.status
@@ -1217,26 +1217,18 @@
   }
 
   /*
-    Accepts on argument: cases, an array of Case
-    objects; and returns a set of case cards
-    that represent cases as an array of JQuery
-    HTML Elements.
-  */
-/*
-  Grid.prototype.createCaseCards = function (cases) {
-    return cases.map (this.createCaseCard, this);
-  }
-*/
-  /*
     Accepts one argument: caseIndex, an integer
     referencing a case in this component's cases
     array; and returns a JQuery HTML Element
     that represents the referenced case.
   */
   Grid.prototype.createCaseCard = function (caseIndex) {
+
     var self = this;
     var _case = this.getCases () [caseIndex];
     var classPrefix = getModuleClassPrefix () + '_case_card';
+
+    var MAX_TITLE_LENGTH = 65;
     return _case ?
       $('<div></div>')
         .addClass (classPrefix)
@@ -1245,16 +1237,14 @@
           .addClass (classPrefix + '_expand_button'))
         .append ($('<div></div>')
           .addClass (classPrefix + '_title')
-          .text (_case.title))
+          .text (ellipse (MAX_TITLE_LENGTH, _case.title)))
         .append ($('<div></div>')
           .addClass (classPrefix + '_state')
           .text (_case.states.join (', ')))
         .click (function () {
-            if ($(window).width () < 650) {
-              window.location.href = _case.url;
-            } else {
+            $(window).width () < 650 ?
+              window.location.href = _case.url :
               self.showCaseOverlayElement (caseIndex);
-            }
           })
       : null;
   }
@@ -1268,7 +1258,7 @@
   Grid.prototype.showCaseOverlayElement = function (caseIndex) {
     this.getOverlayBodyElement ()
       .empty ()
-      .append (createCaseElement (this.getCases () [caseIndex]));
+      .append (createCaseElement (this.getCases () [caseIndex], caseIndex));
 
     this.getOverlayFooterElement ()
       .empty ()
@@ -1463,30 +1453,6 @@
   }
 
   /*
-    Accepts no arguments and returns a Range
-    object representing the indicies of the first
-    and last case that should be displayed on
-    this component's current page.
-  */
-  Grid.prototype.getCurrentPageRange = function () {
-    return this.getPageRange (this.getCurrentPage ());
-  }
-
-  /*
-    Accepts one argument: page, an integer that
-    represents a page index; and returns a Range
-    object representing the indicies of the first
-    and last case that should be displayed on
-    the referenced page.
-  */
-  Grid.prototype.getPageRange = function (page) {
-    return {
-      'start': this.getPageStart (page),
-      'end':   this.getPageEnd (page)
-    };
-  }
-
-  /*
     Accepts no arguments and returns an integer
     that representing the index of the last
     case in this component's case array that
@@ -1626,24 +1592,33 @@
     each page as an integer.
   */
   function getNumCasesPerPage () {
-    return 3;
+    return 6;
   }
 
   // IV. Auxiliary functions.
 
   /*
-    Accepts one argument: _case, a Case object;
+    Accepts two arguments:
+
+    * _case, a Case object
+    * and caseIndex, an integer representing
+      _case's index in the returned result set
+
     and returns a case details element that
     represents _case as a jQuery HTML Element.
   */
-  function createCaseElement (_case) {
+  function createCaseElement (_case, caseIndex) {
     var classPrefix = getModuleClassPrefix () + '_case';
     var dataPrefix  = getModuleDataPrefix () + '-case';
     return $('<div></div>')
       .addClass (classPrefix)
       .attr (dataPrefix + '-id', _case.id)
+      .attr (dataPrefix + '-index', caseIndex)
       .append ($('<li></li>')
         .addClass (classPrefix + '_item')
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_num')
+          .text (caseIndex < 9 ? '0' + (caseIndex + 1) : (caseIndex + 1))) 
         .append ($('<div></div>')
           .addClass (classPrefix + '_header')
           .append ($('<div></div>')
@@ -1655,7 +1630,7 @@
           .append ($('<div></div>')
             .addClass (classPrefix + '_location')
             .addClass ('section_106_case_field')
-            .text(_case.state)))
+            .text(_case.states.join (', '))))
         .append ($('<div></div>')
           .addClass (classPrefix + '_body')
           .append ($('<div></div>')
@@ -1976,4 +1951,33 @@
     'wv': {'latitude': 38.4680, 'longitude':-80.9696},
     'wy': {'latitude': 42.7475, 'longitude':-107.2085}
   };
+
+  /*
+    Accepts two arguments:
+
+    * maxLength, an integer
+    * and string, a string
+
+    and returns an ellipsed version of string
+    if its length exceeds maxLength. Otherwise,
+    this function returns string unaltered.
+  */
+  function ellipse (maxLength, string) {
+    if (string.length <= maxLength) {
+      return string;
+    } 
+
+    var result = '';
+    var words = string.split (' ');
+    for (var i in words) {
+      var word = words [i];
+      var newString = result + ' ' + word;
+      if (newString.length <= maxLength - 4) {
+        result = newString;
+      } else {
+        break;
+      }
+    }
+    return result + ' ...';
+  }
 }) (jQuery);
