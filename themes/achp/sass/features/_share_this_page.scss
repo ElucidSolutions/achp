@@ -1,0 +1,23 @@
+/*
+  This module defines the styles for the Share
+  This Page block element.
+*/
+
+.share_this_page {
+  border-color: $color-grey;
+
+  .share_this_page_label {
+    color: $color-red;
+  }
+
+  .share_this_page_button_icon {
+    &:hover {
+      svg {
+        path {
+          fill: $color-blue-primary;
+        }
+      }
+    }
+  }
+}
+

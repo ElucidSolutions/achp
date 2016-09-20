@@ -1,0 +1,8 @@
+name: Import Cases
+description: Creates a Cron job that periodically imports and updates Section 106 Case records using data from ACHP Connect.
+package: Advisory Council on Historic Preservation
+type: module
+core: 8.x
+dependencies:
+  - node
+  - salesforce

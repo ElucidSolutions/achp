@@ -1,0 +1,388 @@
+/*
+  This module contains styles used by the Event
+  Calendar feature.
+*/
+
+.event_calendar {
+  .event_calendar_feature {
+    padding: 0 50px;
+  }
+
+  .event_calendar_calendar {
+    @include span-columns (4 of 12);
+    height: 400px;
+    padding-bottom: 20px;
+
+    .clndr {
+      padding: 5px;
+    }
+
+    &_title {
+      margin-bottom: 5px;
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      font-weight: 300;      
+    }
+
+    &_body {
+      @extend .card;
+      background-color: #fff;
+      color: $color-lightgrey-2;
+      font-family: $sans-text;
+
+      .clndr-controls {
+        position: relative;
+        height: 40px;
+
+        .month-container {
+          font-size: 1.5625rem;
+          text-transform: uppercase;
+          top: 0;
+          width: 250px;
+          @include center-xy;
+          position: relative;
+          text-align: center;
+
+          .month {
+            display: inline-block;
+            padding-top: 4px;
+            cursor: pointer;
+            @include hover-transition-content($color-blue-primary);
+          }
+        }
+
+        .clndr-previous-button, .clndr-next-button {
+          @include center-y;
+          cursor: pointer;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20px;
+          height: 20px;
+          transition: background-image 0.25s;
+        }
+
+        .clndr-previous-button {
+          background-image: url('../images/left-calendar-arrow.svg');
+          padding: 23px 30px 23px 7px;
+          left: 0;
+
+          &:hover {
+            background-image: url('../images/left-calendar-arrow-blue.svg');
+          }
+        }
+        
+        .clndr-next-button {
+          padding: 23px 14px 23px 30px;
+          right: 0;
+          background-image: url('../images/right-calendar-arrow.svg');
+
+          &:hover {
+            background-image: url('../images/right-calendar-arrow-blue.svg');
+          }
+        }
+      }
+
+      .clndr-table {
+        border: none;
+        width: 100%;
+        text-align: center;
+        font-size: 0.75rem;
+
+        thead {
+          font-family: $serif-text;
+          font-weight: bold;
+        }
+
+        tbody {
+          .adjacent-month {
+            color: $color-lightgrey;
+
+            &.event {
+              background-color: #fff;
+
+              &:hover {
+                cursor: default;
+                background-color: #fff;
+                color: #c6c6c6;
+              }
+            }
+          }
+
+          .event {
+            cursor: pointer;
+            background-color: $color-lightblue3;
+          }          
+
+          .today {
+            color: #fff;
+            background-color: $color-darkblue3;
+          }
+
+          .event:hover {
+            color: #fff;
+            background-color: $color-blue-primary; 
+          }
+        }
+
+        .day, .header-day {
+          line-height: 3.5;
+        }
+      }
+    }
+  }
+
+  $event-grid-column-padding: 20px;
+  $event-meeting-grid-column-content-width: $max-content-width / 3 - $event-grid-column-padding;
+
+  .event_calendar_grid {
+    @include span-columns (8 of 12); 
+
+    &_title {
+      margin: 0 0 5px 20px;
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      font-weight: 300;      
+    }
+
+    .event_calendar_grid_card_container {
+      @include span-columns (4 of 8);
+      padding: 0 0 $event-grid-column-padding $event-grid-column-padding;
+
+      &:nth-of-type(2n + 1) {
+        clear: both;
+      }
+    }
+
+    .event_calendar_grid_message {
+      color: #fff;
+      text-align: left;
+      @include font-size($button-font-sizes);
+      margin-left: 20px;
+      font-style: italic;
+      font-family: $sans-text;
+    }
+
+    .event_calendar_grid_card {
+      @extend .card;  
+      height: 240px;    
+      width: 100%;
+      background-color: #fff;
+      padding: 10px;
+      max-width: $event-meeting-grid-column-content-width;
+      position: relative;
+
+      &_date {
+        @extend .card_date;
+      }
+
+      &_mobile_date {
+        display: none;
+      }
+
+      &_location {
+        @extend .card_body;
+        margin-bottom: 10px;
+      }
+
+      &_footer {
+        height: 20px;
+        width: 100%;
+        position: absolute;
+        bottom: 15px;
+
+        .read_more {
+          position: absolute;
+        }
+
+        .event_calendar_grid_card_google_calendar {
+          display: block;
+          background-image: url('../images/add-calendar-icon.svg');
+          float: right;
+          background-repeat: no-repeat;
+          height: 20px;
+          width: 20px;
+          cursor: pointer;
+          transition: background-image 0.25s;
+          margin-right: 25px;
+          margin-top: 1px;
+
+          &:hover {
+            background-image: url('../images/add-calendar-icon-lightblue.svg');
+          }
+        }
+      }
+    }
+  }
+
+  .event_calendar_feature_footer {
+    margin-top: 10px;
+    @include span-columns (12 of 12);  
+  }
+
+  @media (max-width: $max-content-width) {
+    .event_calendar_feature { 
+      .event_calendar_calendar {
+        @include span-columns (6 of 12);
+        height: 450px;
+
+        @media (min-width: $mobile-breakpoint) {
+          padding-bottom: 20px;
+
+          &_title {
+            padding-top: 38px;
+          }
+        }
+      }
+
+      .event_calendar_grid {
+        @include span-columns (6 of 12);
+
+        &_title {
+          display: table-cell;
+          padding-left: 20px;
+          vertical-align: bottom;
+          height: 75px;
+          line-height: 1.2;
+        }
+
+        &_card_container {
+          @include span-columns (6 of 12);  
+          height: $mobile-card-item-height;
+          margin: 10px 0;
+          width: 100%;
+          position: relative;
+          padding: 0;
+          padding-left: 20px;
+
+          .event_calendar_grid_card {
+            width: 100%;
+            height: 100%;
+            height: $mobile-card-item-height;
+            padding: 0;
+            position: absolute;
+            max-width: 100%;
+            border: 0;
+
+            &_header {
+              height: $mobile-card-item-height;
+              /*width: 100%;*/
+              background-color: #fff;
+              /*position: absolute;*/
+              margin-left: 60px;
+              position: relative;
+            }
+
+            &_title {
+              @include center-y;
+              /*@include hover-transition-content(#71bffe);*/
+              cursor: pointer;
+              width: 95%;
+              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 0, $color-blue-primary);
+            
+              a {
+                display: block;
+                width: 90%;
+                padding: 25px 0 25px 15px;
+              }
+            } 
+
+            &_date, &_location, &_footer {
+              display: none;
+            }
+
+            &_mobile_date_container {
+              line-height: 1.1;
+              width: 60px;
+              float: left;
+              height: $mobile-card-item-height;
+              background-color: $color-red;
+              text-align: center;
+              position: absolute;
+              color: #fff;
+              top: 0;
+            }
+
+            &_mobile_date {
+              display: inline-block;
+              @include center-y;
+              position: relative;
+
+              &_month {
+                text-transform: uppercase;
+                font-size: 1.125rem;
+              }
+
+              &_day {
+                font-size: 2.125rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: $mobile-breakpoint) {
+    .event_calendar_feature {
+      padding: 0 25px;
+
+      .event_calendar_calendar {
+        display: none;
+      }
+
+      .event_calendar_grid {
+        @include span-columns (12 of 12);
+
+        &_title {
+          display: none;
+        }
+
+        &_card_container {
+          @include span-columns (12 of 12);  
+          height: $mobile-card-item-height;
+          margin: 10px 0;
+          width: 100%;
+          position: relative;
+          padding: 0;
+
+          .event_calendar_grid_card {
+            width: 100%;
+            height: 100%;
+            height: $mobile-card-item-height;
+            padding: 0;
+            position: absolute;
+            max-width: 100%;
+            border: 0;
+            /*@include span-columns (12 of 12);      */
+
+            &_header {
+              height: $mobile-card-item-height;
+              /*width: 100%;*/
+              background-color: #fff;
+              /*position: absolute;*/
+              margin-left: 60px;
+              position: relative;
+            }
+
+            &_title {
+              @include center-y;
+              /*@include hover-transition-content(#71bffe);*/
+              cursor: pointer;
+              width: 95%;
+              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px, $color-blue-primary);
+            
+              a {
+                display: block;
+                width: 100%;
+                padding: 25px 0 25px 15px;
+              }
+            }
+
+            &_date, &_location, &_footer {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

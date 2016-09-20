@@ -1,0 +1,198 @@
+<?php
+/**
+ * @file
+ * Defines a Cron hook function that updates
+ * Section 106 Case records.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\salesforce\RestClient;
+
+// Implements hook_cron ()
+function import_cases_cron () {
+  \Drupal::logger ('import_cases')->notice ('[import_cases_cron]');
+  $file = module_load_include ('inc', 'salesforce', 'includes/salesforce.select_query');
+
+  // I. Load the Salesforce Interface Service.
+  // Returns a \Drupal\salesforce\RestClient object.
+  $sfapi = \Drupal::service ('salesforce.client');
+
+  $sfquery = new SalesforceSelectQuery ('Case');
+  $sfquery->fields [] = 'Id';
+  $sfquery->addCondition ('Web_Enabled__C', 'true');
+
+  $sfresults = $sfapi->query ($sfquery);
+
+  $STATE_VOCABULARY_ID = 'f';
+  $STATUS_VOCABULARY_ID = 'section_106_case_status';
+  foreach ($sfresults ['records'] as $result) {
+    // \Drupal::logger ('import_cases')->notice ('[import_cases_cron] result: <pre>' . print_r ($result, true) . '</pre>');
+
+    $sfcase = $sfapi->objectRead ('Case', $result ['Id']);
+    // \Drupal::logger ('import_cases')->notice ('[import_cases_cron] sfcase: <pre>' . print_r ($sfcase, true) . '</pre>');
+
+    if (
+      !$sfcase ['Case_File_Name__c'] ||
+      !$sfcase ['Undertaking_Name__c']) {
+      continue;
+    }
+
+    $state_names = explode (';', $sfcase ['States__c']);
+    $location_field_value = array ();
+    foreach ($state_names as $state_name) {
+      if (!$state_name) { continue; }
+
+      $state_terms = taxonomy_term_load_multiple_by_name ($state_name, 'f');
+      // \Drupal::logger ('import_cases')->notice ('[import_cases_cron] state terms: <pre>' . print_r ($state_terms, true) . '</pre>');
+
+      $state_term = null;
+      if (empty ($state_terms)) {
+        $state_term = Term::create ([
+          'name' => $state_name,
+          'description' => '',
+          'parent' => [0],
+          'vid' => $STATE_VOCABULARY_ID
+        ]);
+        $state_term->save ();
+        \Drupal::logger ('import_cases')->notice ('[import_cases_cron] Imported a new state name: ' . $state_name . '.');
+      } else {
+        $state_term = array_shift ($state_terms);
+      }
+      // \Drupal::logger ('import_cases')->notice ('[import_cases_cron] state term id: ' . $state_term->id ());
+
+      $location_field_value [] = [
+        'target_id' => $state_term->id ()
+      ];
+    }
+
+    $status_terms = taxonomy_term_load_multiple_by_name ($sfcase ['Status'], 'section_106_case_status');
+    $status_term = null;
+    if (empty ($status_terms)) {
+      $status_term = Term::create ([
+        'name' => $sfcase ['Status'],
+        'description' => '',
+        'parent' => [0],
+        'vid' => $STATUS_VOCABULARY_ID
+      ]);
+      $status_term->save ();
+      \Drupal::logger ('import_cases')->notice ('[import_cases_cron] Imported a new Case Status name: ' . $sfcase ['Status'] . '.');
+    } else {
+      $status_term = array_shift ($status_terms);
+    }
+    // \Drupal::logger ('import_cases')->notice ('[import_cases_cron] status term id: ' . $status_term->id ());
+
+    $agency_node = null;
+    if ($sfcase ['AccountId']) {
+      $sfagency = $sfapi->objectRead ('Account', $sfcase ['AccountId']);
+      if ($sfagency) { 
+        $AGENCY_CONTENT_TYPE = 'federal_agency';
+        $agency_nids = \Drupal::entityQuery ('node')
+          ->condition ('type', $AGENCY_CONTENT_TYPE)
+          ->condition ('title', $sfagency ['Name'])
+          ->execute ();
+
+        if (empty ($agency_nids)) {
+          $agency_node = Node::create ([
+            'type'  => $AGENCY_CONTENT_TYPE,
+            'title' => $sfagency ['Name'],
+            'body'  => [
+              'value' => $sfagency ['Description']
+            ]
+          ]);
+          $agency_node->save ();
+          \Drupal::logger ('import_cases')->notice ('[import_cases_cron] Imported a new Federal Agency node: ' . $sfagency ['Name']);
+        } else {
+          $agency_nid = array_shift ($agency_nids);
+          $agency_node = Node::load ($agency_nid);
+        }
+        // \Drupal::logger ('import_cases')->notice ('[import_cases_cron] Federal Agency node: <pre>' . print_r ($agency_node, true) . '</pre>');
+      }
+    }
+
+    $sfcontact = $sfcase ['ContactId'] ? $sfapi->objectRead ('Contact', $sfcase ['ContactId']) : null;
+
+    $CASE_CONTENT_TYPE = 'section_106_case_profile';
+    $case_nids = \Drupal::entityQuery ('node')
+      ->condition ('type', $CASE_CONTENT_TYPE)
+      ->condition ('field_case_number', $sfcase ['CaseNumber'])
+      ->execute ();
+
+    $case_node = null;
+    if (empty ($case_nids)) {
+      $MAX_TITLE_LENGTH = 255;
+      $case_node = Node::create ([
+        'type'  => $CASE_CONTENT_TYPE,
+        'title' => strlen ($sfcase ['Case_File_Name__c']) > $MAX_TITLE_LENGTH ? substr ($sfcase ['Case_File_Name__c'], 0, $MAX_TITLE_LENGTH - 3) . '...' : $sfcase ['Case_File_Name__c'],
+        'field_case_name' => $sfcase ['Undertaking_Name__c'],
+        'field_case_number' => [
+          'value' => $sfcase ['CaseNumber']
+        ],
+        'body'  => [
+          'value' => $sfcase ['Description']
+        ],
+        'field_case_federal_agency' => [
+          'target_id' => is_null ($agency_node) ? null : $agency_node->id () 
+        ],
+        'field_case_location' => $location_field_value,
+        'field_case_poc_email' => [
+          'value' => is_null ($sfcontact) ? '' : $sfcontact ['Email']
+        ],
+        'field_case_poc_name' => [
+          'value' => is_null ($sfcontact) ? '' : $sfcontact ['Name']
+        ],
+        'field_case_poc_phone' => [
+          'value' => is_null ($sfcontact) ? '' : $sfcontact ['Phone']
+        ],
+        'field_case_poc_title' => [
+          'value' => is_null ($sfcontact) ? '' : $sfcontact ['Title']
+        ],
+        'field_case_status' => [
+          'target_id' => $status_term->id ()
+        ]
+      ]);
+      $case_node->save ();
+      \Drupal::logger ('import_cases')->notice ('[import_cases_cron] Imported a new Case node: ' . $sfcase ['Undertaking_Name__c'] . '.');
+    } else {
+      $case_nid = array_shift ($case_nids);
+      $case_node = Node::load ($case_nid);
+      // \Drupal::logger ('import_cases')->notice ('[import_cases_cron] case node: <pre>' . print_r ($case_node, true) . '</pre>');
+
+      // \Drupal::logger ('import_cases')->notice ('[import_cases_cron] achp modified time: ' . strtotime ($sfcase ['LastModifiedDate']));
+      // \Drupal::logger ('import_cases')->notice ('[import_cases_cron] local modified time: ' . $case_node->getChangedTime ());
+      if (strtotime ($sfcase ['LastModifiedDate']) > $case_node->getChangedTime ()) {
+        \Drupal::logger ('import_cases')->notice ('[import_cases_cron] Updating case node: ' . $case_node->getTitle () . '.');
+        $case_node->title = $sfcase ['Case_File_Name__c'];
+        $case_node->field_case_name = [
+          'value' => $sfcase ['Undertaking_Name__c']
+        ];
+        $case_node->field_case_number = [
+          'value' => $sfcase ['CaseNumber']
+        ];
+        $case_node->body->value = $sfcase ['Description'];
+        $case_node->field_case_federal_agency = [
+          'target_id' => is_null ($agency_node) ? null : $agency_node->id ()
+        ];
+        $case_node->field_case_location = $location_field_value;
+        $case_node->field_case_poc_email = [
+          'value' => is_null ($sfcontact) ? '' : $sfcontact ['Email']
+        ];
+        $case_node->field_case_poc_name = [
+          'value' => is_null ($sfcontact) ? '' : $sfcontact ['Name']
+        ];
+        $case_node->field_case_poc_phone = [
+          'value' => is_null ($sfcontact) ? '' : $sfcontact ['Phone']
+        ];
+        $case_node->field_case_poc_title = [
+          'value' => is_null ($sfcontact) ? '' : $sfcontact ['Title']
+        ];
+        $case_node->field_case_status = [
+          'target_id' => $status_term->id ()
+        ];
+        $case_node->save ();
+        \Drupal::logger ('import_cases')->notice ('[import_cases_cron] Updated case node: ' . $case_node->getTitle () . '.');
+      }
+    }
+  }
+}

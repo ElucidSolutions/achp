@@ -8,8 +8,6 @@
 */
 (function ($) {
 
-  console.log('loaded');
-
   // The Lunr Search Index.
   var lunrIndex = null;
 
@@ -27,7 +25,7 @@
       this.field ('body');
       this.field ('agency', 100);
       this.field ('poc_name', 100);
-      this.field ('state', 100);
+      this.field ('states', 100);
       this.field ('status');
     });
 
@@ -36,7 +34,10 @@
     lunrIndex.pipeline.reset ();
 
     // Retrieve the section 106 consultation cases.
-    cases = drupalSettings.section_106_map.cases;
+    cases = _.chain (drupalSettings.section_106_map.cases)
+      .filter (function (_case) { return _case.status === 'Open'; })
+      .sortBy (function (_case) { return _case.title; })
+      .value ();
 
     // Index the case records.
     cases.forEach (function (_case) {
@@ -44,9 +45,9 @@
         id:       _case.id,
         title:    _case.title,
         body:     _case.body,
-        agency:   _case.agency.title,
+        agency:   _case.agency,
         poc_name: _case.poc.name,
-        state:    _case.state,
+        states:   _case.states.join (),
         status:   _case.status
       });
     });
@@ -588,8 +589,16 @@
   */
   function createStates (cases) {
     return _.chain (cases)
-      .groupBy (function (_case) { return _case.state; })
-      .map     (function (stateCases, stateName) { return createState (stateName, stateCases); })
+      .pluck   ('states')
+      .flatten ()
+      .sort    ()
+      .uniq    (true)
+      .map     (function (stateName) {
+        return createState (stateName, cases.filter (
+          function (_case) {
+            return _.contains (_case.states, stateName);
+          }));
+       })
       .compact ()
       .value   ();
   }
@@ -824,8 +833,7 @@
           .click (_.bind (this.hidePanelElement, this)))
       .append ($('<div></div>')
         .addClass (classPrefix + '_body')
-        .addClass (classPrefix + '_body_map_mode')
-        .append ($('<div></div>')
+        .append ($('<ol></ol>')
           .addClass (classPrefix + '_state_cases_list')
           .append (state.cases.map (createCaseElement))))
       .append ($('<div></div>')
@@ -874,22 +882,6 @@
             toastr.info ('Link Copied to Clipboard.');
           });
         });
-
-      this.prependNumbersToCases ();
-  }
-
-  /*
-    Accepts no arguments, adds an enumerating div
-    before each case, and returns undefined. Used 
-    to avoid IE9 bug. 
-  */
-  Map.prototype.prependNumbersToCases = function () {
-    for (var n = 0; n < $('.section_106_map_case_item').length; n++) {
-    $('.section_106_map_case_item').eq(n)
-      .prepend($('<div></div>')
-        .addClass(getModuleClassPrefix () + '_case_num')
-        .text( n < 10 ? '0' + (n + 1) : (n + 1) ));
-    }
   }
 
   /*
@@ -1061,6 +1053,8 @@
             })))
       .append ($('<div></div>')
         .addClass (getOverlayBodyClassName ()))
+      .append ($('<div></div>')
+        .addClass (getOverlayFooterClassName ()))
       .hide ();
   }
 
@@ -1184,8 +1178,6 @@
         .addClass (classPrefix + '_quick_link')
         .addClass (classPrefix + '_quick_link_end'));
     }
-
-    // return link elements.
     return linkElements;
   }
 
@@ -1220,95 +1212,60 @@
     component's current page.
   */
   Grid.prototype.getCurrentPageCards = function () {
-    return this.createCaseCards (this.getCurrentPageCases ());
+    return _.range (this.getCurrentPageStart (), this.getCurrentPageEnd ())
+            .map (this.createCaseCard, this);
   }
 
   /*
-    Accepts on argument: cases, an array of Case
-    objects; and returns a set of case cards
-    that represent cases as an array of JQuery
-    HTML Elements.
+    Accepts one argument: caseIndex, an integer
+    referencing a case in this component's cases
+    array; and returns a JQuery HTML Element
+    that represents the referenced case.
   */
-  Grid.prototype.createCaseCards = function (cases) {
-    return cases.map (this.createCaseCard, this);
-  }
+  Grid.prototype.createCaseCard = function (caseIndex) {
 
-  /*
-    Accepts one argument: case, a Case object
-    that represents a section 106 consultation
-    case; and returns a JQuery HTML Element that
-    represents case as a case card element.
-  */
-  Grid.prototype.createCaseCard = function (_case) {
     var self = this;
+    var _case = this.getCases () [caseIndex];
     var classPrefix = getModuleClassPrefix () + '_case_card';
-    return $('<div></div>')
-      .addClass (classPrefix)
-      .attr (getModuleDataPrefix () + '-map-case', _case.id)
-      .append ($('<div></div>')
-        .addClass (classPrefix + '_expand_button'))
-      .append ($('<div></div>')
-        .addClass (classPrefix + '_title')
-        .text (_case.title))
-      .append ($('<div></div>')
-        .addClass (classPrefix + '_state')
-        .text ( _case.state))
-      .click (function () {
-          self.showCaseOverlayElement (_case);
-        });
+
+    var MAX_TITLE_LENGTH = 65;
+    return _case ?
+      $('<div></div>')
+        .addClass (classPrefix)
+        .attr (getModuleDataPrefix () + '-map-case', _case.id)
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_expand_button'))
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_title')
+          .text (ellipse (MAX_TITLE_LENGTH, _case.title)))
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_state')
+          .text (_case.states.join (', ')))
+        .click (function () {
+            $(window).width () < 650 ?
+              window.location.href = _case.url :
+              self.showCaseOverlayElement (caseIndex);
+          })
+      : null;
   }
 
   /*
-    Takes two arguments:
-    1. overlayElement, an HTML Element representing a selected case, and
-    2. caseId, an integer
-
-    Attaches click events to the Previous and Next buttons that
-    navigate to those respective cases, if they exist. 
+    Accepts one argument: caseIndex, an integer
+    referencing a case in this component's cases
+    array; and displays the case details element
+    in this instance's overlay element.
   */
-  Grid.prototype.attachCaseNavListeners = function (overlayElement, caseId) {
-    var self = this;
-    var displayedCases = self.getCases ();
-    var prevButton = overlayElement.find ($('.section_106_map_case_nav_prev:not(.section_106_map_case_nav_disabled)'));
-    var nextButton = overlayElement.find ($('.section_106_map_case_nav_next:not(.section_106_map_case_nav_disabled)'));
+  Grid.prototype.showCaseOverlayElement = function (caseIndex) {
+    this.getOverlayBodyElement ()
+      .empty ()
+      .append (createCaseElement (this.getCases () [caseIndex], caseIndex));
 
-    for (var i = 0; i < displayedCases.length; i++) {
-      if (displayedCases[i].id === caseId) {
-        var caseIndexInArray = $.inArray(displayedCases[i], displayedCases);
-        break;
-      }
-    }
+    this.getOverlayFooterElement ()
+      .empty ()
+      .append (this.createCaseNavElement (caseIndex));
 
-    displayedCases[caseIndexInArray - 1] ? prevButton.click (function (e) {
-      e.preventDefault();
-      self.showCaseOverlayElement (displayedCases[caseIndexInArray - 1]);
-    }) :
-    prevButton.addClass('section_106_map_case_nav_disabled');
-
-    displayedCases[caseIndexInArray + 1] ? nextButton.click (function (e) {
-      e.preventDefault();
-      console.log('clicked again')
-      self.showCaseOverlayElement (displayedCases[caseIndexInArray + 1]);
-    }) :
-    nextButton.addClass('section_106_map_case_nav_disabled');
-  }
-
-  /*
-    Accepts one argument: case, a Case object;
-    and displays the case details element in
-    this instance's overlay element.
-  */
-  Grid.prototype.showCaseOverlayElement = function (_case) {
-    var overlayElement = this.getOverlayElement ();
-
-    if ($(window).width () > 650) {
-
-      $('.' + getOverlayBodyClassName (), overlayElement)
-        .empty ()
-        .append (createCaseElement (_case));
-
-      overlayElement.find($('.section_106_map_grid_overlay_body')).show ();
-      overlayElement.show (function () {
+    this.getOverlayElement ().show (
+      function () {
         // create case share elements.
         a2a.init_all ('page');
 
@@ -1321,22 +1278,49 @@
           };
           toastr.info ('Link Copied to Clipboard.');
         });
-      }).animate ( {
+      })
+      .animate ({
         top: 0,
         width: "96%",
         height: "94%",
         left: 0,
         margin: "1% 2%",
       });
+  }
 
-      // Attach click events to Previous and Next buttons on overlay
-      this.attachCaseNavListeners (overlayElement, _case.id);
-
-    } else {
-      window.location.href = _case.url;
-    }
-    // console.log(overlayElement.find($('.section_106_map_case_title')).text());
-
+  /*
+    Accepts one argument: caseIndex, an integer
+    referencing a case in this component's cases
+    array; and returns a jQuery HTML Element
+    that represents a nav element displayed on
+  */
+  Grid.prototype.createCaseNavElement = function (caseIndex) {
+    var self = this;
+    var classPrefix = getOverlayClassName () + '_nav';
+    return $('<div></div>')
+      .addClass (classPrefix)
+      .append ($('<span></span>')
+        .addClass (classPrefix + '_prev')
+        .addClass (0 >= caseIndex && classPrefix + '_disabled')
+        .text ('PREVIOUS')
+        .click (function () {
+            self.showCaseOverlayElement (
+              0 < caseIndex ?
+                caseIndex - 1 :
+                caseIndex
+            );
+          }))
+      .append ($('<span></span>')
+        .addClass (classPrefix + '_next')
+        .addClass (caseIndex >= self.getCurrentPageEnd () - 1 && classPrefix + '_disabled')
+        .text ('NEXT')
+        .click (function () {
+            self.showCaseOverlayElement (
+              caseIndex < self.getCurrentPageEnd () - 1 ?
+                caseIndex + 1 :
+                caseIndex
+            );
+          }));      
   }
 
   /*
@@ -1348,20 +1332,11 @@
   }
 
   /*
-    Accepts no arguments and animates the
-    instance's overlay element out of view.
+    Accepts no arguments and hides this
+    instance's overlay element.
   */
   Grid.prototype.hideOverlayElement = function () {
-   overlayElement = this.getOverlayElement ();
-   overlayElement.find($('.section_106_map_grid_overlay_body')).hide ();
-   overlayElement.animate ({
-      width: 0,
-      height: 0,
-      top: '50%',
-      left: '50%'  
-    }, 'slow', function () {
-      overlayElement.hide ();
-    });  
+    this.getOverlayElement ().hide ();
   }
 
   /*
@@ -1370,6 +1345,22 @@
   */
   Grid.prototype.hideComponentElement = function () {
     this.getComponentElement ().hide ();
+  }
+
+  /*
+    Accepts no arguments and returns this
+    component's overlay body element.
+  */
+  Grid.prototype.getOverlayBodyElement = function () {
+    return $('.' + getOverlayBodyClassName (), this.getOverlayElement ());
+  }
+
+  /*
+    Accepts no arguments and returns this
+    component's overlay footer element.
+  */
+  Grid.prototype.getOverlayFooterElement = function () {
+    return $('.' + getOverlayFooterClassName (), this.getOverlayElement ());
   }
 
   /*
@@ -1405,6 +1396,15 @@
   */
   function getOverlayBodyClassName () {
     return getOverlayClassName () + '_body';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    representing the class name used to label
+    overlay footer elements.
+  */
+  function getOverlayFooterClassName () {
+    return getOverlayClassName () + '_footer';
   }
 
   /*
@@ -1450,25 +1450,6 @@
   */
   function getComponentClassName () {
     return getModuleClassPrefix () + '_grid';
-  }
-
-  /*
-    Accepts no arguments and returns a Case
-    array containing those cases that should be
-    displayed on this component's current page.
-  */
-  Grid.prototype.getCurrentPageCases = function () {
-    return this.getPageCases (this.getCurrentPage ());
-  }
-
-  /*
-    Accepts one argument: page, an integer that
-    represents a page index; and returns a Case
-    array containing those cases that should be
-    displayed on the referenced page.
-  */
-  Grid.prototype.getPageCases = function (page) {
-    return this.getCases ().slice (this.getPageStart (page), this.getPageEnd (page));
   }
 
   /*
@@ -1617,18 +1598,27 @@
   // IV. Auxiliary functions.
 
   /*
-    Accepts one argument: _case, a Case object;
+    Accepts two arguments:
+
+    * _case, a Case object
+    * and caseIndex, an integer representing
+      _case's index in the returned result set
+
     and returns a case details element that
     represents _case as a jQuery HTML Element.
   */
-  function createCaseElement (_case) {
+  function createCaseElement (_case, caseIndex) {
     var classPrefix = getModuleClassPrefix () + '_case';
     var dataPrefix  = getModuleDataPrefix () + '-case';
     return $('<div></div>')
       .addClass (classPrefix)
       .attr (dataPrefix + '-id', _case.id)
-      .append ($('<div></div>')
+      .attr (dataPrefix + '-index', caseIndex)
+      .append ($('<li></li>')
         .addClass (classPrefix + '_item')
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_num')
+          .text (caseIndex < 9 ? '0' + (caseIndex + 1) : (caseIndex + 1))) 
         .append ($('<div></div>')
           .addClass (classPrefix + '_header')
           .append ($('<div></div>')
@@ -1640,14 +1630,14 @@
           .append ($('<div></div>')
             .addClass (classPrefix + '_location')
             .addClass ('section_106_case_field')
-            .text(_case.state)))
+            .text(_case.states.join (', '))))
         .append ($('<div></div>')
           .addClass (classPrefix + '_body')
           .append ($('<div></div>')
             .addClass (classPrefix + '_description')
             .addClass ('section_106_case_field')            
             .html (_case.body))
-          .append ($('<div></div>')
+          .append (_case.agency && $('<div></div>')
             .addClass (classPrefix + '_body_agency')
             .append ($('<div></div>')
               .addClass (classPrefix + '_body_agency_header')
@@ -1657,8 +1647,8 @@
               .append ($('<div></div>')
                 .addClass (classPrefix + '_agency')
                 .addClass ('section_106_case_field')
-                .text (_case.agency.title))))
-          .append ($('<div></div>')
+                .text (_case.agency))))
+          .append (_case.poc.name && $('<div></div>')
             .addClass (classPrefix + '_body_contact')
             .append ($('<div></div>')
               .addClass (classPrefix + '_body_contact_header')
@@ -1666,37 +1656,28 @@
                 .addClass (classPrefix + '_body_contact_header_title')
                 .text ('Federal Point of Contact:')))
             .append ($('<div></div>')
-              .addClass (classPrefix + '_contact_info')
-              .append ($('<div></div>')
-                .addClass (classPrefix + '_contact_name_title')
-                .append ($('<span></span>')
-                  .addClass (classPrefix + '_contact_name')
-                  .addClass ('section_106_case_field')
-                  .text (_case.poc.name))
-                .append ($('<span></span>')
-                  .addClass (classPrefix + '_contact_title')
-                  .text (_case.poc.title)))
-              .append ($('<div></div>')
-                .addClass (classPrefix + '_contact_email')
-                .addClass ('section_106_case_field')             
-                .text (_case.poc.email))
-              .append ($('<div></div>')
-                .addClass (classPrefix + '_contact_phone')
+              .addClass (classPrefix + '_contact_name_title')
+              .append (_case.poc.name && $('<span></span>')
+                .addClass (classPrefix + '_contact_name')
                 .addClass ('section_106_case_field')
-                .text ("Phone: " + _case.poc.phone)))
-            ))
+                .text (_case.poc.name))
+              .append (_case.poc.title && $('<span></span>')
+                .addClass (classPrefix + '_contact_title')
+                .text (_case.poc.title)))
+            .append (_case.poc.email && $('<div></div>')
+              .addClass (classPrefix + '_contact_email')
+              .addClass ('section_106_case_field')             
+              .text (_case.poc.email))
+            .append (_case.poc.phone && $('<div></div>')
+              .addClass (classPrefix + '_contact_phone')
+              .addClass ('section_106_case_field')
+              .text ("Phone: " + _case.poc.phone)))
+          )
         .append ($('<div></div>')
           .addClass (classPrefix + '_footer')
-          .append (createShareElement (_case)))
-        .append ($('<div></div>')
-          .addClass (classPrefix + '_nav')
-          .append ($('<span></span>')
-            .addClass (classPrefix + '_nav_prev')
-            .text('PREVIOUS'))
-          .append ($('<span></span>')
-            .addClass (classPrefix + '_nav_next')
-            .text('NEXT'))));
+          .append (createShareElement (_case))));
   }
+
 
   /*
     Accepts one argument: _case, a Case object;
@@ -1970,4 +1951,33 @@
     'wv': {'latitude': 38.4680, 'longitude':-80.9696},
     'wy': {'latitude': 42.7475, 'longitude':-107.2085}
   };
+
+  /*
+    Accepts two arguments:
+
+    * maxLength, an integer
+    * and string, a string
+
+    and returns an ellipsed version of string
+    if its length exceeds maxLength. Otherwise,
+    this function returns string unaltered.
+  */
+  function ellipse (maxLength, string) {
+    if (string.length <= maxLength) {
+      return string;
+    } 
+
+    var result = '';
+    var words = string.split (' ');
+    for (var i in words) {
+      var word = words [i];
+      var newString = result + ' ' + word;
+      if (newString.length <= maxLength - 4) {
+        result = newString;
+      } else {
+        break;
+      }
+    }
+    return result + ' ...';
+  }
 }) (jQuery);

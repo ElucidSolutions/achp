@@ -16,7 +16,7 @@
   var OVERLAY = '_overlay';
   var TITLE = '_title';
   var STEP = '_step'
-  var WEIGHT = '_weight';
+  var NUMBER = '_number';
   var INNER_CONTAINER = '_inner_container';
   var READ_MORE = '_read_more';
   var HORIZONTAL_LINE = '_horizontal_line';
@@ -170,7 +170,7 @@
 
     /**
      * Now establish the starting position of the HR line. First, get the 
-     * div postion of the first step weight element
+     * div postion of the first step number element
      */
     var firstStepElement = $('.' + classPrefix + STEP).first();
     var leftOfFirstStepElement = firstStepElement.position().left;
@@ -180,7 +180,7 @@
      * Get the last image left offset position and add the with of the 
      * image to the the right offset position. The length of the HR 
      * element is just the right position minus the left position of
-     * the step weight element.
+     * the step number element.
      */
     var lastStepElement = $('.' + classPrefix + STEP).last();
     var lengthOfHRElement = (lastStepElement.position().left + (lastStepElement.outerWidth() / 2)) - leftOfFirstStepElement;
@@ -199,9 +199,9 @@
     var classPrefix = this.getFeatureClassName();
     var stepElement = $('<div></div>').addClass(classPrefix + STEP);
 
-    // create child element for step weight    
-    var weightLinkElement = $('<a></a>').addClass(classPrefix + STEP + WEIGHT + LINK).attr('href', step.url).text(step.weight);
-    stepElement.append(weightLinkElement);
+    // create child element for step number    
+    var numberLinkElement = $('<a></a>').addClass(classPrefix + STEP + NUMBER + LINK).attr('href', step.url).text(step.step_number);
+    stepElement.append(numberLinkElement);
 
     // Create an inner container
     var innerContainer = $('<div></div>').addClass(classPrefix + STEP + INNER_CONTAINER);

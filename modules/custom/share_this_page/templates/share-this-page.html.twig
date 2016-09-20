@@ -1,0 +1,43 @@
+{#
+/**
+ * module_path: The Share This Page module's base path.
+ * page.title: The current page's title.
+ * page.url: The current page's URL.
+ * share_this_page_label: The ribbon element label.
+ * The a2a_* classes are used by the Add To Any module.
+ * The data-clipboard-text attribute is used by Clipboard.js.
+*/
+#}
+<div
+  class="share_this_page a2a_kit a2a_kit_size_32"
+  data-a2a-url="{{ page.url }}"
+  data-a2a-title="{{ page.title }}">
+  <div class="share_this_page_buttons">
+    <div class="share_this_page_label">{{ share_this_page_label }}</div>
+    <div class="share_this_page_button share_this_page_button_facebook">
+      <a class="share_this_page_button_link share_this_page_button_link_facebook a2a_button_facebook">
+        <div class="share_this_page_button_icon share_this_page_button_icon_facebook"></div>
+      </a>
+    </div>
+    <div class="share_this_page_button share_this_page_button_twitter">
+      <a class="share_this_page_button_link share_this_page_button_link_twitter a2a_button_twitter">
+        <div class="share_this_page_button_icon share_this_page_button_icon_twitter"></div>
+      </a>
+    </div>
+    <div class="share_this_page_button share_this_page_button_email">
+      <a
+        class="share_this_page_button_link share_this_page_button_link_email"
+        href="mailto:?subject=Take%20a%20look%20at%20this%20&body=Take%20a%20look%20at%20this%20%3A%0A%0A{{ page.url_encoded_url}}">
+        <div class="share_this_page_button_icon share_this_page_button_icon_email"></div>
+      </a>
+    </div>
+    <div
+      class="share_this_page_button share_this_page_button_direct_link"
+      data-clipboard-text="{{ page.url }}">
+      <div class="share_this_page_button_icon share_this_page_button_icon_link"></div>
+    </div>
+    <div class="share_this_page_button share_this_page_button_print">
+      <div class="share_this_page_button_icon share_this_page_button_icon_print"></div>
+    </div>
+  </div>
+</div>
