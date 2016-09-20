@@ -2256,8 +2256,7 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
       width: 60%; }
 
 #block-learnaboutpreserveamerica button {
-  margin: 0 auto;
-  /*display: inline-block;*/ }
+  margin: 0 auto; }
 
 .preserveamerica_content_wrapper {
   position: relative;
@@ -2279,31 +2278,28 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
         position: relative;
         margin: 0px auto; }
         .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
-          /*@include span-columns (12 of 12);*/
           border-top: 5px solid #950306;
           background-color: #FFF;
           box-sizing: border-box;
           box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
           display: inline-block;
-          text-align: left;
+          /*text-align: left;*/
           width: 100%;
           padding: 20px;
           margin-bottom: 20px; }
           .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
             display: inline-block;
             vertical-align: top;
-            text-align: left;
+            /*text-align: left;  */
             height: 185px;
-            width: 185px;
-            /*@include span-columns (4 of 12);*/ }
+            width: 185px; }
           .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
             position: absolute;
             left: 225px;
             display: inline-block;
             vertical-align: top;
-            text-align: left;
-            padding-right: 20px;
-            /*@include span-columns (8 of 12);*/ }
+            /*text-align: left;*/
+            padding-right: 20px; }
             .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:first-child {
               position: relative;
               display: block;
@@ -2324,45 +2320,47 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
               text-decoration: none;
               text-align: left;
               margin-bottom: 20px; }
-            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body-mobile {
-              display: none; }
-            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a {
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link {
+              /*position: relative;*/
+              /*position: absolute;*/
               display: inline-block; }
-            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:last-child {
-              position: relative;
-              bottom: 0px;
-              max-width: 100%;
-              color: #4F4F4F;
-              font-family: "p22-underground", sans-serif;
-              font-size: 14px;
-              font-size: 0.875rem;
-              line-height: 19.2px;
-              line-height: 1.2rem;
-              font-weight: 500;
-              text-align: left;
-              text-decoration: none;
-              text-transform: uppercase; }
-            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:last-child:after {
-              position: absolute;
-              top: 50%;
-              right: -45px;
-              content: "";
-              background-image: url("../images/right-arrow-icon.svg");
-              background-repeat: no-repeat;
-              background-position: center;
-              -webkit-transform: translateY(-50%);
-              -moz-transform: translateY(-50%);
-              -ms-transform: translateY(-50%);
-              -o-transform: translateY(-50%);
-              transform: translateY(-50%);
-              width: 20px;
-              height: 20px;
-              padding-left: 15px;
-              margin-right: 20px;
-              cursor: pointer; }
-              @media (min-width: 701px) {
-                .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:last-child:after {
-                  top: -2px; } }
+              .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a {
+                width: auto;
+                /*margin-right: 20px;*/
+                display: inline;
+                color: #4F4F4F;
+                font-family: "p22-underground", sans-serif;
+                font-size: 14px;
+                font-size: 0.875rem;
+                line-height: 19.2px;
+                line-height: 1.2rem;
+                font-weight: 500;
+                /*text-align: left;          */
+                text-decoration: none;
+                text-transform: uppercase;
+                transition: color 0.25s; }
+                .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:hover {
+                  color: #0990FE; }
+                .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:after {
+                  position: absolute;
+                  right: -25px;
+                  content: "";
+                  background-image: url("../images/right-arrow-icon.svg");
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  width: 20px;
+                  height: 20px;
+                  /*                  padding-left: 15px;            
+                                    margin-right: 20px;*/
+                  cursor: pointer;
+                  /*@include center-y;*/
+                  display: inline;
+                  top: -4px;
+                  transition: background-image 0.25s; }
+                .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:hover:after {
+                  background-image: url("../images/right-arrow-icon-blue.svg"); }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body-mobile, .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile {
+              display: none; }
 
 @media (max-width: 900px) {
   .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
@@ -2379,12 +2377,26 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
     display: block;
     margin: 0 auto; }
   .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
-    width: 300px; }
+    width: 300px;
+    margin-top: 10px; }
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
-      position: static; }
-      .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link {
-        max-width: 60%;
-        margin: 0 auto; }
+      position: static;
+      text-align: center; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right p {
+        text-align: center; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-widescreen {
+        display: none; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile, .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile a {
+        display: inline-block; }
+        .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile:after, .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile a:after {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+          /*left: 100%;*/ }
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
       height: 250px;
       width: 250px; } }
@@ -2433,73 +2445,86 @@ $arrow-padding: 5px;*/
  * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
  * then the variable below would be 10px.
  */
-body {
-  background-color: #F4F4F4; }
-
-.news-landing-container {
-  /*margin-top: 2px;*/
-  float: left;
-  display: block;
-  margin-right: 0%;
-  width: 100%;
-  height: 100%;
-  background-color: #F4F4F4; }
-  .news-landing-container:last-child {
-    margin-right: 0; }
-  .news-landing-container header {
+.page_outer_container {
+  background-color: #F4F4F4;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  .page_outer_container::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .page_outer_container #main-wrapper #content {
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative; }
+  .page_outer_container .news-landing-container {
+    /*margin-top: 2px;*/
     float: left;
     display: block;
     margin-right: 0%;
     width: 100%;
-    background-color: #F4F4F4;
-    position: relative; }
-    .news-landing-container header:last-child {
+    height: 100%;
+    background-color: #F4F4F4; }
+    .page_outer_container .news-landing-container:last-child {
       margin-right: 0; }
-    .news-landing-container header .header_container {
-      width: auto;
-      display: inline-block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translateX(-50%) translateY(-50%);
-      -moz-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-      -o-transform: translateX(-50%) translateY(-50%);
-      transform: translateX(-50%) translateY(-50%); }
-      .news-landing-container header .header_container h1, .news-landing-container header .header_container #content_region #block-achp-page-title h1, #content_region #block-achp-page-title .news-landing-container header .header_container h1 {
-        text-shadow: none;
-        font-weight: 500;
-        font-size: 2.25rem;
-        color: #043B62; }
-      .news-landing-container header .header_container hr {
-        color: #950306;
-        background-color: #950306;
-        border: none;
-        height: 1px;
-        margin-top: 0;
-        width: 60%; }
-  .news-landing-container .views-exposed-form {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 25%;
-    padding-right: 20px; }
-    .news-landing-container .views-exposed-form:last-child {
-      margin-right: 0; }
-    .news-landing-container .views-exposed-form .form-select {
-      WIDTH: 100%; }
-  .news-landing-container .news-item {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 75%;
-    float: right;
-    background-color: #fff; }
-    .news-landing-container .news-item:last-child {
-      margin-right: 0; }
-    .news-landing-container .news-item .views-field-field-news-photo img {
-      max-width: 300px;
-      max-height: 300px; }
+    .page_outer_container .news-landing-container header {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      background-color: #F4F4F4;
+      position: relative; }
+      .page_outer_container .news-landing-container header:last-child {
+        margin-right: 0; }
+      .page_outer_container .news-landing-container header .header_container {
+        width: auto;
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%); }
+        .page_outer_container .news-landing-container header .header_container h1, .page_outer_container .news-landing-container header .header_container #content_region #block-achp-page-title h1, #content_region #block-achp-page-title .page_outer_container .news-landing-container header .header_container h1 {
+          text-shadow: none;
+          font-weight: 500;
+          font-size: 2.25rem;
+          color: #043B62; }
+        .page_outer_container .news-landing-container header .header_container hr {
+          color: #950306;
+          background-color: #950306;
+          border: none;
+          height: 1px;
+          margin-top: 0;
+          width: 60%; }
+    .page_outer_container .news-landing-container .views-exposed-form {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 25%;
+      padding-right: 20px; }
+      .page_outer_container .news-landing-container .views-exposed-form:last-child {
+        margin-right: 0; }
+      .page_outer_container .news-landing-container .views-exposed-form .form-select {
+        WIDTH: 100%; }
+    .page_outer_container .news-landing-container .news-item {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 75%;
+      float: right;
+      background-color: #fff; }
+      .page_outer_container .news-landing-container .news-item:last-child {
+        margin-right: 0; }
+      .page_outer_container .news-landing-container .news-item .views-field-field-news-photo img {
+        max-width: 300px;
+        max-height: 300px; }
+      .page_outer_container .news-landing-container .news-item:after {
+        content: "";
+        clear: both; }
 
 #footer {
   /*display: none;*/ }
