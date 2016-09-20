@@ -1,0 +1,12 @@
+# Defines the paths for pages defined by the
+# Share This Page module.
+
+# I. The Share This Page Module Settings Route.
+share_this_page.settings:
+  path: '/admin/structure/share_this_page/settings'
+  defaults:
+    _form: '\Drupal\share_this_page\ShareThisPageSettingsForm'
+    _title: 'Share This Page Settings'
+  requirements:
+    _permission: 'administer site configuration'
+

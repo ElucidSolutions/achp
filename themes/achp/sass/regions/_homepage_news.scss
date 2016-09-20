@@ -1,0 +1,20 @@
+/*
+  This module contains styles used by the
+  Homepage News region.
+*/
+
+#homepage_news_region {
+  padding: 25px 50px;
+  height: auto;
+
+  #block-morenewsbutton {
+    padding: 0 25px;
+    button {
+      clear: both;
+    }
+  }
+  @media (max-width: 700px) {
+    padding: 25px 0;
+  }
+}
+
