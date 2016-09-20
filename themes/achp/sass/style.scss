@@ -845,6 +845,7 @@ footer {
 }
 
 #block-preserveamericaheader {
+  /*.preserve-america-header-block {*/
   text-align: center;
   .header_container {
     width: auto;    
@@ -922,6 +923,7 @@ footer {
                 @include rem('line-height', 28px);
                 text-decoration: none;
               }
+
               p {
                 font-family: $serif-text;
                 color: rgba(30, 30, 30, 1);
@@ -935,9 +937,16 @@ footer {
                 display: none;
               }
 
-              .community-spotlight-link a {
+              .community-spotlight-link-widescreen a {
                 display: inline-block;
+                height: 1.125rem;
+                border: 1px solid pink;
               }
+
+              .community-spotlight-link-mobile {
+                display: none;
+              }
+
               a:last-child {
                 position: relative;
                 bottom: 0px;
@@ -951,6 +960,7 @@ footer {
                 text-decoration: none;
                 text-transform: uppercase;
               }
+
               a:last-child:after {
                 position: absolute;
                 top: 50%;
@@ -969,12 +979,10 @@ footer {
                 padding-left: 15px;            
                 margin-right: 20px;
                 cursor: pointer;
-
-                  @media (min-width: 701px) {
-                    top: -2px;
-                  }
-                }
               }
+/*                  @media (min-width: 701px) {
+                    top: -2px;
+                  }*/             
             }
           }           
         }
@@ -1017,8 +1025,12 @@ footer {
     .community-spotlight-item-content-right {
       position: static;
 
-      .community-spotlight-link {
-        max-width: 60%;
+      .community-spotlight-link-widescreen {
+        display: none;
+      }
+
+      .community-spotlight-link-mobile {
+        /*max-width: 60%;*/
         margin: 0 auto;
       }
     }

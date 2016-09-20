@@ -1,41 +1,3049 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 /*
-Error: Invalid CSS after "  }": expected selector or at-rule, was "}"
-        on line 984 of sass/style.scss
-
-979:           }           
-980:         }
-981:       }
-982:     }
-983:   }
-984: }
-985: 
-986: 
-987: @media (max-width: 900px) {
-988:   .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
-989:     margin: 0 auto;
-
-Backtrace:
-sass/style.scss:984
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/scss/parser.rb:1189:in `expected'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/scss/parser.rb:1125:in `expected'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/scss/parser.rb:42:in `parse'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/engine.rb:406:in `_to_tree'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:473:in `on_file_changed'
-/home/restes/.gem/ruby/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:331:in `block in watch'
-/home/restes/.gem/ruby/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:252:in `call'
-/home/restes/.gem/ruby/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/home/restes/.gem/ruby/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/home/restes/.gem/ruby/gems/sass-3.4.22/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-/home/restes/.gem/ruby/gems/sass-3.4.22/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-/home/restes/.gem/ruby/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+  This module contains styles for the page
+  footer element.
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"  }\": expected selector or at-rule, was \"}\"\A         on line 984 of sass/style.scss\A \A 979:           }           \A 980:         }\A 981:       }\A 982:     }\A 983:   }\A 984: }\A 985: \A 986: \A 987: @media (max-width: 900px) {\A 988:   .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {\A 989:     margin: 0 auto;"; }
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+/*
+  Accepts one argument: value, a px value;
+  and returns value in rems.
+*/
+/*
+  Accepts three arguments:
+
+  * $min, an integer
+  * $max, an integer
+  * $keys, a list
+
+  where $min < $max and $keys has two or more
+  elements; and returns a map in which every
+  value in $keys is mapped to an integer ranging
+  from $min to $max inclusive.
+*/
+/*
+  Accepts two integer arguments, $min and $max,
+  where $min < $max, and returns a list of
+  equally spaced integers ranging from $min to
+  $max such that there is one value for each
+  breakpoint in $breakpoints.
+*/
+/*
+  Accepts one argument: $font-sizes, a map
+  mapping px breakpoint values to px font sizes;
+  and expands into the standard set of directives
+  for headers.
+*/
+#footer {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #043B62;
+  color: white;
+  font-size: 0.875rem;
+  font-family: "p22-underground", sans-serif;
+  letter-spacing: 0.02rem;
+  max-width: 100%;
+  padding: 40px; }
+  #footer::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #footer h1, #footer #content_region #block-achp-page-title h1, #content_region #block-achp-page-title #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer p {
+    color: white;
+    text-align: left;
+    text-transform: uppercase; }
+  #footer h2 {
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.125rem; }
+  #footer a {
+    color: white;
+    font-size: 0.75rem;
+    text-decoration: none; }
+  #footer ul, #footer ol {
+    list-style-type: none;
+    padding: 0px; }
+    #footer ul li, #footer ol li {
+      margin-top: 10px; }
+      #footer ul li:last-of-type, #footer ol li:last-of-type {
+        margin-bottom: 10px; }
+  #footer .social_icons {
+    padding-top: 20px; }
+    #footer .social_icons .social_media {
+      padding-right: 20px; }
+  #footer .content_wrapper {
+    text-align: left; }
+    #footer .content_wrapper #footer_2_columns_left {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 66.66667%; }
+      #footer .content_wrapper #footer_2_columns_left:last-child {
+        margin-right: 0; }
+      #footer .content_wrapper #footer_2_columns_left #footer_left {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%;
+        padding-right: 40px; }
+        #footer .content_wrapper #footer_2_columns_left #footer_left:last-child {
+          margin-right: 0; }
+      #footer .content_wrapper #footer_2_columns_left #footer_middle {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%;
+        padding-right: 40px; }
+        #footer .content_wrapper #footer_2_columns_left #footer_middle:last-child {
+          margin-right: 0; }
+    #footer .content_wrapper #footer_right {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 33.33333%; }
+      #footer .content_wrapper #footer_right:last-child {
+        margin-right: 0; }
+
+@media (max-width: 925px) {
+  #footer .content_wrapper #footer_2_columns_left {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%; }
+    #footer .content_wrapper #footer_2_columns_left:last-child {
+      margin-right: 0; }
+    #footer .content_wrapper #footer_2_columns_left #footer_left {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%; }
+      #footer .content_wrapper #footer_2_columns_left #footer_left:last-child {
+        margin-right: 0; }
+    #footer .content_wrapper #footer_2_columns_left #footer_middle {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      margin-top: 40px; }
+      #footer .content_wrapper #footer_2_columns_left #footer_middle:last-child {
+        margin-right: 0; }
+  #footer .content_wrapper #footer_right {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%; }
+    #footer .content_wrapper #footer_right:last-child {
+      margin-right: 0; } }
+@media (max-width: 650px) {
+  #footer .content_wrapper #footer_2_columns_left {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #footer .content_wrapper #footer_2_columns_left:last-child {
+      margin-right: 0; }
+  #footer .content_wrapper #footer_right {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #footer .content_wrapper #footer_right:last-child {
+      margin-right: 0; } }
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+#homepage_news_content #block-views-block-latest-news-block .homepage_news_item {
+  padding: 10px;
+  position: relative;
+  height: 370px; }
+  #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_link {
+    position: absolute;
+    bottom: 0; }
+    #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_link img {
+      margin-left: 5px;
+      vertical-align: -1px; }
+  #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_link_mobile {
+    display: none; }
+@media (max-width: 700px) {
+  #homepage_news_content #block-views-block-latest-news-block {
+    /* At this width, the cards turn into just the headlines */
+    height: 240px;
+    border-top: 6px solid #950306;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+    margin: 25px 0 25px;
+    width: 100%; }
+    #homepage_news_content #block-views-block-latest-news-block .card.view-item-1, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card {
+      height: 80px;
+      margin: 0;
+      width: 100%;
+      box-shadow: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.26);
+      position: relative; }
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-1, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-1, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-1, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.event_calendar_grid_card {
+        border-top: none; }
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-3, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-3, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-3, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.event_calendar_grid_card {
+        margin-left: 0; }
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item {
+        height: 60px;
+        padding: 0;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: relative; }
+        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link {
+          display: none; }
+        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title {
+          width: 95%;
+          padding: 15px;
+          line-height: 24px;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+          transition: color 0.25s; }
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover {
+            color: #0990FE; }
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:after {
+            content: "";
+            background-image: url("../images/right-arrow-icon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 20px;
+            height: 20px;
+            padding-left: 15px;
+            right: 0;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            transition: background-image 0.25s; }
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after {
+            background-image: url("../images/right-arrow-icon-blue.svg"); } }
+
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+#homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card {
+  text-align: center;
+  background-color: #ffffff; }
+  #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story {
+    padding: 5px 10px;
+    position: relative;
+    height: 370px; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_image, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_image, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_image {
+      margin-bottom: 15px;
+      position: relative;
+      height: 185px;
+      width: 100%;
+      overflow: hidden;
+      /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */ }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        height: 100%;
+        width: auto;
+        min-width: 100%; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_title h3, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_title h3, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_title h3, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_title h3 {
+      text-align: inherit; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_location, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_location, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_location, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_location {
+      color: #7C7C7C; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_body p, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_body p {
+      font-family: "minion-pro", serif;
+      margin: 5px; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_link, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_link, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_link {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+      bottom: 0;
+      padding-right: 20px; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link img, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_link img, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_link img, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_link img {
+        margin-left: 5px;
+        vertical-align: -1px; }
+@media (max-width: 700px) {
+  #homepage_success_content #block-views-block-homepage-success-stories-block {
+    /* At this width cards 2 and 3 disappear, so the block only contains 1 card */
+    height: 450px;
+    width: 300px; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card {
+      margin: 25px 0;
+      height: 400px; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-2, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-3, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card {
+        display: none; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story {
+        height: 370px; } }
+
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+/* These styles apply to the success stories and latest news views on the homepage */
+#block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
+  margin: 0 auto;
+  /* On wide screens, all 3 cards are on one row:; */
+  height: 450px;
+  /* And the last card has no margin-right:; */
+  width: 940px; }
+  #block-views-block-latest-news-block .card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .views-element-container, #block-views-block-latest-news-block .event_calendar .event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid .event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-latest-news-block .event_calendar_grid_card, #block-views-block-homepage-success-stories-block .card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .views-element-container, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-homepage-success-stories-block .event_calendar_grid_card {
+    height: 400px;
+    width: 300px;
+    margin: 25px 0;
+    margin-right: 20px;
+    float: left;
+    padding: 10px; }
+    #block-views-block-latest-news-block .card.view-item-3, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-3.views-element-container, #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #block-views-block-homepage-success-stories-block .card.view-item-3, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container, #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card {
+      margin-right: 0; }
+  @media (max-width: 1023px) {
+    #block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
+      /* At this width 2 cards are on the first row, and the third is on the second. */
+      /* First card has a margin-right, but second no longer does:; */
+      width: 620px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+      height: 875px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */ }
+      #block-views-block-latest-news-block .card.view-item-2, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-2.views-element-container, #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card, #block-views-block-homepage-success-stories-block .card.view-item-2, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-2.views-element-container, #block-views-block-homepage-success-stories-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_grid_card {
+        margin-right: 0; }
+      #block-views-block-latest-news-block .card.view-item-3, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-3.views-element-container, #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #block-views-block-homepage-success-stories-block .card.view-item-3, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container, #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card {
+        margin: 0 160px; } }
+
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+#header_region {
+  height: 72px;
+  width: 1024px;
+  margin: 0 auto; }
+
+#header_menu {
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.875rem;
+  position: relative;
+  border-bottom: #043B62;
+  z-index: 900;
+  height: 72px;
+  width: 1024px; }
+  #header_menu ul {
+    margin: 0 auto;
+    padding-left: 0;
+    z-index: 901; }
+  #header_menu ul[data-menu-level="0"] {
+    margin: 0 auto;
+    height: 72px;
+    display: inline-block;
+    display: flex;
+    justify-content: space-between; }
+    #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] {
+      border: 3px solid transparent;
+      border-bottom: none;
+      list-style-type: none;
+      text-align: center;
+      margin: 0;
+      text-align: center;
+      padding: 0 40px;
+      height: 75px !important;
+      box-sizing: border-box !important;
+      display: inline-block; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"]:last-of-type {
+        margin: 0; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected {
+        border: 3px solid #9B0008;
+        border-bottom: none;
+        background: white; }
+        #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected a {
+          color: #008BFD; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] > a {
+        padding: 0;
+        margin: 0;
+        display: block;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: relative; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] a {
+        text-decoration: none;
+        color: #013B5E;
+        width: 100%;
+        text-align: center; }
+    #header_menu ul[data-menu-level="0"] ul[data-menu-level="1"] {
+      display: none; }
+
+#subheader_widescreen {
+  position: relative;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  #subheader_widescreen::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #subheader_widescreen #subheader_widescreen_submenu_region {
+    width: 100%;
+    position: absolute;
+    top: 72px;
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 33.33333%; }
+    #subheader_widescreen #subheader_widescreen_submenu_region:last-child {
+      margin-right: 0; }
+    #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu {
+      width: 1024px;
+      margin: 0 auto;
+      padding: 0; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul {
+        padding: 5px 25px 20px 25px;
+        position: relative;
+        z-index: 600; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul li {
+          list-style-type: none; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul li a {
+            font-family: "p22-underground", sans-serif;
+            text-decoration: none;
+            margin-bottom: 5px; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] {
+        background-color: white;
+        margin: 0;
+        padding: 0 10px 10px 25px; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"].menu_selected {
+          border: 3px solid #9B0008;
+          box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
+          min-height: 200px; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] li[data-menu-level="1"] {
+          padding: 22px 15px 0 0;
+          font-size: 1.5rem; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] li[data-menu-level="1"] > a {
+            color: #043B62;
+            line-height: 1.25; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] {
+        padding: 5px 5px 0 0;
+        top: -22px;
+        display: inline-block;
+        width: 100%; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] > li {
+          line-height: 0.93rem;
+          margin-bottom: 0.5rem; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] > li a {
+            font-size: 1rem;
+            color: #4F4F4F;
+            transition: color 0.25s; }
+            #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] > li a:hover {
+              color: #0990FE; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"]:before {
+          content: "";
+          height: 1px;
+          width: 100%;
+          background-color: #9B0008;
+          display: inline-block; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"] {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 25%; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"]:last-child {
+          margin-right: 0; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"] li[data-menu-level="1"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 100%; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"] li[data-menu-level="1"]:last-child {
+            margin-right: 0; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"] {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"]:last-child {
+          margin-right: 0; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"] li[data-menu-level="1"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 50%; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"] li[data-menu-level="1"]:last-child {
+            margin-right: 0; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"] {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 75%; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"]:last-child {
+          margin-right: 0; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"] li[data-menu-level="1"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 33.33333%; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"] li[data-menu-level="1"]:last-child {
+            margin-right: 0; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"] {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 100%; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"]:last-child {
+          margin-right: 0; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"] li[data-menu-level="1"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 25%; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"] li[data-menu-level="1"]:last-child {
+            margin-right: 0; }
+
+#subheader {
+  font-family: "p22-underground", sans-serif; }
+  #subheader #subheader_mobile_header {
+    cursor: pointer;
+    display: none;
+    width: 100%; }
+    #subheader #subheader_mobile_header #subheader_mobile_title {
+      text-align: center;
+      padding: 15px 0px;
+      color: #003A5E;
+      line-height: 1; }
+      #subheader #subheader_mobile_header #subheader_mobile_title:before {
+        content: "";
+        background-image: url("../images/menu-icon.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 13px;
+        position: relative;
+        right: 10px;
+        bottom: 2px;
+        vertical-align: middle; }
+  #subheader #subheader_mobile #subheader_mobile_collapsible {
+    display: none;
+    padding: 0;
+    border: 3px solid #9B0008;
+    background-color: white;
+    z-index: 1000;
+    width: 100%;
+    position: absolute;
+    height: 494px;
+    overflow: hidden; }
+    #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body {
+      width: 100%;
+      height: auto;
+      border-top: 1px solid #E2E2E2; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container {
+        margin: 0; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide {
+        position: absolute;
+        display: none;
+        width: 100vw; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide[data-menu-slide-index="0"] {
+          display: block; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_header_title h3 {
+          border-bottom: 1px solid #9B0008;
+          display: inline-block;
+          width: 100%;
+          padding: 16px 24px 7px;
+          margin: 0; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_header_back_button {
+          cursor: pointer;
+          color: #4F4F4F;
+          font-size: 0.75rem;
+          padding: 10px 24px 0; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_header_back_button:before {
+            content: url("../images/left-arrow-icon.svg");
+            height: 8px;
+            width: 8px; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_body {
+          color: #4A4A4A; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_body > ul {
+            margin: 0; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"], #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"] {
+          cursor: pointer;
+          padding: 16px 24px;
+          border-bottom: 1px solid #E2E2E2;
+          font-size: 0.875rem;
+          width: 100%; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"]:hover {
+            color: #0990FE;
+            background-color: #E8F8FF; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:after, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:after {
+          content: "";
+          background-image: url("../images/right-arrow-icon.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20px;
+          height: 21px;
+          right: 55px;
+          position: absolute;
+          cursor: pointer;
+          transition: background-image 0.25s; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover:after, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:hover:after {
+          background-image: url("../images/right-arrow-icon-blue.svg"); }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body ul {
+        list-style-type: none;
+        padding: 0;
+        color: #1E1E1E; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body ul a {
+          text-decoration: none;
+          padding-left: 0;
+          color: inherit; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu {
+        height: 100%;
+        width: 100%;
+        display: block; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul {
+          margin: 0px;
+          padding: 0px;
+          width: 100%; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul li {
+            height: 100%;
+            border-bottom: 1px solid #4A4A4A;
+            display: block;
+            margin: 0px;
+            padding: 10px 0px;
+            text-align: center;
+            list-style-type: none; }
+            #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul li a {
+              text-decoration: none;
+              color: #4A4A4A; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul[data-menu-level="1"] {
+          display: none; }
+    #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_footer {
+      height: 54px;
+      position: absolute;
+      width: 100%;
+      bottom: 0; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_footer #subheader_mobile_close_button {
+        color: #4F4F4F;
+        cursor: pointer;
+        margin: 15px auto 17px;
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.25s; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_footer #subheader_mobile_close_button:hover {
+          color: #0990FE; }
+
+@media screen and (max-width: 1150px) {
+  #header_region {
+    height: auto;
+    width: auto; }
+
+  #header_menu {
+    height: auto; }
+
+  #block-achp-search {
+    height: 55px;
+    margin: 0;
+    width: 100%;
+    padding: 0 24px 20px; }
+    #block-achp-search #search-block-form {
+      height: 100%; }
+      #block-achp-search #search-block-form .form-item {
+        float: left;
+        height: 100%;
+        margin: 10px 0;
+        width: 100%; }
+        #block-achp-search #search-block-form .form-item input.form-search {
+          border: 1px solid #979797;
+          font-size: 0.75rem;
+          font-family: "p22-underground", sans-serif;
+          border-radius: 2px;
+          height: 100%;
+          line-height: 1.25;
+          outline: none;
+          padding: 10px;
+          width: 100%;
+          /* The following two lines override Safari rounding the input's corners */
+          appearance: none;
+          -webkit-appearance: none; }
+      #block-achp-search #search-block-form .form-actions {
+        float: right;
+        height: 100%;
+        margin: 0; }
+        #block-achp-search #search-block-form .form-actions input.form-submit {
+          border: none;
+          border-radius: 0 2px 2px 0;
+          height: 35px;
+          width: 37px;
+          bottom: 45px;
+          position: relative;
+          background-image: url("../images/search-icon.svg");
+          background-repeat: no-repeat;
+          background-color: #0990FE;
+          background-position: center;
+          background-size: 57%;
+          cursor: pointer;
+          transition: background-color 0.25s; }
+          #block-achp-search #search-block-form .form-actions input.form-submit:hover {
+            background-color: #71bffe; } }
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+header {
+  background-color: #043B62;
+  overflow: hidden;
+  height: 100px;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  header::after {
+    clear: both;
+    content: "";
+    display: table; }
+  header #header-container {
+    max-width: 1024px;
+    height: 100px; }
+    @media (min-width: 1100px) {
+      header #header-container {
+        margin: 0 auto; } }
+    @media (max-width: 1099px) {
+      header #header-container {
+        margin: 0 50px; } }
+    @media (max-width: 500px) {
+      header #header-container {
+        margin: 0 auto;
+        width: 289px; } }
+  header #header_region {
+    display: inline-block; }
+  header #header_left_container, header #header_right_container {
+    max-height: 100px; }
+  header #block-headerbranding, header #block-headerbranding3 {
+    max-height: 100px; }
+  header #header_branding_logo img {
+    height: 100px;
+    border: none; }
+  header #header_branding_title {
+    font-size: 2rem;
+    display: inline-block;
+    max-width: 400px;
+    text-align: left;
+    padding: 10px;
+    padding-left: 40px;
+    line-height: 1.25;
+    color: #fff;
+    font-weight: 100;
+    text-shadow: none;
+    text-decoration: none; }
+    header #header_branding_title a {
+      color: #fff;
+      text-decoration: none; }
+  header #block-headercontactlinks {
+    color: white;
+    font-weight: 300;
+    padding: 15px 0 5px;
+    float: right; }
+    header #block-headercontactlinks a {
+      color: white;
+      font-family: "p22-underground", sans-serif;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.25s; }
+      header #block-headercontactlinks a:hover {
+        color: #71bffe; }
+    header #block-headercontactlinks .text_links a {
+      padding: 5px 15px;
+      border-right: 1px solid rgba(9, 144, 254, 0.6); }
+    header #block-headercontactlinks .social_icons {
+      vertical-align: sub;
+      margin-left: 15px; }
+      header #block-headercontactlinks .social_icons .social_media {
+        padding-right: 10px;
+        transition: color 0.25s; }
+        header #block-headercontactlinks .social_icons .social_media:hover {
+          color: #71bffe; }
+        header #block-headercontactlinks .social_icons .social_media:last-of-type {
+          padding-right: 0; }
+    header #block-headercontactlinks img {
+      vertical-align: text-bottom; }
+  header #block-headertextdropdown, header #block-headertextdropdown-3 {
+    color: white;
+    font-weight: 300;
+    font-family: "p22-underground", sans-serif;
+    font-size: 0.875rem;
+    height: 30px; }
+    header #block-headertextdropdown .header_dropdown_text, header #block-headertextdropdown-3 .header_dropdown_text {
+      vertical-align: text-top; }
+    header #block-headertextdropdown select.header_dropdown_menu, header #block-headertextdropdown-3 select.header_dropdown_menu {
+      font-family: "p22-underground", sans-serif;
+      border: 1px solid #979797;
+      font-size: 0.75rem;
+      border-radius: 2px;
+      height: 100%;
+      line-height: 1.25;
+      outline: none;
+      padding: 7px;
+      width: 50%;
+      margin: 0 10px;
+      color: #C6C6C6;
+      margin-top: 1px;
+      padding: 6px 7px; }
+      header #block-headertextdropdown select.header_dropdown_menu option, header #block-headertextdropdown-3 select.header_dropdown_menu option {
+        font-family: "p22-underground", sans-serif; }
+        header #block-headertextdropdown select.header_dropdown_menu option.selection, header #block-headertextdropdown-3 select.header_dropdown_menu option.selection {
+          color: #000; }
+  header #header_widescreen_search_bar {
+    height: 30px;
+    float: right; }
+    header #header_widescreen_search_bar #block-achp-search {
+      height: auto; }
+      header #header_widescreen_search_bar #block-achp-search .form-item {
+        height: 30px;
+        width: 90%; }
+        header #header_widescreen_search_bar #block-achp-search .form-item input.form-search {
+          border: 1px solid #979797;
+          font-size: 0.75rem;
+          border-radius: 2px;
+          height: 100%;
+          line-height: 1.25;
+          outline: none;
+          padding: 15px 11px;
+          width: 101%; }
+      header #header_widescreen_search_bar #block-achp-search .form-actions {
+        float: right;
+        height: 32px;
+        /* 30px height of text input, plus 1px each for top and bottom borders*/
+        margin: 0;
+        width: 11%; }
+        header #header_widescreen_search_bar #block-achp-search .form-actions input.form-submit {
+          border: none;
+          border-radius: 0 2px 2px 0;
+          height: 100%;
+          width: 100%;
+          position: relative;
+          bottom: 30px;
+          background-image: url("../images/search-icon.svg");
+          background-repeat: no-repeat;
+          background-color: #0990FE;
+          background-position: center;
+          background-size: 63%;
+          cursor: pointer;
+          transition: background-color 0.25s; }
+          header #header_widescreen_search_bar #block-achp-search .form-actions input.form-submit:hover {
+            background-color: #71bffe; }
+
+@media (min-width: 1150px) {
+  header #header_region {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    header #header_region:last-child {
+      margin-right: 0; }
+  header #header_branding_logo {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 8.33333%; }
+    header #header_branding_logo:last-child {
+      margin-right: 0; }
+  header #header_branding_title {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 66.66667%; }
+    header #header_branding_title:last-child {
+      margin-right: 0; }
+  header #header_widescreen_search_bar {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 25%;
+    float: right;
+    width: 26.5%; }
+    header #header_widescreen_search_bar:last-child {
+      margin-right: 0; } }
+@media (max-width: 1150px) {
+  header {
+    height: 75px; }
+    header #header-container {
+      height: 75px; }
+    header #header_left {
+      margin: 0 auto;
+      width: 348px;
+      position: relative; }
+    header #header_branding_logo {
+      float: left;
+      /*border: 1px solid purple;*/ }
+      header #header_branding_logo img {
+        height: 75px;
+        /*border: 1px solid pink;*/ }
+    header #header_branding_title {
+      text-align: center;
+      float: left;
+      padding: 0;
+      font-size: 1.625rem;
+      width: 300px;
+      right: 0;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      top: 37.5px; }
+    header #block-headercontactlinks {
+      display: none; } }
+@media (max-width: 500px) {
+  header #header_left {
+    margin: 0 auto;
+    text-align: center;
+    width: 273px;
+    position: relative; }
+  header #header_branding_title {
+    font-size: 1.25rem;
+    width: 225px; } }
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+#homepage_quicklinks_region #block-quicklinks {
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 100%; }
+  #homepage_quicklinks_region #block-quicklinks:last-child {
+    margin-right: 0; }
+#homepage_quicklinks_region #homepage_quicklinks_content {
+  width: 940px; }
+  #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container {
+    padding: 0;
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 33.33333%;
+    background-color: #FFFFFF;
+    margin-right: 20px;
+    height: 518px;
+    width: 300px;
+    margin: 25px 0;
+    margin-right: 20px;
+    float: left;
+    position: relative; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:last-child {
+      margin-right: 0; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header {
+      background-color: #fff;
+      height: 260px; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-row {
+        border-top: none;
+        padding: 0;
+        height: 100%;
+        padding: 15px 15px 5px;
+        position: static;
+        transform: none; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-field-field-quicklink-image {
+        position: relative;
+        height: 160px;
+        width: 100%;
+        overflow: hidden;
+        /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */ }
+        #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-field-field-quicklink-image img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -o-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+          height: 100%;
+          width: auto;
+          min-width: 100%; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header h3 {
+        padding-top: 20px; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row {
+      border-top: 1px solid #E2E2E2;
+      width: 100%;
+      height: 67px;
+      position: relative;
+      transition: background-color 0.25s; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row:hover {
+        background-color: #E8F8FF; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: relative; }
+        #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a {
+          text-decoration: none;
+          color: #4F4F4F;
+          line-height: 22.39px;
+          display: block;
+          padding: 20px 25px;
+          width: 95%;
+          height: 100%;
+          position: relative;
+          transition: color 0.25s; }
+          #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover {
+            color: #0990FE; }
+          @media (min-width: 701px) {
+            #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a {
+              transition: color 0.25s; }
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover {
+                color: #0990FE; }
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:after, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:after {
+                content: "";
+                background-image: url("../images/right-arrow-icon.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 20px;
+                height: 20px;
+                padding-left: 15px;
+                right: -2px;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                transform: translateY(-50%);
+                transition: background-image 0.25s; }
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover:after {
+                background-image: url("../images/right-arrow-icon-blue.svg"); } }
+  #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer {
+    background: #C6C6C6;
+    font-weight: 500;
+    color: #4F4F4F;
+    font-size: 0.875rem;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    height: 51px;
+    width: 100%;
+    transition: color 0.25s;
+    transition: color 0.25s, background-color 0.25s; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover {
+      color: #fff; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:after {
+      content: "";
+      background-image: url("../images/more-dots-icon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      padding-left: 15px;
+      right: 13px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      transition: background-image 0.25s; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover:after {
+      background-image: url("../images/more-dots-icon-white.svg"); }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover {
+      color: #fff;
+      background-color: #0990FE; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer a {
+      display: inline-block;
+      text-decoration: none;
+      width: 100%;
+      color: inherit;
+      padding: 0 25px;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%); }
+
+#homepage_quicklinks_region > #homepage_quicklinks_content {
+  /*  At this width 2 cards are on the first row, and the third is on the second.
+      First card has a margin-right, but second no longer does:*/ }
+  @media (max-width: 1023px) {
+    #homepage_quicklinks_region > #homepage_quicklinks_content {
+      width: 620px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+      height: 875px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */ }
+      #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:nth-last-of-type(2) {
+        margin-right: 0; }
+      #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-of-type {
+        margin: 0 160px; } }
+  @media (max-width: 700px) {
+    #homepage_quicklinks_region > #homepage_quicklinks_content {
+      height: auto;
+      width: 100%; }
+      #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 100%;
+        margin: 10px auto 0;
+        height: auto; }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-child {
+          margin-right: 0; }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-of-type {
+          margin: 10px auto 0; }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row, #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-field-field-quicklink-image, #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container footer {
+          display: none; }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a {
+          transition: color 0.25s; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:hover {
+            color: #0990FE; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:after {
+            content: "";
+            background-image: url("../images/right-arrow-icon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 20px;
+            height: 20px;
+            padding-left: 15px;
+            right: 8px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            transition: background-image 0.25s; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:hover:after {
+            background-image: url("../images/right-arrow-icon-blue.svg"); }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header {
+          height: 75px; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header .views-row {
+            height: 75px;
+            padding: 10px; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header .views-field {
+            height: 100%;
+            width: 100%;
+            position: relative; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3 {
+            height: auto;
+            top: 0;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 15px;
+            width: 95%;
+            position: absolute;
+            cursor: pointer;
+            transition: color 0.25s; }
+            #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:hover {
+              color: #0990FE; }
+            #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:after {
+              content: "";
+              background-image: url("../images/down-arrow-icon.svg");
+              background-repeat: no-repeat;
+              background-position: center;
+              width: 20px;
+              height: 20px;
+              padding-left: 15px;
+              right: 0;
+              cursor: pointer;
+              position: absolute;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+              transform: translateY(-50%);
+              transition: background-image 0.25s; }
+            #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:hover:after {
+              background-image: url("../images/down-arrow-icon-blue.svg"); }
+            #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open {
+              color: #0990FE;
+              transition: color 0.25s; }
+              #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:hover {
+                color: #0990FE; }
+              #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:after {
+                content: "";
+                background-image: url("../images/up-arrow-icon.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 20px;
+                height: 20px;
+                padding-left: 15px;
+                right: 0;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                transform: translateY(-50%);
+                transition: background-image 0.25s; }
+              #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:hover:after {
+                background-image: url("../images/up-arrow-icon-blue.svg"); } }
+
+/*
+** This Sass file defines the styles for the 
+** Section 106 Process module.
+*/
+#homepage_flowchart_region {
+  padding: 25px 0px 0px 0px;
+  width: 100%;
+  height: auto;
+  background-color: #E8F8FF; }
+
+.flowchart_content_wrapper {
+  margin: 0 auto;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block;
+  padding: 0px 20px; }
+  .header_container hr {
+    width: 60%; }
+
+#homepage_flowchart_region {
+  padding: 25px 0px 0px 0px; }
+
+#block-readmoreaboutthefederalpreservationprocess div {
+  margin: 20px 20px 30px 20px; }
+  #block-readmoreaboutthefederalpreservationprocess div button {
+    text-transform: uppercase; }
+
+/*
+** This Sass file defines the styles for the 
+** Issues in Preservation module.
+*/
+.issues_content_wrapper {
+  margin: 0 auto;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block;
+  padding: 0px 20px; }
+  .header_container hr {
+    width: 60%; }
+
+#homepage_issues_region {
+  padding: 25px 0px 0px 0px; }
+
+#block-readmoreaboutpreservationissues div {
+  margin: 20px 20px 30px 20px; }
+  #block-readmoreaboutpreservationissues div button {
+    text-transform: uppercase; }
+
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+#content_region {
+  /*padding: 50px 48px;*/
+  padding: 5px;
+  max-width: 1024px;
+  margin: 0 auto; }
+  #content_region a {
+    transition: color 0.25s;
+    color: inherit; }
+    #content_region a:hover {
+      color: #71bffe; }
+  #content_region #block-achp-page-title h1 {
+    font-size: 1.25rem;
+    line-height: 1;
+    text-shadow: none;
+    text-align: left; }
+    @media screen and (min-width: 650px) {
+      #content_region #block-achp-page-title h1 {
+        font-size: 2rem; } }
+    @media screen and (min-width: 925px) {
+      #content_region #block-achp-page-title h1 {
+        font-size: 2.25rem; } }
+  #content_region #block-achp-local-tasks ul {
+    list-style-type: none;
+    padding-left: 0; }
+    #content_region #block-achp-local-tasks ul li {
+      display: inline; }
+      #content_region #block-achp-local-tasks ul li a {
+        font-family: "p22-underground", sans-serif; }
+  #content_region footer {
+    background-color: #fff;
+    height: auto;
+    margin-bottom: 20px; }
+  #content_region #block-achp-content p {
+    text-align: left; }
+
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+body {
+  background-color: #F4F4F4; }
+
+.news-landing-container {
+  /*margin-top: 2px;*/
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #F4F4F4; }
+  .news-landing-container:last-child {
+    margin-right: 0; }
+  .news-landing-container header {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%;
+    background-color: #F4F4F4;
+    position: relative; }
+    .news-landing-container header:last-child {
+      margin-right: 0; }
+    .news-landing-container header .header_container {
+      width: auto;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%); }
+      .news-landing-container header .header_container h1, .news-landing-container header .header_container #content_region #block-achp-page-title h1, #content_region #block-achp-page-title .news-landing-container header .header_container h1 {
+        text-shadow: none;
+        font-weight: 500;
+        font-size: 2.25rem;
+        color: #043B62; }
+      .news-landing-container header .header_container hr {
+        color: #950306;
+        background-color: #950306;
+        border: none;
+        height: 1px;
+        margin-top: 0;
+        width: 60%; }
+  .news-landing-container .views-exposed-form {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 25%;
+    padding-right: 20px; }
+    .news-landing-container .views-exposed-form:last-child {
+      margin-right: 0; }
+    .news-landing-container .views-exposed-form .form-select {
+      WIDTH: 100%; }
+  .news-landing-container .news-item {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 75%;
+    float: right;
+    background-color: #fff; }
+    .news-landing-container .news-item:last-child {
+      margin-right: 0; }
+    .news-landing-container .news-item .views-field-field-news-photo img {
+      max-width: 300px;
+      max-height: 300px; }
+
+#footer {
+  /*display: none;*/ }
+
+/*#block-preserveamericaheader {
+	text-align: center;
+	.header_container {
+		width: auto;		
+		display: inline-block;
+		margin: 0px auto;
+		hr {
+			width: 60%;
+		}
+	}
+}
+
+#block-learnaboutpreserveamerica {
+	button {
+		margin-top: 20px;
+		display: inline-block;
+	}
+}
+
+.preserveamerica_content_wrapper {
+	position: relative;
+	max-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	h2 {
+		display: inline-block;
+	}
+	.views-element-container {
+		width: 100%;
+		h2 {
+			position: relative;
+		}
+		.item-list {
+			ul {			
+				width: 100%;
+				list-style: none;
+				padding: 0px;
+				margin-top: 0px;
+				li {					
+					position: relative;
+					margin: 0px auto;
+					.community-spotlight-item {	
+						border-top: 5px solid #950306;
+						background-color: #FFF;
+						box-sizing: border-box;
+						box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);	
+						display: inline-block;
+						text-align: left;
+						width: 100%;
+						padding: 20px;
+						margin-bottom: 20px;
+						img {
+							display: inline-block;    
+							vertical-align: top;    
+							text-align: left;  
+							height: 185px;
+							width: 185px;
+						}
+						.community-spotlight-item-content-right {
+							position: absolute;
+							left: 225px;
+							display: inline-block;
+							vertical-align: top;
+							text-align: left;
+							padding-right: 20px;
+
+							a:first-child {
+								position: relative;
+								display: block;
+								font-family: $sans-text;
+								color: rgba(4, 59, 98, 1);
+								@include rem('font-size', 20px);
+								@include rem('line-height', 28px);
+								text-decoration: none;
+							}
+							p {
+								font-family: $serif-text;
+								color: rgba(30, 30, 30, 1);
+								@include rem('font-size', 16px);
+								@include rem('line-height', 22.4px);
+								text-decoration: none;
+								text-align: left;
+								margin-bottom: 20px;
+							}
+							a:last-child {
+								position: relative;
+								bottom: 0px;
+								max-width: 100%;
+								color: $color-grey;
+								font-family: $sans-text;
+								@include rem('font-size', 14px);
+								@include rem('line-height', 19.2px);          
+								font-weight: 500;
+								text-align: left;          
+								text-decoration: none;
+								text-transform: uppercase;
+							}
+							a:last-child:after {
+								position: absolute;
+								top: 50%;
+								right: -45px;
+								content: "";
+								background-image: url("../images/right-arrow-icon.svg");
+								background-repeat: no-repeat;
+								background-position: center;
+								-webkit-transform: translateY(-50%);
+								-moz-transform: translateY(-50%);
+								-ms-transform: translateY(-50%);
+								-o-transform: translateY(-50%);
+								transform: translateY(-50%);
+								width: 20px;
+								height: 20px;
+								padding-left: 15px;            
+								margin-right: 20px;
+								cursor: pointer;
+							}
+						}
+					}						
+				}
+			}
+		}
+	}
+}
+
+
+@media (max-width: 900px) {
+	.preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+		height: 275px;
+		background-color: purple;
+
+		.community-spotlight-item-content-right {
+		  top: 50%;
+		  -webkit-transform: translateY(-50%);
+		  -moz-transform: translateY(-50%);
+		  -ms-transform: translateY(-50%);
+		  -o-transform: translateY(-50%);
+		  transform: translateY(-50%);
+		  border: 3px solid pink;
+		}
+
+		img {
+			height: 225px;
+			width: 225px;
+			border: 1px solid green;
+		}
+	}
+}*/
+/*#block-preserveamericaheader {
+	text-align: center;
+	.header_container {
+		width: auto;		
+		display: inline-block;
+		margin: 0px auto;
+		hr {
+			width: 60%;
+		}
+	}
+}
+
+#block-learnaboutpreserveamerica {
+	button {
+		margin-top: 20px;
+		display: inline-block;
+	}
+}
+
+.preserveamerica_content_wrapper {
+	position: relative;
+	max-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	h2 {
+		display: inline-block;
+	}
+	.views-element-container {
+		width: 100%;
+		h2 {
+			position: relative;
+		}
+		.item-list {
+			ul {			
+				width: 100%;
+				list-style: none;
+				padding: 0px;
+				margin-top: 0px;
+				li {					
+					position: relative;
+					margin: 0px auto;
+					.community-spotlight-item {	
+						border-top: 5px solid #950306;
+						background-color: #FFF;
+						box-sizing: border-box;
+						box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);	
+						display: inline-block;
+						text-align: left;
+						width: 100%;
+						padding: 20px;
+						margin-bottom: 20px;
+						img {
+							display: inline-block;    
+							vertical-align: top;    
+							text-align: left;  
+							height: 185px;
+							width: 185px;
+						}
+						.community-spotlight-item-content-right {
+							position: absolute;
+							left: 225px;
+							display: inline-block;
+							vertical-align: top;
+							text-align: left;
+							padding-right: 20px;
+
+							a:first-child {
+								position: relative;
+								display: block;
+								font-family: $sans-text;
+								color: rgba(4, 59, 98, 1);
+								@include rem('font-size', 20px);
+								@include rem('line-height', 28px);
+								text-decoration: none;
+							}
+							p {
+								font-family: $serif-text;
+								color: rgba(30, 30, 30, 1);
+								@include rem('font-size', 16px);
+								@include rem('line-height', 22.4px);
+								text-decoration: none;
+								text-align: left;
+								margin-bottom: 20px;
+							}
+							a:last-child {
+								position: relative;
+								bottom: 0px;
+								max-width: 100%;
+								color: $color-grey;
+								font-family: $sans-text;
+								@include rem('font-size', 14px);
+								@include rem('line-height', 19.2px);          
+								font-weight: 500;
+								text-align: left;          
+								text-decoration: none;
+								text-transform: uppercase;
+							}
+							a:last-child:after {
+								position: absolute;
+								top: 50%;
+								right: -45px;
+								content: "";
+								background-image: url("../images/right-arrow-icon.svg");
+								background-repeat: no-repeat;
+								background-position: center;
+								-webkit-transform: translateY(-50%);
+								-moz-transform: translateY(-50%);
+								-ms-transform: translateY(-50%);
+								-o-transform: translateY(-50%);
+								transform: translateY(-50%);
+								width: 20px;
+								height: 20px;
+								padding-left: 15px;            
+								margin-right: 20px;
+								cursor: pointer;
+							}
+						}
+					}						
+				}
+			}
+		}
+	}
+}
+
+
+@media (max-width: 900px) {
+	.preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+		height: 275px;
+		background-color: purple;
+
+		.community-spotlight-item-content-right {
+		  top: 50%;
+		  -webkit-transform: translateY(-50%);
+		  -moz-transform: translateY(-50%);
+		  -ms-transform: translateY(-50%);
+		  -o-transform: translateY(-50%);
+		  transform: translateY(-50%);
+		  border: 3px solid pink;
+		}
+
+		img {
+			height: 225px;
+			width: 225px;
+			border: 1px solid green;
+		}
+	}
+}*/
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/**
+ * Useful mixin that onverts property in px to property in REM
+ * pulled from https://github.com/bitmanic/rem by bitmanic
+ * 
+ * Example usage:
+ * 
+ *  .element {
+ *    @include rem('padding',10px 0 2px 5px);
+ *  }
+ * 
+ * Output:
+ * 
+ *  .element {
+ *    padding: 10px 0 2px 5px;
+ *    padding: 1rem 0 0.2rem 0.5rem;
+ *  }
+ */
+/**
+ * Baseline, measured in pixels
+ * The value should be the same as the font-size value for the html element
+ * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+ * then the variable below would be 10px.
+ */
+html,
+body {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  font-family: "minion-pro", serif;
+  overflow-x: hidden;
+  letter-spacing: 0.02rem; }
+
+#outer_container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  /*box-shadow: 0px 1px 2px grey;*/ }
+  #outer_container::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.region_container {
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 100%; }
+  .region_container:last-child {
+    margin-right: 0; }
+
+.content_wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block; }
+  .header_container hr {
+    width: 60%; }
+
+h1, #content_region #block-achp-page-title h1,
+h2,
+h3 {
+  font-family: "p22-underground", sans-serif;
+  text-align: center;
+  margin: 0;
+  /*padding: 0;*/
+  font-weight: normal; }
+
+h1, #content_region #block-achp-page-title h1 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
+  @media screen and (min-width: 650px) {
+    h1, #content_region #block-achp-page-title h1 {
+      font-size: 2rem; } }
+  @media screen and (min-width: 925px) {
+    h1, #content_region #block-achp-page-title h1 {
+      font-size: 2.5rem; } }
+  h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
+    font-size: 1.25rem;
+    font-weight: 300; }
+    @media screen and (min-width: 650px) {
+      h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
+        font-size: 2rem; } }
+    @media screen and (min-width: 925px) {
+      h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
+        font-size: 2.25rem; } }
+
+/* Section titles */
+h2 {
+  color: #043B62;
+  font-size: 1.25rem; }
+  @media screen and (min-width: 650px) {
+    h2 {
+      font-size: 2rem; } }
+
+/* Card titles/headlines */
+h3 {
+  font-size: 1.125rem;
+  color: #043B62;
+  text-align: left;
+  font-weight: 500; }
+  @media screen and (min-width: 650px) {
+    h3 {
+      font-size: 1.25rem; } }
+  h3 a {
+    color: inherit;
+    text-decoration: none; }
+
+hr {
+  color: #950306;
+  background-color: #950306;
+  border: none;
+  height: 1px;
+  min-width: 50px; }
+
+p {
+  text-align: center; }
+
+button {
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.75rem;
+  color: #FFFFFF;
+  line-height: 1.4rem;
+  background-color: #0990FE;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+  border: none;
+  border-radius: 2px;
+  padding: 12px 53px 8px;
+  margin: 0 auto 30px auto;
+  display: block;
+  letter-spacing: 0.02rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.25s; }
+  @media screen and (min-width: 650px) {
+    button {
+      font-size: 16px; } }
+  button:hover {
+    background-color: #71BFFE; }
+  @media (max-width: 650px) {
+    button {
+      padding: 8px 20px;
+      margin-bottom: 0; } }
+
+.card, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, .event_calendar .event_calendar_calendar_body, .event_calendar .event_calendar_grid .event_calendar_grid_card {
+  /*padding: 10px;*/
+  font-family: "p22-underground", sans-serif;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+  border-top: 6px solid #950306;
+  box-sizing: border-box;
+  text-align: left; }
+
+.card_date, #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid .event_calendar_grid_card_date {
+  color: #C6C6C6;
+  margin-top: 15px; }
+
+.card_body, #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_body p, .event_calendar .event_calendar_grid .event_calendar_grid_card_location {
+  text-align: left;
+  font-family: "minion-pro", serif;
+  margin-top: 10px;
+  color: #4F4F4F; }
+
+/* For 'READ MORE >' buttons at bottom of card items*/
+.read_more {
+  cursor: pointer; }
+  .read_more a {
+    color: #4F4F4F;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    vertical-align: bottom;
+    transition: color 0.25s; }
+    .read_more a:hover {
+      color: #0990FE; }
+    .read_more a:after {
+      content: "";
+      background-image: url("../images/right-arrow-icon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      padding-left: 15px;
+      right: -20px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      transition: background-image 0.25s; }
+    .read_more a:hover:after {
+      background-image: url("../images/right-arrow-icon-blue.svg"); }
+
+#homepage_hero_region {
+  padding: 25px 50px;
+  height: 500px;
+  position: relative;
+  background-image: url("../images/columns-banner-bg.png");
+  background-size: cover;
+  background-position: center; }
+  #homepage_hero_region #homepage_hero_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    color: #FFFFFF;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 1024px;
+    padding: 0 42px; }
+    #homepage_hero_region #homepage_hero_content hr {
+      color: #FFFFFF;
+      background-color: #FFFFFF;
+      border: none;
+      height: 1px;
+      margin-top: 20px; }
+    #homepage_hero_region #homepage_hero_content p {
+      font-size: 16px;
+      margin-top: 0; }
+      @media screen and (min-width: 650px) {
+        #homepage_hero_region #homepage_hero_content p {
+          font-size: 1.25rem; } }
+      @media screen and (min-width: 925px) {
+        #homepage_hero_region #homepage_hero_content p {
+          font-size: 1.375rem; } }
+    #homepage_hero_region #homepage_hero_content button {
+      margin-top: 40px;
+      margin-bottom: 0;
+      font-size: 0.75rem; }
+      @media screen and (min-width: 650px) {
+        #homepage_hero_region #homepage_hero_content button {
+          font-size: 16px; } }
+      @media (max-width: 925px) {
+        #homepage_hero_region #homepage_hero_content button {
+          font-size: 0.875rem;
+          margin-top: 20px; } }
+
+#homepage_quicklinks_region {
+  padding: 25px 50px;
+  height: auto;
+  background-color: #F4F4F4;
+  overflow-y: visible; }
+  @media (max-width: 700px) {
+    #homepage_quicklinks_region {
+      height: auto;
+      padding: 25px 0; }
+      #homepage_quicklinks_region #block-quicklinks {
+        margin-bottom: 5px; } }
+
+/* See latest_news feature file for more */
+#homepage_news_region {
+  padding: 25px 50px;
+  height: auto; }
+  #homepage_news_region #block-morenewsbutton {
+    padding: 0 25px; }
+    #homepage_news_region #block-morenewsbutton button {
+      clear: both; }
+  @media (max-width: 700px) {
+    #homepage_news_region {
+      padding: 25px 0; } }
+
+#homepage_events_region {
+  height: auto; }
+  #homepage_events_region #homepage_events_content {
+    height: 100%;
+    overflow: hidden; }
+  #homepage_events_region #events_background_container {
+    background-image: url("../images/blue-columns-background.jpg");
+    background-position: top;
+    background-size: cover;
+    height: 1200px; }
+  #homepage_events_region .header_container {
+    padding: 25px 50px; }
+    @media (min-width: 650px) and (max-width: 1024px) {
+      #homepage_events_region .header_container {
+        padding-bottom: 0; } }
+  #homepage_events_region h2 {
+    color: #FFFFFF; }
+  #homepage_events_region hr {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+    border: none;
+    height: 1px; }
+
+#homepage_flowchart_region {
+  padding: 25px 0px 0px 0px;
+  width: 100%;
+  background-color: #E8F8FF; }
+
+#homepage_map_region {
+  padding: 25px 0px 0px 0px;
+  background-color: #043B62; }
+  #homepage_map_region h2 {
+    color: #FFFFFF; }
+  #homepage_map_region hr {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+    border: none;
+    height: 1px; }
+
+#homepage_success_region {
+  padding: 25px 50px;
+  height: auto;
+  background-color: #F4F4F4; }
+  #homepage_success_region p {
+    margin-bottom: 0; }
+  #homepage_success_region button {
+    clear: both; }
+  @media (max-width: 384px) {
+    #homepage_success_region {
+      padding: 25px 10px; }
+      #homepage_success_region #block-preservationsuccessstories {
+        padding: 0 40px; }
+      #homepage_success_region #block-moresuccessstoriesbutton {
+        padding: 0 40px; } }
+
+#homepage_issues_region {
+  padding: 25px 0px 0px 0px;
+  height: auto;
+  background-color: #E8F8FF; }
+
+#homepage_impact_region {
+  padding: 25px 50px;
+  margin: 0 auto; }
+  #homepage_impact_region #block-ourimpact {
+    margin: 0 auto; }
+  #homepage_impact_region .impact_item {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 33.33333%;
+    height: 300px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 25px;
+    margin-bottom: 15px; }
+    #homepage_impact_region .impact_item:last-child {
+      margin-right: 0; }
+    #homepage_impact_region .impact_item img {
+      height: 120px; }
+    #homepage_impact_region .impact_item .impact_number {
+      color: #309AEE;
+      font-family: "p22-underground", sans-serif;
+      font-size: 1.25rem;
+      margin-top: 20px;
+      font-weight: 500; }
+      @media screen and (min-width: 650px) {
+        #homepage_impact_region .impact_item .impact_number {
+          font-size: 1.625rem; } }
+    #homepage_impact_region .impact_item p {
+      color: #4F4F4F;
+      margin: 5px 0 25px; }
+  @media (max-width: 750px) {
+    #homepage_impact_region #block-ourimpact {
+      margin-bottom: 25px; }
+    #homepage_impact_region .impact_item {
+      margin-bottom: 25px;
+      height: auto;
+      padding: 0;
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%; }
+      #homepage_impact_region .impact_item:last-child {
+        margin-right: 0; }
+      #homepage_impact_region .impact_item_1 {
+        margin-left: 0; }
+      #homepage_impact_region .impact_item_3 {
+        margin-bottom: 25px; }
+      #homepage_impact_region .impact_item .impact_number,
+      #homepage_impact_region .impact_item p {
+        margin: 0; }
+      #homepage_impact_region .impact_item img {
+        height: 60px; } }
+  #homepage_impact_region button {
+    clear: both; }
+
+#homepage_preserveamerica_region {
+  padding: 25px 50px;
+  height: auto;
+  background-color: #F4F4F4; }
+  #homepage_preserveamerica_region hr {
+    width: 100px; }
+
+/* Admin menu overlay */
+body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
+  margin: 0px; }
+
+/* Footer styles */
+/*
+footer {
+  font-family: $sans-text;
+  line-height: 1.3;
+  height: 500px;
+  background-color: $background-color-lightblue;
+  border: 1px solid $background-color-lightblue;
+  p {
+    font-size: 1.125rem;
+    font-color: $color-darkgrey;
+  }
+  .content_wrapper {
+    padding: 0 42px;
+    text-align: left;
+    #block-organizationname {
+      display: none;
+    }
+    ul {
+      padding-left: 0;
+      li {
+        list-style-type: none;
+        a {
+          list-style-type: none;
+          text-decoration: none;
+          font-weight: 500;
+          display: inline-block;
+        }
+      }
+      &.menu_base {
+        & > li {
+          @include span-columns(3 of 12);
+        }
+        a {
+          color: $color-darkgrey;
+          margin-bottom: 10px;
+        }
+      }
+      &.menu_second a {
+        color: $color-grey;
+        padding-left: 0;
+        @include font-size($footer_menu_second-font-sizes);
+        margin-bottom: 10px;
+      }
+
+      &.menu_third a {
+        color: $color-blue-primary;
+        padding-left: 0;
+        @include font-size($footer_menu_third-font-sizes);
+        margin-bottom: 10px;
+      }
+    }
+  }
+  @media (max-width: 900px) {
+    height: 400px;
+    .content_wrapper {
+      ul.menu {
+        &_base a {
+          margin-bottom: 2px;
+        }
+        &_second a {
+          margin-top: 5px;
+          margin-bottom: 0;
+        }
+        &_third a {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+  @media (max-width: 750px) {
+    height: 225px;
+    .content_wrapper {
+      #block-organizationname {
+        display: block;
+      }
+      ul.menu_base > li {
+        @include span-columns (12 of 12);
+        line-height: 2;
+        text-align: center;
+      }
+      ul.menu_second,
+      ul.menu_third {
+        display: none;
+      }
+    }
+  }
+}
+*/
+/* TODO: move to separate file when it you figure out how to get sass to watch it */
+.event_calendar .event_calendar_feature {
+  padding: 0 50px; }
+.event_calendar .event_calendar_calendar {
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 33.33333%;
+  height: 400px;
+  padding-bottom: 20px; }
+  .event_calendar .event_calendar_calendar:last-child {
+    margin-right: 0; }
+  .event_calendar .event_calendar_calendar .clndr {
+    padding: 5px; }
+  .event_calendar .event_calendar_calendar_title {
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    font-size: 1.75rem;
+    font-weight: 300; }
+  .event_calendar .event_calendar_calendar_body {
+    background-color: #fff;
+    color: #7C7C7C;
+    font-family: "p22-underground", sans-serif; }
+    .event_calendar .event_calendar_calendar_body .clndr-controls {
+      position: relative;
+      height: 40px; }
+      .event_calendar .event_calendar_calendar_body .clndr-controls .month-container {
+        font-size: 1.5625rem;
+        text-transform: uppercase;
+        top: 0;
+        width: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        position: relative;
+        text-align: center; }
+        .event_calendar .event_calendar_calendar_body .clndr-controls .month-container .month {
+          display: inline-block;
+          padding-top: 4px;
+          cursor: pointer;
+          transition: color 0.25s; }
+          .event_calendar .event_calendar_calendar_body .clndr-controls .month-container .month:hover {
+            color: #0990FE; }
+      .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-previous-button, .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        transition: background-image 0.25s; }
+      .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-previous-button {
+        background-image: url("../images/left-calendar-arrow.svg");
+        padding: 23px 30px 23px 7px;
+        left: 0; }
+        .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-previous-button:hover {
+          background-image: url("../images/left-calendar-arrow-blue.svg"); }
+      .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button {
+        padding: 23px 14px 23px 30px;
+        right: 0;
+        background-image: url("../images/right-calendar-arrow.svg"); }
+        .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button:hover {
+          background-image: url("../images/right-calendar-arrow-blue.svg"); }
+    .event_calendar .event_calendar_calendar_body .clndr-table {
+      border: none;
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem; }
+      .event_calendar .event_calendar_calendar_body .clndr-table thead {
+        font-family: "minion-pro", serif;
+        font-weight: bold; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month {
+        color: #C6C6C6; }
+        .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event {
+          background-color: #fff; }
+          .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event:hover {
+            cursor: default;
+            background-color: #fff;
+            color: #c6c6c6; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .event {
+        cursor: pointer;
+        background-color: #E6F8FF; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .today {
+        color: #fff;
+        background-color: #003A53; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .event:hover {
+        color: #fff;
+        background-color: #0990FE; }
+      .event_calendar .event_calendar_calendar_body .clndr-table .day, .event_calendar .event_calendar_calendar_body .clndr-table .header-day {
+        line-height: 3.5; }
+.event_calendar .event_calendar_grid {
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 66.66667%; }
+  .event_calendar .event_calendar_grid:last-child {
+    margin-right: 0; }
+  .event_calendar .event_calendar_grid_title {
+    margin: 0 0 5px 20px;
+    color: #FFFFFF;
+    font-size: 1.75rem;
+    font-weight: 300; }
+  .event_calendar .event_calendar_grid .event_calendar_grid_card_container {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%;
+    padding: 0 0 20px 20px; }
+    .event_calendar .event_calendar_grid .event_calendar_grid_card_container:last-child {
+      margin-right: 0; }
+    .event_calendar .event_calendar_grid .event_calendar_grid_card_container:nth-of-type(2n + 1) {
+      clear: both; }
+  .event_calendar .event_calendar_grid .event_calendar_grid_message {
+    color: #fff;
+    text-align: left;
+    font-size: 0.75rem;
+    margin-left: 20px;
+    font-style: italic;
+    font-family: "p22-underground", sans-serif; }
+    @media screen and (min-width: 650px) {
+      .event_calendar .event_calendar_grid .event_calendar_grid_message {
+        font-size: 16px; } }
+  .event_calendar .event_calendar_grid .event_calendar_grid_card {
+    height: 240px;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    max-width: 321.33333px;
+    position: relative; }
+    .event_calendar .event_calendar_grid .event_calendar_grid_card_mobile_date {
+      display: none; }
+    .event_calendar .event_calendar_grid .event_calendar_grid_card_location {
+      margin-bottom: 10px; }
+    .event_calendar .event_calendar_grid .event_calendar_grid_card_footer {
+      height: 20px;
+      width: 100%;
+      position: absolute;
+      bottom: 15px; }
+      .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .read_more {
+        position: absolute; }
+      .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar {
+        display: block;
+        background-image: url("../images/add-calendar-icon.svg");
+        float: right;
+        background-repeat: no-repeat;
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+        transition: background-image 0.25s;
+        margin-right: 25px;
+        margin-top: 1px; }
+        .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar:hover {
+          background-image: url("../images/add-calendar-icon-lightblue.svg"); }
+.event_calendar .event_calendar_feature_footer {
+  margin-top: 10px;
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 100%; }
+  .event_calendar .event_calendar_feature_footer:last-child {
+    margin-right: 0; }
+@media (max-width: 1024px) {
+  .event_calendar .event_calendar_feature .event_calendar_calendar {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%;
+    height: 450px; }
+    .event_calendar .event_calendar_feature .event_calendar_calendar:last-child {
+      margin-right: 0; } }
+  @media (max-width: 1024px) and (min-width: 650px) {
+    .event_calendar .event_calendar_feature .event_calendar_calendar {
+      padding-bottom: 20px; }
+      .event_calendar .event_calendar_feature .event_calendar_calendar_title {
+        padding-top: 38px; } }
+@media (max-width: 1024px) {
+  .event_calendar .event_calendar_feature .event_calendar_grid {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%; }
+    .event_calendar .event_calendar_feature .event_calendar_grid:last-child {
+      margin-right: 0; }
+    .event_calendar .event_calendar_feature .event_calendar_grid_title {
+      display: table-cell;
+      padding-left: 20px;
+      vertical-align: bottom;
+      height: 75px;
+      line-height: 1.2; }
+    .event_calendar .event_calendar_feature .event_calendar_grid_card_container {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 50%;
+      height: 75px;
+      margin: 10px 0;
+      width: 100%;
+      position: relative;
+      padding: 0;
+      padding-left: 20px; }
+      .event_calendar .event_calendar_feature .event_calendar_grid_card_container:last-child {
+        margin-right: 0; }
+      .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card {
+        width: 100%;
+        height: 100%;
+        height: 75px;
+        padding: 0;
+        position: absolute;
+        max-width: 100%;
+        border: 0; }
+        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_header {
+          height: 75px;
+          /*width: 100%;*/
+          background-color: #fff;
+          /*position: absolute;*/
+          margin-left: 60px;
+          position: relative; }
+        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+          /*@include hover-transition-content(#71bffe);*/
+          cursor: pointer;
+          width: 95%;
+          transition: color 0.25s; }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:hover {
+            color: #0990FE; }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:after {
+            content: "";
+            background-image: url("../images/right-arrow-icon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 20px;
+            height: 20px;
+            padding-left: 15px;
+            right: 0;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            transition: background-image 0.25s; }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:hover:after {
+            background-image: url("../images/right-arrow-icon-blue.svg"); }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title a {
+            display: block;
+            width: 90%;
+            padding: 25px 0 25px 15px; }
+        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_footer {
+          display: none; }
+        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_container {
+          line-height: 1.1;
+          width: 60px;
+          float: left;
+          height: 75px;
+          background-color: #950306;
+          text-align: center;
+          position: absolute;
+          color: #fff;
+          top: 0; }
+        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date {
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+          position: relative; }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_month {
+            text-transform: uppercase;
+            font-size: 1.125rem; }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_day {
+            font-size: 2.125rem; } }
+@media (max-width: 650px) {
+  .event_calendar .event_calendar_feature {
+    padding: 0 25px; }
+    .event_calendar .event_calendar_feature .event_calendar_calendar {
+      display: none; }
+    .event_calendar .event_calendar_feature .event_calendar_grid {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%; }
+      .event_calendar .event_calendar_feature .event_calendar_grid:last-child {
+        margin-right: 0; }
+      .event_calendar .event_calendar_feature .event_calendar_grid_title {
+        display: none; }
+      .event_calendar .event_calendar_feature .event_calendar_grid_card_container {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 100%;
+        height: 75px;
+        margin: 10px 0;
+        width: 100%;
+        position: relative;
+        padding: 0; }
+        .event_calendar .event_calendar_feature .event_calendar_grid_card_container:last-child {
+          margin-right: 0; }
+        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card {
+          width: 100%;
+          height: 100%;
+          height: 75px;
+          padding: 0;
+          position: absolute;
+          max-width: 100%;
+          border: 0;
+          /*@include span-columns (12 of 12);      */ }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_header {
+            height: 75px;
+            /*width: 100%;*/
+            background-color: #fff;
+            /*position: absolute;*/
+            margin-left: 60px;
+            position: relative; }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            /*@include hover-transition-content(#71bffe);*/
+            cursor: pointer;
+            width: 95%;
+            transition: color 0.25s; }
+            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:hover {
+              color: #0990FE; }
+            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:after {
+              content: "";
+              background-image: url("../images/right-arrow-icon.svg");
+              background-repeat: no-repeat;
+              background-position: center;
+              width: 20px;
+              height: 20px;
+              padding-left: 15px;
+              right: -5px;
+              cursor: pointer;
+              position: absolute;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+              transform: translateY(-50%);
+              transition: background-image 0.25s; }
+            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:hover:after {
+              background-image: url("../images/right-arrow-icon-blue.svg"); }
+            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title a {
+              display: block;
+              width: 100%;
+              padding: 25px 0 25px 15px; }
+          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_footer {
+            display: none; } }
+
+#block-preserveamericaheader {
+  /*.preserve-america-header-block {*/
+  text-align: center; }
+  #block-preserveamericaheader .header_container {
+    width: auto;
+    display: inline-block;
+    margin: 0px auto; }
+    #block-preserveamericaheader .header_container hr {
+      width: 60%; }
+
+#block-learnaboutpreserveamerica button {
+  margin: 0 auto;
+  /*display: inline-block;*/ }
+
+.preserveamerica_content_wrapper {
+  position: relative;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto; }
+  .preserveamerica_content_wrapper h2 {
+    display: inline-block; }
+  .preserveamerica_content_wrapper .views-element-container {
+    width: 100%; }
+    .preserveamerica_content_wrapper .views-element-container h2 {
+      position: relative; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul {
+      width: 100%;
+      list-style: none;
+      padding: 0px;
+      margin-top: 0px; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li {
+        position: relative;
+        margin: 0px auto; }
+        .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+          /*@include span-columns (12 of 12);*/
+          border-top: 5px solid #950306;
+          background-color: #FFF;
+          box-sizing: border-box;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          display: inline-block;
+          text-align: left;
+          width: 100%;
+          padding: 20px;
+          margin-bottom: 20px; }
+          .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+            height: 185px;
+            width: 185px;
+            /*@include span-columns (4 of 12);*/ }
+          .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
+            position: absolute;
+            left: 225px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+            padding-right: 20px;
+            /*@include span-columns (8 of 12);*/
+            /*                  @media (min-width: 701px) {
+                                top: -2px;
+                              }*/ }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:first-child {
+              position: relative;
+              display: block;
+              font-family: "p22-underground", sans-serif;
+              color: #043b62;
+              font-size: 20px;
+              font-size: 1.25rem;
+              line-height: 28px;
+              line-height: 1.75rem;
+              text-decoration: none; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right p {
+              font-family: "minion-pro", serif;
+              color: #1e1e1e;
+              font-size: 16px;
+              font-size: 1rem;
+              line-height: 22.4px;
+              line-height: 1.4rem;
+              text-decoration: none;
+              text-align: left;
+              margin-bottom: 20px; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body-mobile {
+              display: none; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-widescreen a {
+              display: inline-block;
+              height: 1.125rem;
+              border: 1px solid pink; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile {
+              display: none; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:last-child {
+              position: relative;
+              bottom: 0px;
+              max-width: 100%;
+              color: #4F4F4F;
+              font-family: "p22-underground", sans-serif;
+              font-size: 14px;
+              font-size: 0.875rem;
+              line-height: 19.2px;
+              line-height: 1.2rem;
+              font-weight: 500;
+              text-align: left;
+              text-decoration: none;
+              text-transform: uppercase; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:last-child:after {
+              position: absolute;
+              top: 50%;
+              right: -45px;
+              content: "";
+              background-image: url("../images/right-arrow-icon.svg");
+              background-repeat: no-repeat;
+              background-position: center;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translateY(-50%);
+              transform: translateY(-50%);
+              width: 20px;
+              height: 20px;
+              padding-left: 15px;
+              margin-right: 20px;
+              cursor: pointer; }
+
+@media (max-width: 900px) {
+  .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+    margin: 0 auto;
+    display: block; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body {
+      display: none; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body-mobile {
+      display: block; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
+      margin-bottom: 10px; } }
+@media (max-width: 700px) {
+  .preserveamerica_content_wrapper .views-element-container h2 {
+    display: block;
+    margin: 0 auto; }
+  .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+    width: 300px; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
+      position: static; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-widescreen {
+        display: none; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile {
+        /*max-width: 60%;*/
+        margin: 0 auto; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
+      height: 250px;
+      width: 250px; } }
+
+/*# sourceMappingURL=style.css.map */
