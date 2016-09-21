@@ -54,13 +54,91 @@
       @include span-columns (9 of 12);
       float: right;
       background-color: #fff;
+      margin-bottom: 25px;
+      padding: 0;
 
-      .views-field-field-news-photo {
-        img {
-          max-width: 300px;
-          max-height: 300px;
+      .views-field-title a {
+        color: $color-darkblue;
+        font-size: 1.25rem;
+        text-decoration: none;
+        padding: 10px 20px 0;
+      }
+
+      .views-field-field-date {
+        /*@extend .card_date;*/
+        color: $color-lightgrey;
+        padding: 10px 20px 0;
+        margin-top: 0;
+      }
+
+      .views-field-field-news-photo img {
+        max-width: 300px;
+        max-height: 300px;
+        float: left;
+        margin: 10px 15px 10px 20px;
+      }
+
+      .views-field-body {
+        font-family: $serif-text;
+        margin: 5px 20px;
+
+        p {
+          margin-top: 5px;
         }
       }
+
+      .views-field-field-tags {
+        .views-label {
+          display: block;
+          color: $color-darkblue;
+          margin-left: 20px;
+        }
+
+        .field-content {
+          height: 20px;
+          position: relative;
+          bottom: 25px;
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 10px 20px 0;
+
+        li {
+          display: inline-block;
+          margin-top: 25px;
+          position: relative;
+          /*left: -35px;*/
+
+           a {
+            text-decoration: none;
+            color: $color-blue-primary;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .views-field-view-node {
+        width: 100%;
+        position: relative;
+        margin-top: 35px;
+        height: 30px;
+        background-color: $background-color-grey;
+        @include hover-transition-content($color-blue-primary);
+        @include hover-transition-background($background-color-lightblue);
+
+        a {
+          /*width: 100%;*/
+          color: $color-grey;
+          text-decoration: none;
+          text-align: center;
+          font-weight: 500;
+          @include center-xy;
+        }
+      }
+
       &:after {
         content: "";
         clear: both;

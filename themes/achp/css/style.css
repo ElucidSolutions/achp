@@ -1967,7 +1967,7 @@ $arrow-padding: 5px;*/
   margin: 0 auto; }
   #content_region a {
     transition: color 0.25s;
-    color: inherit; }
+    /*color: inherit;*/ }
     #content_region a:hover {
       color: #71bffe; }
   #content_region #block-achp-page-title h1 {
@@ -2325,9 +2325,10 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
               /*position: absolute;*/
               display: inline-block; }
               .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a {
-                width: auto;
+                /*width: auto;*/
                 /*margin-right: 20px;*/
-                display: inline;
+                position: absolute;
+                /*display: inline;*/
                 color: #4F4F4F;
                 font-family: "p22-underground", sans-serif;
                 font-size: 14px;
@@ -2343,19 +2344,25 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
                   color: #0990FE; }
                 .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:after {
                   position: absolute;
-                  right: -25px;
+                  position: absolute;
+                  top: 50%;
+                  -webkit-transform: translateY(-50%);
+                  -moz-transform: translateY(-50%);
+                  -ms-transform: translateY(-50%);
+                  -o-transform: translateY(-50%);
+                  transform: translateY(-50%);
+                  right: -45px;
                   content: "";
                   background-image: url("../images/right-arrow-icon.svg");
                   background-repeat: no-repeat;
                   background-position: center;
                   width: 20px;
                   height: 20px;
-                  /*                  padding-left: 15px;            
-                                    margin-right: 20px;*/
+                  padding-left: 15px;
+                  margin-right: 20px;
                   cursor: pointer;
-                  /*@include center-y;*/
-                  display: inline;
-                  top: -4px;
+                  /*display: inline;*/
+                  /*top: -4px;*/
                   transition: background-image 0.25s; }
                 .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:hover:after {
                   background-image: url("../images/right-arrow-icon-blue.svg"); }
@@ -2516,12 +2523,78 @@ $arrow-padding: 5px;*/
       margin-right: 0%;
       width: 75%;
       float: right;
-      background-color: #fff; }
+      background-color: #fff;
+      margin-bottom: 25px;
+      padding: 0; }
       .page_outer_container .news-landing-container .news-item:last-child {
         margin-right: 0; }
+      .page_outer_container .news-landing-container .news-item .views-field-title a {
+        color: #043B62;
+        font-size: 1.25rem;
+        text-decoration: none;
+        padding: 10px 20px 0; }
+      .page_outer_container .news-landing-container .news-item .views-field-field-date {
+        /*@extend .card_date;*/
+        color: #C6C6C6;
+        padding: 10px 20px 0;
+        margin-top: 0; }
       .page_outer_container .news-landing-container .news-item .views-field-field-news-photo img {
         max-width: 300px;
-        max-height: 300px; }
+        max-height: 300px;
+        float: left;
+        margin: 10px 15px 10px 20px; }
+      .page_outer_container .news-landing-container .news-item .views-field-body {
+        font-family: "minion-pro", serif;
+        margin: 5px 20px; }
+        .page_outer_container .news-landing-container .news-item .views-field-body p {
+          margin-top: 5px; }
+      .page_outer_container .news-landing-container .news-item .views-field-field-tags .views-label {
+        display: block;
+        color: #043B62;
+        margin-left: 20px; }
+      .page_outer_container .news-landing-container .news-item .views-field-field-tags .field-content {
+        height: 20px;
+        position: relative;
+        bottom: 25px; }
+      .page_outer_container .news-landing-container .news-item ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 10px 20px 0; }
+        .page_outer_container .news-landing-container .news-item ul li {
+          display: inline-block;
+          margin-top: 25px;
+          position: relative;
+          /*left: -35px;*/ }
+          .page_outer_container .news-landing-container .news-item ul li a {
+            text-decoration: none;
+            color: #0990FE;
+            margin-right: 10px; }
+      .page_outer_container .news-landing-container .news-item .views-field-view-node {
+        width: 100%;
+        position: relative;
+        margin-top: 35px;
+        height: 30px;
+        background-color: #F4F4F4;
+        transition: color 0.25s;
+        transition: background-color 0.25s; }
+        .page_outer_container .news-landing-container .news-item .views-field-view-node:hover {
+          color: #0990FE; }
+        .page_outer_container .news-landing-container .news-item .views-field-view-node:hover {
+          background-color: #E8F8FF; }
+        .page_outer_container .news-landing-container .news-item .views-field-view-node a {
+          /*width: 100%;*/
+          color: #4F4F4F;
+          text-decoration: none;
+          text-align: center;
+          font-weight: 500;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -o-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%); }
       .page_outer_container .news-landing-container .news-item:after {
         content: "";
         clear: both; }
