@@ -25,6 +25,8 @@ $section_106_map_share_height: 18px;
 $section_106_map_share_width: 260px;
 $section_106_map_share_padding: 10px;
 
+$grid_footer_height: 30px;
+
 @mixin after-element-icon-with-hover($icon-path, $icon-hover-path, $right-positioning, $color) {
   @include hover-transition-content($color);
 
@@ -65,6 +67,15 @@ $section_106_map_share_padding: 10px;
   transform: translateY(-50%);
 }
 
+@mixin center-x {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
 
 /* Possible TODO: link this to getNumCasesPerPage function? */
 $num-of-cases-per-grid-row: 3;
@@ -158,7 +169,7 @@ $num-of-cases-per-grid-row: 3;
 
   .section_106_map_feature_body {
     background: $background-color-lightblue;
-    min-height: $feature_body_height;
+    min-height: $feature_body_height + $grid_footer_height;
     position: relative;
     width: $feature_body_width;
 
@@ -392,7 +403,6 @@ $num-of-cases-per-grid-row: 3;
     }
 
     $grid_header_height: 60px;
-    $grid_footer_height: 30px;
     $grid_footer_margin: 20px;
     $grid_body_height: $feature_body_height - $grid_header_height - $grid_footer_height - 2 * $grid_footer_margin;
 
@@ -463,9 +473,10 @@ $num-of-cases-per-grid-row: 3;
         .section_106_map_case_card {
           background: white;
           border-top: 5px solid $red_color;
-          box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
-          -moz-box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
-          -webkit-box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);
+          /*box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);*/
+          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+          -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+          -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
           cursor: pointer;
           display: inline-block;
           height: 140px;
@@ -474,9 +485,15 @@ $num-of-cases-per-grid-row: 3;
           text-align: left;
           padding: 15px;
           position: relative;
+          transition: box-shadow 0.25s, border-top-color 0.25s;
+
+            .section_106_map_case_card_title, .section_106_map_case_card_state {
+              transition: color 0.25s;
+            }
 
           &:hover {
             border-top-color: $light_blue_color;
+            box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.26);
 
             .section_106_map_case_card_title {
               color: $light_blue_color;
@@ -520,6 +537,8 @@ $num-of-cases-per-grid-row: 3;
       .section_106_map_grid_footer {
         height: $grid_footer_height;
         margin: $grid_footer_margin;
+        bottom: 0;
+        @include center-x;
         @include span-columns (12 of 12);
 
         .section_106_map_grid_nav {

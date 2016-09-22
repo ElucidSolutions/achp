@@ -864,7 +864,6 @@
     and returns undefined.
   */
   Map.prototype.showStatePanelElement = function (state) {
-    console.log('1')
     this.getPanelElement ()
       .empty ()
       .append (this.createStatePanelElement (state))
@@ -1336,15 +1335,33 @@
     instance's grid element.
   */
   Grid.prototype.showComponentElement = function () {
+    // overlayElement = this.getOverlayElement ();
+    // overlayElement.find($('.section_106_map_grid_overlay_body')).show ();
+    // overlayElement.find($('.section_106_map_grid_overlay_footer')).show ();
     this.getComponentElement ().show ();
   }
 
   /*
-    Accepts no arguments and hides this
-    instance's overlay element.
+    Accepts no arguments and animates the
+    instance's overlay element out of view.
   */
   Grid.prototype.hideOverlayElement = function () {
-    this.getOverlayElement ().hide ();
+   overlayElement = this.getOverlayElement ();
+   // Make overlay element appear empty before closing it
+   overlayElement.find($('.section_106_map_grid_overlay_body')).hide ();
+   overlayElement.find($('.section_106_map_grid_overlay_footer')).hide ();
+   overlayElement.animate ({
+      width: 0,
+      height: 0,
+      top: '50%',
+      left: '50%'  
+    }, 'slow', function () {
+      // Hides overlay container element, but re-shows its contents so that
+      // they continue to display when the overlay is reopened
+      overlayElement.hide ();
+      overlayElement.find($('.section_106_map_grid_overlay_body')).show ();
+      overlayElement.find($('.section_106_map_grid_overlay_footer')).show ();
+    });  
   }
 
   /*

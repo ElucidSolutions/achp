@@ -54,7 +54,7 @@ html {
           background-size: 15px; }
   .section_106_map .section_106_map_feature_body {
     background: #E8F8FF;
-    min-height: 425px;
+    min-height: 455px;
     position: relative;
     width: 100%; }
     .section_106_map .section_106_map_feature_body .section_106_map_case {
@@ -258,9 +258,10 @@ html {
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card {
           background: white;
           border-top: 5px solid #97000e;
-          box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
-          -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
-          -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
+          /*box-shadow: (-2px) 0px 18px rgba(0, 0, 0, 0.4);*/
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
           cursor: pointer;
           display: inline-block;
           height: 140px;
@@ -268,9 +269,13 @@ html {
           margin: 20px 20px 0 0;
           text-align: left;
           padding: 15px;
-          position: relative; }
+          position: relative;
+          transition: box-shadow 0.25s, border-top-color 0.25s; }
+          .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_title, .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_state {
+            transition: color 0.25s; }
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover {
-            border-top-color: #0990fe; }
+            border-top-color: #0990fe;
+            box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.26); }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover .section_106_map_case_card_title {
               color: #0990fe; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover .section_106_map_case_card_state {
@@ -298,6 +303,14 @@ html {
       .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer {
         height: 30px;
         margin: 20px;
+        bottom: 0;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
         float: left;
         display: block;
         margin-right: 2.35765%;
