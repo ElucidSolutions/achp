@@ -864,11 +864,12 @@
     and returns undefined.
   */
   Map.prototype.showStatePanelElement = function (state) {
+    console.log('1')
     this.getPanelElement ()
       .empty ()
       .append (this.createStatePanelElement (state))
-      .animate ({scrollTop: 0}, 200)
-      .show (function () {
+      .show ()
+      .animate ({right: '0'}, 500, function () {
           // create case share elements.
           a2a.init_all ('page');
 
@@ -889,7 +890,14 @@
     component's panel element.
   */
   Map.prototype.hidePanelElement = function () {
-    this.getPanelElement ().hide ();
+    this.getPanelElement ().animate ({
+      // element moves its own width plus box-shadow width offscreen
+      right: '-' + (this.getPanelElement ().width () + 
+        parseInt(this.getPanelElement ().css('box-shadow').split(" ")[6].slice(0, 2))) 
+        + 'px'
+    }, 500, function () {
+      $(this).hide ();
+    });
   }
 
   /*

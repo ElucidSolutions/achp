@@ -47,10 +47,10 @@ html {
           .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_tab.section_106_map_selected {
             border-bottom: 5px solid #0990fe; }
         .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_map_tab {
-          background: url("../images/map-icon.svg") no-repeat 50% 18.75px;
+          background: url("../images/map-icon.svg") no-repeat 50% 12px;
           background-size: 15px; }
         .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_grid_tab {
-          background: url("../images/grid-icon.svg") no-repeat 50% 18.75px;
+          background: url("../images/grid-icon.svg") no-repeat 50% 17px;
           background-size: 15px; }
   .section_106_map .section_106_map_feature_body {
     background: #E8F8FF;
@@ -146,7 +146,8 @@ html {
         max-width: 343px;
         overflow-y: scroll;
         position: absolute;
-        right: 0px;
+        /*right: 0px;*/
+        right: -343px;
         z-index: 10; }
         .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_header {
           height: 50px;
@@ -566,3 +567,5 @@ html {
       width: 100%; }
   .section_106_map .section_106_map_feature .section_106_map_feature_body .section_106_map_grid .section_106_map_case .section_106_map_case_nav {
     width: 200px; } }
+
+/*# sourceMappingURL=section_106_map.css.map */

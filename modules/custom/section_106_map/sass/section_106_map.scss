@@ -141,12 +141,12 @@ $num-of-cases-per-grid-row: 3;
         }
 
         .section_106_map_feature_map_tab {
-          background: url("../images/map-icon.svg") no-repeat 50% ($feature_header_body_tabs_height / 4);
+          background: url("../images/map-icon.svg") no-repeat 50% 12px;
           background-size: 15px;
         }
 
         .section_106_map_feature_grid_tab {
-          background: url("../images/grid-icon.svg") no-repeat 50% ($feature_header_body_tabs_height / 4);
+          background: url("../images/grid-icon.svg") no-repeat 50% 17px;
           background-size: 15px;
         }
       }
@@ -301,7 +301,8 @@ $num-of-cases-per-grid-row: 3;
         max-width: $panel_width;
         overflow-y: scroll;
         position: absolute;
-        right: 0px;
+        /*right: 0px;*/
+        right: -#{$panel_width};
         z-index: 10;
 
         .section_106_map_state_panel {
