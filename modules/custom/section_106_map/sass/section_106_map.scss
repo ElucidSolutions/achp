@@ -768,19 +768,19 @@ $num-of-cases-per-grid-row: 3;
     &.section_106_map_grid_overlay_nav_prev:before {
       background-image: url('../../../../themes/achp/images/left-calendar-arrow.svg');
       display: inline;
+      cursor: default;
 
       &:hover {
        background-image: url('../../../../themes/achp/images/left-calendar-arrow.svg');
-       cursor: default;
       }
     }
 
     &.section_106_map_grid_overlay_nav_next:after {
       background-image: url('../../../../themes/achp/images/right-calendar-arrow.svg');
+      cursor: default;
 
       &:hover {
        background-image: url('../../../../themes/achp/images/left-calendar-arrow.svg');
-       cursor: default;
       }
     }
   }

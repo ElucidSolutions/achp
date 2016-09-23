@@ -892,7 +892,7 @@
     this.getPanelElement ().animate ({
       // element moves its own width plus box-shadow width offscreen
       right: '-' + (this.getPanelElement ().width () + 
-        parseInt(this.getPanelElement ().css('box-shadow').split(" ")[6].slice(0, 2))) 
+        parseInt (this.getPanelElement ().css ('box-shadow').split (" ")[6].slice (0, 2))) 
         + 'px'
     }, 500, function () {
       $(this).hide ();
@@ -1310,23 +1310,18 @@
         .addClass (classPrefix + '_prev')
         .addClass (0 >= caseIndex && classPrefix + '_disabled')
         .text ('PREVIOUS')
-        .click (function () {
-            self.showCaseOverlayElement (
-              0 < caseIndex ?
-                caseIndex - 1 :
-                caseIndex
-            );
+        .click (function (e) {
+          0 < caseIndex ?
+            self.showCaseOverlayElement (caseIndex - 1) :
+            e.preventDefault ();
           }))
       .append ($('<span></span>')
         .addClass (classPrefix + '_next')
         .addClass (caseIndex >= self.getCurrentPageEnd () - 1 && classPrefix + '_disabled')
         .text ('NEXT')
-        .click (function () {
-            self.showCaseOverlayElement (
-              caseIndex < self.getCurrentPageEnd () - 1 ?
-                caseIndex + 1 :
-                caseIndex
-            );
+        .click (function (e) {
+          self._cases.length > caseIndex + 1 ?
+            self.showCaseOverlayElement (caseIndex + 1) :
           }));      
   }
 
@@ -1335,9 +1330,6 @@
     instance's grid element.
   */
   Grid.prototype.showComponentElement = function () {
-    // overlayElement = this.getOverlayElement ();
-    // overlayElement.find($('.section_106_map_grid_overlay_body')).show ();
-    // overlayElement.find($('.section_106_map_grid_overlay_footer')).show ();
     this.getComponentElement ().show ();
   }
 
