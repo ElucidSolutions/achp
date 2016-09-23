@@ -1339,6 +1339,7 @@
   */
   Grid.prototype.hideOverlayElement = function () {
    overlayElement = this.getOverlayElement ();
+
    // Make overlay element appear empty before closing it
    overlayElement.find($('.section_106_map_grid_overlay_body')).hide ();
    overlayElement.find($('.section_106_map_grid_overlay_footer')).hide ();
@@ -1348,6 +1349,7 @@
       top: '50%',
       left: '50%'  
     }, 'slow', function () {
+      
       // Hides overlay container element, but re-shows its contents so that
       // they continue to display when the overlay is reopened
       overlayElement.hide ();
