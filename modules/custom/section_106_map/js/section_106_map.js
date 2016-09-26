@@ -1322,6 +1322,7 @@
         .click (function (e) {
           self._cases.length > caseIndex + 1 ?
             self.showCaseOverlayElement (caseIndex + 1) :
+            e.preventDefault ();
           }));      
   }
 

@@ -2466,7 +2466,6 @@ $arrow-padding: 5px;*/
     margin: 0 auto;
     position: relative; }
   .page_outer_container .news-landing-container {
-    /*margin-top: 2px;*/
     float: left;
     display: block;
     margin-right: 0%;
@@ -2544,7 +2543,7 @@ $arrow-padding: 5px;*/
         max-width: 300px;
         max-height: 300px;
         float: left;
-        margin: 10px 15px 10px 20px; }
+        margin: 10px 20px 10px 20px; }
       .page_outer_container .news-landing-container .news-item .views-field-body {
         font-family: "minion-pro", serif;
         margin: 5px 20px; }
@@ -2570,22 +2569,18 @@ $arrow-padding: 5px;*/
           .page_outer_container .news-landing-container .news-item ul li a {
             text-decoration: none;
             color: #0990FE;
-            margin-right: 10px; }
+            margin-right: 25px; }
       .page_outer_container .news-landing-container .news-item .views-field-view-node {
         width: 100%;
         position: relative;
-        margin-top: 35px;
+        margin-top: 20px;
         height: 30px;
         background-color: #F4F4F4;
         clear: both;
-        transition: color 0.25s;
         transition: background-color 0.25s; }
-        .page_outer_container .news-landing-container .news-item .views-field-view-node:hover {
-          color: #0990FE; }
         .page_outer_container .news-landing-container .news-item .views-field-view-node:hover {
           background-color: #E8F8FF; }
         .page_outer_container .news-landing-container .news-item .views-field-view-node a {
-          /*width: 100%;*/
           color: #4F4F4F;
           text-decoration: none;
           text-align: center;
@@ -2597,13 +2592,29 @@ $arrow-padding: 5px;*/
           -moz-transform: translateX(-50%) translateY(-50%);
           -ms-transform: translateX(-50%) translateY(-50%);
           -o-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%); }
+          transform: translateX(-50%) translateY(-50%);
+          transition: color 0.25s; }
+        .page_outer_container .news-landing-container .news-item .views-field-view-node:hover a {
+          color: #0990FE; }
       .page_outer_container .news-landing-container .news-item:after {
         content: "";
         clear: both; }
 
-#footer {
-  /*display: none;*/ }
+label {
+  font-size: 1.25rem;
+  font-family: "p22-underground", sans-serif;
+  color: #043B62;
+  border-bottom: 1px solid #950306;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px; }
+
+input {
+  font-family: "p22-underground", sans-serif;
+  color: #C6C6C6; }
+
+#edit-field-tags-target-id {
+  margin-bottom: 15px; }
 
 /*
   This module defines the sass directives used
