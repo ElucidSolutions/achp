@@ -1640,7 +1640,7 @@
     each page as an integer.
   */
   function getNumCasesPerPage () {
-    return 6;
+    return 4;
   }
 
   // IV. Auxiliary functions.

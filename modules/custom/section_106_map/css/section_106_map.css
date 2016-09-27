@@ -251,7 +251,7 @@ html {
         display: block;
         margin-right: 2.35765%;
         width: 100%;
-        min-height: 295px; }
+        min-height: 265px; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body:last-child {
           margin-right: 0; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card {
@@ -295,14 +295,10 @@ html {
             position: absolute;
             bottom: 15px; }
       .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer {
-        height: 30px;
-        margin: 20px;
         float: left;
-        display: block;
-        margin-right: 2.35765%;
+        height: 60px;
+        margin: 20px 0px;
         width: 100%; }
-        .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer:last-child {
-          margin-right: 0; }
         .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav {
           height: 100%;
           clear: both; }
@@ -310,12 +306,13 @@ html {
             display: inline-block;
             height: 100%; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_link {
+              color: #262626;
               cursor: pointer;
-              float: left;
+              display: inline-block;
               height: 30px;
               line-height: 30px;
-              width: 30px;
-              color: #262626; }
+              vertical-align: middle;
+              width: 30px; }
               .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_link.section_106_map_selected {
                 background-color: #0990fe;
                 border-radius: 50%;
@@ -337,12 +334,12 @@ html {
                 background: url("../images/right-arrow-icon-disabled.svg") no-repeat 50% 50%;
                 background-size: 10px; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_stats {
-              float: left;
               height: 100%;
               min-width: 215px;
               text-align: right;
               line-height: 30px;
-              color: #4F4F4F; }
+              color: #4F4F4F;
+              display: inline-block; }
     .section_106_map .section_106_map_feature_body .section_106_map_filter {
       background-color: white;
       -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
