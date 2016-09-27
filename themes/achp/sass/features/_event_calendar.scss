@@ -173,6 +173,8 @@ $event-card-footer-margin: 15px;
         width: 260px;
 
         &_title {
+          @include hover-transition-content($color-blue-primary);
+          cursor: pointer;
           font-size: 1rem;
         }
         &_date {

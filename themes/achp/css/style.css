@@ -159,7 +159,11 @@ $arrow-padding: 5px;*/
       vertical-align: top;
       width: 260px; }
       .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title {
+        transition: color 0.25s;
+        cursor: pointer;
         font-size: 1rem; }
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title:hover {
+          color: #0990FE; }
       .event_calendar .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
         display: none; }
       .event_calendar .event_calendar_grid_body .event_calendar_grid_card_location {
