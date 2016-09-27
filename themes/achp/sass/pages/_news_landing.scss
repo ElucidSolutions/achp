@@ -1,154 +1,186 @@
 @import "../global";
 
-.page_outer_container {
+#main-wrapper {
+  height: 100%;
   background-color: $background-color-grey;
+}
+
+.page_outer_container {
   @include outer-container(100%);
 
   #main-wrapper #content {
     max-width: $max-content-width;
     margin: 0 auto;
     position: relative;
-  }
+    overflow: auto;
+    padding: 0 50px;
 
-  .news-landing-container {
-    @include span-columns (12);
-    height: 100%;
-    background-color: $background-color-grey;
-
-    header {
-      @include span-columns (12 of 12);
-      background-color: $background-color-grey;
-      position: relative;
-
-      .header_container {
-        width: auto;
-        display: inline-block;
-        @include center-xy;
-
-        h1 {
-          text-shadow: none;
-          font-weight: 500;
-          font-size: 2.25rem;
-          color: $color-darkblue;
-        }
-        
-        hr {
-          @include hr($color-red);
-          margin-top: 0;
-          width: 60%;
-        }  
-      }
-    }
-
-    .views-exposed-form {
-      @include span-columns (3 of 12);
-      padding-right: 20px;
-
-      .form-select {
-        WIDTH: 100%;
-      }
-    }
-
-    .news-item {
-      @include span-columns (9 of 12);
-      float: right;
-      background-color: #fff;
-      margin-bottom: 25px;
+    #content_region {
       padding: 0;
+    }
 
-      .views-field-title {
-        margin-top: 10px;
+    .news-landing-container {
+      @include span-columns (12);
+      height: 100%;
 
-        a {
-          color: $color-darkblue;
-          font-size: 1.25rem;
-          text-decoration: none;
+      em {
+        font-style: normal !important;
+      }
+
+      header {
+        @include span-columns (12 of 12);
+        background-color: $background-color-grey;
+        position: relative;
+
+        .header_container {
+          width: auto;
+          display: inline-block;
+          @include center-xy;
+
+          h1 {
+            text-shadow: none;
+            font-weight: 500;
+            font-size: 2.25rem;
+            color: $color-darkblue;
+          }
+          
+          hr {
+            @include hr($color-red);
+            margin-top: 0;
+            width: 60%;
+          }  
+        }
+
+        .news_filter {
+          display: none;
+        }
+      }
+
+      .views-exposed-form {
+        @include span-columns (3 of 12);
+        padding-right: 20px;
+
+        .form-select {
+          width: 100%;
+        }
+      }
+
+      .news-item {
+        @include span-columns (9 of 12);
+        float: right;
+        background-color: #fff;
+        margin-bottom: 25px;
+        padding: 0;
+
+        .views-field-title {
+          margin-top: 10px;
+                      padding: 10px 20px 0;
+            display: inline-block;
+
+          a {
+            color: $color-darkblue;
+            font-size: 1.25rem;
+            text-decoration: none;
+          }
+        }
+
+        .views-field-field-date {
+          color: $color-lightgrey;
           padding: 10px 20px 0;
-        }
-      }
-
-      .views-field-field-date {
-        /*@extend .card_date;*/
-        color: $color-lightgrey;
-        padding: 10px 20px 0;
-        margin-top: 0;
-      }
-
-      .views-field-field-news-photo img {
-        max-width: 300px;
-        max-height: 300px;
-        float: left;
-        margin: 10px 20px 10px 20px;
-      }
-
-      .views-field-body {
-        font-family: $serif-text;
-        margin: 5px 20px;
-
-        p {
-          margin-top: 5px;
-        }
-      }
-
-      .views-field-field-tags {
-        .views-label {
-          display: block;
-          color: $color-darkblue;
-          margin-left: 20px;
+          margin-top: 0;
         }
 
-        .field-content {
-          height: 20px;
+        .views-field-field-news-photo img {
+          max-width: 300px;
+          max-height: 300px;
+          float: left;
+          margin: 10px 20px 10px 20px;
+        }
+
+        .views-field-body {
+          font-family: $serif-text;
+          margin: 5px 20px;
+
+          p {
+            margin-top: 5px;
+          }
+        }
+
+        .views-field-field-tags {
+          .views-label {
+            display: block;
+            color: $color-darkblue;
+            margin-left: 20px;
+          }
+
+          .field-content {
+            height: 20px;
+            position: relative;
+            bottom: 30px;
+          }
+        }
+
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 10px 20px 0;
+
+          li {
+            display: inline-block;
+            margin-top: 25px;
+            position: relative;
+
+             a {
+              text-decoration: none;
+              color: $color-blue-primary;
+              margin-right: 25px;
+            }
+          }
+        }
+
+        .views-field-view-node {
+          width: 100%;
           position: relative;
-          bottom: 30px;
+          margin-top: 20px;
+          height: 30px;
+          background-color: $background-color-grey;
+          clear: both;
+          @include hover-transition-background($background-color-lightblue);
+
+          a {
+            color: $color-grey;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            @include center-xy;
+            transition: color 0.25s;
+          }
+
+          &:hover a {
+            color: $color-blue-primary;
+          }        
         }
       }
+    }
+
+    nav {
+      @include span-columns (12 of 12);
+      color: $color-darkgrey;
+      font-family: $sans-text;
 
       ul {
         list-style-type: none;
-        margin: 0;
-        padding: 10px 20px 0;
+        text-align: center;
+        padding: 0;
 
         li {
           display: inline-block;
-          margin-top: 25px;
-          position: relative;
-          /*left: -35px;*/
 
-           a {
+          a {
             text-decoration: none;
-            color: $color-blue-primary;
-            margin-right: 25px;
+            color: $color-darkgrey;
           }
         }
-      }
-
-      .views-field-view-node {
-        width: 100%;
-        position: relative;
-        margin-top: 20px;
-        height: 30px;
-        background-color: $background-color-grey;
-        clear: both;
-        @include hover-transition-background($background-color-lightblue);
-
-        a {
-          color: $color-grey;
-          text-decoration: none;
-          text-align: center;
-          font-weight: 500;
-          @include center-xy;
-          transition: color 0.25s;
-        }
-
-        &:hover a {
-          color: $color-blue-primary;
-        }        
-      }
-
-      &:after {
-        content: "";
-        clear: both;
       }
     }
   }
@@ -164,11 +196,80 @@ label {
   margin-bottom: 10px;
 }
 
-input {
+.form-item-date-max label {
+  display: none;
+}
+
+input[type="text"] {
+  max-width: 100%;
   font-family: $sans-text;
   color: $color-lightgrey;
+  font-size: 1rem;
+  background-image: url('../images/add-calendar-icon.svg');
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  padding: 5px 0 2px 30px;
+  margin-bottom: 10px;
 }
 
 #edit-field-tags-target-id {
   margin-bottom: 15px;
+}
+
+@media (max-width: 1000px) {
+  .page_outer_container #main-wrapper #content .news-landing-container {
+    .views-exposed-form {
+      @include span-columns (4 of 12);
+    }
+
+    .news-item {
+      @include span-columns (8 of 12);
+      float: right;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .page_outer_container #main-wrapper #content .news-landing-container {
+    .views-exposed-form {
+      @include span-columns (12 of 12);
+      padding-right: 0;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid $color-grey;
+      display: none;
+    }
+
+    .news-item {
+      @include span-columns (12 of 12);
+    }
+
+    header {
+      height: 150px;
+
+      .header_container {
+        top: 35%;
+      }
+
+      .news_filter {
+        display: block;
+        @include span-columns (12 of 12);
+        font-family: $sans-text;
+        color: $color-grey;
+        font-size: 0.875rem;
+        position: absolute;
+        bottom: 10px;
+        font-weight: 500;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $color-grey;
+        cursor: pointer;
+
+        &.news_filter_open {
+          border-bottom: none;
+          bottom: 11px;
+        }
+      }
+
+    }
+  }
 }
