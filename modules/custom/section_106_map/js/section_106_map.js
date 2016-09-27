@@ -7,7 +7,6 @@
   Historic Preservation (ACHP) is involved in.
 */
 (function ($) {
-
   // The Lunr Search Index.
   var lunrIndex = null;
 
@@ -410,6 +409,9 @@
 
   // II. Map Component.
   
+  // An associative array of SVGDocuments representing map icons.
+  SVG_ICONS = {};
+
   /*
     Accepts one argument: containerElement,
     a JQuery HTML element that has already been
@@ -716,54 +718,45 @@
   */
   function createMarkerIconSVG (state) {
     var svgElementString = '<div></div>';
-    if (state.cases.length > 0) {
-      $.ajax (
-        state.cases.length > 1 ?
-          'modules/custom/section_106_map/images/multiple-cases-marker-icon.svg':
-          'modules/custom/section_106_map/images/single-case-marker-icon.svg',
-        {
-          async: false,
-          success: function (svgDocument) {
-            var prefix = getModuleClassPrefix ();
+    var svgDocument = state.cases.length > 1 ?
+      getRawIcon ('multiple-cases-marker-icon', 'modules/custom/section_106_map/images/multiple-cases-marker-icon.svg'):
+      getRawIcon ('single-case-marker-icon', 'modules/custom/section_106_map/images/single-case-marker-icon.svg');
 
-            // Get the SVG element.
-            var svgElement = svgDocument.documentElement;
+    if (!svgDocument) { return null; }
 
-            // Add a class attribute to the icon element.
-            svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
-            svgElement.className.baseVal = svgElement.className.baseVal + ' ' + getMarkerClassName () + ' ' +
-              (state.cases.length > 1 ?
-                prefix + '_multiple_cases_marker':
-                prefix + '_single_case_marker');
+    var prefix = getModuleClassPrefix ();
 
-            // Set/Create the marker's title (hover text).
-            titleElements = svgElement.getElementsByTagName ('title');
-            if (titleElements.length > 0) {
-              titleElements.item (0).textContent = state.name;
-            } else {
-              var titleElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'title');
-              titleElement.textContent = state.name;
-              svgElement.appendChild (titleElement);
-            }
+    // Get the SVG element.
+    var svgElement = svgDocument.documentElement;
 
-            if (state.cases.length > 1) {
-              // Add cluster child count to the icon element.
-              labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
-              labelElement.setAttribute ('transform', 'translate(25, 25)');
-              labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix +  '_marker_label';
-              labelElement.textContent = state.cases.length.toString ();
-              svgElement.appendChild (labelElement);
-            }
+    // Add a class attribute to the icon element.
+    svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
+    svgElement.className.baseVal = svgElement.className.baseVal + ' ' + getMarkerClassName () + ' ' +
+      (state.cases.length > 1 ?
+        prefix + '_multiple_cases_marker':
+        prefix + '_single_case_marker');
 
-            // Serialize icon element as a string.
-            svgElementString = new XMLSerializer ().serializeToString (svgElement);
-          },
-          error: function () {
-            console.log ('[section_106_map] Error: an error occured while trying to load a state icon.');
-          }
-      });
+    // Set/Create the marker's title (hover text).
+    titleElements = svgElement.getElementsByTagName ('title');
+    if (titleElements.length > 0) {
+      titleElements.item (0).textContent = state.name;
+    } else {
+      var titleElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'title');
+      titleElement.textContent = state.name;
+      svgElement.appendChild (titleElement);
     }
-    return svgElementString;
+
+    if (state.cases.length > 1) {
+      // Add cluster child count to the icon element.
+      labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+      labelElement.setAttribute ('transform', 'translate(25, 25)');
+      labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix +  '_marker_label';
+      labelElement.textContent = state.cases.length.toString ();
+      svgElement.appendChild (labelElement);
+    }
+
+    // Serialize icon element as a string.
+    return new XMLSerializer ().serializeToString (svgElement);
   }
 
   /*
@@ -773,40 +766,58 @@
   */
   function createClusterIconSVG (label) {
     var svgElementString = '<div></div>';
-    $.ajax (
-      'modules/custom/section_106_map/images/marker-group-icon.svg',
-      {
-        async: false, 
-        success: function (svgDocument) {
-          var prefix = getModuleClassPrefix ();
+    var svgDocument= getRawIcon ('marker-group-icon', 'modules/custom/section_106_map/images/marker-group-icon.svg');
+    if (!svgDocument) { return null; }
 
-          // Get the SVG element.
-          var svgElement = svgDocument.documentElement;
+    var prefix = getModuleClassPrefix ();
 
-          // Add a class attribute to the icon element.
-          svgElement.className.baseVal = svgElement.className.baseVal + ' ' + prefix + '_cluster_marker';
+    // Get the SVG element.
+    var svgElement = svgDocument.documentElement;
 
-          // Remove the title element (hover text).
-          var titleElements = svgElement.getElementsByTagName ('title');
-          if (titleElements.length > 0) {
-            titleElements.item (0).textContent = '';
+    // Add a class attribute to the icon element.
+    svgElement.className.baseVal = svgElement.className.baseVal + ' ' + prefix + '_cluster_marker';
+
+    // Remove the title element (hover text).
+    var titleElements = svgElement.getElementsByTagName ('title');
+    if (titleElements.length > 0) {
+      titleElements.item (0).textContent = '';
+    }
+
+    // Add cluster child count to the icon element.
+    labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+    labelElement.setAttribute ('transform', 'translate(30, 25)');
+    labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix + '_cluster_marker_label';
+    labelElement.textContent = label;
+    svgElement.appendChild (labelElement);
+
+    // Serialize icon element as a string.
+    return new XMLSerializer ().serializeToString (svgElement);
+  }
+
+  /*
+    Accepts two arguments:
+
+    * name, a string
+    * and url, a URL string
+
+    gets the SVG file referenced by URL, caches
+    the icon, and returns the file as an
+    SVGDocument.
+  */
+  function getRawIcon (name, url) {
+    if (!SVG_ICONS [name]) {
+      $.ajax (url,
+        {
+          async: false,
+          success: function (svgDocument) {
+            SVG_ICONS [name] = svgDocument;
+          },
+          error: function () {
+            console.log ('[section_106_map] Error: an error occured while trying to load a map icon.');
           }
-
-          // Add cluster child count to the icon element.
-          labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
-          labelElement.setAttribute ('transform', 'translate(30, 25)');
-          labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix + '_cluster_marker_label';
-          labelElement.textContent = label;
-          svgElement.appendChild (labelElement);
-
-          // Serialize icon element as a string.
-          svgElementString = new XMLSerializer ().serializeToString (svgElement);
-        },
-        error: function () {
-          console.log ('[section_106_map] Error: an error occured while trying to load a cluster icon.'); 
-        }
-    });
-    return svgElementString;
+      });
+    }
+    return SVG_ICONS [name] ? (SVG_ICONS [name]).cloneNode (true) : null;
   }
 
   /*
@@ -864,6 +875,7 @@
     and returns undefined.
   */
   Map.prototype.showStatePanelElement = function (state) {
+    this.hideLogoElement ();
     this.getPanelElement ()
       .empty ()
       .append (this.createStatePanelElement (state))
@@ -889,6 +901,7 @@
     component's panel element.
   */
   Map.prototype.hidePanelElement = function () {
+    this.showLogoElement ();
     this.getPanelElement ().hide ();
   }
 
@@ -914,6 +927,25 @@
       function (i, markerElement) {
         markerElement.className.baseVal = markerElement.className.baseVal.replace (className, '').trim ();
     });
+  }
+
+  /*
+    Accepts no arguments and shows the Mapbox
+    Logo element (which is legally required
+    under Mapbox's terms and conditions).
+  */
+  Map.prototype.showLogoElement = function () {
+    this.getLogoElement ().show ();
+  }
+
+  /*
+    Accepts no arguments and hides the Mapbox
+    Logo element. Call this function when
+    displaying case detail panes which should
+    cover the logo element.
+  */
+  Map.prototype.hideLogoElement = function () {
+    this.getLogoElement ().hide ();
   }
 
   /*
@@ -946,6 +978,14 @@
   }
 
   /*
+    Accepts no arguments and returns the Mapbox
+    Logo element as a jQuery HTML Element.
+  */
+  Map.prototype.getLogoElement = function () {
+    return $('.' + getLogoClassName (), this.getComponentElement ());
+  }
+
+  /*
     Accepts no arguments and returns a string
     representing the class name used to label
     panel elements.
@@ -970,6 +1010,14 @@
   */
   function getMarkerStateAttribName () {
     return getModuleDataPrefix () + '-marker-state';
+  }
+
+  /*
+    Accepts no arguments and returns the Mapbox
+    logo class name as a string.
+  */
+  function getLogoClassName () {
+    return 'mapbox-logo';
   }
 
   // III. Grid Component.
