@@ -1963,7 +1963,7 @@
     this function returns string unaltered.
   */
   function ellipse (maxLength, string) {
-    if (string.length <= maxLength) {
+    if (!string || string.length <= maxLength) {
       return string;
     } 
 

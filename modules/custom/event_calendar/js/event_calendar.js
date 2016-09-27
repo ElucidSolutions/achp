@@ -3,124 +3,196 @@
 */
 
 (function ($) {
-
-  // Represents the possible widths
-  var EVENT_CALENDAR_NEW_STATE = 0;
-  var EVENT_CALENDAR_WIDESCREEN_STATE = 1;
-  var EVENT_CALENDAR_MEDSCREEN_STATE = 2;
-  var EVENT_CALENDAR_MOBILE_STATE = 3;
-
-  // Represents the current calendar state
-  var eventCalendarState = EVENT_CALENDAR_NEW_STATE;
+  // Stores the event objects.
+  var _EVENTS = null;
 
   $(document).ready (function () {
-
     /*
-    Determines the height of the calendar section at different breakpoints
-    when the user switches screen widths. The first time a user accesses the
-    site, the height is calculated with Grid.calcElementHeight, which sets
-    the value according to the number of events. When the screen size changes, 
-    since the elements inside the calendar have already been created, the function 
-    calcElementHeightByGridHeight sets the height depending on those elements. 
-    */ 
-    $.breakpoint ((function () {
-      return {
-        condition: function () {
-          return window.matchMedia ('only screen and (min-width: 1024px)').matches;
-        },
-        enter: function () {
-          switch (eventCalendarState) {
-            case EVENT_CALENDAR_MEDSCREEN_STATE:
-            case EVENT_CALENDAR_MOBILE_STATE:
-              eventCalendarState = EVENT_CALENDAR_WIDESCREEN_STATE;
-              return calcElementHeightByGridHeight (eventCalendarState);
-            case EVENT_CALENDAR_WIDESCREEN_STATE:
-              return;
-            case EVENT_CALENDAR_NEW_STATE:
-              return eventCalendarState = EVENT_CALENDAR_WIDESCREEN_STATE;
-            default:
-              console.log('[event_calendar][document.ready] Warning: unrecognized event calendar state "' + eventCalendarState + '".');
-          }
-        },
-        exit: function () {
-        }
-      };
-    })());
-
-   $.breakpoint ((function () {
-      return {
-        condition: function () {
-          return window.matchMedia ('only screen and (min-width: 650px) and (max-width: 1023px)').matches;
-        },
-        enter: function () {
-          switch (eventCalendarState) {
-            case EVENT_CALENDAR_WIDESCREEN_STATE:
-            case EVENT_CALENDAR_MOBILE_STATE:
-              eventCalendarState = EVENT_CALENDAR_MEDSCREEN_STATE;
-              return calcElementHeightByGridHeight (eventCalendarState);
-            case EVENT_CALENDAR_MEDSCREEN_STATE:
-              return;
-            case EVENT_CALENDAR_NEW_STATE:
-              return eventCalendarState = EVENT_CALENDAR_MEDSCREEN_STATE;            
-            default:
-              console.log('[event_calendar][document.ready] Warning: unrecognized event calendar state "' + eventCalendarState + '".');
-          }
-        },
-        exit: function () {
-        }
-      };
-    })());
-
-   $.breakpoint ((function () {
-      return {
-        condition: function () {
-          return window.matchMedia ('only screen and (max-width: 649px)').matches;
-        },
-        enter: function () {
-          switch (eventCalendarState) {
-            case EVENT_CALENDAR_WIDESCREEN_STATE:
-            case EVENT_CALENDAR_MEDSCREEN_STATE:
-              eventCalendarState = EVENT_CALENDAR_MOBILE_STATE;
-              return calcElementHeightByGridHeight (eventCalendarState);
-            case EVENT_CALENDAR_MOBILE_STATE:
-              return;
-            case EVENT_CALENDAR_NEW_STATE:
-              return eventCalendarState = EVENT_CALENDAR_MOBILE_STATE;            
-            default:
-              console.log('[event_calendar][document.ready] Warning: unrecognized event calendar state "' + eventCalendarState + '".');
-          }
-        },
-        exit: function () {
-        }
-      };
-    })());
-
-
-    /*
-    Instantiates an event calendar feature and appends it to the
-    appropriate block
+      Instantiates an event calendar feature
+      and appends it to the appropriate block.
     */
     var instance = new FeatureInstance ();
     $('.event_calendar').append (instance.getInstanceElement ());
-
   });
 
+  // I. Event functions.
+
   /*
-  Accepts no arguments, returns an array of all Event objects.
+    Accepts one argument: date, a Moment object;
+    and returns the first n events occuring
+    on the day represented by date, where n is
+    given by the num_events module setting.
+  */
+  function getEventsOnDay (date) {
+    return getNEventsOnDay (drupalSettings.event_calendar.num_events, date);
+  }
+
+  /*
+    Accepts one argument: date, a Moment object;
+    and returns the first n events that end on
+    or after the day represented by date, where
+    n is given by the num_events module setting.
+  */
+  function getEventsAfterDay (date) {
+    return getNEventsAfterDay (drupalSettings.event_calendar.num_events, date);
+  }
+
+  /*
+    Accepts one argument: date, a Moment object;
+    and returns the first n events that start or
+    end within the month represented by date,
+    where n is given by the num_events module
+    setting.
+  */
+  function getEventsInMonth (date) {
+    return getNEventsInMonth (drupalSettings.event_calendar.num_events, date);
+  }
+
+  /*
+    Accepts two arguments:
+
+    * n, an integer
+    * and date, a Moment object
+  */
+  function getNEventsOnDay (n, date) {
+      return getAllEventsOnDay (date).slice (0, n);
+  }
+
+  /*
+    Accepts two arguments:
+
+    * n, an integer
+    * date, a Moment object
+
+    Returns an Event array of the next n events
+    that end on or after the day represented
+    by date.
+  */
+  function getNEventsAfterDay (n, date) {
+      return getAllEventsAfterDay (date).slice (0, n);
+  }
+
+  /*
+    Accepts two arguments:
+
+    * n, an integer
+    * date, a Moment object
+
+    Returns an Event array of the next n events
+    that either begin or end in the month
+    represented by date.
+  */  
+  function getNEventsInMonth (n, date) {
+    return getAllEventsInMonth (date).slice (0, n);
+  }
+
+  /*
+    Accepts one argument: date, a Moment object;
+    and returns all of those events that start
+    or end on the day represented by date.
+  */
+  function getAllEventsOnDay (date) {
+    return getAllEvents ().filter (function (event) { return eventOnDay (event, date); })
+  }
+
+  /*
+    Accepts one argument: date, a Moment object;
+    and returns all of those events that end on
+    or after the day represented by date.
+  */
+  function getAllEventsAfterDay (date) {
+    return getAllEvents ().filter (function (event) { return eventAfterDay (event, date); })
+  }
+
+  /*
+    Accepts one argument: date, a Moment object;
+    and returns all of those events that start
+    or end in the month represented by date.
+  */
+  function getAllEventsInMonth (date) {
+    return getAllEvents ().filter (function (event) { return eventInMonth (event, date); })
+  }
+
+  /*
+    Accepts two parameters
+
+    * event, an Event object
+    * and date, a Moment object
+
+    and returns true iff event's start or end
+    dates lie within the month represented
+    by date.
+  */
+  function eventInMonth (event, date) {
+    return event.end_date.isSame (date, 'month')
+      || event.start_date.isSame (date, 'month');
+  }
+
+  /*
+    Accepts two parameters
+
+    * event, an Event object
+    * and date, a Moment object
+
+    and returns true iff event's end date is
+    on or after the day represented by date.
+  */
+  function eventAfterDay (event, date) {
+    return moment (event.end_date).isSameOrAfter (date, 'day');
+  }
+
+  /*
+    Accepts two parameters:
+
+    * event, an Event object
+    * date, a Moment object
+
+    Returns true iff the event's start date is on or before the same 
+    day as date, and the end date is on or after the same day as date.
+  */
+  function eventOnDay (event, date) {
+    return moment (event.start_date).isSameOrBefore (date, 'day') 
+      && moment (event.end_date).isSameOrAfter (date, 'day');
+  }
+
+  /*
+    Accepts no arguments, returns an array of
+    all Event objects.
   */
   function getAllEvents () {
-    return drupalSettings.event_calendar.events
-    .sort (function (event1, event2) {
-      return moment (event1.start_date).isSameOrAfter (event2.start_date);
-    });
+    return _EVENTS || loadEvents ();
   }  
 
+  /*
+    Accepts no arguments, loads, and sorts the
+    event objects before string them in the
+    _EVENTS array.
+  */
+  function loadEvents () {
+    // load raw events into the _EVENTS array.
+    _EVENTS = drupalSettings.event_calendar.events;
 
-  // I. Defining the feature instance
+    // convert dates from strings to Moment objects.
+    _EVENTS.forEach (function (event) {
+      event.start_date = moment (event.start_date);
+      event.end_date   = moment (event.end_date); 
+    });
+
+    // sort the events by date.
+    _EVENTS.sort (function (event1, event2) {
+      return event1.start_date.isSameOrAfter (event2.start_date);
+    });
+
+    // returns the loaded events.
+    return _EVENTS;
+  }
+
+  // II. Defining the feature instance
 
   /*
-  Accepts no arguments. Creates Calendar and Grid objects and sets their click events
-  and returns undefined.
+    Accepts no arguments. Creates Calendar and
+    Grid objects and sets their click events
+    and returns undefined.
   */
   function FeatureInstance () {
     var self = this;
@@ -128,22 +200,22 @@
     var bodyElement = this.getBodyElement ();
     this._calendar = new Calendar (bodyElement);
     this._grid = new Grid (bodyElement);
+
+    // link calendar events to grid responses.
     this._calendar.onClick (function (target) {
-      self._grid.displayEvents (getEventsOnDay (target.date));
+      self._grid.displayEventsForDay (moment (target.date));
     })
     this._calendar.monthChange (function (month) {
-      self._grid.displayEvents (getNEventsAfterDate (drupalSettings.event_calendar.num_events, month._d));
+      self._grid.displayEventsForMonth (moment (month._d));
     })
-    $(bodyElement).on('click', '.month', function (e) {
-      var date = moment ($(e.target).text (), 'MMMM YYYY').date(1);
-      self._grid.displayEvents (getNEventsInMonth (drupalSettings.event_calendar.num_events, date));
+    this._calendar.monthClick (function (month) {
+      self._grid.displayEventsForMonth (month);
     })
-
   }
 
   /*
-  Accepts no arguments and returns a jQuery Element representing
-  a feature instance.
+    Accepts no arguments and returns a jQuery
+    Element representing a feature instance.
   */
   function createInstanceElement () {
     var classPrefix = getFeatureClassPrefix ();
@@ -164,104 +236,36 @@
   }
 
   /*
-  Accepts no arguments and returns the calendar belonging to
-  Feature instance.
+    Accepts no arguments and returns the calendar
+    belonging to Feature instance.
   */
   FeatureInstance.prototype.getCalendar = function () {
     return this._calendar;
   }
 
   /*
-  Accepts no arguments and returns the grid belonging to
-  Feature instance.
+    Accepts no arguments and returns the grid
+    belonging to Feature instance.
   */
   FeatureInstance.prototype.getGrid = function () {
     return this._grid;
   } 
 
   /*
-  Accepts no arguments and returns the Feature instance
-  HTML Element.
+    Accepts no arguments and returns the Feature
+    instance HTML Element.
   */
   FeatureInstance.prototype.getInstanceElement = function () {
     return this._instanceElement;
   }
 
   /*
-  Accepts a Moment object, displays the the events matching that 
-  date, and returns undefined.
+    Accepts a Moment object, displays the the
+    events matching that date, and returns
+    undefined.
   */
   FeatureInstance.prototype.showEvents = function (date) {
-    this.getGrid ().displayEvents (getNEventsAfterDate (drupalSettings.event_calendar.num_events, date));
-
-  }
-
-  /*
-  Accepts one argument, a Moment object, filters through all events to
-  determine which ones occur on that date, and returns an Event array
-  containing the events that do.
-  */
-  function getEventsOnDay (date) {
-    return getAllEvents ().filter (function (event) { return eventOnDay (event, date); })
-  }
-
-  /*
-  Accepts two parameters:
-
-  * event, an Event object
-  * date, a Moment object
-
-  Returns true iff the event's start date is on or before the same 
-  day as date, and the end date is on or after the same day as date.
-
-  */
-  function eventOnDay (event, date) {
-    return moment (event.start_date).isSameOrBefore (date, 'day') 
-      && moment (event.end_date).isSameOrAfter (date, 'day');
-  }
-
-  /*
-  Accepts two arguments:
-
-  * n, an integer
-  * date, a string
-
-  Returns an Event array of the next n events that end on or after date.
-  */
-  function getNEventsAfterDate (n, date) {
-    return getAllEvents ()
-      .filter (function (event) {
-        return moment (event.end_date).isSameOrAfter (date);
-      }).slice (0, n);
-  }
-
-  /*
-  Accepts two arguments:
-
-  * n, an integer
-  * date, a string
-
-  Returns an Event array of the next n events that either begin or end during
-  the given date's month.
-  */  
-  function getNEventsInMonth (n, date) {
-    return getAllEvents ()
-      .filter (function (event) {  
-        return moment (event.end_date).get ('month') === moment (date).get ('month')
-          || moment (event.start_date).get ('month') === moment (date).get ('month');
-      }).slice (0, n);
-  }
-
-  /*
-  Accepts two arguments:
-
-  * event, an Event object
-  * date, a string
-
-  Returns true iff event occurs on same day as given date.
-  */
-  function eventHasDay (event, date) {
-    return moment (event.date).isSame (date, 'day');
+    this.getGrid ().displayEventsForMonth (date);
   }
 
   /*
@@ -288,7 +292,7 @@
     return getModuleClassPrefix () + '_feature';
   } 
 
-  // II. Defining the calendar component class
+  // III. Defining the calendar component class
 
   /*
   Accepts one argument, an HTML Element; creates the CLNDR template 
@@ -306,7 +310,8 @@
         .value ();
 
     // Embed CLNDR element
-    this.getContainerElement().clndr ({
+    var calendarContainerElement = this.getCalendarContainerElement ();
+    calendarContainerElement.clndr ({
       template:         
         "<div class='clndr-controls'>" +
             "<div class='clndr-control-button'>" +
@@ -345,6 +350,11 @@
       }      
     });
 
+    // Add month click event handler.
+    $('.month', calendarContainerElement).click (function (e) {
+      self.callMonthClick (moment ($(e.target).text (), 'MMMM YYYY'));
+    });
+
     // Attach component element to container
     containerElement.append (this._componentElement);
   }
@@ -355,7 +365,7 @@
   inclusive.
   */
   function getDaysBetween (startDate, endDate) {
-    var format = 'YYYY MM DD';
+    var format = 'YYYY-MM-DD';
     var dates = [moment (startDate).format (format)];
     for (var date = moment (startDate); date.isBefore (endDate); date.add (1, 'days')) {
       dates.push (date.format (format));
@@ -434,27 +444,31 @@
     this._monthChange = eventHandler;
   }
 
-  // TODO: make following 3 functions work?
   /*
-  Accepts one argument: target, a CLNDR Target object; and handles click events on
-  the month title element the calendar.
+    Accepts one argument: date, a Moment Date
+    object that represents the month that the
+    user has just clicked on.
   */
   Calendar.prototype._monthClick = function (target) {
     return;
   }
 
   /*
-  Accepts one argument: target, a CLNDR Target object; and calls this 
-  component's onClick event handler on target.
+    Accepts one argument: date, a Moment Date
+    object that represents the month that the
+    user has just clicked on; and passes date
+    to this component's monthClick event handler.
   */
-  Calendar.prototype.callMonthClick = function (target) {
-    this._monthClick (target);
+  Calendar.prototype.callMonthClick = function (date) {
+    this._monthClick (date);
   }
 
   /*
-  Accepts one argument, a function that accepts a calendar target object and
-  registers eventHandler as the function to be called when the user clicks
-  on the calendar's month title element.
+    Accepts one argument: eventHandler, a
+    function that accepts a Moment Date object;
+    and registers eventHandler so that it is
+    called whenever a user clicks on a month
+    title in this calendar's month title.
   */
   Calendar.prototype.monthClick = function (eventHandler) {
     this._monthClick = eventHandler;
@@ -464,7 +478,7 @@
   Accepts no arguments, and returns the calendar container as a 
   jQuery Element.
   */
-  Calendar.prototype.getContainerElement = function () {
+  Calendar.prototype.getCalendarContainerElement = function () {
     return $('.' + getCalendarContainerClassName (), this.getComponentElement ());
   }
 
@@ -492,7 +506,7 @@
     return getModuleClassPrefix () + '_calendar';
   } 
 
-  // III. Defining the grid component class
+  // IV. Defining the grid component class
 
   /*
   Accepts one argument, an HTML Element; creates the Grid object's 
@@ -501,7 +515,7 @@
   function Grid (containerElement) {
     this._componentElement = createGridComponentElement ();
     containerElement.append (this._componentElement);
-    this.displayEvents (getNEventsAfterDate (drupalSettings.event_calendar.num_events, moment ().format ()));
+    this.displayEventsForMonth (moment ());
   }
 
   /*
@@ -525,84 +539,68 @@
         .addClass (classPrefix + '_header')
         .append ($('<h3></h3>')
           .addClass (classPrefix + '_title')
-          .text ('Upcoming Events & Meetings')))
+          .text ('Events & Meetings')))
       .append ($('<div></div>')
         .addClass (getGridBodyClassName ()));
   }
 
   /*
-  Accepts one argument: events, an array of Event objects;
-  creates card elements to represent those events, and 
-  displays them. Returns undefined.
+    Accepts one argument: date, a Moment
+    object; and displays the events that should
+    be displayed for the month represented
+    by date.
   */
-  Grid.prototype.displayEvents = function (events) {
+  Grid.prototype.displayEventsForMonth = function (date) {
+    var today  = moment ();
+    var format = 'MMMM' + (today.isSame (date, 'year') ? '' : ' YYYY');
+    today.isSame (date, 'month') ?
+      this.displayEvents (getEventsAfterDay (today), 'There are currently no upcoming events scheduled.') :
+      this.displayEvents (getEventsInMonth (date),
+        today.isBefore (date, 'month') ?
+          'There are currently no events scheduled for ' + date.format (format) + '.':
+          'There were no events in ' + date.format (format) + '.');
+  }
+
+  /*
+    Accepts one argument: date, a Moment object;
+    and displays the events that should be
+    displayed for the day represented by date.
+  */
+  Grid.prototype.displayEventsForDay = function (date) {
+    var events = getEventsOnDay (date);
+    if (events && events.length > 0) {
+      this.displayEvents (events, 'There ' + (moment ().isSameOrBefore (date, 'day') ? 'are' : 'were') + ' no events scheduled for ' + date.format ('dddd, MMMM Do YYYY') + '.');
+    }
+  }
+
+  /* 
+    Accepts two arguments:
+
+    * events, an Event array
+    * and message, a string
+
+    and displays events. If events is empty,
+    this function displays message instead.
+  */
+  Grid.prototype.displayEvents = function (events, message) {
     events.length > 0 ?
       this.getGridBodyElement ().empty ().append (events.map (createCardElement)) :
       this.getGridBodyElement ().empty ().append ($('<p></p>')
         .addClass ('event_calendar_grid_message')
-        .text ('No events scheduled on this date')
-        )
-
-    this.calcElementHeight (events);
+        .text (message));
   }
-
-  /*
-  Accepts one argument: events, an array of Event objects, and
-  adjusts the content container to the appropriate height, 
-  depending on the number of events and the width of the screen.
-  Returns that height value.
-  */
-  Grid.prototype.calcElementHeight = function (events) {
-    switch (eventCalendarState) {
-      case EVENT_CALENDAR_WIDESCREEN_STATE:
-        events.length % 2 === 0 ? numRowsInEvent = events.length / 2 : 
-          numRowsInEvent = (events.length + 1) / 2;
-        return events.length < 3 ? $('#homepage_events_content').animate ({height: '625px'}, 250, "linear") :
-          $('#homepage_events_content').animate ({height: 625 + (numRowsInEvent - 1) * 200 + 'px'}, 250, "linear");
-      case EVENT_CALENDAR_MEDSCREEN_STATE:
-        return events.length < 3 ? $('#homepage_events_content').animate ({height: '625px'}, 250, "linear") :
-          $('#homepage_events_content').animate ({height: 625 + (events.length - 3) * 75 + 'px'});
-      case EVENT_CALENDAR_MOBILE_STATE:
-        return $('#homepage_events_content').animate ({height: 175 + events.length * 95 + 'px'});
-      default:
-        return;
-    }
-  }
-
-  /*
-  Accepts one argument: eventCalendarState, which represents 
-  the user's screen width, and returns the height of the
-  content container according to that screen width's grid 
-  element or calendar element height, whichever is larger.
-  */
-  function calcElementHeightByGridHeight (eventCalendarState) {
-    var elementHeight;
-    $('.event_calendar_grid').height () > $('.event_calendar_calendar').height () ?
-      elementHeight = $('.event_calendar_grid').height () : elementHeight = $('.event_calendar_calendar').height ();
-
-    switch (eventCalendarState) {
-      case EVENT_CALENDAR_WIDESCREEN_STATE:
-      case EVENT_CALENDAR_MEDSCREEN_STATE:
-        return $('#homepage_events_content').animate ({height: elementHeight + 200 + 'px'});
-      case EVENT_CALENDAR_MOBILE_STATE:
-        elementHeight = $('.event_calendar_grid').height ();
-        return $('#homepage_events_content').animate ({height: elementHeight + 200 + 'px'});
-      default:
-        return;
-    }
-  }
-
 
   /*
   Accepts one argument: event, an Event object; and returns
   a jQuery Element representing that event.
   */
   function createCardElement (event) {
-    var classPrefix = getGridClassPrefix () + '_card';  
-
+    var classPrefix = getGridClassPrefix () + '_card';
+    var TITLE_MAX_LINE_LENGTH = 25; // 19;
+    var TITLE_MAX_NUM_LINES = 2;
+    var LOCATION_MAX_LINE_LENGTH = 25; // 19;
+    var LOCATION_MAX_NUM_LINES = 5;
     return $('<div></div>')
-    .addClass (classPrefix + '_container')
-      .append ($('<div></div>')
       .addClass (classPrefix)
       .append ($('<div></div>')
         .addClass (classPrefix + '_header')
@@ -610,25 +608,25 @@
           .addClass (classPrefix + '_title')
           .append ($('<a></a>')
             .attr ('href', event.url)
-            .text (event.title))))
+            .text (ellipse (TITLE_MAX_LINE_LENGTH, TITLE_MAX_NUM_LINES, event.title)))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_body')
         .append ($('<div></div>')
           .addClass (classPrefix + '_date')
           .append ($('<div></div>')
             .addClass (classPrefix + '_start')
-            .text (moment (event.start_date).isSame (event.end_date, 'day') ?
-              moment (event.start_date).format ('MMMM D, YYYY') :
-              moment (event.start_date).format ('MMMM D, YYYY') + " to"))
+            .text (event.start_date.isSame (event.end_date, 'day') ?
+              event.start_date.format ('MMMM D, YYYY') :
+              event.start_date.format ('MMMM D, YYYY') + " to"))
           .append ($('<div></div>')
             .addClass (classPrefix + '_end')
-            .text (moment (event.start_date).isSame (event.end_date, 'day') ?
+            .text (event.start_date.isSame (event.end_date, 'day') ?
               "" :
-              moment (event.end_date).format ('MMMM D, YYYY')))
+              event.end_date.format ('MMMM D, YYYY')))
            .append ($('<div></div>')
             .addClass (classPrefix + '_time')
-            .text (moment (event.start_date).isSame (event.end_date, 'day') ?
-              moment (event.start_date).format ('h:mm A') + ' to ' + moment (event.end_date).format ('h:mm A') :
+            .text (event.start_date.isSame (event.end_date, 'day') ?
+              event.start_date.format ('h:mm A') + ' to ' + event.end_date.format ('h:mm A') :
               "")))
         .append ($('<div></div>')
           .addClass(classPrefix + '_mobile_date_container')
@@ -636,13 +634,13 @@
             .addClass (classPrefix + '_mobile_date')
             .append($('<div></div>')
               .addClass (classPrefix + '_mobile_date_month')
-              .text (moment (event.start_date).format ('MMM')))
+              .text (event.start_date.format ('MMM')))
             .append($('<div></div>')
               .addClass (classPrefix + '_mobile_date_day')
-              .text (moment (event.start_date).format ('DD')))))
+              .text (event.start_date.format ('DD')))))
         .append ($('<div></div>')
           .addClass (classPrefix + '_location')
-          .text (event.location)))
+          .text (ellipse (LOCATION_MAX_LINE_LENGTH, LOCATION_MAX_NUM_LINES, event.location))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_footer')
         .append ($('<div></div>')
@@ -654,13 +652,14 @@
           .addClass (classPrefix + '_google_calendar')
           .click (function () {
             window.open (createGoogleCalendarLink (event), '_blank'); 
-          }))));
+          })));
   }
 
   /*
-  Accepts one argument, an Event object; uses the properties of the object
-  to construct a link that will create an event in a user's Google calendar;
-  and returns the URL string.
+    Accepts one argument, an Event object; uses
+    the properties of the object to construct a
+    link that will create an event in a user's
+    Google calendar; and returns the URL string.
   */
   function createGoogleCalendarLink (event) {
     return "http://www.google.com/calendar/event?action=TEMPLATE&text=" 
@@ -671,26 +670,29 @@
   }
 
   /*
-  Accepts one argument, a date string; returns a string that represents
-  that date as a string in the UTC timezone in a format accepted by
-  Google Calendar.
+    Accepts one argument: date, a Moment object;
+    and returns a string that represents that
+    date as a string in the UTC timezone in a
+    format accepted by Google Calendar.
   */
   function convertToGoogleCalendarTime (date) {
     return convertToUTCTime (date).format('YYYYMMDDTHHmmss') + 'Z';
   }
 
   /*
-  Accepts one argument, date, a string that represents a date in the system
-  timezone, and returns a Moment object that represents that same date in UTC
-  time.
+    Accepts one argument: date, a Moment
+    object that represents a date in the system
+    timezone; and returns a Moment object that
+    represents that same date in UTC time.
   */
   function convertToUTCTime (date) {
-    return moment (date).add (moment ().utcOffset (drupalSettings.event_calendar.system_timezone), 'minutes');
+    return date.add (moment ().utcOffset (drupalSettings.event_calendar.system_timezone), 'minutes');
   }
 
   /*
-  Accepts one argument, html, an HTML string, strips it of its HTML tags, and 
-  returns a string.
+    Accepts one argument, html, an HTML string,
+    strips it of its HTML tags, and returns
+    the resulting string.
   */
   function removeHTMLTags (html) {
     return $('<div></div>').html (html).text ();
@@ -720,7 +722,7 @@
   }
 
 
-  // IV. Auxiliary functions
+  // V. Auxiliary functions
 
   /*
     Accepts no arguments and returns a string that
@@ -731,4 +733,81 @@
     return 'event_calendar';
   } 
 
+  /*
+    Accepts three arguments:
+
+    * maxLineLength, an integer
+    * maxNumLines, an integer
+    * and text, a string
+
+    and returns a cropped version of text
+    designed to fit within maxNumLines lines
+    where each line has, at most, maxLineLength
+    characters, and appends an ellipse onto the
+    result if some characters were cropped.
+  */
+  function ellipse (maxLineLength, maxNumLines, text) {
+    if (text === null) { return ''; }
+
+    var index = 0;
+    var numLines = 1;
+    var currentLineLength = 0;
+    while (index < text.length) {
+      var word = text.slice (index).match (/\s*\S*/)[0];
+
+      var newLineLength = currentLineLength + word.length;
+      if (newLineLength <= maxLineLength) {
+        // append the current word onto the end of the current line.
+        currentLineLength = newLineLength;
+        index += word.length;
+      } else { // the current word will not fit onto the end of the current line.
+        var remainingLineLength = maxLineLength - currentLineLength;
+        if (word.length <= maxLineLength) {
+          // wrap the current word onto the next line.
+          if (numLines === maxNumLines) {
+            return appendEllipsis (index + remainingLineLength, text.slice (0, index));
+          }
+        } else { // the current word will not fit on a single line.
+          // break the current word across the line boundary.
+          index += remainingLineLength;
+          if (numLines === maxNumLines) {
+            return appendEllipsis (index, text.slice (0, index));
+          }
+        }
+        numLines ++;
+        currentLineLength = 0;
+      }
+    }
+    // if we reach here, the entire text fit within the given number of lines.
+    return text;
+  }
+
+  /*
+    Accepts two arguments:
+
+    * maxLength, an integer
+    * and text, a string
+
+    trims text so that we can append an ellipsis
+    to it while remaining within maxLength
+    characters.
+  */
+  function appendEllipsis (maxLength, text) {
+    if (maxLength - text.length >= 3) {
+      // we can append an ellipsis and remain within the character limit.
+      return text + '...';
+    } else {
+      // we can not fit the text and the ellipsis within the character limit.
+      switch (text.length) {
+        case 0:
+          return '';
+        case 1:
+          return '.';
+        case 2:
+          return '..';
+        default:
+          return text.slice (0, ((maxLength - text.length) - 3)) + '...';
+      }
+    }
+  }
 }(jQuery));
