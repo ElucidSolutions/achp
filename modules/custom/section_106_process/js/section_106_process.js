@@ -153,7 +153,9 @@
     else
       bodyPadding = 410;
 
-    $('.' + classPrefix + BODY).css("padding-left", bodyPadding + "px");
+    // $('.' + classPrefix + BODY).css("padding-left", bodyPadding + "px");
+
+    $('.' + classPrefix + BODY).css("padding-left", "0");
     $('.' + classPrefix + BODY).css("padding-right", bodyPadding + "px");
     var widthOfBodyElement = (widthOfStepElement * numberOfStepElements) + (bodyPadding * 2);
     $('.' + classPrefix + BODY).css("width", widthOfBodyElement + "px");

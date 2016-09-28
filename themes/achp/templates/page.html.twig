@@ -75,7 +75,7 @@
       </div>
     </header>
 
-    <div id="outer_container">
+    <div id="outer_container" class="page_outer_container">
       <div id="header_region">
         <div id="header_menu" class="region_container">
           {{ page.menu }}
@@ -104,16 +104,16 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="main-wrapper">
-      <div id="main">
-        <main id="content" role="main">
-          <h2>{{ title }}</h2>
-          {{ page.content }}
-        </main>
+      <div id="main-wrapper">
+        <div id="main">
+          <main id="content" role="main">
+            <h2>{{ title }}</h2>
+            {{ page.content }}
+          </main>
+        </div>
       </div>
     </div>
+
     <footer id="footer">
       <div class="content_wrapper">
         {{ page.footer }}

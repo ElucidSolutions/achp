@@ -11,3 +11,188 @@
     width: 100px;
   }
 }
+#block-preserveamericaheader {
+  text-align: center;
+
+  .header_container {
+    display: inline-block;
+    margin: 0px auto;
+    width: auto;    
+
+    hr {
+      width: 60%;
+    }
+  }
+}
+#block-learnaboutpreserveamerica {
+  button {
+    margin: 0 auto;
+  }
+}
+.preserveamerica_content_wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+  position: relative;
+
+  h2 {
+    display: inline-block;
+  }
+  .views-element-container {
+    width: 100%;
+
+    h2 {
+      position: relative;
+    }
+    .item-list {
+      ul {      
+        list-style: none;
+        margin-top: 0px;
+        padding: 0px;
+        width: 100%;
+
+        li {          
+          margin: 0px auto;
+          position: relative;
+
+          .community-spotlight-item { 
+            background-color: #FFF;
+            border-top: 5px solid #950306;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);  
+            box-sizing: border-box;
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 20px;
+            width: 100%;
+
+            img {
+              display: inline-block;    
+              vertical-align: top;    
+              height: 185px;
+              width: 185px;
+            }
+            .community-spotlight-item-content-right {
+              display: inline-block;
+              left: 225px;
+              padding-right: 20px;
+              position: absolute;
+              vertical-align: top;
+
+              a:first-child {
+                color: rgba(4, 59, 98, 1);
+                display: block;
+                font-family: $sans-text;
+                font-size: rem(20);
+                line-height: rem(28);
+                position: relative;
+                text-decoration: none;
+              }
+              p {
+                color: rgba(30, 30, 30, 1);
+                font-family: $serif-text;
+                font-size: rem(16);
+                line-height: rem(22.4);
+                margin-bottom: 20px;
+                text-align: left;
+                text-decoration: none;
+              }            
+              .community-spotlight-link {
+                display: inline-block;
+
+                a {
+                  color: $color-grey;
+                  font-family: $sans-text;
+                  font-size: rem(14);
+                  font-weight: 500;
+                  line-height: rem(19.2);          
+                  position: absolute;                  
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  @include hover-transition-content($color-blue-primary);
+
+                  &:after {
+                    position: absolute;
+                    @include center-y;                 
+                    background-image: url("../images/right-arrow-icon.svg");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    content: "";
+                    cursor: pointer;
+                    height: 20px;
+                    margin-right: 20px;
+                    padding-left: 15px;            
+                    right: -45px;
+                    transition: background-image 0.25s;                 
+                    width: 20px;
+                  }
+                  &:hover:after {
+                    background-image: url("../images/right-arrow-icon-blue.svg");    
+                  }
+                }
+              }
+              .community-spotlight-body-mobile, .community-spotlight-link-mobile {
+                display: none;
+              }    
+            }
+          }
+        }           
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+    margin: 0 auto;
+    display: block;
+
+    .community-spotlight-item-content-right {
+      .community-spotlight-body {
+         display: none;
+      }
+      .community-spotlight-body-mobile {
+        display: block;
+      }
+    }
+    img {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .preserveamerica_content_wrapper .views-element-container {
+    h2 {
+      display: block;
+      margin: 0 auto;
+    }
+    .item-list ul li .community-spotlight-item {
+      width: 300px;
+      margin-top: 10px;
+
+      .community-spotlight-item-content-right {
+        position: static;
+        text-align: center;
+
+        p {
+          text-align: center;
+        }
+        .community-spotlight-link-widescreen {
+          display: none;
+        }
+        .community-spotlight-link-mobile, .community-spotlight-link-mobile a {
+          display: inline-block;
+
+          &:after {
+            @include center-y;
+            /*left: 100%;*/
+          }
+        }
+      }
+      img {
+        height: 250px;
+        width: 250px;
+      }
+    }
+  }
+}

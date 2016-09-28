@@ -879,8 +879,8 @@
     this.getPanelElement ()
       .empty ()
       .append (this.createStatePanelElement (state))
-      .animate ({scrollTop: 0}, 200)
-      .show (function () {
+      .show ('slide', {direction: 'right'}, 500,
+        function () {
           // create case share elements.
           a2a.init_all ('page');
 
@@ -902,7 +902,7 @@
   */
   Map.prototype.hidePanelElement = function () {
     this.showLogoElement ();
-    this.getPanelElement ().hide ();
+    this.getPanelElement ().hide ('slide', {direction: 'right'}, 500);
   }
 
   /*
@@ -1276,7 +1276,8 @@
     var _case = this.getCases () [caseIndex];
     var classPrefix = getModuleClassPrefix () + '_case_card';
 
-    var MAX_TITLE_LENGTH = 65;
+    var TITLE_MAX_NUM_LINES = 2;
+    var TITLE_MAX_LINE_LENGTH = 28;
     return _case ?
       $('<div></div>')
         .addClass (classPrefix)
@@ -1285,7 +1286,7 @@
           .addClass (classPrefix + '_expand_button'))
         .append ($('<div></div>')
           .addClass (classPrefix + '_title')
-          .text (ellipse (MAX_TITLE_LENGTH, _case.title)))
+          .text (ellipse (TITLE_MAX_LINE_LENGTH, TITLE_MAX_NUM_LINES, _case.title)))
         .append ($('<div></div>')
           .addClass (classPrefix + '_state')
           .text (_case.states.join (', ')))
@@ -1351,23 +1352,19 @@
         .addClass (classPrefix + '_prev')
         .addClass (0 >= caseIndex && classPrefix + '_disabled')
         .text ('PREVIOUS')
-        .click (function () {
-            self.showCaseOverlayElement (
-              0 < caseIndex ?
-                caseIndex - 1 :
-                caseIndex
-            );
+        .click (function (e) {
+          0 < caseIndex ?
+            self.showCaseOverlayElement (caseIndex - 1) :
+            e.preventDefault ();
           }))
       .append ($('<span></span>')
         .addClass (classPrefix + '_next')
         .addClass (caseIndex >= self.getCurrentPageEnd () - 1 && classPrefix + '_disabled')
         .text ('NEXT')
-        .click (function () {
-            self.showCaseOverlayElement (
-              caseIndex < self.getCurrentPageEnd () - 1 ?
-                caseIndex + 1 :
-                caseIndex
-            );
+        .click (function (e) {
+          self._cases.length > caseIndex + 1 ?
+            self.showCaseOverlayElement (caseIndex + 1) :
+            e.preventDefault ();
           }));      
   }
 
@@ -1380,11 +1377,28 @@
   }
 
   /*
-    Accepts no arguments and hides this
-    instance's overlay element.
+    Accepts no arguments and animates the
+    instance's overlay element out of view.
   */
   Grid.prototype.hideOverlayElement = function () {
-    this.getOverlayElement ().hide ();
+   overlayElement = this.getOverlayElement ();
+
+   // Make overlay element appear empty before closing it
+   overlayElement.find($('.section_106_map_grid_overlay_body')).hide ();
+   overlayElement.find($('.section_106_map_grid_overlay_footer')).hide ();
+   overlayElement.animate ({
+      width: 0,
+      height: 0,
+      top: '50%',
+      left: '50%'  
+    }, 'slow', function () {
+      
+      // Hides overlay container element, but re-shows its contents so that
+      // they continue to display when the overlay is reopened
+      overlayElement.hide ();
+      overlayElement.find($('.section_106_map_grid_overlay_body')).show ();
+      overlayElement.find($('.section_106_map_grid_overlay_footer')).show ();
+    });  
   }
 
   /*
@@ -1640,7 +1654,7 @@
     each page as an integer.
   */
   function getNumCasesPerPage () {
-    return 4;
+    return 3;
   }
 
   // IV. Auxiliary functions.
@@ -2001,31 +2015,80 @@
   };
 
   /*
+    Accepts three arguments:
+
+    * maxLineLength, an integer
+    * maxNumLines, an integer
+    * and text, a string
+
+    and returns a cropped version of text
+    designed to fit within maxNumLines lines
+    where each line has, at most, maxLineLength
+    characters, and appends an ellipse onto the
+    result if some characters were cropped.
+  */
+  function ellipse (maxLineLength, maxNumLines, text) {
+    if (text === null) { return ''; }
+
+    var index = 0;
+    var numLines = 1;
+    var currentLineLength = 0;
+    while (index < text.length) {
+      var word = text.slice (index).match (/\s*\S*/)[0];
+
+      var newLineLength = currentLineLength + word.length;
+      if (newLineLength <= maxLineLength) {
+        // append the current word onto the end of the current line.
+        currentLineLength = newLineLength;
+        index += word.length;
+      } else { // the current word will not fit onto the end of the current line.
+        var remainingLineLength = maxLineLength - currentLineLength;
+        if (word.length <= maxLineLength) {
+          // wrap the current word onto the next line.
+          if (numLines === maxNumLines) {
+            return appendEllipsis (index + remainingLineLength, text.slice (0, index));
+          }
+        } else { // the current word will not fit on a single line.
+          // break the current word across the line boundary.
+          index += remainingLineLength;
+          if (numLines === maxNumLines) {
+            return appendEllipsis (index, text.slice (0, index));
+          }
+        }
+        numLines ++;
+        currentLineLength = 0;
+      }
+    }
+    // if we reach here, the entire text fit within the given number of lines.
+    return text;
+  }
+
+  /*
     Accepts two arguments:
 
     * maxLength, an integer
-    * and string, a string
+    * and text, a string
 
-    and returns an ellipsed version of string
-    if its length exceeds maxLength. Otherwise,
-    this function returns string unaltered.
+    trims text so that we can append an ellipsis
+    to it while remaining within maxLength
+    characters.
   */
-  function ellipse (maxLength, string) {
-    if (!string || string.length <= maxLength) {
-      return string;
-    } 
-
-    var result = '';
-    var words = string.split (' ');
-    for (var i in words) {
-      var word = words [i];
-      var newString = result + ' ' + word;
-      if (newString.length <= maxLength - 4) {
-        result = newString;
-      } else {
-        break;
+  function appendEllipsis (maxLength, text) {
+    if (maxLength - text.length >= 3) {
+      // we can append an ellipsis and remain within the character limit.
+      return text + '...';
+    } else {
+      // we can not fit the text and the ellipsis within the character limit.
+      switch (text.length) {
+        case 0:
+          return '';
+        case 1:
+          return '.';
+        case 2:
+          return '..';
+        default:
+          return text.slice (0, ((maxLength - text.length) - 3)) + '...';
       }
     }
-    return result + ' ...';
   }
 }) (jQuery);
