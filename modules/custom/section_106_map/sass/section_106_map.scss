@@ -360,6 +360,37 @@ $section_106_map_share_padding: 10px;
                 }
                 .section_106_map_case_footer {
                   margin: 10px 0;
+
+                  /*
+                    Note: the following is a
+                    work-around to allow the anchor
+                    tags nesting SVG icons to respond
+                    to click events. 
+
+                    See: https://teamtreehouse.com/community/how-do-you-make-a-svg-clickable
+                  */
+                  .section_106_map_share_link {
+                    display: inline-block;
+                    position: relative;
+
+                    &:after {
+                      bottom: 0;
+                      content: "";
+                      left: 0;
+                      position: absolute;
+                      right: 0;
+                      top: 0;
+                    }
+                    &:hover {
+                      /* Note: the following statement provides hover transition effects for share icons. */
+                      #grid-header,
+                      #share-bar-desktop,
+                      #map-case-listing,
+                      #original-p22-minionpro {
+                        fill: $light_blue_color;
+                      }
+                    }
+                  }
                 }
                 .section_106_map_case_nav {
                   display: none;

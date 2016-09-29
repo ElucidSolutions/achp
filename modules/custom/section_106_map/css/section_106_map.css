@@ -198,7 +198,30 @@ html {
               display: block;
               margin-left: 0; }
             .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_case .section_106_map_case_footer {
-              margin: 10px 0; }
+              margin: 10px 0;
+                  /*
+                    Note: the following is a
+                    work-around to allow the anchor
+                    tags nesting SVG icons to respond
+                    to click events. 
+
+                    See: https://teamtreehouse.com/community/how-do-you-make-a-svg-clickable
+                  */ }
+              .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_case .section_106_map_case_footer .section_106_map_share_link {
+                display: inline-block;
+                position: relative; }
+                .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_case .section_106_map_case_footer .section_106_map_share_link:after {
+                  bottom: 0;
+                  content: "";
+                  left: 0;
+                  position: absolute;
+                  right: 0;
+                  top: 0; }
+                .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_case .section_106_map_case_footer .section_106_map_share_link:hover #grid-header,
+                .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_case .section_106_map_case_footer .section_106_map_share_link:hover #share-bar-desktop,
+                .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_case .section_106_map_case_footer .section_106_map_share_link:hover #map-case-listing,
+                .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_case .section_106_map_case_footer .section_106_map_share_link:hover #original-p22-minionpro {
+                  fill: #6fbefe; }
             .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel .section_106_map_state_panel .section_106_map_state_panel_body .section_106_map_state_panel_state_cases_list .section_106_map_case .section_106_map_case_nav {
               display: none; }
     .section_106_map .section_106_map_feature_body .section_106_map_grid {
