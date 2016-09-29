@@ -1,14 +1,11 @@
 @import "../global";
 
-#main-wrapper {
+#news_landing_page {
   height: 100%;
   background-color: $background-color-grey;
-}
-
-.page_outer_container {
   @include outer-container(100%);
 
-  #main-wrapper #content {
+  #content {
     max-width: $max-content-width;
     margin: 0 auto;
     position: relative;
@@ -63,6 +60,36 @@
         .form-select {
           width: 100%;
         }
+
+        label {
+          font-size: 1.25rem;
+          font-family: $sans-text;
+          color: $color-darkblue;
+          border-bottom: 1px solid $color-red;
+          display: inline-block;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .form-item-date-max label {
+          display: none;
+        }
+
+        input[type="text"] {
+          max-width: 100%;
+          font-family: $sans-text;
+          color: $color-lightgrey;
+          font-size: 1rem;
+          background-image: url('../images/add-calendar-icon.svg');
+          background-repeat: no-repeat;
+          background-position: 5px center;
+          padding: 5px 0 2px 30px;
+          margin-bottom: 10px;
+        }
+
+        #edit-field-tags-target-id {
+          margin-bottom: 15px;
+        }
       }
 
       .news-item {
@@ -74,7 +101,7 @@
 
         .views-field-title {
           margin-top: 10px;
-                      padding: 10px 20px 0;
+            padding: 10px 20px 0;
             display: inline-block;
 
           a {
@@ -94,7 +121,8 @@
           max-width: 300px;
           max-height: 300px;
           float: left;
-          margin: 10px 20px 10px 20px;
+          /*margin: 10px 20px 10px 20px;*/
+          padding: 10px 20px 10px 20px;
         }
 
         .views-field-body {
@@ -185,39 +213,8 @@
     }
   }
 }
-
-label {
-  font-size: 1.25rem;
-  font-family: $sans-text;
-  color: $color-darkblue;
-  border-bottom: 1px solid $color-red;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.form-item-date-max label {
-  display: none;
-}
-
-input[type="text"] {
-  max-width: 100%;
-  font-family: $sans-text;
-  color: $color-lightgrey;
-  font-size: 1rem;
-  background-image: url('../images/add-calendar-icon.svg');
-  background-repeat: no-repeat;
-  background-position: 5px center;
-  padding: 5px 0 2px 30px;
-  margin-bottom: 10px;
-}
-
-#edit-field-tags-target-id {
-  margin-bottom: 15px;
-}
-
 @media (max-width: 1000px) {
-  .page_outer_container #main-wrapper #content .news-landing-container {
+  #news_landing_page #content .news-landing-container {
     .views-exposed-form {
       @include span-columns (4 of 12);
     }
@@ -230,7 +227,7 @@ input[type="text"] {
 }
 
 @media (max-width: 850px) {
-  .page_outer_container #main-wrapper #content .news-landing-container {
+  #news_landing_page #content .news-landing-container {
     .views-exposed-form {
       @include span-columns (12 of 12);
       padding-right: 0;
@@ -270,6 +267,38 @@ input[type="text"] {
         }
       }
 
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  #news_landing_page #content .news-landing-container {
+
+    .news-item {
+      .views-field-field-news-photo img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+      }
+
+      .views-field-field-tags .field-content {
+        height: auto;
+        position: static;
+      }      
+
+      ul  {
+        padding-top: 0;
+
+        li {
+          margin-top: 0;
+          display: list-item;
+
+          a {
+            margin: 0;
+          }
+        }
+      }
     }
   }
 }
