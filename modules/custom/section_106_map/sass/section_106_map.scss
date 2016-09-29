@@ -4,7 +4,7 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
-$light_blue_color: rgb(9, 144, 254);
+$light_blue_color: rgba(111, 190, 254, 100);
 $dark_blue_color: rgb(5, 60, 93);
 $red_color: rgb(151, 0, 14);
 
@@ -126,17 +126,31 @@ $section_106_map_share_padding: 10px;
           padding-top: $feature_header_body_tabs_height / 2;
           width: $feature_header_body_tabs_width / 2;
 
+          &:hover,
           &.section_106_map_selected {
+            color: $light_blue_color;
             border-bottom: 5px solid $light_blue_color;
           }
         }
         .section_106_map_feature_map_tab {
           background: url("../images/map-icon.svg") no-repeat 50% 12px;
           background-size: 15px;
+
+          &:hover,
+          &.section_106_map_selected {
+            background: url("../images/map-icon-blue.svg") no-repeat 50% 12px;
+            background-size: 15px;
+          }
         }
         .section_106_map_feature_grid_tab {
           background: url("../images/grid-icon.svg") no-repeat 50% 17px;
           background-size: 15px;
+
+          &:hover,
+          &.section_106_map_selected {
+            background: url("../images/grid-icon-blue.svg") no-repeat 50% 17px;
+            background-size: 15px;
+          }
         }
       }
     }

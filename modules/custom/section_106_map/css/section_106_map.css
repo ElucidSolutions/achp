@@ -43,14 +43,21 @@ html {
           height: 100%;
           padding-top: 37.5px;
           width: 150px; }
-          .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_tab.section_106_map_selected {
-            border-bottom: 5px solid #0990fe; }
+          .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_tab:hover, .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_tab.section_106_map_selected {
+            color: #6fbefe;
+            border-bottom: 5px solid #6fbefe; }
         .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_map_tab {
           background: url("../images/map-icon.svg") no-repeat 50% 12px;
           background-size: 15px; }
+          .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_map_tab:hover, .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_map_tab.section_106_map_selected {
+            background: url("../images/map-icon-blue.svg") no-repeat 50% 12px;
+            background-size: 15px; }
         .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_grid_tab {
           background: url("../images/grid-icon.svg") no-repeat 50% 17px;
           background-size: 15px; }
+          .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_grid_tab:hover, .section_106_map .section_106_map_feature_header .section_106_map_feature_header_body .section_106_map_feature_header_body_tabs .section_106_map_feature_grid_tab.section_106_map_selected {
+            background: url("../images/grid-icon-blue.svg") no-repeat 50% 17px;
+            background-size: 15px; }
   .section_106_map .section_106_map_feature_body {
     background: #E8F8FF;
     min-height: 525px;
@@ -271,12 +278,12 @@ html {
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_title, .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_state {
             transition: color 0.25s; }
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover {
-            border-top-color: #0990fe;
+            border-top-color: #6fbefe;
             box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.26); }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover .section_106_map_case_card_title {
-              color: #0990fe; }
+              color: #6fbefe; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card:hover .section_106_map_case_card_state {
-              color: #0990fe; }
+              color: #6fbefe; }
           .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_body .section_106_map_case_card .section_106_map_case_card_expand_button {
             background: url("../images/expand-icon.svg") no-repeat 50% 50%;
             background-size: 20px;
@@ -317,7 +324,7 @@ html {
               vertical-align: middle;
               width: 30px; }
               .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_link.section_106_map_selected {
-                background-color: #0990fe;
+                background-color: #6fbefe;
                 border-radius: 50%;
                 color: white; }
             .section_106_map .section_106_map_feature_body .section_106_map_grid .section_106_map_grid_footer .section_106_map_grid_nav .section_106_map_grid_nav_links .section_106_map_grid_nav_quick_link_start:after {

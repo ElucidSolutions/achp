@@ -34,7 +34,6 @@
 
     // Retrieve the section 106 consultation cases.
     cases = _.chain (drupalSettings.section_106_map.cases)
-      .filter (function (_case) { return _case.status === 'Open'; })
       .sortBy (function (_case) { return _case.title; })
       .value ();
 
@@ -131,6 +130,7 @@
     instance element as a JQuery HTML Element.
   */
   FeatureInstance.prototype.createInstanceElement = function (bodyElement) {
+    var self = this;
     var classPrefix = getFeatureClassName ();
     return $('<div></div>')
       .addClass (classPrefix)
@@ -146,7 +146,10 @@
               .addClass (getTabClassName ())
               .addClass (getMapTabClassName ())
               .text ('Map')
-              .click (_.bind (this.toMapMode, this)))
+              .click (function () {
+                  self.toMapMode ();
+                  self.getMap ().focusMap ();
+                }))
             .append ($('<div></div>')
               .addClass (getTabClassName ())
               .addClass (getGridTabClassName ())
@@ -191,7 +194,9 @@
           // update the active component
           switch (self.getMode ()) {
             case MAP_MODE:
-              self.getMap ().setMarkers (self.getCases ());
+              var map = self.getMap ();
+              map.setMarkers (self.getCases ());
+              map.focusMap ();
               break;
             case GRID_MODE:
               self.getGrid ().displayCases (self.getCases ());
@@ -211,7 +216,9 @@
           // update the active component.
           switch (self.getMode ()) {
             case MAP_MODE:
-              self.getMap ().setMarkers (self.getCases ());
+              var map = self.getMap ();
+              map.centerMap ();
+              map.setMarkers (self.getCases ());
               break;
             case GRID_MODE:
               self.getGrid ().displayCases (self.getCases ());
@@ -292,6 +299,16 @@
 
     // resize the map to fill its container.
     map.getMap ().invalidateSize ();
+
+    /*
+      refresh the map.
+
+      note: the invalidateSize command will
+      refresh the map iff the container size
+      changed. This command handles the case where
+      the container size did not change.
+    */
+    map.refreshMap ();
 
     // update the mode.
     this._mode = MAP_MODE;
@@ -444,6 +461,9 @@
 
     // Add the marker cluster group to the map. 
     this._map.addLayer (this._clusterGroup);
+
+    // center the map.
+    this.centerMap ();
   }
 
   /*
@@ -515,8 +535,8 @@
 
     // Create and Embed the Mapbox Map object.
     var map = L.mapbox.map (id, 'mapbox.streets', {
-      minZoom:   2,
-      maxZoom:   7
+      minZoom: 2,
+      maxZoom: 7
     });
     map.scrollWheelZoom.disable ();
 
@@ -532,6 +552,35 @@
       showCoverageOnHover: false,
       iconCreateFunction: createClusterIcon
     });
+  }
+
+  /*
+    Accepts no arguments, centers and scales
+    the map on the markers currently displayed
+    on it, and returns undefined.
+  */
+  Map.prototype.focusMap = function () {
+    // Zoom and center on the filtered markers.
+    var bounds = this.getClusterGroup ().getBounds ();
+    if (bounds && bounds._northEast && bounds._southWest) {
+      var margin = .2;
+      bounds._northEast.lat += margin;
+      bounds._northEast.lng += margin;
+      bounds._southWest.lat -= margin;
+      bounds._southWest.lng -= margin;
+      this.getMap ().fitBounds (bounds);
+      this.refreshMap ();
+    }
+  }
+
+  /*
+    Accepts no arguments, centers and scales the
+    map so that the U.S. (including Alaska) are
+    prominently featured, and returns undefined.
+  */
+  Map.prototype.centerMap = function () {
+    var map = this.getMap ().fitBounds (getDefaultBounds ());
+    this.refreshMap ();
   }
 
   /*
@@ -553,16 +602,18 @@
     // Add the newly filtered markers back in.
     this.createMarkers (cases).forEach (clusterGroup.addLayer, clusterGroup);
 
-    // Zoom and center on the filtered markers.
-    var bounds = clusterGroup.getBounds ();
-    if (bounds && bounds._northEast && bounds._southWest) {
-      var margin = .2;
-      bounds._northEast.lat += margin;
-      bounds._northEast.lng += margin;
-      bounds._southWest.lat -= margin;
-      bounds._southWest.lng -= margin;
-      this.getMap ().fitBounds (bounds);
-    }
+    // refresh the map.
+    this.refreshMap ();
+  }
+
+  /*
+    Accepts no arguments, refreshes the Mapbox
+    map, and returns undefined.
+  */
+  Map.prototype.refreshMap = function () {
+    // See: http://stackoverflow.com/questions/18515230/javascript-map-in-leaflet-how-to-refresh
+    // this.getMap ()._onResize (); 
+    // this.getMap ().invalidateSize ();
   }
 
   /*
@@ -1858,6 +1909,28 @@
   */
   function getModuleDataPrefix () {
     return 'data-section-106-map';
+  }
+
+  /*
+    Returns an array that represents the
+    coordinates for the default bounding box
+    for the map.
+
+    note: the setView and panTo Leaflet functions
+    break the cluster group feature. To work
+    around this limitation, we use the fitBounds
+    function for both centering and focusing.
+  */
+  function getDefaultBounds () {
+    return [[50.00, -126.00], [17.00, -64.00]];
+  }
+
+  /*
+    Returns an integer that represents the
+    default zoom level.
+  */
+  function getDefaultZoom () {
+    return 3;
   }
 
   /*
