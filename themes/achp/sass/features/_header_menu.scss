@@ -131,8 +131,9 @@
       }
 
       ul[data-menu-level="2"] {
-        padding: 5px 5px 0 0;
-        top: -22px;
+        padding: 0 5px 0 0;
+        /*top: -22px;*/
+        margin-top: 0;
         display: inline-block;
         width: 100%;
 
@@ -152,13 +153,21 @@
           width: 100%;
           background-color: $color-red2;
           display: inline-block;
-          top: 5px;
           position: relative;
+          bottom: 5px;
         }
+      }
+
+      $dropdown-menu-padding: 55px;
+
+      ul[data-menu-level="1"] {
+        padding: 0 $dropdown-menu-padding;
       }
 
       ul[data-menu-level="1"][data-menu-num-children="1"] {
         @include span-columns(1 of 4);
+        width: 1024/4 + $dropdown-menu-padding * 2;
+        /*padding: 0 $dropdown-menu-padding;*/
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 1);
@@ -166,6 +175,8 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="2"] {
         @include span-columns(2 of 4);
+        width: 1024/2 + $dropdown-menu-padding * 2;
+        /*padding: 0 $dropdown-menu-padding;*/
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 2);
@@ -173,6 +184,8 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="3"] {
         @include span-columns(3 of 4);
+        width: 1024/4 * 3 + $dropdown-menu-padding * 2;
+        /*padding: 0 $dropdown-menu-padding;*/
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 3);
@@ -180,6 +193,8 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="4"] {
         @include span-columns(4 of 4);
+        width: 1024px;
+        /*padding: 0 $dropdown-menu-padding;*/
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 4);

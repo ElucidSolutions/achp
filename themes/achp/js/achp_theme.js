@@ -514,7 +514,8 @@
     var headerMenuElement = $('#header_menu');
     var parentElement = $('li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]', headerMenuElement);
     var parentElementOffset = parentElement.position ().left;
-    var remainingWidth = headerMenuElement.width () - parentElementOffset;
+    var remainingWidth = headerMenuElement.width () - parentElementOffset - 110;
+    // 110 allows for the 55px padding on each side
     dropdownSubmenu
       .css ('left', 
         remainingWidth < dropdownSubmenu.width () ?
