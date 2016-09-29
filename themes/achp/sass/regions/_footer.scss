@@ -10,7 +10,7 @@ $footer-padding: 40px;
   @include outer-container;
   background-color: $color-darkblue;
   color: white;
-  font-size: rem(14px);
+  font-size: rem(14);
   font-family: $sans-text;
   letter-spacing: 0.02rem;
   max-width: 100%;
@@ -23,11 +23,12 @@ $footer-padding: 40px;
   }
   h2 {
     font-family: $sans-text;
-    font-size: rem(18px);
+    font-size: rem(18);
   }
   a {
+    @include hover-transition-content($color-blue-primary);
     color: white;
-    font-size: rem(12px);
+    font-size: rem(12);
     text-decoration: none;
   }
   ul, ol {
@@ -103,4 +104,3 @@ $footer-padding: 40px;
     }
   }
 }
-
