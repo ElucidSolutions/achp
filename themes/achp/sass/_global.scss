@@ -88,7 +88,7 @@ $grid-columns: 12;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
+  -o-transform: translategY(-50%);
   transform: translateY(-50%);
 }
 
@@ -130,7 +130,7 @@ $grid-columns: 12;
     min-width: 100%;
   }
 }
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 
 /* Mixin for attaching icons as right after-elements */
 @mixin after-element-icon-with-hover($icon-path, $icon-hover-path, $right-positioning, $color) {

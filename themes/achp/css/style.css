@@ -16,7 +16,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -78,7 +78,7 @@ $arrow-padding: 5px;*/
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
         transform: translateY(-50%);
         cursor: pointer;
         background-repeat: no-repeat;
@@ -220,7 +220,7 @@ $arrow-padding: 5px;*/
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
         transform: translateY(-50%);
         cursor: pointer;
         font-size: .9rem;
@@ -243,7 +243,7 @@ $arrow-padding: 5px;*/
           -webkit-transform: translateY(-50%);
           -moz-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
-          -o-transform: translateY(-50%);
+          -o-transform: translategY(-50%);
           transform: translateY(-50%);
           transition: background-image 0.25s; }
         .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
@@ -310,7 +310,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -356,7 +356,7 @@ $arrow-padding: 5px;*/
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
         transform: translateY(-50%);
         position: relative; }
         #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_link {
@@ -371,7 +371,7 @@ $arrow-padding: 5px;*/
           -webkit-transform: translateY(-50%);
           -moz-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
-          -o-transform: translateY(-50%);
+          -o-transform: translategY(-50%);
           transform: translateY(-50%);
           transition: color 0.25s; }
           #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover {
@@ -391,7 +391,7 @@ $arrow-padding: 5px;*/
             -webkit-transform: translateY(-50%);
             -moz-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
+            -o-transform: translategY(-50%);
             transform: translateY(-50%);
             transition: background-image 0.25s; }
           #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after {
@@ -409,7 +409,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -486,7 +486,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -572,7 +572,7 @@ $arrow-padding: 5px;*/
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
         transform: translateY(-50%);
         position: relative; }
       #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] a {
@@ -619,25 +619,26 @@ $arrow-padding: 5px;*/
       #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] {
         background-color: white;
         margin: 0;
-        padding: 0 10px 10px 25px; }
+        padding: 0 10px 10px 25px;
+        line-height: 1.4; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"].menu_selected {
           border: 3px solid #9B0008;
           box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
           min-height: 150px; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] li[data-menu-level="1"] {
           padding: 22px 15px 0 0;
-          font-size: 1.125rem;
-          line-height: 1.4; }
+          font-size: 1.125rem; }
           #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] li[data-menu-level="1"] > a {
-            color: #043B62; }
+            color: #043B62;
+            line-height: 1.4; }
       #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] {
-        padding: 5px 5px 0 0;
-        top: -22px;
+        padding: 0 5px 0 0;
+        /*top: -22px;*/
+        margin-top: 0;
         display: inline-block;
         width: 100%; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] > li {
-          line-height: 0.93rem;
-          margin-bottom: 0.5rem; }
+          margin-bottom: 10px; }
           #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] > li a {
             font-size: 1rem;
             color: #4F4F4F;
@@ -649,12 +650,18 @@ $arrow-padding: 5px;*/
           height: 1px;
           width: 100%;
           background-color: #9B0008;
-          display: inline-block; }
+          display: inline-block;
+          position: relative;
+          bottom: 5px; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] {
+        padding: 0 55px; }
       #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"] {
         float: left;
         display: block;
         margin-right: 0%;
-        width: 25%; }
+        width: 25%;
+        width: 366px;
+        /*padding: 0 $dropdown-menu-padding;*/ }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"]:last-child {
           margin-right: 0; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"] li[data-menu-level="1"] {
@@ -668,7 +675,9 @@ $arrow-padding: 5px;*/
         float: left;
         display: block;
         margin-right: 0%;
-        width: 50%; }
+        width: 50%;
+        width: 622px;
+        /*padding: 0 $dropdown-menu-padding;*/ }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"]:last-child {
           margin-right: 0; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"] li[data-menu-level="1"] {
@@ -682,7 +691,9 @@ $arrow-padding: 5px;*/
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75%; }
+        width: 75%;
+        width: 878px;
+        /*padding: 0 $dropdown-menu-padding;*/ }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"]:last-child {
           margin-right: 0; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"] li[data-menu-level="1"] {
@@ -696,7 +707,9 @@ $arrow-padding: 5px;*/
         float: left;
         display: block;
         margin-right: 0%;
-        width: 100%; }
+        width: 100%;
+        width: 1024px;
+        /*padding: 0 $dropdown-menu-padding;*/ }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"]:last-child {
           margin-right: 0; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"] li[data-menu-level="1"] {
@@ -901,7 +914,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -976,7 +989,7 @@ $arrow-padding: 5px;*/
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
         transform: translateY(-50%);
         position: relative; }
         #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a {
@@ -1011,7 +1024,7 @@ $arrow-padding: 5px;*/
                 -webkit-transform: translateY(-50%);
                 -moz-transform: translateY(-50%);
                 -ms-transform: translateY(-50%);
-                -o-transform: translateY(-50%);
+                -o-transform: translategY(-50%);
                 transform: translateY(-50%);
                 transition: background-image 0.25s; }
               #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover:after {
@@ -1045,7 +1058,7 @@ $arrow-padding: 5px;*/
       -webkit-transform: translateY(-50%);
       -moz-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
+      -o-transform: translategY(-50%);
       transform: translateY(-50%);
       transition: background-image 0.25s; }
     #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover:after {
@@ -1064,7 +1077,7 @@ $arrow-padding: 5px;*/
       -webkit-transform: translateY(-50%);
       -moz-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
+      -o-transform: translategY(-50%);
       transform: translateY(-50%); }
 
 #homepage_quicklinks_region > #homepage_quicklinks_content {
@@ -1116,7 +1129,7 @@ $arrow-padding: 5px;*/
             -webkit-transform: translateY(-50%);
             -moz-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
+            -o-transform: translategY(-50%);
             transform: translateY(-50%);
             transition: background-image 0.25s; }
           #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:hover:after {
@@ -1138,7 +1151,7 @@ $arrow-padding: 5px;*/
             -webkit-transform: translateY(-50%);
             -moz-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
+            -o-transform: translategY(-50%);
             transform: translateY(-50%);
             padding: 15px;
             width: 95%;
@@ -1162,7 +1175,7 @@ $arrow-padding: 5px;*/
               -webkit-transform: translateY(-50%);
               -moz-transform: translateY(-50%);
               -ms-transform: translateY(-50%);
-              -o-transform: translateY(-50%);
+              -o-transform: translategY(-50%);
               transform: translateY(-50%);
               transition: background-image 0.25s; }
             #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:hover:after {
@@ -1187,7 +1200,7 @@ $arrow-padding: 5px;*/
                 -webkit-transform: translateY(-50%);
                 -moz-transform: translateY(-50%);
                 -ms-transform: translateY(-50%);
-                -o-transform: translateY(-50%);
+                -o-transform: translategY(-50%);
                 transform: translateY(-50%);
                 transition: background-image 0.25s; }
               #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:hover:after {
@@ -1272,7 +1285,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -1408,7 +1421,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -1615,7 +1628,7 @@ header {
       -webkit-transform: translateY(-50%);
       -moz-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
+      -o-transform: translategY(-50%);
       transform: translateY(-50%);
       top: 37.5px; }
     header #block-headercontactlinks {
@@ -1641,7 +1654,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -2007,7 +2020,7 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
                   -webkit-transform: translateY(-50%);
                   -moz-transform: translateY(-50%);
                   -ms-transform: translateY(-50%);
-                  -o-transform: translateY(-50%);
+                  -o-transform: translategY(-50%);
                   transform: translateY(-50%);
                   background-image: url("../images/right-arrow-icon.svg");
                   background-position: center;
@@ -2057,7 +2070,7 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
           -webkit-transform: translateY(-50%);
           -moz-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
-          -o-transform: translateY(-50%);
+          -o-transform: translategY(-50%);
           transform: translateY(-50%);
           /*left: 100%;*/ }
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
@@ -2079,7 +2092,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -2107,7 +2120,293 @@ $arrow-padding: 5px;*/
   This module contains styles used by the
   Homepage.
 */
-/* @import "pages/news_landing"; */
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+#news_landing_page {
+  height: 100%;
+  background-color: #F4F4F4;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  #news_landing_page::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #news_landing_page #content {
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    overflow: auto;
+    padding: 0 50px; }
+    #news_landing_page #content #content_region {
+      padding: 0; }
+    #news_landing_page #content .news-landing-container {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      height: 100%; }
+      #news_landing_page #content .news-landing-container:last-child {
+        margin-right: 0; }
+      #news_landing_page #content .news-landing-container em {
+        font-style: normal !important; }
+      #news_landing_page #content .news-landing-container header {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 100%;
+        background-color: #F4F4F4;
+        position: relative; }
+        #news_landing_page #content .news-landing-container header:last-child {
+          margin-right: 0; }
+        #news_landing_page #content .news-landing-container header .header_container {
+          width: auto;
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -o-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%); }
+          #news_landing_page #content .news-landing-container header .header_container h1 {
+            text-shadow: none;
+            font-weight: 500;
+            font-size: 2.25rem;
+            color: #043B62; }
+          #news_landing_page #content .news-landing-container header .header_container hr {
+            color: #950306;
+            background-color: #950306;
+            border: none;
+            height: 1px;
+            margin-top: 0;
+            width: 60%; }
+        #news_landing_page #content .news-landing-container header .news_filter {
+          display: none; }
+      #news_landing_page #content .news-landing-container .views-exposed-form {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 25%;
+        padding-right: 20px; }
+        #news_landing_page #content .news-landing-container .views-exposed-form:last-child {
+          margin-right: 0; }
+        #news_landing_page #content .news-landing-container .views-exposed-form .form-select {
+          width: 100%; }
+        #news_landing_page #content .news-landing-container .views-exposed-form label {
+          font-size: 1.25rem;
+          font-family: "p22-underground", sans-serif;
+          color: #043B62;
+          border-bottom: 1px solid #950306;
+          display: inline-block;
+          width: 100%;
+          margin-bottom: 10px; }
+        #news_landing_page #content .news-landing-container .views-exposed-form .form-item-date-max label {
+          display: none; }
+        #news_landing_page #content .news-landing-container .views-exposed-form input[type="text"] {
+          max-width: 100%;
+          font-family: "p22-underground", sans-serif;
+          color: #C6C6C6;
+          font-size: 1rem;
+          background-image: url("../images/add-calendar-icon.svg");
+          background-repeat: no-repeat;
+          background-position: 5px center;
+          padding: 5px 0 2px 30px;
+          margin-bottom: 10px; }
+        #news_landing_page #content .news-landing-container .views-exposed-form #edit-field-tags-target-id {
+          margin-bottom: 15px; }
+      #news_landing_page #content .news-landing-container .news-item {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 75.0%;
+        float: right;
+        background-color: #fff;
+        margin-bottom: 25px;
+        padding: 0; }
+        #news_landing_page #content .news-landing-container .news-item:last-child {
+          margin-right: 0; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-title {
+          margin-top: 10px;
+          padding: 10px 20px 0;
+          display: inline-block; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-title a {
+            color: #043B62;
+            font-size: 1.25rem;
+            text-decoration: none; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-date {
+          color: #C6C6C6;
+          padding: 10px 20px 0;
+          margin-top: 0; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-news-photo img {
+          max-width: 300px;
+          max-height: 300px;
+          float: left;
+          /*margin: 10px 20px 10px 20px;*/
+          padding: 10px 20px 10px 20px; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-body {
+          font-family: "minion-pro", serif;
+          margin: 5px 20px; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-body p {
+            margin-top: 5px; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .views-label {
+          display: block;
+          color: #043B62;
+          margin-left: 20px; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .field-content {
+          height: 20px;
+          position: relative;
+          bottom: 30px; }
+        #news_landing_page #content .news-landing-container .news-item ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 10px 20px 0; }
+          #news_landing_page #content .news-landing-container .news-item ul li {
+            display: inline-block;
+            margin-top: 25px;
+            position: relative; }
+            #news_landing_page #content .news-landing-container .news-item ul li a {
+              text-decoration: none;
+              color: #0990FE;
+              margin-right: 25px; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-view-node {
+          width: 100%;
+          position: relative;
+          margin-top: 20px;
+          height: 30px;
+          background-color: #F4F4F4;
+          clear: both;
+          transition: background-color 0.25s; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-view-node:hover {
+            background-color: #E8F8FF; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-view-node a {
+            color: #4F4F4F;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -o-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            transition: color 0.25s; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-view-node:hover a {
+            color: #0990FE; }
+    #news_landing_page #content nav {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      color: #262626;
+      font-family: "p22-underground", sans-serif; }
+      #news_landing_page #content nav:last-child {
+        margin-right: 0; }
+      #news_landing_page #content nav ul {
+        list-style-type: none;
+        text-align: center;
+        padding: 0; }
+        #news_landing_page #content nav ul li {
+          display: inline-block; }
+          #news_landing_page #content nav ul li a {
+            text-decoration: none;
+            color: #262626; }
+
+@media (max-width: 1000px) {
+  #news_landing_page #content .news-landing-container .views-exposed-form {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 33.33333%; }
+    #news_landing_page #content .news-landing-container .views-exposed-form:last-child {
+      margin-right: 0; }
+  #news_landing_page #content .news-landing-container .news-item {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 66.66667%;
+    float: right; }
+    #news_landing_page #content .news-landing-container .news-item:last-child {
+      margin-right: 0; } }
+@media (max-width: 850px) {
+  #news_landing_page #content .news-landing-container .views-exposed-form {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #4F4F4F;
+    display: none; }
+    #news_landing_page #content .news-landing-container .views-exposed-form:last-child {
+      margin-right: 0; }
+  #news_landing_page #content .news-landing-container .news-item {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #news_landing_page #content .news-landing-container .news-item:last-child {
+      margin-right: 0; }
+  #news_landing_page #content .news-landing-container header {
+    height: 150px; }
+    #news_landing_page #content .news-landing-container header .header_container {
+      top: 35%; }
+    #news_landing_page #content .news-landing-container header .news_filter {
+      display: block;
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      font-family: "p22-underground", sans-serif;
+      color: #4F4F4F;
+      font-size: 0.875rem;
+      position: absolute;
+      bottom: 10px;
+      font-weight: 500;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #4F4F4F;
+      cursor: pointer; }
+      #news_landing_page #content .news-landing-container header .news_filter:last-child {
+        margin-right: 0; }
+      #news_landing_page #content .news-landing-container header .news_filter.news_filter_open {
+        border-bottom: none;
+        bottom: 11px; } }
+@media (max-width: 500px) {
+  #news_landing_page #content .news-landing-container .news-item .views-field-field-news-photo img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto; }
+  #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .field-content {
+    height: auto;
+    position: static; }
+  #news_landing_page #content .news-landing-container .news-item ul {
+    padding-top: 0; }
+    #news_landing_page #content .news-landing-container .news-item ul li {
+      margin-top: 0;
+      display: list-item; }
+      #news_landing_page #content .news-landing-container .news-item ul li a {
+        margin: 0; } }
 /*
   This module defines the sass directives used
   to style Section 106 Process Step pages.
@@ -2130,7 +2429,7 @@ $arrow-padding: 5px;*/
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVEE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 /* Mixin for attaching icons as right after-elements */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
@@ -2465,7 +2764,7 @@ button {
       -webkit-transform: translateY(-50%);
       -moz-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
+      -o-transform: translategY(-50%);
       transform: translateY(-50%);
       transition: background-image 0.25s; }
     .read_more a:hover:after {

@@ -400,7 +400,7 @@
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ right: '0', left: '0' }, 250, "linear")     
          .show ();
-    animateSubheaderHeight ( setSubheaderHeight (slide) );
+    animateSubheaderHeight (setSubheaderHeight (slide));
   }
 
   /*
@@ -416,7 +416,7 @@
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ left: '0', right: '0' }, 250, "linear")
          .show ();
-    animateSubheaderHeight ( setSubheaderHeight (slide) );
+    animateSubheaderHeight (setSubheaderHeight (slide));
   }
 
   /*
@@ -514,7 +514,8 @@
     var headerMenuElement = $('#header_menu');
     var parentElement = $('li[data-menu-level="0"][data-menu-item-index="' + parentIndex + '"]', headerMenuElement);
     var parentElementOffset = parentElement.position ().left;
-    var remainingWidth = headerMenuElement.width () - parentElementOffset;
+    var remainingWidth = headerMenuElement.width () - parentElementOffset - 110;
+    // 110 allows for the 55px padding on each side
     dropdownSubmenu
       .css ('left', 
         remainingWidth < dropdownSubmenu.width () ?
@@ -529,8 +530,10 @@
   */
   function alignSubmenuHeaders () {
     var submenuHeaders = $('#subheader_widescreen_submenu li[data-menu-level="1"] > a');
+    var submenuLineHeight = parseInt(submenuHeaders.css('line-height'));
     var headerHeight = submenuHeaders.toArray ().reduce (function (headerHeight, submenuHeader) {
-      return Math.max (headerHeight, $(submenuHeader).height ());
+      var numLines = Math.ceil ($(submenuHeader).height () / submenuLineHeight);
+      return Math.max (headerHeight, numLines * submenuLineHeight);
     }, 0);
     submenuHeaders.each (function (i, submenuHeader) {
       $(submenuHeader).css ('display', 'table-cell')

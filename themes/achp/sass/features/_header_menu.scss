@@ -111,6 +111,7 @@
         background-color: white;
         margin: 0;
         padding: 0 10px 10px 25px;
+        line-height: 1.4;
 
         &.menu_selected {
           border: $header-menu-border-width solid $color-red2;
@@ -121,23 +122,23 @@
         li[data-menu-level="1"] {
           padding: 22px 15px 0 0;
           font-size: 1.125rem;
-          line-height: 1.4;  
 
           > a {
             color: $color-darkblue;  
+            line-height: 1.4;
           }
         }
       }
 
       ul[data-menu-level="2"] {
-        padding: 5px 5px 0 0;
-        top: -22px;
+        padding: 0 5px 0 0;
+        /*top: -22px;*/
+        margin-top: 0;
         display: inline-block;
         width: 100%;
 
         > li {
-          line-height: 0.93rem;
-          margin-bottom: 0.5rem;
+          margin-bottom: 10px;
 
           a {
             font-size: 1rem;
@@ -152,11 +153,21 @@
           width: 100%;
           background-color: $color-red2;
           display: inline-block;
+          position: relative;
+          bottom: 5px;
         }
+      }
+
+      $dropdown-menu-padding: 55px;
+
+      ul[data-menu-level="1"] {
+        padding: 0 $dropdown-menu-padding;
       }
 
       ul[data-menu-level="1"][data-menu-num-children="1"] {
         @include span-columns(1 of 4);
+        width: 1024/4 + $dropdown-menu-padding * 2;
+        /*padding: 0 $dropdown-menu-padding;*/
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 1);
@@ -164,6 +175,8 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="2"] {
         @include span-columns(2 of 4);
+        width: 1024/2 + $dropdown-menu-padding * 2;
+        /*padding: 0 $dropdown-menu-padding;*/
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 2);
@@ -171,6 +184,8 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="3"] {
         @include span-columns(3 of 4);
+        width: 1024/4 * 3 + $dropdown-menu-padding * 2;
+        /*padding: 0 $dropdown-menu-padding;*/
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 3);
@@ -178,6 +193,8 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="4"] {
         @include span-columns(4 of 4);
+        width: 1024px;
+        /*padding: 0 $dropdown-menu-padding;*/
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 4);
