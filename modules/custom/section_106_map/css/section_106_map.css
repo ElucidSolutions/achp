@@ -104,7 +104,6 @@ html {
             margin-left: 10px;
             font-family: "minion-pro", serif; }
     .section_106_map .section_106_map_feature_body .section_106_map_map {
-      cursor: pointer;
       height: 525px;
       width: 100%; }
       .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container {
@@ -125,7 +124,7 @@ html {
             fill: #fda485; }
         .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .section_106_map_multiple_cases_marker .section_106_map_marker_label {
           fill: #ffffff;
-          font-size: 25px;
+          font-size: 20px;
           font-family: "Open Sans";
           text-anchor: middle; }
         .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .section_106_map_cluster_marker {
@@ -138,18 +137,17 @@ html {
             fill: #fda485; }
           .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_container .section_106_map_cluster_marker .section_106_map_cluster_marker_label {
             fill: #ffffff;
-            font-size: 25px;
+            font-size: 20px;
             font-family: "Open Sans";
             text-anchor: middle; }
       .section_106_map .section_106_map_feature_body .section_106_map_map .section_106_map_map_panel {
         background: white;
         border-top: #97000e 5px solid;
-        box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
+        /* note: the following statement creates a drop shadow and masks out the overflow into the following section. */
+        box-shadow: 0px 10px 10px #F4F4F4, -5px 0px 10px rgba(0, 0, 0, 0.4);
         font-size: 16px;
         height: 525px;
         max-width: 343px;
-        -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
-        -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
         overflow-y: scroll;
         position: absolute;
         right: 0px;
