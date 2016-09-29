@@ -111,6 +111,7 @@
         background-color: white;
         margin: 0;
         padding: 0 10px 10px 25px;
+        line-height: 1.4;
 
         &.menu_selected {
           border: $header-menu-border-width solid $color-red2;
@@ -121,10 +122,10 @@
         li[data-menu-level="1"] {
           padding: 22px 15px 0 0;
           font-size: 1.125rem;
-          line-height: 1.4;  
 
           > a {
             color: $color-darkblue;  
+            line-height: 1.4;
           }
         }
       }
@@ -136,8 +137,7 @@
         width: 100%;
 
         > li {
-          line-height: 0.93rem;
-          margin-bottom: 0.5rem;
+          margin-bottom: 10px;
 
           a {
             font-size: 1rem;
@@ -152,6 +152,8 @@
           width: 100%;
           background-color: $color-red2;
           display: inline-block;
+          top: 5px;
+          position: relative;
         }
       }
 

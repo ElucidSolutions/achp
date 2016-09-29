@@ -529,12 +529,14 @@
   */
   function alignSubmenuHeaders () {
     var submenuHeaders = $('#subheader_widescreen_submenu li[data-menu-level="1"] > a');
+    var submenuLineHeight = parseInt(submenuHeaders.css('line-height'));
     var headerHeight = submenuHeaders.toArray ().reduce (function (headerHeight, submenuHeader) {
-      return Math.max (headerHeight, $(submenuHeader).height ());
+      var numLines = Math.ceil ($(submenuHeader).height () / submenuLineHeight);
+      return Math.max (headerHeight, numLines * submenuLineHeight);
     }, 0);
     submenuHeaders.each (function (i, submenuHeader) {
       $(submenuHeader).css ('display', 'table-cell')
-                      .css ('height', headerHeight)
+                      .css ('height', headerHeight )
                       .css ('vertical-align', 'bottom');
     })
   }
