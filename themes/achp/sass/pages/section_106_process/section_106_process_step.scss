@@ -2,31 +2,23 @@
   This module defines the sass directives used
   to style Section 106 Process Step pages.
   */
-  $gutter: 0em !global;
-  @import "../../bourbon/bourbon";
-  @import "../../neat/neat";
-  @import "../../global";
 
-  #content_region {	
-  	max-width: 100%;
-  	margin: 0 auto;
-  	padding: 50px 0px;
-  }
+.process-step-node {
+  @include outer-container;
+  max-width: $max-content-width;
+  padding-bottom: 50px;
+
   .section_106_process {
     background-color: $color-lightblue3;
   }
-  .step-container {
-  	@include outer-container;
-  	max-width: $max-content-width;
-  }
   .step-content {
-  	@include span-columns(8);
-  	@include shift(2);
-  	position: relative;
-  	text-align: left;
+    @include span-columns(8);
+    @include shift(2);
+    position: relative;
+    text-align: left;
   }
   .step-number {
-    color: rgba(149, 3, 6, 1);	
+    color: rgba(149, 3, 6, 1);
     font-family: $sans-text;
     font-size: rem(24);
     line-height: rem(33.6);
@@ -36,149 +28,150 @@
     div {
       display: inline-block;
     }
- }
- .step-title {
-   color: rgba(4, 59, 98, 1);	
-   font-family: $sans-text;
-   font-size: rem(36);
-   line-height: rem(50.4);
- }
- .determination-section-title {
-   color: rgba(0, 58, 94, 1);	
-   font-family: $sans-text;
-   font-size: rem(22);
-   line-height: rem(30.8);
- }
- div.step-content > hr {
-  background-color: #CCC;  
-}
-.determination-prompt {
-  display: inline-block;
-  padding: 20px 0px;
-  white-space: nowrap;
-
-  div {
-    display: inline-block;
-    vertical-align: middle;    
   }
-  div.determination-image + div {
-    background-color: rgba(232, 248, 255, 1);    
-    color: rgba(74, 74, 74, 1);
+  .step-title {
+    color: rgba(4, 59, 98, 1);
+    font-family: $sans-text;
+    font-size: rem(36);
+    line-height: rem(50.4);
+  }
+  .determination-section-title {
+    color: rgba(0, 58, 94, 1);
+    font-family: $sans-text;
+    font-size: rem(22);
+    line-height: rem(30.8);
+  }
+  div.step-content > hr {
+    background-color: #CCC;
+  }
+  .determination-prompt {
     display: inline-block;
+    padding: 20px 0px;
+    white-space: nowrap;
+
+    div {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    div.determination-image + div {
+      background-color: rgba(232, 248, 255, 1);
+      color: rgba(74, 74, 74, 1);
+      display: inline-block;
+      font-family: $sans-text;
+      font-size: 18px;
+      line-height: 51px;
+      padding: 0px 30px;
+      position: relative;
+      width: 630px;
+    }
+  }
+  .determination-image {
+    background-color: rgba(1, 59, 94, 1);
+    background-image: url("/themes/achp/sass/pages/section_106_process/images/split-icon.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    height: 51px;
+    margin-right: -4px;
+    width: 53px;
+  }
+  .determination-yes-wrapper {
+    display: inline-block;
+    padding-top: 20px;
+    white-space: nowrap;
+
+    div {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    div.determination-prompt-yes + div {
+      background-color: rgba(208, 239, 215, 1);
+      color: rgba(74, 74, 74, 1);
+      display: inline-block;
+      font-family: $sans-text;
+      font-size: 18px;
+      line-height: 51px;
+      padding: 0px 30px;
+      position: relative;
+      width: 630px;
+    }
+  }
+  .determination-prompt-yes {
+    background-color: rgba(43, 136, 63, 1);
+    color: rgba(255, 255, 255, 1);
     font-family: $sans-text;
     font-size: 18px;
-    line-height: 51px;    
-    padding: 0px 30px;
-    position: relative;
-    width: 630px;    
+    height: 51px;
+    line-height: 51px;
+    margin-right: -4px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 53px;
   }
-}
-.determination-image {
-  background-color: rgba(1, 59, 94, 1);
-  background-image: url("/themes/achp/sass/pages/section_106_process/images/split-icon.svg");
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  height: 51px;
-  margin-right: -4px;
-  width: 53px;
-}
-.determination-yes-wrapper {
-  display: inline-block;
-  padding-top: 20px;
-  white-space: nowrap;
+  .yes-explaination-and-action {
+    div:first-child {
+      background-color: rgba(242, 255, 245, 1);
+      margin-left: 53px;
+      padding: 30px;
+    }
+  }
+  .determination-no-wrapper {
+    display: inline-block;
+    padding-top: 20px;
+    white-space: nowrap;
 
-  div {
-    display: inline-block;
-    vertical-align: middle;    
+    div {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    div.determination-prompt-no + div {
+      background-color: rgba(229, 227, 228, 1);
+      color: rgba(74, 74, 74, 1);
+      display: inline-block;
+      font-family: $sans-text;
+      font-size: 18px;
+      line-height: 51px;
+      padding: 0px 30px;
+      position: relative;
+      width: 630px;
+    }
   }
-  div.determination-prompt-yes + div {
-    background-color: rgba(208, 239, 215, 1);    
-    color: rgba(74, 74, 74, 1);
-    display: inline-block;
+  .determination-prompt-no {
+    background-color: rgba(74, 74, 74, 1);
+    color: rgba(255, 255, 255, 1);
     font-family: $sans-text;
     font-size: 18px;
-    line-height: 51px;    
-    padding: 0px 30px;
-    position: relative;
-    width: 630px;    
+    height: 51px;
+    line-height: 51px;
+    margin-right: -4px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 53px;
   }
-}
-.determination-prompt-yes {
-  background-color: rgba(43, 136, 63, 1);
-  color: rgba(255, 255, 255, 1);
-  font-family: $sans-text;
-  font-size: 18px;
-  height: 51px;
-  line-height: 51px; 
-  margin-right: -4px;
-  text-align: center;
-  text-transform: uppercase;
-  width: 53px;
-}
-.yes-explaination-and-action {
-  div:first-child {
-    background-color: rgba(242, 255, 245, 1); 
+  .no-explaination-and-action {
+    div:first-child {
+      background-color: rgba(244, 244, 244, 1);
+      margin-left: 53px;
+      padding: 30px;
+    }
+  }
+  .no-further-action {
+    background-image: url("/themes/achp/sass/pages/section_106_process/images/stop-icon.svg");
+    background-position: left 30px center;
+    background-repeat: no-repeat;
+    font-family: $sans-text;
+    font-size: 18px;
+    line-height: 51px;
     margin-left: 53px;
-    padding: 30px;
-  }
-}
-.determination-no-wrapper {
-  display: inline-block;
-  padding-top: 20px;
-  white-space: nowrap;
-
-  div {
-    display: inline-block;
-    vertical-align: middle;    
-  }
-  div.determination-prompt-no + div {
-    background-color: rgba(229, 227, 228, 1);    
-    color: rgba(74, 74, 74, 1);
-    display: inline-block;
-    font-family: $sans-text;
-    font-size: 18px;
-    line-height: 51px;    
-    padding: 0px 30px;
+    padding: 5px 0px 0px 70px;
     position: relative;
-    width: 630px;    
+    text-transform: uppercase;
   }
-}
-.determination-prompt-no {
-  background-color: rgba(74, 74, 74, 1);
-  color: rgba(255, 255, 255, 1);
-  font-family: $sans-text;
-  font-size: 18px;
-  height: 51px;
-  line-height: 51px; 
-  margin-right: -4px;
-  text-align: center;
-  text-transform: uppercase;
-  width: 53px;
-}
-.no-explaination-and-action {
-  div:first-child {
-    background-color: rgba(244, 244, 244, 1); 
-    margin-left: 53px;
-    padding: 30px;
+  .no-explaination-and-action .no-further-action {
+    background-color: rgba(244, 244, 244, 1);
+    border-top: 1px solid rgba(229, 227, 228, 1);
   }
-}
-.no-further-action {
-  background-image: url("/themes/achp/sass/pages/section_106_process/images/stop-icon.svg");
-  background-position: left 30px center;
-  background-repeat: no-repeat;
-  font-family: $sans-text;
-  font-size: 18px;
-  line-height: 51px;   
-  margin-left: 53px;
-  padding: 5px 0px 0px 70px;
-  position: relative;
-  text-transform: uppercase;
-}
-.no-explaination-and-action .no-further-action {
-  background-color: rgba(244, 244, 244, 1);
-  border-top: 1px solid rgba(229, 227, 228, 1);
-}
-.yes-explaination-and-action .no-further-action {
-  background-color: rgba(242, 255, 245, 1);
-  border-top: 1px solid rgba(208, 239, 215, 1);
+  .yes-explaination-and-action .no-further-action {
+    background-color: rgba(242, 255, 245, 1);
+    border-top: 1px solid rgba(208, 239, 215, 1);
+  }
 }

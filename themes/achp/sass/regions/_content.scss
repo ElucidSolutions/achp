@@ -1,15 +1,8 @@
 @import "../global";
 
 #content_region {
-  /*padding: 50px 48px;*/
   padding: 5px;
-  max-width: $max-content-width;
   margin: 0 auto;
-
-  a {
-    @include hover-transition-content(#71bffe);
-    /*color: inherit;*/
-  }
 
   #block-achp-page-title h1 {
     @extend h1;

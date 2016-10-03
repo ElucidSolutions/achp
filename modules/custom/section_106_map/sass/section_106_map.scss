@@ -4,7 +4,8 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
-$light_blue_color: rgba(111, 190, 254, 100);
+$light_blue_color: #0990FE;
+$lighter_blue_color: rgba(111, 190, 254, 100);
 $dark_blue_color: rgb(5, 60, 93);
 $red_color: rgb(151, 0, 14);
 
@@ -128,8 +129,8 @@ $section_106_map_share_padding: 10px;
 
           &:hover,
           &.section_106_map_selected {
-            color: $light_blue_color;
-            border-bottom: 5px solid $light_blue_color;
+            color: $lighter_blue_color;
+            border-bottom: 5px solid $lighter_blue_color;
           }
         }
         .section_106_map_feature_map_tab {
@@ -492,6 +493,9 @@ $section_106_map_share_padding: 10px;
             border-top-color: $light_blue_color;
             box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.26);
 
+            #grid-search {
+              fill: $light_blue_color;
+            }
             .section_106_map_case_card_title {
               color: $light_blue_color;
             }
@@ -500,20 +504,11 @@ $section_106_map_share_padding: 10px;
             }
           }
           .section_106_map_case_card_expand_button {
-            background: url("../images/expand-icon.svg") no-repeat 50% 50%;
             background-size: 20px;
             cursor: pointer;
             float: right;
             height: 30px;
             width: 30px;
-
-            &:hover {
-              background: url("../images/expand-icon-blue.svg") no-repeat 50% 50%;
-              -moz-transform: scale(1.1);
-              -webkit-transform: scale(1.1);
-              -o-transform: scale(1.1);
-              transform: scale(1.1);
-            }
           }
           .section_106_map_case_card_title {
             color: $dark_blue_color;
