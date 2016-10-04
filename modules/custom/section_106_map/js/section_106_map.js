@@ -7,7 +7,6 @@
   Historic Preservation (ACHP) is involved in.
 */
 (function ($) {
-
   // The Lunr Search Index.
   var lunrIndex = null;
 
@@ -35,7 +34,6 @@
 
     // Retrieve the section 106 consultation cases.
     cases = _.chain (drupalSettings.section_106_map.cases)
-      .filter (function (_case) { return _case.status === 'Open'; })
       .sortBy (function (_case) { return _case.title; })
       .value ();
 
@@ -132,6 +130,7 @@
     instance element as a JQuery HTML Element.
   */
   FeatureInstance.prototype.createInstanceElement = function (bodyElement) {
+    var self = this;
     var classPrefix = getFeatureClassName ();
     return $('<div></div>')
       .addClass (classPrefix)
@@ -147,7 +146,10 @@
               .addClass (getTabClassName ())
               .addClass (getMapTabClassName ())
               .text ('Map')
-              .click (_.bind (this.toMapMode, this)))
+              .click (function () {
+                  self.toMapMode ();
+                  self.getMap ().focusMap ();
+                }))
             .append ($('<div></div>')
               .addClass (getTabClassName ())
               .addClass (getGridTabClassName ())
@@ -192,7 +194,9 @@
           // update the active component
           switch (self.getMode ()) {
             case MAP_MODE:
-              self.getMap ().setMarkers (self.getCases ());
+              var map = self.getMap ();
+              map.setMarkers (self.getCases ());
+              map.focusMap ();
               break;
             case GRID_MODE:
               self.getGrid ().displayCases (self.getCases ());
@@ -212,7 +216,9 @@
           // update the active component.
           switch (self.getMode ()) {
             case MAP_MODE:
-              self.getMap ().setMarkers (self.getCases ());
+              var map = self.getMap ();
+              map.centerMap ();
+              map.setMarkers (self.getCases ());
               break;
             case GRID_MODE:
               self.getGrid ().displayCases (self.getCases ());
@@ -293,6 +299,16 @@
 
     // resize the map to fill its container.
     map.getMap ().invalidateSize ();
+
+    /*
+      refresh the map.
+
+      note: the invalidateSize command will
+      refresh the map iff the container size
+      changed. This command handles the case where
+      the container size did not change.
+    */
+    map.refreshMap ();
 
     // update the mode.
     this._mode = MAP_MODE;
@@ -410,6 +426,9 @@
 
   // II. Map Component.
   
+  // An associative array of SVGDocuments representing map icons.
+  SVG_ICONS = {};
+
   /*
     Accepts one argument: containerElement,
     a JQuery HTML element that has already been
@@ -442,6 +461,9 @@
 
     // Add the marker cluster group to the map. 
     this._map.addLayer (this._clusterGroup);
+
+    // center the map.
+    this.centerMap ();
   }
 
   /*
@@ -513,8 +535,8 @@
 
     // Create and Embed the Mapbox Map object.
     var map = L.mapbox.map (id, 'mapbox.streets', {
-      minZoom:   2,
-      maxZoom:   7
+      minZoom: 2,
+      maxZoom: 7
     });
     map.scrollWheelZoom.disable ();
 
@@ -530,6 +552,35 @@
       showCoverageOnHover: false,
       iconCreateFunction: createClusterIcon
     });
+  }
+
+  /*
+    Accepts no arguments, centers and scales
+    the map on the markers currently displayed
+    on it, and returns undefined.
+  */
+  Map.prototype.focusMap = function () {
+    // Zoom and center on the filtered markers.
+    var bounds = this.getClusterGroup ().getBounds ();
+    if (bounds && bounds._northEast && bounds._southWest) {
+      var margin = .2;
+      bounds._northEast.lat += margin;
+      bounds._northEast.lng += margin;
+      bounds._southWest.lat -= margin;
+      bounds._southWest.lng -= margin;
+      this.getMap ().fitBounds (bounds);
+      this.refreshMap ();
+    }
+  }
+
+  /*
+    Accepts no arguments, centers and scales the
+    map so that the U.S. (including Alaska) are
+    prominently featured, and returns undefined.
+  */
+  Map.prototype.centerMap = function () {
+    var map = this.getMap ().fitBounds (getDefaultBounds ());
+    this.refreshMap ();
   }
 
   /*
@@ -551,16 +602,18 @@
     // Add the newly filtered markers back in.
     this.createMarkers (cases).forEach (clusterGroup.addLayer, clusterGroup);
 
-    // Zoom and center on the filtered markers.
-    var bounds = clusterGroup.getBounds ();
-    if (bounds && bounds._northEast && bounds._southWest) {
-      var margin = .2;
-      bounds._northEast.lat += margin;
-      bounds._northEast.lng += margin;
-      bounds._southWest.lat -= margin;
-      bounds._southWest.lng -= margin;
-      this.getMap ().fitBounds (bounds);
-    }
+    // refresh the map.
+    this.refreshMap ();
+  }
+
+  /*
+    Accepts no arguments, refreshes the Mapbox
+    map, and returns undefined.
+  */
+  Map.prototype.refreshMap = function () {
+    // See: http://stackoverflow.com/questions/18515230/javascript-map-in-leaflet-how-to-refresh
+    // this.getMap ()._onResize (); 
+    // this.getMap ().invalidateSize ();
   }
 
   /*
@@ -716,54 +769,45 @@
   */
   function createMarkerIconSVG (state) {
     var svgElementString = '<div></div>';
-    if (state.cases.length > 0) {
-      $.ajax (
-        state.cases.length > 1 ?
-          'modules/custom/section_106_map/images/multiple-cases-marker-icon.svg':
-          'modules/custom/section_106_map/images/single-case-marker-icon.svg',
-        {
-          async: false,
-          success: function (svgDocument) {
-            var prefix = getModuleClassPrefix ();
+    var svgDocument = state.cases.length > 1 ?
+      getRawIcon ('multiple-cases-marker-icon', 'modules/custom/section_106_map/images/multiple-cases-marker-icon.svg'):
+      getRawIcon ('single-case-marker-icon', 'modules/custom/section_106_map/images/single-case-marker-icon.svg');
 
-            // Get the SVG element.
-            var svgElement = svgDocument.documentElement;
+    if (!svgDocument) { return null; }
 
-            // Add a class attribute to the icon element.
-            svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
-            svgElement.className.baseVal = svgElement.className.baseVal + ' ' + getMarkerClassName () + ' ' +
-              (state.cases.length > 1 ?
-                prefix + '_multiple_cases_marker':
-                prefix + '_single_case_marker');
+    var prefix = getModuleClassPrefix ();
 
-            // Set/Create the marker's title (hover text).
-            titleElements = svgElement.getElementsByTagName ('title');
-            if (titleElements.length > 0) {
-              titleElements.item (0).textContent = state.name;
-            } else {
-              var titleElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'title');
-              titleElement.textContent = state.name;
-              svgElement.appendChild (titleElement);
-            }
+    // Get the SVG element.
+    var svgElement = svgDocument.documentElement;
 
-            if (state.cases.length > 1) {
-              // Add cluster child count to the icon element.
-              labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
-              labelElement.setAttribute ('transform', 'translate(25, 25)');
-              labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix +  '_marker_label';
-              labelElement.textContent = state.cases.length.toString ();
-              svgElement.appendChild (labelElement);
-            }
+    // Add a class attribute to the icon element.
+    svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
+    svgElement.className.baseVal = svgElement.className.baseVal + ' ' + getMarkerClassName () + ' ' +
+      (state.cases.length > 1 ?
+        prefix + '_multiple_cases_marker':
+        prefix + '_single_case_marker');
 
-            // Serialize icon element as a string.
-            svgElementString = new XMLSerializer ().serializeToString (svgElement);
-          },
-          error: function () {
-            console.log ('[section_106_map] Error: an error occured while trying to load a state icon.');
-          }
-      });
+    // Set/Create the marker's title (hover text).
+    titleElements = svgElement.getElementsByTagName ('title');
+    if (titleElements.length > 0) {
+      titleElements.item (0).textContent = state.name;
+    } else {
+      var titleElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'title');
+      titleElement.textContent = state.name;
+      svgElement.appendChild (titleElement);
     }
-    return svgElementString;
+
+    if (state.cases.length > 1) {
+      // Add cluster child count to the icon element.
+      labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+      labelElement.setAttribute ('transform', 'translate(25, 25)');
+      labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix +  '_marker_label';
+      labelElement.textContent = state.cases.length.toString ();
+      svgElement.appendChild (labelElement);
+    }
+
+    // Serialize icon element as a string.
+    return new XMLSerializer ().serializeToString (svgElement);
   }
 
   /*
@@ -773,40 +817,58 @@
   */
   function createClusterIconSVG (label) {
     var svgElementString = '<div></div>';
-    $.ajax (
-      'modules/custom/section_106_map/images/marker-group-icon.svg',
-      {
-        async: false, 
-        success: function (svgDocument) {
-          var prefix = getModuleClassPrefix ();
+    var svgDocument= getRawIcon ('marker-group-icon', 'modules/custom/section_106_map/images/marker-group-icon.svg');
+    if (!svgDocument) { return null; }
 
-          // Get the SVG element.
-          var svgElement = svgDocument.documentElement;
+    var prefix = getModuleClassPrefix ();
 
-          // Add a class attribute to the icon element.
-          svgElement.className.baseVal = svgElement.className.baseVal + ' ' + prefix + '_cluster_marker';
+    // Get the SVG element.
+    var svgElement = svgDocument.documentElement;
 
-          // Remove the title element (hover text).
-          var titleElements = svgElement.getElementsByTagName ('title');
-          if (titleElements.length > 0) {
-            titleElements.item (0).textContent = '';
+    // Add a class attribute to the icon element.
+    svgElement.className.baseVal = svgElement.className.baseVal + ' ' + prefix + '_cluster_marker';
+
+    // Remove the title element (hover text).
+    var titleElements = svgElement.getElementsByTagName ('title');
+    if (titleElements.length > 0) {
+      titleElements.item (0).textContent = '';
+    }
+
+    // Add cluster child count to the icon element.
+    labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+    labelElement.setAttribute ('transform', 'translate(30, 25)');
+    labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix + '_cluster_marker_label';
+    labelElement.textContent = label;
+    svgElement.appendChild (labelElement);
+
+    // Serialize icon element as a string.
+    return new XMLSerializer ().serializeToString (svgElement);
+  }
+
+  /*
+    Accepts two arguments:
+
+    * name, a string
+    * and url, a URL string
+
+    gets the SVG file referenced by URL, caches
+    the icon, and returns the file as an
+    SVGDocument.
+  */
+  function getRawIcon (name, url) {
+    if (!SVG_ICONS [name]) {
+      $.ajax (url,
+        {
+          async: false,
+          success: function (svgDocument) {
+            SVG_ICONS [name] = svgDocument;
+          },
+          error: function () {
+            console.log ('[section_106_map] Error: an error occured while trying to load a map icon.');
           }
-
-          // Add cluster child count to the icon element.
-          labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
-          labelElement.setAttribute ('transform', 'translate(30, 25)');
-          labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix + '_cluster_marker_label';
-          labelElement.textContent = label;
-          svgElement.appendChild (labelElement);
-
-          // Serialize icon element as a string.
-          svgElementString = new XMLSerializer ().serializeToString (svgElement);
-        },
-        error: function () {
-          console.log ('[section_106_map] Error: an error occured while trying to load a cluster icon.'); 
-        }
-    });
-    return svgElementString;
+      });
+    }
+    return SVG_ICONS [name] ? (SVG_ICONS [name]).cloneNode (true) : null;
   }
 
   /*
@@ -864,11 +926,12 @@
     and returns undefined.
   */
   Map.prototype.showStatePanelElement = function (state) {
+    this.hideLogoElement ();
     this.getPanelElement ()
       .empty ()
       .append (this.createStatePanelElement (state))
-      .show ()
-      .animate ({right: '0'}, 500, function () {
+      .show ('slide', {direction: 'right'}, 500,
+        function () {
           // create case share elements.
           a2a.init_all ('page');
 
@@ -889,14 +952,8 @@
     component's panel element.
   */
   Map.prototype.hidePanelElement = function () {
-    this.getPanelElement ().animate ({
-      // element moves its own width plus box-shadow width offscreen
-      right: '-' + (this.getPanelElement ().width () + 
-        parseInt (this.getPanelElement ().css ('box-shadow').split (" ")[6].slice (0, 2))) 
-        + 'px'
-    }, 500, function () {
-      $(this).hide ();
-    });
+    this.showLogoElement ();
+    this.getPanelElement ().hide ('slide', {direction: 'right'}, 500);
   }
 
   /*
@@ -921,6 +978,25 @@
       function (i, markerElement) {
         markerElement.className.baseVal = markerElement.className.baseVal.replace (className, '').trim ();
     });
+  }
+
+  /*
+    Accepts no arguments and shows the Mapbox
+    Logo element (which is legally required
+    under Mapbox's terms and conditions).
+  */
+  Map.prototype.showLogoElement = function () {
+    this.getLogoElement ().show ();
+  }
+
+  /*
+    Accepts no arguments and hides the Mapbox
+    Logo element. Call this function when
+    displaying case detail panes which should
+    cover the logo element.
+  */
+  Map.prototype.hideLogoElement = function () {
+    this.getLogoElement ().hide ();
   }
 
   /*
@@ -953,6 +1029,14 @@
   }
 
   /*
+    Accepts no arguments and returns the Mapbox
+    Logo element as a jQuery HTML Element.
+  */
+  Map.prototype.getLogoElement = function () {
+    return $('.' + getLogoClassName (), this.getComponentElement ());
+  }
+
+  /*
     Accepts no arguments and returns a string
     representing the class name used to label
     panel elements.
@@ -977,6 +1061,14 @@
   */
   function getMarkerStateAttribName () {
     return getModuleDataPrefix () + '-marker-state';
+  }
+
+  /*
+    Accepts no arguments and returns the Mapbox
+    logo class name as a string.
+  */
+  function getLogoClassName () {
+    return 'mapbox-logo';
   }
 
   // III. Grid Component.
@@ -1235,16 +1327,19 @@
     var _case = this.getCases () [caseIndex];
     var classPrefix = getModuleClassPrefix () + '_case_card';
 
-    var MAX_TITLE_LENGTH = 65;
+    var TITLE_MAX_NUM_LINES = 2;
+    var TITLE_MAX_LINE_LENGTH = 28;
     return _case ?
       $('<div></div>')
         .addClass (classPrefix)
         .attr (getModuleDataPrefix () + '-map-case', _case.id)
         .append ($('<div></div>')
-          .addClass (classPrefix + '_expand_button'))
+          .addClass (classPrefix + '_expand_button')
+          .append ($(getRawIcon ('expand-icon', '/modules/custom/section_106_map/images/expand-icon.svg').documentElement) 
+            .addClass (classPrefix + '_expand_button_icon')))
         .append ($('<div></div>')
           .addClass (classPrefix + '_title')
-          .text (ellipse (MAX_TITLE_LENGTH, _case.title)))
+          .text (ellipse (TITLE_MAX_LINE_LENGTH, TITLE_MAX_NUM_LINES, _case.title)))
         .append ($('<div></div>')
           .addClass (classPrefix + '_state')
           .text (_case.states.join (', ')))
@@ -1612,7 +1707,7 @@
     each page as an integer.
   */
   function getNumCasesPerPage () {
-    return 6;
+    return 3;
   }
 
   // IV. Auxiliary functions.
@@ -1728,41 +1823,36 @@
         .addClass (classPrefix + '_facebook')
         .append ($('<a></a>')
           .addClass ('a2a_button_facebook')
-          .append ($('<img></img>')
+          .addClass (classPrefix + '_link')
+          .append ($(getRawIcon ('facebook-icon', '/modules/custom/section_106_map/images/facebook-icon.svg').documentElement)
             .addClass (classPrefix + '_icon')
-            .addClass (classPrefix + '_facebook_icon')
-            .attr ('src', '/modules/custom/section_106_map/images/facebook-icon.svg')
-            .attr ('alt', 'Facebook'))))
+            .addClass (classPrefix + '_facebook_icon'))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_button')
         .addClass (classPrefix + '_twitter')
         .append ($('<a></a>')
           .addClass ('a2a_button_twitter')
-          .append ($('<img></img>')
+          .addClass (classPrefix + '_link')
+          .append ($(getRawIcon ('twitter-icon', '/modules/custom/section_106_map/images/twitter-icon.svg').documentElement)
             .addClass (classPrefix + '_icon')
-            .addClass (classPrefix + '_twitter_icon')
-            .attr ('src', '/modules/custom/section_106_map/images/twitter-icon.svg')
-            .attr ('alt', 'Twitter'))))
+            .addClass (classPrefix + '_twitter_icon'))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_button')
         .addClass (classPrefix + '_mail')
         .append ($('<a></a>')
           .addClass (classPrefix + '_mail_link')
+          .addClass (classPrefix + '_link')
           .attr ('href', 'mailto:?subject=Take%20a%20look%20at%20this%20&body=Take%20a%20look%20at%20this%20%3A%0A%0A' + _case.url)
-          .append ($('<img></img>')
+          .append ($(getRawIcon ('email-icon', '/modules/custom/section_106_map/images/email-icon.svg').documentElement)
             .addClass (classPrefix + '_icon')
-            .addClass (classPrefix + '_mail_icon')
-            .attr ('src', '/modules/custom/section_106_map/images/email-icon.svg')
-            .attr ('alt', 'Email'))))
+            .addClass (classPrefix + '_mail_icon'))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_button')
         .addClass (getShareLinkClassName ())
         .attr ('data-clipboard-text', _case.url) // Uses clipboard.js to copy URLS to clipboards.
-        .append ($('<img></img>')
+        .append ($(getRawIcon ('link-icon', '/modules/custom/section_106_map/images/link-icon.svg').documentElement)
           .addClass (classPrefix + '_icon')
-          .addClass (classPrefix + '_link_icon')
-          .attr ('src', '/modules/custom/section_106_map/images/link-icon.svg')
-          .attr ('alt', 'Link')));
+          .addClass (classPrefix + '_link_icon')));
   }
 
   /*
@@ -1816,6 +1906,28 @@
   */
   function getModuleDataPrefix () {
     return 'data-section-106-map';
+  }
+
+  /*
+    Returns an array that represents the
+    coordinates for the default bounding box
+    for the map.
+
+    note: the setView and panTo Leaflet functions
+    break the cluster group feature. To work
+    around this limitation, we use the fitBounds
+    function for both centering and focusing.
+  */
+  function getDefaultBounds () {
+    return [[50.00, -126.00], [17.00, -64.00]];
+  }
+
+  /*
+    Returns an integer that represents the
+    default zoom level.
+  */
+  function getDefaultZoom () {
+    return 3;
   }
 
   /*
@@ -1973,31 +2085,80 @@
   };
 
   /*
+    Accepts three arguments:
+
+    * maxLineLength, an integer
+    * maxNumLines, an integer
+    * and text, a string
+
+    and returns a cropped version of text
+    designed to fit within maxNumLines lines
+    where each line has, at most, maxLineLength
+    characters, and appends an ellipse onto the
+    result if some characters were cropped.
+  */
+  function ellipse (maxLineLength, maxNumLines, text) {
+    if (text === null) { return ''; }
+
+    var index = 0;
+    var numLines = 1;
+    var currentLineLength = 0;
+    while (index < text.length) {
+      var word = text.slice (index).match (/\s*\S*/)[0];
+
+      var newLineLength = currentLineLength + word.length;
+      if (newLineLength <= maxLineLength) {
+        // append the current word onto the end of the current line.
+        currentLineLength = newLineLength;
+        index += word.length;
+      } else { // the current word will not fit onto the end of the current line.
+        var remainingLineLength = maxLineLength - currentLineLength;
+        if (word.length <= maxLineLength) {
+          // wrap the current word onto the next line.
+          if (numLines === maxNumLines) {
+            return appendEllipsis (index + remainingLineLength, text.slice (0, index));
+          }
+        } else { // the current word will not fit on a single line.
+          // break the current word across the line boundary.
+          index += remainingLineLength;
+          if (numLines === maxNumLines) {
+            return appendEllipsis (index, text.slice (0, index));
+          }
+        }
+        numLines ++;
+        currentLineLength = 0;
+      }
+    }
+    // if we reach here, the entire text fit within the given number of lines.
+    return text;
+  }
+
+  /*
     Accepts two arguments:
 
     * maxLength, an integer
-    * and string, a string
+    * and text, a string
 
-    and returns an ellipsed version of string
-    if its length exceeds maxLength. Otherwise,
-    this function returns string unaltered.
+    trims text so that we can append an ellipsis
+    to it while remaining within maxLength
+    characters.
   */
-  function ellipse (maxLength, string) {
-    if (string.length <= maxLength) {
-      return string;
-    } 
-
-    var result = '';
-    var words = string.split (' ');
-    for (var i in words) {
-      var word = words [i];
-      var newString = result + ' ' + word;
-      if (newString.length <= maxLength - 4) {
-        result = newString;
-      } else {
-        break;
+  function appendEllipsis (maxLength, text) {
+    if (maxLength - text.length >= 3) {
+      // we can append an ellipsis and remain within the character limit.
+      return text + '...';
+    } else {
+      // we can not fit the text and the ellipsis within the character limit.
+      switch (text.length) {
+        case 0:
+          return '';
+        case 1:
+          return '.';
+        case 2:
+          return '..';
+        default:
+          return text.slice (0, ((maxLength - text.length) - 3)) + '...';
       }
     }
-    return result + ' ...';
   }
 }) (jQuery);

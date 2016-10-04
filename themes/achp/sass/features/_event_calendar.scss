@@ -3,27 +3,37 @@
   Calendar feature.
 */
 
+$event-calendar-width: 100% / 3;
+$event-grid-width: 100% - $event-calendar-width;
+$event-card-border-color: rgba(93,0,2,1);
+$event-card-height: 10 * 32px;
+$event-card-footer-height: 20px;
+$event-card-footer-margin: 15px;
+
 .event_calendar {
   .event_calendar_feature {
-    padding: 0 50px;
+    padding: 0 40px;
   }
-
   .event_calendar_calendar {
-    @include span-columns (4 of 12);
-    height: 400px;
-    padding-bottom: 20px;
+    display: inline-block;
+    height: 420px;
+    padding: 0px 20px 0px 0px;
+    vertical-align: top;
+    width: $event-calendar-width;
 
     .clndr {
       padding: 5px;
     }
+    &_header {
+      height: 50px;
 
-    &_title {
-      margin-bottom: 5px;
-      color: #FFFFFF;
-      font-size: 1.75rem;
-      font-weight: 300;      
+      .event_calendar_calendar_title {
+        color: #FFFFFF;
+        font-size: rem(28);
+        font-weight: 300;      
+        margin-bottom: 5px;
+      }
     }
-
     &_body {
       @extend .card;
       background-color: #fff;
@@ -81,7 +91,6 @@
           }
         }
       }
-
       .clndr-table {
         border: none;
         width: 100%;
@@ -92,7 +101,6 @@
           font-family: $serif-text;
           font-weight: bold;
         }
-
         tbody {
           .adjacent-month {
             color: $color-lightgrey;
@@ -107,205 +115,175 @@
               }
             }
           }
-
           .event {
             cursor: pointer;
             background-color: $color-lightblue3;
           }          
-
           .today {
             color: #fff;
             background-color: $color-darkblue3;
           }
-
           .event:hover {
             color: #fff;
             background-color: $color-blue-primary; 
           }
         }
-
         .day, .header-day {
           line-height: 3.5;
         }
       }
     }
   }
-
-  $event-grid-column-padding: 20px;
-  $event-meeting-grid-column-content-width: $max-content-width / 3 - $event-grid-column-padding;
-
   .event_calendar_grid {
-    @include span-columns (8 of 12); 
+    display: inline-block;
+    vertical-align: top;
+    width: $event-grid-width;
 
-    &_title {
-      margin: 0 0 5px 20px;
-      color: #FFFFFF;
-      font-size: 1.75rem;
-      font-weight: 300;      
-    }
+    &_header {
+      height: 50px;
 
-    .event_calendar_grid_card_container {
-      @include span-columns (4 of 8);
-      padding: 0 0 $event-grid-column-padding $event-grid-column-padding;
-
-      &:nth-of-type(2n + 1) {
-        clear: both;
+      .event_calendar_grid_title {
+        color: #FFFFFF;
+        font-size: rem(28);
+        font-weight: 300;      
+        margin: 0 0 5px 20px;
       }
     }
-
-    .event_calendar_grid_message {
-      color: #fff;
+    &_body {
       text-align: left;
-      @include font-size($button-font-sizes);
-      margin-left: 20px;
-      font-style: italic;
-      font-family: $sans-text;
-    }
 
-    .event_calendar_grid_card {
-      @extend .card;  
-      height: 240px;    
-      width: 100%;
-      background-color: #fff;
-      padding: 10px;
-      max-width: $event-meeting-grid-column-content-width;
-      position: relative;
-
-      &_date {
-        @extend .card_date;
+      .event_calendar_grid_message {
+        color: #fff;
+        @include font-size($button-font-sizes);
+        margin-left: 20px;
+        font-style: italic;
+        font-family: $sans-text;
+        text-align: left;
       }
-
-      &_mobile_date {
-        display: none;
-      }
-
-      &_location {
-        @extend .card_body;
-        margin-bottom: 10px;
-      }
-
-      &_footer {
-        height: 20px;
-        width: 100%;
-        position: absolute;
-        bottom: 15px;
-
-        .read_more {
-          position: absolute;
-        }
-
-        .event_calendar_grid_card_google_calendar {
-          display: block;
-          background-image: url('../images/add-calendar-icon.svg');
-          float: right;
-          background-repeat: no-repeat;
-          height: 20px;
-          width: 20px;
-          cursor: pointer;
-          transition: background-image 0.25s;
-          margin-right: 25px;
-          margin-top: 1px;
-
-          &:hover {
-            background-image: url('../images/add-calendar-icon-lightblue.svg');
-          }
-        }
-      }
-    }
-  }
-
-  .event_calendar_feature_footer {
-    margin-top: 30px;
-    @include span-columns (12 of 12);  
-  }
-
-  @media (max-width: $max-content-width) {
-    .event_calendar_feature { 
-      .event_calendar_calendar {
-        @include span-columns (6 of 12);
-        height: 450px;
-
-        @media (min-width: $mobile-breakpoint) {
-          padding-bottom: 20px;
-
-          &_title {
-            padding-top: 38px;
-          }
-        }
-      }
-
-      .event_calendar_grid {
-        @include span-columns (6 of 12);
+      .event_calendar_grid_card {
+        @extend .card;  
+        background-color: #fff;
+        display: inline-block;
+        margin: 0px 0px 20px 20px;
+        min-height: $event-card-height;
+        overflow-wrap: break-word;
+        padding: 10px 10px ($event-card-footer-height + $event-card-footer-margin) 10px;
+        position: relative;
+        vertical-align: top;
+        width: 260px;
 
         &_title {
-          display: table-cell;
-          padding-left: 20px;
-          vertical-align: bottom;
-          height: 75px;
-          line-height: 1.2;
+          @include hover-transition-content($color-blue-primary);
+          cursor: pointer;
+          font-size: 1rem;
         }
-
-        &_card_container {
-          @include span-columns (6 of 12);  
-          height: $mobile-card-item-height;
-          margin: 10px 0;
+        &_date {
+          @extend .card_date;
+        }
+        &_mobile_date {
+          display: none;
+        }
+        &_location {
+          @extend .card_body;
+          margin-bottom: 10px;
+        }
+        &_footer {
+          height: $event-card-footer-height;
           width: 100%;
-          position: relative;
-          padding: 0;
-          padding-left: 20px;
+          position: absolute;
+          bottom:  $event-card-footer-margin;
 
-          .event_calendar_grid_card {
-            width: 100%;
-            height: 100%;
-            height: $mobile-card-item-height;
-            padding: 0;
+          .read_more {
             position: absolute;
-            max-width: 100%;
+          }
+          .event_calendar_grid_card_google_calendar {
+            display: block;
+            background-image: url('../images/add-calendar-icon.svg');
+            float: right;
+            background-repeat: no-repeat;
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+            transition: background-image 0.25s;
+            margin-right: 25px;
+            margin-top: 1px;
+
+            &:hover {
+              background-image: url('../images/add-calendar-icon-lightblue.svg');
+            }
+          }
+        }
+      }
+    }
+  }
+  .event_calendar_feature_footer {
+    margin-top: 20px;
+    width: 100%;
+  }
+  @media (max-width: $max-content-width) {
+    .event_calendar_feature {
+      .event_calendar_calendar {
+        width: 50%;
+      }
+      .event_calendar_grid {
+        padding: 0px 0px 0px 20px;
+        width: 50%;
+
+        .event_calendar_grid_header {
+          .event_calendar_grid_title {
+            margin: 0;
+          }
+        }
+        .event_calendar_grid_body {
+          .event_calendar_grid_card {
+            border-top: none !important;
             border: 0;
+            height: $mobile-card-item-height;
+            margin: 0px;
+            max-width: 100%;
+            min-height: $mobile-card-item-height;
+            padding: 0;
+            width: 100%;
 
             &_header {
               height: $mobile-card-item-height;
-              /*width: 100%;*/
               background-color: #fff;
-              /*position: absolute;*/
+              border-bottom: 1px solid $event-card-border-color;
               margin-left: 60px;
               position: relative;
             }
-
             &_title {
               @include center-y;
-              /*@include hover-transition-content(#71bffe);*/
               cursor: pointer;
+              font-size: .9rem;
               width: 95%;
-              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 0, $color-blue-primary);
+              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px, $color-blue-primary);
             
+              &:after {
+                width: 40px;
+              }
               a {
                 display: block;
-                width: 90%;
-                padding: 25px 0 25px 15px;
+                width: 100%;
+                padding: 25px 25px 25px 15px;
               }
-            } 
-
+            }
             &_date, &_location, &_footer {
               display: none;
             }
-
-            &_mobile_date_container {
-              line-height: 1.1;
-              width: 60px;
+            &_mobile_date {
+              background-color: $color-red;
+              border-bottom: solid 1px $event-card-border-color;
+              color: #fff;
+              display: inline-block;
               float: left;
               height: $mobile-card-item-height;
-              background-color: $color-red;
-              text-align: center;
+              line-height: 1.1;
+              padding: 15px 5px;
               position: absolute;
-              color: #fff;
+              text-align: center;
               top: 0;
-            }
-
-            &_mobile_date {
-              display: inline-block;
-              @include center-y;
-              position: relative;
+              width: 60px;
 
               &_month {
                 text-transform: uppercase;
@@ -315,70 +293,49 @@
               &_day {
                 font-size: 2.125rem;
               }
+              &_day {
+                font-size: 2rem;    
+                font-weight: 300;          
+              }
             }
           }
         }
       }
     }
   }
+
   @media (max-width: $mobile-breakpoint) {
     .event_calendar_feature {
-      padding: 0 25px;
+      padding: 0px;
 
       .event_calendar_calendar {
-        display: none;
-      }
+        display: block;
+        padding: 0px;
+        width: 100%;
 
-      .event_calendar_grid {
-        @include span-columns (12 of 12);
-
-        &_title {
-          display: none;
+        &_header {
+          .event_calendar_calendar_title {
+            font-size: rem(18);
+            margin-left: 20px;
+          }
         }
+      }
+      .event_calendar_grid {
+        padding: 0px;
+        width: 100%;
 
-        &_card_container {
-          @include span-columns (12 of 12);  
-          height: $mobile-card-item-height;
-          margin: 10px 0;
-          width: 100%;
-          position: relative;
-          padding: 0;
-
+        .event_calendar_grid_header {
+          .event_calendar_grid_title {
+            font-size: rem(18);
+            margin-left: 20px;
+          }
+        }
+        .event_calendar_grid_body {
           .event_calendar_grid_card {
-            width: 100%;
-            height: 100%;
-            height: $mobile-card-item-height;
-            padding: 0;
-            position: absolute;
-            max-width: 100%;
-            border: 0;
-            /*@include span-columns (12 of 12);      */
+            margin: 0px;
 
-            &_header {
-              height: $mobile-card-item-height;
-              /*width: 100%;*/
-              background-color: #fff;
-              /*position: absolute;*/
-              margin-left: 60px;
-              position: relative;
-            }
-
-            &_title {
-              @include center-y;
-              /*@include hover-transition-content(#71bffe);*/
-              cursor: pointer;
-              width: 95%;
-              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px, $color-blue-primary);
-            
-              a {
-                display: block;
-                width: 100%;
-                padding: 25px 0 25px 15px;
-              }
-            }
-
-            &_date, &_location, &_footer {
-              display: none;
+            .event_calendar_grid_card_title {
+              font-size: 1rem;
             }
           }
         }

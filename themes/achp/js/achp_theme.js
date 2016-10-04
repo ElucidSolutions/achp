@@ -400,7 +400,7 @@
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ right: '0', left: '0' }, 250, "linear")     
          .show ();
-    animateSubheaderHeight ( setSubheaderHeight (slide) );
+    animateSubheaderHeight (setSubheaderHeight (slide));
   }
 
   /*
@@ -416,7 +416,7 @@
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ left: '0', right: '0' }, 250, "linear")
          .show ();
-    animateSubheaderHeight ( setSubheaderHeight (slide) );
+    animateSubheaderHeight (setSubheaderHeight (slide));
   }
 
   /*
@@ -537,7 +537,7 @@
     }, 0);
     submenuHeaders.each (function (i, submenuHeader) {
       $(submenuHeader).css ('display', 'table-cell')
-                      .css ('height', headerHeight )
+                      .css ('height', headerHeight)
                       .css ('vertical-align', 'bottom');
     })
   }

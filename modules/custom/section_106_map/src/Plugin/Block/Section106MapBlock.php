@@ -47,8 +47,8 @@ class Section106MapBlock extends BlockBase {
     $result = $query
       ->condition (
         $query->orConditionGroup ()
-          ->condition ('field_case_status', '59')
-          ->condition ('field_case_status', '133'))
+          ->condition ('field_case_status', '59') // Open cases 
+          ->condition ('field_case_status', '133')) // Reopened cases
       ->execute ();
 
     $cases  = [];

@@ -22,51 +22,27 @@ $arrow-padding: 5px;*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
 /*
   This module contains styles used by the Event
   Calendar feature.
 */
 .event_calendar .event_calendar_feature {
-  padding: 0 50px; }
+  padding: 0 40px; }
 .event_calendar .event_calendar_calendar {
-  float: left;
-  display: block;
-  margin-right: 0%;
-  width: 33.33333%;
-  height: 400px;
-  padding-bottom: 20px; }
-  .event_calendar .event_calendar_calendar:last-child {
-    margin-right: 0; }
+  display: inline-block;
+  height: 420px;
+  padding: 0px 20px 0px 0px;
+  vertical-align: top;
+  width: 33.33333%; }
   .event_calendar .event_calendar_calendar .clndr {
     padding: 5px; }
-  .event_calendar .event_calendar_calendar_title {
-    margin-bottom: 5px;
-    color: #FFFFFF;
-    font-size: 1.75rem;
-    font-weight: 300; }
+  .event_calendar .event_calendar_calendar_header {
+    height: 50px; }
+    .event_calendar .event_calendar_calendar_header .event_calendar_calendar_title {
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      font-weight: 300;
+      margin-bottom: 5px; }
   .event_calendar .event_calendar_calendar_body {
     background-color: #fff;
     color: #7C7C7C;
@@ -150,184 +126,118 @@ $arrow-padding: 5px;*/
       .event_calendar .event_calendar_calendar_body .clndr-table .day, .event_calendar .event_calendar_calendar_body .clndr-table .header-day {
         line-height: 3.5; }
 .event_calendar .event_calendar_grid {
-  float: left;
-  display: block;
-  margin-right: 0%;
+  display: inline-block;
+  vertical-align: top;
   width: 66.66667%; }
-  .event_calendar .event_calendar_grid:last-child {
-    margin-right: 0; }
-  .event_calendar .event_calendar_grid_title {
-    margin: 0 0 5px 20px;
-    color: #FFFFFF;
-    font-size: 1.75rem;
-    font-weight: 300; }
-  .event_calendar .event_calendar_grid .event_calendar_grid_card_container {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 50%;
-    padding: 0 0 20px 20px; }
-    .event_calendar .event_calendar_grid .event_calendar_grid_card_container:last-child {
-      margin-right: 0; }
-    .event_calendar .event_calendar_grid .event_calendar_grid_card_container:nth-of-type(2n + 1) {
-      clear: both; }
-  .event_calendar .event_calendar_grid .event_calendar_grid_message {
-    color: #fff;
-    text-align: left;
-    font-size: 0.75rem;
-    margin-left: 20px;
-    font-style: italic;
-    font-family: "p22-underground", sans-serif; }
-    @media screen and (min-width: 650px) {
-      .event_calendar .event_calendar_grid .event_calendar_grid_message {
-        font-size: 16px; } }
-  .event_calendar .event_calendar_grid .event_calendar_grid_card {
-    height: 240px;
-    width: 100%;
-    background-color: #fff;
-    padding: 10px;
-    max-width: 321.33333px;
-    position: relative; }
-    .event_calendar .event_calendar_grid .event_calendar_grid_card_mobile_date {
-      display: none; }
-    .event_calendar .event_calendar_grid .event_calendar_grid_card_location {
-      margin-bottom: 10px; }
-    .event_calendar .event_calendar_grid .event_calendar_grid_card_footer {
-      height: 20px;
-      width: 100%;
-      position: absolute;
-      bottom: 15px; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .read_more {
-        position: absolute; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar {
-        display: block;
-        background-image: url("../images/add-calendar-icon.svg");
-        float: right;
-        background-repeat: no-repeat;
-        height: 20px;
-        width: 20px;
+  .event_calendar .event_calendar_grid_header {
+    height: 50px; }
+    .event_calendar .event_calendar_grid_header .event_calendar_grid_title {
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      font-weight: 300;
+      margin: 0 0 5px 20px; }
+  .event_calendar .event_calendar_grid_body {
+    text-align: left; }
+    .event_calendar .event_calendar_grid_body .event_calendar_grid_message {
+      color: #fff;
+      font-size: 0.75rem;
+      margin-left: 20px;
+      font-style: italic;
+      font-family: "p22-underground", sans-serif;
+      text-align: left; }
+      @media screen and (min-width: 650px) {
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_message {
+          font-size: 16px; } }
+    .event_calendar .event_calendar_grid_body .event_calendar_grid_card {
+      background-color: #fff;
+      display: inline-block;
+      margin: 0px 0px 20px 20px;
+      min-height: 320px;
+      overflow-wrap: break-word;
+      padding: 10px 10px 35px 10px;
+      position: relative;
+      vertical-align: top;
+      width: 260px; }
+      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title {
+        transition: color 0.25s;
         cursor: pointer;
-        transition: background-image 0.25s;
-        margin-right: 25px;
-        margin-top: 1px; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar:hover {
-          background-image: url("../images/add-calendar-icon-lightblue.svg"); }
+        font-size: 1rem; }
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title:hover {
+          color: #0990FE; }
+      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
+        display: none; }
+      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_location {
+        margin-bottom: 10px; }
+      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_footer {
+        height: 20px;
+        width: 100%;
+        position: absolute;
+        bottom: 15px; }
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_footer .read_more {
+          position: absolute; }
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar {
+          display: block;
+          background-image: url("../images/add-calendar-icon.svg");
+          float: right;
+          background-repeat: no-repeat;
+          height: 20px;
+          width: 20px;
+          cursor: pointer;
+          transition: background-image 0.25s;
+          margin-right: 25px;
+          margin-top: 1px; }
+          .event_calendar .event_calendar_grid_body .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar:hover {
+            background-image: url("../images/add-calendar-icon-lightblue.svg"); }
 .event_calendar .event_calendar_feature_footer {
-  margin-top: 30px;
-  float: left;
-  display: block;
-  margin-right: 0%;
+  margin-top: 20px;
   width: 100%; }
-  .event_calendar .event_calendar_feature_footer:last-child {
-    margin-right: 0; }
 @media (max-width: 1024px) {
   .event_calendar .event_calendar_feature .event_calendar_calendar {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 50%;
-    height: 450px; }
-    .event_calendar .event_calendar_feature .event_calendar_calendar:last-child {
-      margin-right: 0; } }
-  @media (max-width: 1024px) and (min-width: 650px) {
-    .event_calendar .event_calendar_feature .event_calendar_calendar {
-      padding-bottom: 20px; }
-      .event_calendar .event_calendar_feature .event_calendar_calendar_title {
-        padding-top: 38px; } }
-@media (max-width: 1024px) {
-  .event_calendar .event_calendar_feature .event_calendar_grid {
-    float: left;
-    display: block;
-    margin-right: 0%;
     width: 50%; }
-    .event_calendar .event_calendar_feature .event_calendar_grid:last-child {
-      margin-right: 0; }
-    .event_calendar .event_calendar_feature .event_calendar_grid_title {
-      display: table-cell;
-      padding-left: 20px;
-      vertical-align: bottom;
+  .event_calendar .event_calendar_feature .event_calendar_grid {
+    padding: 0px 0px 0px 20px;
+    width: 50%; }
+    .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
+      margin: 0; }
+    .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+      border-top: none !important;
+      border: 0;
       height: 75px;
-      line-height: 1.2; }
-    .event_calendar .event_calendar_feature .event_calendar_grid_card_container {
-      float: left;
-      display: block;
-      margin-right: 0%;
-      width: 50%;
-      height: 75px;
-      margin: 10px 0;
-      width: 100%;
-      position: relative;
+      margin: 0px;
+      max-width: 100%;
+      min-height: 75px;
       padding: 0;
-      padding-left: 20px; }
-      .event_calendar .event_calendar_feature .event_calendar_grid_card_container:last-child {
-        margin-right: 0; }
-      .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card {
-        width: 100%;
-        height: 100%;
+      width: 100%; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_header {
         height: 75px;
-        padding: 0;
+        background-color: #fff;
+        border-bottom: 1px solid #5d0002;
+        margin-left: 60px;
+        position: relative; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title {
         position: absolute;
-        max-width: 100%;
-        border: 0; }
-        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_header {
-          height: 75px;
-          /*width: 100%;*/
-          background-color: #fff;
-          /*position: absolute;*/
-          margin-left: 60px;
-          position: relative; }
-        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title {
-          position: absolute;
-          top: 50%;
-          -webkit-transform: translateY(-50%);
-          -moz-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-          -o-transform: translategY(-50%);
-          transform: translateY(-50%);
-          /*@include hover-transition-content(#71bffe);*/
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: .9rem;
+        width: 95%;
+        transition: color 0.25s; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover {
+          color: #0990FE; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+          content: "";
+          background-image: url("../images/right-arrow-icon.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20px;
+          height: 20px;
+          padding-left: 15px;
+          right: -14px;
           cursor: pointer;
-          width: 95%;
-          transition: color 0.25s; }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:hover {
-            color: #0990FE; }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:after {
-            content: "";
-            background-image: url("../images/right-arrow-icon.svg");
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 20px;
-            height: 20px;
-            padding-left: 15px;
-            right: 0;
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translategY(-50%);
-            transform: translateY(-50%);
-            transition: background-image 0.25s; }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:hover:after {
-            background-image: url("../images/right-arrow-icon-blue.svg"); }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title a {
-            display: block;
-            width: 90%;
-            padding: 25px 0 25px 15px; }
-        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_footer {
-          display: none; }
-        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_container {
-          line-height: 1.1;
-          width: 60px;
-          float: left;
-          height: 75px;
-          background-color: #950306;
-          text-align: center;
-          position: absolute;
-          color: #fff;
-          top: 0; }
-        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date {
-          display: inline-block;
           position: absolute;
           top: 50%;
           -webkit-transform: translateY(-50%);
@@ -335,94 +245,58 @@ $arrow-padding: 5px;*/
           -ms-transform: translateY(-50%);
           -o-transform: translategY(-50%);
           transform: translateY(-50%);
-          position: relative; }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_month {
-            text-transform: uppercase;
-            font-size: 1.125rem; }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_mobile_date_day {
-            font-size: 2.125rem; } }
+          transition: background-image 0.25s; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
+          background-image: url("../images/right-arrow-icon-blue.svg"); }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+          width: 40px; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title a {
+          display: block;
+          width: 100%;
+          padding: 25px 25px 25px 15px; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_footer {
+        display: none; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
+        background-color: #950306;
+        border-bottom: solid 1px #5d0002;
+        color: #fff;
+        display: inline-block;
+        float: left;
+        height: 75px;
+        line-height: 1.1;
+        padding: 15px 5px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 60px; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_month {
+          text-transform: uppercase;
+          font-size: 1.125rem; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+          font-size: 2.125rem; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+          font-size: 2rem;
+          font-weight: 300; } }
 @media (max-width: 650px) {
   .event_calendar .event_calendar_feature {
-    padding: 0 25px; }
+    padding: 0px; }
     .event_calendar .event_calendar_feature .event_calendar_calendar {
-      display: none; }
-    .event_calendar .event_calendar_feature .event_calendar_grid {
-      float: left;
       display: block;
-      margin-right: 0%;
+      padding: 0px;
       width: 100%; }
-      .event_calendar .event_calendar_feature .event_calendar_grid:last-child {
-        margin-right: 0; }
-      .event_calendar .event_calendar_feature .event_calendar_grid_title {
-        display: none; }
-      .event_calendar .event_calendar_feature .event_calendar_grid_card_container {
-        float: left;
-        display: block;
-        margin-right: 0%;
-        width: 100%;
-        height: 75px;
-        margin: 10px 0;
-        width: 100%;
-        position: relative;
-        padding: 0; }
-        .event_calendar .event_calendar_feature .event_calendar_grid_card_container:last-child {
-          margin-right: 0; }
-        .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card {
-          width: 100%;
-          height: 100%;
-          height: 75px;
-          padding: 0;
-          position: absolute;
-          max-width: 100%;
-          border: 0;
-          /*@include span-columns (12 of 12);      */ }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_header {
-            height: 75px;
-            /*width: 100%;*/
-            background-color: #fff;
-            /*position: absolute;*/
-            margin-left: 60px;
-            position: relative; }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title {
-            position: absolute;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translategY(-50%);
-            transform: translateY(-50%);
-            /*@include hover-transition-content(#71bffe);*/
-            cursor: pointer;
-            width: 95%;
-            transition: color 0.25s; }
-            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:hover {
-              color: #0990FE; }
-            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:after {
-              content: "";
-              background-image: url("../images/right-arrow-icon.svg");
-              background-repeat: no-repeat;
-              background-position: center;
-              width: 20px;
-              height: 20px;
-              padding-left: 15px;
-              right: -14px;
-              cursor: pointer;
-              position: absolute;
-              top: 50%;
-              -webkit-transform: translateY(-50%);
-              -moz-transform: translateY(-50%);
-              -ms-transform: translateY(-50%);
-              -o-transform: translategY(-50%);
-              transform: translateY(-50%);
-              transition: background-image 0.25s; }
-            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title:hover:after {
-              background-image: url("../images/right-arrow-icon-blue.svg"); }
-            .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_title a {
-              display: block;
-              width: 100%;
-              padding: 25px 0 25px 15px; }
-          .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid_card_container .event_calendar_grid_card_footer {
-            display: none; } }
+      .event_calendar .event_calendar_feature .event_calendar_calendar_header .event_calendar_calendar_title {
+        font-size: 1.125rem;
+        margin-left: 20px; }
+    .event_calendar .event_calendar_feature .event_calendar_grid {
+      padding: 0px;
+      width: 100%; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
+        font-size: 1.125rem;
+        margin-left: 20px; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+        margin: 0px; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
+          font-size: 1rem; } }
 
 /* Global variables: widths, heights, & breakpoints */
 /*$arrow-width: 8px;
@@ -442,29 +316,6 @@ $arrow-padding: 5px;*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
 #homepage_news_content #block-views-block-latest-news-block .homepage_news_item {
   padding: 10px;
   position: relative;
@@ -485,18 +336,18 @@ $arrow-padding: 5px;*/
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
     margin: 25px 0 25px;
     width: 100%; }
-    #homepage_news_content #block-views-block-latest-news-block .card.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container {
+    #homepage_news_content #block-views-block-latest-news-block .card.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container {
       height: 80px;
       margin: 0;
       width: 100%;
       box-shadow: none;
       border-top: 1px solid rgba(0, 0, 0, 0.26);
       position: relative; }
-      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.views-element-container {
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.views-element-container {
         border-top: none; }
-      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.views-element-container {
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.views-element-container {
         margin-left: 0; }
-      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item {
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item {
         height: 60px;
         padding: 0;
         width: 100%;
@@ -508,9 +359,9 @@ $arrow-padding: 5px;*/
         -o-transform: translategY(-50%);
         transform: translateY(-50%);
         position: relative; }
-        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_link {
+        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_link {
           display: none; }
-        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title {
+        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title {
           width: 95%;
           padding: 15px;
           line-height: 24px;
@@ -523,9 +374,9 @@ $arrow-padding: 5px;*/
           -o-transform: translategY(-50%);
           transform: translateY(-50%);
           transition: color 0.25s; }
-          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover {
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover {
             color: #0990FE; }
-          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:after {
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:after {
             content: "";
             background-image: url("../images/right-arrow-icon.svg");
             background-repeat: no-repeat;
@@ -543,7 +394,7 @@ $arrow-padding: 5px;*/
             -o-transform: translategY(-50%);
             transform: translateY(-50%);
             transition: background-image 0.25s; }
-          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after {
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after {
             background-image: url("../images/right-arrow-icon-blue.svg"); } }
 
 /* Global variables: widths, heights, & breakpoints */
@@ -564,44 +415,21 @@ $arrow-padding: 5px;*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
-#homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container {
+#homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container {
   text-align: center;
   background-color: #ffffff; }
-  #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story {
+  #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story {
     padding: 5px 10px;
     position: relative;
     height: 370px; }
-    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_image, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_image, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_image {
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_image, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_image {
       margin-bottom: 15px;
       position: relative;
       height: 185px;
       width: 100%;
       overflow: hidden;
       /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */ }
-      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_image img {
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_image img {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -613,14 +441,14 @@ $arrow-padding: 5px;*/
         height: 100%;
         width: auto;
         min-width: 100%; }
-    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_title h3, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_title h3, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_title h3, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_title h3 {
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_title h3, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_title h3, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_title h3, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_title h3 {
       text-align: inherit; }
-    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_location, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_location, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_location, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_location {
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_location, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_location, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_location, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_location {
       color: #7C7C7C; }
-    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_body p, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_body p {
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_body p, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_body p {
       font-family: "minion-pro", serif;
       margin: 5px; }
-    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_link, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_link, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_link {
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_link, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_link {
       position: absolute;
       left: 50%;
       -webkit-transform: translateX(-50%);
@@ -630,7 +458,7 @@ $arrow-padding: 5px;*/
       transform: translateX(-50%);
       bottom: 0;
       padding-right: 20px; }
-      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_link img, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story_link img, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link img, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_link img {
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_link img, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link img, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link img, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_link img {
         margin-left: 5px;
         vertical-align: -1px; }
 @media (max-width: 700px) {
@@ -638,12 +466,12 @@ $arrow-padding: 5px;*/
     /* At this width cards 2 and 3 disappear, so the block only contains 1 card */
     height: 450px;
     width: 300px; }
-    #homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container {
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container {
       margin: 25px 0;
       height: 400px; }
-      #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-2, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container {
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-2, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container {
         display: none; }
-      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story {
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story {
         height: 370px; } }
 
 /* Global variables: widths, heights, & breakpoints */
@@ -664,29 +492,6 @@ $arrow-padding: 5px;*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
 /* These styles apply to the success stories and latest news views on the homepage */
 #block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
   margin: 0 auto;
@@ -694,14 +499,14 @@ $arrow-padding: 5px;*/
   height: 450px;
   /* And the last card has no margin-right:; */
   width: 940px; }
-  #block-views-block-latest-news-block .card, #block-views-block-latest-news-block .event_calendar .event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid .event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-latest-news-block .event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .views-element-container, #block-views-block-homepage-success-stories-block .card, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .views-element-container {
+  #block-views-block-latest-news-block .card, #block-views-block-latest-news-block .event_calendar .event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-latest-news-block .event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .views-element-container, #block-views-block-homepage-success-stories-block .card, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .views-element-container {
     height: 400px;
     width: 300px;
     margin: 25px 0;
     margin-right: 20px;
     float: left;
     padding: 10px; }
-    #block-views-block-latest-news-block .card.view-item-3, #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-3.views-element-container, #block-views-block-homepage-success-stories-block .card.view-item-3, #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container {
+    #block-views-block-latest-news-block .card.view-item-3, #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-3.views-element-container, #block-views-block-homepage-success-stories-block .card.view-item-3, #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container {
       margin-right: 0; }
   @media (max-width: 1023px) {
     #block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
@@ -711,9 +516,9 @@ $arrow-padding: 5px;*/
       /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
       height: 875px;
       /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */ }
-      #block-views-block-latest-news-block .card.view-item-2, #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-2.views-element-container, #block-views-block-homepage-success-stories-block .card.view-item-2, #block-views-block-homepage-success-stories-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-2.views-element-container {
+      #block-views-block-latest-news-block .card.view-item-2, #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-2.views-element-container, #block-views-block-homepage-success-stories-block .card.view-item-2, #block-views-block-homepage-success-stories-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-2.views-element-container {
         margin-right: 0; }
-      #block-views-block-latest-news-block .card.view-item-3, #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-3.views-element-container, #block-views-block-homepage-success-stories-block .card.view-item-3, #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container {
+      #block-views-block-latest-news-block .card.view-item-3, #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-3.views-element-container, #block-views-block-homepage-success-stories-block .card.view-item-3, #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container {
         margin: 0 160px; } }
 
 #header_region {
@@ -1115,29 +920,6 @@ $arrow-padding: 5px;*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
 #homepage_quicklinks_region #block-quicklinks {
   float: left;
   display: block;
@@ -1509,58 +1291,6 @@ $arrow-padding: 5px;*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
-/*
-  Accepts one argument: value, a px value;
-  and returns value in rems.
-*/
-/*
-  Accepts three arguments:
-
-  * $min, an integer
-  * $max, an integer
-  * $keys, a list
-
-  where $min < $max and $keys has two or more
-  elements; and returns a map in which every
-  value in $keys is mapped to an integer ranging
-  from $min to $max inclusive.
-*/
-/*
-  Accepts two integer arguments, $min and $max,
-  where $min < $max, and returns a list of
-  equally spaced integers ranging from $min to
-  $max such that there is one value for each
-  breakpoint in $breakpoints.
-*/
-/*
-  Accepts one argument: $font-sizes, a map
-  mapping px breakpoint values to px font sizes;
-  and expands into the standard set of directives
-  for headers.
-*/
 #footer {
   max-width: 1200px;
   margin-left: auto;
@@ -1584,9 +1314,12 @@ $arrow-padding: 5px;*/
     font-family: "p22-underground", sans-serif;
     font-size: 1.125rem; }
   #footer a {
+    transition: color 0.25s;
     color: white;
     font-size: 0.75rem;
     text-decoration: none; }
+    #footer a:hover {
+      color: #0990FE; }
   #footer ul, #footer ol {
     list-style-type: none;
     padding: 0px; }
@@ -1694,29 +1427,6 @@ $arrow-padding: 5px;*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
 header {
   background-color: #043B62;
   overflow: hidden;
@@ -1950,39 +1660,9 @@ $arrow-padding: 5px;*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
 #content_region {
-  /*padding: 50px 48px;*/
   padding: 5px;
-  max-width: 1024px;
   margin: 0 auto; }
-  #content_region a {
-    transition: color 0.25s;
-    /*color: inherit;*/ }
-    #content_region a:hover {
-      color: #71bffe; }
   #content_region #block-achp-page-title h1 {
     font-size: 1.25rem;
     line-height: 1;
@@ -2109,25 +1789,11 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
   Homepage Events region.
 */
 #homepage_events_region {
-  /*padding: 25px 50px;*/
   background-image: url("../images/blue-columns-background.jpg");
-  background-size: cover;
-  background-position: center;
-  /* TODO: When this region has actual content (& therefore height), check different positions to see which looks best w/ image*/
+  background-size: 2000px 1166px;
   height: auto; }
-  #homepage_events_region #homepage_events_content {
-    height: 100%;
-    overflow: hidden; }
-  #homepage_events_region #events_background_container {
-    background-image: url("../images/blue-columns-background.jpg");
-    background-position: top;
-    background-size: cover;
-    height: 1200px; }
   #homepage_events_region .header_container {
     padding: 25px 50px; }
-    @media (min-width: 650px) and (max-width: 1024px) {
-      #homepage_events_region .header_container {
-        padding-bottom: 0; } }
   #homepage_events_region h2 {
     color: #FFFFFF; }
   #homepage_events_region hr {
@@ -2262,9 +1928,9 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
 #block-preserveamericaheader {
   text-align: center; }
   #block-preserveamericaheader .header_container {
-    width: auto;
     display: inline-block;
-    margin: 0px auto; }
+    margin: 0px auto;
+    width: auto; }
     #block-preserveamericaheader .header_container hr {
       width: 60%; }
 
@@ -2272,10 +1938,10 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
   margin: 0 auto; }
 
 .preserveamerica_content_wrapper {
-  position: relative;
-  max-width: 1024px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  max-width: 1024px;
+  position: relative; }
   .preserveamerica_content_wrapper h2 {
     display: inline-block; }
   .preserveamerica_content_wrapper .views-element-container {
@@ -2283,73 +1949,58 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
     .preserveamerica_content_wrapper .views-element-container h2 {
       position: relative; }
     .preserveamerica_content_wrapper .views-element-container .item-list ul {
-      width: 100%;
       list-style: none;
+      margin-top: 0px;
       padding: 0px;
-      margin-top: 0px; }
+      width: 100%; }
       .preserveamerica_content_wrapper .views-element-container .item-list ul li {
-        position: relative;
-        margin: 0px auto; }
+        margin: 0px auto;
+        position: relative; }
         .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
-          border-top: 5px solid #950306;
           background-color: #FFF;
-          box-sizing: border-box;
+          border-top: 5px solid #950306;
           box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          box-sizing: border-box;
           display: inline-block;
-          /*text-align: left;*/
-          width: 100%;
+          margin-bottom: 20px;
           padding: 20px;
-          margin-bottom: 20px; }
+          width: 100%; }
           .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
             display: inline-block;
             vertical-align: top;
-            /*text-align: left;  */
             height: 185px;
             width: 185px; }
           .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
-            position: absolute;
-            left: 225px;
             display: inline-block;
-            vertical-align: top;
-            /*text-align: left;*/
-            padding-right: 20px; }
+            left: 225px;
+            padding-right: 20px;
+            position: absolute;
+            vertical-align: top; }
             .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:first-child {
-              position: relative;
+              color: #043b62;
               display: block;
               font-family: "p22-underground", sans-serif;
-              color: #043b62;
-              font-size: 20px;
               font-size: 1.25rem;
-              line-height: 28px;
               line-height: 1.75rem;
+              position: relative;
               text-decoration: none; }
             .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right p {
-              font-family: "minion-pro", serif;
               color: #1e1e1e;
-              font-size: 16px;
+              font-family: "minion-pro", serif;
               font-size: 1rem;
-              line-height: 22.4px;
               line-height: 1.4rem;
-              text-decoration: none;
+              margin-bottom: 20px;
               text-align: left;
-              margin-bottom: 20px; }
+              text-decoration: none; }
             .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link {
-              /*position: relative;*/
-              /*position: absolute;*/
               display: inline-block; }
               .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a {
-                /*width: auto;*/
-                /*margin-right: 20px;*/
-                position: absolute;
-                /*display: inline;*/
                 color: #4F4F4F;
                 font-family: "p22-underground", sans-serif;
-                font-size: 14px;
                 font-size: 0.875rem;
-                line-height: 19.2px;
-                line-height: 1.2rem;
                 font-weight: 500;
-                /*text-align: left;          */
+                line-height: 1.2rem;
+                position: absolute;
                 text-decoration: none;
                 text-transform: uppercase;
                 transition: color 0.25s; }
@@ -2364,19 +2015,17 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
                   -ms-transform: translateY(-50%);
                   -o-transform: translategY(-50%);
                   transform: translateY(-50%);
-                  right: -45px;
-                  content: "";
                   background-image: url("../images/right-arrow-icon.svg");
-                  background-repeat: no-repeat;
                   background-position: center;
-                  width: 20px;
-                  height: 20px;
-                  padding-left: 15px;
-                  margin-right: 20px;
+                  background-repeat: no-repeat;
+                  content: "";
                   cursor: pointer;
-                  /*display: inline;*/
-                  /*top: -4px;*/
-                  transition: background-image 0.25s; }
+                  height: 20px;
+                  margin-right: 20px;
+                  padding-left: 15px;
+                  right: -45px;
+                  transition: background-image 0.25s;
+                  width: 20px; }
                 .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:hover:after {
                   background-image: url("../images/right-arrow-icon-blue.svg"); }
             .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body-mobile, .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile {
@@ -2421,6 +2070,46 @@ h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle 
       height: 250px;
       width: 250px; } }
 /*
+  This module contains styles for the Digital
+  Library page.
+*/
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+.digital-library-page #block-achp-page-title h1, .digital-library-page #content_region #block-achp-page-title h1, #content_region .digital-library-page #block-achp-page-title h1 {
+  color: #043B62;
+  text-align: left; }
+.digital-library-page #block-sharethispageblock .share_this_page {
+  border-color: #4F4F4F; }
+.digital-library-page #block-achp-content header {
+  background-color: white; }
+.digital-library-page #block-achp-content .views-exposed-form {
+  box-shadow: 0px 1px 2px 0px #E2E2E2;
+  border-top: 6px solid #950306;
+  padding: 25px 20px; }
+  .digital-library-page #block-achp-content .views-exposed-form:before {
+    content: "Search";
+    color: #043B62;
+    display: block;
+    font-size: 20px;
+    line-height: 30px; }
+
+/*
   This module contains styles used by the
   Homepage.
 */
@@ -2442,29 +2131,6 @@ $arrow-padding: 5px;*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
 #news_landing_page {
   height: 100%;
   background-color: #F4F4F4;
@@ -2563,7 +2229,7 @@ $arrow-padding: 5px;*/
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75%;
+        width: 75.0%;
         float: right;
         background-color: #fff;
         margin-bottom: 25px;
@@ -2810,229 +2476,155 @@ $arrow-padding: 5px;*/
   This module defines the sass directives used
   to style Section 106 Process Step pages.
   */
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
-
-/* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
-/* Global variables: text */
-/* Global variables: colors */
-/* Variables for homepage cards */
-/* Grid variables */
-/* Mixin for centering horizontally */
-/* Mixin for centering vertically */
-/* Mixin for centering vertically & horizontally */
-/* Mixin for generating solid-colored hr elements*/
-/* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
-/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
-/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
-/* Mixin for responsive type size */
-/* Maps for type changes*/
-/**
- * Useful mixin that onverts property in px to property in REM
- * pulled from https://github.com/bitmanic/rem by bitmanic
- * 
- * Example usage:
- * 
- *  .element {
- *    @include rem('padding',10px 0 2px 5px);
- *  }
- * 
- * Output:
- * 
- *  .element {
- *    padding: 10px 0 2px 5px;
- *    padding: 1rem 0 0.2rem 0.5rem;
- *  }
- */
-/**
- * Baseline, measured in pixels
- * The value should be the same as the font-size value for the html element
- * If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
- * then the variable below would be 10px.
- */
-#content_region {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 50px 0px; }
-
-.section_106_process {
-  background-color: #E6F8FF; }
-
-.step-container {
+.process-step-node {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1024px; }
-  .step-container::after {
+  max-width: 1024px;
+  padding-bottom: 50px; }
+  .process-step-node::after {
     clear: both;
     content: "";
     display: table; }
-
-.step-content {
-  float: left;
-  display: block;
-  margin-right: 0%;
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  position: relative;
-  text-align: left; }
-  .step-content:last-child {
-    margin-right: 0; }
-
-.step-number {
-  position: relative;
-  font-family: "p22-underground", sans-serif;
-  color: #950306;
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 33.6px;
-  line-height: 2.1rem;
-  text-transform: uppercase; }
-  .step-number div {
-    display: inline-block; }
-
-.step-title {
-  font-family: "p22-underground", sans-serif;
-  color: #043b62;
-  font-size: 36px;
-  font-size: 2.25rem;
-  line-height: 50.4px;
-  line-height: 3.15rem; }
-
-.determination-section-title {
-  font-family: "p22-underground", sans-serif;
-  color: #003a5e;
-  font-size: 22px;
-  font-size: 1.375rem;
-  line-height: 30.8px;
-  line-height: 1.925rem; }
-
-div.step-content > hr {
-  background-color: #CCC; }
-
-.determination-prompt {
-  display: inline-block;
-  white-space: nowrap;
-  padding: 20px 0px; }
-  .determination-prompt div {
-    display: inline-block;
-    vertical-align: middle; }
-  .determination-prompt div.determination-image + div {
+  .process-step-node .section_106_process {
+    background-color: #E6F8FF; }
+  .process-step-node .step-content {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 66.66667%;
+    margin-left: 16.66667%;
     position: relative;
+    text-align: left; }
+    .process-step-node .step-content:last-child {
+      margin-right: 0; }
+  .process-step-node .step-number {
+    color: #950306;
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+    position: relative;
+    text-transform: uppercase; }
+    .process-step-node .step-number div {
+      display: inline-block; }
+  .process-step-node .step-title {
+    color: #043b62;
+    font-family: "p22-underground", sans-serif;
+    font-size: 2.25rem;
+    line-height: 3.15rem; }
+  .process-step-node .determination-section-title {
+    color: #003a5e;
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.375rem;
+    line-height: 1.925rem; }
+  .process-step-node div.step-content > hr {
+    background-color: #CCC; }
+  .process-step-node .determination-prompt {
     display: inline-block;
-    color: #4a4a4a;
-    background-color: #e8f8ff;
+    padding: 20px 0px;
+    white-space: nowrap; }
+    .process-step-node .determination-prompt div {
+      display: inline-block;
+      vertical-align: middle; }
+    .process-step-node .determination-prompt div.determination-image + div {
+      background-color: #e8f8ff;
+      color: #4a4a4a;
+      display: inline-block;
+      font-family: "p22-underground", sans-serif;
+      font-size: 18px;
+      line-height: 51px;
+      padding: 0px 30px;
+      position: relative;
+      width: 630px; }
+  .process-step-node .determination-image {
+    background-color: #013b5e;
+    background-image: url("/themes/achp/sass/pages/section_106_process/images/split-icon.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    height: 51px;
+    margin-right: -4px;
+    width: 53px; }
+  .process-step-node .determination-yes-wrapper {
+    display: inline-block;
+    padding-top: 20px;
+    white-space: nowrap; }
+    .process-step-node .determination-yes-wrapper div {
+      display: inline-block;
+      vertical-align: middle; }
+    .process-step-node .determination-yes-wrapper div.determination-prompt-yes + div {
+      background-color: #d0efd7;
+      color: #4a4a4a;
+      display: inline-block;
+      font-family: "p22-underground", sans-serif;
+      font-size: 18px;
+      line-height: 51px;
+      padding: 0px 30px;
+      position: relative;
+      width: 630px; }
+  .process-step-node .determination-prompt-yes {
+    background-color: #2b883f;
+    color: white;
+    font-family: "p22-underground", sans-serif;
+    font-size: 18px;
+    height: 51px;
+    line-height: 51px;
+    margin-right: -4px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 53px; }
+  .process-step-node .yes-explaination-and-action div:first-child {
+    background-color: #f2fff5;
+    margin-left: 53px;
+    padding: 30px; }
+  .process-step-node .determination-no-wrapper {
+    display: inline-block;
+    padding-top: 20px;
+    white-space: nowrap; }
+    .process-step-node .determination-no-wrapper div {
+      display: inline-block;
+      vertical-align: middle; }
+    .process-step-node .determination-no-wrapper div.determination-prompt-no + div {
+      background-color: #e5e3e4;
+      color: #4a4a4a;
+      display: inline-block;
+      font-family: "p22-underground", sans-serif;
+      font-size: 18px;
+      line-height: 51px;
+      padding: 0px 30px;
+      position: relative;
+      width: 630px; }
+  .process-step-node .determination-prompt-no {
+    background-color: #4a4a4a;
+    color: white;
+    font-family: "p22-underground", sans-serif;
+    font-size: 18px;
+    height: 51px;
+    line-height: 51px;
+    margin-right: -4px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 53px; }
+  .process-step-node .no-explaination-and-action div:first-child {
+    background-color: #f4f4f4;
+    margin-left: 53px;
+    padding: 30px; }
+  .process-step-node .no-further-action {
+    background-image: url("/themes/achp/sass/pages/section_106_process/images/stop-icon.svg");
+    background-position: left 30px center;
+    background-repeat: no-repeat;
     font-family: "p22-underground", sans-serif;
     font-size: 18px;
     line-height: 51px;
-    width: 630px;
-    padding: 0px 30px; }
-
-.determination-image {
-  background-color: #013b5e;
-  background-image: url("/themes/achp/sass/pages/section_106_process/images/split-icon.svg");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  height: 51px;
-  width: 53px;
-  margin-right: -4px; }
-
-.determination-yes-wrapper {
-  display: inline-block;
-  white-space: nowrap;
-  padding-top: 20px; }
-  .determination-yes-wrapper div {
-    display: inline-block;
-    vertical-align: middle; }
-  .determination-yes-wrapper div.determination-prompt-yes + div {
+    margin-left: 53px;
+    padding: 5px 0px 0px 70px;
     position: relative;
-    display: inline-block;
-    color: #4a4a4a;
-    background-color: #d0efd7;
-    font-family: "p22-underground", sans-serif;
-    font-size: 18px;
-    line-height: 51px;
-    width: 630px;
-    padding: 0px 30px; }
-
-.determination-prompt-yes {
-  font-family: "p22-underground", sans-serif;
-  font-size: 18px;
-  line-height: 51px;
-  color: white;
-  background-color: #2b883f;
-  height: 51px;
-  width: 53px;
-  margin-right: -4px;
-  text-transform: uppercase;
-  text-align: center; }
-
-.yes-explaination-and-action div:first-child {
-  margin-left: 53px;
-  padding: 30px;
-  background-color: #f2fff5; }
-
-.determination-no-wrapper {
-  display: inline-block;
-  white-space: nowrap;
-  padding-top: 20px; }
-  .determination-no-wrapper div {
-    display: inline-block;
-    vertical-align: middle; }
-  .determination-no-wrapper div.determination-prompt-no + div {
-    position: relative;
-    display: inline-block;
-    color: #4a4a4a;
-    background-color: #e5e3e4;
-    font-family: "p22-underground", sans-serif;
-    font-size: 18px;
-    line-height: 51px;
-    width: 630px;
-    padding: 0px 30px; }
-
-.determination-prompt-no {
-  font-family: "p22-underground", sans-serif;
-  font-size: 18px;
-  line-height: 51px;
-  color: white;
-  background-color: #4a4a4a;
-  height: 51px;
-  width: 53px;
-  margin-right: -4px;
-  text-transform: uppercase;
-  text-align: center; }
-
-.no-explaination-and-action div:first-child {
-  margin-left: 53px;
-  padding: 30px;
-  background-color: #f4f4f4; }
-
-.no-further-action {
-  position: relative;
-  background-image: url("/themes/achp/sass/pages/section_106_process/images/stop-icon.svg");
-  background-repeat: no-repeat;
-  background-position: left 30px center;
-  font-family: "p22-underground", sans-serif;
-  font-size: 18px;
-  line-height: 51px;
-  margin-left: 53px;
-  padding: 5px 0px 0px 70px;
-  text-transform: uppercase; }
-
-.no-explaination-and-action .no-further-action {
-  background-color: #f4f4f4;
-  border-top: 1px solid #e5e3e4; }
-
-.yes-explaination-and-action .no-further-action {
-  background-color: #f2fff5;
-  border-top: 1px solid #d0efd7; }
+    text-transform: uppercase; }
+  .process-step-node .no-explaination-and-action .no-further-action {
+    background-color: #f4f4f4;
+    border-top: 1px solid #e5e3e4; }
+  .process-step-node .yes-explaination-and-action .no-further-action {
+    background-color: #f2fff5;
+    border-top: 1px solid #d0efd7; }
 
 html,
 body {
@@ -3149,18 +2741,18 @@ button {
   .header_container hr {
     width: 60%; }
 
-.card, .event_calendar .event_calendar_calendar_body, .event_calendar .event_calendar_grid .event_calendar_grid_card, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container {
+.card, .event_calendar .event_calendar_calendar_body, .event_calendar .event_calendar_grid_body .event_calendar_grid_card, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container {
   font-family: "p22-underground", sans-serif;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
   border-top: 6px solid #950306;
   box-sizing: border-box;
   text-align: left; }
 
-.card_date, .event_calendar .event_calendar_grid .event_calendar_grid_card_date, #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_date {
+.card_date, .event_calendar .event_calendar_grid_body .event_calendar_grid_card_date, #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_date {
   color: #C6C6C6;
   margin-top: 15px; }
 
-.card_body, .event_calendar .event_calendar_grid .event_calendar_grid_card_location, #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_body p {
+.card_body, .event_calendar .event_calendar_grid_body .event_calendar_grid_card_location, #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_body p {
   text-align: left;
   font-family: "minion-pro", serif;
   margin-top: 10px;
@@ -3198,8 +2790,9 @@ button {
     .read_more a:hover:after {
       background-image: url("../images/right-arrow-icon-blue.svg"); }
 
+.toast-message {
+  font-family: "p22-underground", sans-serif; }
+
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
-
-/*# sourceMappingURL=style.css.map */
