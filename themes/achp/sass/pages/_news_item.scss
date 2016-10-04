@@ -1,31 +1,84 @@
 @import "../global";
 
 #news_item_page {
-  /* Outer container of page*/
   height: 100%;
   background-color: $background-color-grey;
   @include outer-container(100%);
 
-  article.news_item {
-    /* This determines width of content */
-    max-width: $max-content-width;
+  #news_content_container {
+   max-width: $max-content-width;
     margin: 0 auto;
     position: relative;
     overflow: auto;
     padding: 0 50px;
-/*
-    #content_region {
-      padding: 0;
-      
-    }*/
 
-/*    .news-landing-container {
-      @include span-columns (12);
-      height: 100%;
-    }*/
+    .news_back_link {
+      a {
+        text-decoration: none;
+        font-family: $sans-text;
+        color: $color-grey;
+        font-size: 0.75rem;
+        /*@include hover-transition-content($color-blue-primary);*/
+      }
+
+      &:before {
+        content: url('../images/left-arrow-icon.svg');
+        height: 8px;
+        width: 8px;
+        margin-right: 10px;
+      }
+    }
+  
+    article.news_item {
+      background-color: #fff;
+      padding: 40px 70px;
+      margin: 10px 0;
+      @extend .card;
+
+      h1 {
+        color: $color-darkblue;
+        text-shadow: none;
+        font-size: 2.25rem;
+        text-align: left;
+        font-weight: 400;
+      }
+
+      .news_item_date {
+        color: $color-lightgrey;      
+      }
+
+      .news_item_photo {
+        margin-top: 10px;
+        width: auto;
+        max-width: 100%;
+      }
+
+      .news_item_body {
+        font-family: $serif-text;
+        color: $color-darkgrey2;
+        font-size: 1.125rem;
+      }
+
+      .news_divider {
+        margin: 50px 0 20px;
+        height: 2px;
+        background-color: $color-lightgrey;
+      }
+
+      .news_item_tags {
+        .news_item_tags_label {
+          color: $color-darkblue;
+          text-transform: uppercase;
+        }
+
+        a {
+          display: inline-block;
+          text-decoration: none;
+          color: $color-blue-primary;
+          margin: 5px 25px 0 0;
+        }
+      }
+    }
+
   }
 }
-
-/*.news_item_container {
-  border: 1px solid grey;
-}*/

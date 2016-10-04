@@ -1,0 +1,2806 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/*
+  This module contains styles used by the Event
+  Calendar feature.
+*/
+.event_calendar .event_calendar_feature {
+  padding: 0 40px; }
+.event_calendar .event_calendar_calendar {
+  display: inline-block;
+  height: 420px;
+  padding: 0px 20px 0px 0px;
+  vertical-align: top;
+  width: 33.33333%; }
+  .event_calendar .event_calendar_calendar .clndr {
+    padding: 5px; }
+  .event_calendar .event_calendar_calendar_header {
+    height: 50px; }
+    .event_calendar .event_calendar_calendar_header .event_calendar_calendar_title {
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      font-weight: 300;
+      margin-bottom: 5px; }
+  .event_calendar .event_calendar_calendar_body {
+    background-color: #fff;
+    color: #7C7C7C;
+    font-family: "p22-underground", sans-serif; }
+    .event_calendar .event_calendar_calendar_body .clndr-controls {
+      position: relative;
+      height: 40px; }
+      .event_calendar .event_calendar_calendar_body .clndr-controls .month-container {
+        font-size: 1.5625rem;
+        text-transform: uppercase;
+        top: 0;
+        width: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        position: relative;
+        text-align: center; }
+        .event_calendar .event_calendar_calendar_body .clndr-controls .month-container .month {
+          display: inline-block;
+          padding-top: 4px;
+          cursor: pointer;
+          transition: color 0.25s; }
+          .event_calendar .event_calendar_calendar_body .clndr-controls .month-container .month:hover {
+            color: #0990FE; }
+      .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-previous-button, .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
+        transform: translateY(-50%);
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        transition: background-image 0.25s; }
+      .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-previous-button {
+        background-image: url("../images/left-calendar-arrow.svg");
+        padding: 23px 30px 23px 7px;
+        left: 0; }
+        .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-previous-button:hover {
+          background-image: url("../images/left-calendar-arrow-blue.svg"); }
+      .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button {
+        padding: 23px 14px 23px 30px;
+        right: 0;
+        background-image: url("../images/right-calendar-arrow.svg"); }
+        .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button:hover {
+          background-image: url("../images/right-calendar-arrow-blue.svg"); }
+    .event_calendar .event_calendar_calendar_body .clndr-table {
+      border: none;
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem; }
+      .event_calendar .event_calendar_calendar_body .clndr-table thead {
+        font-family: "minion-pro", serif;
+        font-weight: bold; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month {
+        color: #C6C6C6; }
+        .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event {
+          background-color: #fff; }
+          .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event:hover {
+            cursor: default;
+            background-color: #fff;
+            color: #c6c6c6; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .event {
+        cursor: pointer;
+        background-color: #E6F8FF; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .today {
+        color: #fff;
+        background-color: #003A53; }
+      .event_calendar .event_calendar_calendar_body .clndr-table tbody .event:hover {
+        color: #fff;
+        background-color: #0990FE; }
+      .event_calendar .event_calendar_calendar_body .clndr-table .day, .event_calendar .event_calendar_calendar_body .clndr-table .header-day {
+        line-height: 3.5; }
+.event_calendar .event_calendar_grid {
+  display: inline-block;
+  vertical-align: top;
+  width: 66.66667%; }
+  .event_calendar .event_calendar_grid_header {
+    height: 50px; }
+    .event_calendar .event_calendar_grid_header .event_calendar_grid_title {
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      font-weight: 300;
+      margin: 0 0 5px 20px; }
+  .event_calendar .event_calendar_grid_body {
+    text-align: left; }
+    .event_calendar .event_calendar_grid_body .event_calendar_grid_message {
+      color: #fff;
+      font-size: 0.75rem;
+      margin-left: 20px;
+      font-style: italic;
+      font-family: "p22-underground", sans-serif;
+      text-align: left; }
+      @media screen and (min-width: 650px) {
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_message {
+          font-size: 16px; } }
+    .event_calendar .event_calendar_grid_body .event_calendar_grid_card {
+      background-color: #fff;
+      display: inline-block;
+      margin: 0px 0px 20px 20px;
+      min-height: 320px;
+      overflow-wrap: break-word;
+      padding: 10px 10px 35px 10px;
+      position: relative;
+      vertical-align: top;
+      width: 260px; }
+      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title {
+        transition: color 0.25s;
+        cursor: pointer;
+        font-size: 1rem; }
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title:hover {
+          color: #0990FE; }
+      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
+        display: none; }
+      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_location {
+        margin-bottom: 10px; }
+      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_footer {
+        height: 20px;
+        width: 100%;
+        position: absolute;
+        bottom: 15px; }
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_footer .read_more {
+          position: absolute; }
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar {
+          display: block;
+          background-image: url("../images/add-calendar-icon.svg");
+          float: right;
+          background-repeat: no-repeat;
+          height: 20px;
+          width: 20px;
+          cursor: pointer;
+          transition: background-image 0.25s;
+          margin-right: 25px;
+          margin-top: 1px; }
+          .event_calendar .event_calendar_grid_body .event_calendar_grid_card_footer .event_calendar_grid_card_google_calendar:hover {
+            background-image: url("../images/add-calendar-icon-lightblue.svg"); }
+.event_calendar .event_calendar_feature_footer {
+  margin-top: 20px;
+  width: 100%; }
+@media (max-width: 1024px) {
+  .event_calendar .event_calendar_feature .event_calendar_calendar {
+    width: 50%; }
+  .event_calendar .event_calendar_feature .event_calendar_grid {
+    padding: 0px 0px 0px 20px;
+    width: 50%; }
+    .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
+      margin: 0; }
+    .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+      border-top: none !important;
+      border: 0;
+      height: 75px;
+      margin: 0px;
+      max-width: 100%;
+      min-height: 75px;
+      padding: 0;
+      width: 100%; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_header {
+        height: 75px;
+        background-color: #fff;
+        border-bottom: 1px solid #5d0002;
+        margin-left: 60px;
+        position: relative; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: .9rem;
+        width: 95%;
+        transition: color 0.25s; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover {
+          color: #0990FE; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+          content: "";
+          background-image: url("../images/right-arrow-icon.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20px;
+          height: 20px;
+          padding-left: 15px;
+          right: -14px;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translategY(-50%);
+          transform: translateY(-50%);
+          transition: background-image 0.25s; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
+          background-image: url("../images/right-arrow-icon-blue.svg"); }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+          width: 40px; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title a {
+          display: block;
+          width: 100%;
+          padding: 25px 25px 25px 15px; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_date, .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_location, .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_footer {
+        display: none; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
+        background-color: #950306;
+        border-bottom: solid 1px #5d0002;
+        color: #fff;
+        display: inline-block;
+        float: left;
+        height: 75px;
+        line-height: 1.1;
+        padding: 15px 5px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 60px; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_month {
+          text-transform: uppercase;
+          font-size: 1.125rem; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+          font-size: 2.125rem; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+          font-size: 2rem;
+          font-weight: 300; } }
+@media (max-width: 650px) {
+  .event_calendar .event_calendar_feature {
+    padding: 0px; }
+    .event_calendar .event_calendar_feature .event_calendar_calendar {
+      display: block;
+      padding: 0px;
+      width: 100%; }
+      .event_calendar .event_calendar_feature .event_calendar_calendar_header .event_calendar_calendar_title {
+        font-size: 1.125rem;
+        margin-left: 20px; }
+    .event_calendar .event_calendar_feature .event_calendar_grid {
+      padding: 0px;
+      width: 100%; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
+        font-size: 1.125rem;
+        margin-left: 20px; }
+      .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+        margin: 0px; }
+        .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
+          font-size: 1rem; } }
+
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+#homepage_news_content #block-views-block-latest-news-block .homepage_news_item {
+  padding: 10px;
+  position: relative;
+  height: 370px; }
+  #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_link {
+    position: absolute;
+    bottom: 0; }
+    #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_link img {
+      margin-left: 5px;
+      vertical-align: -1px; }
+  #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_link_mobile {
+    display: none; }
+@media (max-width: 700px) {
+  #homepage_news_content #block-views-block-latest-news-block {
+    /* At this width, the cards turn into just the headlines */
+    height: 240px;
+    border-top: 6px solid #950306;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+    margin: 25px 0 25px;
+    width: 100%; }
+    #homepage_news_content #block-views-block-latest-news-block .card.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.news_item {
+      height: 80px;
+      margin: 0;
+      width: 100%;
+      box-shadow: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.26);
+      position: relative; }
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.view-item-1.news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.view-item-1.news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.view-item-1.news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.view-item-1.news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-1, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.view-item-1.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.view-item-1.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.view-item-1.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-1.views-element-container, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.view-item-1.news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.view-item-1.news_item {
+        border-top: none; }
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.view-item-3.news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.view-item-3.news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.view-item-3.news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.view-item-3.news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3.view-item-3, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.view-item-3.event_calendar_calendar_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.event_calendar_calendar_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.event_calendar_grid_card, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.view-item-3.views-element-container, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.view-item-3.news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.view-item-3.news_item {
+        margin-left: 0; }
+      #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.news_item .homepage_news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.news_item .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item .homepage_news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.news_item .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item .homepage_news_item, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.news_item .homepage_news_item {
+        height: 60px;
+        padding: 0;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
+        transform: translateY(-50%);
+        position: relative; }
+        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.news_item .homepage_news_item .news_item_date, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.news_item .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.news_item .homepage_news_item .news_item_body, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.news_item .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.news_item .homepage_news_item .news_item_link, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.news_item .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item .homepage_news_item .news_item_date, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.news_item .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item .homepage_news_item .news_item_body, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.news_item .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item .homepage_news_item .news_item_link, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.news_item .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item .homepage_news_item .news_item_date, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.news_item .homepage_news_item .news_item_date, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item .homepage_news_item .news_item_body, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.news_item .homepage_news_item .news_item_body, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_link, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item .homepage_news_item .news_item_link, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.news_item .homepage_news_item .news_item_link {
+          display: none; }
+        #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.news_item .homepage_news_item .news_item_title, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.news_item .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item .homepage_news_item .news_item_title, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.news_item .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item .homepage_news_item .news_item_title, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.news_item .homepage_news_item .news_item_title {
+          width: 95%;
+          padding: 15px;
+          line-height: 24px;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translategY(-50%);
+          transform: translateY(-50%);
+          transition: color 0.25s; }
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.news_item .homepage_news_item .news_item_title:hover, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.news_item .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item .homepage_news_item .news_item_title:hover, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.news_item .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item .homepage_news_item .news_item_title:hover, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.news_item .homepage_news_item .news_item_title:hover {
+            color: #0990FE; }
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.news_item .homepage_news_item .news_item_title:after, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.news_item .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item .homepage_news_item .news_item_title:after, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.news_item .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:after, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item .homepage_news_item .news_item_title:after, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.news_item .homepage_news_item .news_item_title:after {
+            content: "";
+            background-image: url("../images/right-arrow-icon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 20px;
+            height: 20px;
+            padding-left: 15px;
+            right: 0;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translategY(-50%);
+            transform: translateY(-50%);
+            transition: background-image 0.25s; }
+          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-1.news_item .homepage_news_item .news_item_title:hover:after, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-1.news_item .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item .homepage_news_item .news_item_title:hover:after, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-2.news_item .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item .homepage_news_item .news_item_title:hover:after, #news_item_page #news_content_container #homepage_news_content #block-views-block-latest-news-block article.view-item-3.news_item .homepage_news_item .news_item_title:hover:after {
+            background-image: url("../images/right-arrow-icon-blue.svg"); } }
+
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+#homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item {
+  text-align: center;
+  background-color: #ffffff; }
+  #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item .success_story, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item .success_story {
+    padding: 5px 10px;
+    position: relative;
+    height: 370px; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_image, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_image, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item .success_story_image, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item .success_story_image {
+      margin-bottom: 15px;
+      position: relative;
+      height: 185px;
+      width: 100%;
+      overflow: hidden;
+      /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */ }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_image img, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item .success_story_image img, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item .success_story_image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        height: 100%;
+        width: auto;
+        min-width: 100%; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_title h3, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_title h3, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_title h3, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_title h3, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item .success_story_title h3, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item .success_story_title h3 {
+      text-align: inherit; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_location, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_location, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_location, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_location, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item .success_story_location, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item .success_story_location {
+      color: #7C7C7C; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_body p, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_body p, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item .success_story_body p, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item .success_story_body p {
+      font-family: "minion-pro", serif;
+      margin: 5px; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_link, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_link, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item .success_story_link, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item .success_story_link {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+      bottom: 0;
+      padding-right: 20px; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story_link img, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link img, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link img, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story_link img, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item .success_story_link img, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item .success_story_link img {
+        margin-left: 5px;
+        vertical-align: -1px; }
+@media (max-width: 700px) {
+  #homepage_success_content #block-views-block-homepage-success-stories-block {
+    /* At this width cards 2 and 3 disappear, so the block only contains 1 card */
+    height: 450px;
+    width: 300px; }
+    #homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item {
+      margin: 25px 0;
+      height: 400px; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-2, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-2.views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.view-item-2.news_item, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.view-item-2.news_item, #homepage_success_content #block-views-block-homepage-success-stories-block .card.view-item-3, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.view-item-3.news_item, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.view-item-3.news_item {
+        display: none; }
+      #homepage_success_content #block-views-block-homepage-success-stories-block .card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container .success_story, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item .success_story, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item .success_story {
+        height: 370px; } }
+
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+/* These styles apply to the success stories and latest news views on the homepage */
+#block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
+  margin: 0 auto;
+  /* On wide screens, all 3 cards are on one row:; */
+  height: 450px;
+  /* And the last card has no margin-right:; */
+  width: 940px; }
+  #block-views-block-latest-news-block .card, #block-views-block-latest-news-block .event_calendar .event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-latest-news-block .event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .views-element-container, #block-views-block-latest-news-block #news_item_page #news_content_container article.news_item, #news_item_page #news_content_container #block-views-block-latest-news-block article.news_item, #block-views-block-homepage-success-stories-block .card, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .views-element-container, #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item, #news_item_page #news_content_container #block-views-block-homepage-success-stories-block article.news_item {
+    height: 400px;
+    width: 300px;
+    margin: 25px 0;
+    margin-right: 20px;
+    float: left;
+    padding: 10px; }
+    #block-views-block-latest-news-block .card.view-item-3, #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-3.views-element-container, #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item, #news_item_page #news_content_container #block-views-block-latest-news-block article.view-item-3.news_item, #block-views-block-homepage-success-stories-block .card.view-item-3, #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container, #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.view-item-3.news_item, #news_item_page #news_content_container #block-views-block-homepage-success-stories-block article.view-item-3.news_item {
+      margin-right: 0; }
+  @media (max-width: 1023px) {
+    #block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
+      /* At this width 2 cards are on the first row, and the third is on the second. */
+      /* First card has a margin-right, but second no longer does:; */
+      width: 620px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+      height: 875px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */ }
+      #block-views-block-latest-news-block .card.view-item-2, #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-2.views-element-container, #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-2.news_item, #news_item_page #news_content_container #block-views-block-latest-news-block article.view-item-2.news_item, #block-views-block-homepage-success-stories-block .card.view-item-2, #block-views-block-homepage-success-stories-block .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-homepage-success-stories-block .view-item-2.event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-2.views-element-container, #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.view-item-2.news_item, #news_item_page #news_content_container #block-views-block-homepage-success-stories-block article.view-item-2.news_item {
+        margin-right: 0; }
+      #block-views-block-latest-news-block .card.view-item-3, #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body, #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card, #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-latest-news-block .view-item-3.views-element-container, #block-views-block-latest-news-block #news_item_page #news_content_container article.view-item-3.news_item, #news_item_page #news_content_container #block-views-block-latest-news-block article.view-item-3.news_item, #block-views-block-homepage-success-stories-block .card.view-item-3, #block-views-block-homepage-success-stories-block .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_calendar_body, #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #block-views-block-homepage-success-stories-block .view-item-3.event_calendar_grid_card, #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container, #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.view-item-3.news_item, #news_item_page #news_content_container #block-views-block-homepage-success-stories-block article.view-item-3.news_item {
+        margin: 0 160px; } }
+
+#header_region {
+  height: 72px;
+  width: 1024px;
+  margin: 0 auto; }
+
+#header_menu {
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.875rem;
+  position: relative;
+  border-bottom: #043B62;
+  z-index: 900;
+  height: 72px;
+  width: 1024px; }
+  #header_menu ul {
+    margin: 0 auto;
+    padding-left: 0;
+    z-index: 901; }
+  #header_menu ul[data-menu-level="0"] {
+    margin: 0 auto;
+    height: 72px;
+    display: inline-block;
+    display: flex;
+    justify-content: space-between; }
+    #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] {
+      border: 3px solid transparent;
+      border-bottom: none;
+      list-style-type: none;
+      text-align: center;
+      margin: 0;
+      text-align: center;
+      padding: 0 40px;
+      height: 75px !important;
+      box-sizing: border-box !important;
+      display: inline-block; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"]:last-of-type {
+        margin: 0; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected {
+        border: 3px solid #9B0008;
+        border-bottom: none;
+        background: white; }
+        #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected a {
+          color: #008BFD; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] > a {
+        padding: 0;
+        margin: 0;
+        display: block;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
+        transform: translateY(-50%);
+        position: relative; }
+      #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] a {
+        text-decoration: none;
+        color: #013B5E;
+        width: 100%;
+        text-align: center; }
+    #header_menu ul[data-menu-level="0"] ul[data-menu-level="1"] {
+      display: none; }
+
+#subheader_widescreen {
+  position: relative;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  #subheader_widescreen::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #subheader_widescreen #subheader_widescreen_submenu_region {
+    width: 100%;
+    position: absolute;
+    top: 72px;
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 33.33333%; }
+    #subheader_widescreen #subheader_widescreen_submenu_region:last-child {
+      margin-right: 0; }
+    #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu {
+      width: 1024px;
+      margin: 0 auto;
+      padding: 0; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul {
+        padding: 5px 25px 20px 25px;
+        position: relative;
+        z-index: 600; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul li {
+          list-style-type: none; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul li a {
+            font-family: "p22-underground", sans-serif;
+            text-decoration: none;
+            margin-bottom: 5px; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] {
+        background-color: white;
+        margin: 0;
+        padding: 0 10px 10px 25px;
+        line-height: 1.4; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"].menu_selected {
+          border: 3px solid #9B0008;
+          box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
+          min-height: 150px; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] li[data-menu-level="1"] {
+          padding: 22px 15px 0 0;
+          font-size: 1.125rem; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] li[data-menu-level="1"] > a {
+            color: #043B62;
+            line-height: 1.4; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] {
+        padding: 0 5px 0 0;
+        /*top: -22px;*/
+        margin-top: 0;
+        display: inline-block;
+        width: 100%; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] > li {
+          margin-bottom: 10px; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] > li a {
+            font-size: 1rem;
+            color: #4F4F4F;
+            transition: color 0.25s; }
+            #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"] > li a:hover {
+              color: #0990FE; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="2"]:before {
+          content: "";
+          height: 1px;
+          width: 100%;
+          background-color: #9B0008;
+          display: inline-block;
+          position: relative;
+          bottom: 5px; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] {
+        padding: 0 55px; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"] {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 25%;
+        width: 366px;
+        /*padding: 0 $dropdown-menu-padding;*/ }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"]:last-child {
+          margin-right: 0; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"] li[data-menu-level="1"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 100%; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="1"] li[data-menu-level="1"]:last-child {
+            margin-right: 0; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"] {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%;
+        width: 622px;
+        /*padding: 0 $dropdown-menu-padding;*/ }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"]:last-child {
+          margin-right: 0; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"] li[data-menu-level="1"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 50%; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="2"] li[data-menu-level="1"]:last-child {
+            margin-right: 0; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"] {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 75%;
+        width: 878px;
+        /*padding: 0 $dropdown-menu-padding;*/ }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"]:last-child {
+          margin-right: 0; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"] li[data-menu-level="1"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 33.33333%; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="3"] li[data-menu-level="1"]:last-child {
+            margin-right: 0; }
+      #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"] {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 100%;
+        width: 1024px;
+        /*padding: 0 $dropdown-menu-padding;*/ }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"]:last-child {
+          margin-right: 0; }
+        #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"] li[data-menu-level="1"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 25%; }
+          #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"][data-menu-num-children="4"] li[data-menu-level="1"]:last-child {
+            margin-right: 0; }
+
+#subheader {
+  font-family: "p22-underground", sans-serif; }
+  #subheader #subheader_mobile_header {
+    cursor: pointer;
+    display: none;
+    width: 100%; }
+    #subheader #subheader_mobile_header #subheader_mobile_title {
+      text-align: center;
+      padding: 15px 0px;
+      color: #003A5E;
+      line-height: 1; }
+      #subheader #subheader_mobile_header #subheader_mobile_title:before {
+        content: "";
+        background-image: url("../images/menu-icon.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 13px;
+        position: relative;
+        right: 10px;
+        bottom: 2px;
+        vertical-align: middle; }
+  #subheader #subheader_mobile #subheader_mobile_collapsible {
+    display: none;
+    padding: 0;
+    border: 3px solid #9B0008;
+    background-color: white;
+    z-index: 1000;
+    width: 100%;
+    position: absolute;
+    height: 494px;
+    overflow: hidden; }
+    #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body {
+      width: 100%;
+      height: auto;
+      border-top: 1px solid #E2E2E2; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide_container {
+        margin: 0; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide {
+        position: absolute;
+        display: none;
+        width: 100vw; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide[data-menu-slide-index="0"] {
+          display: block; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_header_title h3 {
+          border-bottom: 1px solid #9B0008;
+          display: inline-block;
+          width: 100%;
+          padding: 16px 24px 7px;
+          margin: 0; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_header_back_button {
+          cursor: pointer;
+          color: #4F4F4F;
+          font-size: 0.75rem;
+          padding: 10px 24px 0; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_header_back_button:before {
+            content: url("../images/left-arrow-icon.svg");
+            height: 8px;
+            width: 8px; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_body {
+          color: #4A4A4A; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_body > ul {
+            margin: 0; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"], #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"] {
+          cursor: pointer;
+          padding: 16px 24px;
+          border-bottom: 1px solid #E2E2E2;
+          font-size: 0.875rem;
+          width: 100%; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"]:hover {
+            color: #0990FE;
+            background-color: #E8F8FF; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:after, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:after {
+          content: "";
+          background-image: url("../images/right-arrow-icon.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20px;
+          height: 21px;
+          right: 55px;
+          position: absolute;
+          cursor: pointer;
+          transition: background-image 0.25s; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover:after, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:hover:after {
+          background-image: url("../images/right-arrow-icon-blue.svg"); }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body ul {
+        list-style-type: none;
+        padding: 0;
+        color: #1E1E1E; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body ul a {
+          text-decoration: none;
+          padding-left: 0;
+          color: inherit; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu {
+        height: 100%;
+        width: 100%;
+        display: block; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul {
+          margin: 0px;
+          padding: 0px;
+          width: 100%; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul li {
+            height: 100%;
+            border-bottom: 1px solid #4A4A4A;
+            display: block;
+            margin: 0px;
+            padding: 10px 0px;
+            text-align: center;
+            list-style-type: none; }
+            #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul li a {
+              text-decoration: none;
+              color: #4A4A4A; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body #block-achp-main-menu ul[data-menu-level="1"] {
+          display: none; }
+    #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_footer {
+      height: 54px;
+      position: absolute;
+      width: 100%;
+      bottom: 0; }
+      #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_footer #subheader_mobile_close_button {
+        color: #4F4F4F;
+        cursor: pointer;
+        margin: 15px auto 17px;
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.25s; }
+        #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_footer #subheader_mobile_close_button:hover {
+          color: #0990FE; }
+
+@media screen and (max-width: 1150px) {
+  #header_region {
+    height: auto;
+    width: auto; }
+
+  #header_menu {
+    height: auto; }
+
+  #block-achp-search {
+    height: 55px;
+    margin: 0;
+    width: 100%;
+    padding: 0 24px 20px; }
+    #block-achp-search #search-block-form {
+      height: 100%; }
+      #block-achp-search #search-block-form .form-item {
+        float: left;
+        height: 100%;
+        margin: 10px 0;
+        width: 100%; }
+        #block-achp-search #search-block-form .form-item input.form-search {
+          border: 1px solid #979797;
+          font-size: 0.75rem;
+          font-family: "p22-underground", sans-serif;
+          border-radius: 2px;
+          height: 100%;
+          line-height: 1.25;
+          outline: none;
+          padding: 10px;
+          width: 100%;
+          /* The following two lines override Safari rounding the input's corners */
+          appearance: none;
+          -webkit-appearance: none; }
+      #block-achp-search #search-block-form .form-actions {
+        float: right;
+        height: 100%;
+        margin: 0; }
+        #block-achp-search #search-block-form .form-actions input.form-submit {
+          border: none;
+          border-radius: 0 2px 2px 0;
+          height: 35px;
+          width: 37px;
+          bottom: 45px;
+          position: relative;
+          background-image: url("../images/search-icon.svg");
+          background-repeat: no-repeat;
+          background-color: #0990FE;
+          background-position: center;
+          background-size: 57%;
+          cursor: pointer;
+          transition: background-color 0.25s; }
+          #block-achp-search #search-block-form .form-actions input.form-submit:hover {
+            background-color: #71bffe; } }
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+#homepage_quicklinks_region #block-quicklinks {
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 100%; }
+  #homepage_quicklinks_region #block-quicklinks:last-child {
+    margin-right: 0; }
+#homepage_quicklinks_region #homepage_quicklinks_content {
+  width: 940px; }
+  #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container {
+    padding: 0;
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 33.33333%;
+    background-color: #FFFFFF;
+    margin-right: 20px;
+    height: 518px;
+    width: 300px;
+    margin: 25px 0;
+    margin-right: 20px;
+    float: left;
+    position: relative; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:last-child {
+      margin-right: 0; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header {
+      background-color: #fff;
+      height: 260px; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-row {
+        border-top: none;
+        padding: 0;
+        height: 100%;
+        padding: 15px 15px 5px;
+        position: static;
+        transform: none; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-field-field-quicklink-image {
+        position: relative;
+        height: 160px;
+        width: 100%;
+        overflow: hidden;
+        /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */ }
+        #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-field-field-quicklink-image img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -o-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+          height: 100%;
+          width: auto;
+          min-width: 100%; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header h3 {
+        padding-top: 20px; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row {
+      border-top: 1px solid #E2E2E2;
+      width: 100%;
+      height: 67px;
+      position: relative;
+      transition: background-color 0.25s; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row:hover {
+        background-color: #E8F8FF; }
+      #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
+        transform: translateY(-50%);
+        position: relative; }
+        #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a {
+          text-decoration: none;
+          color: #4F4F4F;
+          line-height: 22.39px;
+          display: block;
+          padding: 20px 25px;
+          width: 95%;
+          height: 100%;
+          position: relative;
+          transition: color 0.25s; }
+          #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover {
+            color: #0990FE; }
+          @media (min-width: 701px) {
+            #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a {
+              transition: color 0.25s; }
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover {
+                color: #0990FE; }
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:after, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:after {
+                content: "";
+                background-image: url("../images/right-arrow-icon.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 20px;
+                height: 20px;
+                padding-left: 15px;
+                right: -2px;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -o-transform: translategY(-50%);
+                transform: translateY(-50%);
+                transition: background-image 0.25s; }
+              #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .views-field a:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row .quicklink-item-title a:hover:after {
+                background-image: url("../images/right-arrow-icon-blue.svg"); } }
+  #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer {
+    background: #C6C6C6;
+    font-weight: 500;
+    color: #4F4F4F;
+    font-size: 0.875rem;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    height: 51px;
+    width: 100%;
+    transition: color 0.25s;
+    transition: color 0.25s, background-color 0.25s; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover {
+      color: #fff; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:after {
+      content: "";
+      background-image: url("../images/more-dots-icon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      padding-left: 15px;
+      right: 13px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translategY(-50%);
+      transform: translateY(-50%);
+      transition: background-image 0.25s; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover:after {
+      background-image: url("../images/more-dots-icon-white.svg"); }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover {
+      color: #fff;
+      background-color: #0990FE; }
+    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer a {
+      display: inline-block;
+      text-decoration: none;
+      width: 100%;
+      color: inherit;
+      padding: 0 25px;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translategY(-50%);
+      transform: translateY(-50%); }
+
+#homepage_quicklinks_region > #homepage_quicklinks_content {
+  /*  At this width 2 cards are on the first row, and the third is on the second.
+      First card has a margin-right, but second no longer does:*/ }
+  @media (max-width: 1023px) {
+    #homepage_quicklinks_region > #homepage_quicklinks_content {
+      width: 620px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
+      height: 875px;
+      /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */ }
+      #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:nth-last-of-type(2) {
+        margin-right: 0; }
+      #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-of-type {
+        margin: 0 160px; } }
+  @media (max-width: 700px) {
+    #homepage_quicklinks_region > #homepage_quicklinks_content {
+      height: auto;
+      width: 100%; }
+      #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 100%;
+        margin: 10px auto 0;
+        height: auto; }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-child {
+          margin-right: 0; }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container:last-of-type {
+          margin: 10px auto 0; }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row, #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-field-field-quicklink-image, #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container footer {
+          display: none; }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a {
+          transition: color 0.25s; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:hover {
+            color: #0990FE; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:after {
+            content: "";
+            background-image: url("../images/right-arrow-icon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 20px;
+            height: 20px;
+            padding-left: 15px;
+            right: 8px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translategY(-50%);
+            transform: translateY(-50%);
+            transition: background-image 0.25s; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:hover:after {
+            background-image: url("../images/right-arrow-icon-blue.svg"); }
+        #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header {
+          height: 75px; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header .views-row {
+            height: 75px;
+            padding: 10px; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header .views-field {
+            height: 100%;
+            width: 100%;
+            position: relative; }
+          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3 {
+            height: auto;
+            top: 0;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translategY(-50%);
+            transform: translateY(-50%);
+            padding: 15px;
+            width: 95%;
+            position: absolute;
+            cursor: pointer;
+            transition: color 0.25s; }
+            #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:hover {
+              color: #0990FE; }
+            #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:after {
+              content: "";
+              background-image: url("../images/down-arrow-icon.svg");
+              background-repeat: no-repeat;
+              background-position: center;
+              width: 20px;
+              height: 20px;
+              padding-left: 15px;
+              right: 0;
+              cursor: pointer;
+              position: absolute;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translategY(-50%);
+              transform: translateY(-50%);
+              transition: background-image 0.25s; }
+            #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:hover:after {
+              background-image: url("../images/down-arrow-icon-blue.svg"); }
+            #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open {
+              color: #0990FE;
+              transition: color 0.25s; }
+              #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:hover {
+                color: #0990FE; }
+              #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:after {
+                content: "";
+                background-image: url("../images/up-arrow-icon.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 20px;
+                height: 20px;
+                padding-left: 15px;
+                right: 0;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -o-transform: translategY(-50%);
+                transform: translateY(-50%);
+                transition: background-image 0.25s; }
+              #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:hover:after {
+                background-image: url("../images/up-arrow-icon-blue.svg"); } }
+
+/*
+** This Sass file defines the styles for the 
+** Section 106 Process module.
+*/
+#homepage_flowchart_region {
+  padding: 25px 0px 0px 0px;
+  width: 100%;
+  height: auto;
+  background-color: #E8F8FF; }
+
+.flowchart_content_wrapper {
+  margin: 0 auto;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block;
+  padding: 0px 20px; }
+  .header_container hr {
+    width: 60%; }
+
+#homepage_flowchart_region {
+  padding: 25px 0px 0px 0px; }
+
+#block-readmoreaboutthefederalpreservationprocess div {
+  margin: 20px 20px 30px 20px; }
+  #block-readmoreaboutthefederalpreservationprocess div button {
+    text-transform: uppercase; }
+
+/*
+  This module defines the styles for the Share
+  This Page block element.
+*/
+.share_this_page {
+  border-color: #4F4F4F; }
+  .share_this_page .share_this_page_label {
+    color: #950306; }
+  .share_this_page .share_this_page_button_icon:hover svg path {
+    fill: #0990FE; }
+
+/*
+** This Sass file defines the styles for the 
+** Issues in Preservation module.
+*/
+.issues_content_wrapper {
+  margin: 0 auto;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block;
+  padding: 0px 20px; }
+  .header_container hr {
+    width: 60%; }
+
+#homepage_issues_region {
+  padding: 25px 0px 0px 0px; }
+
+#block-readmoreaboutpreservationissues div {
+  margin: 20px 20px 30px 20px; }
+  #block-readmoreaboutpreservationissues div button {
+    text-transform: uppercase; }
+
+/*
+  This module contains styles for the page
+  footer element.
+*/
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+#footer {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #043B62;
+  color: white;
+  font-size: 0.875rem;
+  font-family: "p22-underground", sans-serif;
+  letter-spacing: 0.02rem;
+  max-width: 100%;
+  padding: 40px; }
+  #footer::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #footer h1, #footer #content_region #block-achp-page-title h1, #content_region #block-achp-page-title #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer p {
+    color: white;
+    text-align: left;
+    text-transform: uppercase; }
+  #footer h2 {
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.125rem; }
+  #footer a {
+    transition: color 0.25s;
+    color: white;
+    font-size: 0.75rem;
+    text-decoration: none; }
+    #footer a:hover {
+      color: #0990FE; }
+  #footer ul, #footer ol {
+    list-style-type: none;
+    padding: 0px; }
+    #footer ul li, #footer ol li {
+      margin-top: 10px; }
+      #footer ul li:last-of-type, #footer ol li:last-of-type {
+        margin-bottom: 10px; }
+  #footer .social_icons {
+    padding-top: 20px; }
+    #footer .social_icons .social_media {
+      padding-right: 20px; }
+  #footer .content_wrapper {
+    text-align: left; }
+    #footer .content_wrapper #footer_2_columns_left {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 66.66667%; }
+      #footer .content_wrapper #footer_2_columns_left:last-child {
+        margin-right: 0; }
+      #footer .content_wrapper #footer_2_columns_left #footer_left {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%;
+        padding-right: 40px; }
+        #footer .content_wrapper #footer_2_columns_left #footer_left:last-child {
+          margin-right: 0; }
+      #footer .content_wrapper #footer_2_columns_left #footer_middle {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%;
+        padding-right: 40px; }
+        #footer .content_wrapper #footer_2_columns_left #footer_middle:last-child {
+          margin-right: 0; }
+    #footer .content_wrapper #footer_right {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 33.33333%; }
+      #footer .content_wrapper #footer_right:last-child {
+        margin-right: 0; }
+
+@media (max-width: 925px) {
+  #footer .content_wrapper #footer_2_columns_left {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%; }
+    #footer .content_wrapper #footer_2_columns_left:last-child {
+      margin-right: 0; }
+    #footer .content_wrapper #footer_2_columns_left #footer_left {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%; }
+      #footer .content_wrapper #footer_2_columns_left #footer_left:last-child {
+        margin-right: 0; }
+    #footer .content_wrapper #footer_2_columns_left #footer_middle {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      margin-top: 40px; }
+      #footer .content_wrapper #footer_2_columns_left #footer_middle:last-child {
+        margin-right: 0; }
+  #footer .content_wrapper #footer_right {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 50%; }
+    #footer .content_wrapper #footer_right:last-child {
+      margin-right: 0; } }
+@media (max-width: 650px) {
+  #footer .content_wrapper #footer_2_columns_left {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #footer .content_wrapper #footer_2_columns_left:last-child {
+      margin-right: 0; }
+  #footer .content_wrapper #footer_right {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #footer .content_wrapper #footer_right:last-child {
+      margin-right: 0; } }
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+header {
+  background-color: #043B62;
+  overflow: hidden;
+  height: 100px;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  header::after {
+    clear: both;
+    content: "";
+    display: table; }
+  header #header-container {
+    max-width: 1024px;
+    height: 100px; }
+    @media (min-width: 1100px) {
+      header #header-container {
+        margin: 0 auto; } }
+    @media (max-width: 1099px) {
+      header #header-container {
+        margin: 0 50px; } }
+    @media (max-width: 500px) {
+      header #header-container {
+        margin: 0 auto;
+        width: 289px; } }
+  header #header_region {
+    display: inline-block; }
+  header #header_left_container, header #header_right_container {
+    max-height: 100px; }
+  header #block-headerbranding, header #block-headerbranding3 {
+    max-height: 100px; }
+  header #header_branding_logo img {
+    height: 100px;
+    border: none; }
+  header #header_branding_title {
+    font-size: 2rem;
+    display: inline-block;
+    max-width: 400px;
+    text-align: left;
+    padding: 10px;
+    padding-left: 40px;
+    line-height: 1.25;
+    color: #fff;
+    font-weight: 100;
+    text-shadow: none;
+    text-decoration: none; }
+    header #header_branding_title a {
+      color: #fff;
+      text-decoration: none; }
+  header #block-headercontactlinks {
+    color: white;
+    font-weight: 300;
+    padding: 15px 0 5px;
+    float: right; }
+    header #block-headercontactlinks a {
+      color: white;
+      font-family: "p22-underground", sans-serif;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.25s; }
+      header #block-headercontactlinks a:hover {
+        color: #71bffe; }
+    header #block-headercontactlinks .text_links a {
+      padding: 5px 15px;
+      border-right: 1px solid rgba(9, 144, 254, 0.6); }
+    header #block-headercontactlinks .social_icons {
+      vertical-align: sub;
+      margin-left: 15px; }
+      header #block-headercontactlinks .social_icons .social_media {
+        padding-right: 10px;
+        transition: color 0.25s; }
+        header #block-headercontactlinks .social_icons .social_media:hover {
+          color: #71bffe; }
+        header #block-headercontactlinks .social_icons .social_media:last-of-type {
+          padding-right: 0; }
+    header #block-headercontactlinks img {
+      vertical-align: text-bottom; }
+  header #block-headertextdropdown, header #block-headertextdropdown-3 {
+    color: white;
+    font-weight: 300;
+    font-family: "p22-underground", sans-serif;
+    font-size: 0.875rem;
+    height: 30px; }
+    header #block-headertextdropdown .header_dropdown_text, header #block-headertextdropdown-3 .header_dropdown_text {
+      vertical-align: text-top; }
+    header #block-headertextdropdown select.header_dropdown_menu, header #block-headertextdropdown-3 select.header_dropdown_menu {
+      font-family: "p22-underground", sans-serif;
+      border: 1px solid #979797;
+      font-size: 0.75rem;
+      border-radius: 2px;
+      height: 100%;
+      line-height: 1.25;
+      outline: none;
+      padding: 7px;
+      width: 50%;
+      margin: 0 10px;
+      color: #C6C6C6;
+      margin-top: 1px;
+      padding: 6px 7px; }
+      header #block-headertextdropdown select.header_dropdown_menu option, header #block-headertextdropdown-3 select.header_dropdown_menu option {
+        font-family: "p22-underground", sans-serif; }
+        header #block-headertextdropdown select.header_dropdown_menu option.selection, header #block-headertextdropdown-3 select.header_dropdown_menu option.selection {
+          color: #000; }
+  header #header_widescreen_search_bar {
+    height: 30px;
+    float: right; }
+    header #header_widescreen_search_bar #block-achp-search {
+      height: auto; }
+      header #header_widescreen_search_bar #block-achp-search .form-item {
+        height: 30px;
+        width: 90%; }
+        header #header_widescreen_search_bar #block-achp-search .form-item input.form-search {
+          border: 1px solid #979797;
+          font-size: 0.75rem;
+          border-radius: 2px;
+          height: 100%;
+          line-height: 1.25;
+          outline: none;
+          padding: 15px 11px;
+          width: 101%; }
+      header #header_widescreen_search_bar #block-achp-search .form-actions {
+        float: right;
+        height: 32px;
+        /* 30px height of text input, plus 1px each for top and bottom borders*/
+        margin: 0;
+        width: 11%; }
+        header #header_widescreen_search_bar #block-achp-search .form-actions input.form-submit {
+          border: none;
+          border-radius: 0 2px 2px 0;
+          height: 100%;
+          width: 100%;
+          position: relative;
+          bottom: 30px;
+          background-image: url("../images/search-icon.svg");
+          background-repeat: no-repeat;
+          background-color: #0990FE;
+          background-position: center;
+          background-size: 63%;
+          cursor: pointer;
+          transition: background-color 0.25s; }
+          header #header_widescreen_search_bar #block-achp-search .form-actions input.form-submit:hover {
+            background-color: #71bffe; }
+
+@media (min-width: 1150px) {
+  header #header_region {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    header #header_region:last-child {
+      margin-right: 0; }
+  header #header_branding_logo {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 8.33333%; }
+    header #header_branding_logo:last-child {
+      margin-right: 0; }
+  header #header_branding_title {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 66.66667%; }
+    header #header_branding_title:last-child {
+      margin-right: 0; }
+  header #header_widescreen_search_bar {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 25%;
+    float: right;
+    width: 26.5%; }
+    header #header_widescreen_search_bar:last-child {
+      margin-right: 0; } }
+@media (max-width: 1150px) {
+  header {
+    height: 75px; }
+    header #header-container {
+      height: 75px; }
+    header #header_left {
+      margin: 0 auto;
+      width: 348px;
+      position: relative; }
+    header #header_branding_logo {
+      float: left;
+      /*border: 1px solid purple;*/ }
+      header #header_branding_logo img {
+        height: 75px;
+        /*border: 1px solid pink;*/ }
+    header #header_branding_title {
+      text-align: center;
+      float: left;
+      padding: 0;
+      font-size: 1.625rem;
+      width: 300px;
+      right: 0;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translategY(-50%);
+      transform: translateY(-50%);
+      top: 37.5px; }
+    header #block-headercontactlinks {
+      display: none; } }
+@media (max-width: 500px) {
+  header #header_left {
+    margin: 0 auto;
+    text-align: center;
+    width: 273px;
+    position: relative; }
+  header #header_branding_title {
+    font-size: 1.25rem;
+    width: 225px; } }
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+#content_region {
+  padding: 5px;
+  margin: 0 auto; }
+  #content_region #block-achp-page-title h1 {
+    font-size: 1.25rem;
+    line-height: 1;
+    text-shadow: none;
+    text-align: left; }
+    @media screen and (min-width: 650px) {
+      #content_region #block-achp-page-title h1 {
+        font-size: 2rem; } }
+    @media screen and (min-width: 925px) {
+      #content_region #block-achp-page-title h1 {
+        font-size: 2.25rem; } }
+  #content_region #block-achp-local-tasks ul {
+    list-style-type: none;
+    padding-left: 0; }
+    #content_region #block-achp-local-tasks ul li {
+      display: inline; }
+      #content_region #block-achp-local-tasks ul li a {
+        font-family: "p22-underground", sans-serif; }
+  #content_region footer {
+    background-color: #fff;
+    height: auto;
+    margin-bottom: 20px; }
+  #content_region #block-achp-content p {
+    text-align: left; }
+
+/*
+  This module contains styles used within the
+  Homepage Hero region.
+*/
+h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
+  font-size: 1.25rem;
+  font-weight: 300; }
+  @media screen and (min-width: 650px) {
+    h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
+      font-size: 2rem; } }
+  @media screen and (min-width: 925px) {
+    h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
+      font-size: 2.25rem; } }
+
+#homepage_hero_region {
+  padding: 25px 50px;
+  height: 500px;
+  position: relative;
+  background-image: url("../images/columns-banner-bg.png");
+  background-size: cover;
+  background-position: center; }
+  #homepage_hero_region #homepage_hero_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    color: #FFFFFF;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 1024px;
+    padding: 0 42px; }
+    #homepage_hero_region #homepage_hero_content hr {
+      color: #FFFFFF;
+      background-color: #FFFFFF;
+      border: none;
+      height: 1px;
+      margin-top: 20px; }
+    #homepage_hero_region #homepage_hero_content p {
+      font-size: 16px;
+      margin-top: 0; }
+      @media screen and (min-width: 650px) {
+        #homepage_hero_region #homepage_hero_content p {
+          font-size: 1.25rem; } }
+      @media screen and (min-width: 925px) {
+        #homepage_hero_region #homepage_hero_content p {
+          font-size: 1.375rem; } }
+    #homepage_hero_region #homepage_hero_content button {
+      margin-top: 40px;
+      margin-bottom: 0;
+      font-size: 0.75rem; }
+      @media screen and (min-width: 650px) {
+        #homepage_hero_region #homepage_hero_content button {
+          font-size: 16px; } }
+      @media (max-width: 925px) {
+        #homepage_hero_region #homepage_hero_content button {
+          font-size: 0.875rem;
+          margin-top: 20px; } }
+
+/*
+  This module contains styles used in the Quick
+  Links region.
+*/
+#homepage_quicklinks_region {
+  padding: 25px 50px;
+  height: auto;
+  background-color: #F4F4F4;
+  overflow-y: visible; }
+  @media (max-width: 700px) {
+    #homepage_quicklinks_region {
+      height: auto;
+      padding: 25px 0; }
+      #homepage_quicklinks_region #block-quicklinks {
+        margin-bottom: 5px; } }
+  @media (max-width: 384px) {
+    #homepage_quicklinks_region {
+      /*padding: 25px 10px;*/ } }
+
+/*
+  This module contains styles used by the
+  Homepage News region.
+*/
+#homepage_news_region {
+  padding: 25px 50px;
+  height: auto; }
+  #homepage_news_region #block-morenewsbutton {
+    padding: 0 25px; }
+    #homepage_news_region #block-morenewsbutton button {
+      clear: both; }
+  @media (max-width: 700px) {
+    #homepage_news_region {
+      padding: 25px 0; } }
+
+/*
+  This module contains styles used by the
+  Homepage Events region.
+*/
+#homepage_events_region {
+  background-image: url("../images/blue-columns-background.jpg");
+  background-size: 2000px 1166px;
+  height: auto; }
+  #homepage_events_region .header_container {
+    padding: 25px 50px; }
+  #homepage_events_region h2 {
+    color: #FFFFFF; }
+  #homepage_events_region hr {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+    border: none;
+    height: 1px; }
+
+/*
+  This module contains styles used in the
+  Homepage Flowchart region.
+*/
+#homepage_flowchart_region {
+  padding: 25px 0px 0px 0px;
+  width: 100%;
+  background-color: #E8F8FF; }
+
+/*
+  This module contains styles used in the
+  Homepage Map region.
+*/
+#homepage_map_region {
+  padding: 25px 0px 0px 0px;
+  background-color: #043B62; }
+  #homepage_map_region h2 {
+    color: #FFFFFF; }
+  #homepage_map_region hr {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+    border: none;
+    height: 1px; }
+
+/*
+  This module contains styles used in the
+  Homepage Success region.
+*/
+#homepage_success_region {
+  padding: 25px 50px;
+  height: auto;
+  background-color: #F4F4F4; }
+  #homepage_success_region p {
+    margin-bottom: 0; }
+  #homepage_success_region button {
+    clear: both; }
+  @media (max-width: 384px) {
+    #homepage_success_region {
+      padding: 25px 10px; }
+      #homepage_success_region #block-preservationsuccessstories {
+        padding: 0 40px; }
+      #homepage_success_region #block-moresuccessstoriesbutton {
+        padding: 0 40px; } }
+
+/*
+  This module contains styles for the Homepage
+  Issues region.
+*/
+#homepage_issues_region {
+  padding: 25px 0px 0px 0px;
+  height: auto;
+  background-color: #E8F8FF; }
+
+/*
+  This module contains styles used in the
+  Homepage Impact region.
+*/
+#homepage_impact_region {
+  padding: 25px 50px;
+  margin: 0 auto; }
+  #homepage_impact_region #block-ourimpact {
+    margin: 0 auto; }
+  #homepage_impact_region .impact_item {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 33.33333%;
+    height: 300px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 25px;
+    margin-bottom: 15px; }
+    #homepage_impact_region .impact_item:last-child {
+      margin-right: 0; }
+    #homepage_impact_region .impact_item img {
+      height: 120px; }
+    #homepage_impact_region .impact_item .impact_number {
+      color: #309AEE;
+      font-family: "p22-underground", sans-serif;
+      font-size: 1.25rem;
+      margin-top: 20px;
+      font-weight: 500; }
+      @media screen and (min-width: 650px) {
+        #homepage_impact_region .impact_item .impact_number {
+          font-size: 1.625rem; } }
+    #homepage_impact_region .impact_item p {
+      color: #4F4F4F;
+      margin: 5px 0 25px; }
+  @media (max-width: 750px) {
+    #homepage_impact_region #block-ourimpact {
+      margin-bottom: 25px; }
+    #homepage_impact_region .impact_item {
+      margin-bottom: 25px;
+      height: auto;
+      padding: 0;
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%; }
+      #homepage_impact_region .impact_item:last-child {
+        margin-right: 0; }
+      #homepage_impact_region .impact_item_1 {
+        margin-left: 0; }
+      #homepage_impact_region .impact_item_3 {
+        margin-bottom: 25px; }
+      #homepage_impact_region .impact_item .impact_number,
+      #homepage_impact_region .impact_item p {
+        margin: 0; }
+      #homepage_impact_region .impact_item img {
+        height: 60px; } }
+  #homepage_impact_region button {
+    clear: both; }
+
+/*
+  This module contains styles used in the
+  Homepage Preserve America region.
+*/
+#homepage_preserveamerica_region {
+  padding: 25px 50px;
+  background-color: #F4F4F4; }
+  #homepage_preserveamerica_region hr {
+    width: 100px; }
+
+#block-preserveamericaheader {
+  text-align: center; }
+  #block-preserveamericaheader .header_container {
+    display: inline-block;
+    margin: 0px auto;
+    width: auto; }
+    #block-preserveamericaheader .header_container hr {
+      width: 60%; }
+
+#block-learnaboutpreserveamerica button {
+  margin: 0 auto; }
+
+.preserveamerica_content_wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+  position: relative; }
+  .preserveamerica_content_wrapper h2 {
+    display: inline-block; }
+  .preserveamerica_content_wrapper .views-element-container {
+    width: 100%; }
+    .preserveamerica_content_wrapper .views-element-container h2 {
+      position: relative; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul {
+      list-style: none;
+      margin-top: 0px;
+      padding: 0px;
+      width: 100%; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li {
+        margin: 0px auto;
+        position: relative; }
+        .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+          background-color: #FFF;
+          border-top: 5px solid #950306;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          box-sizing: border-box;
+          display: inline-block;
+          margin-bottom: 20px;
+          padding: 20px;
+          width: 100%; }
+          .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
+            display: inline-block;
+            vertical-align: top;
+            height: 185px;
+            width: 185px; }
+          .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
+            display: inline-block;
+            left: 225px;
+            padding-right: 20px;
+            position: absolute;
+            vertical-align: top; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:first-child {
+              color: #043b62;
+              display: block;
+              font-family: "p22-underground", sans-serif;
+              font-size: 1.25rem;
+              line-height: 1.75rem;
+              position: relative;
+              text-decoration: none; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right p {
+              color: #1e1e1e;
+              font-family: "minion-pro", serif;
+              font-size: 1rem;
+              line-height: 1.4rem;
+              margin-bottom: 20px;
+              text-align: left;
+              text-decoration: none; }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link {
+              display: inline-block; }
+              .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a {
+                color: #4F4F4F;
+                font-family: "p22-underground", sans-serif;
+                font-size: 0.875rem;
+                font-weight: 500;
+                line-height: 1.2rem;
+                position: absolute;
+                text-decoration: none;
+                text-transform: uppercase;
+                transition: color 0.25s; }
+                .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:hover {
+                  color: #0990FE; }
+                .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:after {
+                  position: absolute;
+                  position: absolute;
+                  top: 50%;
+                  -webkit-transform: translateY(-50%);
+                  -moz-transform: translateY(-50%);
+                  -ms-transform: translateY(-50%);
+                  -o-transform: translategY(-50%);
+                  transform: translateY(-50%);
+                  background-image: url("../images/right-arrow-icon.svg");
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  content: "";
+                  cursor: pointer;
+                  height: 20px;
+                  margin-right: 20px;
+                  padding-left: 15px;
+                  right: -45px;
+                  transition: background-image 0.25s;
+                  width: 20px; }
+                .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:hover:after {
+                  background-image: url("../images/right-arrow-icon-blue.svg"); }
+            .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body-mobile, .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile {
+              display: none; }
+
+@media (max-width: 900px) {
+  .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+    margin: 0 auto;
+    display: block; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body {
+      display: none; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body-mobile {
+      display: block; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
+      margin-bottom: 10px; } }
+@media (max-width: 700px) {
+  .preserveamerica_content_wrapper .views-element-container h2 {
+    display: block;
+    margin: 0 auto; }
+  .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
+    width: 300px;
+    margin-top: 10px; }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
+      position: static;
+      text-align: center; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right p {
+        text-align: center; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-widescreen {
+        display: none; }
+      .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile, .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile a {
+        display: inline-block; }
+        .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile:after, .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile a:after {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translategY(-50%);
+          transform: translateY(-50%);
+          /*left: 100%;*/ }
+    .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
+      height: 250px;
+      width: 250px; } }
+/*
+  This module contains styles for the Digital
+  Library page.
+*/
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+.digital-library-page #block-achp-page-title h1, .digital-library-page #content_region #block-achp-page-title h1, #content_region .digital-library-page #block-achp-page-title h1 {
+  color: #043B62;
+  text-align: left; }
+.digital-library-page #block-sharethispageblock .share_this_page {
+  border-color: #4F4F4F; }
+.digital-library-page #block-achp-content header {
+  background-color: white; }
+.digital-library-page #block-achp-content .views-exposed-form {
+  box-shadow: 0px 1px 2px 0px #E2E2E2;
+  border-top: 6px solid #950306;
+  padding: 25px 20px; }
+  .digital-library-page #block-achp-content .views-exposed-form:before {
+    content: "Search";
+    color: #043B62;
+    display: block;
+    font-size: 20px;
+    line-height: 30px; }
+
+/*
+  This module contains styles used by the
+  Homepage.
+*/
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+#news_landing_page {
+  height: 100%;
+  background-color: #F4F4F4;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  #news_landing_page::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #news_landing_page #content {
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    overflow: auto;
+    padding: 0 50px; }
+    #news_landing_page #content #content_region {
+      padding: 0; }
+    #news_landing_page #content .news-landing-container {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      height: 100%; }
+      #news_landing_page #content .news-landing-container:last-child {
+        margin-right: 0; }
+      #news_landing_page #content .news-landing-container em {
+        font-style: normal !important; }
+      #news_landing_page #content .news-landing-container header {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 100%;
+        background-color: #F4F4F4;
+        position: relative; }
+        #news_landing_page #content .news-landing-container header:last-child {
+          margin-right: 0; }
+        #news_landing_page #content .news-landing-container header .header_container {
+          width: auto;
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -o-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%); }
+          #news_landing_page #content .news-landing-container header .header_container h1 {
+            text-shadow: none;
+            font-weight: 500;
+            font-size: 2.25rem;
+            color: #043B62; }
+          #news_landing_page #content .news-landing-container header .header_container hr {
+            color: #950306;
+            background-color: #950306;
+            border: none;
+            height: 1px;
+            margin-top: 0;
+            width: 60%; }
+        #news_landing_page #content .news-landing-container header .news_filter {
+          display: none; }
+      #news_landing_page #content .news-landing-container .views-exposed-form {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 25%;
+        padding-right: 20px; }
+        #news_landing_page #content .news-landing-container .views-exposed-form:last-child {
+          margin-right: 0; }
+        #news_landing_page #content .news-landing-container .views-exposed-form .form-select {
+          width: 100%; }
+        #news_landing_page #content .news-landing-container .views-exposed-form label {
+          font-size: 1.25rem;
+          font-family: "p22-underground", sans-serif;
+          color: #043B62;
+          border-bottom: 1px solid #950306;
+          display: inline-block;
+          width: 100%;
+          margin-bottom: 10px; }
+        #news_landing_page #content .news-landing-container .views-exposed-form .form-item-date-max label {
+          display: none; }
+        #news_landing_page #content .news-landing-container .views-exposed-form input[type="text"] {
+          max-width: 100%;
+          font-family: "p22-underground", sans-serif;
+          color: #C6C6C6;
+          font-size: 1rem;
+          background-image: url("../images/add-calendar-icon.svg");
+          background-repeat: no-repeat;
+          background-position: 5px center;
+          padding: 5px 0 2px 30px;
+          margin-bottom: 10px; }
+        #news_landing_page #content .news-landing-container .views-exposed-form #edit-field-tags-target-id {
+          margin-bottom: 15px; }
+      #news_landing_page #content .news-landing-container .news-item {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 75%;
+        float: right;
+        background-color: #fff;
+        margin-bottom: 25px;
+        padding: 0; }
+        #news_landing_page #content .news-landing-container .news-item:last-child {
+          margin-right: 0; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-title {
+          margin-top: 10px;
+          padding: 10px 20px 0;
+          display: inline-block; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-title a {
+            color: #043B62;
+            font-size: 1.25rem;
+            text-decoration: none; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-date {
+          color: #C6C6C6;
+          padding: 10px 20px 0;
+          margin-top: 0; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-news-photo img {
+          max-width: 300px;
+          max-height: 300px;
+          float: left;
+          /*margin: 10px 20px 10px 20px;*/
+          padding: 10px 20px 10px 20px; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-body {
+          font-family: "minion-pro", serif;
+          margin: 5px 20px; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-body p {
+            margin-top: 5px; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .views-label {
+          display: block;
+          color: #043B62;
+          margin-left: 20px; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .field-content {
+          height: 20px;
+          position: relative;
+          bottom: 30px; }
+        #news_landing_page #content .news-landing-container .news-item ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 10px 20px 0; }
+          #news_landing_page #content .news-landing-container .news-item ul li {
+            display: inline-block;
+            margin-top: 25px;
+            position: relative; }
+            #news_landing_page #content .news-landing-container .news-item ul li a {
+              text-decoration: none;
+              color: #0990FE;
+              margin-right: 25px; }
+        #news_landing_page #content .news-landing-container .news-item .views-field-view-node {
+          width: 100%;
+          position: relative;
+          margin-top: 20px;
+          height: 30px;
+          background-color: #F4F4F4;
+          clear: both;
+          transition: background-color 0.25s; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-view-node:hover {
+            background-color: #E8F8FF; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-view-node a {
+            color: #4F4F4F;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -o-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            transition: color 0.25s; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-view-node:hover a {
+            color: #0990FE; }
+    #news_landing_page #content nav {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      color: #262626;
+      font-family: "p22-underground", sans-serif; }
+      #news_landing_page #content nav:last-child {
+        margin-right: 0; }
+      #news_landing_page #content nav ul {
+        list-style-type: none;
+        text-align: center;
+        padding: 0; }
+        #news_landing_page #content nav ul li {
+          display: inline-block; }
+          #news_landing_page #content nav ul li a {
+            text-decoration: none;
+            color: #262626; }
+
+@media (max-width: 1000px) {
+  #news_landing_page #content .news-landing-container .views-exposed-form {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 33.33333%; }
+    #news_landing_page #content .news-landing-container .views-exposed-form:last-child {
+      margin-right: 0; }
+  #news_landing_page #content .news-landing-container .news-item {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 66.66667%;
+    float: right; }
+    #news_landing_page #content .news-landing-container .news-item:last-child {
+      margin-right: 0; } }
+@media (max-width: 850px) {
+  #news_landing_page #content .news-landing-container .views-exposed-form {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #4F4F4F;
+    display: none; }
+    #news_landing_page #content .news-landing-container .views-exposed-form:last-child {
+      margin-right: 0; }
+  #news_landing_page #content .news-landing-container .news-item {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    #news_landing_page #content .news-landing-container .news-item:last-child {
+      margin-right: 0; }
+  #news_landing_page #content .news-landing-container header {
+    height: 150px; }
+    #news_landing_page #content .news-landing-container header .header_container {
+      top: 35%; }
+    #news_landing_page #content .news-landing-container header .news_filter {
+      display: block;
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      font-family: "p22-underground", sans-serif;
+      color: #4F4F4F;
+      font-size: 0.875rem;
+      position: absolute;
+      bottom: 10px;
+      font-weight: 500;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #4F4F4F;
+      cursor: pointer; }
+      #news_landing_page #content .news-landing-container header .news_filter:last-child {
+        margin-right: 0; }
+      #news_landing_page #content .news-landing-container header .news_filter.news_filter_open {
+        border-bottom: none;
+        bottom: 11px; } }
+@media (max-width: 500px) {
+  #news_landing_page #content .news-landing-container .news-item .views-field-field-news-photo img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto; }
+  #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .field-content {
+    height: auto;
+    position: static; }
+  #news_landing_page #content .news-landing-container .news-item ul {
+    padding-top: 0; }
+    #news_landing_page #content .news-landing-container .news-item ul li {
+      margin-top: 0;
+      display: list-item; }
+      #news_landing_page #content .news-landing-container .news-item ul li a {
+        margin: 0; } }
+/* Global variables: widths, heights, & breakpoints */
+/*$arrow-width: 8px;
+$arrow-padding: 5px;*/
+/* Global variables: text */
+/* Global variables: colors */
+/* Variables for homepage cards */
+/* Grid variables */
+/* Mixin for centering horizontally */
+/* Mixin for centering vertically */
+/* Mixin for centering vertically & horizontally */
+/* Mixin for generating solid-colored hr elements*/
+/* Mixin for centering and cropping to fit images*/
+/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
+/* Mixin for attaching icons as right after-elements */
+/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
+/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
+/* Mixin for responsive type size */
+/* Maps for type changes*/
+#news_item_page {
+  height: 100%;
+  background-color: #F4F4F4;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  #news_item_page::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #news_item_page #news_content_container {
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    overflow: auto;
+    padding: 0 50px; }
+    #news_item_page #news_content_container .news_back_link a {
+      text-decoration: none;
+      font-family: "p22-underground", sans-serif;
+      color: #4F4F4F;
+      font-size: 0.75rem;
+      /*@include hover-transition-content($color-blue-primary);*/ }
+    #news_item_page #news_content_container .news_back_link:before {
+      content: url("../images/left-arrow-icon.svg");
+      height: 8px;
+      width: 8px;
+      margin-right: 10px; }
+    #news_item_page #news_content_container article.news_item {
+      background-color: #fff;
+      padding: 40px 70px;
+      margin: 10px 0; }
+      #news_item_page #news_content_container article.news_item h1 {
+        color: #043B62;
+        text-shadow: none;
+        font-size: 2.25rem;
+        text-align: left;
+        font-weight: 400; }
+      #news_item_page #news_content_container article.news_item .news_item_date {
+        color: #C6C6C6; }
+      #news_item_page #news_content_container article.news_item .news_item_photo {
+        margin-top: 10px;
+        width: auto;
+        max-width: 100%; }
+      #news_item_page #news_content_container article.news_item .news_item_body {
+        font-family: "minion-pro", serif;
+        color: #1E1E1E;
+        font-size: 1.125rem; }
+      #news_item_page #news_content_container article.news_item .news_divider {
+        margin: 50px 0 20px;
+        height: 2px;
+        background-color: #C6C6C6; }
+      #news_item_page #news_content_container article.news_item .news_item_tags .news_item_tags_label {
+        color: #043B62;
+        text-transform: uppercase; }
+      #news_item_page #news_content_container article.news_item .news_item_tags a {
+        display: inline-block;
+        text-decoration: none;
+        color: #0990FE;
+        margin: 5px 25px 0 0; }
+
+/*
+  This module defines the sass directives used
+  to style Section 106 Process Step pages.
+  */
+.process-step-node {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+  padding-bottom: 50px; }
+  .process-step-node::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .process-step-node .section_106_process {
+    background-color: #E6F8FF; }
+  .process-step-node .step-content {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 66.66667%;
+    margin-left: 16.66667%;
+    position: relative;
+    text-align: left; }
+    .process-step-node .step-content:last-child {
+      margin-right: 0; }
+  .process-step-node .step-number {
+    color: #950306;
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+    position: relative;
+    text-transform: uppercase; }
+    .process-step-node .step-number div {
+      display: inline-block; }
+  .process-step-node .step-title {
+    color: #043b62;
+    font-family: "p22-underground", sans-serif;
+    font-size: 2.25rem;
+    line-height: 3.15rem; }
+  .process-step-node .determination-section-title {
+    color: #003a5e;
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.375rem;
+    line-height: 1.925rem; }
+  .process-step-node div.step-content > hr {
+    background-color: #CCC; }
+  .process-step-node .determination-prompt {
+    display: inline-block;
+    padding: 20px 0px;
+    white-space: nowrap; }
+    .process-step-node .determination-prompt div {
+      display: inline-block;
+      vertical-align: middle; }
+    .process-step-node .determination-prompt div.determination-image + div {
+      background-color: #e8f8ff;
+      color: #4a4a4a;
+      display: inline-block;
+      font-family: "p22-underground", sans-serif;
+      font-size: 18px;
+      line-height: 51px;
+      padding: 0px 30px;
+      position: relative;
+      width: 630px; }
+  .process-step-node .determination-image {
+    background-color: #013b5e;
+    background-image: url("/themes/achp/sass/pages/section_106_process/images/split-icon.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    height: 51px;
+    margin-right: -4px;
+    width: 53px; }
+  .process-step-node .determination-yes-wrapper {
+    display: inline-block;
+    padding-top: 20px;
+    white-space: nowrap; }
+    .process-step-node .determination-yes-wrapper div {
+      display: inline-block;
+      vertical-align: middle; }
+    .process-step-node .determination-yes-wrapper div.determination-prompt-yes + div {
+      background-color: #d0efd7;
+      color: #4a4a4a;
+      display: inline-block;
+      font-family: "p22-underground", sans-serif;
+      font-size: 18px;
+      line-height: 51px;
+      padding: 0px 30px;
+      position: relative;
+      width: 630px; }
+  .process-step-node .determination-prompt-yes {
+    background-color: #2b883f;
+    color: white;
+    font-family: "p22-underground", sans-serif;
+    font-size: 18px;
+    height: 51px;
+    line-height: 51px;
+    margin-right: -4px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 53px; }
+  .process-step-node .yes-explaination-and-action div:first-child {
+    background-color: #f2fff5;
+    margin-left: 53px;
+    padding: 30px; }
+  .process-step-node .determination-no-wrapper {
+    display: inline-block;
+    padding-top: 20px;
+    white-space: nowrap; }
+    .process-step-node .determination-no-wrapper div {
+      display: inline-block;
+      vertical-align: middle; }
+    .process-step-node .determination-no-wrapper div.determination-prompt-no + div {
+      background-color: #e5e3e4;
+      color: #4a4a4a;
+      display: inline-block;
+      font-family: "p22-underground", sans-serif;
+      font-size: 18px;
+      line-height: 51px;
+      padding: 0px 30px;
+      position: relative;
+      width: 630px; }
+  .process-step-node .determination-prompt-no {
+    background-color: #4a4a4a;
+    color: white;
+    font-family: "p22-underground", sans-serif;
+    font-size: 18px;
+    height: 51px;
+    line-height: 51px;
+    margin-right: -4px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 53px; }
+  .process-step-node .no-explaination-and-action div:first-child {
+    background-color: #f4f4f4;
+    margin-left: 53px;
+    padding: 30px; }
+  .process-step-node .no-further-action {
+    background-image: url("/themes/achp/sass/pages/section_106_process/images/stop-icon.svg");
+    background-position: left 30px center;
+    background-repeat: no-repeat;
+    font-family: "p22-underground", sans-serif;
+    font-size: 18px;
+    line-height: 51px;
+    margin-left: 53px;
+    padding: 5px 0px 0px 70px;
+    position: relative;
+    text-transform: uppercase; }
+  .process-step-node .no-explaination-and-action .no-further-action {
+    background-color: #f4f4f4;
+    border-top: 1px solid #e5e3e4; }
+  .process-step-node .yes-explaination-and-action .no-further-action {
+    background-color: #f2fff5;
+    border-top: 1px solid #d0efd7; }
+
+html,
+body {
+  font-family: "minion-pro", serif;
+  font-size: 16px;
+  letter-spacing: 0.02rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0; }
+
+h1, #content_region #block-achp-page-title h1, h2, h3 {
+  font-family: "p22-underground", sans-serif;
+  text-align: center;
+  margin: 0;
+  font-weight: normal; }
+
+h1, #content_region #block-achp-page-title h1 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
+  @media screen and (min-width: 650px) {
+    h1, #content_region #block-achp-page-title h1 {
+      font-size: 2rem; } }
+  @media screen and (min-width: 925px) {
+    h1, #content_region #block-achp-page-title h1 {
+      font-size: 2.5rem; } }
+  h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
+    font-size: 1.25rem;
+    font-weight: 300; }
+    @media screen and (min-width: 650px) {
+      h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
+        font-size: 2rem; } }
+    @media screen and (min-width: 925px) {
+      h1.heading_subtitle, #content_region #block-achp-page-title h1.heading_subtitle {
+        font-size: 2.25rem; } }
+
+h2 {
+  font-size: 1.25rem;
+  color: #043B62; }
+  @media screen and (min-width: 650px) {
+    h2 {
+      font-size: 2rem; } }
+
+h3 {
+  font-size: 1.125rem;
+  color: #043B62;
+  text-align: left;
+  font-weight: 500; }
+  @media screen and (min-width: 650px) {
+    h3 {
+      font-size: 1.25rem; } }
+  h3 a {
+    color: inherit;
+    text-decoration: none; }
+
+hr {
+  color: #950306;
+  background-color: #950306;
+  border: none;
+  height: 1px;
+  min-width: 50px; }
+
+p {
+  text-align: center; }
+
+#outer_container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  #outer_container::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+button {
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.75rem;
+  color: #FFFFFF;
+  line-height: 1.4rem;
+  background-color: #0990FE;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+  border: none;
+  border-radius: 2px;
+  padding: 12px 53px 8px;
+  margin: 0 auto 30px auto;
+  display: block;
+  letter-spacing: 0.02rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.25s; }
+  @media screen and (min-width: 650px) {
+    button {
+      font-size: 16px; } }
+  button:hover {
+    background-color: #71BFFE; }
+
+.region_container {
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 100%; }
+  .region_container:last-child {
+    margin-right: 0; }
+
+.content_wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center; }
+
+.header_container {
+  width: auto;
+  display: inline-block; }
+  .header_container hr {
+    width: 60%; }
+
+.card, .event_calendar .event_calendar_calendar_body, .event_calendar .event_calendar_grid_body .event_calendar_grid_card, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #news_item_page #news_content_container article.news_item {
+  font-family: "p22-underground", sans-serif;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+  border-top: 6px solid #950306;
+  box-sizing: border-box;
+  text-align: left; }
+
+.card_date, .event_calendar .event_calendar_grid_body .event_calendar_grid_card_date, #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_date {
+  color: #C6C6C6;
+  margin-top: 15px; }
+
+.card_body, .event_calendar .event_calendar_grid_body .event_calendar_grid_card_location, #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_body p {
+  text-align: left;
+  font-family: "minion-pro", serif;
+  margin-top: 10px;
+  color: #4F4F4F; }
+
+.read_more {
+  cursor: pointer; }
+  .read_more a {
+    color: #4F4F4F;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    vertical-align: bottom;
+    transition: color 0.25s; }
+    .read_more a:hover {
+      color: #0990FE; }
+    .read_more a:after {
+      content: "";
+      background-image: url("../images/right-arrow-icon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      padding-left: 15px;
+      right: -20px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translategY(-50%);
+      transform: translateY(-50%);
+      transition: background-image 0.25s; }
+    .read_more a:hover:after {
+      background-image: url("../images/right-arrow-icon-blue.svg"); }
+
+.toast-message {
+  font-family: "p22-underground", sans-serif; }
+
+/* Admin menu overlay */
+body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
+  margin: 0px; }
+
+/*# sourceMappingURL=style.css.map */
