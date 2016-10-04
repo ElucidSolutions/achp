@@ -39,11 +39,9 @@
   <section class="success_story_title">
     <h3>{{ fields.field_success_short_title.content }}</h3>
   </section>
-  {% spaceless %}
   <section class="success_story_location">
-    <span>{{ fields.field_success_city.content }},</span><span>{{ fields.field_success_state.content }}</span>
+      {{ fields.field_success_city.content }},{{ fields.field_success_state.content }}
   </section>
-  {% endspaceless %}
   <section class="success_story_body">
     <p>{{ fields.body.content }}</p>
   </section>

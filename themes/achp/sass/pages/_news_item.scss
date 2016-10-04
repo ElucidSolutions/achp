@@ -1,3 +1,31 @@
-article {
-  
+@import "../global";
+
+#news_item_page {
+  /* Outer container of page*/
+  height: 100%;
+  background-color: $background-color-grey;
+  @include outer-container(100%);
+
+  article.news_item {
+    /* This determines width of content */
+    max-width: $max-content-width;
+    margin: 0 auto;
+    position: relative;
+    overflow: auto;
+    padding: 0 50px;
+/*
+    #content_region {
+      padding: 0;
+      
+    }*/
+
+/*    .news-landing-container {
+      @include span-columns (12);
+      height: 100%;
+    }*/
+  }
 }
+
+/*.news_item_container {
+  border: 1px solid grey;
+}*/
