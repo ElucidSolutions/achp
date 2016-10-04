@@ -2472,11 +2472,12 @@ $arrow-padding: 5px;*/
       #news_item_page #news_content_container article.news_item .news_item_tags .news_item_tags_label {
         color: #043B62;
         text-transform: uppercase; }
-      #news_item_page #news_content_container article.news_item .news_item_tags a {
+      #news_item_page #news_content_container article.news_item .news_item_tags .field_tags {
         display: inline-block;
-        text-decoration: none;
-        color: #0990FE;
         margin: 5px 25px 0 0; }
+        #news_item_page #news_content_container article.news_item .news_item_tags .field_tags a {
+          text-decoration: none;
+          color: #0990FE; }
 
 /*
   This module defines the sass directives used

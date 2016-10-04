@@ -71,11 +71,14 @@
           text-transform: uppercase;
         }
 
-        a {
+        .field_tags {
           display: inline-block;
-          text-decoration: none;
-          color: $color-blue-primary;
           margin: 5px 25px 0 0;
+
+          a {
+            text-decoration: none;
+            color: $color-blue-primary;
+          }
         }
       }
     }
