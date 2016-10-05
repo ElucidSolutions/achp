@@ -1,0 +1,13 @@
+<?php
+/**
+ * @file
+ * Adds an additional format option to the views term filter form.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter ()
+ */
+function view_term_list_form_views_ui_config_item_extra_form_alter (&$form, $form_state) {
+  // Note: the following is equivalent to the t() function provided by Views.php.
+  $form ['options']['type']['#options']['list'] = \Drupal::service ('string_translation')->translate ('List');
+}
