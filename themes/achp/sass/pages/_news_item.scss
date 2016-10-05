@@ -1,68 +1,78 @@
 @import "../global";
 
 #news_item_page {
-  height: 100%;
-  background-color: $background-color-grey;
   @include outer-container(100%);
+  background-color: $background-color-grey;
+  height: 100%;
 
   #news_content_container {
-   max-width: $max-content-width;
     margin: 0 auto;
-    position: relative;
+    max-width: $max-content-width;
     overflow: auto;
     padding: 0 50px;
+    position: relative;
 
     .news_back_link {
       a {
-        text-decoration: none;
-        font-family: $sans-text;
         color: $color-grey;
+        font-family: $sans-text;
         font-size: 0.75rem;
-        /*@include hover-transition-content($color-blue-primary);*/
+        text-decoration: none;
       }
-
       &:before {
         content: url('../images/left-arrow-icon.svg');
         height: 8px;
-        width: 8px;
         margin-right: 10px;
+        width: 8px;
       }
     }
   
     article.news_item {
+      @extend .card;      
       background-color: #fff;
-      padding: 40px 70px;
       margin: 10px 0;
-      @extend .card;
+      padding: 40px 70px;
 
       h1 {
         color: $color-darkblue;
-        text-shadow: none;
         font-size: 2.25rem;
-        text-align: left;
         font-weight: 400;
+        text-align: left;
+        text-shadow: none;
       }
 
       .news_item_date {
-        color: $color-lightgrey;      
+        color: $color-lightgrey-2;      
       }
 
       .news_item_photo {
-        margin-top: 10px;
-        width: auto;
-        max-width: 100%;
+        .field_news_photo {
+          background: $background-color-grey;
+        
+          img {
+            display: block;
+            margin: 10px auto;
+            max-height: 300px;
+            max-width: 100%;
+            width: auto;
+          }
+        }
+
+        .field_image_caption {
+          color: $color-lightgrey-2;
+        }
       }
 
       .news_item_body {
+        color: $color-darkgrey2;        
         font-family: $serif-text;
-        color: $color-darkgrey2;
         font-size: 1.125rem;
       }
 
       .news_divider {
-        margin: 50px 0 20px;
-        height: 2px;
         background-color: $color-lightgrey;
+        height: 2px;
+        margin: 50px 0 20px;
       }
 
       .news_item_tags {
@@ -76,8 +86,8 @@
           margin: 5px 25px 0 0;
 
           a {
-            text-decoration: none;
             color: $color-blue-primary;
+            text-decoration: none;
           }
         }
       }

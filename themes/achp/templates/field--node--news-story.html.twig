@@ -44,21 +44,24 @@
     <div{{ attributes }}>
       {% for item in items %}
         <div{{ item.attributes }} class="{{ field_name }}">{{ item.content }}</div>
+        {% if item.content['#item'].alt %}
+          <div class="field_image_caption">{{ item.content['#item'].alt }}</div>
+          {% endif %}
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes }}>{{ item.content }}</div>
+      <div{{ attributes }} class="{{ field_name }}">{{ item.content }}</div>
     {% endfor %}
   {% endif %}
 {% else %}
   <div{{ attributes }}>
-    <div{{ title_attributes }}>{{ label }}</div>
+    <div{{ title_attributes }} class="{{ field_name }}">{{ label }}</div>
     {% if multiple %}
       <div">
     {% endif %}
     {% for item in items %}
-      <div{{ item.attributes }}>{{ item.content }}</div>
+      <div{{ item.attributes }} class="{{ field_name }}">{{ item.content }}</div>
     {% endfor %}
     {% if multiple %}
       </div>

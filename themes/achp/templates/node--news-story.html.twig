@@ -80,11 +80,15 @@
         <div class="news_item_date">{{ content.field_news_date }}
         </div>
         <div class="news_item_photo">{{ content.field_news_photo }}</div>
+        <div class="news_item_share">
+          <div class="news_item_share_label">SHARE</div>
+        </div>
         <div class="news_item_body">{{ content.body }}</div>
         <hr class="news_divider" />
         <div class="news_item_tags">
-          <div class="news_item_tags_label">TOPICS</div>{{ content.field_tags }}
-          {{ content.field_tags.field_name }}
+          <div class="news_item_tags_label">TOPICS</div>
+          {{ content.field_tags }}
+          <!-- {{ content.field_tags.field_name }} -->
         </div>
       </article>
     </div>

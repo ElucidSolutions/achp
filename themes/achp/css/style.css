@@ -2419,56 +2419,61 @@ $arrow-padding: 5px;*/
 /* Mixin for responsive type size */
 /* Maps for type changes*/
 #news_item_page {
-  height: 100%;
-  background-color: #F4F4F4;
   max-width: 100%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  background-color: #F4F4F4;
+  height: 100%; }
   #news_item_page::after {
     clear: both;
     content: "";
     display: table; }
   #news_item_page #news_content_container {
-    max-width: 1024px;
     margin: 0 auto;
-    position: relative;
+    max-width: 1024px;
     overflow: auto;
-    padding: 0 50px; }
+    padding: 0 50px;
+    position: relative; }
     #news_item_page #news_content_container .news_back_link a {
-      text-decoration: none;
-      font-family: "p22-underground", sans-serif;
       color: #4F4F4F;
+      font-family: "p22-underground", sans-serif;
       font-size: 0.75rem;
-      /*@include hover-transition-content($color-blue-primary);*/ }
+      text-decoration: none; }
     #news_item_page #news_content_container .news_back_link:before {
       content: url("../images/left-arrow-icon.svg");
       height: 8px;
-      width: 8px;
-      margin-right: 10px; }
+      margin-right: 10px;
+      width: 8px; }
     #news_item_page #news_content_container article.news_item {
       background-color: #fff;
-      padding: 40px 70px;
-      margin: 10px 0; }
+      margin: 10px 0;
+      padding: 40px 70px; }
       #news_item_page #news_content_container article.news_item h1 {
         color: #043B62;
-        text-shadow: none;
         font-size: 2.25rem;
+        font-weight: 400;
         text-align: left;
-        font-weight: 400; }
+        text-shadow: none; }
       #news_item_page #news_content_container article.news_item .news_item_date {
-        color: #C6C6C6; }
-      #news_item_page #news_content_container article.news_item .news_item_photo {
-        margin-top: 10px;
-        width: auto;
-        max-width: 100%; }
+        color: #7C7C7C; }
+      #news_item_page #news_content_container article.news_item .news_item_photo .field_news_photo {
+        background: #F4F4F4; }
+        #news_item_page #news_content_container article.news_item .news_item_photo .field_news_photo img {
+          display: block;
+          margin: 10px auto;
+          max-height: 300px;
+          max-width: 100%;
+          width: auto; }
+      #news_item_page #news_content_container article.news_item .news_item_photo .field_image_caption {
+        color: #7C7C7C; }
       #news_item_page #news_content_container article.news_item .news_item_body {
-        font-family: "minion-pro", serif;
         color: #1E1E1E;
+        font-family: "minion-pro", serif;
         font-size: 1.125rem; }
       #news_item_page #news_content_container article.news_item .news_divider {
-        margin: 50px 0 20px;
+        background-color: #C6C6C6;
         height: 2px;
-        background-color: #C6C6C6; }
+        margin: 50px 0 20px; }
       #news_item_page #news_content_container article.news_item .news_item_tags .news_item_tags_label {
         color: #043B62;
         text-transform: uppercase; }
@@ -2476,8 +2481,8 @@ $arrow-padding: 5px;*/
         display: inline-block;
         margin: 5px 25px 0 0; }
         #news_item_page #news_content_container article.news_item .news_item_tags .field_tags a {
-          text-decoration: none;
-          color: #0990FE; }
+          color: #0990FE;
+          text-decoration: none; }
 
 /*
   This module defines the sass directives used
