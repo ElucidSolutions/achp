@@ -1,5 +1,8 @@
 @import "../global";
 
+$max-width-padding: 50px;
+$news-item-padding: 70px;
+
 #news_item_page {
   @include outer-container(100%);
   background-color: $background-color-grey;
@@ -9,14 +12,14 @@
     margin: 0 auto;
     max-width: $max-content-width;
     overflow: auto;
-    padding: 0 50px;
+    padding: 0 $max-width-padding;
     position: relative;
 
     .news_back_link {
       a {
+        @include rem('font-size', 12px);        
         color: $color-grey;
         font-family: $sans-text;
-        font-size: 0.75rem;
         text-decoration: none;
       }
       &:before {
@@ -26,25 +29,22 @@
         width: 8px;
       }
     }
-  
     article.news_item {
       @extend .card;      
       background-color: #fff;
       margin: 10px 0;
-      padding: 40px 70px;
+      padding: 40px $news-item-padding;
 
       h1 {
+        @include rem('font-size', 36px);        
         color: $color-darkblue;
-        font-size: 2.25rem;
         font-weight: 400;
         text-align: left;
         text-shadow: none;
       }
-
       .news_item_date {
         color: $color-lightgrey-2;      
       }
-
       .news_item_photo {
         .field_news_photo {
           background: $background-color-grey;
@@ -57,24 +57,42 @@
             width: auto;
           }
         }
-
         .field_image_caption {
           color: $color-lightgrey-2;
         }
       }
-
       .news_item_body {
         color: $color-darkgrey2;        
         font-family: $serif-text;
-        font-size: 1.125rem;
-      }
+        @include rem('font-size', 16px);
 
+        $blockquote-margin: 20px;
+
+        blockquote {
+          @include rem('font-size', 24px);
+          color: $color-lightgrey-2;
+          font-family: $sans-text;
+          margin: 0;
+          margin-left: $blockquote-margin;
+          position: relative;
+
+          &:before {
+            @include center-y;
+            background-color: $color-lightgrey;
+            content: "";
+            height: 90%;
+            left: -$blockquote-margin;
+            position: absolute;
+            top: 49%;
+            width: 4px;
+          }
+        }
+      }
       .news_divider {
         background-color: $color-lightgrey;
         height: 2px;
         margin: 50px 0 20px;
       }
-
       .news_item_tags {
         .news_item_tags_label {
           color: $color-darkblue;
@@ -92,6 +110,29 @@
         }
       }
     }
+  }
+}
 
+#content_region {
+  /* Need to be able to add a title to this, or something to specify 
+  which page exactly it is ...*/
+  background-color: $background-color-grey;
+}
+
+#block-sharethispageblock {
+  background-color: #fff;
+  max-width: $max-content-width - $max-width-padding * 2;
+  margin: 0 auto;
+
+  .share_this_page {
+    margin: 0 auto;
+    padding: 10px 0;
+
+    .share_this_page_buttons:before {
+      color: $color-red;
+      content: 'SHARE';
+      font-family: $sans-text;
+      vertical-align: super;
+    }
   }
 }

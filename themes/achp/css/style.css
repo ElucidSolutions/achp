@@ -21,6 +21,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 /*
   This module contains styles used by the Event
@@ -315,6 +316,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 #homepage_news_content #block-views-block-latest-news-block .homepage_news_item {
   padding: 10px;
@@ -414,6 +416,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 #homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container, #homepage_success_content #block-views-block-homepage-success-stories-block #news_item_page #news_content_container article.news_item, #news_item_page #news_content_container #homepage_success_content #block-views-block-homepage-success-stories-block article.news_item {
   text-align: center;
@@ -491,6 +494,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 /* These styles apply to the success stories and latest news views on the homepage */
 #block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
@@ -919,6 +923,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 #homepage_quicklinks_region #block-quicklinks {
   float: left;
@@ -1290,6 +1295,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 #footer {
   max-width: 1200px;
@@ -1426,6 +1432,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 header {
   background-color: #043B62;
@@ -1659,6 +1666,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 #content_region {
   padding: 5px;
@@ -2090,6 +2098,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 .digital-library-page #block-achp-page-title h1, .digital-library-page #content_region #block-achp-page-title h1, #content_region .digital-library-page #block-achp-page-title h1 {
   color: #043B62;
@@ -2130,23 +2139,24 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 #news_landing_page {
-  height: 100%;
-  background-color: #F4F4F4;
   max-width: 100%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  background-color: #F4F4F4;
+  height: 100%; }
   #news_landing_page::after {
     clear: both;
     content: "";
     display: table; }
   #news_landing_page #content {
-    max-width: 1024px;
     margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 50px;
     position: relative;
-    overflow: auto;
-    padding: 0 50px; }
+    overflow: auto; }
     #news_landing_page #content #content_region {
       padding: 0; }
     #news_landing_page #content .news-landing-container {
@@ -2158,7 +2168,9 @@ $arrow-padding: 5px;*/
       #news_landing_page #content .news-landing-container:last-child {
         margin-right: 0; }
       #news_landing_page #content .news-landing-container em {
-        font-style: normal !important; }
+        font-style: normal !important;
+        /* If an item summary cuts off in the middle of emphasized
+        text, the entire rest of the page is italicized too*/ }
       #news_landing_page #content .news-landing-container header {
         float: left;
         display: block;
@@ -2169,8 +2181,6 @@ $arrow-padding: 5px;*/
         #news_landing_page #content .news-landing-container header:last-child {
           margin-right: 0; }
         #news_landing_page #content .news-landing-container header .header_container {
-          width: auto;
-          display: inline-block;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -2178,12 +2188,15 @@ $arrow-padding: 5px;*/
           -moz-transform: translateX(-50%) translateY(-50%);
           -ms-transform: translateX(-50%) translateY(-50%);
           -o-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%); }
+          transform: translateX(-50%) translateY(-50%);
+          display: inline-block;
+          width: auto; }
           #news_landing_page #content .news-landing-container header .header_container h1 {
-            text-shadow: none;
-            font-weight: 500;
+            font-size: 36px;
             font-size: 2.25rem;
-            color: #043B62; }
+            color: #043B62;
+            font-weight: 500;
+            text-shadow: none; }
           #news_landing_page #content .news-landing-container header .header_container hr {
             color: #950306;
             background-color: #950306;
@@ -2204,25 +2217,27 @@ $arrow-padding: 5px;*/
         #news_landing_page #content .news-landing-container .views-exposed-form .form-select {
           width: 100%; }
         #news_landing_page #content .news-landing-container .views-exposed-form label {
+          font-size: 20px;
           font-size: 1.25rem;
-          font-family: "p22-underground", sans-serif;
-          color: #043B62;
           border-bottom: 1px solid #950306;
+          color: #043B62;
           display: inline-block;
-          width: 100%;
-          margin-bottom: 10px; }
+          font-family: "p22-underground", sans-serif;
+          margin-bottom: 10px;
+          width: 100%; }
         #news_landing_page #content .news-landing-container .views-exposed-form .form-item-date-max label {
           display: none; }
         #news_landing_page #content .news-landing-container .views-exposed-form input[type="text"] {
-          max-width: 100%;
-          font-family: "p22-underground", sans-serif;
-          color: #C6C6C6;
+          font-size: 16px;
           font-size: 1rem;
           background-image: url("../images/add-calendar-icon.svg");
-          background-repeat: no-repeat;
           background-position: 5px center;
-          padding: 5px 0 2px 30px;
-          margin-bottom: 10px; }
+          background-repeat: no-repeat;
+          color: #C6C6C6;
+          font-family: "p22-underground", sans-serif;
+          margin-bottom: 10px;
+          max-width: 100%;
+          padding: 5px 0 2px 30px; }
         #news_landing_page #content .news-landing-container .views-exposed-form #edit-field-tags-target-id {
           margin-bottom: 15px; }
       #news_landing_page #content .news-landing-container .news-item {
@@ -2230,29 +2245,29 @@ $arrow-padding: 5px;*/
         display: block;
         margin-right: 0%;
         width: 75%;
-        float: right;
         background-color: #fff;
+        float: right;
         margin-bottom: 25px;
         padding: 0; }
         #news_landing_page #content .news-landing-container .news-item:last-child {
           margin-right: 0; }
         #news_landing_page #content .news-landing-container .news-item .views-field-title {
           margin-top: 10px;
-          padding: 10px 20px 0;
-          display: inline-block; }
+          display: inline-block;
+          padding: 10px 20px 0; }
           #news_landing_page #content .news-landing-container .news-item .views-field-title a {
-            color: #043B62;
+            font-size: 20px;
             font-size: 1.25rem;
+            color: #043B62;
             text-decoration: none; }
         #news_landing_page #content .news-landing-container .news-item .views-field-field-date {
           color: #C6C6C6;
-          padding: 10px 20px 0;
-          margin-top: 0; }
+          margin-top: 0;
+          padding: 10px 20px 0; }
         #news_landing_page #content .news-landing-container .news-item .views-field-field-news-photo img {
-          max-width: 300px;
-          max-height: 300px;
           float: left;
-          /*margin: 10px 20px 10px 20px;*/
+          max-height: 300px;
+          max-width: 300px;
           padding: 10px 20px 10px 20px; }
         #news_landing_page #content .news-landing-container .news-item .views-field-body {
           font-family: "minion-pro", serif;
@@ -2260,13 +2275,13 @@ $arrow-padding: 5px;*/
           #news_landing_page #content .news-landing-container .news-item .views-field-body p {
             margin-top: 5px; }
         #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .views-label {
-          display: block;
           color: #043B62;
+          display: block;
           margin-left: 20px; }
         #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .field-content {
+          bottom: 30px;
           height: 20px;
-          position: relative;
-          bottom: 30px; }
+          position: relative; }
         #news_landing_page #content .news-landing-container .news-item ul {
           list-style-type: none;
           margin: 0;
@@ -2276,24 +2291,20 @@ $arrow-padding: 5px;*/
             margin-top: 25px;
             position: relative; }
             #news_landing_page #content .news-landing-container .news-item ul li a {
-              text-decoration: none;
               color: #0990FE;
-              margin-right: 25px; }
+              margin-right: 25px;
+              text-decoration: none; }
         #news_landing_page #content .news-landing-container .news-item .views-field-view-node {
-          width: 100%;
-          position: relative;
-          margin-top: 20px;
-          height: 30px;
+          transition: background-color 0.25s;
           background-color: #F4F4F4;
           clear: both;
-          transition: background-color 0.25s; }
+          height: 30px;
+          margin-top: 20px;
+          position: relative;
+          width: 100%; }
           #news_landing_page #content .news-landing-container .news-item .views-field-view-node:hover {
             background-color: #E8F8FF; }
           #news_landing_page #content .news-landing-container .news-item .views-field-view-node a {
-            color: #4F4F4F;
-            text-decoration: none;
-            text-align: center;
-            font-weight: 500;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -2302,6 +2313,10 @@ $arrow-padding: 5px;*/
             -ms-transform: translateX(-50%) translateY(-50%);
             -o-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
+            color: #4F4F4F;
+            font-weight: 500;
+            text-decoration: none;
+            text-align: center;
             transition: color 0.25s; }
           #news_landing_page #content .news-landing-container .news-item .views-field-view-node:hover a {
             color: #0990FE; }
@@ -2316,13 +2331,13 @@ $arrow-padding: 5px;*/
         margin-right: 0; }
       #news_landing_page #content nav ul {
         list-style-type: none;
-        text-align: center;
-        padding: 0; }
+        padding: 0;
+        text-align: center; }
         #news_landing_page #content nav ul li {
           display: inline-block; }
           #news_landing_page #content nav ul li a {
-            text-decoration: none;
-            color: #262626; }
+            color: #262626;
+            text-decoration: none; }
 
 @media (max-width: 1000px) {
   #news_landing_page #content .news-landing-container .views-exposed-form {
@@ -2346,11 +2361,11 @@ $arrow-padding: 5px;*/
     display: block;
     margin-right: 0%;
     width: 100%;
-    padding-right: 0;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
     border-bottom: 1px solid #4F4F4F;
-    display: none; }
+    display: none;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    padding-right: 0; }
     #news_landing_page #content .news-landing-container .views-exposed-form:last-child {
       margin-right: 0; }
   #news_landing_page #content .news-landing-container .news-item {
@@ -2365,20 +2380,21 @@ $arrow-padding: 5px;*/
     #news_landing_page #content .news-landing-container header .header_container {
       top: 35%; }
     #news_landing_page #content .news-landing-container header .news_filter {
-      display: block;
+      font-size: 14px;
+      font-size: 0.875rem;
       float: left;
       display: block;
       margin-right: 0%;
       width: 100%;
-      font-family: "p22-underground", sans-serif;
-      color: #4F4F4F;
-      font-size: 0.875rem;
-      position: absolute;
+      border-bottom: 1px solid #4F4F4F;
       bottom: 10px;
+      color: #4F4F4F;
+      cursor: pointer;
+      display: block;
+      font-family: "p22-underground", sans-serif;
       font-weight: 500;
       padding-bottom: 10px;
-      border-bottom: 1px solid #4F4F4F;
-      cursor: pointer; }
+      position: absolute; }
       #news_landing_page #content .news-landing-container header .news_filter:last-child {
         margin-right: 0; }
       #news_landing_page #content .news-landing-container header .news_filter.news_filter_open {
@@ -2386,18 +2402,18 @@ $arrow-padding: 5px;*/
         bottom: 11px; } }
 @media (max-width: 500px) {
   #news_landing_page #content .news-landing-container .news-item .views-field-field-news-photo img {
-    width: 100%;
-    max-width: 100%;
+    height: auto;
     max-height: 100%;
-    height: auto; }
+    max-width: 100%;
+    width: 100%; }
   #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .field-content {
     height: auto;
     position: static; }
   #news_landing_page #content .news-landing-container .news-item ul {
     padding-top: 0; }
     #news_landing_page #content .news-landing-container .news-item ul li {
-      margin-top: 0;
-      display: list-item; }
+      display: list-item;
+      margin-top: 0; }
       #news_landing_page #content .news-landing-container .news-item ul li a {
         margin: 0; } }
 /* Global variables: widths, heights, & breakpoints */
@@ -2417,6 +2433,7 @@ $arrow-padding: 5px;*/
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
+/* px-to-rem mixin */
 /* Maps for type changes*/
 #news_item_page {
   max-width: 100%;
@@ -2435,9 +2452,10 @@ $arrow-padding: 5px;*/
     padding: 0 50px;
     position: relative; }
     #news_item_page #news_content_container .news_back_link a {
+      font-size: 12px;
+      font-size: 0.75rem;
       color: #4F4F4F;
       font-family: "p22-underground", sans-serif;
-      font-size: 0.75rem;
       text-decoration: none; }
     #news_item_page #news_content_container .news_back_link:before {
       content: url("../images/left-arrow-icon.svg");
@@ -2449,8 +2467,9 @@ $arrow-padding: 5px;*/
       margin: 10px 0;
       padding: 40px 70px; }
       #news_item_page #news_content_container article.news_item h1 {
-        color: #043B62;
+        font-size: 36px;
         font-size: 2.25rem;
+        color: #043B62;
         font-weight: 400;
         text-align: left;
         text-shadow: none; }
@@ -2469,7 +2488,31 @@ $arrow-padding: 5px;*/
       #news_item_page #news_content_container article.news_item .news_item_body {
         color: #1E1E1E;
         font-family: "minion-pro", serif;
-        font-size: 1.125rem; }
+        font-size: 16px;
+        font-size: 1rem; }
+        #news_item_page #news_content_container article.news_item .news_item_body blockquote {
+          font-size: 24px;
+          font-size: 1.5rem;
+          color: #7C7C7C;
+          font-family: "p22-underground", sans-serif;
+          margin: 0;
+          margin-left: 20px;
+          position: relative; }
+          #news_item_page #news_content_container article.news_item .news_item_body blockquote:before {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translategY(-50%);
+            transform: translateY(-50%);
+            background-color: #C6C6C6;
+            content: "";
+            height: 90%;
+            left: -20px;
+            position: absolute;
+            top: 49%;
+            width: 4px; }
       #news_item_page #news_content_container article.news_item .news_divider {
         background-color: #C6C6C6;
         height: 2px;
@@ -2483,6 +2526,24 @@ $arrow-padding: 5px;*/
         #news_item_page #news_content_container article.news_item .news_item_tags .field_tags a {
           color: #0990FE;
           text-decoration: none; }
+
+#content_region {
+  /* Need to be able to add a title to this, or something to specify 
+  which page exactly it is ...*/
+  background-color: #F4F4F4; }
+
+#block-sharethispageblock {
+  background-color: #fff;
+  max-width: 924px;
+  margin: 0 auto; }
+  #block-sharethispageblock .share_this_page {
+    margin: 0 auto;
+    padding: 10px 0; }
+    #block-sharethispageblock .share_this_page .share_this_page_buttons:before {
+      color: #950306;
+      content: 'SHARE';
+      font-family: "p22-underground", sans-serif;
+      vertical-align: super; }
 
 /*
   This module defines the sass directives used

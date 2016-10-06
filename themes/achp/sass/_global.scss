@@ -212,6 +212,34 @@ $grid-columns: 12;
   }
 }
 
+/* px-to-rem mixin */
+$baseline-px: $base-text-size;
+@mixin rem($property, $px-values) {
+  // Convert the baseline into rems
+  $baseline-rem: $baseline-px / 1rem * 1;
+  // Print the first line in pixel values
+  #{$property}: $px-values;
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values)=="number" {
+    #{$property}: $px-values / $baseline-rem;
+  }
+  @else {
+    // Create an empty list that we can dump values into
+    $rem-values: ();
+    @each $value in $px-values {
+      // If the value is zero or not a number, return it
+      @if $value==0 or type-of( $value) !="number" {
+        $rem-values: append($rem-values, $value);
+      }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem);
+      }
+    }
+    // Return the property and its list of converted values
+    #{$property}: $rem-values;
+  }
+}
+
 /* Maps for type changes*/
 $h1-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem, $hero-breakpoint: 2.5rem);
 $h1-subtitle-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem, $hero-breakpoint: 2.25rem);
