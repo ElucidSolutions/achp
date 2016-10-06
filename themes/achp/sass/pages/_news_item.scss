@@ -136,3 +136,22 @@ $news-item-padding: 70px;
     }
   }
 }
+
+/*.news-item-slideshow*/ .views_slideshow_main {
+  max-width: $max-content-width - $max-width-padding * 2;
+  @extend .card;
+  border-top: none !important;
+  margin: 0 auto;
+  background-color: #fff;
+
+  img {
+    text-align: center;
+    display: inline;
+  }
+
+  .views-field-field-news-photo/*, .views_slideshow_main */{
+    text-align: center;
+    display: inline;
+    /*border: 1px solid pink;*/
+  }
+}
