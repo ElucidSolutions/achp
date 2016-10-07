@@ -63,9 +63,9 @@ $news-item-padding: 70px;
         }
       }
       .news_item_body {
+        @include rem('font-size', 16px);       
         color: $color-darkgrey2;        
         font-family: $serif-text;
-        @include rem('font-size', 16px);
 
         $blockquote-margin: 20px;
 
@@ -179,6 +179,7 @@ $news-item-padding: 70px;
     }
     .gallery-cell {
       height: 100%;
+
       &-thirds {
         @include span-columns (4 of 12);
       }
@@ -186,10 +187,10 @@ $news-item-padding: 70px;
         @include span-columns (3 of 12);
       }
       img {
-        max-width: 100%;
+        bottom: 0;        
         height: auto;
+        max-width: 100%;
         position: absolute;
-        bottom: 0;
       }
     }
   }

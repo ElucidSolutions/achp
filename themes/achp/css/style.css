@@ -2487,10 +2487,10 @@ $arrow-padding: 5px;*/
       #news_item_page #news_content_container article.news_item .news_item_photo .field_image_caption {
         color: #7C7C7C; }
       #news_item_page #news_content_container article.news_item .news_item_body {
-        color: #1E1E1E;
-        font-family: "minion-pro", serif;
         font-size: 16px;
-        font-size: 1rem; }
+        font-size: 1rem;
+        color: #1E1E1E;
+        font-family: "minion-pro", serif; }
         #news_item_page #news_content_container article.news_item .news_item_body blockquote {
           font-size: 24px;
           font-size: 1.5rem;
@@ -2595,10 +2595,10 @@ $arrow-padding: 5px;*/
         .flickity.navigator .gallery-cell-quarters:last-child {
           margin-right: 0; }
       .flickity.navigator .gallery-cell img {
-        max-width: 100%;
+        bottom: 0;
         height: auto;
-        position: absolute;
-        bottom: 0; }
+        max-width: 100%;
+        position: absolute; }
 
 /*
   This module defines the sass directives used
