@@ -8,6 +8,7 @@ widget_info:
   version: VERSION
   js:
     js/views_slideshow.js: {}
+    lib/jquery.cycle/jquery.cycle.all.js: {}
     js/slideshow.js: {}   
   dependencies:
     - core/jquery
@@ -27,5 +28,13 @@ jquery_hoverIntent:
       gpl-compatible: true
   js:
     /libraries/jquery.hoverIntent/jquery.hoverIntent.js: {}
+    # lib/jquery.hoverIntent/jquery.hoverIntent.js: {}
   dependencies:
     - core/jquery
+
+# jquery_cycle:
+#   version: 1.x
+#   js:
+#     lib/jquery.cycle/jquery.cycle.all.js: {}
+#   dependencies:
+#     - core/jquery

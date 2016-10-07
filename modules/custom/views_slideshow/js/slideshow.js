@@ -1,18 +1,17 @@
 (function ($) {
 
   $(document).ready (function () {
-    // console.log($('.news-item-slideshow'));
-    // console.log(cycle);
-    // views_slideshow_slide 
+    // console.log($('.views_slideshow_main'));
 
-    // $('.views_slideshow_main').cycle();
+    // $('.views_slideshow_main').cycle({
+    //   timeout: 0
+    // })
 
-    $('.views_slideshow_main').fn.cycle.defaults = { 
+    console.log(cycle);
+
+    $.fn.cycle.defaults = { 
       timeout: 0
-    }
-
-
-    console.log('1');
+    };
 
   })
 

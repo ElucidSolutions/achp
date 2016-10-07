@@ -48,6 +48,7 @@ $news-item-padding: 70px;
       .news_item_photo {
         .field_news_photo {
           background: $background-color-grey;
+          display: none;
         
           img {
             display: block;
@@ -98,11 +99,10 @@ $news-item-padding: 70px;
           color: $color-darkblue;
           text-transform: uppercase;
         }
-
         .field_tags {
           display: inline-block;
           margin: 5px 25px 0 0;
-
+          
           a {
             color: $color-blue-primary;
             text-decoration: none;
@@ -121,8 +121,8 @@ $news-item-padding: 70px;
 
 #block-sharethispageblock {
   background-color: #fff;
-  max-width: $max-content-width - $max-width-padding * 2;
   margin: 0 auto;
+  max-width: $max-content-width - $max-width-padding * 2;
 
   .share_this_page {
     margin: 0 auto;
@@ -137,21 +137,60 @@ $news-item-padding: 70px;
   }
 }
 
-/*.news-item-slideshow*/ .views_slideshow_main {
+.flickity {
+  margin: 0 auto; 
   max-width: $max-content-width - $max-width-padding * 2;
-  @extend .card;
-  border-top: none !important;
-  margin: 0 auto;
-  background-color: #fff;
 
-  img {
-    text-align: center;
-    display: inline;
+  &.default_group {
+    .flickity-prev-next-button {
+      display: none;
+    }
+    .flickity-viewport, .flickity-slider {
+      background-color: #fff;    
+      margin: 0 auto;
+      width: 100%;
+
+      .gallery-cell {
+        @include center-y;
+        background: #fff;
+        width: 100%;
+
+        .field-content {
+          display: table;
+          margin: 0 auto;
+
+          .news_carousel_caption {
+            color: $color-lightgrey-2;
+            caption-side: bottom;
+            display: table-caption;
+            font-family: $sans-text;
+          }
+        }
+      }
+    }
   }
 
-  .views-field-field-news-photo/*, .views_slideshow_main */{
-    text-align: center;
-    display: inline;
-    /*border: 1px solid pink;*/
+  &.navigator {
+    background-color: #fff;
+    height: 200px;
+
+    .flickity-prev-next-button {
+      display: none;
+    }
+    .gallery-cell {
+      height: 100%;
+      &-thirds {
+        @include span-columns (4 of 12);
+      }
+      &-quarters {
+        @include span-columns (3 of 12);
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+      }
+    }
   }
 }

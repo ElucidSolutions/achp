@@ -1,9 +1,10 @@
-// Behavior for news page
+// Behavior for landing & individual news pages
 
 (function ($) {
 
   $(document).ready (function () {
 
+    // I. Landing page behavior
     var newsLandingBreakpoint = '850px';
 
     // Displays filter options at widescreen; sets click listener at mobile
@@ -112,4 +113,24 @@
     switchFilterButtonClassToOpen ();
   }
 
+  // II. Behaviors for individual news item page
+
+  /*
+    Accepts no arguments, hides the navigator if there are fewer
+    than two images attached to the node, and positions the
+    navigator previews correctly if there are more.
+  */
+  function positionImageNavCarousel () {
+    console.log($('.field_news_photo').length);
+    if ($('.field_news_photo').length < 2) {
+      $('.navigator').hide();
+    } else if ($('.field_news_photo').length === 3) {
+      $('.navigator .gallery-cell').addClass('gallery-cell-thirds');
+    } else if ($('.field_news_photo').length === 4) {
+      $('.navigator .gallery-cell').addClass('gallery-cell-quarters');
+    }
+  }
+
+  positionImageNavCarousel ();
+ 
 })(jQuery);
