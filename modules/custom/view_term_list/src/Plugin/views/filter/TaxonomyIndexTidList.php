@@ -1,40 +1,75 @@
 <?php
+/**
+ * @file
+ * This module defines the TaxonomyIndexTidList
+ * class which represents a Views filter
+ * (taxonomy_index_tid_list) and extends the
+ * "Has taxonomy term" View filter provided
+ * by the Taxonomy module (taxonomy_index_tid)
+ * by adding an additional format (list). This
+ * format presents users with an unordered list
+ * of taxonomy terms that they can click on to
+ * filter views.
+ */
 
 namespace Drupal\view_term_list\Plugin\views\filter;
 
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Entity\Element\EntityAutocomplete;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\taxonomy\TermStorageInterface;
-use Drupal\taxonomy\VocabularyStorageInterface;
-use Drupal\views\ViewExecutable;
-use Drupal\views\Plugin\views\display\DisplayPluginBase;
-use Drupal\views\Plugin\views\filter\ManyToOne;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\taxonomy\Plugin\views\filter\TaxonomyIndexTid;
 
 /**
- * @ingroup views_filter_handlers
+ * Defines a view filter that extends the
+ * TaxonomyIndexTid view filter provided by the
+ * taxonomy module.
  * 
- * Overrides the valueForm function provided
- * by TaxonomyIndexTid to handle the case where
- * users select the "List" type option provided by
- * view_term_list_form_views_ui_config_item_extra_form_alter.
+ * This filter provides a format option
+ * labeled "list" that displays terms in a formatted
+ * list. Users can select terms from this list by
+ * clicking on them. This is similar to the "select"
+ * format provided by the TaxonomyIndexTid filter
+ * this class extends.
+ * 
+ * This module's hook_views_data_alter () function
+ * sets this filter as the default filter for the
+ * taxonomy_term_field_data table's tid column. This
+ * filter will be listed under the Views UI as the
+ * "Has taxonomy term" filter.
  *
- * Note: the following annotation allows
- * us to override TaxonomyIndexTid for the
- * taxonomy_index_tid view filter.
+ * Note: the following annotations register this
+ * class as a view filter and declares the ID of
+ * the filter represented by this class.
  *
- * @ViewsFilter("taxonomy_index_tid")
+ * @ingroup views_filter_handlers
+ *
+ * @ViewsFilter("taxonomy_index_tid_list")
  */
 class TaxonomyIndexTidList extends TaxonomyIndexTid {
+  /**
+   *
+   */
+  public function buildExtraOptionsForm (&$form, FormStateInterface $form_state) {
+    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::buildExtraOptionsForm]');
+    parent::buildExtraOptionsForm ($form, $form_state);
+
+    $form ['type']['#options']['list'] = $this->t ('List');
+  }
 
   /**
-   * 
+   * Creates the form element that allows users
+   * to select values for this filter.
+   *
+   * Note: This function extends
+   * TaxonomyIndexTid::valueForm. When this
+   * filter's format equals "list", this function
+   * creates an unordered list of taxonomy
+   * terms. Otherwise, this function calls
+   * TaxonomyIndexTid::valueForm to create the
+   * form element.
    */
   protected function valueForm(&$form, FormStateInterface $form_state) {
-    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm]');
+    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm] form: <pre>' . print_r (array_keys ($form), true) . '</pre>');
 
     // I. perform the same initial vocabulary check as performed in the parent function.
     // Note: the following is lifted verbatim from the beginning of TaxonomyIndexTid::valueForm ().
@@ -51,32 +86,51 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
       \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] List type selected.');
 
       $items = array ();
+      $options = array ();
       $tree = $this->termStorage->loadTree ($vocabulary->id (), 0, null, true);
-
-      $callback = ['\Drupal\view_term_list\Plugin\views\filter\TaxonomyIndexTidList', 'selectTerm'];
-      $form_state->setUserInput (['form_id' => '']); // work-around
-
       if ($tree) {
         foreach ($tree as $term) {
+          $label = \Drupal::entityManager ()->getTranslationFromContext ($term)->label ();
           $items [] = array (
-            '#markup' => '<div class="view_term_list_item" data-term-id="' . $term->id . '" data-term-depth="' . $term->depth . '">' . \Drupal::entityManager ()->getTranslationFromContext ($term)->label () . '</div>',
+            '#markup' => '<div class="view_term_list_item" data-term-id="' . $term->id () . '" data-term-depth="' . $term->depth . '">' .
+              '<div class="view_term_list_item_label">' . $label . '</div>' .
+            '</div>'
           );
+          $options [$term->id ()] = $label;
         }
       }
-
-      $form ['value'] = array (
-        '#type' => 'container',
-        '#attributes' => array (
-          'class' => array ('view_term_list_container')
-        ),
-        'list' => array (
-          '#markup' => '<ul class="view_term_list_list"></ul>',
+      // Create the option list that users will use to select values.
+      $filter_id = Html::getUniqueId ('view-term-list');
+      $form ['view_term_list_item'] = array (
+        '#type' => 'item',
+        'view_term_list_list' => array (
+          '#prefix' => '<ul class="view_term_list_list"' .
+            ' data-view-term-list-view="' . $this->view->dom_id . '"' .
+            ' data-view-term-list-filter="' . $filter_id .
+            '">',
+          '#suffix' => '</ul>',
           'items' => $items 
         )
       );
+      // Create the hidden select form element that will be used to store selected term values.
+      // Note: this form element is hidden using CSS.
+      \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] options: <pre>' . print_r ($options, true) . '</pre>.');
+      \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] default value: <pre>' . print_r ((array) $this->value, true) . '</pre>.');
+      $form ['value'] = array (
+        '#attributes' => array (
+          'data-view-term-list-filter' => $filter_id
+        ),
+        '#type' => 'select',
+        '#multiple' => true,
+        '#options' => $options,
+        '#default_value' => (array) $this->value
+      );
     } else {
       // let the parent version handle all remaining cases.
-      return parent::valueForm ($form, $form_state);
+      // return parent::valueForm ($form, $form_state);
+      parent::valueForm ($form, $form_state);
+      \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] non-list type selected. form keys: <pre>' . print_r (array_keys ($form), true) . '</pre>');
+      return;
     }
 
     // III. perform the same concluding operation as performed by the parent function after it handled each type case.
@@ -88,15 +142,5 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
       // Show help text if not exposed to end users.
       $form['value']['#description'] = t('Leave blank for all. Otherwise, the first selected term will be the default instead of "Any".');
     }
-  }
-
-  /**
-   *
-   */
-  public function selectTerm (&$form, $form_state) {
-    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::selectTerm]');
-    // views_ui_ajax_update_form
-    $response = new AjaxResponse ();
-    return $response;
   }
 }
