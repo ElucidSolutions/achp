@@ -132,7 +132,7 @@
       case 1:
         return $('.navigator').hide ();
       case 2:
-       return  navGalleryItem.addClass ('gallery-cell-halves');
+        return navGalleryItem.addClass ('gallery-cell-halves');
       case 3:
         return navGalleryItem.addClass ('gallery-cell-thirds');
       case 4:
