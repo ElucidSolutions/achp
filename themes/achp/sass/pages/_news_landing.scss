@@ -102,7 +102,7 @@
             text-decoration: none;
           }
         }
-        .views-field-field-date {
+        .views-field-field-news-date {
           color: $color-lightgrey;
           margin-top: 0;
           padding: 10px 20px 0;
@@ -151,7 +151,7 @@
           }
         }
         .views-field-view-node {
-          @include hover-transition-background($background-color-lightblue);
+          @include hover-transition-background ($background-color-lightblue);
           background-color: $background-color-grey;
           clear: both;
           height: 30px;
@@ -195,6 +195,7 @@
     }
   }
 }
+
 @media (max-width: 1000px) {
   #news_landing_page #content .news-landing-container {
     .views-exposed-form {

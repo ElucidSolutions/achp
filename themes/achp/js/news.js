@@ -116,21 +116,32 @@
   // II. Behaviors for individual news item page
 
   /*
-    Accepts no arguments, hides the navigator if there are fewer
-    than two images attached to the node, and positions the
-    navigator previews correctly if there are more.
+    Accepts no arguments, hides the Flickity carousels if a 
+    news story has no photos, hides just the navigation 
+    carousel if a news story has only one photo, and 
+    positions the navigation correctly if there are multiple
+    photos.
   */
-  function positionImageNavCarousel () {
-    console.log($('.field_news_photo').length);
-    if ($('.field_news_photo').length < 2) {
-      $('.navigator').hide();
-    } else if ($('.field_news_photo').length === 3) {
-      $('.navigator .gallery-cell').addClass('gallery-cell-thirds');
-    } else if ($('.field_news_photo').length === 4) {
-      $('.navigator .gallery-cell').addClass('gallery-cell-quarters');
-    }
+  function displayCarousels () {
+    var navGalleryItem = $('.navigator .gallery-cell');
+
+    switch ($('.field_news_photo').length) {
+      case '0':
+        $('#block-news-image-carousel').hide ();
+        return $('#block-carousel-navigator').hide ();
+      case 1:
+        return $('.navigator').hide ();
+      case 2:
+       return  navGalleryItem.addClass ('gallery-cell-halves');
+      case 3:
+        return navGalleryItem.addClass ('gallery-cell-thirds');
+      case 4:
+        return navGalleryItem.addClass ('gallery-cell-quarters');
+      default:
+        console.log('[news.js] [displayCarousels] Unrecognized number of news photos: ' + $('.field_news_photo').length);
+    }  
   }
 
-  positionImageNavCarousel ();
+  displayCarousels ();
  
 })(jQuery);

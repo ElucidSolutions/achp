@@ -3,6 +3,13 @@
 $max-width-padding: 50px;
 $news-item-padding: 70px;
 
+#block-news-item-title-block {
+  /*@extend .card;*/
+  /*height: 100px;*/
+  margin: 0 auto;
+  max-width: $max-content-width - $max-width-padding * 2;
+}
+
 #news_item_page {
   @include outer-container(100%);
   background-color: $background-color-grey;
@@ -17,7 +24,7 @@ $news-item-padding: 70px;
 
     .news_back_link {
       a {
-        @include rem('font-size', 12px);        
+        font-size: rem(12);      
         color: $color-grey;
         font-family: $sans-text;
         text-decoration: none;
@@ -32,11 +39,12 @@ $news-item-padding: 70px;
     article.news_item {
       @extend .card;      
       background-color: #fff;
+      border-top: none;
       margin: 10px 0;
       padding: 40px $news-item-padding;
 
       h1 {
-        @include rem('font-size', 36px);        
+        font-size: rem(36);        
         color: $color-darkblue;
         font-weight: 400;
         text-align: left;
@@ -46,9 +54,10 @@ $news-item-padding: 70px;
         color: $color-lightgrey-2;      
       }
       .news_item_photo {
-        .field_news_photo {
+        display: none;
+        
+/*        .field_news_photo {
           background: $background-color-grey;
-          display: none;
         
           img {
             display: block;
@@ -60,17 +69,17 @@ $news-item-padding: 70px;
         }
         .field_image_caption {
           color: $color-lightgrey-2;
-        }
+        }*/
       }
       .news_item_body {
-        @include rem('font-size', 16px);       
+        font-size: rem(16);
         color: $color-darkgrey2;        
         font-family: $serif-text;
 
         $blockquote-margin: 20px;
 
         blockquote {
-          @include rem('font-size', 24px);
+          font-size: rem(24);
           color: $color-lightgrey-2;
           font-family: $sans-text;
           margin: 0;
@@ -119,7 +128,7 @@ $news-item-padding: 70px;
   background-color: $background-color-grey;
 }
 
-#block-sharethispageblock {
+#block-sharethispage {
   background-color: #fff;
   margin: 0 auto;
   max-width: $max-content-width - $max-width-padding * 2;
@@ -140,30 +149,54 @@ $news-item-padding: 70px;
 .flickity {
   margin: 0 auto; 
   max-width: $max-content-width - $max-width-padding * 2;
+  background-color: #fff;
+  padding: 0 50px;
 
   &.default_group {
     .flickity-prev-next-button {
       display: none;
     }
+    .flickity-page-dots {
+      position: static;
+      background-color: #fff;
+
+      .dot {
+        background-color: $color-lightgrey-2;
+        width: 15px;
+        height: 15px;
+        transition: background-color 0.25;
+      }
+      .dot.is-selected {
+        background-color: $color-blue-primary;
+      }
+    }
     .flickity-viewport, .flickity-slider {
       background-color: #fff;    
+      cursor: default;
       margin: 0 auto;
       width: 100%;
 
       .gallery-cell {
         @include center-y;
         background: #fff;
+        /*cursor: default;*/
         width: 100%;
 
         .field-content {
           display: table;
           margin: 0 auto;
 
+          .news_carousel_image img {          
+            max-height: 400px;
+            width: auto;
+          }
+
           .news_carousel_caption {
-            color: $color-lightgrey-2;
             caption-side: bottom;
+            color: $color-lightgrey-2;
             display: table-caption;
             font-family: $sans-text;
+            padding-bottom: rem(50);
           }
         }
       }
@@ -178,8 +211,12 @@ $news-item-padding: 70px;
       display: none;
     }
     .gallery-cell {
+      cursor: pointer;     
       height: 100%;
 
+      &-halves {
+        @include span-columns (6 of 12);
+      }
       &-thirds {
         @include span-columns (4 of 12);
       }
@@ -187,11 +224,31 @@ $news-item-padding: 70px;
         @include span-columns (3 of 12);
       }
       img {
-        bottom: 0;        
+        bottom: 0;               
         height: auto;
         max-width: 100%;
         position: absolute;
       }
     }
+  }
+}
+
+@media (min-width: 925px) {
+  .flickity.default_group {
+    .flickity-page-dots {
+      display: none;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 925px) {
+  #news_item_page {
+    #news_content_container {
+      padding: 0;
+    }
+  }
+  .flickity.navigator {
+    display: none;
   }
 }

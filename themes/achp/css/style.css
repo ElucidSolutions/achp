@@ -2260,7 +2260,7 @@ $arrow-padding: 5px;*/
             font-size: 1.25rem;
             color: #043B62;
             text-decoration: none; }
-        #news_landing_page #content .news-landing-container .news-item .views-field-field-date {
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-news-date {
           color: #C6C6C6;
           margin-top: 0;
           padding: 10px 20px 0; }
@@ -2435,6 +2435,12 @@ $arrow-padding: 5px;*/
 /* Mixin for responsive type size */
 /* px-to-rem mixin */
 /* Maps for type changes*/
+#block-news-item-title-block {
+  /*@extend .card;*/
+  /*height: 100px;*/
+  margin: 0 auto;
+  max-width: 924px; }
+
 #news_item_page {
   max-width: 100%;
   margin-left: auto;
@@ -2452,7 +2458,6 @@ $arrow-padding: 5px;*/
     padding: 0 50px;
     position: relative; }
     #news_item_page #news_content_container .news_back_link a {
-      font-size: 12px;
       font-size: 0.75rem;
       color: #4F4F4F;
       font-family: "p22-underground", sans-serif;
@@ -2464,10 +2469,10 @@ $arrow-padding: 5px;*/
       width: 8px; }
     #news_item_page #news_content_container article.news_item {
       background-color: #fff;
+      border-top: none;
       margin: 10px 0;
       padding: 40px 70px; }
       #news_item_page #news_content_container article.news_item h1 {
-        font-size: 36px;
         font-size: 2.25rem;
         color: #043B62;
         font-weight: 400;
@@ -2475,24 +2480,27 @@ $arrow-padding: 5px;*/
         text-shadow: none; }
       #news_item_page #news_content_container article.news_item .news_item_date {
         color: #7C7C7C; }
-      #news_item_page #news_content_container article.news_item .news_item_photo .field_news_photo {
-        background: #F4F4F4;
-        display: none; }
-        #news_item_page #news_content_container article.news_item .news_item_photo .field_news_photo img {
-          display: block;
-          margin: 10px auto;
-          max-height: 300px;
-          max-width: 100%;
-          width: auto; }
-      #news_item_page #news_content_container article.news_item .news_item_photo .field_image_caption {
-        color: #7C7C7C; }
+      #news_item_page #news_content_container article.news_item .news_item_photo {
+        display: none;
+        /*        .field_news_photo {
+                  background: $background-color-grey;
+                
+                  img {
+                    display: block;
+                    margin: 10px auto;
+                    max-height: 300px;
+                    max-width: 100%;
+                    width: auto;
+                  }
+                }
+                .field_image_caption {
+                  color: $color-lightgrey-2;
+                }*/ }
       #news_item_page #news_content_container article.news_item .news_item_body {
-        font-size: 16px;
         font-size: 1rem;
         color: #1E1E1E;
         font-family: "minion-pro", serif; }
         #news_item_page #news_content_container article.news_item .news_item_body blockquote {
-          font-size: 24px;
           font-size: 1.5rem;
           color: #7C7C7C;
           font-family: "p22-underground", sans-serif;
@@ -2533,14 +2541,14 @@ $arrow-padding: 5px;*/
   which page exactly it is ...*/
   background-color: #F4F4F4; }
 
-#block-sharethispageblock {
+#block-sharethispage {
   background-color: #fff;
   margin: 0 auto;
   max-width: 924px; }
-  #block-sharethispageblock .share_this_page {
+  #block-sharethispage .share_this_page {
     margin: 0 auto;
     padding: 10px 0; }
-    #block-sharethispageblock .share_this_page .share_this_page_buttons:before {
+    #block-sharethispage .share_this_page .share_this_page_buttons:before {
       color: #950306;
       content: 'SHARE';
       font-family: "p22-underground", sans-serif;
@@ -2548,11 +2556,24 @@ $arrow-padding: 5px;*/
 
 .flickity {
   margin: 0 auto;
-  max-width: 924px; }
+  max-width: 924px;
+  background-color: #fff;
+  padding: 0 50px; }
   .flickity.default_group .flickity-prev-next-button {
     display: none; }
+  .flickity.default_group .flickity-page-dots {
+    position: static;
+    background-color: #fff; }
+    .flickity.default_group .flickity-page-dots .dot {
+      background-color: #7C7C7C;
+      width: 15px;
+      height: 15px;
+      transition: background-color 0.25; }
+    .flickity.default_group .flickity-page-dots .dot.is-selected {
+      background-color: #0990FE; }
   .flickity.default_group .flickity-viewport, .flickity.default_group .flickity-slider {
     background-color: #fff;
+    cursor: default;
     margin: 0 auto;
     width: 100%; }
     .flickity.default_group .flickity-viewport .gallery-cell, .flickity.default_group .flickity-slider .gallery-cell {
@@ -2564,22 +2585,35 @@ $arrow-padding: 5px;*/
       -o-transform: translategY(-50%);
       transform: translateY(-50%);
       background: #fff;
+      /*cursor: default;*/
       width: 100%; }
       .flickity.default_group .flickity-viewport .gallery-cell .field-content, .flickity.default_group .flickity-slider .gallery-cell .field-content {
         display: table;
         margin: 0 auto; }
+        .flickity.default_group .flickity-viewport .gallery-cell .field-content .news_carousel_image img, .flickity.default_group .flickity-slider .gallery-cell .field-content .news_carousel_image img {
+          max-height: 400px;
+          width: auto; }
         .flickity.default_group .flickity-viewport .gallery-cell .field-content .news_carousel_caption, .flickity.default_group .flickity-slider .gallery-cell .field-content .news_carousel_caption {
-          color: #7C7C7C;
           caption-side: bottom;
+          color: #7C7C7C;
           display: table-caption;
-          font-family: "p22-underground", sans-serif; }
+          font-family: "p22-underground", sans-serif;
+          padding-bottom: 3.125rem; }
   .flickity.navigator {
     background-color: #fff;
     height: 200px; }
     .flickity.navigator .flickity-prev-next-button {
       display: none; }
     .flickity.navigator .gallery-cell {
+      cursor: pointer;
       height: 100%; }
+      .flickity.navigator .gallery-cell-halves {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%; }
+        .flickity.navigator .gallery-cell-halves:last-child {
+          margin-right: 0; }
       .flickity.navigator .gallery-cell-thirds {
         float: left;
         display: block;
@@ -2600,6 +2634,16 @@ $arrow-padding: 5px;*/
         max-width: 100%;
         position: absolute; }
 
+@media (min-width: 925px) {
+  .flickity.default_group .flickity-page-dots {
+    display: none;
+    padding-bottom: 20px; } }
+@media (max-width: 925px) {
+  #news_item_page #news_content_container {
+    padding: 0; }
+
+  .flickity.navigator {
+    display: none; } }
 /*
   This module defines the sass directives used
   to style Section 106 Process Step pages.
