@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * This file defines the hood_views_data_alter ()
+ * This file defines the hook_views_data_alter ()
  * function which replaces every use of the
  * taxonomy_index_tid Views filter (the default
  * filter for the "Has taxonomy term" filter
@@ -12,7 +12,7 @@
  */
 
 /**
- * Implements hood_views_data_alter ().
+ * Implements hook_views_data_alter ().
  *
  * Replace the taxonomy_index_tid view
  * filter provided by the View module by

@@ -1,13 +1,20 @@
 <?php
 /**
  * @file
- * Adds an additional format option to the views term filter form.
+ * This file implements hook_block_view_alter
+ * () which is responsible for attaching the
+ * JS library.
  */
 
 /**
- * Implements hook_form_FORM_ID_alter ()
+ * Implements hook_block_view_alter ()
+ *
+ * Attaches the view_term_list_library to the 
  */
-function view_term_list_form_views_ui_config_item_extra_form_alter (&$form, $form_state) {
-  // Note: the following is equivalent to the t() function provided by Views.php.
-  $form ['options']['type']['#options']['list'] = \Drupal::service ('string_translation')->translate ('List');
+function view_term_list_block_view_alter (array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+  \Drupal::logger ('view_term_list')->notice ('[view_term_list_block_view_alter] build keys: <pre>' . print_r (array_keys ($build), true) . '</pre>');
+  \Drupal::logger ('view_term_list')->notice ('[view_term_list_block_view_alter] build id: ' . $build ['#id']);
+  $build ['#attached'] = array (
+    'library' => array ('view_term_list/view_term_list_library')
+  );
 }

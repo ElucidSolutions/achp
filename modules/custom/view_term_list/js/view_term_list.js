@@ -4,7 +4,7 @@
   Select Term command to apply the selected
   filter terms.
 */
-(function ($, Drupal) {
+(function ($, Drupal, drupalSettings) {
   // Initializes the filter elements.
   $(document).ready (function () {
     // initializes all of filters.
@@ -13,6 +13,20 @@
     });
   });
 
+  // Initialize all filters after each refresh.
+  Drupal.behaviors.view_term_list = {
+    attach: function (context, settings) {
+      $(document).once ('view_term_list').ajaxComplete (
+        function (event, xhr, settings) {
+          // initializes all of filters.
+          getFilters ().forEach (function (filter) {
+            filter.initElement ();
+          });
+      });
+    }
+  }
+
+
   /*
     Accepts no arguments and returns the filters
     as an array of the Filters.
@@ -20,7 +34,7 @@
   function getFilters () {
     return getListElements ().map (
       function (i, listElement) {
-        return new Filter (getListFilterId (listElement));
+        return new Filter (getListFilterId ($(listElement)));
     }).toArray ();
   }
 
@@ -38,10 +52,12 @@
     and click event handlers to this filter's
     item elements; and returns undefined.
   */
-  Filter.prototype.init = function () {
+  Filter.prototype.initElement = function () {
     var self = this;
     this.getItemElements ().each (
-      function (i, itemElement) {
+      function (i, _itemElement) {
+        var itemElement = $(_itemElement);
+
         // create and append deselect button.
         itemElement.append (createItemDeselectButtonElement ());
 
@@ -100,7 +116,7 @@
     that contains this filter.
   */
   Filter.prototype.getViewElement = function () {
-    return $('.js-view-dom-id-' . getViewId ());
+    return $('.js-view-dom-id-' + this.getViewId ());
   }
 
   /*
@@ -162,7 +178,7 @@
     item elements.
   */
   Filter.prototype.getItemElements = function () {
-    return $('.' . getItemClassName (), this.getListElement ());
+    return $('.' + getItemClassName (), this.getListElement ());
   }
 
   /*
@@ -171,7 +187,7 @@
     element associated with this filter.
   */
   Filter.prototype.getListElement = function () {
-    return $('[' + getFilterAttributeName () + '="' + this.getId () + '"].' + getItemClassName ());
+    return $('[' + getFilterAttributeName () + '="' + this.getId () + '"].' + getListClassName ());
   }
 
   /*
@@ -204,7 +220,7 @@
     the ID of the filter that listElement is
     associated with.
   */
-  function getListFilterId = function (listElement) {
+  function getListFilterId (listElement) {
     return listElement.attr (getFilterAttributeName ());
   }
 
@@ -213,8 +229,8 @@
     HTML Element set that represents the view
     term list elements.
   */
-  function getListElements = function () {
-    return $('.' + getItemClassName ());
+  function getListElements () {
+    return $('.' + getListClassName ());
   }
 
   /*
@@ -235,10 +251,10 @@
   }
 
   /*
-    Accepts no arguments and returns a strign
+    Accepts no arguments and returns a string
     that represents the item label class name.
   */
-  function getItemLabelClassname () {
+  function getItemLabelClassName () {
     return 'view_term_list_item_label';
   }
 
@@ -257,6 +273,14 @@
   */
   function getItemClassName () {
     return 'view_term_list_item';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the list element class name.
+  */
+  function getListClassName () {
+    return 'view_term_list_list';
   }
 
   /*
@@ -280,4 +304,4 @@
   function getFilterAttributeName () {
     return 'data-view-term-list-filter';
   }
-}) (jQuery, Drupal);
+}) (jQuery, Drupal, drupalSettings);
