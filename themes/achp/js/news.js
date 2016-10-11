@@ -50,6 +50,9 @@
     $("#edit-date-min").attr('value', 'Start date');
     $("#edit-date-max").attr('value', 'End date');
     $('#edit-submit-latest-news').attr('value', 'Submit');
+
+    setCarouselDisplay ();
+
   })
 
   /*
@@ -62,7 +65,7 @@
   }
 
   /*
-    Accepts no arguments and returns a jQuery HTML element
+    Accepts no arguments and returns a jQuery HTML Element
     that represents the filter forms.
   */
   function getFilterContainer () {
@@ -70,7 +73,7 @@
   }
 
   /*
-    Accepts no arguments and returns a jQuery HTML element
+    Accepts no arguments and returns a jQuery HTML Element
     that represents the display/hide filter button.
   */
   function getFilterButton () {
@@ -116,32 +119,77 @@
   // II. Behaviors for individual news item page
 
   /*
-    Accepts no arguments, hides the Flickity carousels if a 
-    news story has no photos, hides just the navigation 
-    carousel if a news story has only one photo, and 
-    positions the navigation correctly if there are multiple
-    photos.
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the main image carousel.
   */
-  function displayCarousels () {
-    var navGalleryItem = $('.navigator .gallery-cell');
-
-    switch ($('.field_news_photo').length) {
-      case '0':
-        $('#block-news-image-carousel').hide ();
-        return $('#block-carousel-navigator').hide ();
-      case 1:
-        return $('.navigator').hide ();
-      case 2:
-        return navGalleryItem.addClass ('gallery-cell-halves');
-      case 3:
-        return navGalleryItem.addClass ('gallery-cell-thirds');
-      case 4:
-        return navGalleryItem.addClass ('gallery-cell-quarters');
-      default:
-        console.log('[news.js] [displayCarousels] Unrecognized number of news photos: ' + $('.field_news_photo').length);
-    }  
+  function getImageCarousel () {
+    return $('#block-news-image-carousel');
   }
 
-  displayCarousels ();
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the navigator carousel.
+  */
+  function getNavCarousel () {
+    return $('#block-carousel-navigator');
+  }
+
+  /*
+    Accepts no arguments and returns an HTML Collection of
+    the images associated with the story.
+  */
+  function getImageElements () {
+    return $('.field_news_photo');
+  }
+
+  /*
+    Accepts no arguments, hides the main image carousel,
+    and returns undefined.
+  */
+  function hideImageCarousel () {
+    getImageCarousel ().hide ();
+  }
+
+  /*
+    Accepts no arguments, hides the navigator carousel,
+    and returns undefined.
+  */
+  function hideNavCarousel () {
+    getNavCarousel ().hide ();
+  }
+
+  /*
+    Accepts no arguments and returns an Array representing
+    the gallery items in the navigator carousel.
+  */
+  function getNavGalleryItems () {
+    return getNavCarousel ().find('.gallery-cell').toArray ();
+  }
+
+  /*
+    Accepts no arguments, sets the display for the two Flickity
+    carousels, attaches a news-num-images attribute to each
+    gallery item, and returns undefined.
+  */
+  function setCarouselDisplay () {
+    var numImages = getImageElements ().length;
+    var numImagesToDisplay;
+    
+    if (numImages > 4) { 
+      numImagesToDisplay = 4; 
+    } else {
+      numImagesToDisplay = numImages;
+    }
+    getNavGalleryItems ().forEach (function (galleryItem) {
+      $(galleryItem).attr ('news-num-images', numImagesToDisplay);
+    })
+
+    if (numImages === 0) {
+      hideImageCarousel ();
+      hideNavCarousel ();
+    } else if (numImages === 1) {
+      hideNavCarousel (); 
+    }
+  }
  
 })(jQuery);
