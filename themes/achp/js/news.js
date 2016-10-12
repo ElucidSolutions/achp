@@ -2,12 +2,12 @@
 
 (function ($) {
 
+  var newsLandingBreakpoint = '850px';
+
   $(document).ready (function () {
 
-    // I. Landing page behavior
-    var newsLandingBreakpoint = '850px';
-
-    // Displays filter options at widescreen; sets click listener at mobile
+  // Displays filter options at widescreen; sets click listener at mobile
+  // TNOTE/TODO: Returns error when I bring this outside of documentready
     $.breakpoint ((function () {
       return {
         condition: function () {
@@ -28,11 +28,13 @@
           hideFilter ();
         }
       };
-    })());
+    })());    
+
+    // I. Landing page behavior
 
     // Attach datepicker to input areas
-    $("#edit-date-min").datepicker ();
-    $("#edit-date-max").datepicker ();
+    getDateMinElement ().datepicker ();
+    getDateMaxElement ().datepicker ();
 
     // Click listener for news filter button
     getFilterButton ().click ( function (e) {
@@ -47,38 +49,11 @@
     });
 
     // TEMPORARY: overwrites default values
-    $("#edit-date-min").attr('value', 'Start date');
-    $("#edit-date-max").attr('value', 'End date');
-    $('#edit-submit-latest-news').attr('value', 'Submit');
-
-    setCarouselDisplay ();
+    getDateMinElement ().attr('value', 'Start date');
+    getDateMaxElement ().attr('value', 'End date');
+    getFilterSubmitButton ().attr('value', 'Submit');
 
   })
-
-  /*
-    Accepts no arguments and returns a string representing
-    the class name used to label the button that displays
-    or hides the new filter.
-  */
-  function getNewsFilterClassPrefix () {
-    return 'news_filter';
-  }
-
-  /*
-    Accepts no arguments and returns a jQuery HTML Element
-    that represents the filter forms.
-  */
-  function getFilterContainer () {
-    return $('.views-exposed-form');
-  }
-
-  /*
-    Accepts no arguments and returns a jQuery HTML Element
-    that represents the display/hide filter button.
-  */
-  function getFilterButton () {
-    return $('.' + getNewsFilterClassPrefix () + '');
-  }
 
   /*
     Accepts no arguments, adds the closed class to the filter
@@ -116,80 +91,53 @@
     switchFilterButtonClassToOpen ();
   }
 
-  // II. Behaviors for individual news item page
-
   /*
     Accepts no arguments and returns a jQuery HTML Element
-    that represents the main image carousel.
+    that represents the minimum date input element.
   */
-  function getImageCarousel () {
-    return $('#block-news-image-carousel');
+  function getDateMinElement () {
+    return $('#edit-date-min');
   }
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
-    that represents the navigator carousel.
+    that represents the maximum date input element.
   */
-  function getNavCarousel () {
-    return $('#block-carousel-navigator');
+  function getDateMaxElement () {
+    return $('#edit-date-max');
   }
 
   /*
-    Accepts no arguments and returns an HTML Collection of
-    the images associated with the story.
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the filter forms.
   */
-  function getImageElements () {
-    return $('.field_news_photo');
+  function getFilterContainer () {
+    return $('.views-exposed-form');
+  }  
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the display/hide filter button.
+  */
+  function getFilterButton () {
+    return $('.' + getNewsFilterClassPrefix () + '');
+  }  
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the submmit button for the news filter.
+  */
+  function getFilterSubmitButton () {
+    return $('#edit-submit-latest-news');
   }
 
   /*
-    Accepts no arguments, hides the main image carousel,
-    and returns undefined.
+    Accepts no arguments and returns a string representing
+    the class name used to label the button that displays
+    or hides the new filter.
   */
-  function hideImageCarousel () {
-    getImageCarousel ().hide ();
-  }
-
-  /*
-    Accepts no arguments, hides the navigator carousel,
-    and returns undefined.
-  */
-  function hideNavCarousel () {
-    getNavCarousel ().hide ();
-  }
-
-  /*
-    Accepts no arguments and returns an Array representing
-    the gallery items in the navigator carousel.
-  */
-  function getNavGalleryItems () {
-    return getNavCarousel ().find('.gallery-cell').toArray ();
-  }
-
-  /*
-    Accepts no arguments, sets the display for the two Flickity
-    carousels, attaches a news-num-images attribute to each
-    gallery item, and returns undefined.
-  */
-  function setCarouselDisplay () {
-    var numImages = getImageElements ().length;
-    var numImagesToDisplay;
-    
-    if (numImages > 4) { 
-      numImagesToDisplay = 4; 
-    } else {
-      numImagesToDisplay = numImages;
-    }
-    getNavGalleryItems ().forEach (function (galleryItem) {
-      $(galleryItem).attr ('news-num-images', numImagesToDisplay);
-    })
-
-    if (numImages === 0) {
-      hideImageCarousel ();
-      hideNavCarousel ();
-    } else if (numImages === 1) {
-      hideNavCarousel (); 
-    }
-  }
+  function getNewsFilterClassPrefix () {
+    return 'news_filter';
+  }  
  
 })(jQuery);

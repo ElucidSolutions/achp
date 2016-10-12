@@ -217,7 +217,6 @@ $news-item-padding: 70px;
       &.previous {
         left: 0;
       }
-    
       &.next {
         right: 0;
 
@@ -233,11 +232,9 @@ $news-item-padding: 70px;
           fill: white;
         }
       }
-
     }
     .flickity-slider {
       .gallery-cell {
-        @include span-columns (3 of 12);
         cursor: pointer;     
         height: 100%;
         max-height: 175px;
@@ -260,10 +257,6 @@ $news-item-padding: 70px;
           width: auto;
         }
       }
-      .gallery-cell[data-news-num-images="4"] {
-        @include span-columns (3 of 12);
-        border: 1px solid pink;
-       }
     }
   }
 }
