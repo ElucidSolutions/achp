@@ -2601,64 +2601,119 @@ $arrow-padding: 5px;*/
     border-top: 1px solid #4F4F4F;
     height: 175px; }
     .flickity.navigator .flickity-prev-next-button {
-      background-color: transparent;
-      border: none;
-      border-radius: 0%;
-      display: inline-block;
-      height: 40px;
-      margin: 0;
-      padding: 0;
-      width: 40px; }
-      .flickity.navigator .flickity-prev-next-button.previous {
-        left: 0; }
-      .flickity.navigator .flickity-prev-next-button.next {
-        right: 0; }
-        .flickity.navigator .flickity-prev-next-button.next svg {
-          right: 0; }
-      .flickity.navigator .flickity-prev-next-button svg {
-        height: 100%;
-        top: 0; }
-        .flickity.navigator .flickity-prev-next-button svg path {
-          fill: white; }
-    .flickity.navigator .flickity-slider .gallery-cell {
-      cursor: pointer;
-      height: 100%;
-      max-height: 175px; }
-      .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images="2"] {
-        float: left;
-        display: block;
-        margin-right: 0%;
-        width: 50%; }
-        .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images="2"]:last-child {
-          margin-right: 0; }
-      .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images="3"] {
-        float: left;
-        display: block;
-        margin-right: 0%;
-        width: 33.33333%; }
-        .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images="3"]:last-child {
-          margin-right: 0; }
-      .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images="4"] {
-        float: left;
-        display: block;
-        margin-right: 0%;
-        width: 25%; }
-        .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images="4"]:last-child {
-          margin-right: 0; }
-      .flickity.navigator .flickity-slider .gallery-cell img {
+      display: none;
+      /*      background-color: transparent;
+            border: none;
+            border-radius: 0%;
+            display: inline-block;
+            height: 40px;
+            margin: 0;
+            padding: 0;
+            width: 40px;
+      
+            &.previous {
+              left: 0;
+            }
+            &.next {
+              right: 0;
+      
+              svg {
+                right: 0;
+              }
+            }
+            svg {
+              height: 100%;
+              top: 0;
+      
+              path {
+                fill: white;
+              }
+            }*/ }
+    .flickity.navigator .flickity-slider {
+      /*      &:before {
+              @include center-y;
+              background-image: url('../images/left-calendar-arrow.svg');
+              background-position: center;
+              background-repeat: no-repeat;
+              content: "";
+              cursor: pointer;
+              height: 20px;
+              left: -5px;
+              width: 20px;
+            }
+      
+            &:after {
+              @include center-y;
+              background-image: url('../images/right-calendar-arrow.svg');
+              background-position: center;
+              background-repeat: no-repeat;
+              content: "";
+              cursor: pointer;
+              height: 20px;
+              right: 0;
+              width: 20px;
+            }*/ }
+      .flickity.navigator .flickity-slider .slider-nav-button {
         position: absolute;
         top: 50%;
-        left: 50%;
-        -webkit-transform: translateX(-50%) translateY(-50%);
-        -moz-transform: translateX(-50%) translateY(-50%);
-        -ms-transform: translateX(-50%) translateY(-50%);
-        -o-transform: translateX(-50%) translateY(-50%);
-        transform: translateX(-50%) translateY(-50%);
-        height: auto;
-        max-height: 150px;
-        max-width: 100%;
-        padding: 0 15px;
-        width: auto; }
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
+        transform: translateY(-50%);
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        z-index: 500; }
+        .flickity.navigator .flickity-slider .slider-nav-button.prev {
+          background-image: url("../images/left-calendar-arrow.svg");
+          left: -5px; }
+        .flickity.navigator .flickity-slider .slider-nav-button.next {
+          background-image: url("../images/right-calendar-arrow.svg");
+          right: 0; }
+      .flickity.navigator .flickity-slider .gallery-cell {
+        cursor: pointer;
+        height: 100%;
+        max-height: 175px; }
+        .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images-to-display="2"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 25%; }
+          .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images-to-display="2"]:last-child {
+            margin-right: 0; }
+          .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images-to-display="2"].item-0 {
+            margin-left: 25%; }
+        .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images-to-display="3"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 33.33333%; }
+          .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images-to-display="3"]:last-child {
+            margin-right: 0; }
+        .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images-to-display="4"] {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 25%; }
+          .flickity.navigator .flickity-slider .gallery-cell[data-news-num-images-to-display="4"]:last-child {
+            margin-right: 0; }
+        .flickity.navigator .flickity-slider .gallery-cell img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -o-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+          height: auto;
+          max-height: 150px;
+          max-width: 100%;
+          padding: 0 15px;
+          width: auto; }
 
 @media (max-width: 1024px) {
   #content_region {
