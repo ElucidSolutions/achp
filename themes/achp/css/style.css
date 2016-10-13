@@ -2604,7 +2604,10 @@ $arrow-padding: 5px;*/
       cursor: pointer;
       height: 20px;
       width: 20px;
-      z-index: 500; }
+      z-index: 500;
+      /* Add transition for when turning greyer*/ }
+      .flickity.navigator .carousel-nav-button.disabled {
+        display: none; }
       .flickity.navigator .carousel-nav-button.prev {
         background-image: url("../images/left-calendar-arrow.svg");
         left: 0; }

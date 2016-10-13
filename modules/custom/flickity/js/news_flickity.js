@@ -17,7 +17,7 @@
     var maxImagesToDisplay = 4; // TODO: move this to a user-set variable in Drupal
     var numImages = getNumImages ();
 
-    getNavGalleryItems ().forEach (function (galleryItem) {
+    getNavGalleryItems ().toArray ().forEach (function (galleryItem) {
       $(galleryItem).attr ('data-news-num-images-to-display', Math.min(maxImagesToDisplay, numImages));
     })
 
@@ -32,19 +32,8 @@
   }
 
   /*
-  */
-  function disableNavPrevButton () {
-    getNavPrevButton ().addClass('disabled');
-  }
-
-  /*
-  */
-  function disableNavNextButton () {
-    getNavNextButton ().addClass('disabled');
-  }
-
-  /*
-
+  Accepts no arguments, attaches the nav buttons to
+  the navigator carousel, and returns undefined.
   */
   function addSliderNavButtons () {
     getNavCarousel ()
@@ -59,9 +48,9 @@
         .addClass('next')
         .click (function () {
           slideForwardThroughNav ()
-        }))
+        }));
+    disableNavPrevButton ();
   }
-
 
   /*
     Accepts no arguments and returns a number representing
@@ -71,7 +60,6 @@
   function getSliderPosition () {
     var navSlider = getNavSlider ();
     var leftPosition = parseInt(navSlider.css('left'));
-    // console.log(leftPosition)
 
     var transformMatrix = 
       navSlider.css("-webkit-transform") ||
@@ -80,18 +68,34 @@
       navSlider.css("-o-transform")      ||
       navSlider.css("transform");
 
-    // console.log(transformMatrix.split(',')[4] / navSlider.width () * 100 + leftPosition);
     return transformMatrix.split(',')[4] / navSlider.width () * 100 + leftPosition;
   }
 
   /*
+    Accepts one argument, an integer representing the position
+    of the navigation carousel; animates the carousel to that
+    position; and returns undefined.
   */
   function setSliderPosition (leftPosition) {
-    // var leftPosition = leftOffset;
-    // console.log(leftPosition)
     getNavSlider ().animate({
       left: leftPosition
-    }, 1000)
+    }, 500)
+
+    var hiddenImagesWidth = getHiddenImagesWidth ();
+    var absValLeft = Math.abs(leftPosition);
+
+    if (absValLeft === hiddenImagesWidth) {
+      disableNavNextButton ();
+    }
+    if (absValLeft === 0) {
+      disableNavPrevButton ();
+    }
+    if (absValLeft > 0) {
+      enableNavPrevButton ();
+    }
+    if (absValLeft < hiddenImagesWidth) {
+      enableNavNextButton ();
+    }
     // getNavSlider ().addClass ('animated');
     // getNavSlider ().css('-webkit-transform', 'translateX(' + percentage + '%)')
     //   .css('-moz-transform', 'translateX (' + percentage + '%)')
@@ -102,39 +106,90 @@
   }
 
   /*
+    Accepts no arguments, moves the navigation slider forward
+    by one image, and returns undefined.
   */
   function slideBackThroughNav () {
-    var galleryItemWidth = getNavGalleryItemsNotArray ().width ();
     var sliderPosition = getSliderPosition ();
-      // console.log(sliderPosition)
-    if (sliderPosition === 0) {
-      disableNavPrevButton ();
+
+    if (sliderPosition >= -25) {
+      setSliderPosition (0);
     } else if (sliderPosition < 0) {
-      setSliderPosition (sliderPosition + galleryItemWidth);
+      setSliderPosition (sliderPosition + getGalleryItemWidth ());
     }
   }
 
   /*
+    Accepts no arguments, moves the navigation slider back
+    by one image, and returns undefined.
   */
   function slideForwardThroughNav () {
-    var galleryItemWidth = getNavGalleryItemsNotArray ().width ();
-    var hiddenImagesWidth = galleryItemWidth * (getNumImages () - $(getNavGalleryItems ()[0]).attr('data-news-num-images-to-display'));
-    var sliderPosition = getSliderPosition ();
-    // console.log(sliderPosition);
+    var sliderPosition = getSliderPosition ();    
+    var galleryItemWidth = getGalleryItemWidth ();
+    var hiddenImagesWidth = getHiddenImagesWidth ();
 
     if (Math.abs(sliderPosition) < hiddenImagesWidth) {
-      // console.log(galleryItemWidth);
       setSliderPosition (sliderPosition - galleryItemWidth);
-    } else if (Math.abs(sliderPosition) >= hiddenImagesWidth) {
-      console.log('there')
-      disableNavNextButton ();
+    } else if (Math.abs(sliderPosition) + 25 >= hiddenImagesWidth) {
+      setSliderPosition (-galleryItemWidth);
     }
   }
 
   /*
+    Accepts no arguments, adds the disabled class to the
+    previous nav button, and returns undefined.
+  */
+  function disableNavPrevButton () {
+    getNavPrevButton ().addClass('disabled');
+  }
+
+  /*
+    Accepts no arguments, adds the disabled class to the
+    next nav button, and returns undefined.
+  */
+  function disableNavNextButton () {
+    getNavNextButton ().addClass('disabled');
+  }
+
+  /*
+    Accepts no arguments, removes the disabled class 
+  from the previous nav button, and returns undefined.
+  */
+  function enableNavPrevButton () {
+    getNavPrevButton ().removeClass('disabled');
+  }
+
+  /*
+    Accepts no arguments, removes the disabled class 
+    from the next nav button, and returns undefined.
+  */
+  function enableNavNextButton () {
+    getNavNextButton ().removeClass('disabled');
+  }     
+
+  /*
+    Accepts no arguments and returns the number of image
+    elements.
   */
   function getNumImages () {
     return getImageElements ().length;
+  }
+
+  /*
+    Accepts no arguments and returns an integer representing
+    the width of all hidden gallery images.
+  */
+  function getHiddenImagesWidth () {
+    return getGalleryItemWidth () * 
+      (getNumImages () - $(getNavGalleryItems ()[0]).attr('data-news-num-images-to-display'));
+  }
+
+  /*
+    Accepts no arguments and returns an integer representing
+    the width of one gallery item element.
+  */
+  function getGalleryItemWidth () {
+    return getNavGalleryItems ().width ()
   }
 
   /*
@@ -157,16 +212,16 @@
     Accepts no arguments and returns an Array representing
     the gallery items in the navigator carousel.
   */
-  function getNavGalleryItems () {
-    // return getNavGalleryItemsNotArray().toArray ();
-    return $('.' + getGalleryItemClassName (), getNavCarousel ()).toArray ();
-  }  
+  // function getNavGalleryItemsInArray () {
+  //   return getNavGalleryItems().toArray ();
+  //   return $('.' + getGalleryItemClassName (), getNavCarousel ()).toArray ();
+  // }  
 
   /*
     Accepts no arguments and returns the gallery items in 
     the navigator carousel.
   */
-  function getNavGalleryItemsNotArray () {
+  function getNavGalleryItems () {
     return $('.' + getGalleryItemClassName (), getNavCarousel ());
   }  
 
@@ -201,22 +256,27 @@
   function getNavCarousel () {
     return $('#block-carousel-navigator .navigator');
   }
-
+  
   /*
     Accepts no arguments and returns an HTML Collection of
     the images associated with the story.
   */
+  
   function getImageElements () {
     return $('.field_news_photo');
   }
 
   /*
+    Accepts no argumetns and returns a jQuery Element
+    representing the next navigation button.
   */
   function getNavNextButton () {
     return $('.' + getNavCarouselClassName () + '.next');
   }
 
-    /*
+  /*
+    Accepts no argumetns and returns a jQuery Element
+    representing the previous navigation button.
   */
   function getNavPrevButton () {
     return $('.' + getNavCarouselClassName () + '.prev');

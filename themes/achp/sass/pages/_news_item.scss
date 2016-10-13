@@ -203,6 +203,11 @@ $news-item-padding: 70px;
       height: 20px;
       width: 20px;
       z-index: 500;
+      /* Add transition for when turning greyer*/
+
+      &.disabled {
+        display: none;
+      }
 
       &.prev {
         background-image: url('../images/left-calendar-arrow.svg');
