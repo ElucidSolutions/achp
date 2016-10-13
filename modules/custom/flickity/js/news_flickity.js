@@ -14,7 +14,8 @@
     gallery item, and returns undefined.
   */
   function setCarouselDisplay () {
-    var maxImagesToDisplay = 4; // TODO: move this to a user-set variable in Drupal
+    var maxImagesToDisplay = 4; 
+    // TODO: move maxImagesToDisplay to a user-set variable in Drupal
     var numImages = getNumImages ();
 
     getNavGalleryItems ().toArray ().forEach (function (galleryItem) {
@@ -32,8 +33,8 @@
   }
 
   /*
-  Accepts no arguments, attaches the nav buttons to
-  the navigator carousel, and returns undefined.
+    Accepts no arguments, attaches the nav buttons to
+    the navigator carousel, and returns undefined.
   */
   function addSliderNavButtons () {
     getNavCarousel ()
@@ -50,6 +51,36 @@
           slideForwardThroughNav ()
         }));
     disableNavPrevButton ();
+  }
+
+  /*
+    Accepts no arguments, moves the navigation slider forward
+    by one image, and returns undefined.
+  */
+  function slideBackThroughNav () {
+    var sliderPosition = getSliderPosition ();
+
+    if (sliderPosition >= -25) {
+      setSliderPosition (0);
+    } else if (sliderPosition < 0) {
+      setSliderPosition (sliderPosition + getGalleryItemWidth ());
+    }
+  }
+
+  /*
+    Accepts no arguments, moves the navigation slider back
+    by one image, and returns undefined.
+  */
+  function slideForwardThroughNav () {
+    var sliderPosition = getSliderPosition ();    
+    var galleryItemWidth = getGalleryItemWidth ();
+    var hiddenImagesWidth = getHiddenImagesWidth ();
+
+    if (Math.abs(sliderPosition) < hiddenImagesWidth) {
+      setSliderPosition (sliderPosition - galleryItemWidth);
+    } else if (Math.abs(sliderPosition) + 25 >= hiddenImagesWidth) {
+      setSliderPosition (-galleryItemWidth);
+    }
   }
 
   /*
@@ -96,44 +127,7 @@
     if (absValLeft < hiddenImagesWidth) {
       enableNavNextButton ();
     }
-    // getNavSlider ().addClass ('animated');
-    // getNavSlider ().css('-webkit-transform', 'translateX(' + percentage + '%)')
-    //   .css('-moz-transform', 'translateX (' + percentage + '%)')
-    //   .css('-ms-transform', 'translateX(' + percentage + '%)')
-    //   .css('-o-transform', 'translateX(' + percentage + '%)')
-    //   .css('transform', 'translateX(' + percentage + '%)');
-    // console.log('transform: translateX(' + percentage + '%)')
-  }
-
-  /*
-    Accepts no arguments, moves the navigation slider forward
-    by one image, and returns undefined.
-  */
-  function slideBackThroughNav () {
-    var sliderPosition = getSliderPosition ();
-
-    if (sliderPosition >= -25) {
-      setSliderPosition (0);
-    } else if (sliderPosition < 0) {
-      setSliderPosition (sliderPosition + getGalleryItemWidth ());
-    }
-  }
-
-  /*
-    Accepts no arguments, moves the navigation slider back
-    by one image, and returns undefined.
-  */
-  function slideForwardThroughNav () {
-    var sliderPosition = getSliderPosition ();    
-    var galleryItemWidth = getGalleryItemWidth ();
-    var hiddenImagesWidth = getHiddenImagesWidth ();
-
-    if (Math.abs(sliderPosition) < hiddenImagesWidth) {
-      setSliderPosition (sliderPosition - galleryItemWidth);
-    } else if (Math.abs(sliderPosition) + 25 >= hiddenImagesWidth) {
-      setSliderPosition (-galleryItemWidth);
-    }
-  }
+  }  
 
   /*
     Accepts no arguments, adds the disabled class to the
@@ -196,26 +190,9 @@
     Accepts no arguments and returns a jQuery HTML Element
     that represents the navigator carousel's slider element.
   */
-  function getNavViewport () {
-    return $('.' + getNavViewportClassName (), getNavCarousel ());
-  } 
-
-  /*
-    Accepts no arguments and returns a jQuery HTML Element
-    that represents the navigator carousel's slider element.
-  */
   function getNavSlider () {
     return $('.' + getNavSliderClassName (), getNavCarousel ());
   }  
-
-  /*
-    Accepts no arguments and returns an Array representing
-    the gallery items in the navigator carousel.
-  */
-  // function getNavGalleryItemsInArray () {
-  //   return getNavGalleryItems().toArray ();
-  //   return $('.' + getGalleryItemClassName (), getNavCarousel ()).toArray ();
-  // }  
 
   /*
     Accepts no arguments and returns the gallery items in 
