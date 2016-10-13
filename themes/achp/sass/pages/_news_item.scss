@@ -1,5 +1,6 @@
 @import "../global";
 
+$max-news-width: 620px;
 $max-width-padding: 50px;
 $news-item-padding: 70px;
 
@@ -7,7 +8,8 @@ $news-item-padding: 70px;
   /*@extend .card;*/
   /*height: 100px;*/
   margin: 0 auto;
-  max-width: $max-content-width - $max-width-padding * 2;
+  /*max-width: $max-content-width - $max-width-padding * 2;*/
+  max-width: $max-news-width;
 }
 
 #news_item_page {
@@ -17,7 +19,7 @@ $news-item-padding: 70px;
 
   #news_content_container {
     margin: 0 auto;
-    max-width: $max-content-width;
+    max-width: $max-news-width;
     overflow: auto;
     padding: 0;
     position: relative;
@@ -51,25 +53,11 @@ $news-item-padding: 70px;
         text-shadow: none;
       }
       .news_item_date {
-        color: $color-lightgrey-2;      
+        color: $color-lightgrey-2;   
+        font-family: $sans-text;   
       }
       .news_item_photo {
         display: none;
-        
-/*        .field_news_photo {
-          background: $background-color-grey;
-        
-          img {
-            display: block;
-            margin: 10px auto;
-            max-height: 300px;
-            max-width: 100%;
-            width: auto;
-          }
-        }
-        .field_image_caption {
-          color: $color-lightgrey-2;
-        }*/
       }
       .news_item_body {
         font-size: rem(16);
@@ -123,7 +111,8 @@ $news-item-padding: 70px;
 }
 
 #content_region {
-  padding: 0 $max-width-padding*2;
+  /*padding: 0 $max-width-padding*2;*/
+  max-width: $max-news-width;
 }
 
 #main-wrapper {
@@ -133,7 +122,8 @@ $news-item-padding: 70px;
 #block-sharethispage {
   background-color: #fff;
   margin: 0 auto;
-  max-width: $max-content-width - $max-width-padding * 2;
+  /*max-width: $max-content-width - $max-width-padding * 2;*/
+  max-width: $max-news-width;
 
   .share_this_page {
     margin: 0 auto;
@@ -150,7 +140,7 @@ $news-item-padding: 70px;
 
 .flickity {
   margin: 0 auto; 
-  max-width: $max-content-width;
+  max-width: $max-news-width;
   background-color: $color-darkgrey;
   padding: 0 20px;
   width: 100%;
@@ -202,84 +192,34 @@ $news-item-padding: 70px;
 
   &.navigator {
     border-top: 1px solid $color-grey;    
-    height: 175px;
+    /*height: 175px;*/
+    height: 125px;
+
+    .carousel-nav-button {
+      @include center-y;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      height: 20px;
+      width: 20px;
+      z-index: 500;
+
+      &.prev {
+        background-image: url('../images/left-calendar-arrow.svg');
+        left: 0;
+      }
+
+      &.next {
+        background-image: url('../images/right-calendar-arrow.svg');
+        right: 0;
+      }
+    }
 
     .flickity-prev-next-button {
       display: none;
-/*      background-color: transparent;
-      border: none;
-      border-radius: 0%;
-      display: inline-block;
-      height: 40px;
-      margin: 0;
-      padding: 0;
-      width: 40px;
-
-      &.previous {
-        left: 0;
-      }
-      &.next {
-        right: 0;
-
-        svg {
-          right: 0;
-        }
-      }
-      svg {
-        height: 100%;
-        top: 0;
-
-        path {
-          fill: white;
-        }
-      }*/
     }
+
     .flickity-slider {
-      
-      .slider-nav-button {
-        @include center-y;
-        background-position: center;
-        background-repeat: no-repeat;
-        cursor: pointer;
-        height: 20px;
-        width: 20px;
-        z-index: 500;
-
-        &.prev {
-          background-image: url('../images/left-calendar-arrow.svg');
-          left: -5px;
-        }
-
-        &.next {
-          background-image: url('../images/right-calendar-arrow.svg');
-          right: 0;
-        }
-      }
-
-/*      &:before {
-        @include center-y;
-        background-image: url('../images/left-calendar-arrow.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        content: "";
-        cursor: pointer;
-        height: 20px;
-        left: -5px;
-        width: 20px;
-      }
-
-      &:after {
-        @include center-y;
-        background-image: url('../images/right-calendar-arrow.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        content: "";
-        cursor: pointer;
-        height: 20px;
-        right: 0;
-        width: 20px;
-      }*/
-
       .gallery-cell {
         cursor: pointer;     
         height: 100%;
@@ -301,7 +241,7 @@ $news-item-padding: 70px;
         img {
           @include center-xy;
           height: auto;
-          max-height: 150px;
+          max-height: 100px;
           max-width: 100%;
           padding: 0 15px;
           width: auto;

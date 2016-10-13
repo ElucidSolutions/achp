@@ -14,11 +14,9 @@
     gallery item, and returns undefined.
   */
   function setCarouselDisplay () {
-    // TODO: move this to a user-set variable in Drupal
-    var maxImagesToDisplay = 4;
-
-    // var numImages = getImageElements ().length;
+    var maxImagesToDisplay = 4; // TODO: move this to a user-set variable in Drupal
     var numImages = getNumImages ();
+
     getNavGalleryItems ().forEach (function (galleryItem) {
       $(galleryItem).attr ('data-news-num-images-to-display', Math.min(maxImagesToDisplay, numImages));
     })
@@ -28,23 +26,36 @@
       hideNavCarousel ();
     } else if (numImages === 1) {
       hideNavCarousel (); 
-    } 
-    else { addSliderNavButtons ();}
+    } else if (numImages > maxImagesToDisplay) {
+      addSliderNavButtons ();
+    }
+  }
+
+  /*
+  */
+  function disableNavPrevButton () {
+    getNavPrevButton ().addClass('disabled');
+  }
+
+  /*
+  */
+  function disableNavNextButton () {
+    getNavNextButton ().addClass('disabled');
   }
 
   /*
 
   */
   function addSliderNavButtons () {
-    getNavSlider ()
+    getNavCarousel ()
       .prepend ($('<div></div')
-        .addClass('slider-nav-button')
+        .addClass('carousel-nav-button')
         .addClass('prev')
         .click (function () {
           slideBackThroughNav ()
         }))
       .append ($('<div></div')
-        .addClass('slider-nav-button')
+        .addClass('carousel-nav-button')
         .addClass('next')
         .click (function () {
           slideForwardThroughNav ()
@@ -59,71 +70,65 @@
   */
   function getSliderPosition () {
     var navSlider = getNavSlider ();
+    var leftPosition = parseInt(navSlider.css('left'));
+    // console.log(leftPosition)
+
     var transformMatrix = 
       navSlider.css("-webkit-transform") ||
       navSlider.css("-moz-transform")    ||
       navSlider.css("-ms-transform")     ||
       navSlider.css("-o-transform")      ||
       navSlider.css("transform");
-    transformMatrix.split(/[()]/)[1];
-    return transformMatrix.split(',')[4] / navSlider.width () * 100;
+
+    // console.log(transformMatrix.split(',')[4] / navSlider.width () * 100 + leftPosition);
+    return transformMatrix.split(',')[4] / navSlider.width () * 100 + leftPosition;
   }
 
   /*
   */
-  function setSliderPosition (percentage) {
-    getNavSlider ().css('-webkit-transform', 'translateX:(' + percentage + '%)')
-      .css('-moz-transform', 'translateX: (' + percentage + '%)')
-      .css('-ms-transform', 'translateX:(' + percentage + '%)')
-      .css('-o-transform', 'translateX:(' + percentage + '%)')
-      .css('transform', 'translateX:(' + percentage + '%)');
+  function setSliderPosition (leftPosition) {
+    // var leftPosition = leftOffset;
+    // console.log(leftPosition)
+    getNavSlider ().animate({
+      left: leftPosition
+    }, 1000)
+    // getNavSlider ().addClass ('animated');
+    // getNavSlider ().css('-webkit-transform', 'translateX(' + percentage + '%)')
+    //   .css('-moz-transform', 'translateX (' + percentage + '%)')
+    //   .css('-ms-transform', 'translateX(' + percentage + '%)')
+    //   .css('-o-transform', 'translateX(' + percentage + '%)')
+    //   .css('transform', 'translateX(' + percentage + '%)');
+    // console.log('transform: translateX(' + percentage + '%)')
   }
 
   /*
   */
   function slideBackThroughNav () {
-    var hiddenImages = getNumImages () - $(getNavGalleryItems ()[0]).attr('data-news-num-images-to-display');
+    var galleryItemWidth = getNavGalleryItemsNotArray ().width ();
     var sliderPosition = getSliderPosition ();
-    console.log('At the start of slideBack, your position is: ' + getSliderPosition ());
-    
-    // If the current position, plus 1 image, is less than the width of the
-    // remaining images, move forward 1 image
-    if (Math.abs(sliderPosition + 25) < hiddenImages * 25) {
-      console.log('More than 1 image behind you. Should move to: ' + (sliderPosition - 25));
-      setSliderPosition (sliderPosition + 25);
-    // If the current position plus 1 image is greater to or equal than the
-    // remaining images, move to display the last image
-    } else if (Math.abs(sliderPosition + 25) >= hiddenImages * 25) {     
-      console.log('Less than 1 image behind you. Should move to: ' + -(hiddenImages * 25))
-      setSliderPosition (0);
-    } else if (sliderPosition === 0) {
-      console.log('Already at zero; this should be disabled')
+      // console.log(sliderPosition)
+    if (sliderPosition === 0) {
+      disableNavPrevButton ();
+    } else if (sliderPosition < 0) {
+      setSliderPosition (sliderPosition + galleryItemWidth);
     }
-
-    console.log('At the end of slideBack, your position is: ' + getSliderPosition ());
   }
 
   /*
   */
   function slideForwardThroughNav () {
-    var hiddenImages = getNumImages () - $(getNavGalleryItems ()[0]).attr('data-news-num-images-to-display');
+    var galleryItemWidth = getNavGalleryItemsNotArray ().width ();
+    var hiddenImagesWidth = galleryItemWidth * (getNumImages () - $(getNavGalleryItems ()[0]).attr('data-news-num-images-to-display'));
     var sliderPosition = getSliderPosition ();
-    console.log('At the start of slideForward, your position is: ' + getSliderPosition ());
-    
-    // If the current position, plus 1 image, is less than the width of the
-    // remaining images, move forward 1 image
-    if (Math.abs(sliderPosition - 25) < hiddenImages * 25) {
-      console.log('More than 1 image to go. Should move to: ' + (sliderPosition - 25));
-      setSliderPosition (sliderPosition - 25);
-    // If the current position plus 1 image is greater to or equal than the
-    // remaining images, move to display the last image
-    } else if (Math.abs(sliderPosition - 25) > hiddenImages * 25) {     
-      console.log('Less than 1 image to go. Should move to: ' + -(hiddenImages * 25))
-      setSliderPosition (-(hiddenImages * 25));
-    } else if (Math.abs(sliderPosition) === hiddenImages * 25) {
-      console.log('You are already at the end ... I think');
+    // console.log(sliderPosition);
+
+    if (Math.abs(sliderPosition) < hiddenImagesWidth) {
+      // console.log(galleryItemWidth);
+      setSliderPosition (sliderPosition - galleryItemWidth);
+    } else if (Math.abs(sliderPosition) >= hiddenImagesWidth) {
+      console.log('there')
+      disableNavNextButton ();
     }
-    console.log('At the end of slideForward, your position is: ' + getSliderPosition ());
   }
 
   /*
@@ -131,6 +136,14 @@
   function getNumImages () {
     return getImageElements ().length;
   }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the navigator carousel's slider element.
+  */
+  function getNavViewport () {
+    return $('.' + getNavViewportClassName (), getNavCarousel ());
+  } 
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
@@ -145,7 +158,16 @@
     the gallery items in the navigator carousel.
   */
   function getNavGalleryItems () {
+    // return getNavGalleryItemsNotArray().toArray ();
     return $('.' + getGalleryItemClassName (), getNavCarousel ()).toArray ();
+  }  
+
+  /*
+    Accepts no arguments and returns the gallery items in 
+    the navigator carousel.
+  */
+  function getNavGalleryItemsNotArray () {
+    return $('.' + getGalleryItemClassName (), getNavCarousel ());
   }  
 
   /*
@@ -177,7 +199,7 @@
     that represents the navigator carousel.
   */
   function getNavCarousel () {
-    return $('#block-carousel-navigator');
+    return $('#block-carousel-navigator .navigator');
   }
 
   /*
@@ -189,11 +211,31 @@
   }
 
   /*
+  */
+  function getNavNextButton () {
+    return $('.' + getNavCarouselClassName () + '.next');
+  }
+
+    /*
+  */
+  function getNavPrevButton () {
+    return $('.' + getNavCarouselClassName () + '.prev');
+  }
+
+  /*
     Accepts no arguments and returns a string representing
     Flickity's slider element.
   */
   function getNavSliderClassName () {
     return 'flickity-slider';
+  }
+
+  /*
+    Accepts no arguments and returns a string representing
+    Flickity.
+  */
+  function getNavCarouselClassName () {
+    return 'carousel-nav-button';
   }
 
   /*
