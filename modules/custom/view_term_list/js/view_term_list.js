@@ -5,27 +5,46 @@
   filter terms.
 */
 (function ($, Drupal, drupalSettings) {
+  /*
+    An integer that represents the maximum
+    number of items to display in collapsed
+    view mode.
+ */
+  var MAX_NUM_ITEMS = 10;
+
+  /*
+    An associative array of SVGDocuments keyed
+    by name.
+  */
+  var ICONS = {};
+
   // Initializes the filter elements.
   $(document).ready (function () {
-    // initializes all of filters.
-    getFilters ().forEach (function (filter) {
-      filter.initElement ();
-    });
+    // initializes all of the filters.
+    initFilters ();
   });
 
   // Initialize all filters after each refresh.
+  // See: https://www.drupal.org/docs/8/api/javascript-api
   Drupal.behaviors.view_term_list = {
     attach: function (context, settings) {
       $(document).once ('view_term_list').ajaxComplete (
         function (event, xhr, settings) {
-          // initializes all of filters.
-          getFilters ().forEach (function (filter) {
-            filter.initElement ();
-          });
+          // initializes all of the filters on view updates.
+          if (settings.url.indexOf ('/views/ajax') === 0) {
+            initFilters ();
+          }
       });
     }
   }
 
+  /*
+    Accepts no arguments and initializes all of
+    the filter elements.
+  */
+  function initFilters () {
+    _.invoke (getFilters (), 'initElement');
+  }
 
   /*
     Accepts no arguments and returns the filters
@@ -33,9 +52,9 @@
   */
   function getFilters () {
     return getListElements ().map (
-      function (i, listElement) {
+      function (listElement) {
         return new Filter (getListFilterId ($(listElement)));
-    }).toArray ();
+    });
   }
 
   /*
@@ -54,38 +73,42 @@
   */
   Filter.prototype.initElement = function () {
     var self = this;
-    this.getItemElements ().each (
-      function (i, _itemElement) {
+
+    // add buttons and click event handlers.
+    var selectedTermIds = this.getSelectedTermIds ();
+    this.getItemElements ().forEach (
+      function (_itemElement, i) {
         var itemElement = $(_itemElement);
 
-        // create and append deselect button.
-        itemElement.append (createItemDeselectButtonElement ());
+        itemElement.attr (getItemIndexAttributeName (), i);
+        i > MAX_NUM_ITEMS && itemElement.addClass (getOverflowItemClassName);
 
-        // add the label click event handler.
+
         var termId = getItemTermId (itemElement);
-        getItemLabelElement (itemElement).click (function () {
-          self.selectTerm (termId);
-          self.refreshView ();
-        });
-        
-        // add the deselect button click event handler.
-        getItemDeselectButtonElement (itemElement).click (function () {
-          self.deselectTerm (termId);
-          self.refreshView ();
-        });
+        if (_.contains (selectedTermIds, termId)) {
+          itemElement
+            .addClass (getSelectedItemClassName)
+            .append (createItemDeselectButtonElement ())
+            .click (function () {
+              self.deselectTerm (termId);
+              self.submitForm ();
+            });
+        } else {
+          itemElement.click (function () {
+            self.selectTerm (termId);
+            self.submitForm ();
+          });
+        }
     });
   }
 
   /*
-    Accepts no arguments, refreshes the view that
-    contains this filter, and returns undefined.
-
-    See comments in the Views module
-    (views/js/ajax_view.js) for details about
-    the RefreshView event.
+    Accepts no arguments and submits this
+    filter's view form by simulating a click on
+    the form's submit button.
   */
-  Filter.prototype.refreshView = function () {
-    this.getViewElement ().trigger ('RefreshView');
+  Filter.prototype.submitForm = function () {
+    this.getSubmitButtonElement ().click ();
   }
 
   /*
@@ -108,6 +131,15 @@
   */
   Filter.prototype.deselectTerm = function (termId) {
     this.getOptionElement (termId).removeAttr ('selected');
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents the view form
+    submit button.
+  */
+  Filter.prototype.getSubmitButtonElement = function () {
+    return $('.' + getSubmitClassName (), this.getViewElement ());
   }
 
   /*
@@ -169,16 +201,26 @@
     with itemElement.
   */
   function getItemTermId (itemElement) {
-    return itemElement.attr ('data-term-id');
+    return itemElement.attr (getItemTermAttributeName ());
   }
 
   /*
-    Accepts no arguments and returns a jQuery
-    HTML Set that represents this filters list
-    item elements.
+    Accepts one argument: termId, a string that
+    represents a term ID; and returns the filter
+    item element associated with termId as a
+    jQuery HTML Element.
+  */
+  Filter.prototype.getItemElement = function (termId) {
+    return $('.' + getItemClassName () + '[' + getItemTermAttributeName () + '="' + termId + '"]', this.getListElement ());
+  }
+
+  /*
+    Accepts no arguments and returns this
+    filter's list item elements as an array of
+    DOM HTML Elements.
   */
   Filter.prototype.getItemElements = function () {
-    return $('.' + getItemClassName (), this.getListElement ());
+    return $('.' + getItemClassName (), this.getListElement ()).toArray ();
   }
 
   /*
@@ -188,6 +230,26 @@
   */
   Filter.prototype.getListElement = function () {
     return $('[' + getFilterAttributeName () + '="' + this.getId () + '"].' + getListClassName ());
+  }
+
+  /*
+    Accepts no arguments and returns the set of
+    terms currently selected in this filter as
+    an array of strings.
+  */
+  Filter.prototype.getSelectedTermIds = function () {
+    return this.getSelectedOptionElements ().map (function (optionElement) {
+      return $(optionElement).val ();
+    });
+  }
+
+  /*
+    Accepts no arguments and returns this
+    filter's selected option elements in a jQuery
+    HTML Element array.
+  */
+  Filter.prototype.getSelectedOptionElements = function () {
+    return $('option:selected', this.getSelectElement ()).toArray ();
   }
 
   /*
@@ -225,12 +287,12 @@
   }
 
   /*
-    Accepts no arguments and returns a jQuery
-    HTML Element set that represents the view
-    term list elements.
+    Accepts no arguments and returns the view
+    term list elements in a DOM HTML Element
+    array.
   */
   function getListElements () {
-    return $('.' + getListClassName ());
+    return $('.' + getListClassName ()).toArray ();
   }
 
   /*
@@ -239,7 +301,9 @@
     button.
   */
   function createItemDeselectButtonElement () {
-    return $('<div></div>').addClass (getItemDeselectButtonClassName ());
+    return $('<div></div>')
+      .addClass (getItemDeselectButtonClassName ())
+      .append ($(loadIcon ('deselect-button', '/modules/custom/view_term_list/images/close-icon.svg').documentElement));
   }
 
   /*
@@ -248,6 +312,31 @@
   */
   Filter.prototype.getId = function () {
     return this._id;
+  }
+
+  /*
+    Accepts two arguments: 
+
+    * name, a string
+    * and url, a URL string
+
+    loads the SVG file referenced by url, caches
+    the loaded icon, and returns the file as
+    an SVGDocument.
+  */
+  function loadIcon (name, url) {
+    if (!ICONS [name]) {
+      $.ajax (url, {
+        async: false,
+        success: function (svgDocument) {
+          ICONS [name] = svgDocument;
+        },
+        error: function () {
+          console.log ('[view_term_list] Error: an error occured while trying to load the "' + name + '" icon from "' + url + '".');
+        }
+      });
+    }
+    return ICONS [name] ? (ICONS [name]).cloneNode (true) : null;
   }
 
   /*
@@ -269,6 +358,28 @@
 
   /*
     Accepts no arguments and returns a string
+    that represents the class used to label
+    overflow filter item elements.
+
+    Overflow filter item elements are those items
+    that should not be displayed when the filter
+    is "collapsed".
+  */
+  function getOverflowItemClassName () {
+    return getItemClassName () + '_overflow';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the class used to label
+    selected item elements.
+  */
+  function getSelectedItemClassName () {
+    return getItemClassName () + '_selected';
+  }
+
+  /*
+    Accepts no arguments and returns a string
     that represents the item element class name.
   */
   function getItemClassName () {
@@ -281,6 +392,26 @@
   */
   function getListClassName () {
     return 'view_term_list_list';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the name of the data
+    attribute used to specify filter item
+    indicies.
+  */
+  function getItemIndexAttributeName () {
+    return 'data-view-term-list-item-index';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the name of the data
+    attribute used to specify the ID of the term
+    associated with filter items.
+  */
+  function getItemTermAttributeName () {
+    return 'data-term-id';
   }
 
   /*
@@ -303,5 +434,14 @@
   */
   function getFilterAttributeName () {
     return 'data-view-term-list-filter';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the view form button's
+    class name.
+  */
+  function getSubmitClassName () {
+    return 'js-form-submit';
   }
 }) (jQuery, Drupal, drupalSettings);

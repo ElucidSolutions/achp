@@ -12,8 +12,6 @@
  * Attaches the view_term_list_library to the 
  */
 function view_term_list_block_view_alter (array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
-  \Drupal::logger ('view_term_list')->notice ('[view_term_list_block_view_alter] build keys: <pre>' . print_r (array_keys ($build), true) . '</pre>');
-  \Drupal::logger ('view_term_list')->notice ('[view_term_list_block_view_alter] build id: ' . $build ['#id']);
   $build ['#attached'] = array (
     'library' => array ('view_term_list/view_term_list_library')
   );

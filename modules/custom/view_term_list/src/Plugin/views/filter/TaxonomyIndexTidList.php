@@ -46,6 +46,8 @@ use Drupal\taxonomy\Plugin\views\filter\TaxonomyIndexTid;
  * @ViewsFilter("taxonomy_index_tid_list")
  */
 class TaxonomyIndexTidList extends TaxonomyIndexTid {
+  protected $maxNumTerms;
+
   /**
    *
    */
@@ -54,6 +56,20 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
     parent::buildExtraOptionsForm ($form, $form_state);
 
     $form ['type']['#options']['list'] = $this->t ('List');
+    $form ['list']['max_num_terms'] = array (
+      '#type' => 'number',
+      '#title' => $this->t ('Max Number of Terms'),
+      '#description' => $this->t ('The maximum number of terms to display in the list format'),
+      '#default_value' => $this->maxNumTerms
+    );
+  }
+
+  /**
+   */
+  public function submitExtraOptionsForm($form, FormStateInterface $form_state) {
+    parent::submitExtraOptionsForm ($form, $form_state);
+    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::submitOptionsForm] form max number terms: <pre>' . print_r (array_keys ($form ['list'] , true) . '</pre>');
+    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::submitOptionsForm] form state: <pre>' . print_r (get_object_vars ($form_state), true) . '</pre>');
   }
 
   /**
@@ -99,8 +115,21 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
           $options [$term->id ()] = $label;
         }
       }
-      // Create the option list that users will use to select values.
+      // Create the hidden select form element that will be used to store selected term values.
+      // Note: this form element is hidden using CSS.
       $filter_id = Html::getUniqueId ('view-term-list');
+      $form ['value'] = array (
+        '#attributes' => array (
+          'class' => array ('view_term_list_select'),
+          'data-view-term-list-filter' => $filter_id
+        ),
+        '#type' => 'select',
+        '#multiple' => true,
+        '#options' => $options,
+        '#default_value' => (array) $this->value,
+        '#weight' => 0 // ensure that this field item, with it's header, appears above the item list.
+      );
+      // Create the option list that users will use to select values.
       $form ['view_term_list_item'] = array (
         '#type' => 'item',
         'view_term_list_list' => array (
@@ -109,22 +138,11 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
             ' data-view-term-list-filter="' . $filter_id .
             '">',
           '#suffix' => '</ul>',
-          'items' => $items 
-        )
-      );
-      // Create the hidden select form element that will be used to store selected term values.
-      // Note: this form element is hidden using CSS.
-      \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] options: <pre>' . print_r ($options, true) . '</pre>.');
-      \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] default value: <pre>' . print_r ((array) $this->value, true) . '</pre>.');
-      $form ['value'] = array (
-        '#attributes' => array (
-          'data-view-term-list-filter' => $filter_id
+          'items' => $items
         ),
-        '#type' => 'select',
-        '#multiple' => true,
-        '#options' => $options,
-        '#default_value' => (array) $this->value
+        '#weight' => 1
       );
+      \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] form: <pre>' . print_r (array_keys ($form), true) . '</pre>');
     } else {
       // let the parent version handle all remaining cases.
       // return parent::valueForm ($form, $form_state);

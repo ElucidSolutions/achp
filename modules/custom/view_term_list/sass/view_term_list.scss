@@ -1,0 +1,29 @@
+/*
+  This module defines the default styling for
+  the View Term List filter elements.
+*/
+
+.view_term_list_select {
+  display: none;
+}
+
+.view_term_list_list {
+  display: table;
+
+  .view_term_list_item {
+    cursor: pointer;
+    display: table-row;
+
+    &_label {
+      display: table-cell;
+    }
+    &_deselect_button {
+      display: none;
+    }
+    &.view_term_list_item_selected {
+      .view_term_list_item_deselect_button {
+        display: table-cell;
+      }
+    }
+  }
+}
