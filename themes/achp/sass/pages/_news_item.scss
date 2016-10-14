@@ -5,16 +5,12 @@ $max-width-padding: 50px;
 $news-item-padding: 70px;
 
 #block-news-item-title-block {
-  /*@extend .card;*/
-  /*height: 100px;*/
   margin: 0 auto;
-  /*max-width: $max-content-width - $max-width-padding * 2;*/
   max-width: $max-news-width;
 }
 
 #news_item_page {
   @include outer-container(100%);
-  /*background-color: #fff;*/
   height: 100%;
 
   #news_content_container {
@@ -39,9 +35,6 @@ $news-item-padding: 70px;
       }
     }
     article.news_item {
-      /*@extend .card;      */
-      /*background-color: #fff;*/
-      /*border-top: none;*/
       margin: 10px 0;
       padding: 40px 0;
 
@@ -50,7 +43,6 @@ $news-item-padding: 70px;
         color: $color-darkblue;
         font-weight: 400;
         text-align: left;
-        text-shadow: none;
       }
       .news_item_date {
         color: $color-lightgrey-2;   
@@ -78,10 +70,10 @@ $news-item-padding: 70px;
             @include center-y;
             background-color: $color-lightgrey;
             content: "";
-            height: 90%;
+            height: 95%;
             left: -$blockquote-margin;
             position: absolute;
-            top: 49%;
+            top: 50%;
             width: 4px;
           }
         }
@@ -89,9 +81,11 @@ $news-item-padding: 70px;
       .news_divider {
         background-color: $color-lightgrey;
         height: 2px;
-        margin: 50px 0 20px;
+        margin: $max-width-padding 0 20px;
       }
       .news_item_tags {
+        font-family: $sans-text;
+
         .news_item_tags_label {
           color: $color-darkblue;
           text-transform: uppercase;
@@ -139,15 +133,13 @@ $news-item-padding: 70px;
 }
 
 .flickity {
+  background-color: $color-darkgrey;  
   margin: 0 auto; 
   max-width: $max-news-width;
-  background-color: $color-darkgrey;
-  padding: 0 20px;
+  padding: 15px 20px;
   width: 100%;
 
   &.default_group {
-    border: 15px solid $color-darkgrey;
-
     .flickity-prev-next-button {
       display: none;
     }
@@ -192,21 +184,22 @@ $news-item-padding: 70px;
 
   &.navigator {
     border-top: 1px solid $color-grey;    
-    /*height: 175px;*/
     height: 125px;
 
     .carousel-nav-button {
       @include center-y;
+      background-color: rgba(0,0,0,0.6);
       background-position: center;
       background-repeat: no-repeat;
       cursor: pointer;
-      height: 20px;
+      height: 100%;
+      transition: background-color 0.25s, opacity 0.25s;      
       width: 20px;
       z-index: 500;
-      /* Add transition for when turning greyer*/
 
       &.disabled {
-        display: none;
+        background-color: rgba (0,0,0,0.2);
+        opacity: .4;
       }
 
       &.prev {
@@ -256,8 +249,77 @@ $news-item-padding: 70px;
   }
 }
 
+#block-related-news-items {
+  header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(179,179,179,1);
+    color: $color-red;
+    font-family: $sans-text;
+    font-size: rem(22px);
+    height: auto;
+
+    h4 {
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+  }
+  .views-row {
+    border-bottom: 1px solid rgba(235,235,235,1);
+    font-family: $sans-text;
+    padding: 20px 0;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .views-field-title a {
+      @include hover-transition-content($color-blue-primary);
+      color: $color-darkblue;
+      font-size: rem(20px);
+      text-decoration: none;
+    }
+
+    .views-field-field-news-date {
+      @extend .news_item_date;
+      color: rgba(124, 124, 124, 1);
+    }
+  }
+}
+
 @media (max-width: 1024px) {
   #content_region {
     padding: 0 $max-width-padding;
   }
 }
+
+
+@media (max-width: 600px) {
+  #news_item_page #news_content_container article.news_item {
+    h1 {
+      font-size: rem(26px);
+      text-align: center;
+    }
+    .news_item_date {
+      text-align: center;
+    }
+    .news_item_body blockquote {
+      font-size: rem(20px);
+    }
+    .news_item_tags .field_tags {
+      display: block;
+    }
+  }
+  #block-sharethispage .share_this_page .share_this_page_buttons {
+    .share_this_page_button {
+      margin-left: 15px;
+
+      &.share_this_page_button_print {
+        padding-left: 15px;
+      } 
+    } 
+  }
+  #block-related-news-items header {
+    font-size: rem(18px);
+  }
+}
+

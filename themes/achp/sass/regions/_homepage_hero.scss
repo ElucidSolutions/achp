@@ -24,6 +24,10 @@ h1 {
     width: 100%;
     max-width: $max-content-width;
     padding: 0 42px;
+    
+    h1 {
+      text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.50);
+    }
     hr {
       @include hr(#FFFFFF);
       margin-top: 20px;

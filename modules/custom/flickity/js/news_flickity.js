@@ -8,6 +8,9 @@
 
   })
 
+  // TODO: Function that checks width of screen, and
+  // applies correct maxImagesToDisplay variable
+
   /*
     Accepts no arguments, sets the display for the two Flickity
     carousels, attaches a news-num-images attribute to each
@@ -16,6 +19,7 @@
   function setCarouselDisplay () {
     var maxImagesToDisplay = 4; 
     // TODO: move maxImagesToDisplay to a user-set variable in Drupal
+    // Also have separate maxMobileImages variable
     var numImages = getNumImages ();
 
     getNavGalleryItems ().toArray ().forEach (function (galleryItem) {
@@ -41,16 +45,14 @@
       .prepend ($('<div></div')
         .addClass('carousel-nav-button')
         .addClass('prev')
-        .click (function () {
-          slideBackThroughNav ()
-        }))
+        .addClass('disabled')
+        .click (slideBackThroughNav)
+      )
       .append ($('<div></div')
         .addClass('carousel-nav-button')
         .addClass('next')
-        .click (function () {
-          slideForwardThroughNav ()
-        }));
-    disableNavPrevButton ();
+        .click (slideForwardThroughNav)
+      );
   }
 
   /*
@@ -79,7 +81,7 @@
     if (Math.abs(sliderPosition) < hiddenImagesWidth) {
       setSliderPosition (sliderPosition - galleryItemWidth);
     } else if (Math.abs(sliderPosition) + 25 >= hiddenImagesWidth) {
-      setSliderPosition (-galleryItemWidth);
+      setSliderPosition (-hiddenImagesWidth);
     }
   }
 
