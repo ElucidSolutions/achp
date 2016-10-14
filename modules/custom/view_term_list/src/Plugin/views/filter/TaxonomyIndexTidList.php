@@ -46,21 +46,17 @@ use Drupal\taxonomy\Plugin\views\filter\TaxonomyIndexTid;
  * @ViewsFilter("taxonomy_index_tid_list")
  */
 class TaxonomyIndexTidList extends TaxonomyIndexTid {
-  protected $maxNumTerms;
-
   /**
    *
    */
   public function buildExtraOptionsForm (&$form, FormStateInterface $form_state) {
-    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::buildExtraOptionsForm]');
     parent::buildExtraOptionsForm ($form, $form_state);
-
     $form ['type']['#options']['list'] = $this->t ('List');
     $form ['list']['max_num_terms'] = array (
-      '#type' => 'number',
+      '#default_value' => \Drupal::config ('view_term_list.settings')->get ('max_num_terms')[$this->options ['expose']['identifier']],
+      '#description' => $this->t ('Specifies the maximum number of terms that should be displayed in collapsed lists.'),
       '#title' => $this->t ('Max Number of Terms'),
-      '#description' => $this->t ('The maximum number of terms to display in the list format'),
-      '#default_value' => $this->maxNumTerms
+      '#type' => 'number'
     );
   }
 
@@ -68,8 +64,12 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
    */
   public function submitExtraOptionsForm($form, FormStateInterface $form_state) {
     parent::submitExtraOptionsForm ($form, $form_state);
-    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::submitOptionsForm] form max number terms: <pre>' . print_r (array_keys ($form ['list'] , true) . '</pre>');
-    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::submitOptionsForm] form state: <pre>' . print_r (get_object_vars ($form_state), true) . '</pre>');
+    \Drupal::configFactory ()
+      ->getEditable ('view_term_list.settings')
+      ->set ('max_num_terms', array (
+          $this->options ['expose']['identifier'] => $form ['list']['max_num_terms']['#value']
+        ))
+      ->save ();
   }
 
   /**
@@ -85,7 +85,7 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
    * form element.
    */
   protected function valueForm(&$form, FormStateInterface $form_state) {
-    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm] form: <pre>' . print_r (array_keys ($form), true) . '</pre>');
+    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm] plugin id: ' . $this->getPluginId () . ' derivative id: ' . $this->getDerivativeId () . ' identifier: ' . $this->options ['expose']['identifier']);
 
     // I. perform the same initial vocabulary check as performed in the parent function.
     // Note: the following is lifted verbatim from the beginning of TaxonomyIndexTid::valueForm ().
@@ -99,25 +99,28 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
 
     // II. Intercept the case where the user selected the list type.
     if ($this->options ['type'] == 'list') {
-      \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] List type selected.');
-
+      $max_num_terms = \Drupal::config ('view_term_list.settings')->get ('max_num_terms')[$this->options ['expose']['identifier']];
       $items = array ();
       $options = array ();
+
+      // create a dummy option used to signal whether or not this filter should be expanded or collapsed across AJAX reloads.
+      $options ['expand'] = 'expand';
+
       $tree = $this->termStorage->loadTree ($vocabulary->id (), 0, null, true);
       if ($tree) {
         foreach ($tree as $term) {
           $label = \Drupal::entityManager ()->getTranslationFromContext ($term)->label ();
           $items [] = array (
-            '#markup' => '<div class="view_term_list_item" data-term-id="' . $term->id () . '" data-term-depth="' . $term->depth . '">' .
+            '#markup' => '<li class="view_term_list_item" data-term-id="' . $term->id () . '" data-term-depth="' . $term->depth . '">' .
               '<div class="view_term_list_item_label">' . $label . '</div>' .
-            '</div>'
+            '</li>'
           );
           $options [$term->id ()] = $label;
         }
       }
       // Create the hidden select form element that will be used to store selected term values.
       // Note: this form element is hidden using CSS.
-      $filter_id = Html::getUniqueId ('view-term-list');
+      $filter_id = $this->options ['expose']['identifier'];
       $form ['value'] = array (
         '#attributes' => array (
           'class' => array ('view_term_list_select'),
@@ -135,19 +138,37 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
         'view_term_list_list' => array (
           '#prefix' => '<ul class="view_term_list_list"' .
             ' data-view-term-list-view="' . $this->view->dom_id . '"' .
-            ' data-view-term-list-filter="' . $filter_id .
-            '">',
+            ' data-view-term-list-filter="' . $filter_id . '"' .
+            ' data-view-term-list-num-items="' . count ($items) . '"' .
+            '>',
           '#suffix' => '</ul>',
-          'items' => $items
+          'items' => array_slice ($items, 0, $max_num_terms),
+          'overflow_items' => array (
+            '#prefix' => '<div class="view_term_list_list_overflow"' .
+              ' data-view-term-list-num-overflow-items="' . max (0, count ($items) - $max_num_terms) . '"' .
+              '>',
+            '#suffix' => '</div>',
+            'items' => array_slice ($items, $max_num_terms),
+          ),
+          'toggle_button' => array (
+            '#markup' => '<div class="view_term_list_list_toggle_button"></div>'
+          )
         ),
         '#weight' => 1
       );
-      \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] form: <pre>' . print_r (array_keys ($form), true) . '</pre>');
+      $form ['#attached'] = array (
+        'library' => array ('view_term_list/view_term_list_library'),
+        'drupalSettings' => array (
+          'view_term_list' => array (
+            'max_num_terms' => \Drupal::config ('view_term_list.settings')->get ('max_num_terms')[$this->options ['expose']['identifier']],
+            'filter_id' => $this->options ['expose']['identifier']
+          )
+        )
+      );
     } else {
       // let the parent version handle all remaining cases.
       // return parent::valueForm ($form, $form_state);
       parent::valueForm ($form, $form_state);
-      \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm.] non-list type selected. form keys: <pre>' . print_r (array_keys ($form), true) . '</pre>');
       return;
     }
 

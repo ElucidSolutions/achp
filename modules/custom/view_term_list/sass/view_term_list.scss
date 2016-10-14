@@ -14,16 +14,8 @@
     cursor: pointer;
     display: table-row;
 
-    &_label {
+    .view_term_list_item_label {
       display: table-cell;
-    }
-    &_deselect_button {
-      display: none;
-    }
-    &.view_term_list_item_selected {
-      .view_term_list_item_deselect_button {
-        display: table-cell;
-      }
     }
   }
 }

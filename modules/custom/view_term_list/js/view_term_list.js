@@ -6,45 +6,25 @@
 */
 (function ($, Drupal, drupalSettings) {
   /*
-    An integer that represents the maximum
-    number of items to display in collapsed
-    view mode.
- */
-  var MAX_NUM_ITEMS = 10;
-
-  /*
     An associative array of SVGDocuments keyed
     by name.
   */
   var ICONS = {};
 
+  /*
+    A Filter array that represents the set of
+    filters on the current page.
+  */
+  var FILTERS = {};
+
   // Initializes the filter elements.
   $(document).ready (function () {
-    // initializes all of the filters.
-    initFilters ();
+    // stores all of the filters on the current page in the FILTERS array.
+    FILTERS = getFilters ();
+
+    // initializes the filter elements.
+    initFilterElements ();
   });
-
-  // Initialize all filters after each refresh.
-  // See: https://www.drupal.org/docs/8/api/javascript-api
-  Drupal.behaviors.view_term_list = {
-    attach: function (context, settings) {
-      $(document).once ('view_term_list').ajaxComplete (
-        function (event, xhr, settings) {
-          // initializes all of the filters on view updates.
-          if (settings.url.indexOf ('/views/ajax') === 0) {
-            initFilters ();
-          }
-      });
-    }
-  }
-
-  /*
-    Accepts no arguments and initializes all of
-    the filter elements.
-  */
-  function initFilters () {
-    _.invoke (getFilters (), 'initElement');
-  }
 
   /*
     Accepts no arguments and returns the filters
@@ -57,6 +37,33 @@
     });
   }
 
+  // Initialize all filters after each refresh.
+  // See: https://www.drupal.org/docs/8/api/javascript-api
+  Drupal.behaviors.view_term_list = {
+    attach: function (context, settings) {
+      $(document).once ('view_term_list').ajaxComplete (
+        function (event, xhr, settings) {
+          // initializes all of the filters on view updates.
+          if (settings.url.indexOf ('/views/ajax') === 0) {
+            // initializes the filter elements.
+            initFilterElements ();
+          }
+      });
+    }
+  }
+
+  /*
+    Accepts no arguments and initializes all of
+    the filter elements.
+  */
+  function initFilterElements () {
+    _.invoke (FILTERS, 'initElement');
+  }
+
+  // Represents the set of possible filter states.
+  var EXPANDED = 'expanded';
+  var COLLAPSED = 'collapsed';
+
   /*
     Accepts one argument: filterId, a string;
     and returns a Filter object that
@@ -64,6 +71,23 @@
   */
   function Filter (filterId) {
     this._id = filterId;
+    this._state = COLLAPSED;
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents this filter's id.
+  */
+  Filter.prototype.getId = function () {
+    return this._id;
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents this filter's current state.
+  */
+  Filter.prototype.getState = function () {
+    return this._state;
   }
 
   /*
@@ -74,33 +98,71 @@
   Filter.prototype.initElement = function () {
     var self = this;
 
-    // add buttons and click event handlers.
+    // set overflow visibility.
+    this.isExpanded () ? 
+      this.showOverflow ():
+      this.hideOverflow ();
+
+    // add buttons and click event handlers to items.
     var selectedTermIds = this.getSelectedTermIds ();
-    this.getItemElements ().forEach (
-      function (_itemElement, i) {
-        var itemElement = $(_itemElement);
-
-        itemElement.attr (getItemIndexAttributeName (), i);
-        i > MAX_NUM_ITEMS && itemElement.addClass (getOverflowItemClassName);
-
-
-        var termId = getItemTermId (itemElement);
-        if (_.contains (selectedTermIds, termId)) {
-          itemElement
-            .addClass (getSelectedItemClassName)
-            .append (createItemDeselectButtonElement ())
-            .click (function () {
-              self.deselectTerm (termId);
-              self.submitForm ();
-            });
-        } else {
-          itemElement.click (function () {
-            self.selectTerm (termId);
-            self.submitForm ();
-          });
-        }
+    this.getItemElements ().forEach (function (itemElement, i) {
+      self.initItemElement (selectedTermIds, $(itemElement), i);
     });
+
+    // add a click event to the toggle element.
+    this.initToggleElement ();
   }
+
+  /*
+    Accepts three arguments:
+
+    * selectedTermIds, an array of integers that
+      represent the currently selected term ids
+    * itemElement, a jQuery HTML Element that
+      represents a filter item element
+    * i, an integer that represents itemElement's
+      array index within this filter's set of
+      item elements
+
+    sets the click event handler for itemElement,
+    adds the appropriate classes, appends a
+    deselect button if necessary, and returns
+    undefined.
+  */
+  Filter.prototype.initItemElement = function (selectedTermIds, itemElement, i) {
+    var self = this;
+    itemElement.attr (getItemIndexAttributeName (), i);
+
+    var termId = getItemTermId (itemElement);
+    if (_.contains (selectedTermIds, termId)) {
+      itemElement
+        .addClass (getSelectedItemClassName)
+        .append (createItemDeselectButtonElement ())
+        .click (function () {
+          self.deselectTerm (termId);
+          self.submitForm ();
+        });
+    } else {
+      itemElement.click (function () {
+        self.selectTerm (termId);
+        self.submitForm ();
+      });
+    }
+  }
+
+  /*
+    Accepts no arguments, sets the click event
+    handler for this filter's toggle element,
+    and returns undefined.
+  */
+  Filter.prototype.initToggleElement = function () {
+    var self = this;
+    this.getToggleElement ()
+      .text (this.isExpanded () ? 'Show Less' : 'Show More')
+      .click (function () {
+        self.isExpanded () ? self.collapseOverflow () : self.expandOverflow ();
+      });
+  } 
 
   /*
     Accepts no arguments and submits this
@@ -109,6 +171,45 @@
   */
   Filter.prototype.submitForm = function () {
     this.getSubmitButtonElement ().click ();
+  }
+
+  /*
+    Accepts no arguments, expands this
+    filter's overflow element, and returns
+    undefined.
+  */
+  Filter.prototype.expandOverflow = function () {
+    this.isExpanded () || this.getOverflowElement ().slideDown (_.bind (this.showOverflow, this));
+  }
+
+  /*
+    Accepts no arguments, collapses this filter's
+    overflow element, and returns undefined.
+  */
+  Filter.prototype.collapseOverflow = function () {
+    this.isExpanded () && this.getOverflowElement ().slideUp (_.bind (this.hideOverflow, this));
+  }
+
+  /*
+    Accepts no arguments; *quickly* hides this
+    filter's overflow element; and returns
+    undefined.
+  */
+  Filter.prototype.showOverflow = function () {
+    this.getOverflowElement ().show ();
+    this.getToggleElement ().text ('Show Less');
+    this._state = EXPANDED;
+  }
+
+  /*
+    Accepts no arguments; *quickly* expands
+    this filter's overflow element; and returns
+    undefined.
+  */
+  Filter.prototype.hideOverflow = function () {
+    this.getOverflowElement ().hide ();
+    this.getToggleElement ().text ('Show More');
+    this._state = COLLAPSED;
   }
 
   /*
@@ -224,6 +325,46 @@
   }
 
   /*
+    Accepts no arguments and returns the
+    expand/collapse (toggle) element as a jQuery
+    HTML Element.
+  */
+  Filter.prototype.getToggleElement = function () {
+    return $('.' + getToggleClassName (), this.getListElement ());
+  }
+
+  /*
+    Accepts no arguments and returns the number
+    of overflow items as an integer.
+  */
+  Filter.prototype.getNumOverflowItems = function () {
+    return this.getListElement ().attr (getOverflowNumItemsAttributeName ());
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represent the this filter's
+    overflow element.
+  */
+  Filter.prototype.getOverflowElement = function () {
+    return $('.' + getOverflowClassName (), this.getListElement ());
+  }
+
+  /*
+    Accepts no arguments and returns true iff
+    this filter should be expanded.
+
+    Note: this module uses a hidden select option
+    to indicate whether or not filters should be
+    expanded or collapsed. This function checks
+    to see whether or not this filter's expand
+    option has been selected.
+  */
+  Filter.prototype.isExpanded = function () {
+    return this.getState () === EXPANDED;
+  }
+
+  /*
     Accepts no arguments and returns a jQuery
     HTML Element that represents the HTML list
     element associated with this filter.
@@ -307,14 +448,6 @@
   }
 
   /*
-    Accepts no arguments and returns a string
-    that represents this filter's id.
-  */
-  Filter.prototype.getId = function () {
-    return this._id;
-  }
-
-  /*
     Accepts two arguments: 
 
     * name, a string
@@ -384,6 +517,33 @@
   */
   function getItemClassName () {
     return 'view_term_list_item';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the Number of Overflow Items
+    data attribute name.
+  */
+  function getOverflowNumItemsAttributeName () {
+    return 'data-view-term-list-num-overflow-items';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the name of the class used
+    to label the expand/collapse (toggle) button.
+  */
+  function getToggleClassName () {
+    return 'view_term_list_list_toggle_button';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the class used to label
+    overflow elements.
+  */
+  function getOverflowClassName () {
+    return 'view_term_list_list_overflow';
   }
 
   /*
