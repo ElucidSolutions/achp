@@ -271,14 +271,12 @@ $news-item-padding: 70px;
     &:last-of-type {
       border-bottom: none;
     }
-
     .views-field-title a {
       @include hover-transition-content($color-blue-primary);
       color: $color-darkblue;
       font-size: rem(20px);
       text-decoration: none;
     }
-
     .views-field-field-news-date {
       @extend .news_item_date;
       color: rgba(124, 124, 124, 1);
@@ -291,7 +289,6 @@ $news-item-padding: 70px;
     padding: 0 $max-width-padding;
   }
 }
-
 
 @media (max-width: 600px) {
   #news_item_page #news_content_container article.news_item {

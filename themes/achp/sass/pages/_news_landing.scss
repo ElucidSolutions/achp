@@ -177,6 +177,7 @@
       @include span-columns (12 of 12);
       color: $color-darkgrey;
       font-family: $sans-text;
+      font-size: rem(14px);
 
       ul {
         list-style-type: none;
@@ -184,11 +185,29 @@
         text-align: center;
 
         li {
+          /*cursor: pointer;*/ 
           display: inline-block;
+          line-height: 25px;
+          padding: 0 8px;
 
+          &.pager__item--last, &.pager__item--first {
+            display: none;
+          }
+          &.pager__item.is-active {
+            background-color: $color-blue-primary;
+            border-radius: 50%;
+            height: 25px;
+            padding: 0;
+            width: 25px;
+            a {
+              color: #fff;
+              @include hover-transition-content(#fff);
+            }
+          }
           a {
             color: $color-darkgrey;
             text-decoration: none;
+            @include hover-transition-content($color-blue-primary);
           }
         }
       }

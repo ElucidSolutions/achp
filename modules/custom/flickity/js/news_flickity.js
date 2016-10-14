@@ -254,7 +254,7 @@
   }
 
   /*
-    Accepts no argumetns and returns a jQuery Element
+    Accepts no arguments and returns a jQuery Element
     representing the previous navigation button.
   */
   function getNavPrevButton () {
