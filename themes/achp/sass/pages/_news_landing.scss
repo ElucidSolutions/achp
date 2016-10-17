@@ -54,9 +54,6 @@
         @include span-columns (3 of 12);
         padding-right: 20px;
 
-        .form-select {
-          width: 100%;
-        }
         label {
           font-size: rem(20px);
           border-bottom: 1px solid $color-red;
@@ -66,6 +63,29 @@
           margin-bottom: 10px;
           width: 100%;
         }
+
+        ul.view_term_list_list {
+          color: rgba(79,79,79,1);
+          font-family: $sans-text;
+          margin: 0;
+          padding: 0;
+
+          .view_term_list_item_label {
+            @include hover-transition-content($color-blue-primary);
+            border-bottom: 1px solid rgba(79,79,79,1);
+            padding: 10px 0;
+          }
+          .view_term_list_list_toggle_button {
+            @include hover-transition-content($color-blue-primary);
+            padding: 10px 0;
+            text-transform: uppercase;
+          }
+        }
+
+       /* .form-select {
+          width: 100%;
+        }
+
         .form-item-date-max label {
           display: none;
         }
@@ -82,19 +102,21 @@
         }
         #edit-field-tags-target-id {
           margin-bottom: 15px;
-        }
+        }*/
       }
       .news-item {
         @include span-columns (9 of 12);
         background-color: #fff;
+        border-bottom: 30px solid transparent;
         float: right;
         margin-bottom: 25px;
-        padding: 0;
+        padding: 5px 20px;
+        position: relative;
 
         .views-field-title {
+          display: inline-block;
           margin-top: 10px;
-            display: inline-block;
-            padding: 10px 20px 0;
+          padding: 0;
 
           a {
             font-size: rem(20px);
@@ -105,43 +127,35 @@
         .views-field-field-news-date {
           color: $color-lightgrey;
           margin-top: 0;
-          padding: 10px 20px 0;
+          padding: 10px 0;
         }
         .views-field-field-news-photo img {
           float: left;
           max-height: 300px;
           max-width: 300px;
-          padding: 10px 20px 10px 20px;
+          padding: 5px 15px 0 0;
         }
         .views-field-body {
           font-family: $serif-text;
-          margin: 5px 20px;
 
           p {
             margin-top: 5px;
           }
         }
         .views-field-field-tags {
+          padding: 20px 0 5px;
+
           .views-label {
             color: $color-darkblue;
-            display: block;
-            margin-left: 20px;
-          }
-          .field-content {
-            bottom: 30px;
-            height: 20px;
-            position: relative;
           }
         }
         ul {
           list-style-type: none;
           margin: 0;
-          padding: 10px 20px 0;
+          padding: 0;
 
           li {
             display: inline-block;
-            margin-top: 25px;
-            position: relative;
 
              a {
               color: $color-blue-primary;
@@ -153,10 +167,11 @@
         .views-field-view-node {
           @include hover-transition-background ($background-color-lightblue);
           background-color: $background-color-grey;
+          bottom: -30px;
           clear: both;
           height: 30px;
-          margin-top: 20px;
-          position: relative;
+          left: 0;
+          position: absolute;
           width: 100%;
 
           a {
