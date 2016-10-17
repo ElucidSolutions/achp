@@ -185,9 +185,8 @@
         text-align: center;
 
         li {
-          /*cursor: pointer;*/ 
           display: inline-block;
-          line-height: 25px;
+          line-height: 27px;
           padding: 0 8px;
 
           &.pager__item--last, &.pager__item--first {
@@ -196,18 +195,21 @@
           &.pager__item.is-active {
             background-color: $color-blue-primary;
             border-radius: 50%;
+            cursor: default;
             height: 25px;
             padding: 0;
             width: 25px;
+
             a {
+              @include hover-transition-content(#fff);              
               color: #fff;
-              @include hover-transition-content(#fff);
+              cursor: default;
             }
           }
           a {
+            @include hover-transition-content($color-blue-primary);            
             color: $color-darkgrey;
             text-decoration: none;
-            @include hover-transition-content($color-blue-primary);
           }
         }
       }
