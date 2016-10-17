@@ -7,3 +7,12 @@ function achp_preprocess_views_view__community_spotlight (&$variables) {
     $row ['#rows'] = array ($row ['#rows'][array_rand ($row ['#rows'])]);
   }
 }
+
+/**
+ * Implements hook_preprocess_page ().
+ */
+function achp_preprocess_page (&$variables) {
+  if (isset ($variables ['node'])) {
+    $variables ['node_type'] = $variables ['node']->getType ();
+  }
+}
