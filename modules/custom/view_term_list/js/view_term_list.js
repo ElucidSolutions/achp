@@ -110,7 +110,9 @@
     });
 
     // add a click event to the toggle element.
-    this.initToggleElement ();
+    this.getNumOverflowItems () > 0 ?
+      this.initToggleElement ():
+      this.removeToggleElement ();
   }
 
   /*
@@ -210,6 +212,14 @@
     this.getOverflowElement ().hide ();
     this.getToggleElement ().text ('Show More');
     this._state = COLLAPSED;
+  }
+
+  /*
+    Accepts no arguments; removes the toggle
+    element; and returns undefined.
+  */
+  Filter.prototype.removeToggleElement = function () {
+    this.getToggleElement ().remove ();
   }
 
   /*
@@ -338,7 +348,7 @@
     of overflow items as an integer.
   */
   Filter.prototype.getNumOverflowItems = function () {
-    return this.getListElement ().attr (getOverflowNumItemsAttributeName ());
+    return parseInt (this.getOverflowElement ().attr (getOverflowNumItemsAttributeName ()));
   }
 
   /*

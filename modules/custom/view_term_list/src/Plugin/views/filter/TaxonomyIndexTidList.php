@@ -47,13 +47,22 @@ use Drupal\taxonomy\Plugin\views\filter\TaxonomyIndexTid;
  */
 class TaxonomyIndexTidList extends TaxonomyIndexTid {
   /**
-   *
+   * Add two fields to the Extra Options
+   * Form. The first allows site admins to specify
+   * the List format type. The second allows them
+   * to specify the number of items to display in
+   * collpased lists.
    */
   public function buildExtraOptionsForm (&$form, FormStateInterface $form_state) {
     parent::buildExtraOptionsForm ($form, $form_state);
     $form ['type']['#options']['list'] = $this->t ('List');
+
+    $max_num_terms = \Drupal::config ('view_term_list.settings')->get ('max_num_terms')[$this->options ['expose']['identifier']];
+    if (!$max_num_terms) {
+      $max_num_terms = '0';
+    }
     $form ['list']['max_num_terms'] = array (
-      '#default_value' => \Drupal::config ('view_term_list.settings')->get ('max_num_terms')[$this->options ['expose']['identifier']],
+      '#default_value' => $max_num_terms,
       '#description' => $this->t ('Specifies the maximum number of terms that should be displayed in collapsed lists.'),
       '#title' => $this->t ('Max Number of Terms'),
       '#type' => 'number'
@@ -61,6 +70,9 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
   }
 
   /**
+   * Saves the Max Num Items field value before
+   * passing the Extra Options form to the parent
+   * for further processing.
    */
   public function submitExtraOptionsForm($form, FormStateInterface $form_state) {
     parent::submitExtraOptionsForm ($form, $form_state);
@@ -85,7 +97,8 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
    * form element.
    */
   protected function valueForm(&$form, FormStateInterface $form_state) {
-    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm] plugin id: ' . $this->getPluginId () . ' derivative id: ' . $this->getDerivativeId () . ' identifier: ' . $this->options ['expose']['identifier']);
+    $filter_id = $this->options ['expose']['identifier'];
+    \Drupal::logger ('view_term_list')->notice ('[TaxonomyIndexTidList::valueForm] identifier: ' . $filter_id);
 
     // I. perform the same initial vocabulary check as performed in the parent function.
     // Note: the following is lifted verbatim from the beginning of TaxonomyIndexTid::valueForm ().
@@ -99,12 +112,12 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
 
     // II. Intercept the case where the user selected the list type.
     if ($this->options ['type'] == 'list') {
-      $max_num_terms = \Drupal::config ('view_term_list.settings')->get ('max_num_terms')[$this->options ['expose']['identifier']];
+      $max_num_terms_settings = \Drupal::config ('view_term_list.settings')->get ('max_num_terms');
+      $max_num_terms = array_key_exists ($filter_id, $max_num_terms_settings) ?
+                         $max_num_terms_settings [$filter_id] : 100;
+
       $items = array ();
       $options = array ();
-
-      // create a dummy option used to signal whether or not this filter should be expanded or collapsed across AJAX reloads.
-      $options ['expand'] = 'expand';
 
       $tree = $this->termStorage->loadTree ($vocabulary->id (), 0, null, true);
       if ($tree) {
@@ -120,7 +133,6 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
       }
       // Create the hidden select form element that will be used to store selected term values.
       // Note: this form element is hidden using CSS.
-      $filter_id = $this->options ['expose']['identifier'];
       $form ['value'] = array (
         '#attributes' => array (
           'class' => array ('view_term_list_select'),
@@ -130,7 +142,7 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
         '#multiple' => true,
         '#options' => $options,
         '#default_value' => (array) $this->value,
-        '#weight' => 0 // ensure that this field item, with it's header, appears above the item list.
+        '#weight' => 0 // ensure that this field item, with its header, appears above the item list.
       );
       // Create the option list that users will use to select values.
       $form ['view_term_list_item'] = array (
@@ -160,8 +172,8 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
         'library' => array ('view_term_list/view_term_list_library'),
         'drupalSettings' => array (
           'view_term_list' => array (
-            'max_num_terms' => \Drupal::config ('view_term_list.settings')->get ('max_num_terms')[$this->options ['expose']['identifier']],
-            'filter_id' => $this->options ['expose']['identifier']
+            'max_num_terms' => $max_num_terms,
+            'filter_id' => $filter_id
           )
         )
       );
