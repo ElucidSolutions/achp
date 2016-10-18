@@ -2551,6 +2551,17 @@ $arrow-padding: 5px;*/
   #page[data-page-node-type="news_story"] #main-wrapper #main {
     margin: 0 auto;
     max-width: 620px; }
+    #page[data-page-node-type="news_story"] #main-wrapper #main #block-breadcrumbs {
+      font-family: "p22-underground", sans-serif;
+      font-size: 0.875rem;
+      text-transform: uppercase; }
+      #page[data-page-node-type="news_story"] #main-wrapper #main #block-breadcrumbs ol {
+        list-style-type: none;
+        padding-left: 0;
+        /* Add before icon for home */ }
+        #page[data-page-node-type="news_story"] #main-wrapper #main #block-breadcrumbs ol li a {
+          text-decoration: none;
+          color: #4F4F4F; }
     #page[data-page-node-type="news_story"] #main-wrapper #main #block-pagetitle-2 h1 {
       color: #043B62;
       font-size: 2.25rem;

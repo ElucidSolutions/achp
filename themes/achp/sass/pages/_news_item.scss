@@ -1,16 +1,34 @@
 @import "../global";
 
-$max-news-width: 620px;
-$max-width-padding: 50px;
-$news-item-padding: 70px;
-
 #page[data-page-node-type="news_story"] {
+
+  $max-news-width: 620px;
+  $max-width-padding: 50px;
+  $news-item-padding: 70px;  
+
   #main-wrapper {
     box-shadow: inset 0 0 5px grey;
 
     #main {
       margin: 0 auto;
       max-width: $max-news-width;
+
+      #block-breadcrumbs {
+        font-family: $sans-text;
+        font-size: rem(14px);
+
+        text-transform: uppercase;
+        ol {
+          list-style-type: none;
+          padding-left: 0;
+
+          li a {
+            text-decoration: none;
+            color: $color-grey;
+          }
+          /* Add before icon for home */
+        }
+      }
       
       #block-pagetitle-2 h1 {
         color: $color-darkblue;
@@ -143,7 +161,6 @@ $news-item-padding: 70px;
             }
           }
         }
-        
         &.navigator {
           border-top: 1px solid $color-grey;    
           height: 125px;
