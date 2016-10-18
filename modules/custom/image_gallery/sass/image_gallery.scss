@@ -1,0 +1,136 @@
+/*
+  This module defines the default styling for
+  the Image Gallery feature.
+*/
+@import "bourbon/bourbon";
+$gutter: 0em !global;
+@import "neat/neat";
+
+/* I. Global Variables */
+
+// colors
+$color-grey: #4F4F4F;
+$color-darkgrey: #262626;
+$background-color-grey: #F4F4F4;
+
+/* II. Generic Flickity View Elements */
+.flickity {
+  background-color: $color-darkgrey;  
+  width: 100%;
+  
+  .flickity-prev-next-button {
+    background-color: rgb(15,15,15);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    height: 100%;
+    width: 20px;
+    margin: 0;
+    padding: 0;
+
+    svg {
+      height: 20px;
+      left: 0;
+      position: static;
+      top: 0;
+      width: 20px;
+
+      .arrow {
+        @include transition(opacity 0.25s);
+        fill: white;
+
+        &:disabled {
+          background-color: $color-darkgrey;
+        }
+      }
+    }
+    &:hover {
+      background-color: rgb(15,15,15);
+    }
+    &.previous {
+      left: 0;
+    }
+    &.next {
+      right: 0;
+    }
+  }
+  .flickity-viewport {
+    width: 100%;
+
+    .flickity-slider {
+      .gallery-cell {
+        @include transform(translateY(-50%));
+        top: 50%;
+
+        .field-content {
+          padding: 10%;
+
+          img {
+            height: auto;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* III. Carousel View Element */
+.flickity.default_group {
+  .flickity-prev-next-button {
+    display: none;
+  }
+  .flickity-viewport {
+    .flickity-slider {
+      .gallery-cell {
+        width: 100%;
+
+        .field-content {
+          display: table;
+          margin: 0 auto;
+
+          .news_carousel_caption {
+            caption-side: bottom;
+            color: $background-color-grey;
+            display: table-caption;
+            font-size: rem(14);
+          }
+        }
+      }
+    }
+  }
+}
+.flickity.default_group.flickity-enabled.is-draggable {
+  .flickity-viewport {
+    cursor: default;
+  }
+}
+
+/* IV. Nav Elements */
+.flickity.navigator {
+  border-top: 1px solid $color-grey;    
+  min-height: 125px;
+
+  .flickity-viewport {
+    @include transform(translateY(-50%));
+    position: absolute;
+    top: 50%;
+
+    .flickity-slider {
+      margin-left: 40px;
+
+      .gallery-cell {
+        @include span-columns(4 of 12);
+
+        img {
+          height: auto;
+          max-height: 100px;
+          max-width: 90%;
+        }
+        &:last-child {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}

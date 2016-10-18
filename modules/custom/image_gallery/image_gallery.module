@@ -1,0 +1,19 @@
+<?php
+/**
+ * @file
+ * 
+ * This module attaches the Image Gallery library
+ * to Flickity view elements.
+*/
+
+/**
+ * Implements hook_block_view_alter ()
+ *
+ * Attaches the Image Gallery asset library to
+ * Flickity View elements.
+ */
+function image_gallery_block_view_alter (array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+  $build ['#attached'] = array (
+    'library' => array ('image_gallery/image_gallery_library')
+  );
+}

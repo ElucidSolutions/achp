@@ -1,0 +1,9 @@
+name: Image Gallery
+description: Uses the Flickity Carousel module to implement an Image Gallery block.
+package: Advisory Council on Historic Preservation
+type: module
+core: 8.x
+configure: image_gallery.settings
+dependencies:
+  - flickity
+  - flickity_views
