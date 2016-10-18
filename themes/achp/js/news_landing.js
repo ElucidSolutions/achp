@@ -32,10 +32,6 @@
 
     // I. Landing page behavior
 
-    // Attach datepicker to input areas
-    // getDateMinElement ().datepicker ();
-    // getDateMaxElement ().datepicker ();
-
     // Click listener for news filter button
     getFilterButton ().click ( function (e) {
       if (getFilterContainer ().css('display') === 'none') {
@@ -47,12 +43,6 @@
         });
       };
     });
-
-    // TEMPORARY: overwrites default values
-    getDateMinElement ().attr('value', 'Start date');
-    getDateMaxElement ().attr('value', 'End date');
-    // getFilterSubmitButton ().attr('value', 'Submit');
-
 
   })
 
@@ -105,7 +95,6 @@
     that represents the maximum date input element.
   */
   function getDateMaxElement () {
-    // console.log($('input[data-drupal-selector="edit-field-news-date-value-max"]'))
     return $('input[data-drupal-selector="edit-field-news-date-value-max"]');
   }
 

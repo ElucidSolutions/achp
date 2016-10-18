@@ -114,9 +114,29 @@
       this.initToggleElement ():
       this.removeToggleElement ();
 
-    // add datepicker to date inputs
-    getDateMinElement ().datepicker ();
-    getDateMaxElement ().datepicker ();
+    // customize date filter inputs
+    this.initDateElements ();
+  }
+
+  /*
+    Accepts no arguments; edits and attaches datepickers
+    to the date input placeholders, and adds a reset button; 
+    returns undefined.
+  */
+  Filter.prototype.initDateElements = function () {
+    getDateMinElement ().datepicker ().attr('placeholder', 'Start date');
+    getDateMaxElement ().datepicker ().attr('placeholder', 'End date')
+      .after($('<div></div>')
+        .append($('<input />')
+          .attr('type', 'reset')
+          .attr('value', 'Reset Dates')
+          .attr('id', 'news_filter_reset')
+          .click(function () {
+            getDateMinElement ().attr('value', '');
+            getDateMaxElement ().attr('value', '');
+            console.log('clicked');        
+          })
+      ));
   }
 
   /*
