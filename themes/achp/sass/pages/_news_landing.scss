@@ -55,13 +55,7 @@
         padding-right: 20px;
 
         label {
-          font-size: rem(20px);
-          border-bottom: 1px solid $color-red;
-          color: $color-darkblue;
-          display: inline-block;
-          font-family: $sans-text;
-          margin-bottom: 10px;
-          width: 100%;
+          display: none;
         }
 
         ul.view_term_list_list {
@@ -70,10 +64,32 @@
           margin: 0;
           padding: 0;
 
-          .view_term_list_item_label {
-            @include hover-transition-content($color-blue-primary);
-            border-bottom: 1px solid rgba(79,79,79,1);
-            padding: 10px 0;
+          &:before {
+            content: "Topics";
+            font-size: rem(20px);
+            border-bottom: 1px solid $color-red;
+            color: $color-darkblue;
+            display: inline-block;
+            font-family: $sans-text;
+            margin-bottom: 10px;
+            width: 100%;
+          }
+
+          .view_term_list_item {
+            border-bottom: 1px solid rgba(79,79,79,1);    
+            display: block;
+            position: relative;        
+            width: 100%;
+
+            .view_term_list_item_label {
+              @include hover-transition-content($color-blue-primary);
+              padding: 10px 15px 10px 0;
+            }
+            .view_term_list_item_deselect_button {
+              @include center-y;
+              position: absolute;
+              right: 0;
+            }
           }
           .view_term_list_list_toggle_button {
             @include hover-transition-content($color-blue-primary);
@@ -82,12 +98,19 @@
           }
         }
 
-       /* .form-select {
+        .form-select {
           width: 100%;
         }
 
-        .form-item-date-max label {
-          display: none;
+        .form-item-field-news-date-value-min:before {
+          content: "Date Filter";
+          font-size: rem(20px);
+          border-bottom: 1px solid $color-red;
+          color: $color-darkblue;
+          display: inline-block;
+          font-family: $sans-text;
+          margin-bottom: 10px;
+          width: 100%;
         }
         input[type="text"] {
           font-size: rem(16px);
@@ -102,8 +125,13 @@
         }
         #edit-field-tags-target-id {
           margin-bottom: 15px;
-        }*/
+        }
       }
+      .news_no_results {
+        font-family: $sans-text;
+        font-style: italic;
+      }
+
       .news-item {
         @include span-columns (9 of 12);
         background-color: #fff;

@@ -2212,31 +2212,55 @@ $arrow-padding: 5px;*/
         display: block;
         margin-right: 0%;
         width: 25%;
-        padding-right: 20px;
-       /* .form-select {
-          width: 100%;
-        }
-
-        .form-item-date-max label {
-          display: none;
-        }
-        input[type="text"] {
-          font-size: rem(16px);
-          background-image: url('../images/add-calendar-icon.svg');
-          background-position: 5px center;
-          background-repeat: no-repeat;
-          color: $color-lightgrey;
-          font-family: $sans-text;
-          margin-bottom: 10px;
-          max-width: 100%;
-          padding: 5px 0 2px 30px;
-        }
-        #edit-field-tags-target-id {
-          margin-bottom: 15px;
-        }*/ }
+        padding-right: 20px; }
         #news_landing_page #content .news-landing-container .views-exposed-form:last-child {
           margin-right: 0; }
         #news_landing_page #content .news-landing-container .views-exposed-form label {
+          display: none; }
+        #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list {
+          color: #4f4f4f;
+          font-family: "p22-underground", sans-serif;
+          margin: 0;
+          padding: 0; }
+          #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list:before {
+            content: "Topics";
+            font-size: 1.25rem;
+            border-bottom: 1px solid #950306;
+            color: #043B62;
+            display: inline-block;
+            font-family: "p22-underground", sans-serif;
+            margin-bottom: 10px;
+            width: 100%; }
+          #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_item {
+            border-bottom: 1px solid #4f4f4f;
+            display: block;
+            position: relative;
+            width: 100%; }
+            #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_item .view_term_list_item_label {
+              transition: color 0.25s;
+              padding: 10px 15px 10px 0; }
+              #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_item .view_term_list_item_label:hover {
+                color: #0990FE; }
+            #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_item .view_term_list_item_deselect_button {
+              position: absolute;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              -o-transform: translategY(-50%);
+              transform: translateY(-50%);
+              position: absolute;
+              right: 0; }
+          #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_list_toggle_button {
+            transition: color 0.25s;
+            padding: 10px 0;
+            text-transform: uppercase; }
+            #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_list_toggle_button:hover {
+              color: #0990FE; }
+        #news_landing_page #content .news-landing-container .views-exposed-form .form-select {
+          width: 100%; }
+        #news_landing_page #content .news-landing-container .views-exposed-form .form-item-field-news-date-value-min:before {
+          content: "Date Filter";
           font-size: 1.25rem;
           border-bottom: 1px solid #950306;
           color: #043B62;
@@ -2244,23 +2268,21 @@ $arrow-padding: 5px;*/
           font-family: "p22-underground", sans-serif;
           margin-bottom: 10px;
           width: 100%; }
-        #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list {
-          color: #4f4f4f;
+        #news_landing_page #content .news-landing-container .views-exposed-form input[type="text"] {
+          font-size: 1rem;
+          background-image: url("../images/add-calendar-icon.svg");
+          background-position: 5px center;
+          background-repeat: no-repeat;
+          color: #C6C6C6;
           font-family: "p22-underground", sans-serif;
-          margin: 0;
-          padding: 0; }
-          #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_item_label {
-            transition: color 0.25s;
-            border-bottom: 1px solid #4f4f4f;
-            padding: 10px 0; }
-            #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_item_label:hover {
-              color: #0990FE; }
-          #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_list_toggle_button {
-            transition: color 0.25s;
-            padding: 10px 0;
-            text-transform: uppercase; }
-            #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_list_toggle_button:hover {
-              color: #0990FE; }
+          margin-bottom: 10px;
+          max-width: 100%;
+          padding: 5px 0 2px 30px; }
+        #news_landing_page #content .news-landing-container .views-exposed-form #edit-field-tags-target-id {
+          margin-bottom: 15px; }
+      #news_landing_page #content .news-landing-container .news_no_results {
+        font-family: "p22-underground", sans-serif;
+        font-style: italic; }
       #news_landing_page #content .news-landing-container .news-item {
         float: left;
         display: block;

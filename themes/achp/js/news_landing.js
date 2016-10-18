@@ -28,13 +28,13 @@
           hideFilter ();
         }
       };
-    })());    
+    })());
 
     // I. Landing page behavior
 
     // Attach datepicker to input areas
-    getDateMinElement ().datepicker ();
-    getDateMaxElement ().datepicker ();
+    // getDateMinElement ().datepicker ();
+    // getDateMaxElement ().datepicker ();
 
     // Click listener for news filter button
     getFilterButton ().click ( function (e) {
@@ -51,7 +51,8 @@
     // TEMPORARY: overwrites default values
     getDateMinElement ().attr('value', 'Start date');
     getDateMaxElement ().attr('value', 'End date');
-    getFilterSubmitButton ().attr('value', 'Submit');
+    // getFilterSubmitButton ().attr('value', 'Submit');
+
 
   })
 
@@ -96,7 +97,7 @@
     that represents the minimum date input element.
   */
   function getDateMinElement () {
-    return $('#edit-date-min');
+    return $('input[data-drupal-selector="edit-field-news-date-value-min"]');
   }
 
   /*
@@ -104,7 +105,8 @@
     that represents the maximum date input element.
   */
   function getDateMaxElement () {
-    return $('#edit-date-max');
+    // console.log($('input[data-drupal-selector="edit-field-news-date-value-max"]'))
+    return $('input[data-drupal-selector="edit-field-news-date-value-max"]');
   }
 
   /*

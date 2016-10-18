@@ -113,6 +113,10 @@
     this.getNumOverflowItems () > 0 ?
       this.initToggleElement ():
       this.removeToggleElement ();
+
+    // add datepicker to date inputs
+    getDateMinElement ().datepicker ();
+    getDateMaxElement ().datepicker ();
   }
 
   /*
@@ -425,6 +429,23 @@
   Filter.prototype.getSelectElement = function () {
     return $('[' + getFilterAttributeName () + '="' + this.getId () + '"].form-select');
   }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the minimum date input element.
+  */
+  function getDateMinElement () {
+    return $('input[data-drupal-selector="edit-field-news-date-value-min"]');
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the maximum date input element.
+  */
+  function getDateMaxElement () {
+    // console.log($('input[data-drupal-selector="edit-field-news-date-value-max"]'))
+    return $('input[data-drupal-selector="edit-field-news-date-value-max"]');
+  }  
 
   /*
     Accepts one argument: listElement, a jQuery
