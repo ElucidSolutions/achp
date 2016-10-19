@@ -208,6 +208,7 @@
   font-family: $sans-text;
 
   #subheader_mobile_header {
+    box-shadow: 0 0 5px $color-grey;
     cursor: pointer;
     display: none;
     width: 100%;
@@ -388,7 +389,7 @@
   }
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: $menu-breakpoint) {
   #header_region {
     height: auto;
     width: auto;
