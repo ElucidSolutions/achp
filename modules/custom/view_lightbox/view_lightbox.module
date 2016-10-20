@@ -1,0 +1,55 @@
+<?php
+/**
+ * @file
+ * This file declares the Lightbox Image Field
+ * Formatter theme, which extends the Image
+ * Formatter theme (image_formatter) defined by
+ * the Image module by adding data attributes and
+ * classes used by the Lightbox2 library to image
+ * view field elements.
+ */
+
+/**
+ * Implements hook_theme ().
+ *
+ * Declares the Lightbox Image Field formatter
+ * theme (lightbox_image_formatter), which extends
+ * the Image Formatter theme by adding data
+ * attributes and classes used by the Lightbox2
+ * library.
+ */
+function view_lightbox_theme () {
+  \Drupal::logger ('view_lightbox')->notice ('[view_lightbox_theme]');
+  return array (
+    'lightbox_image_formatter' => array (
+      'variables' => array (
+        'item' => null,
+        'item_attributes' => null,
+        'url' => null,
+        'image_style' => null,
+        'field_name' => null
+      )
+  ));
+}
+
+/**
+ * Prepares variables for the Lightbox Image
+ * Formatter template.
+ *
+ * Default template: lightbox-image-formatter.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - item: An ImageItem object.
+ *   - item_attributes: An optional associative array of html attributes to be
+ *     placed in the img tag.
+ *   - image_style: An optional image style.
+ *   - url: An optional \Drupal\Core\Url object.
+ */
+function template_preprocess_lightbox_image_formatter (&$variables) {
+  template_preprocess_image_formatter ($variables);
+  $values = $variables ['item']->getValue ();
+  $variables ['image_alt'] = $values ['alt'];
+  $variables ['image_title'] = $values ['title'];
+  \Drupal::logger ('view_lightbox')->notice ('[template_preprocess_lightbox_image_formatter] variables <pre>' . print_r (array_keys ($variables), true) . '</pre>');
+}
