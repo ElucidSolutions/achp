@@ -122,7 +122,6 @@
     this.initDateElements ();
   }
 
-
   /*
     Accepts no arguments, wraps the date and topic
     filters in container divs, and returns 
