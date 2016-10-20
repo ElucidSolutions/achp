@@ -1,7 +1,6 @@
 @import "../global";
 
-/*#news_landing_page {*/
-#main-wrapper {
+#news_landing_page {
   @include outer-container(100%);
   background-color: $background-color-grey;
   box-shadow: 0 0 6px #4f4f4f;
@@ -270,7 +269,7 @@
 }
 
 @media (max-width: $max-content-width) {
-  #main-wrapper #content .news-landing-container {
+  #news_landing_page #content .news-landing-container {
     .views-exposed-form {
       @include span-columns (4 of 12);
     }
@@ -282,7 +281,7 @@
 }
 
 @media (max-width: 850px) {
-  #main-wrapper #content .news-landing-container {
+  #news_landing_page #content .news-landing-container {
     .views-exposed-form {
       @include span-columns (12 of 12);
       border-bottom: 1px solid $color-grey;
@@ -346,7 +345,7 @@
 }
 
 @media (max-width: 500px) {
-  #main-wrapper #content .news-landing-container {
+  #news_landing_page #content .news-landing-container {
     .news-item {
       .views-field-field-news-photo img {
         height: auto;
