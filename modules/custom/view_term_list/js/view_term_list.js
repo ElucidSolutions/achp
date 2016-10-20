@@ -114,8 +114,36 @@
       this.initToggleElement ():
       this.removeToggleElement ();
 
+    // wrap Date filter in container div
+    this.wrapDateFilter ();
+    // move Date filter below Topic filter
+    this.pushDateFilterToBottom ();
     // customize date filter inputs
     this.initDateElements ();
+  }
+
+
+  /*
+    Accepts no arguments, wraps the date and topic
+    filters in container divs, and returns 
+    undefined.
+  */
+
+  Filter.prototype.wrapDateFilter = function () {
+    getFilterContainerSelectors (). find ('.' + getDateFilterElementsClassName ())
+      .wrapAll ($('<div></div>')
+        .addClass ('date_' + getFilterContainerClassSuffix ()));
+  }
+
+  /*
+    Accepts no arguments, appends the date filter to the 
+    end of the form container, and returns undefined.
+  */
+  Filter.prototype.pushDateFilterToBottom = function () {
+    $('.date_' + getFilterContainerClassSuffix ())
+      .detach ()
+      .appendTo (getFilterContainerSelectors ());
+
   }
 
   /*
@@ -124,6 +152,7 @@
     returns undefined.
   */
   Filter.prototype.initDateElements = function () {
+    var self = this;
     getDateMinElement ().datepicker ().attr('placeholder', 'Start date');
     getDateMaxElement ().datepicker ().attr('placeholder', 'End date')
       .after($('<div></div>')
@@ -134,7 +163,7 @@
           .click(function () {
             getDateMinElement ().attr('value', '');
             getDateMaxElement ().attr('value', '');
-            console.log('clicked');        
+            self.submitForm ();        
           })
       ));
   }
@@ -532,6 +561,14 @@
   }
 
   /*
+    Accepts no arguments and returns a jQuery Element
+    representing the news landing page's filter container.
+  */
+  function getFilterContainerSelectors () {
+    return $('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ());
+  }  
+
+  /*
     Accepts no arguments and returns a string
     that represents the item deselect button
     element class name.
@@ -561,6 +598,59 @@
   function getSelectedItemClassName () {
     return getItemClassName () + '_selected';
   }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name of the news landing
+    page container.
+  */
+  function getNewsLandingContainerClassName () {
+    return 'news-landing-container';
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name of the element that
+    contains the filters.
+  */
+  function getExposedFormClassName () {
+    return 'views-exposed-form';
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class suffix for each filter.
+  */
+  function getFilterContainerClassSuffix () {
+    return 'filter_container';
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name common to the elements
+    in the date filter.
+  */
+  function getDateFilterElementsClassName () {
+    return 'js-form-type-textfield';
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name common to the elements
+    in the topic filter.
+  */
+  function getTopicFilterElementsClassName () {
+    return 'js-form-item-tid';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the DOM ID of the topic list
+    element.
+  */
+  function getTopicListElementId () {
+    return 'edit-view-term-list-item';
+  }  
 
   /*
     Accepts no arguments and returns a string

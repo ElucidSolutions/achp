@@ -1,8 +1,10 @@
 @import "../global";
 
-#news_landing_page {
+/*#news_landing_page {*/
+#main-wrapper {
   @include outer-container(100%);
   background-color: $background-color-grey;
+  box-shadow: 0 0 6px #4f4f4f;
   height: 100%;
 
   #content {
@@ -18,6 +20,7 @@
     .news-landing-container {
       @include span-columns (12);
       height: 100%;
+      margin-top: 10px;
 
       em {
         font-style: normal !important;
@@ -51,28 +54,48 @@
           display: none;
         }
       }
+
+      $filter-padding-right: 20px;
+
       .views-exposed-form {
         @include span-columns (3 of 12);
-        padding-right: 20px;
+        padding-right: $filter-padding-right;
+        position: relative;
 
+        .date_filter_container {
+          @include span-columns (12 of 12);
+          margin-top: 10px;
+          padding-bottom: 40px;
+        }
+        div[data-drupal-selector="edit-actions"] {
+          bottom: 10px;
+          position: absolute;
+        }
         label {
+          border-bottom: 1px solid $color-red;
+          color: $color-darkblue;
+          display: inline-block;
+          font-family: $sans-text;
+          font-size: rem(20px);
+          width: 100%;
+        }
+        .form-item-field-news-date-value-min {
+          display: inline-block;
+          max-width: 100%;
+
+          label {
+            margin-bottom: 10px;
+          }
+        }
+        .form-item-field-news-date-value-max label {
           display: none;
         }
         ul.view_term_list_list {
           color: $color-grey;
           font-family: $sans-text;
-          margin: 20px 0 0;
+          margin: 0;
           padding: 0;
 
-          &:before {
-            border-bottom: 1px solid $color-red;
-            color: $color-darkblue;
-            content: "Topics";
-            display: inline-block;
-            font-family: $sans-text;
-            font-size: rem(20px);
-            width: 100%;
-          }
           .view_term_list_item {
             border-bottom: 1px solid $color-grey;    
             display: block;
@@ -98,16 +121,6 @@
         .form-select {
           width: 100%;
         }
-        .form-item-field-news-date-value-min:before {
-          border-bottom: 1px solid $color-red;
-          color: $color-darkblue;
-          content: "Date Filter";
-          display: inline-block;
-          font-family: $sans-text;
-          font-size: rem(20px);
-          margin-bottom: 10px;
-          width: 100%;
-        }
         input[type="text"] {
           background-image: url('../images/add-calendar-icon.svg');
           background-position: 5px center;
@@ -123,11 +136,11 @@
           margin-bottom: 15px;
         }
       }
+
       .news_no_results {
         font-family: $sans-text;
         font-style: italic;
-      }
-
+      } 
       .news-item {
         @include span-columns (9 of 12);
         background-color: #fff;
@@ -256,8 +269,8 @@
   }
 }
 
-@media (max-width: 1000px) {
-  #news_landing_page #content .news-landing-container {
+@media (max-width: $max-content-width) {
+  #main-wrapper #content .news-landing-container {
     .views-exposed-form {
       @include span-columns (4 of 12);
     }
@@ -269,7 +282,7 @@
 }
 
 @media (max-width: 850px) {
-  #news_landing_page #content .news-landing-container {
+  #main-wrapper #content .news-landing-container {
     .views-exposed-form {
       @include span-columns (12 of 12);
       border-bottom: 1px solid $color-grey;
@@ -277,6 +290,14 @@
       margin-bottom: 20px;
       padding-bottom: 20px;
       padding-right: 0;
+
+      .view_term_list_list {
+        @include span-columns (12 of 12);
+      }
+      .date_filter_container {
+        @include span-columns (12 of 12);
+        padding-bottom: 20px;
+      }
     }
     .news-item {
       @include span-columns (12 of 12);
@@ -325,7 +346,7 @@
 }
 
 @media (max-width: 500px) {
-  #news_landing_page #content .news-landing-container {
+  #main-wrapper #content .news-landing-container {
     .news-item {
       .views-field-field-news-photo img {
         height: auto;

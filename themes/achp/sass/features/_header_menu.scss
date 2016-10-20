@@ -208,7 +208,6 @@
   font-family: $sans-text;
 
   #subheader_mobile_header {
-    box-shadow: 0 0 5px $color-grey;
     cursor: pointer;
     display: none;
     width: 100%;
@@ -234,6 +233,9 @@
   }  
 
   #subheader_mobile {
+    box-shadow: 0 0 1px $color-grey;
+    position: relative;
+
     #subheader_mobile_collapsible {
       display: none;
       padding: 0;
@@ -376,13 +378,13 @@
         bottom: 0;
 
         #subheader_mobile_close_button {
+          @include hover-transition-content($color-blue-primary);              
           color: $color-grey;
           cursor: pointer;
-          margin: 15px auto 17px;
-          text-align: center;
           font-size: 0.875rem;
           font-weight: 500;
-          @include hover-transition-content($color-blue-primary);    
+          margin: 15px auto 17px;
+          text-align: center;
         }
       }
     }
