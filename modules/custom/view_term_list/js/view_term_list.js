@@ -128,7 +128,6 @@
     filters in container divs, and returns 
     undefined.
   */
-
   Filter.prototype.wrapDateFilter = function () {
     getFilterContainerSelectors (). find ('.' + getDateFilterElementsClassName ())
       .wrapAll ($('<div></div>')
@@ -143,7 +142,6 @@
     $('.date_' + getFilterContainerClassSuffix ())
       .detach ()
       .appendTo (getFilterContainerSelectors ());
-
   }
 
   /*

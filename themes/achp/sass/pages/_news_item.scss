@@ -33,27 +33,26 @@
           }
           &:before {
             @include center-y;
-            background-image: url('../images/right-arrow-icon.svg');
             background-position: center;
             background-repeat: no-repeat;
             content: "";
             height: 20px;
-            padding: 5px 0 0 20px;
             position: relative;
             right: 5px;
             width: 20px;
           }
-
           &.breadcrumb_link_home {
             &:before  {
-             background-image: url('../images/add-calendar-icon.svg');
+             background-image: url('../images/home-icon.svg');
+             padding: 5px 0 0 20px;
             }
           }
           &.breadcrumb_page {
             color: $color-lightblue-primary;
 
             &:before {
-              padding-right: 10px;
+              background-image: url('../images/right-arrow-icon-light.svg');
+              padding: 5px 10px 2px 20px;
             }
           }
         }

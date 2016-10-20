@@ -2610,21 +2610,21 @@ $arrow-padding: 5px;*/
             -ms-transform: translateY(-50%);
             -o-transform: translategY(-50%);
             transform: translateY(-50%);
-            background-image: url("../images/right-arrow-icon.svg");
             background-position: center;
             background-repeat: no-repeat;
             content: "";
             height: 20px;
-            padding: 5px 0 0 20px;
             position: relative;
             right: 5px;
             width: 20px; }
           #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_link_home:before {
-            background-image: url("../images/add-calendar-icon.svg"); }
+            background-image: url("../images/home-icon.svg");
+            padding: 5px 0 0 20px; }
           #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_page {
             color: #71BFFE; }
             #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_page:before {
-              padding-right: 10px; }
+              background-image: url("../images/right-arrow-icon-light.svg");
+              padding: 5px 10px 2px 20px; }
     #page[data-page-node-type="news_story"] #main #block-pagetitle-2 h1 {
       color: #043B62;
       font-size: 2.25rem;
