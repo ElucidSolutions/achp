@@ -41,7 +41,6 @@ class LightboxImageFormatter extends ImageFormatter implements ContainerFactoryP
    * for the image elements.
    */
   public function viewElements (FieldItemListInterface $items, $langcode) {
-    \Drupal::logger ('view_lightbox')->notice ('[LightboxImageFormatter::viewElements]');
     $elements = parent::viewElements ($items, $langcode);
 
     // override the theme used to render the image elements.
@@ -50,6 +49,9 @@ class LightboxImageFormatter extends ImageFormatter implements ContainerFactoryP
     foreach ($files as $delta => $file) {
       $elements [$delta]['#theme'] = 'lightbox_image_formatter';
       $elements [$delta]['#field_name'] = $field_name;
+      $elements [$delta]['#attached'] = array (
+        'library' => array ('view_lightbox/view_lightbox_library')
+      );
     }
     return $elements;
   }

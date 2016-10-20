@@ -64,10 +64,11 @@ html {
   .flickity.default_group .flickity-viewport .flickity-slider .gallery-cell .field-content {
     display: table;
     margin: 0 auto; }
+    .flickity.default_group .flickity-viewport .flickity-slider .gallery-cell .field-content .news_carousel_image {
+      text-align: center; }
     .flickity.default_group .flickity-viewport .flickity-slider .gallery-cell .field-content .news_carousel_caption {
       caption-side: bottom;
       color: #F4F4F4;
-      display: table-caption;
       font-size: 0.875rem; }
 
 .flickity.default_group.flickity-enabled.is-draggable .flickity-viewport {
@@ -85,18 +86,18 @@ html {
     transform: translateY(-50%);
     position: absolute;
     top: 50%; }
-    .flickity.navigator .flickity-viewport .flickity-slider {
-      margin-left: 40px; }
-      .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell {
-        float: left;
-        display: block;
-        margin-right: 0%;
-        width: 33.33333%; }
-        .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell:last-child {
-          margin-right: 0; }
-        .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell img {
-          height: auto;
-          max-height: 100px;
-          max-width: 90%; }
-        .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell:last-child {
-          margin-right: 20px; }
+    .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 33.33333%; }
+      .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell:last-child {
+        margin-right: 0; }
+      .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell img {
+        height: auto;
+        max-height: 100px;
+        max-width: 90%; }
+      .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell.item-0 img {
+        padding-left: 40px; }
+      .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell.last-item img {
+        padding-right: 40px; }

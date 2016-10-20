@@ -17,3 +17,18 @@ function image_gallery_block_view_alter (array &$build, \Drupal\Core\Block\Block
     'library' => array ('image_gallery/image_gallery_library')
   );
 }
+
+/**
+ * Implements hook_pre_render_alter ().
+ *
+ * This function adds a class to the last view
+ * item displayed in a view row that uses the
+ * Flickity format.
+ *
+ * The Flickity module defines
+ * this hook function. See
+ * modules/contrib/flickity/theme/flickity.theme.inc.
+ */
+function image_gallery_pre_render_alter (&$build) {
+  $build ['#output'][count ($build ['#output']) - 1]['#attributes']['class'][] = 'last-item';
+}

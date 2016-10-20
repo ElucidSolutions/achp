@@ -19,7 +19,6 @@
  * library.
  */
 function view_lightbox_theme () {
-  \Drupal::logger ('view_lightbox')->notice ('[view_lightbox_theme]');
   return array (
     'lightbox_image_formatter' => array (
       'variables' => array (
@@ -51,5 +50,4 @@ function template_preprocess_lightbox_image_formatter (&$variables) {
   $values = $variables ['item']->getValue ();
   $variables ['image_alt'] = $values ['alt'];
   $variables ['image_title'] = $values ['title'];
-  \Drupal::logger ('view_lightbox')->notice ('[template_preprocess_lightbox_image_formatter] variables <pre>' . print_r (array_keys ($variables), true) . '</pre>');
 }
