@@ -113,56 +113,6 @@
     this.getNumOverflowItems () > 0 ?
       this.initToggleElement ():
       this.removeToggleElement ();
-
-    // wrap Date filter in container div
-    this.wrapDateFilter ();
-    // move Date filter below Topic filter
-    this.pushDateFilterToBottom ();
-    // customize date filter inputs
-    this.initDateElements ();
-  }
-
-  /*
-    Accepts no arguments, wraps the date and topic
-    filters in container divs, and returns 
-    undefined.
-  */
-  Filter.prototype.wrapDateFilter = function () {
-    getFilterContainerSelectors (). find ('.' + getDateFilterElementsClassName ())
-      .wrapAll ($('<div></div>')
-        .addClass ('date_' + getFilterContainerClassSuffix ()));
-  }
-
-  /*
-    Accepts no arguments, appends the date filter to the 
-    end of the form container, and returns undefined.
-  */
-  Filter.prototype.pushDateFilterToBottom = function () {
-    $('.date_' + getFilterContainerClassSuffix ())
-      .detach ()
-      .appendTo (getFilterContainerSelectors ());
-  }
-
-  /*
-    Accepts no arguments; edits and attaches datepickers
-    to the date input placeholders, and adds a reset button; 
-    returns undefined.
-  */
-  Filter.prototype.initDateElements = function () {
-    var self = this;
-    getDateMinElement ().datepicker ().attr('placeholder', 'Start date');
-    getDateMaxElement ().datepicker ().attr('placeholder', 'End date')
-      .after($('<div></div>')
-        .append($('<input />')
-          .attr('type', 'reset')
-          .attr('value', 'Reset Dates')
-          .attr('id', 'news_filter_reset')
-          .click(function () {
-            getDateMinElement ().attr('value', '');
-            getDateMaxElement ().attr('value', '');
-            self.submitForm ();        
-          })
-      ));
   }
 
   /*
@@ -189,7 +139,7 @@
     if (_.contains (selectedTermIds, termId)) {
       itemElement
         .addClass (getSelectedItemClassName)
-        .append (createItemDeselectButtonElement ())
+        // .append (createItemDeselectButtonElement ())
         .click (function () {
           self.deselectTerm (termId);
           self.submitForm ();
@@ -477,23 +427,6 @@
   }
 
   /*
-    Accepts no arguments and returns a jQuery HTML Element
-    that represents the minimum date input element.
-  */
-  function getDateMinElement () {
-    return $('input[data-drupal-selector="edit-field-news-date-value-min"]');
-  }
-
-  /*
-    Accepts no arguments and returns a jQuery HTML Element
-    that represents the maximum date input element.
-  */
-  function getDateMaxElement () {
-    // console.log($('input[data-drupal-selector="edit-field-news-date-value-max"]'))
-    return $('input[data-drupal-selector="edit-field-news-date-value-max"]');
-  }  
-
-  /*
     Accepts one argument: listElement, a jQuery
     HTML Element that represents a filter list
     element; and returns a string that represents
@@ -518,11 +451,11 @@
     HTML Element that represents an item deselect
     button.
   */
-  function createItemDeselectButtonElement () {
-    return $('<div></div>')
-      .addClass (getItemDeselectButtonClassName ())
-      .append ($(loadIcon ('deselect-button', '/modules/custom/view_term_list/images/close-icon.svg').documentElement));
-  }
+  // function createItemDeselectButtonElement () {
+  //   return $('<div></div>')
+  //     .addClass (getItemDeselectButtonClassName ())
+  //     .append ($(loadIcon ('deselect-button', '/modules/custom/view_term_list/images/close-icon.svg').documentElement));
+  // }
 
   /*
     Accepts two arguments: 
@@ -558,14 +491,6 @@
   }
 
   /*
-    Accepts no arguments and returns a jQuery Element
-    representing the news landing page's filter container.
-  */
-  function getFilterContainerSelectors () {
-    return $('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ());
-  }  
-
-  /*
     Accepts no arguments and returns a string
     that represents the item deselect button
     element class name.
@@ -594,50 +519,6 @@
   */
   function getSelectedItemClassName () {
     return getItemClassName () + '_selected';
-  }
-
-  /*
-    Accepts no arguments and returns a string that
-    represents the class name of the news landing
-    page container.
-  */
-  function getNewsLandingContainerClassName () {
-    return 'news-landing-container';
-  }
-
-  /*
-    Accepts no arguments and returns a string that
-    represents the class name of the element that
-    contains the filters.
-  */
-  function getExposedFormClassName () {
-    return 'views-exposed-form';
-  }
-
-  /*
-    Accepts no arguments and returns a string that
-    represents the class suffix for each filter.
-  */
-  function getFilterContainerClassSuffix () {
-    return 'filter_container';
-  }
-
-  /*
-    Accepts no arguments and returns a string that
-    represents the class name common to the elements
-    in the date filter.
-  */
-  function getDateFilterElementsClassName () {
-    return 'js-form-type-textfield';
-  }
-
-  /*
-    Accepts no arguments and returns a string that
-    represents the class name common to the elements
-    in the topic filter.
-  */
-  function getTopicFilterElementsClassName () {
-    return 'js-form-item-tid';
   }
 
   /*

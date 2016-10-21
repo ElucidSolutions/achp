@@ -1,8 +1,21 @@
 // Behavior for landing & individual news pages
 
-(function ($) {
+(function ($, Drupal) {
 
   var newsLandingBreakpoint = '850px';
+
+  Drupal.behaviors.news_landing = {
+    attach: function (context, settings) {
+      $(document).once ('news_landing').ajaxComplete (
+        function (event, xhr, settings) {
+          // initializes all of the filters on view updates.
+          if (settings.url.indexOf ('/views/ajax') === 0) {
+            // initializes the filter elements.
+            initDateFilterElements ();
+          }
+      });
+    }
+  }  
 
   $(document).ready (function () {
 
@@ -34,17 +47,137 @@
 
     // Click listener for news filter button
     getFilterButton ().click ( function (e) {
+      console.log('clicked')
       if (getFilterContainer ().css('display') === 'none') {
+        console.log('I should open now')
         getFilterContainer ().slideDown();
         switchFilterButtonClassToOpen ();
       } else {
+        console.log('I should close');
         getFilterContainer ().slideUp( function () {
           switchFilterButtonClassToClosed ();
         });
       };
     });
 
+    initDateFilterElements ();
+
   })
+
+  /*
+    Accepts no arguments; wraps the Date filter in a
+    container div, moves Date filter below Topic filter,
+    and customizes the behavior and appearance of the 
+    date filter inputs; and returns undefined;
+  */
+  function initDateFilterElements () {
+    wrapDateFilter ();
+    pushDateFilterToBottom ();
+    initDateElements ();
+  }
+
+ /*
+    Accepts no arguments, wraps the date and topic
+    filters in container divs, and returns 
+    undefined.
+  */
+  function wrapDateFilter () {
+    getFilterContainerSelectors (). find ('.' + getDateFilterElementsClassName ())
+      .wrapAll ($('<div></div>')
+        .addClass ('date_' + getFilterContainerClassSuffix ()));
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name of the news landing
+    page container.
+  */
+  function getNewsLandingContainerClassName () {
+    return 'news-landing-container';
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name of the element that
+    contains the filters.
+  */
+  function getExposedFormClassName () {
+    return 'views-exposed-form';
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class suffix for each filter.
+  */
+  function getFilterContainerClassSuffix () {
+    return 'filter_container';
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name common to the elements
+    in the date filter.
+  */
+  function getDateFilterElementsClassName () {
+    return 'js-form-type-textfield';
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name common to the elements
+    in the topic filter.
+  */
+  function getTopicFilterElementsClassName () {
+    return 'js-form-item-tid';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the DOM ID of the topic list
+    element.
+  */
+  // function getTopicListElementId () {
+  //   return 'edit-view-term-list-item';
+  // }    
+
+  /*
+    Accepts no arguments and returns a jQuery Element
+    representing the news landing page's filter container.
+  */
+  function getFilterContainerSelectors () {
+    return $('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ());
+  }    
+
+  /*
+    Accepts no arguments, appends the date filter to the 
+    end of the form container, and returns undefined.
+  */
+  function pushDateFilterToBottom () {
+    $('.date_' + getFilterContainerClassSuffix ())
+      .detach ()
+      .appendTo (getFilterContainerSelectors ());
+  }
+
+  /*
+    Accepts no arguments; edits and attaches datepickers
+    to the date input placeholders, and adds a reset button; 
+    returns undefined.
+  */
+  function initDateElements () {
+    getDateMinElement ().datepicker ().attr('placeholder', 'Start date');
+    getDateMaxElement ().datepicker ().attr('placeholder', 'End date')
+      .after($('<div></div>')
+        .append($('<input />')
+          .attr('type', 'reset')
+          .attr('value', 'Reset Dates')
+          .attr('id', 'news_filter_reset')
+          .click(function () {
+            getDateMinElement ().attr('value', '');
+            getDateMaxElement ().attr('value', '');
+            submitFilterForm ();        
+          })
+      ));
+  }  
 
   /*
     Accepts no arguments, adds the closed class to the filter
@@ -52,7 +185,7 @@
   */
   function switchFilterButtonClassToClosed () {
     var classPrefix = getNewsFilterClassPrefix ();
-    getFilterButton ().removeClass (classPrefix + '_open').addClass (classPrefix + '_closed');
+    getFilterButton ().addClass (classPrefix + '_closed').removeClass (classPrefix + '_open');
   }
 
   /*
@@ -61,7 +194,7 @@
   */
   function switchFilterButtonClassToOpen () {
     var classPrefix = getNewsFilterClassPrefix (); 
-    getFilterButton ().removeClass (classPrefix + '_closed').addClass (classPrefix + '_open');
+    getFilterButton ().addClass (classPrefix + '_open').removeClass (classPrefix + '_closed');
   }
 
   /*
@@ -81,6 +214,25 @@
     getFilterContainer ().show ();
     switchFilterButtonClassToOpen ();
   }
+
+  /*
+    Accepts no arguments and submits this
+    filter's view form by simulating a click on
+    the form's submit button.
+  */
+  function submitFilterForm () {
+    getSubmitButtonElement ().click ();
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents the view form
+    submit button.
+  */
+  function getSubmitButtonElement () {
+    return $('.' + getSubmitClassName (), getFilterContainerSelectors ());
+  }
+
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
@@ -130,5 +282,14 @@
   function getNewsFilterClassPrefix () {
     return 'news_filter';
   }  
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the view form button's
+    class name.
+  */
+  function getSubmitClassName () {
+    return 'js-form-submit';
+  }  
  
-})(jQuery);
+}) (jQuery, Drupal);

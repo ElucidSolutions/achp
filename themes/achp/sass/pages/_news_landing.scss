@@ -7,14 +7,12 @@
   height: 100%;
 
   #content {
-    margin: 0 auto;
-    max-width: $max-content-width;
-    padding: 0 50px;
-    position: relative;
-    overflow: auto;
+    width: 100%;
 
     #content_region {
-      padding: 0;
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: 0 50px;      
     }
     .news-landing-container {
       @include span-columns (12);
