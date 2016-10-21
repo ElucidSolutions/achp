@@ -16,3 +16,15 @@ function achp_preprocess_page (&$variables) {
     $variables ['node_type'] = $variables ['node']->getType ();
   }
 }
+/*
+function achp_preprocess (&$variables, $hook) {
+  \Drupal::logger('achp_theme')->notice('[achp_preprocess] hook: ' . $hook);
+}
+*/
+/*
+function achp_system_breadcrumb_alter (\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
+  \Drupal::logger('achp_theme')->notice('[achp_preprocess] breadcrumb: <pre>' . $breadcrumb . '</pre>');
+  \Drupal::logger('achp_theme')->notice('[achp_preprocess] breadcrumb context: <pre>' . $context . '</pre>');
+  \Drupal::logger('achp_theme')->notice('[achp_preprocess] routematch route_match: <pre>' . $route_match . '</pre>');
+}
+*/

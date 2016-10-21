@@ -1,8 +1,11 @@
-// Behavior for landing & individual news pages
+/* 
+  Behavior for landing page, excluding topic filter-specific
+  behavior, which is located in view_term_list.js.
+*/
 
 (function ($, Drupal) {
 
-  var newsLandingBreakpoint = '850px';
+  var newsLandingBreakpoint = '750px';
 
   Drupal.behaviors.news_landing = {
     attach: function (context, settings) {
@@ -43,23 +46,6 @@
       };
     })());
 
-    // I. Landing page behavior
-
-    // Click listener for news filter button
-    getFilterButton ().click ( function (e) {
-      console.log('clicked')
-      if (getFilterContainer ().css('display') === 'none') {
-        console.log('I should open now')
-        getFilterContainer ().slideDown();
-        switchFilterButtonClassToOpen ();
-      } else {
-        console.log('I should close');
-        getFilterContainer ().slideUp( function () {
-          switchFilterButtonClassToClosed ();
-        });
-      };
-    });
-
     initDateFilterElements ();
 
   })
@@ -71,20 +57,28 @@
     date filter inputs; and returns undefined;
   */
   function initDateFilterElements () {
-    wrapDateFilter ();
-    pushDateFilterToBottom ();
     initDateElements ();
-  }
+    addFilterButtonListener ();
+  }  
 
- /*
-    Accepts no arguments, wraps the date and topic
-    filters in container divs, and returns 
-    undefined.
+  /*
+    Accepts no arguments, adds click listener to news
+    filter button to toggle filter visibility, and
+    returns undefined.
   */
-  function wrapDateFilter () {
-    getFilterContainerSelectors (). find ('.' + getDateFilterElementsClassName ())
-      .wrapAll ($('<div></div>')
-        .addClass ('date_' + getFilterContainerClassSuffix ()));
+  function addFilterButtonListener () {
+    getFilterButton ().click ( function (e) {
+      console.log('clicked')
+      if (getFilterContainer ().css('display') === 'none') {
+        getFilterContainer ().slideDown();
+        switchFilterButtonClassToOpen ();
+      } else {
+        console.log('I should close');
+        getFilterContainer ().slideUp( function () {
+          switchFilterButtonClassToClosed ();
+        });
+      };
+    });    
   }
 
   /*
@@ -105,58 +99,14 @@
     return 'views-exposed-form';
   }
 
-  /*
-    Accepts no arguments and returns a string that
-    represents the class suffix for each filter.
-  */
-  function getFilterContainerClassSuffix () {
-    return 'filter_container';
-  }
-
-  /*
-    Accepts no arguments and returns a string that
-    represents the class name common to the elements
-    in the date filter.
-  */
-  function getDateFilterElementsClassName () {
-    return 'js-form-type-textfield';
-  }
-
-  /*
-    Accepts no arguments and returns a string that
-    represents the class name common to the elements
-    in the topic filter.
-  */
-  function getTopicFilterElementsClassName () {
-    return 'js-form-item-tid';
-  }
-
-  /*
-    Accepts no arguments and returns a string
-    that represents the DOM ID of the topic list
-    element.
-  */
-  // function getTopicListElementId () {
-  //   return 'edit-view-term-list-item';
-  // }    
-
-  /*
-    Accepts no arguments and returns a jQuery Element
-    representing the news landing page's filter container.
-  */
-  function getFilterContainerSelectors () {
-    return $('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ());
-  }    
-
-  /*
-    Accepts no arguments, appends the date filter to the 
-    end of the form container, and returns undefined.
-  */
-  function pushDateFilterToBottom () {
-    $('.date_' + getFilterContainerClassSuffix ())
-      .detach ()
-      .appendTo (getFilterContainerSelectors ());
-  }
+  
+  //   Accepts no arguments and returns a string that
+  //   represents the class name common to the elements
+  //   in the topic filter.
+  
+  // function getTopicFilterElementsClassName () {
+  //   return 'js-form-item-tid';
+  // }
 
   /*
     Accepts no arguments; edits and attaches datepickers
@@ -233,6 +183,13 @@
     return $('.' + getSubmitClassName (), getFilterContainerSelectors ());
   }
 
+  /*
+    Accepts no arguments and returns a jQuery Element
+    representing the news landing page's filter container.
+  */
+  function getFilterContainerSelectors () {
+    return $('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ());
+  }    
 
   /*
     Accepts no arguments and returns a jQuery HTML Element

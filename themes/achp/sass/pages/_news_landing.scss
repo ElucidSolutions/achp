@@ -63,6 +63,10 @@
           @include span-columns (12 of 12);
           margin-top: 10px;
           padding-bottom: 40px;
+
+          .js-form-item {
+            width: 100%;
+          }
         }
         div[data-drupal-selector="edit-actions"] {
           bottom: 10px;
@@ -278,7 +282,7 @@
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 750px) {
   #news_landing_page #content .news-landing-container {
     .views-exposed-form {
       @include span-columns (12 of 12);
@@ -307,6 +311,7 @@
       }
       .news_filter {
         @include span-columns (12 of 12);
+        /*@include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-dark-blue.svg', 0, $color-blue-primary);*/
         font-size: rem(14px);
         border-bottom: 1px solid $color-grey;
         bottom: 10px;
@@ -315,27 +320,26 @@
         display: block;
         font-family: $sans-text;
         font-weight: 500;
-        padding-bottom: 10px;
         position: absolute;
+        padding-bottom: 5px;
 
-        &.news_filter_closed {
-          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0, $color-blue-primary);
-
-          &:after {
-            padding-left: 30px;
-            position: relative;
-          }
+        .news_filter_text {
+          display: inline-block;
+          line-height: 1;
+          vertical-align: sub;
         }
-
+        &:after {
+          left: 85px;
+          position: absolute;
+          top: 3px;
+        }
+        &.news_filter_closed {
+          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-dark-blue.svg', 0, $color-blue-primary);
+        }
         &.news_filter_open {
-          @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0, $color-blue-primary);
+          @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-dark-blue.svg', 0, $color-blue-primary);
           border-bottom: none;
           bottom: 11px;
-
-            &:after {
-              padding-left: 30px;
-              position: relative;
-            }
         }
       }
     }

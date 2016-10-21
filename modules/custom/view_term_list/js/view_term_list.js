@@ -139,7 +139,7 @@
     if (_.contains (selectedTermIds, termId)) {
       itemElement
         .addClass (getSelectedItemClassName)
-        // .append (createItemDeselectButtonElement ())
+        .append (createItemDeselectButtonElement ())
         .click (function () {
           self.deselectTerm (termId);
           self.submitForm ();
@@ -451,11 +451,11 @@
     HTML Element that represents an item deselect
     button.
   */
-  // function createItemDeselectButtonElement () {
-  //   return $('<div></div>')
-  //     .addClass (getItemDeselectButtonClassName ())
-  //     .append ($(loadIcon ('deselect-button', '/modules/custom/view_term_list/images/close-icon.svg').documentElement));
-  // }
+  function createItemDeselectButtonElement () {
+    return $('<div></div>')
+      .addClass (getItemDeselectButtonClassName ())
+      .append ($(loadIcon ('deselect-button', '/modules/custom/view_term_list/images/close-icon.svg').documentElement).clone (true));
+  }
 
   /*
     Accepts two arguments: 
