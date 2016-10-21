@@ -1,0 +1,15 @@
+/*
+  This module extends the styling provided by
+  the Image Gallery stylesheet with additional
+  styles for the News Image gallery feature.
+*/
+.flickity.default_group {
+  .news_carousel_image {
+    text-align: center;
+  }
+  .news_carousel_caption {
+    caption-side: bottom;
+    color: $background-color-grey;
+    font-size: rem(14);
+  }
+}

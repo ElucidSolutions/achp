@@ -2,18 +2,6 @@
   This module defines the default styling for
   the Image Gallery feature.
 */
-@import "bourbon/bourbon";
-$gutter: 0em !global;
-@import "neat/neat";
-
-/* I. Global Variables */
-
-// colors
-$color-grey: #4F4F4F;
-$color-darkgrey: #262626;
-$background-color-grey: #F4F4F4;
-
-/* II. Generic Flickity View Elements */
 .flickity {
   background-color: $color-darkgrey;  
   width: 100%;
@@ -36,16 +24,12 @@ $background-color-grey: #F4F4F4;
       width: 20px;
 
       .arrow {
-        @include transition(opacity 0.25s);
         fill: white;
 
         &:disabled {
           background-color: $color-darkgrey;
         }
       }
-    }
-    &:hover {
-      background-color: rgb(15,15,15);
     }
     &.previous {
       left: 0;
@@ -141,3 +125,4 @@ $background-color-grey: #F4F4F4;
     }
   }
 }
+
