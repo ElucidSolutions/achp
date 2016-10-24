@@ -122,6 +122,9 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
       $tree = $this->termStorage->loadTree ($vocabulary->id (), 0, null, true);
       if ($tree) {
         foreach ($tree as $term) {
+          $num_references = $this->getReferencingNodes ($term->id ());
+          if ($num_references == 0) { continue; }
+
           $label = \Drupal::entityManager ()->getTranslationFromContext ($term)->label ();
           $items [] = array (
             '#markup' => '<li class="view_term_list_item" data-term-id="' . $term->id () . '" data-term-depth="' . $term->depth . '">' .
@@ -193,5 +196,33 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
       // Show help text if not exposed to end users.
       $form['value']['#description'] = t('Leave blank for all. Otherwise, the first selected term will be the default instead of "Any".');
     }
+  }
+
+  /**
+   * @brief Accepts a term ID and returns an
+   * integer that represents the number of nodes
+   * that reference the term having tid.
+   * @param $tid (integer) a term ID.
+   * @return (integer) the number of nodes that
+   * reference the referenced term.
+   */
+  protected function getReferencingNodes ($tid) {
+    $query = \Drupal::entityQuery ('node')->condition ('status', 1);
+    foreach ($this->getEntityReferenceFields () as $field_name) {
+      $query->condition ($field_name . '.target_id', $tid);
+    }
+    return $query->count ()->execute ();
+  }
+
+
+  /**
+   * Accepts no arguments and returns an array
+   * listing the names of all of the entity
+   * reference fields.
+   * @return (array string) the names of the
+   * entity reference fields.
+   */
+  protected function getEntityReferenceFields () {
+    return array ('field_tags');
   }
 }
