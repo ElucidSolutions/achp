@@ -454,7 +454,7 @@
   function createItemDeselectButtonElement () {
     return $('<div></div>')
       .addClass (getItemDeselectButtonClassName ())
-      .append ($(loadIcon ('deselect-button', '/modules/custom/view_term_list/images/close-icon.svg').documentElement));
+      .append ($(loadIcon ('deselect-button', '/modules/custom/view_term_list/images/close-icon.svg')));
   }
 
   /*
@@ -479,7 +479,7 @@
         }
       });
     }
-    return ICONS [name] ? (ICONS [name]).cloneNode (true) : null;
+    return ICONS [name] ? (ICONS [name]).documentElement.cloneNode (true) : null;
   }
 
   /*
