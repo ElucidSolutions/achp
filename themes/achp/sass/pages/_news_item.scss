@@ -24,7 +24,7 @@
         li {
           display: inline;
           left: 5px;
-          padding-right: 10px;
+          /*padding-right: 10px;*/
           position: relative;
 
           a {
@@ -35,22 +35,23 @@
             color: $color-lightblue-primary;
           }          
           &:before {
-            @include center-y;
+            /*@include center-y;*/
             background-position: center;
             background-repeat: no-repeat;
             content: "";
             height: 20px;
-            position: relative;
+            /*position: relative;*/
             right: 5px;
             width: 20px;
           }
           &.breadcrumb_link:before {
             background-image: url('../images/right-arrow-icon-light.svg');
-            padding: 5px 10px 2px 20px;     
+            padding: 5px 20px 2px;     
           }
           &.breadcrumb_link_home:before  {
              background-image: url('../images/home-icon.svg');
-             padding: 5px 0 0 20px;
+             background-position: center left;
+             padding: 10px 15px 5px;
           }
         }
       }
@@ -60,6 +61,7 @@
       color: $color-darkblue;
       font-size: rem(36);        
       font-weight: 400;
+      line-height: 1.25;
       text-align: left;        
     }
     .views-field-field-news-date {
@@ -84,10 +86,6 @@
           font-weight: 400;
           text-align: left;
         }
-/*        .news_item_date {
-          color: $color-lightgrey-2;   
-          font-family: $sans-text;   
-        }*/
         .news_item_body {
           color: $color-darkgrey2; 
           font-family: $serif-text;
@@ -281,7 +279,7 @@
 
   #block-views-block-related-news-items-block-1 {
     background-color: #fff;
-    margin: 0 auto;
+    margin: 20px auto 0;
     max-width: $max-news-width;
 
     header {
@@ -324,16 +322,10 @@
     }
   }
 
-/*  @media (max-width: $max-content-width) {
-    #content_region {
-      padding: 0 $max-width-padding;
-    }
-  }*/
-
-  @media (max-width: $max-news-width) {
-    #content_region {
+  @media (max-width: $max-news-width + $max-width-padding * 2) {
+    #outer_container #main-wrapper #content_region {
       max-width: 100%;
-      margin: 0 50px;
+      margin: 0 $max-width-padding;
     }
     h1 {
       font-size: rem(26px);
@@ -343,13 +335,6 @@
       text-align: center;
     }
     #news_item_page #news_content_container article.news_item {
-/*      h1 {
-        font-size: rem(26px);
-        text-align: center;
-      }
-      .news_item_date {
-        text-align: center;
-      }*/
       .news_item_body blockquote {
         font-size: rem(20px);
       }
@@ -371,6 +356,9 @@
       header {
         font-size: rem(18px);
       }
+      .views-field-field-news-date { 
+        text-align: left;
+      }      
     }
   }
 }
