@@ -33,3 +33,18 @@ function achp_preprocess_page (&$variables) {
 function achp_pre_render_alter (&$build) {
   $build ['#output'][count ($build ['#output']) - 1]['#attributes']['class'][] = 'last-item';
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter ().
+ *
+ * This function works around an apparent bug
+ * in the Views module in which the date filter in
+ * the News view will not reposition itself below
+ * the topic filter when its weight is set using
+ * the Views UI. This function manually assigns
+ * a high weight to the date filter to position
+ * the filter below the topic filter.
+ */
+function achp_form_views_exposed_form_alter (&$form, &$form_state, $form_id) {
+  $form ['field_news_date_value']['#weight'] = 20;
+}
