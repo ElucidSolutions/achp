@@ -523,6 +523,15 @@
 
   /*
     Accepts no arguments and returns a string
+    that represents the DOM ID of the topic list
+    element.
+  */
+  function getTopicListElementId () {
+    return 'edit-view-term-list-item';
+  }  
+
+  /*
+    Accepts no arguments and returns a string
     that represents the item element class name.
   */
   function getItemClassName () {

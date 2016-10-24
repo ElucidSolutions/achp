@@ -1,37 +1,42 @@
 @import "../global";
 
-#content_region {
-  padding: 5px;
-  margin: 0 auto;
+#outer_container {
+  background-color: #fff;
 
-  #block-achp-page-title h1 {
-    @extend h1;
-    @include font-size($h1-subtitle-font-sizes);
-    line-height: 1;
-    text-shadow: none;
-    text-align: left;
-  }
+  #main-wrapper {
+    @include outer-container(100%);
 
-  #block-achp-local-tasks ul {
-    list-style-type: none;
-    padding-left: 0;
+    #content_region {
+      padding: 20px 0 0;
+      margin: 0 auto;
 
-    li {
-      display: inline;
+      #block-achp-page-title h1 {
+        @extend h1;
+        @include font-size($h1-subtitle-font-sizes);
+        line-height: 1;
+        text-shadow: none;
+        text-align: left;
+      }
+      #block-achp-local-tasks ul {
+        list-style-type: none;
+        padding-left: 0;
 
-      a {
-        font-family: $sans-text;
+        li {
+          display: inline;
+
+          a {
+            font-family: $sans-text;
+          }
+        }
       }
     }
-  }
-
-  footer {
-    background-color: #fff;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  #block-achp-content p {
-    text-align: left;
+/*    footer {
+      background-color: #fff;
+      height: auto;
+      margin-bottom: 20px;
+    }*/
+    p {
+      text-align: left;
+    }
   }
 }

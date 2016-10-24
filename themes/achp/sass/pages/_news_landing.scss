@@ -1,28 +1,38 @@
 @import "../global";
 
 #news_landing_page {
-  @include outer-container(100%);
-  background-color: $background-color-grey;
   height: 100%;
 
+  #outer_container {
+    background-color: #fff;
+  }
+  #main-wrapper {
+    @include outer-container(100%);
+    background-color: $background-color-grey;
+  }
   #content {
-    margin: 0 auto;
-    max-width: $max-content-width;
-    padding: 0 50px;
-    position: relative;
-    overflow: auto;
+    box-shadow: inset 0 3px 5px -3px $color-grey;    
+    width: 100%;
 
     #content_region {
-      padding: 0;
+      border-top: 2px solid transparent;  /* to allow box-shadow to appear */    
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: 0 50px;     
     }
     .news-landing-container {
       @include span-columns (12);
       height: 100%;
 
+      &:after {
+        clear: both;
+      }
+
       em {
         font-style: normal !important;
         /* If an item summary cuts off in the middle of emphasized
-        text, the entire rest of the page is italicized too*/
+        text, the entire rest of the page is italicized too - this
+        prevents that bug */
       }
       header {
         @include span-columns (12 of 12);
@@ -35,8 +45,8 @@
           width: auto;
 
           h1 {
-            font-size: rem(36px);
             color: $color-darkblue;
+            font-size: rem(36px);            
             font-weight: 500;
             text-shadow: none;
           }          
@@ -50,32 +60,84 @@
           display: none;
         }
       }
+
+      $filter-padding-right: 20px;
+
       .views-exposed-form {
         @include span-columns (3 of 12);
-        padding-right: 20px;
+        padding-right: $filter-padding-right;
+        position: relative;
 
-        .form-select {
-          width: 100%;
+        .date_filter_container {
+          @include span-columns (12 of 12);
+          margin-top: 10px;
+          padding-bottom: 40px;
+
+          .js-form-item {
+            width: 100%;
+          }
+        }
+        div[data-drupal-selector="edit-actions"] {
+          bottom: 10px;
+          position: absolute;
         }
         label {
-          font-size: rem(20px);
           border-bottom: 1px solid $color-red;
           color: $color-darkblue;
           display: inline-block;
           font-family: $sans-text;
-          margin-bottom: 10px;
+          font-size: rem(20px);
           width: 100%;
         }
-        .form-item-date-max label {
+        .form-item-field-news-date-value-min {
+          display: inline-block;
+          max-width: 100%;
+
+          label {
+            margin-bottom: 10px;
+          }
+        }
+        .form-item-field-news-date-value-max label {
           display: none;
         }
+        ul.view_term_list_list {
+          color: $color-grey;
+          font-family: $sans-text;
+          margin: 0;
+          padding: 0;
+
+          .view_term_list_item {
+            border-bottom: 1px solid $color-grey;    
+            display: block;
+            position: relative;        
+            width: 100%;
+
+            .view_term_list_item_label {
+              @include hover-transition-content($color-blue-primary);
+              padding: 10px 15px 10px 0;
+            }
+            .view_term_list_item_deselect_button {
+              @include center-y;
+              position: absolute;
+              right: 0;
+            }
+          }
+          .view_term_list_list_toggle_button {
+            @include hover-transition-content($color-blue-primary);
+            padding: 10px 0;
+            text-transform: uppercase;
+          }
+        }
+        .form-select {
+          width: 100%;
+        }
         input[type="text"] {
-          font-size: rem(16px);
           background-image: url('../images/add-calendar-icon.svg');
           background-position: 5px center;
           background-repeat: no-repeat;
           color: $color-lightgrey;
           font-family: $sans-text;
+          font-size: rem(16px);
           margin-bottom: 10px;
           max-width: 100%;
           padding: 5px 0 2px 30px;
@@ -84,64 +146,63 @@
           margin-bottom: 15px;
         }
       }
+
+      .news_no_results {
+        font-family: $sans-text;
+        font-style: italic;
+      } 
       .news-item {
         @include span-columns (9 of 12);
         background-color: #fff;
+        border-bottom: 30px solid transparent;
         float: right;
         margin-bottom: 25px;
-        padding: 0;
+        padding: 5px 20px;
+        position: relative;
 
         .views-field-title {
+          display: inline-block;
           margin-top: 10px;
-            display: inline-block;
-            padding: 10px 20px 0;
+          padding: 0;
 
           a {
-            font-size: rem(20px);
             color: $color-darkblue;
+            font-size: rem(20px);
             text-decoration: none;
           }
         }
         .views-field-field-news-date {
           color: $color-lightgrey;
           margin-top: 0;
-          padding: 10px 20px 0;
+          padding: 10px 0;
         }
         .views-field-field-news-photo img {
           float: left;
           max-height: 300px;
           max-width: 300px;
-          padding: 10px 20px 10px 20px;
+          padding: 5px 15px 0 0;
         }
         .views-field-body {
           font-family: $serif-text;
-          margin: 5px 20px;
 
           p {
             margin-top: 5px;
           }
         }
         .views-field-field-tags {
+          padding: 20px 0 5px;
+
           .views-label {
             color: $color-darkblue;
-            display: block;
-            margin-left: 20px;
-          }
-          .field-content {
-            bottom: 30px;
-            height: 20px;
-            position: relative;
           }
         }
         ul {
           list-style-type: none;
           margin: 0;
-          padding: 10px 20px 0;
+          padding: 0;
 
           li {
             display: inline-block;
-            margin-top: 25px;
-            position: relative;
 
              a {
               color: $color-blue-primary;
@@ -153,18 +214,18 @@
         .views-field-view-node {
           @include hover-transition-background ($background-color-lightblue);
           background-color: $background-color-grey;
-          clear: both;
+          bottom: -30px;
           height: 30px;
-          margin-top: 20px;
-          position: relative;
+          left: 0;
+          position: absolute;
           width: 100%;
 
           a {
             @include center-xy;
             color: $color-grey;
             font-weight: 500;
-            text-decoration: none;
             text-align: center;
+            text-decoration: none;
             transition: color 0.25s;
           }
           &:hover a {
@@ -185,9 +246,8 @@
         text-align: center;
 
         li {
-          /*cursor: pointer;*/ 
           display: inline-block;
-          line-height: 25px;
+          line-height: 27px;
           padding: 0 8px;
 
           &.pager__item--last, &.pager__item--first {
@@ -196,18 +256,21 @@
           &.pager__item.is-active {
             background-color: $color-blue-primary;
             border-radius: 50%;
+            cursor: default;
             height: 25px;
             padding: 0;
             width: 25px;
+
             a {
+              @include hover-transition-content(#fff);              
               color: #fff;
-              @include hover-transition-content(#fff);
+              cursor: default;
             }
           }
           a {
+            @include hover-transition-content($color-blue-primary);            
             color: $color-darkgrey;
             text-decoration: none;
-            @include hover-transition-content($color-blue-primary);
           }
         }
       }
@@ -215,7 +278,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: $max-content-width) {
   #news_landing_page #content .news-landing-container {
     .views-exposed-form {
       @include span-columns (4 of 12);
@@ -227,7 +290,7 @@
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 750px) {
   #news_landing_page #content .news-landing-container {
     .views-exposed-form {
       @include span-columns (12 of 12);
@@ -236,6 +299,14 @@
       margin-bottom: 20px;
       padding-bottom: 20px;
       padding-right: 0;
+
+      .view_term_list_list {
+        @include span-columns (12 of 12);
+      }
+      .date_filter_container {
+        @include span-columns (12 of 12);
+        padding-bottom: 20px;
+      }
     }
     .news-item {
       @include span-columns (12 of 12);
@@ -247,8 +318,9 @@
         top: 35%;
       }
       .news_filter {
-        font-size: rem(14px);
         @include span-columns (12 of 12);
+        /*@include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-dark-blue.svg', 0, $color-blue-primary);*/
+        font-size: rem(14px);
         border-bottom: 1px solid $color-grey;
         bottom: 10px;
         color: $color-grey;
@@ -256,10 +328,24 @@
         display: block;
         font-family: $sans-text;
         font-weight: 500;
-        padding-bottom: 10px;
         position: absolute;
+        padding-bottom: 5px;
 
+        .news_filter_text {
+          display: inline-block;
+          line-height: 1;
+          vertical-align: sub;
+        }
+        &:after {
+          left: 85px;
+          position: absolute;
+          top: 3px;
+        }
+        &.news_filter_closed {
+          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-dark-blue.svg', 0, $color-blue-primary);
+        }
         &.news_filter_open {
+          @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-dark-blue.svg', 0, $color-blue-primary);
           border-bottom: none;
           bottom: 11px;
         }

@@ -27,6 +27,7 @@ header {
 
   #header_region {
     display: inline-block;
+    @include outer-container(100%);
   }
 
   #header_left_container, #header_right_container {
@@ -188,7 +189,7 @@ header {
   }
 }
 
-@media (min-width: 1150px) {
+@media (min-width: $menu-breakpoint) {
   header {
     #header_region {
       @include span-columns (12);

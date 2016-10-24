@@ -74,17 +74,14 @@
   #}
   <div id="news_item_page">
     <div id="news_content_container">
-      <span class="news_back_link"><a href="/news">BACK TO NEWS</a></span>
-      <article class="news_item">
-        <h1 class="news_title">{{ content.field_short_title }}</h1>
-        <div class="news_item_date">{{ content.field_news_date }}</div>
-        <div class="news_item_photo">{{ content.field_news_photo }}</div>        
-        <div class="news_item_body">{{ content.body }}</div>
-        <hr class="news_divider" />
-        <div class="news_item_tags">
-          <div class="news_item_tags_label">TOPICS</div>
-          {{ content.field_tags }}
-        </div>
-      </article>
+      <div class="news_item_body">{{ content.body }}</div>
+      <hr class="news_divider" />
+      <div class="news_item_tags">
+        <div class="news_item_tags_label">TOPICS</div>
+        {{ content.field_tags }}
+      </div>
+      <div class="news_item_photo">
+        {{ content.field_news_photo }}
+      </div>   
     </div>
   </div>
