@@ -58,7 +58,8 @@
   */
   function initDateFilterElements () {
     initDateElements ();
-    addFilterButtonListener ();
+    addFilterToggleListener ();
+    addFilterInputListener ();
   }  
 
   /*
@@ -66,7 +67,7 @@
     filter button to toggle filter visibility, and
     returns undefined.
   */
-  function addFilterButtonListener () {
+  function addFilterToggleListener () {
     getFilterButton ().click ( function (e) {
       console.log('clicked')
       if (getFilterContainer ().css('display') === 'none') {
@@ -82,31 +83,16 @@
   }
 
   /*
-    Accepts no arguments and returns a string that
-    represents the class name of the news landing
-    page container.
+    Accepts no arguments, attaches change event listeners 
+    to the date inputs, and returns undefined.
   */
-  function getNewsLandingContainerClassName () {
-    return 'news-landing-container';
+  function addFilterInputListener () {
+    getDateMinElement ().change (submitFilterForm);
+    getDateMaxElement ().change (submitFilterForm);
+    // getDateMaxElement ().change (function () {
+    //   console.log('change triggered');
+    // })
   }
-
-  /*
-    Accepts no arguments and returns a string that
-    represents the class name of the element that
-    contains the filters.
-  */
-  function getExposedFormClassName () {
-    return 'views-exposed-form';
-  }
-
-  
-  //   Accepts no arguments and returns a string that
-  //   represents the class name common to the elements
-  //   in the topic filter.
-  
-  // function getTopicFilterElementsClassName () {
-  //   return 'js-form-item-tid';
-  // }
 
   /*
     Accepts no arguments; edits and attaches datepickers
@@ -188,7 +174,7 @@
     representing the news landing page's filter container.
   */
   function getFilterContainerSelectors () {
-    console.log($('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ()));
+    return $('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ());
   }    
 
   /*
@@ -238,6 +224,24 @@
   */
   function getNewsFilterClassPrefix () {
     return 'news_filter';
+  }  
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name of the news landing
+    page container.
+  */
+  function getNewsLandingContainerClassName () {
+    return 'news-landing-container';
+  }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name of the element that
+    contains the filters.
+  */
+  function getExposedFormClassName () {
+    return 'views-exposed-form';
   }  
 
   /*

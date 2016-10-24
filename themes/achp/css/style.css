@@ -1410,8 +1410,9 @@ $arrow-padding: 5px;*/
   font-size: 0.875rem;
   font-family: "p22-underground", sans-serif;
   letter-spacing: 0.02rem;
-  max-width: 100%;
-  padding: 40px; }
+  /*max-width: 100%;*/
+  padding: 40px;
+  width: 100%; }
   #footer h1, #footer #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer p {
     color: white;
     text-align: left;
@@ -2374,7 +2375,7 @@ $arrow-padding: 5px;*/
         #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list {
           color: #4F4F4F;
           font-family: "p22-underground", sans-serif;
-          margin: 0;
+          margin: 0 0 20px;
           padding: 0; }
           #news_landing_page #content .news-landing-container .views-exposed-form ul.view_term_list_list .view_term_list_item {
             border-bottom: 1px solid #4F4F4F;
@@ -2425,7 +2426,7 @@ $arrow-padding: 5px;*/
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75.0%;
+        width: 75%;
         background-color: #fff;
         border-bottom: 30px solid transparent;
         float: right;
@@ -3209,3 +3210,5 @@ button {
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
+
+/*# sourceMappingURL=style.css.map */
