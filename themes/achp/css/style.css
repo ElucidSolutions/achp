@@ -1732,6 +1732,7 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
       font-size: 2.25rem; } }
 
 #homepage_hero_region {
+  border: 10px solid pink;
   padding: 25px 50px;
   height: 500px;
   position: relative;
@@ -2617,9 +2618,12 @@ $arrow-padding: 5px;*/
       padding-left: 0; }
       #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li {
         display: inline;
-        left: 5px;
-        /*padding-right: 10px;*/
-        position: relative; }
+        padding-left: 5px;
+        position: relative;
+        /*          &:not(.breadcrumb_link_home) {
+                    padding-left: 5px;
+                  }
+        */ }
         #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li a {
           color: #4F4F4F;
           text-decoration: none; }
@@ -2631,16 +2635,19 @@ $arrow-padding: 5px;*/
           background-repeat: no-repeat;
           content: "";
           height: 20px;
-          /*position: relative;*/
+          position: relative;
           right: 5px;
-          width: 20px; }
+          width: 20px;
+          display: inline-block; }
         #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_link:before {
           background-image: url("../images/right-arrow-icon-light.svg");
-          padding: 5px 20px 2px; }
+          padding: 0 20px;
+          top: 5px; }
         #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_link_home:before {
           background-image: url("../images/home-icon.svg");
-          background-position: center left;
-          padding: 10px 15px 5px; }
+          background-position: left center;
+          padding: 0 10px;
+          top: 4px; }
   #page[data-page-node-type="news_story"] #main #block-pagetitle-2 h1, #page[data-page-node-type="news_story"] #main #block-pagetitle-2 #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #page[data-page-node-type="news_story"] #main #block-pagetitle-2 h1 {
     color: #043B62;
     font-size: 2.25rem;
