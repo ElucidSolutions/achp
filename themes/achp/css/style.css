@@ -1301,20 +1301,14 @@ $arrow-padding: 5px;*/
 /* px-to-rem mixin */
 /* Maps for type changes*/
 #footer {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   background-color: #043B62;
   color: white;
+  float: left;
   font-size: 0.875rem;
   font-family: "p22-underground", sans-serif;
   letter-spacing: 0.02rem;
   max-width: 100%;
   padding: 40px; }
-  #footer::after {
-    clear: both;
-    content: "";
-    display: table; }
   #footer h1, #footer #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer p {
     color: white;
     text-align: left;
@@ -1732,7 +1726,6 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
       font-size: 2.25rem; } }
 
 #homepage_hero_region {
-  border: 10px solid pink;
   padding: 25px 50px;
   height: 500px;
   position: relative;
