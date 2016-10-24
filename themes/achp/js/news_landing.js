@@ -188,7 +188,7 @@
     representing the news landing page's filter container.
   */
   function getFilterContainerSelectors () {
-    return $('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ());
+    console.log($('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ()));
   }    
 
   /*

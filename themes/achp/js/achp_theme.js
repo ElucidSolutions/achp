@@ -70,6 +70,9 @@
         closeWidescreenSubmenu ();
       })
 
+    // Remove default text from superimposing onto search icon
+    emptySearchInputValue ();
+
     // // For dev purposes
     // $('#header_menu li[data-menu-level="0"]').click (function(e) {
     //   e.preventDefault();
@@ -751,6 +754,14 @@
   function openMobileSubheader () {
     $('#subheader').show ();
     $('#subheader_mobile').slideDown ();
+  }
+
+  /*
+    Accepts no arguments, empties the value attribute of the
+    search input button, and returns undefined.
+  */
+  function emptySearchInputValue () {
+    getSearchBlockElement().find($('input')).attr('value', '');
   }
 
   /*
