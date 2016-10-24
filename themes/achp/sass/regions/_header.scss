@@ -27,6 +27,7 @@ header {
 
   #header_region {
     display: inline-block;
+    @include outer-container(100%);
   }
 
   #header_left_container, #header_right_container {
