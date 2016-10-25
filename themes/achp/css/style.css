@@ -955,19 +955,28 @@ $arrow-padding: 5px;*/
         max-width: 100%; }
 
 /* III. Carousel View Element */
-.flickity.default_group .flickity-prev-next-button {
-  display: none; }
-.flickity.default_group .gallery-cell {
-  width: 100%; }
-  .flickity.default_group .gallery-cell .field-content {
-    display: table;
-    margin: 0 auto; }
-    .flickity.default_group .gallery-cell .field-content .news_carousel_image {
-      text-align: center; }
-    .flickity.default_group .gallery-cell .field-content .news_carousel_caption {
-      caption-side: bottom;
-      color: #F4F4F4;
-      font-size: 0.875rem; }
+.flickity.default_group {
+  /*
+    Hide the gallery cells until flickity loads
+    and inserts the flickity-viewport container
+    element.
+    */ }
+  .flickity.default_group .flickity-prev-next-button {
+    display: none; }
+  .flickity.default_group .gallery-cell {
+    display: none; }
+  .flickity.default_group .flickity-viewport .gallery-cell {
+    display: block;
+    width: 100%; }
+    .flickity.default_group .flickity-viewport .gallery-cell .field-content {
+      display: table;
+      margin: 0 auto; }
+      .flickity.default_group .flickity-viewport .gallery-cell .field-content .news_carousel_image {
+        text-align: center; }
+      .flickity.default_group .flickity-viewport .gallery-cell .field-content .news_carousel_caption {
+        caption-side: bottom;
+        color: #F4F4F4;
+        font-size: 0.875rem; }
 
 .flickity.default_group.flickity-enabled.is-draggable .flickity-viewport {
   cursor: default; }
@@ -975,7 +984,14 @@ $arrow-padding: 5px;*/
 /* IV. Nav Elements */
 .flickity.navigator {
   border-top: 1px solid #4F4F4F;
-  min-height: 125px; }
+  min-height: 125px;
+  /*
+    Hide the gallery cells until flickity loads
+    and inserts the flickity-viewport container
+    element.
+    */ }
+  .flickity.navigator .gallery-cell {
+    display: none; }
   .flickity.navigator .flickity-viewport {
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -984,21 +1000,22 @@ $arrow-padding: 5px;*/
     transform: translateY(-50%);
     position: absolute;
     top: 50%; }
-  .flickity.navigator .gallery-cell {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 33.33333%; }
-    .flickity.navigator .gallery-cell:last-child {
-      margin-right: 0; }
-    .flickity.navigator .gallery-cell img {
-      height: auto;
-      max-height: 100px;
-      max-width: 90%; }
-    .flickity.navigator .gallery-cell.item-0 img {
-      padding-left: 40px; }
-    .flickity.navigator .gallery-cell.last-item img {
-      padding-right: 40px; }
+    .flickity.navigator .flickity-viewport .gallery-cell {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 33.33333%;
+      display: block; }
+      .flickity.navigator .flickity-viewport .gallery-cell:last-child {
+        margin-right: 0; }
+      .flickity.navigator .flickity-viewport .gallery-cell img {
+        height: auto;
+        max-height: 100px;
+        max-width: 90%; }
+      .flickity.navigator .flickity-viewport .gallery-cell.item-0 img {
+        padding-left: 40px; }
+      .flickity.navigator .flickity-viewport .gallery-cell.last-item img {
+        padding-right: 40px; }
 
 /*
   This module extends the styling provided by
@@ -2426,7 +2443,7 @@ $arrow-padding: 5px;*/
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75%;
+        width: 75.0%;
         background-color: #fff;
         border-bottom: 30px solid transparent;
         float: right;
@@ -3210,5 +3227,3 @@ button {
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
-
-/*# sourceMappingURL=style.css.map */

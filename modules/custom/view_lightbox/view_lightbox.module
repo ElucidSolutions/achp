@@ -48,6 +48,6 @@ function view_lightbox_theme () {
 function template_preprocess_lightbox_image_formatter (&$variables) {
   template_preprocess_image_formatter ($variables);
   $values = $variables ['item']->getValue ();
-  $variables ['image_alt'] = $values ['alt'];
-  $variables ['image_title'] = $values ['title'];
+  $variables ['image_alt'] = isset ($values ['alt']) ? $values ['alt'] : '';
+  $variables ['image_title'] = isset ($values ['title']) ? $values ['title'] : '';
 }
