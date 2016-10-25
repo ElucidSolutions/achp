@@ -15,7 +15,8 @@
     width: 100%;
 
     #content_region {
-      border-top: 2px solid transparent;  /* to allow box-shadow to appear */    
+      background-color: transparent;
+      border-top: 2px solid transparent;   /*to allow box-shadow to appear*/     
       margin: 0 auto;
       max-width: $max-content-width;
       padding: 0 50px;     
@@ -23,10 +24,6 @@
     .news-landing-container {
       @include span-columns (12);
       height: 100%;
-
-      &:after {
-        clear: both;
-      }
 
       em {
         font-style: normal !important;
@@ -44,12 +41,6 @@
           display: inline-block;
           width: auto;
 
-          h1 {
-            color: $color-darkblue;
-            font-size: rem(36px);            
-            font-weight: 400;
-            text-shadow: none;
-          }          
           hr {
             @include hr($color-red);
             margin-top: 0;
