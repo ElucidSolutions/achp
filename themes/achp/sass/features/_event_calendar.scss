@@ -220,6 +220,11 @@ $event-card-footer-margin: 15px;
     margin-top: 20px;
     width: 100%;
   }
+}
+
+/* Mobile styles scoped to homepage calendar only, because
+the events landing page is different */
+#block-eventsmeetings {
   @media (max-width: $max-content-width) {
     .event_calendar_feature {
       .event_calendar_calendar {

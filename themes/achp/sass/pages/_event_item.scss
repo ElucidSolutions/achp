@@ -1,0 +1,77 @@
+@import "../global";
+
+#page[data-page-node-type="event"] {
+
+  $max-event-width: 620px;
+  $max-width-padding: 50px;
+  $event-padding: 70px;
+
+  #main {
+    margin: 0 auto;
+    max-width: $max-event-width;
+
+    #block-pagetitle-2 h1 {
+      color: $color-darkblue;
+      font-size: rem(36);        
+      font-weight: 400;
+      line-height: 1.25;
+      text-align: left;   
+    }
+
+    #block-sharethispageblock {
+      @extend #block-sharethispage;
+      margin: 15px auto;
+      max-width: $max-event-width;
+
+      .share_this_page_buttons:before {
+        color: $color-red;
+        content: 'SHARE';
+        font-family: $sans-text;
+        vertical-align: super;
+      }
+    }
+    #event_item_container {
+      font-family: $sans-text;
+
+      .autolabel {
+        display: none;
+      }
+      .event_item_field {
+        margin-bottom: 20px;
+
+        &_label {
+          border-bottom: 1px solid $color-lightgrey;
+          color: $color-red;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+      .event_description .body {
+        font-family: $serif-text;
+      }
+    }
+  }
+
+  @media (min-width: $menu-breakpoint) {
+    #main-wrapper {
+      box-shadow: inset 0 3px 5px -3px $color-grey;
+    }
+  }
+
+  @media (max-width: $max-event-width + $max-width-padding * 2) {
+    #main {
+      margin: 0 $max-width-padding; 
+      max-width: 100%;      
+
+      #block-sharethispageblock {
+        .share_this_page_button {
+          margin-left: 15px;
+
+          &_print {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

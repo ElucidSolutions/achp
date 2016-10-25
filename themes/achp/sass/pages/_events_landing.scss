@@ -9,7 +9,6 @@
   #main-wrapper {
     @include outer-container(100%);
     background-color: $background-color-grey;
-    /*box-shadow: inset 0 3px 5px -3px $color-grey; */
   }
   #content {
     box-shadow: inset 0 3px 5px -3px $color-grey;    
@@ -17,7 +16,6 @@
 
     #content_region {
       background-color: transparent;
-      /*border-top: 2px solid transparent;   to allow box-shadow to appear     */
       margin: 0 auto;
       max-width: $max-content-width;
       padding: 0 50px; 
@@ -39,10 +37,58 @@
         h3 {
           color: $color-darkblue;
         }
+
+        .event_calendar_feature {
+          padding: 0;
+
+          .event_calendar_grid {
+            &_card {
+              padding: 10px 20px;
+              width: 100%;
+            }
+          }
+        }
       }
 
       #block-achp-content {
         display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      #block-eventcalendarpage-block .event_calendar {
+        .event_calendar_calendar {
+          padding-right: 0;
+          width: 100%;
+        }
+        .event_calendar_grid {
+          padding-left: 0;
+          width: 100%;
+
+          &_title, &_card {
+            margin-left: 0;
+          }
+        }
+      } 
+    }
+    
+    @media (max-width: $mobile-breakpoint) {
+      #content_region {
+        padding: 0;
+      }
+      
+      #block-eventslandingpageheader .header_container h2 {
+        font-size: 2rem;
+      }
+      #block-eventcalendarpage-block {
+        .event_calendar {
+          h3:not(.event_calendar_grid_card_title) {
+            text-align: center;
+          }
+          .event_calendar_grid {
+            padding: 0 50px;
+          }
+        }
       }
     }
   }

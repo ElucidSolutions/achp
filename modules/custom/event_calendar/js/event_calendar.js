@@ -13,6 +13,7 @@
     */
     var instance = new FeatureInstance ();
     $('.event_calendar').append (instance.getInstanceElement ());
+
   });
 
   // I. Event functions.
