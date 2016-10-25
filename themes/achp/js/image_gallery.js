@@ -31,8 +31,6 @@
   function initNavigatorFlickity (flickity) {
     setFlickityScrollHandler (flickity,
       function (progress, positionX) {
-        console.log ('progress: ' + progress + ' position x: ' + positionX);
-
         progress < .01 ?
           disableFlickityPrevButton (flickity):
           enableFlickityPrevButton (flickity);

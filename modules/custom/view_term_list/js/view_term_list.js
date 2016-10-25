@@ -141,11 +141,13 @@
         .addClass (getSelectedItemClassName)
         .append (createItemDeselectButtonElement ())
         .click (function () {
+          getItemDeselectButtonElement (itemElement).remove ();
           self.deselectTerm (termId);
           self.submitForm ();
         });
     } else {
       itemElement.click (function () {
+        itemElement.append (createItemDeselectButtonElement ());
         self.selectTerm (termId);
         self.submitForm ();
       });
