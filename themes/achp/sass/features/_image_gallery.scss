@@ -46,8 +46,6 @@
     top: 50%;
 
     .field-content {
-      padding: 10%;
-
       img {
         height: auto;
         max-width: 100%;
@@ -74,20 +72,6 @@
     .gallery-cell {
       display: block;
       width: 100%;
-
-      .field-content {
-        display: table;
-        margin: 0 auto;
-
-        .news_carousel_image {
-          text-align: center;
-        }
-        .news_carousel_caption {
-          caption-side: bottom;
-          color: $background-color-grey;
-          font-size: rem(14);
-        }
-      }
     }
   }
 }
@@ -118,6 +102,7 @@
     .gallery-cell {
       @include span-columns(4 of 12);
       display: block;
+      text-align: center;
     
       img {
         height: auto;

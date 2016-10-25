@@ -948,11 +948,9 @@ $arrow-padding: 5px;*/
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
     top: 50%; }
-    .flickity .gallery-cell .field-content {
-      padding: 10%; }
-      .flickity .gallery-cell .field-content img {
-        height: auto;
-        max-width: 100%; }
+    .flickity .gallery-cell .field-content img {
+      height: auto;
+      max-width: 100%; }
 
 /* III. Carousel View Element */
 .flickity.default_group {
@@ -968,15 +966,6 @@ $arrow-padding: 5px;*/
   .flickity.default_group .flickity-viewport .gallery-cell {
     display: block;
     width: 100%; }
-    .flickity.default_group .flickity-viewport .gallery-cell .field-content {
-      display: table;
-      margin: 0 auto; }
-      .flickity.default_group .flickity-viewport .gallery-cell .field-content .news_carousel_image {
-        text-align: center; }
-      .flickity.default_group .flickity-viewport .gallery-cell .field-content .news_carousel_caption {
-        caption-side: bottom;
-        color: #F4F4F4;
-        font-size: 0.875rem; }
 
 .flickity.default_group.flickity-enabled.is-draggable .flickity-viewport {
   cursor: default; }
@@ -1005,7 +994,8 @@ $arrow-padding: 5px;*/
       display: block;
       margin-right: 0%;
       width: 33.33333%;
-      display: block; }
+      display: block;
+      text-align: center; }
       .flickity.navigator .flickity-viewport .gallery-cell:last-child {
         margin-right: 0; }
       .flickity.navigator .flickity-viewport .gallery-cell img {
@@ -1027,7 +1017,8 @@ $arrow-padding: 5px;*/
 .flickity.default_group .news_carousel_caption {
   caption-side: bottom;
   color: #F4F4F4;
-  font-size: 0.875rem; }
+  font-size: 0.875rem;
+  padding: 10px 50px; }
 
 /* Global variables: widths, heights, & breakpoints */
 /*$arrow-width: 8px;
