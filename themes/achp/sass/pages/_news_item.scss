@@ -26,20 +26,14 @@
           padding-left: 5px;
           position: relative;
 
-/*          &:not(.breadcrumb_link_home) {
-            padding-left: 5px;
-          }
-*/
           a {
             color: $color-grey;            
             text-decoration: none;
           }
           &.breadcrumb_page {
             color: $color-lightblue-primary;
-
           }          
           &:before {
-            /*@include center-y;*/
             background-position: center;
             background-repeat: no-repeat;
             content: "";
@@ -96,7 +90,7 @@
         .news_item_body {
           color: $color-darkgrey2; 
           font-family: $serif-text;
-          font-size: rem(16);  
+          font-size: rem(18);  
 
           p {
             margin: 0;

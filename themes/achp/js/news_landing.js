@@ -5,6 +5,10 @@
 
 (function ($, Drupal) {
 
+  var COLLAPSED = 'collapsed';
+  var EXPANDED = 'expanded';
+  var state = COLLAPSED;
+
   var newsLandingBreakpoint = '750px';
 
   Drupal.behaviors.news_landing = {
@@ -13,8 +17,11 @@
         function (event, xhr, settings) {
           // initializes all of the filters on view updates.
           if (settings.url.indexOf ('/views/ajax') === 0) {
-            // initializes the filter elements.
+            // initializes the filter elements.          
             initDateFilterElements ();
+            if (state === EXPANDED) {
+              showFilter ();
+            }
           }
       });
     }
@@ -69,16 +76,7 @@
   */
   function addFilterToggleListener () {
     getFilterButton ().click ( function (e) {
-      console.log('clicked')
-      if (getFilterContainer ().css('display') === 'none') {
-        getFilterContainer ().slideDown();
-        switchFilterButtonClassToOpen ();
-      } else {
-        console.log('I should close');
-        getFilterContainer ().slideUp( function () {
-          switchFilterButtonClassToClosed ();
-        });
-      };
+      state === COLLAPSED ? expandFilter () : collapseFilter ();
     });    
   }
 
@@ -89,9 +87,6 @@
   function addFilterInputListener () {
     getDateMinElement ().change (submitFilterForm);
     getDateMaxElement ().change (submitFilterForm);
-    // getDateMaxElement ().change (function () {
-    //   console.log('change triggered');
-    // })
   }
 
   /*
@@ -105,7 +100,7 @@
       .after($('<div></div>')
         .append($('<input />')
           .attr('type', 'reset')
-          .attr('value', 'Reset Dates')
+          .attr('value', 'Clear Dates')
           .attr('id', 'news_filter_reset')
           .click(function () {
             getDateMinElement ().attr('value', '');
@@ -140,6 +135,7 @@
   function hideFilter () {
     getFilterContainer ().hide ();
     switchFilterButtonClassToClosed ();
+    state = COLLAPSED;
   }
 
   /*
@@ -149,7 +145,29 @@
   function showFilter () {
     getFilterContainer ().show ();
     switchFilterButtonClassToOpen ();
+    state = EXPANDED;
   }
+
+  /*
+    Accepts no arguments, animates the filter form down into
+    view, and returns undefined.
+  */
+  function expandFilter () {
+    getFilterContainer ().slideDown();
+    switchFilterButtonClassToOpen ();
+    state = EXPANDED;  
+  }
+
+  /*
+    Accepts no arguments, animates the filter form up out of
+    view, and returns undefined.
+  */
+  function collapseFilter () {
+    getFilterContainer ().slideUp( function () {
+      switchFilterButtonClassToClosed ();
+      state = COLLAPSED;
+    });  
+  }  
 
   /*
     Accepts no arguments and submits this
@@ -206,7 +224,7 @@
     that represents the display/hide filter button.
   */
   function getFilterButton () {
-    return $('.' + getNewsFilterClassPrefix () + '');
+    return $('.' + getNewsFilterClassPrefix ());
   }  
 
   /*
