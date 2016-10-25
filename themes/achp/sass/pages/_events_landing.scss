@@ -1,0 +1,49 @@
+@import "../global";
+
+#events_landing_page {
+  height: 100%;
+
+  #outer_container {
+    background-color: #fff;
+  }
+  #main-wrapper {
+    @include outer-container(100%);
+    background-color: $background-color-grey;
+    /*box-shadow: inset 0 3px 5px -3px $color-grey; */
+  }
+  #content {
+    box-shadow: inset 0 3px 5px -3px $color-grey;    
+    width: 100%;
+
+    #content_region {
+      background-color: transparent;
+      /*border-top: 2px solid transparent;   to allow box-shadow to appear     */
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: 0 50px; 
+
+      #block-eventslandingpageheader {
+        background-color: $background-color-grey;
+        position: relative;
+
+        .header_container {
+          @include center-xy;
+          display: inline-block;
+          margin-top: 50px;
+          width: auto;       
+        }
+      }
+      #block-eventcalendarpage-block {
+        padding-top: 100px;
+
+        h3 {
+          color: $color-darkblue;
+        }
+      }
+
+      #block-achp-content {
+        display: none;
+      }
+    }
+  }
+}

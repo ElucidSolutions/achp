@@ -207,7 +207,9 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
    * reference the referenced term.
    */
   protected function getReferencingNodes ($tid) {
-    $query = \Drupal::entityQuery ('node')->condition ('status', 1);
+    $query = \Drupal::entityQuery ('node')
+      ->condition ('status', 1)
+      ->condition ('type', 'news_story');
     foreach ($this->getEntityReferenceFields () as $field_name) {
       $query->condition ($field_name . '.target_id', $tid);
     }
