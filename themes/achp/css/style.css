@@ -24,6 +24,41 @@ $arrow-padding: 5px;*/
 /* px-to-rem mixin */
 /* Maps for type changes*/
 /*
+  This module provides styling for breadcrumbs
+  created using the Easy Breadcrumb module.
+*/
+.achp-breadcrumb {
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.875rem;
+  text-transform: uppercase; }
+  .achp-breadcrumb ol {
+    color: #4F4F4F;
+    list-style-type: none;
+    padding-left: 0; }
+    .achp-breadcrumb ol .breadcrumb_link {
+      display: inline;
+      padding-left: 5px;
+      position: relative; }
+      .achp-breadcrumb ol .breadcrumb_link a {
+        color: #4F4F4F;
+        text-decoration: none;
+        transition: color 0.25s; }
+      .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon {
+        display: inline-block; }
+        .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='arrow'] {
+          padding: 0 20px; }
+        .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'] {
+          padding: 0 10px 0 0; }
+      .achp-breadcrumb ol .breadcrumb_link:hover a {
+        color: #0990FE; }
+    .achp-breadcrumb ol .breadcrumb_page {
+      color: #0990FE; }
+    .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
+      transition: fill 0.25s; }
+    .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
+      fill: #0990FE; }
+
+/*
   This module contains styles used by the Event
   Calendar feature.
 */
@@ -947,33 +982,40 @@ $arrow-padding: 5px;*/
       right: 0; }
   .flickity .flickity-viewport {
     width: 100%; }
-    .flickity .flickity-viewport .flickity-slider .gallery-cell {
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);
-      top: 50%; }
-      .flickity .flickity-viewport .flickity-slider .gallery-cell .field-content {
-        padding: 10%; }
-        .flickity .flickity-viewport .flickity-slider .gallery-cell .field-content img {
-          height: auto;
-          max-width: 100%; }
+  .flickity .gallery-cell {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%; }
+    .flickity .gallery-cell .field-content img {
+      height: auto;
+      max-width: 100%; }
 
 /* III. Carousel View Element */
-.flickity.default_group .flickity-prev-next-button {
-  display: none; }
-.flickity.default_group .flickity-viewport .flickity-slider .gallery-cell {
-  width: 100%; }
-  .flickity.default_group .flickity-viewport .flickity-slider .gallery-cell .field-content {
-    display: table;
-    margin: 0 auto; }
-    .flickity.default_group .flickity-viewport .flickity-slider .gallery-cell .field-content .news_carousel_image {
-      text-align: center; }
-    .flickity.default_group .flickity-viewport .flickity-slider .gallery-cell .field-content .news_carousel_caption {
-      caption-side: bottom;
-      color: #F4F4F4;
-      font-size: 0.875rem; }
+.flickity.default_group {
+  /*
+    Hide the gallery cells until flickity loads
+    and inserts the flickity-viewport container
+    element.
+    */ }
+  .flickity.default_group .flickity-prev-next-button {
+    display: none; }
+  .flickity.default_group .gallery-cell {
+    display: none; }
+  .flickity.default_group .flickity-viewport .gallery-cell {
+    display: block;
+    width: 100%; }
+  .flickity.default_group .carousel_image {
+    text-align: center; }
+    .flickity.default_group .carousel_image img {
+      border: none; }
+  .flickity.default_group .carousel_caption {
+    caption-side: bottom;
+    color: #F4F4F4;
+    font-size: 0.875rem;
+    padding: 10px 25px; }
 
 .flickity.default_group.flickity-enabled.is-draggable .flickity-viewport {
   cursor: default; }
@@ -981,7 +1023,14 @@ $arrow-padding: 5px;*/
 /* IV. Nav Elements */
 .flickity.navigator {
   border-top: 1px solid #4F4F4F;
-  min-height: 125px; }
+  min-height: 125px;
+  /*
+    Hide the gallery cells until flickity loads
+    and inserts the flickity-viewport container
+    element.
+    */ }
+  .flickity.navigator .gallery-cell {
+    display: none; }
   .flickity.navigator .flickity-viewport {
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -990,35 +1039,23 @@ $arrow-padding: 5px;*/
     transform: translateY(-50%);
     position: absolute;
     top: 50%; }
-    .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell {
+    .flickity.navigator .flickity-viewport .gallery-cell {
       float: left;
       display: block;
       margin-right: 0%;
-      width: 33.33333%; }
-      .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell:last-child {
+      width: 33.33333%;
+      display: block;
+      text-align: center; }
+      .flickity.navigator .flickity-viewport .gallery-cell:last-child {
         margin-right: 0; }
-      .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell img {
+      .flickity.navigator .flickity-viewport .gallery-cell img {
         height: auto;
         max-height: 100px;
         max-width: 90%; }
-      .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell.item-0 img {
+      .flickity.navigator .flickity-viewport .gallery-cell.item-0 img {
         padding-left: 40px; }
-      .flickity.navigator .flickity-viewport .flickity-slider .gallery-cell.last-item img {
+      .flickity.navigator .flickity-viewport .gallery-cell.last-item img {
         padding-right: 40px; }
-
-/*
-  This module extends the styling provided by
-  the Image Gallery stylesheet with additional
-  styles for the News Image gallery feature.
-*/
-.flickity.default_group .news_carousel_image {
-  text-align: center; }
-  .flickity.default_group .news_carousel_image img {
-    border: none; }
-.flickity.default_group .news_carousel_caption {
-  caption-side: bottom;
-  color: #F4F4F4;
-  font-size: 0.875rem; }
 
 /* Global variables: widths, heights, & breakpoints */
 /*$arrow-width: 8px;
@@ -2436,7 +2473,7 @@ $arrow-padding: 5px;*/
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75%;
+        width: 75.0%;
         background-color: #fff;
         border-bottom: 35px solid transparent;
         float: right;
@@ -2717,43 +2754,7 @@ $arrow-padding: 5px;*/
 /* Maps for type changes*/
 #page[data-page-node-type="news_story"] #main {
   margin: 0 auto;
-  max-width: 620px;
-  /* TODO: bring breadcrumb code into separate sass file*/ }
-  #page[data-page-node-type="news_story"] #main #block-breadcrumbs {
-    font-family: "p22-underground", sans-serif;
-    font-size: 0.875rem;
-    text-transform: uppercase; }
-    #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol {
-      color: #4F4F4F;
-      list-style-type: none;
-      padding-left: 0; }
-      #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li {
-        display: inline;
-        padding-left: 5px;
-        position: relative; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li a {
-          color: #4F4F4F;
-          text-decoration: none; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_page {
-          color: #71BFFE; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li:before {
-          background-position: center;
-          background-repeat: no-repeat;
-          content: "";
-          height: 20px;
-          position: relative;
-          right: 5px;
-          width: 20px;
-          display: inline-block; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_link:before {
-          background-image: url("../images/right-arrow-icon-light.svg");
-          padding: 0 20px;
-          top: 5px; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_link_home:before {
-          background-image: url("../images/home-icon.svg");
-          background-position: left center;
-          padding: 0 10px;
-          top: 4px; }
+  max-width: 620px; }
   #page[data-page-node-type="news_story"] #main #block-pagetitle-2 h1, #page[data-page-node-type="news_story"] #main #block-pagetitle-2 #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #page[data-page-node-type="news_story"] #main #block-pagetitle-2 h1 {
     color: #043B62;
     font-size: 2.25rem;
@@ -3454,5 +3455,3 @@ button, #news_landing_page #content .news-landing-container .views-exposed-form 
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
-
-/*# sourceMappingURL=style.css.map */
