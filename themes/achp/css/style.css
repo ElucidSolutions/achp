@@ -1001,6 +1001,15 @@ $arrow-padding: 5px;*/
   .flickity.default_group .flickity-viewport .gallery-cell {
     display: block;
     width: 100%; }
+  .flickity.default_group .carousel_image {
+    text-align: center; }
+    .flickity.default_group .carousel_image img {
+      border: none; }
+  .flickity.default_group .carousel_caption {
+    caption-side: bottom;
+    color: #F4F4F4;
+    font-size: 0.875rem;
+    padding: 10px 25px; }
 
 .flickity.default_group.flickity-enabled.is-draggable .flickity-viewport {
   cursor: default; }
@@ -1041,21 +1050,6 @@ $arrow-padding: 5px;*/
         padding-left: 40px; }
       .flickity.navigator .flickity-viewport .gallery-cell.last-item img {
         padding-right: 40px; }
-
-/*
-  This module extends the styling provided by
-  the Image Gallery stylesheet with additional
-  styles for the News Image gallery feature.
-*/
-.flickity.default_group .news_carousel_image {
-  text-align: center; }
-  .flickity.default_group .news_carousel_image img {
-    border: none; }
-.flickity.default_group .news_carousel_caption {
-  caption-side: bottom;
-  color: #F4F4F4;
-  font-size: 0.875rem;
-  padding: 10px 50px; }
 
 /* Global variables: widths, heights, & breakpoints */
 /*$arrow-width: 8px;

@@ -74,6 +74,19 @@
       width: 100%;
     }
   }
+  .carousel_image {
+    text-align: center;
+
+    img {
+      border: none;
+    }
+  }
+  .carousel_caption {
+    caption-side: bottom;
+    color: $background-color-grey;
+    font-size: rem(14);
+    padding: 10px 25px;
+  }
 }
 .flickity.default_group.flickity-enabled.is-draggable {
   .flickity-viewport {

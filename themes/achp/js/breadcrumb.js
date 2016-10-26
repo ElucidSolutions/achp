@@ -1,9 +1,6 @@
 /*
-  This module simply creates the Home icon
+  This module simply creates the icons
   displayed in site breadcrumbs.
-
-  Note: This icon has to be loaded as an embedded
-  SVG to support hover transitions.
 */
 (function ($) {
   // SVG Icons
