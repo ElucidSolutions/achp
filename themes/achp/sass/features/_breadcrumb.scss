@@ -1,0 +1,59 @@
+/*
+  This module provides styling for breadcrumbs
+  created using the Easy Breadcrumb module.
+*/
+.achp-breadcrumb {
+  font-family: $sans-text;
+  font-size: rem(14px);
+  text-transform: uppercase;
+
+  ol {
+    color: $color-grey;
+    list-style-type: none;
+    padding-left: 0;
+
+    .breadcrumb_link {
+      display: inline;
+      padding-left: 5px;
+      position: relative;
+
+      a {
+        color: $color-grey;
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+      .achp-breadcrumb-icon {
+        display: inline-block;
+
+        &[data-achp-breadbrumb-icon-name='arrow'] {
+          padding: 0 20px;
+        }
+        &[data-achp-breadbrumb-icon-name='home'] {
+          padding: 0 10px 0 0;
+        }
+      }
+      &:hover {
+        a {
+          color: $color-blue-primary;
+        }
+      }
+    }
+    .breadcrumb_page {
+      color: $color-blue-primary;
+    }
+    .breadcrumb_link_home {
+      [data-achp-breadbrumb-icon-name='home'] {
+        #home-icon {
+          transition: fill 0.25s;
+        }
+      }
+      &:hover {
+        [data-achp-breadbrumb-icon-name='home'] {
+          #home-icon {
+            fill: $color-blue-primary;
+          }
+        }
+      }
+    }
+  }
+}

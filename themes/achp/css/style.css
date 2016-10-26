@@ -24,6 +24,41 @@ $arrow-padding: 5px;*/
 /* px-to-rem mixin */
 /* Maps for type changes*/
 /*
+  This module provides styling for breadcrumbs
+  created using the Easy Breadcrumb module.
+*/
+.achp-breadcrumb {
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.875rem;
+  text-transform: uppercase; }
+  .achp-breadcrumb ol {
+    color: #4F4F4F;
+    list-style-type: none;
+    padding-left: 0; }
+    .achp-breadcrumb ol .breadcrumb_link {
+      display: inline;
+      padding-left: 5px;
+      position: relative; }
+      .achp-breadcrumb ol .breadcrumb_link a {
+        color: #4F4F4F;
+        text-decoration: none;
+        transition: color 0.25s; }
+      .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon {
+        display: inline-block; }
+        .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='arrow'] {
+          padding: 0 20px; }
+        .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'] {
+          padding: 0 10px 0 0; }
+      .achp-breadcrumb ol .breadcrumb_link:hover a {
+        color: #0990FE; }
+    .achp-breadcrumb ol .breadcrumb_page {
+      color: #0990FE; }
+    .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
+      transition: fill 0.25s; }
+    .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
+      fill: #0990FE; }
+
+/*
   This module contains styles used by the Event
   Calendar feature.
 */
@@ -2719,43 +2754,7 @@ $arrow-padding: 5px;*/
 /* Maps for type changes*/
 #page[data-page-node-type="news_story"] #main {
   margin: 0 auto;
-  max-width: 620px;
-  /* TODO: bring breadcrumb code into separate sass file*/ }
-  #page[data-page-node-type="news_story"] #main #block-breadcrumbs {
-    font-family: "p22-underground", sans-serif;
-    font-size: 0.875rem;
-    text-transform: uppercase; }
-    #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol {
-      color: #4F4F4F;
-      list-style-type: none;
-      padding-left: 0; }
-      #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li {
-        display: inline;
-        padding-left: 5px;
-        position: relative; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li a {
-          color: #4F4F4F;
-          text-decoration: none; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_page {
-          color: #71BFFE; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li:before {
-          background-position: center;
-          background-repeat: no-repeat;
-          content: "";
-          height: 20px;
-          position: relative;
-          right: 5px;
-          width: 20px;
-          display: inline-block; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_link:before {
-          background-image: url("../images/right-arrow-icon-light.svg");
-          padding: 0 20px;
-          top: 5px; }
-        #page[data-page-node-type="news_story"] #main #block-breadcrumbs ol li.breadcrumb_link_home:before {
-          background-image: url("../images/home-icon.svg");
-          background-position: left center;
-          padding: 0 10px;
-          top: 4px; }
+  max-width: 620px; }
   #page[data-page-node-type="news_story"] #main #block-pagetitle-2 h1, #page[data-page-node-type="news_story"] #main #block-pagetitle-2 #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #page[data-page-node-type="news_story"] #main #block-pagetitle-2 h1 {
     color: #043B62;
     font-size: 2.25rem;
