@@ -121,7 +121,7 @@ $arrow-padding: 5px;*/
         height: 100%;
         transition: background-image 0.25s;
         width: 15%;
-        z-index: 5000; }
+        z-index: 50; }
       .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-previous-button {
         background-image: url("../images/left-calendar-arrow.svg");
         left: 0; }
@@ -3125,33 +3125,7 @@ $arrow-padding: 5px;*/
             height: auto;
             min-height: 250px;
             padding: 15px 20px;
-            width: 100%;
-            /*              &_link {
-                            height: 35px;
-                            left: -20px;
-                            width: 100%;
-                            transition: backgrou;
-            
-                            &:hover {
-                              background-color: $background-color-lightblue;
-                            }
-            
-                            a {
-                              @include center-y;
-                              text-align: center;
-                              width: 100%;
-                              transition: background-color 0.25s, color 0.25s;
-            
-                              &:hover {
-                                background-color: $background-color-lightblue;
-                                color: $color-blue-primary;
-                              }
-            
-                              &:after {
-                                background-image: none;
-                              }
-                            }
-                          }*/ }
+            width: 100%; }
             #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_title {
               font-size: 1.25rem; }
             #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_description {
@@ -3167,15 +3141,14 @@ $arrow-padding: 5px;*/
               font-weight: 500;
               margin: 20px 0;
               padding-top: 2px;
-              width: 100%;
-              /*transition: color 0.25s;*/ }
+              width: 100%; }
               #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar:after {
                 color: #0990FE;
                 content: 'ADD TO YOUR CALENDAR';
                 margin-left: 30px;
                 transition: color 0.25s; }
-                #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar:after:hover:after {
-                  color: #71BFFE; }
+              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar:hover:after {
+                color: #71BFFE; }
             #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link {
               transition: background-color 0.25s;
               background-color: #E5E3E4;
@@ -3205,6 +3178,8 @@ $arrow-padding: 5px;*/
                   background-image: none; }
               #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link:hover a {
                 color: #0990FE; }
+          #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature_footer {
+            display: none; }
       #events_landing_page #content #content_region #block-achp-content {
         display: none; }
     @media (max-width: 900px) {
