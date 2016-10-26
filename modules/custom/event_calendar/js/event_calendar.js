@@ -171,11 +171,11 @@
   function loadEvents () {
     // load raw events into the _EVENTS array.
     _EVENTS = drupalSettings.event_calendar.events;
-
     // convert dates from strings to Moment objects.
     _EVENTS.forEach (function (event) {
       event.start_date = moment (event.start_date);
       event.end_date   = moment (event.end_date); 
+      event.first_par = (event.body).substr(0, event.body.indexOf('</p>') + 4)
     });
 
     // sort the events by date.
@@ -596,10 +596,16 @@
   */
   function createCardElement (event) {
     var classPrefix = getGridClassPrefix () + '_card';
+    var readMoreMessage;
+
+    $('.event_calendar').closest($('#events_landing_page')).length > 0 ? 
+      readMoreMessage = 'VIEW EVENT' : readMoreMessage = 'READ MORE';
+
     var TITLE_MAX_LINE_LENGTH = 25; // 19;
     var TITLE_MAX_NUM_LINES = 2;
     var LOCATION_MAX_LINE_LENGTH = 25; // 19;
     var LOCATION_MAX_NUM_LINES = 5;
+
     return $('<div></div>')
       .addClass (classPrefix)
       .append ($('<div></div>')
@@ -640,19 +646,23 @@
               .text (event.start_date.format ('DD')))))
         .append ($('<div></div>')
           .addClass (classPrefix + '_location')
-          .text (ellipse (LOCATION_MAX_LINE_LENGTH, LOCATION_MAX_NUM_LINES, event.location))))
+          // .text (ellipse (LOCATION_MAX_LINE_LENGTH, LOCATION_MAX_NUM_LINES, event.location)))
+          .html(event.location))
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_description')
+          .html (event.first_par)))      
       .append ($('<div></div>')
         .addClass (classPrefix + '_footer')
-        .append ($('<div></div>')
-          .addClass (classPrefix + '_link read_more')
-          .append ($('<a></a>')
-            .attr ('href', event.url)
-            .text ('READ MORE')))
         .append ($('<div></div>')
           .addClass (classPrefix + '_google_calendar')
           .click (function () {
             window.open (createGoogleCalendarLink (event), '_blank'); 
-          })));
+          }))        
+        .append ($('<div></div>')
+          .addClass (classPrefix + '_link read_more')
+          .append ($('<a></a>')
+            .attr ('href', event.url)
+            .text (readMoreMessage))));
   }
 
   /*

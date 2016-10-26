@@ -71,34 +71,19 @@
   *
   * @ingroup themeable
   */
-#}
-
-{% if label_hidden %}
-  {% if multiple %}
-    <div{{ attributes }}>
-      {% for item in items %}
-        <div{{ item.attributes }} class="{{ field_name }}">{{ item.content }}</div>
-        {% if item.content['#item'].alt %}
-          <div class="field_image_caption">{{ item.content['#item'].alt }}</div>
-          {% endif %}
-      {% endfor %}
+  #}
+  <div id="event_item_container">
+    <div class="event_item_field event_date">
+      <div class="event_item_field_label">WHEN</div>
+      {{ content.field_event_start_date }} 
+      {{ content.field_event_end_date }}
     </div>
-  {% else %}
-    {% for item in items %}
-      <div{{ attributes }} class="{{ field_name }}">{{ item.content }}</div>
-    {% endfor %}
-  {% endif %}
-{% else %}
-  <div{{ attributes }}>
-    <div{{ title_attributes }} class="{{ field_name }}_label">{{ label }}</div>
-    {% if multiple %}
-      <div">
-    {% endif %}
-    {% for item in items %}
-      <div{{ item.attributes }} class="{{ field_name }}">{{ item.content }}</div>
-    {% endfor %}
-    {% if multiple %}
-      </div>
-    {% endif %}
+    <div class="event_item_field event_location">
+      <div class="event_item_field_label">WHERE</div>
+      {{ content.field_event_location }}
+    </div>
+    <div class="event_item_field event_description">
+      <div class="event_item_field_label">DESCRIPTION</div>
+      {{ content.body }}  
+    </div>
   </div>
-{% endif %}

@@ -1,9 +1,9 @@
 /* 
-  Behavior for landing page, excluding topic filter-specific
+  Behavior for news landing page, excluding topic filter-specific
   behavior, which is located in view_term_list.js.
 */
 
-(function ($, Drupal) {
+(function ($) {
 
   var COLLAPSED = 'collapsed';
   var EXPANDED = 'expanded';
@@ -271,4 +271,4 @@
     return 'js-form-submit';
   }  
  
-}) (jQuery, Drupal);
+}) (jQuery);
