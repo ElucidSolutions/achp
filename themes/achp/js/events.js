@@ -8,21 +8,8 @@
   $(document).ready (function () {
 
     reformatEventItemDates ();
-    reformatEventCardDates ();
   
   })
-
-
-  /*
-  */
-  function reformatEventCardDates () {
-    if ($('.event_calendar').closest($('#events_landing_page')).length > 0 && $('.event_calendar_grid_card_end').text () === "") {
-      console.log('no end date');
-    } else {
-      console.log('la la')
-    }
-  }
-
   /*
     Accepts no arguments, appends an event's reformatted dates, 
     and returns undefined.
