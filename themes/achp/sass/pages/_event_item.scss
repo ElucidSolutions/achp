@@ -1,3 +1,5 @@
+/*
+*/
 @import "../global";
 
 #page[data-page-node-type="event"] {
@@ -44,6 +46,10 @@
           color: $color-red;
           margin-bottom: 10px;
           width: 100%;
+        }
+
+        .field_event_location p {
+          margin: 0;
         }
       }
       .event_description .body {

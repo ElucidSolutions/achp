@@ -37,14 +37,115 @@
         h3 {
           color: $color-darkblue;
         }
-
         .event_calendar_feature {
           padding: 0;
 
+          $view-event-link-height: 35px;
+          $card-padding-x: 20px;
+
           .event_calendar_grid {
+            &_title:before {
+              content: 'Upcoming ';
+            }
+
+            &_message {
+              color: #000;
+            }
+
             &_card {
-              padding: 10px 20px;
+              border-bottom: $view-event-link-height solid $background-color-grey;
+              height: auto;
+              min-height: 250px;
+              padding: 15px $card-padding-x;
               width: 100%;
+
+              &_title {
+                font-size: rem(20px);
+              }
+
+              &_description {
+                display: block;
+                font-family: $serif-text;
+                margin-bottom: 50px;
+              }
+              &_footer {
+                bottom: 0px;
+                height: auto;
+              }
+              &_google_calendar {
+                float: none;
+                font-size: rem(14px);
+                font-weight: 500;
+                margin: $card-padding-x 0;
+                padding-top: 2px;
+                width: 100%;
+                /*transition: color 0.25s;*/
+
+                &:after {
+                  color: $color-blue-primary;
+                  content: 'ADD TO YOUR CALENDAR';
+                  margin-left: 30px;
+                  transition: color 0.25s;
+
+                  &:hover:after {
+                    color: $color-lightblue-primary;
+                  }
+                }
+              }
+
+              &_link {
+                @include hover-transition-background ($background-color-lightblue);
+                background-color: $background-color-grey2;
+                bottom: -$view-event-link-height;
+                height: $view-event-link-height;
+                left: -$card-padding-x;
+                position: absolute;
+                width: 100%;
+
+                a {
+                  @include center-xy;
+                  color: $color-grey;
+                  font-weight: 500;
+                  text-align: center;
+                  text-decoration: none;
+                  transition: color 0.25s;
+                  width: 100%;
+
+                  &:after {
+                    background-image: none;
+                  }
+                }
+                &:hover a {
+                  color: $color-blue-primary;
+                }        
+              }
+
+/*              &_link {
+                height: 35px;
+                left: -20px;
+                width: 100%;
+                transition: backgrou;
+
+                &:hover {
+                  background-color: $background-color-lightblue;
+                }
+
+                a {
+                  @include center-y;
+                  text-align: center;
+                  width: 100%;
+                  transition: background-color 0.25s, color 0.25s;
+
+                  &:hover {
+                    background-color: $background-color-lightblue;
+                    color: $color-blue-primary;
+                  }
+
+                  &:after {
+                    background-image: none;
+                  }
+                }
+              }*/
             }
           }
         }

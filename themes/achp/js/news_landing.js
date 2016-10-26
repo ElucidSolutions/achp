@@ -3,7 +3,7 @@
   behavior, which is located in view_term_list.js.
 */
 
-(function ($, Drupal) {
+(function ($) {
 
   var COLLAPSED = 'collapsed';
   var EXPANDED = 'expanded';
@@ -271,4 +271,4 @@
     return 'js-form-submit';
   }  
  
-}) (jQuery, Drupal);
+}) (jQuery);

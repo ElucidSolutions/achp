@@ -41,39 +41,39 @@ $event-card-footer-margin: 15px;
       font-family: $sans-text;
 
       .clndr-controls {
-        position: relative;
         height: 40px;
+        position: relative;
 
         .month-container {
+          @include center-x;
           font-size: 1.5625rem;
+          text-align: center;
           text-transform: uppercase;
           top: 0;
           width: 250px;
-          @include center-xy;
-          position: relative;
-          text-align: center;
 
           .month {
+            @include hover-transition-content($color-blue-primary);
+            cursor: pointer;
             display: inline-block;
             padding-top: 4px;
-            cursor: pointer;
-            @include hover-transition-content($color-blue-primary);
+            width: 80%;
           }
         }
 
         .clndr-previous-button, .clndr-next-button {
           @include center-y;
-          cursor: pointer;
-          background-repeat: no-repeat;
           background-position: center;
-          width: 20px;
-          height: 20px;
+          background-repeat: no-repeat;
+          cursor: pointer;
+          height: 100%;
           transition: background-image 0.25s;
+          width: 15%;
+          z-index: 5000;
         }
 
         .clndr-previous-button {
           background-image: url('../images/left-calendar-arrow.svg');
-          padding: 23px 30px 23px 7px;
           left: 0;
 
           &:hover {
@@ -82,7 +82,6 @@ $event-card-footer-margin: 15px;
         }
         
         .clndr-next-button {
-          padding: 23px 14px 23px 30px;
           right: 0;
           background-image: url('../images/right-calendar-arrow.svg');
 
@@ -186,6 +185,14 @@ $event-card-footer-margin: 15px;
         &_location {
           @extend .card_body;
           margin-bottom: 10px;
+
+          p {
+            margin: 0;
+            text-align: left;
+          }
+        }
+        &_description {
+          display: none;
         }
         &_footer {
           height: $event-card-footer-height;
