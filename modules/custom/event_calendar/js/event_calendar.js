@@ -619,12 +619,12 @@
         .addClass (classPrefix + '_body')
         .append ($('<div></div>')
           .addClass (classPrefix + '_date')
-          .append ($('<div></div>')
+          .append ($('<span></span>')
             .addClass (classPrefix + '_start')
             .text (event.start_date.isSame (event.end_date, 'day') ?
               event.start_date.format ('MMMM D, YYYY') :
-              event.start_date.format ('MMMM D, YYYY') + " to"))
-          .append ($('<div></div>')
+              event.start_date.format ('MMMM D, YYYY') + " - "))
+          .append ($('<span></span>')
             .addClass (classPrefix + '_end')
             .text (event.start_date.isSame (event.end_date, 'day') ?
               "" :
