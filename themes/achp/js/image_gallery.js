@@ -47,6 +47,7 @@
     buttons correctly; and returns undefined.
   */
   function initNavigatorFlickity (flickity) {
+    // I. Align the caption element.
     setFlickityScrollHandler (flickity,
       function (progress, positionX) {
         progress < .01 ?
@@ -57,6 +58,9 @@
           disableFlickityNextButton (flickity):
           enableFlickityNextButton (flickity);
     });
+
+    // II. Hide the navigator element if there is only one cell.
+    flickity.cells.length <= 1 && $(flickity.element).hide ();
   }
 
   /*
