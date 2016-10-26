@@ -7,45 +7,73 @@
 
   $(document).ready (function () {
 
-    reformatEventDates ();
-
+    reformatEventItemDates ();
+    reformatEventCardDates ();
+  
   })
+
 
   /*
   */
-  function reformatEventDates () {
-    var startDateString = $(".field_event_start_date time").text ();
-    var startDate = startDateString.slice (startDateString.indexOf(', ') + 2, startDateString.indexOf(' -'))
-      + ' ' + startDateString.slice (startDateString.indexOf(' - ') + 3);
-    // console.log(startDate);
-    // var startDate = moment($(".field_event_start_date time").text ());
-    // var endDate = moment($(".field_event_end_date time").text ());
-    // var targetDiv = $(".field_event_end_date time");
-    // var classPrefix = 'reformatted_event';
-    console.log(moment(startDate));
-    // console.log(startDate.format ('MMMM D, YYYY'));
-
-    // targetDiv.append($('<div></div>')
-    //   .addClass (classPrefix + '_date')
-    //   .append ($('<div></div>')
-    //     .addClass (classPrefix + '_start')
-    //     .text (startDate.isSame (endDate, 'day') ?
-    //       startDate.format ('MMMM D, YYYY') :
-    //       startDate.format ('MMMM D, YYYY') + " to"))
-    //   .append ($('<div></div>')
-    //     .addClass (classPrefix + '_end')
-    //     .text (startDate.isSame (endDate, 'day') ?
-    //       "" : endDate.format ('MMMM D, YYYY')))
-    //   .append ($('<div></div>')
-    //     .addClass (classPrefix + '_time')
-    //     .text (startDate.isSame (endDate, 'day') ?
-    //       startDate.format ('h:mm A') + ' to ' + endDate.format ('h:mm A') :
-    //       "")))
+  function reformatEventCardDates () {
+    if ($('.event_calendar').closest($('#events_landing_page')).length > 0 && $('.event_calendar_grid_card_end').text () === "") {
+      console.log('no end date');
+    } else {
+      console.log('la la')
+    }
   }
 
-  function formatDatesForMoment (dateString) {
-    return moment(dateString.slice (dateString.indexOf(', ') + 2, dateString.indexOf(' -'))
-      + ' ' + dateString.slice (dateString.indexOf(' - ') + 3));
+  /*
+    Accepts no arguments, appends an event's reformatted dates, 
+    and returns undefined.
+  */
+  function reformatEventItemDates () {
+    var startDate = moment(getEventStartDateElement ().text ());
+    var endDate = moment(getEventEndDateElement ().text ());
+    getEventStartDateElement ().remove ()
+    getEventEndDateElement ().remove ()
+    var classPrefix = 'event_date';
+
+    getEventFieldContainer ().append($('<div></div>')
+      .addClass (classPrefix)
+      .append ($('<span</span>')
+        .addClass (classPrefix + '_start')
+        .text (startDate.isSame (endDate, 'day') ?
+          startDate.format ('MMMM D, YYYY') :
+          startDate.format ('MMMM D, YYYY') + " - "))
+      .append ($('<span></span>')
+        .addClass (classPrefix + '_end')
+        .text (startDate.isSame (endDate, 'day') ?
+          "" : endDate.format ('MMMM D, YYYY')))
+      .append ($('<div></div>')
+        .addClass (classPrefix + '_time')
+        .text (startDate.isSame (endDate, 'day') ?
+          startDate.format ('h:mm A') + ' to ' + endDate.format ('h:mm A') :
+          "")))
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery Element
+    representing the event field container.
+  */
+  function getEventFieldContainer () {
+    return $('.event_item_field.event_date');
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery Element
+    representing the event's start date.
+  */
+  function getEventStartDateElement () {
+    return $('.field_event_start_date'); 
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery Element
+    representing the event's end date.
+  */
+  function getEventEndDateElement () {
+    return $('.field_event_end_date'); 
   }
 
 }) (jQuery);
