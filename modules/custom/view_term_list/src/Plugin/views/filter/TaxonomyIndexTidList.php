@@ -128,11 +128,11 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
     // II. Intercept the case where the user selected the list type.
     if ($this->options ['type'] == 'list') {
       $max_num_terms_settings = \Drupal::config ('view_term_list.settings')->get ('max_num_terms');
-      $max_num_terms = array_key_exists ($filter_id, $max_num_terms_settings) ?
+      $max_num_terms = ($max_num_terms_settings && array_key_exists ($filter_id, $max_num_terms_settings)) ?
                          $max_num_terms_settings [$filter_id] : 100;
 
       $reset_label_settings = \Drupal::config ('view_term_list.settings')->get ('reset_label');
-      $reset_label = array_key_exists ($filter_id, $reset_label_settings) ?
+      $reset_label = ($reset_label_settings && array_key_exists ($filter_id, $reset_label_settings)) ?
                        $reset_label_settings [$filter_id] : 'Reset';
 
       $items = array ();
