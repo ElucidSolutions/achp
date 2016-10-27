@@ -48,24 +48,8 @@
     jQuery HTML Element.
   */
   function createHomeIconElement () {
-    return createIconElement ('home', '/themes/achp/images/home-icon.svg',
-      getHomeIconHeight (),
-      getHomeIconWidth ());
+    return createIconElement ('home', '/themes/achp/images/home-icon.svg');
   }
-
-  /*
-    Accepts no arguments and returns a CSS
-    dimension string that represents the home
-    icon's height.
-  */
-  function getHomeIconHeight () { return getHomeIconWidth (); }
-
-  /*
-    Accepts no arguments and returns a CSS
-    dimension string that represents the home
-    icon's width.
-  */
-  function getHomeIconWidth () { return '20px'; }
 
   /*
     Accepts no arguments and returns an HTML
@@ -81,26 +65,17 @@
 
     * name, a string that represents a icon name
     * url, a URL that references an SVG icon
-    * height, an optional CSS dimension string
-    * and width, an optional CSS dimension string
 
     loads the SVG icon referenced by url; resizes
     the icon iff height and width are given;
     and returns a element that represents the
     icon as a jQuery HTML Element.
   */
-  function createIconElement (name, url, height, width) {
-    // I. Load the icon SVG element.
-    var svgElement = loadIcon (name, url);
-
-    // II. Resize the icon SVG element if dimensions were given.
-    height && width && setIconSize (height, width, svgElement);
-
-    // III. Create and return the icon element.
+  function createIconElement (name, url) {
     return $('<div></div>')
       .addClass (getClassPrefix () + '-icon')
       .attr (getDataPrefix () + '-icon-name', name)
-      .append (svgElement);
+      .append (loadIcon (name, url));
   }
 
   /*
@@ -126,22 +101,6 @@
       });
     }
     return ICONS [name] ? (ICONS [name]).cloneNode (true) : null;
-  }
-
-  /*
-    Accepts three arguments:
-
-    * height, a CSS dimension string (ex: '12px')
-    * width, a CSS dimension string
-    * and svgElement an SVGElement
-
-    sets svgElement's height and width to equal
-    height and width respectively and returns
-    undefined.
-  */
-  function setIconSize (height, width, svgElement) {
-    svgElement.setAttribute ('height', height);
-    svgElement.setAttribute ('width', width);
   }
 
   /*
