@@ -9,6 +9,7 @@
   #main-wrapper {
     @include outer-container(100%);
     background-color: $background-color-grey;
+    padding-bottom: 25px;
   }
   #content {
     box-shadow: inset 0 3px 5px -3px $color-grey;    
@@ -56,6 +57,7 @@
 
       .views-exposed-form {
         @include span-columns (3 of 12);
+        padding-bottom: 25px;
         padding-right: $filter-padding-right;
         position: relative;
 
@@ -83,8 +85,9 @@
         ul.view_term_list_list {
           color: $color-grey;
           font-family: $sans-text;
-          margin: 0 0 20px;
+          margin: 0;
           padding: 0;
+          margin-bottom: 20px;
 
           .view_term_list_item {
             border-bottom: 1px solid $color-grey;    
@@ -103,6 +106,13 @@
               position: absolute;
               right: 0;
             }
+          }
+          .view_term_list_list_reset_button {
+            @include hover-transition-content($color-blue-primary);
+            cursor: pointer;
+            padding: 10px 0;
+            width: 100%;
+            /*position: absolute;*/
           }
           .view_term_list_list_toggle_button {
             @include hover-transition-content($color-blue-primary);
@@ -162,7 +172,6 @@
         @include span-columns (9 of 12);
         background-color: #fff;
         border-bottom: $full-story-link-height solid transparent;
-        border-top: 4px solid $color-red;
         float: right;
         margin-bottom: 25px;
         padding: 5px 20px;

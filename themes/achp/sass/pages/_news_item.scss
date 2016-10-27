@@ -12,7 +12,7 @@
   
     #block-pagetitle-2 h1 {
       color: $color-darkblue;
-      font-size: rem(36);        
+      font-size: rem(36px);        
       font-weight: 400;
       line-height: 1.25;
       text-align: left;        
@@ -35,7 +35,7 @@
 
         .news_title {
           color: $color-darkblue;          
-          font-size: rem(36);        
+          font-size: rem(36px);        
           font-weight: 400;
           text-align: left;
         }
@@ -53,14 +53,15 @@
           blockquote {
             color: $color-lightgrey-2;
             font-family: $sans-text;
-            font-size: rem(24);
-            margin: 0;
-            margin-left: $blockquote-margin;
+            font-size: rem(24px);
+            font-weight: 300;
+            margin: $blockquote-margin;
+            margin-right: 0;
             position: relative;
 
             &:before {
               @include center-y;
-              background-color: $color-lightgrey;
+              background-color: $background-color-grey2;
               content: "";
               height: 95%;
               left: -$blockquote-margin;
@@ -122,7 +123,7 @@
 
   #block-views-block-related-news-items-block-1 {
     background-color: #fff;
-    margin: 20px auto 0;
+    margin: 20px auto 40px;
     max-width: $max-news-width;
 
     header {

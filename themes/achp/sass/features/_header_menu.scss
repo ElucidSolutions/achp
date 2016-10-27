@@ -439,7 +439,7 @@
 
         input.form-submit {
           @include hover-transition-background(#71bffe);;
-          /*background-color: $color-blue-primary;*/
+          background-color: $color-blue-primary;
           background-color: pink;
           background-image: url('../images/search-icon.svg');
           background-position: center;
@@ -448,7 +448,6 @@
           border: none;
           border-radius: 0 2px 2px 0;
           bottom: 45px;
-          color: transparent !important;
           cursor: pointer;
           height: 35px;
           position: relative;
