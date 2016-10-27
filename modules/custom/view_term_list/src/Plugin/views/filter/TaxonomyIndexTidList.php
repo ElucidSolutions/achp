@@ -61,11 +61,23 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
     if (!$max_num_terms) {
       $max_num_terms = '0';
     }
+
+    $reset_label = \Drupal::config ('view_term_list.settings')->get ('reset_label')[$this->options ['expose']['identifier']];
+    if (!$reset_label) {
+      $reset_label = 'Reset';
+    }
+
     $form ['list']['max_num_terms'] = array (
       '#default_value' => $max_num_terms,
       '#description' => $this->t ('Specifies the maximum number of terms that should be displayed in collapsed lists.'),
       '#title' => $this->t ('Max Number of Terms'),
       '#type' => 'number'
+    );
+    $form ['list']['reset_label'] = array (
+      '#default_value' => $reset_label,
+      '#description' => $this->t ('Specifies the label shown on the reset button'),
+      '#title' => $this->t ('Reset Label'),
+      '#type' => 'textfield'
     );
   }
 
@@ -80,6 +92,9 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
       ->getEditable ('view_term_list.settings')
       ->set ('max_num_terms', array (
           $this->options ['expose']['identifier'] => $form ['list']['max_num_terms']['#value']
+        ))
+      ->set ('reset_label', array (
+          $this->options ['expose']['identifier'] => $form ['list']['reset_label']['#value']
         ))
       ->save ();
   }
@@ -116,6 +131,10 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
       $max_num_terms = array_key_exists ($filter_id, $max_num_terms_settings) ?
                          $max_num_terms_settings [$filter_id] : 100;
 
+      $reset_label_settings = \Drupal::config ('view_term_list.settings')->get ('reset_label');
+      $reset_label = array_key_exists ($filter_id, $reset_label_settings) ?
+                       $reset_label_settings [$filter_id] : 'Reset';
+
       $items = array ();
       $options = array ();
 
@@ -127,7 +146,7 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
 
           $label = \Drupal::entityManager ()->getTranslationFromContext ($term)->label ();
           $items [] = array (
-            '#markup' => '<li class="view_term_list_item" data-term-id="' . $term->id () . '" data-term-depth="' . $term->depth . '">' .
+            '#markup' => '<li class="view_term_list_item" data-view-term-list-item-term-id="' . $term->id () . '" data-term-depth="' . $term->depth . '">' .
               '<div class="view_term_list_item_label">' . $label . '</div>' .
             '</li>'
           );
@@ -167,6 +186,9 @@ class TaxonomyIndexTidList extends TaxonomyIndexTid {
           ),
           'toggle_button' => array (
             '#markup' => '<div class="view_term_list_list_toggle_button"></div>'
+          ),
+          'reset_button' => array (
+            '#markup' => '<div class="view_term_list_list_reset_button">' . $reset_label . '</div>'
           )
         ),
         '#weight' => 1

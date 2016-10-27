@@ -96,23 +96,44 @@
     item elements; and returns undefined.
   */
   Filter.prototype.initElement = function () {
-    var self = this;
-
     // set overflow visibility.
+    this.initOverflow ();
+
+    // add buttons and click event handlers to items.
+    this.initItemElements ();
+
+    // add a click event handler to the toggle element.
+    this.getNumOverflowItems () > 0 ?
+      this.initToggleElement ():
+      this.removeToggleElement ();
+
+    // add a click event handler to the reset element.
+    this.initResetElement ();
+  }
+
+  /*
+    Accepts no arguments, *quickly* shows/hides
+    this filter's overflow element based on
+    this filter's current state, and returns
+    undefined.
+  */
+  Filter.prototype.initOverflow = function () {
     this.isExpanded () ? 
       this.showOverflow ():
       this.hideOverflow ();
+  }
 
-    // add buttons and click event handlers to items.
+  /*
+    Accepts no arguments, adds buttons and
+    click event handlers to this filter's item
+    elements, and returns undefined.
+  */
+  Filter.prototype.initItemElements = function () {
+    var self = this;
     var selectedTermIds = this.getSelectedTermIds ();
     this.getItemElements ().forEach (function (itemElement, i) {
       self.initItemElement (selectedTermIds, $(itemElement), i);
     });
-
-    // add a click event to the toggle element.
-    this.getNumOverflowItems () > 0 ?
-      this.initToggleElement ():
-      this.removeToggleElement ();
   }
 
   /*
@@ -143,12 +164,14 @@
         .click (function () {
           getItemDeselectButtonElement (itemElement).remove ();
           self.deselectTerm (termId);
+          self.updateResetButton ();
           self.submitForm ();
         });
     } else {
       itemElement.click (function () {
         itemElement.append (createItemDeselectButtonElement ());
         self.selectTerm (termId);
+        self.showResetButton ();
         self.submitForm ();
       });
     }
@@ -160,13 +183,49 @@
     and returns undefined.
   */
   Filter.prototype.initToggleElement = function () {
-    var self = this;
     this.getToggleElement ()
-      .text (this.isExpanded () ? 'Show Less' : 'Show More')
-      .click (function () {
-        self.isExpanded () ? self.collapseOverflow () : self.expandOverflow ();
-      });
+      .text (this.isExpanded () ? getToggleElementHideText () : getToggleElementShowText ())
+      .click (_.bind (this.toggleOverflow, this));
   } 
+
+  /*
+    Accepts no arguments, sets the click event
+    handler for the reset button, and returns
+    undefined.
+  */
+  Filter.prototype.initResetElement = function () {
+    // I. Hide/show the button.
+    this.updateResetButton ();
+
+    // II. Set the click event handler.
+    this.getResetButtonElement ().click (_.bind (this.reset, this));
+  }
+
+
+  /*
+    Accepts no arguments, clears the term
+    filters, refresh the view, and return
+    undefined.
+  */
+  Filter.prototype.reset = function () {
+    // I. Deselect all term filters.
+    var self = this;
+    this.getSelectedOptionElements ().forEach (
+      function (_optionElement) {
+        var optionElement = $(_optionElement);
+
+        // Deselect the option.
+        optionElement.removeAttr ('selected');
+
+        // Remove the deselect button icon.
+        var termId = optionElement.val ();
+        var itemElement = self.getItemElement (termId);
+        getItemDeselectButtonElement (itemElement).remove ();
+    });
+
+    // II. Refresh results.
+    this.submitForm ();
+  }
 
   /*
     Accepts no arguments and submits this
@@ -175,6 +234,18 @@
   */
   Filter.prototype.submitForm = function () {
     this.getSubmitButtonElement ().click ();
+  }
+
+  /*
+    Accepts no arguments, expands/collapses
+    this filter's overflow element based on
+    this filter's current state, and returns
+    undefined.
+  */
+  Filter.prototype.toggleOverflow = function () {
+    this.isExpanded () ?
+      this.collapseOverflow ():
+      this.expandOverflow ();
   }
 
   /*
@@ -201,7 +272,7 @@
   */
   Filter.prototype.showOverflow = function () {
     this.getOverflowElement ().show ();
-    this.getToggleElement ().text ('Show Less');
+    this.getToggleElement ().text (getToggleElementHideText ());
     this._state = EXPANDED;
   }
 
@@ -212,8 +283,36 @@
   */
   Filter.prototype.hideOverflow = function () {
     this.getOverflowElement ().hide ();
-    this.getToggleElement ().text ('Show More');
+    this.getToggleElement ().text (getToggleElementShowText ());
     this._state = COLLAPSED;
+  }
+
+  /*
+    Accepts no arguments, shows/hides the
+    reset button based on the number of terms
+    currently selected in this filter, and
+    returns undefined.
+  */
+  Filter.prototype.updateResetButton = function () {
+    this.getNumSelectedTermIds () > 0 ?
+      this.showResetButton ():
+      this.hideResetButton ();
+  }
+
+  /*
+    Accepts no arguments, shows this filter's
+    reset button, and returns undefined.
+  */
+  Filter.prototype.showResetButton = function () {
+    this.getResetButtonElement ().show ();
+  }
+
+  /*
+    Accepts no arguments, hides this filter's
+    reset button, and returns undefined.
+  */
+  Filter.prototype.hideResetButton = function () {
+    this.getResetButtonElement ().hide ();
   }
 
   /*
@@ -346,6 +445,15 @@
   }
 
   /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents this filter's
+    reset button.
+  */
+  Filter.prototype.getResetButtonElement = function () {
+    return $('.' + getResetButtonClassName (), this.getListElement ());
+  }
+
+  /*
     Accepts no arguments and returns the number
     of overflow items as an integer.
   */
@@ -383,6 +491,15 @@
   */
   Filter.prototype.getListElement = function () {
     return $('[' + getFilterAttributeName () + '="' + this.getId () + '"].' + getListClassName ());
+  }
+
+  /*
+    Accepts no arguments and returns the number
+    of terms currently selected in this filter
+    as an integer.
+  */
+  Filter.prototype.getNumSelectedTermIds = function () {
+    return this.getSelectedOptionElements ().length;
   }
 
   /*
@@ -489,7 +606,7 @@
     that represents the item label class name.
   */
   function getItemLabelClassName () {
-    return 'view_term_list_item_label';
+    return getItemClassName () + '_label';
   }
 
   /*
@@ -498,7 +615,7 @@
     element class name.
   */
   function getItemDeselectButtonClassName () {
-    return 'view_term_list_item_deselect_button';
+    return getItemClassName () + '_deselect_button';
   }
 
   /*
@@ -525,6 +642,14 @@
 
   /*
     Accepts no arguments and returns a string
+    that represents the item element class name.
+  */
+  function getItemClassName () {
+    return getModuleClassPrefix () + '_item';
+  }
+
+  /*
+    Accepts no arguments and returns a string
     that represents the DOM ID of the topic list
     element.
   */
@@ -534,19 +659,11 @@
 
   /*
     Accepts no arguments and returns a string
-    that represents the item element class name.
-  */
-  function getItemClassName () {
-    return 'view_term_list_item';
-  }
-
-  /*
-    Accepts no arguments and returns a string
     that represents the Number of Overflow Items
     data attribute name.
   */
   function getOverflowNumItemsAttributeName () {
-    return 'data-view-term-list-num-overflow-items';
+    return getModuleAttributePrefix () + '-num-overflow-items';
   }
 
   /*
@@ -555,7 +672,16 @@
     to label the expand/collapse (toggle) button.
   */
   function getToggleClassName () {
-    return 'view_term_list_list_toggle_button';
+    return getListClassName () + '_toggle_button';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the name of the class used
+    to label the reset button.
+  */
+  function getResetButtonClassName () {
+    return getListClassName () + '_reset_button';
   }
 
   /*
@@ -564,7 +690,7 @@
     overflow elements.
   */
   function getOverflowClassName () {
-    return 'view_term_list_list_overflow';
+    return getListClassName () + '_overflow';
   }
 
   /*
@@ -572,7 +698,7 @@
     that represents the list element class name.
   */
   function getListClassName () {
-    return 'view_term_list_list';
+    return getModuleClassPrefix () + '_list';
   }
 
   /*
@@ -582,7 +708,7 @@
     indicies.
   */
   function getItemIndexAttributeName () {
-    return 'data-view-term-list-item-index';
+    return getModuleAttributePrefix () + '-item-index';
   }
 
   /*
@@ -592,7 +718,7 @@
     associated with filter items.
   */
   function getItemTermAttributeName () {
-    return 'data-term-id';
+    return getModuleAttributePrefix () + '-item-term-id';
   }
 
   /*
@@ -605,7 +731,7 @@
     element.
   */
   function getViewIdAttributeName () {
-    return 'data-view-term-list-view';
+    return getModuleAttributePrefix () + '-view';
   }
 
   /*
@@ -614,7 +740,7 @@
     name.
   */
   function getFilterAttributeName () {
-    return 'data-view-term-list-filter';
+    return getModuleAttributePrefix () + '-filter';
   }
 
   /*
@@ -624,5 +750,41 @@
   */
   function getSubmitClassName () {
     return 'js-form-submit';
+  }
+
+  /*
+    Accepts no arguments and returns the prefix
+    prepended onto all data attributes created
+    by this module.
+  */
+  function getModuleAttributePrefix () {
+    return 'data-view-term-list';
+  }
+
+  /*
+    Accepts no arguments and returns the prefix
+    prepended onto all classes created by
+    this module.
+  */
+  function getModuleClassPrefix () {
+    return 'view_term_list';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the text used to label the
+    overflow toggle button when collapsed.
+  */
+  function getToggleElementShowText () {
+    return 'Show More';
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the text used to label the
+    overflow toggle button when expanded.
+  */
+  function getToggleElementHideText () {
+    return 'Show Less';
   }
 }) (jQuery, Drupal, drupalSettings);
