@@ -94,7 +94,9 @@
 
             .view_term_list_item_label {
               @include hover-transition-content($color-blue-primary);
-              padding: 10px 15px 10px 0;
+              display: inline-block;
+              padding: 10px 20px 10px 0;
+              width: 100%;
             }
             .view_term_list_item_deselect_button {
               @include center-y;
@@ -322,6 +324,9 @@
         @include span-columns (12 of 12);
         padding-bottom: 20px;
       }
+    }
+    .news_no_results {
+      padding-bottom: 40px;
     }
     .news-item {
       @include span-columns (12 of 12);

@@ -230,9 +230,11 @@
         .addClass (classPrefix + '_body'))
       .append ($('<div></div>')
         .addClass (classPrefix + '_footer')
-        .append ($('<button></button>')
-          .addClass (classPrefix + '_full_calendar_button')
-          .text ('View the full calendar')));
+        .append ($('<a></a>')
+          .attr('href', '/events')
+          .append ($('<button></button>')
+            .addClass (classPrefix + '_full_calendar_button')
+            .text ('View the full calendar'))));
   }
 
   /*

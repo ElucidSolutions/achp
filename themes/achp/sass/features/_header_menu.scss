@@ -438,19 +438,21 @@
         margin: 0;
 
         input.form-submit {
+          @include hover-transition-background(#71bffe);;
+          /*background-color: $color-blue-primary;*/
+          background-color: pink;
+          background-image: url('../images/search-icon.svg');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 57%;
           border: none;
           border-radius: 0 2px 2px 0;
-          height: 35px;
-          width: 37px;
           bottom: 45px;
-          position: relative;
-          background-image: url('../images/search-icon.svg');
-          background-repeat: no-repeat;
-          background-color: $color-blue-primary;
-          background-position: center;
-          background-size: 57%;
+          color: transparent !important;
           cursor: pointer;
-          @include hover-transition-background(#71bffe);;
+          height: 35px;
+          position: relative;
+          width: 37px;
         }
       }
     }

@@ -46,9 +46,10 @@
       // When mouse hovers on menu, show drop-down submenu
       function () {
         openWidescreenSubmenu ($('> ul', this).clone ());
+        // setInterval (checkDropdownHover (), 1000);
       },
       // When mouse leaves, listen to see if it has gone to the drop-down or not 
-      function () {       
+      function () { 
         $('ul[data-menu-level="1"]').hover (
           function () {
             // If yes, keep submenu open and do nothing
@@ -66,6 +67,11 @@
       })
 
     $('#homepage_hero_region').mouseover ( 
+      function () {
+        closeWidescreenSubmenu ();
+      })
+
+    $('#toolbar-item-administration-tray').mouseover (
       function () {
         closeWidescreenSubmenu ();
       })
