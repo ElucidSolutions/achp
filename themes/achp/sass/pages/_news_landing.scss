@@ -80,18 +80,6 @@
           font-size: rem(20px);
           width: 100%;
         }
-        .form-item-field-news-date-value-min {
-          display: inline-block;
-          /*max-width: 100%;*/
-          width: 100%;
-
-          label {
-            margin-bottom: 10px;
-          }
-        }
-        .form-item-field-news-date-value-max label {
-          display: none;
-        }
         ul.view_term_list_list {
           color: $color-grey;
           font-family: $sans-text;
@@ -123,6 +111,24 @@
         .form-select {
           width: 100%;
         }
+        .form-item-field-news-date-value-min {
+          display: inline-block;
+          width: 100%;
+
+          label {
+            margin-bottom: 10px;
+          }
+        }
+        .form-item-field-news-date-value-max label {
+          display: none;
+        }
+        .news_filter_reset_button {
+          cursor: pointer;
+          display: none;
+          font-family: $sans-text;
+          font-size: rem(16px);
+          margin: 0;
+        }        
         input[type="text"] {
           background-image: url('../images/add-calendar-icon.svg');
           background-position: 5px center;
@@ -139,12 +145,6 @@
         input[type="submit"] {
           display: none;
         }
-        input[type="reset"] {
-          @extend button;
-          line-height: 1 !important;
-          margin: 0 ;
-          width: 100%;
-        }
         #edit-field-tags-target-id {
           margin-bottom: 15px;
         }
@@ -160,6 +160,7 @@
         @include span-columns (9 of 12);
         background-color: #fff;
         border-bottom: $full-story-link-height solid transparent;
+        border-top: 4px solid $color-red;
         float: right;
         margin-bottom: 25px;
         padding: 5px 20px;
@@ -183,6 +184,7 @@
         }
         .views-field-field-news-photo img {
           float: left;
+          height: auto;
           max-height: 300px;
           max-width: 300px;
           padding: 5px 15px 0 0;
@@ -214,6 +216,11 @@
               color: $color-blue-primary;
               margin-right: 25px;
               text-decoration: none;
+              transition: color 0.25s;
+
+              &:hover {
+                color: $color-lightblue-primary;
+              }
             }
           }
         }

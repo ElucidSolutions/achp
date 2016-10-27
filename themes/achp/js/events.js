@@ -20,7 +20,6 @@
     getEventStartDateElement ().remove ()
     getEventEndDateElement ().remove ()
     var classPrefix = 'event_date';
-    console.log('1');
 
     getEventFieldContainer ().append($('<div></div>')
       .addClass (classPrefix)
