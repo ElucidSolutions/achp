@@ -7,7 +7,13 @@
 
   var COLLAPSED = 'collapsed';
   var EXPANDED = 'expanded';
-  var state = COLLAPSED;
+  var filterDisplayState = COLLAPSED;
+
+  var STARTDATEINPUT = 'start date has input';
+  var ENDDATEINPUT = 'end date has input';
+  var BOTHDATEINPUT = 'both date fields have input';
+  var NODATEINPUT = 'no date input';
+  var dateInputState = NODATEINPUT;
 
   var newsLandingBreakpoint = '750px';
 
@@ -19,8 +25,11 @@
           if (settings.url.indexOf ('/views/ajax') === 0) {
             // initializes the filter elements.          
             initDateFilterElements ();
-            if (state === EXPANDED) {
+            if (filterDisplayState === EXPANDED) {
               showFilter ();
+            }
+            if (dateInputState != NODATEINPUT) {
+              getNewsFilterResetButton ().show ();
             }
           }
       });
@@ -66,8 +75,22 @@
   function initDateFilterElements () {
     initDateElements ();
     addFilterToggleListener ();
-    addFilterInputListener ();
+    createClearDatesButton ();
   }  
+
+  /*
+    Accepts no arguments; edits and attaches datepickers
+    to the date input placeholders, and adds a reset button; 
+    returns undefined.
+  */
+  function initDateElements () {
+    getDateMinElement ().datepicker ()
+      .attr ('placeholder', 'Start date')
+      .change (startDateInputFunction);
+    getDateMaxElement ().datepicker ()
+      .attr ('placeholder', 'End date')
+      .change (endDateInputFunction)
+  }   
 
   /*
     Accepts no arguments, adds click listener to news
@@ -76,47 +99,83 @@
   */
   function addFilterToggleListener () {
     getFilterButton ().click ( function (e) {
-      state === COLLAPSED ? expandFilter () : collapseFilter ();
+      filterDisplayState === COLLAPSED ? expandFilter () : collapseFilter ();
     });    
   }
 
   /*
-    Accepts no arguments, attaches change event listeners 
-    to the date inputs, and returns undefined.
+    Accepts no arguments; sets the value of dateInputState
+    if necessary and submits the filter if both date fields 
+    have input; returns either the new filter state or the 
+    submit filter function.
   */
-  function addFilterInputListener () {
-    getDateMinElement ().change (submitFilterForm);
-    getDateMaxElement ().change (submitFilterForm);
+  function startDateInputFunction () {
+    switch (dateInputState) {
+      case ENDDATEINPUT:
+        submitFilterForm ();
+        return dateInputState = BOTHDATEINPUT;
+      case BOTHDATEINPUT:
+        return submitFilterForm ();
+      case NODATEINPUT:
+        getNewsFilterResetButton ().show ();
+        return dateInputState = STARTDATEINPUT
+      default:
+        console.log('[news_landing][filterInputListener] Warning: unrecognized date input state "' + dateInputState + '".');
+    }
+  }  
+
+  /*
+    Accepts no arguments; sets the value of dateInputState
+    if necessary and submits the filter if both date fields 
+    have input; returns either the new filter state or the 
+    submit filter function.
+  */
+  function endDateInputFunction () {
+    switch (dateInputState) {
+      case STARTDATEINPUT:
+        submitFilterForm ();
+        return dateInputState = BOTHDATEINPUT;
+      case BOTHDATEINPUT:
+        return submitFilterForm ();
+      case NODATEINPUT:
+        getNewsFilterResetButton ().show ();
+        return dateInputState = ENDDATEINPUT
+      default:
+        console.log('[news_landing][filterInputListener] Warning: unrecognized date input state "' + dateInputState + '".');
+    }
+  }    
+
+  /*
+    Accepts no arguments, attaches the reset button with its
+    click event, and returns undefined.
+  */
+  function createClearDatesButton () {
+    getDateMaxElement ().after($('<div></div>')
+      .attr ('class', getNewsFilterResetClassName ())
+      .text ('Clear dates')
+      .click (clearDates)
+    );
   }
 
   /*
-    Accepts no arguments; edits and attaches datepickers
-    to the date input placeholders, and adds a reset button; 
-    returns undefined.
   */
-  function initDateElements () {
-    getDateMinElement ().datepicker ().attr('placeholder', 'Start date');
-    getDateMaxElement ().datepicker ().attr('placeholder', 'End date')
-      .after($('<div></div>')
-        .append($('<input />')
-          .attr('type', 'reset')
-          .attr('value', 'Clear Dates')
-          .attr('id', 'news_filter_reset')
-          .click(function () {
-            getDateMinElement ().attr('value', '');
-            getDateMaxElement ().attr('value', '');
-            submitFilterForm ();        
-          })
-      ));
-  }  
+  function clearDates () {
+    getNewsFilterResetButton ().hide ();
+    getDateMinElement ().val('')
+    getDateMaxElement ().val('')
+    if (dateInputState === BOTHDATEINPUT) {
+      submitFilterForm ();
+    }
+    dateInputState = NODATEINPUT;
+  }
 
   /*
     Accepts no arguments, adds the closed class to the filter
     button and removes the open class, and returns undefined.
   */
   function switchFilterButtonClassToClosed () {
-    var classPrefix = getNewsFilterClassPrefix ();
-    getFilterButton ().addClass (classPrefix + '_closed').removeClass (classPrefix + '_open');
+    getFilterButton ().addClass (getNewsFilterClassPrefix () + '_closed')
+      .removeClass (getNewsFilterClassPrefix () + '_open');
   }
 
   /*
@@ -125,7 +184,8 @@
   */
   function switchFilterButtonClassToOpen () {
     var classPrefix = getNewsFilterClassPrefix (); 
-    getFilterButton ().addClass (classPrefix + '_open').removeClass (classPrefix + '_closed');
+    getFilterButton ().addClass (getNewsFilterClassPrefix () + '_open')
+      .removeClass (getNewsFilterClassPrefix () + '_closed');
   }
 
   /*
@@ -135,7 +195,7 @@
   function hideFilter () {
     getFilterContainer ().hide ();
     switchFilterButtonClassToClosed ();
-    state = COLLAPSED;
+    filterDisplayState = COLLAPSED;
   }
 
   /*
@@ -145,7 +205,7 @@
   function showFilter () {
     getFilterContainer ().show ();
     switchFilterButtonClassToOpen ();
-    state = EXPANDED;
+    filterDisplayState = EXPANDED;
   }
 
   /*
@@ -155,7 +215,7 @@
   function expandFilter () {
     getFilterContainer ().slideDown();
     switchFilterButtonClassToOpen ();
-    state = EXPANDED;  
+    filterDisplayState = EXPANDED;  
   }
 
   /*
@@ -165,7 +225,7 @@
   function collapseFilter () {
     getFilterContainer ().slideUp( function () {
       switchFilterButtonClassToClosed ();
-      state = COLLAPSED;
+      filterDisplayState = COLLAPSED;
     });  
   }  
 
@@ -229,20 +289,19 @@
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
+    that represents the news filter reset button.
+  */
+  function getNewsFilterResetButton () {
+    return $('.' + getNewsFilterResetClassName ());
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
     that represents the submmit button for the news filter.
   */
   function getFilterSubmitButton () {
     return $('#edit-submit-latest-news');
   }
-
-  /*
-    Accepts no arguments and returns a string representing
-    the class name used to label the button that displays
-    or hides the new filter.
-  */
-  function getNewsFilterClassPrefix () {
-    return 'news_filter';
-  }  
 
   /*
     Accepts no arguments and returns a string that
@@ -252,6 +311,24 @@
   function getNewsLandingContainerClassName () {
     return 'news-landing-container';
   }
+
+  /*
+    Accepts no arguments and returns a string that
+    represents the class name of the news filter 
+    reset button.
+  */
+  function getNewsFilterResetClassName () {
+    return getNewsFilterClassPrefix () + '_reset_button';
+  }
+
+  /*
+    Accepts no arguments and returns a string representing
+    the class name used to label the button that displays
+    or hides the new filter.
+  */
+  function getNewsFilterClassPrefix () {
+    return 'news_filter';
+  }    
 
   /*
     Accepts no arguments and returns a string that

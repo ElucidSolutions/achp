@@ -79,20 +79,18 @@
                 margin: $card-padding-x 0;
                 padding-top: 2px;
                 width: 100%;
-                /*transition: color 0.25s;*/
 
                 &:after {
                   color: $color-blue-primary;
                   content: 'ADD TO YOUR CALENDAR';
                   margin-left: 30px;
                   transition: color 0.25s;
+                }
 
-                  &:hover:after {
-                    color: $color-lightblue-primary;
-                  }
+                &:hover:after {
+                  color: $color-lightblue-primary;
                 }
               }
-
               &_link {
                 @include hover-transition-background ($background-color-lightblue);
                 background-color: $background-color-grey2;
@@ -119,38 +117,13 @@
                   color: $color-blue-primary;
                 }        
               }
-
-/*              &_link {
-                height: 35px;
-                left: -20px;
-                width: 100%;
-                transition: backgrou;
-
-                &:hover {
-                  background-color: $background-color-lightblue;
-                }
-
-                a {
-                  @include center-y;
-                  text-align: center;
-                  width: 100%;
-                  transition: background-color 0.25s, color 0.25s;
-
-                  &:hover {
-                    background-color: $background-color-lightblue;
-                    color: $color-blue-primary;
-                  }
-
-                  &:after {
-                    background-image: none;
-                  }
-                }
-              }*/
             }
+          }
+          &_footer {
+            display: none;
           }
         }
       }
-
       #block-achp-content {
         display: none;
       }
