@@ -46,11 +46,10 @@
       // When mouse hovers on menu, show drop-down submenu
       function () {
         openWidescreenSubmenu ($('> ul', this).clone ());
-        // setInterval (checkDropdownHover (), 1000);
       },
       // When mouse leaves, listen to see if it has gone to the drop-down or not 
-      function () { 
-        getSubmenuElement ().hover (
+      function () {       
+        $('ul[data-menu-level="1"]').hover (
           function () {
             // If yes, keep submenu open and do nothing
           }, function () {
@@ -61,24 +60,15 @@
     )
 
     // Continuation of part V: edge cases that should close submenu
-    // $('#header').mouseover ( 
-    //   function () {
-    //     closeWidescreenSubmenu ();
-    //   })
+    $('#header').mouseover ( 
+      function () {
+        closeWidescreenSubmenu ();
+      })
 
-    // $('#homepage_hero_region').mouseover ( 
-    //   function () {
-    //     closeWidescreenSubmenu ();
-    //   })
-
-    // $('#toolbar-item-administration-tray').mouseover (
-    //   function () {
-    //     closeWidescreenSubmenu ();
-    //   })
-
-    // $(window).setInterval (function () {
-    //   getSubmenuElement ()
-    // })
+    $('#homepage_hero_region').mouseover ( 
+      function () {
+        closeWidescreenSubmenu ();
+      })
 
     // Remove default text from superimposing onto search icon
     emptySearchInputValue ();
@@ -165,36 +155,8 @@
       };
     })());
 
-  /*
-    Accepts no arguments and returns the subheader dropdown menu
-    as a jQuery HTML Element.
-  */
-  function getSubmenuElement () {
-    return $('#subheader_widescreen_submenu > ul');
-  }
+    });
 
-    $(document).mousemove (function (event) {
-      var headerElement = getMenuBlockElement ();
-      var submenuElement = getSubmenuElement ();
-      if (submenuElement.length > 0 
-        && !mouseIsOverElement (submenuElement, event.pageX, event.pageY)
-        && !mouseIsOverElement (headerElement, event.pageX, event.pageY )) {
-        closeWidescreenSubmenu ();
-      }
-    })
-
-  });
-
-  /*
-  */
-  function mouseIsOverElement (element, pageX, pageY) {
-    var margin = 10;
-    var elementPosition = element.position ();
-    return elementPosition.left <= pageX + margin
-      && pageX <= elementPosition.left + element.width () + margin
-      && elementPosition.top <= pageY + margin
-      && pageY <= elementPosition.top + element.height () + margin;
-  }
 
   /* 
     Accepts two arguments:
