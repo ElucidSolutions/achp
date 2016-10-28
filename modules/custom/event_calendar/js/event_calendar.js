@@ -154,7 +154,6 @@
     return moment (event.start_date).isSameOrBefore (date, 'day') 
       && moment (event.end_date).isSameOrAfter (date, 'day');
   }
-
   /*
     Accepts no arguments, returns an array of
     all Event objects.
