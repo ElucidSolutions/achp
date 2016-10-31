@@ -159,17 +159,21 @@ $event-card-footer-margin: 15px;
         font-family: $sans-text;
         text-align: left;
       }
+
+      $event-card-margin: 20px;
+      
       .event_calendar_grid_card {
         @extend .card;  
         background-color: #fff;
         display: inline-block;
-        margin: 0px 0px 20px 20px;
+        margin: 0px 0px $event-card-margin $event-card-margin;
         min-height: $event-card-height;
         overflow-wrap: break-word;
         padding: 10px 10px ($event-card-footer-height + $event-card-footer-margin) 10px;
         position: relative;
         vertical-align: top;
-        width: 260px;
+        /*width: 260px;*/
+        width: calc(50% - $event-card-margin);
 
         &_title {
           @include hover-transition-content($color-blue-primary);

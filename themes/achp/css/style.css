@@ -203,7 +203,8 @@ $arrow-padding: 5px;*/
       padding: 10px 10px 35px 10px;
       position: relative;
       vertical-align: top;
-      width: 260px; }
+      /*width: 260px;*/
+      width: calc(50% - $event-card-margin); }
       .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title {
         transition: color 0.25s;
         cursor: pointer;
