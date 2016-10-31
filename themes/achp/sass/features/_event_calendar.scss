@@ -231,126 +231,113 @@ $event-card-footer-margin: 15px;
 
 /* Mobile styles scoped to homepage calendar only, because
 the events landing page is different */
-#block-eventsmeetings {
-  @media (max-width: $max-content-width) {
-    .event_calendar_feature {
-      .event_calendar_calendar {
-        width: 50%;
-      }
-      .event_calendar_grid {
-        padding: 0px 0px 0px 20px;
-        width: 50%;
+@media (max-width: $max-content-width) {
+  /*border: 5px solid pink;*/
+  .event_calendar {
+    .event_calendar_calendar {
+      width: 50%;
+    }
+    .event_calendar_grid {
+      padding: 0px 0px 0px 20px;
+      width: 50%;
 
-        .event_calendar_grid_header {
-          .event_calendar_grid_title {
-            margin: 0;
-          }
+      .event_calendar_grid_header {
+        .event_calendar_grid_title {
+          margin: 0;
         }
-        .event_calendar_grid_body {
-          .event_calendar_grid_card {
-            border-top: none !important;
-            border: 0;
+      }
+      .event_calendar_grid_body {
+        .event_calendar_grid_card {
+          border: none;
+          height: $mobile-card-item-height;
+          margin: 0 0 15px;
+          max-width: 100%;
+          min-height: $mobile-card-item-height;
+          padding: 0;
+          width: 100%;
+
+          &_header {
+            background-color: #fff;
+            border-bottom: 1px solid $event-card-border-color;
             height: $mobile-card-item-height;
-            margin: 0px;
-            max-width: 100%;
-            min-height: $mobile-card-item-height;
-            padding: 0;
-            width: 100%;
-
-            &_header {
-              height: $mobile-card-item-height;
-              background-color: #fff;
-              border-bottom: 1px solid $event-card-border-color;
-              margin-left: 60px;
-              position: relative;
+            margin-left: 60px;
+            position: relative;
+          }
+          &_title {
+            @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px, $color-blue-primary);
+            @include center-y;
+            cursor: pointer;
+            font-size: .9rem;
+            width: 95%;
+          
+            &:after {
+              width: 40px;
             }
-            &_title {
-              @include center-y;
-              cursor: pointer;
-              font-size: .9rem;
-              width: 95%;
-              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px, $color-blue-primary);
-            
-              &:after {
-                width: 40px;
-              }
-              a {
-                display: block;
-                width: 100%;
-                padding: 25px 25px 25px 15px;
-              }
+            a {
+              display: block;
+              padding: 25px 25px 25px 15px;
+              width: 100%;
             }
-            &_date, &_location, &_footer {
-              display: none;
+          }
+          &_date, &_location, &_footer {
+            display: none;
+          }
+          &_mobile_date {
+            background-color: $color-red;
+            border-bottom: solid 1px $event-card-border-color;
+            color: #fff;
+            display: inline-block;
+            float: left;
+            height: $mobile-card-item-height;
+            line-height: 1.1;
+            padding: 15px 5px;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 60px;
+
+            &_month {
+              font-size: 1.125rem;
+              text-transform: uppercase;
             }
-            &_mobile_date {
-              background-color: $color-red;
-              border-bottom: solid 1px $event-card-border-color;
-              color: #fff;
-              display: inline-block;
-              float: left;
-              height: $mobile-card-item-height;
-              line-height: 1.1;
-              padding: 15px 5px;
-              position: absolute;
-              text-align: center;
-              top: 0;
-              width: 60px;
 
-              &_month {
-                text-transform: uppercase;
-                font-size: 1.125rem;
-              }
-
-              &_day {
-                font-size: 2.125rem;
-              }
-              &_day {
-                font-size: 2rem;    
-                font-weight: 300;          
-              }
+            &_day {
+              font-size: 2.125rem;
+            }
+            &_day {
+              font-size: 2rem;    
+              font-weight: 300;          
             }
           }
         }
       }
     }
   }
+}
 
-  @media (max-width: $mobile-breakpoint) {
-    .event_calendar_feature {
-      padding: 0px;
+@media (max-width: $mobile-breakpoint) {
+  .event_calendar_feature {
+    padding: 0px;
 
-      .event_calendar_calendar {
-        display: block;
-        padding: 0px;
-        width: 100%;
+    .event_calendar_calendar {
+      display: none;
 
-        &_header {
-          .event_calendar_calendar_title {
-            font-size: rem(18);
-            margin-left: 20px;
-          }
+      &_header {
+        .event_calendar_calendar_title {
+          font-size: rem(18);
+          margin-left: 20px;
         }
       }
-      .event_calendar_grid {
-        padding: 0px;
-        width: 100%;
+    }
+    .event_calendar_grid {
+      padding: 0px;
+      width: 100%;
 
-        .event_calendar_grid_header {
-          .event_calendar_grid_title {
-            font-size: rem(18);
-            margin-left: 20px;
-          }
-        }
-        .event_calendar_grid_body {
-          .event_calendar_grid_card {
-            margin: 0px;
-
-            .event_calendar_grid_card_title {
-              font-size: 1rem;
-            }
-          }
-        }
+      .event_calendar_grid_header {
+        display: none;
+      }
+      .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
+        font-size: 1rem;
       }
     }
   }

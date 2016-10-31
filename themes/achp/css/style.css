@@ -246,29 +246,30 @@ $arrow-padding: 5px;*/
 /* Mobile styles scoped to homepage calendar only, because
 the events landing page is different */
 @media (max-width: 1024px) {
-  #block-eventsmeetings .event_calendar_feature .event_calendar_calendar {
+  /*border: 5px solid pink;*/
+  .event_calendar .event_calendar_calendar {
     width: 50%; }
-  #block-eventsmeetings .event_calendar_feature .event_calendar_grid {
+  .event_calendar .event_calendar_grid {
     padding: 0px 0px 0px 20px;
     width: 50%; }
-    #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
+    .event_calendar .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
       margin: 0; }
-    #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
-      border-top: none !important;
-      border: 0;
+    .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+      border: none;
       height: 75px;
-      margin: 0px;
+      margin: 0 0 15px;
       max-width: 100%;
       min-height: 75px;
       padding: 0;
       width: 100%; }
-      #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_header {
-        height: 75px;
+      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_header {
         background-color: #fff;
         border-bottom: 1px solid #5d0002;
+        height: 75px;
         margin-left: 60px;
         position: relative; }
-      #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title {
+      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title {
+        transition: color 0.25s;
         position: absolute;
         top: 50%;
         -webkit-transform: translateY(-50%);
@@ -278,11 +279,10 @@ the events landing page is different */
         transform: translateY(-50%);
         cursor: pointer;
         font-size: .9rem;
-        width: 95%;
-        transition: color 0.25s; }
-        #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover {
+        width: 95%; }
+        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover {
           color: #0990FE; }
-        #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
           content: "";
           background-image: url("../images/right-arrow-icon.svg");
           background-repeat: no-repeat;
@@ -300,17 +300,17 @@ the events landing page is different */
           -o-transform: translategY(-50%);
           transform: translateY(-50%);
           transition: background-image 0.25s; }
-        #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
+        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
           background-image: url("../images/right-arrow-icon-blue.svg"); }
-        #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
           width: 40px; }
-        #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title a {
+        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title a {
           display: block;
-          width: 100%;
-          padding: 25px 25px 25px 15px; }
-      #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_date, #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_location, #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_footer {
+          padding: 25px 25px 25px 15px;
+          width: 100%; }
+      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_date, .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_location, .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_footer {
         display: none; }
-      #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
+      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
         background-color: #950306;
         border-bottom: solid 1px #5d0002;
         color: #fff;
@@ -323,35 +323,29 @@ the events landing page is different */
         text-align: center;
         top: 0;
         width: 60px; }
-        #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_month {
-          text-transform: uppercase;
-          font-size: 1.125rem; }
-        #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_month {
+          font-size: 1.125rem;
+          text-transform: uppercase; }
+        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
           font-size: 2.125rem; }
-        #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
           font-size: 2rem;
           font-weight: 300; } }
 @media (max-width: 650px) {
-  #block-eventsmeetings .event_calendar_feature {
+  .event_calendar_feature {
     padding: 0px; }
-    #block-eventsmeetings .event_calendar_feature .event_calendar_calendar {
-      display: block;
-      padding: 0px;
-      width: 100%; }
-      #block-eventsmeetings .event_calendar_feature .event_calendar_calendar_header .event_calendar_calendar_title {
+    .event_calendar_feature .event_calendar_calendar {
+      display: none; }
+      .event_calendar_feature .event_calendar_calendar_header .event_calendar_calendar_title {
         font-size: 1.125rem;
         margin-left: 20px; }
-    #block-eventsmeetings .event_calendar_feature .event_calendar_grid {
+    .event_calendar_feature .event_calendar_grid {
       padding: 0px;
       width: 100%; }
-      #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
-        font-size: 1.125rem;
-        margin-left: 20px; }
-      #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
-        margin: 0px; }
-        #block-eventsmeetings .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
-          font-size: 1rem; } }
-
+      .event_calendar_feature .event_calendar_grid .event_calendar_grid_header {
+        display: none; }
+      .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
+        font-size: 1rem; } }
 /* Global variables: widths, heights, & breakpoints */
 /*$arrow-width: 8px;
 $arrow-padding: 5px;*/
@@ -2509,7 +2503,7 @@ $arrow-padding: 5px;*/
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75.0%;
+        width: 75%;
         background-color: #fff;
         border-bottom: 35px solid transparent;
         float: right;
@@ -3502,3 +3496,5 @@ button {
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
+
+/*# sourceMappingURL=style.css.map */
