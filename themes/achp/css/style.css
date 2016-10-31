@@ -68,7 +68,7 @@ $arrow-padding: 5px;*/
     .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
       transition: fill 0.25s; }
     .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
-      fill: #0990FE; }
+      fill: #0990FE !important; }
 
 /*
   This module contains styles used by the Event
@@ -2503,7 +2503,7 @@ $arrow-padding: 5px;*/
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75%;
+        width: 75.0%;
         background-color: #fff;
         border-bottom: 35px solid transparent;
         float: right;
@@ -3469,5 +3469,3 @@ button {
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
-
-/*# sourceMappingURL=style.css.map */
