@@ -145,18 +145,36 @@
           background-image: url('../images/calendar-icon.svg');
           background-position: 5px center;
           background-repeat: no-repeat;
+          /*background-color: pink;*/
           border: 1px solid $color-darkblue;
-          color: $color-lightgrey;
+          /*color: $color-lightgrey;*/
+          color: $color-darkgrey2;
+          /*color: purple;*/
           font-family: $sans-text;
           font-size: rem(16px);
           margin-bottom: 10px;
           /*max-width: 100%;*/
           padding: 10px 0 5px 30px;
           width: 100%;
+
+          &::-webkit-input-placeholder {
+            color: $color-lightgrey;  
+          }
+          &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+             color: $color-lightgrey;
+          }
+          &::-moz-placeholder { /* Mozilla Firefox 19+ */
+             color: $color-lightgrey;
+          }
+          &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+             color: $color-lightgrey;
+          }          
+
         }
         input[type="submit"] {
           display: none;
         }
+
         #edit-field-tags-target-id {
           margin-bottom: 15px;
         }
@@ -316,6 +334,27 @@
   }
 }
 
+@media (max-width: 900px) and (min-width: 750px){
+  #news_landing_page #content .news-landing-container {
+    .news-item {
+      .views-field-field-news-photo .field-content {
+        background-color: $color-darkgrey;
+        margin-bottom: 10px;
+        width: 100%;
+
+        img {
+          display: block;
+          float: none;
+          margin: 0 auto;
+          max-height: 100%;
+          max-width: 100%;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 750px) {
   #news_landing_page #content .news-landing-container {
     .views-exposed-form {
@@ -383,14 +422,26 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   #news_landing_page #content .news-landing-container {
     .news-item {
-      .views-field-field-news-photo img {
-        height: auto;
-        max-height: 100%;
-        max-width: 100%;
+      .views-field-field-news-photo .field-content {
+        background-color: $color-darkgrey;
+        margin-bottom: 10px;
         width: 100%;
+
+        img {
+/*          height: auto;
+          max-height: 100%;
+          max-width: 100%;
+          width: 100%;*/
+          display: block;
+          float: none;
+          margin: 0 auto;
+          max-height: 100%;
+          max-width: 100%;
+          padding: 0;
+        }
       }
       .views-field-field-tags .field-content {
         height: auto;
