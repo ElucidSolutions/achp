@@ -18,6 +18,17 @@ function achp_preprocess_page (&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_node ().
+ *
+ * This function adds variables to the node
+ * template that represent system settings such
+ * as date_default_timezone.
+ */
+function achp_preprocess_node (&$variables) {
+  $variables ['achp_default_timezone'] = date_default_timezone_get ();
+}
+
+/**
  * Implements hook_pre_render_alter ().
  *
  * This function adds a class to the last view

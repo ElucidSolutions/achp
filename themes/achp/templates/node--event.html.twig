@@ -81,6 +81,15 @@
     <div class="event_item_field event_location">
       <div class="event_item_field_label">WHERE</div>
       {{ content.field_event_location }}
+      <div
+        class="achp_event_page_link_container"
+        data-achp-event-page-link-title="{{ node.title.value }}"
+        data-achp-event-page-link-start="{{ node.field_event_start_date.value }}"
+        data-achp-event-page-link-end="{{ node.field_event_end_date.value }}"
+        data-achp-event-page-link-description="{{ node.body.value }}"
+        data-achp-event-page-link-location="{{ node.field_event_location.value }}"
+        data-achp-event-page-link-timezone="{{ achp_default_timezone }}"
+      />
     </div>
     <div class="event_item_field event_description">
       <div class="event_item_field_label">DESCRIPTION</div>
