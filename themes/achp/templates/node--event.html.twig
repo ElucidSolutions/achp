@@ -86,5 +86,12 @@
       <div class="event_item_field_label">DESCRIPTION</div>
       {{ content.body }}  
     </div>
-    <div class="attachment">{{ content.field_attached_file }}</div>
+    <div class="event_item_field event_attachments">
+      <div class="event_item_field_label">ATTACHMENTS</div>
+      {{ content.field_attached_file }}
+      {{ content.field_attached_file.node.content }}
+      {{ content.field_attached_file.title }}
+      {{ content.field_attached_file.node }}
+      {{ content.field_attached_file.entity_reference }}
+    </div>
   </div>
