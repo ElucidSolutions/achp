@@ -2,57 +2,94 @@
   This module provides styling for breadcrumbs
   created using the Easy Breadcrumb module.
 */
-.achp-breadcrumb {
-  font-family: $sans-text;
-  font-size: rem(14px);
-  text-transform: uppercase;
+#block-breadcrumbs {
+  .mobile_breadcrumb {
+    display: none;
+  }
+  .achp-breadcrumb {
+    font-family: $sans-text;
+    font-size: rem(14px);
+    text-transform: uppercase;
 
-  ol {
-    color: $color-grey;
-    list-style-type: none;
-    padding-left: 0;
+    ol {
+      color: $color-grey;
+      list-style-type: none;
+      padding-left: 0;
 
-    .breadcrumb_link {
-      display: inline;
-      padding-left: 5px;
-      position: relative;
+      .breadcrumb_link {
+        display: inline;
+        padding-left: 5px;
+        position: relative;
 
+        a {
+          color: $color-grey;
+          text-decoration: none;
+          transition: color 0.25s;
+        }
+        .achp-breadcrumb-icon {
+          display: inline-block;
+
+          &[data-achp-breadbrumb-icon-name='arrow'] {
+            padding: 0 20px;
+          }
+          &[data-achp-breadbrumb-icon-name='home'] {
+            padding: 0 10px 0 0;
+          }
+        }
+        &:hover {
+          a {
+            color: $color-blue-primary;
+          }
+        }
+      }
+      .breadcrumb_page {
+        color: $color-blue-primary;
+      }
+      .breadcrumb_link_home {
+        [data-achp-breadbrumb-icon-name='home'] {
+          #home-icon {
+            transition: fill 0.25s;
+          }
+        }
+        &:hover {
+          [data-achp-breadbrumb-icon-name='home'] {
+            #home-icon {
+              fill: $color-blue-primary !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  #block-breadcrumbs {
+    height: 50px;
+
+    .achp-breadcrumb {
+      display: none;
+    }
+    .mobile_breadcrumb {
+      @include after-element-icon-with-hover ('../images/left-arrow-icon.svg', '../images/left-arrow-icon-blue.svg', 0, $color-blue-primary);
+      @include center-x;
+      display: block;
+      font-family: $sans-text;
+      font-size: rem(14px);
+      padding-top: 3px;
+      text-transform: uppercase;
+
+      &:after {
+        left: 0;
+      }
       a {
         color: $color-grey;
+        padding-left: 30px;
         text-decoration: none;
         transition: color 0.25s;
       }
-      .achp-breadcrumb-icon {
-        display: inline-block;
-
-        &[data-achp-breadbrumb-icon-name='arrow'] {
-          padding: 0 20px;
-        }
-        &[data-achp-breadbrumb-icon-name='home'] {
-          padding: 0 10px 0 0;
-        }
-      }
-      &:hover {
-        a {
-          color: $color-blue-primary;
-        }
-      }
-    }
-    .breadcrumb_page {
-      color: $color-blue-primary;
-    }
-    .breadcrumb_link_home {
-      [data-achp-breadbrumb-icon-name='home'] {
-        #home-icon {
-          transition: fill 0.25s;
-        }
-      }
-      &:hover {
-        [data-achp-breadbrumb-icon-name='home'] {
-          #home-icon {
-            fill: $color-blue-primary !important;
-          }
-        }
+      &:hover a {
+        color: $color-blue-primary;
       }
     }
   }

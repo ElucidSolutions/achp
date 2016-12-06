@@ -41,14 +41,14 @@
   {% if multiple %}
     <div{{ attributes }}>
       {% for item in items %}
-        <div class="event_attachment_title">{{ item.title }}</div>
-        <div class="event_attachment_body">{{ item.body }}</div>
+        <div class="event_attachment_title"><a href="{{ url }}">{{ item.title }}</a></div>
+        <div class="event_attachment_body">{{ item.body|raw }}</div>
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ item.attributes }}>{{ item.title }}</div>
-      <div class="event_attachment_body">{{ item.body }}</div>
+        <div class="event_attachment_title"><a href="{{ url }}">{{ item.title }}</a></div>
+      <div class="event_attachment_body">{{ item.body|raw }}</div>
     {% endfor %}
   {% endif %}
 {% else %}
@@ -58,8 +58,8 @@
       <div>
     {% endif %}
     {% for item in items %}
-      <div{{ item.attributes }}>{{ item.title }}</div>
-      <div class="event_attachment_body">{{ item.body }}</div>
+      <div class="event_attachment_title"><a href="{{ url }}">{{ item.title }}</a></div>
+      <div class="event_attachment_body">{{ item.body|raw }}</div>
     {% endfor %}
     {% if multiple %}
       </div>

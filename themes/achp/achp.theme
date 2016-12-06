@@ -55,17 +55,24 @@ function achp_form_views_exposed_form_alter (&$form, &$form_state, $form_id) {
  * Exposes node fields in Entity Reference
  * field templates.
  */
-function blm_theme_preprocess_field (&$variables, $hook) {
+function achp_preprocess_field (&$variables, $hook) {
   if ($variables ['field_type'] === 'entity_reference') {
     foreach ($variables ['element']['#items'] as $item_key => $item) {
+      $nid = $item->getValue () ['target_id'];
       $node = entity_load ('node', $item->getValue () ['target_id']);
       if (!$node) { continue; }
 
       $title_value = $node->title->first ();
       if ($title_value) { $variables ['items'][$item_key]['title'] = $title_value->getString (); }
 
+      global $base_url;
+      $url = $base_url . \Drupal::service ('path.alias_manager')->getAliasByPath ('/node/' . $nid);
+      $variables ['url'] = $url;
+
       foreach ($node->body->getValue () as $value_key => $value) {
-        $variables ['items'][$item_key]['body'] = $value ['body'];
+        $variables ['items'][$item_key]['body'] = $value ['summary'] ? 
+          $value ['summary'] :
+          $value ['value'];
       }
     }
   }
