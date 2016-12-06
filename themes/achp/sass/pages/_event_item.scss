@@ -35,9 +35,6 @@
     #event_item_container {
       font-family: $sans-text;
 
-      .autolabel {
-        display: none;
-      }
       .event_item_field {
         margin-bottom: 20px;
 
@@ -54,6 +51,9 @@
       }
       .event_description .body {
         font-family: $serif-text;
+      }
+      .event_attachments a {
+        color: $color-blue-primary;
       }
     }
   }
@@ -78,6 +78,15 @@
           }
         }
       }
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    #block-breadcrumbs {
+      /*display: none;*/
+    }
+    #block-pagetitle-2:before {
+
     }
   }
 }

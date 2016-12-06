@@ -8,6 +8,7 @@ $event-grid-width: 100% - $event-calendar-width;
 $event-card-border-color: rgba(93,0,2,1);
 $event-card-height: 10 * 32px;
 $event-card-footer-height: 20px;
+$event-calendar-spacing: 20px;
 $event-card-footer-margin: 15px;
 
 .event_calendar {
@@ -17,7 +18,7 @@ $event-card-footer-margin: 15px;
   .event_calendar_calendar {
     display: inline-block;
     height: 420px;
-    padding: 0px 20px 0px 0px;
+    padding: 0px $event-calendar-spacing 0px 0px;
     vertical-align: top;
     width: $event-calendar-width;
 
@@ -145,7 +146,7 @@ $event-card-footer-margin: 15px;
         color: #FFFFFF;
         font-size: rem(28);
         font-weight: 300;      
-        margin: 0 0 5px 20px;
+        margin: 0 0 5px $event-calendar-spacing;
       }
     }
     &_body {
@@ -172,8 +173,6 @@ $event-card-footer-margin: 15px;
         padding: 10px 10px ($event-card-footer-height + $event-card-footer-margin) 10px;
         position: relative;
         vertical-align: top;
-        /*width: 260px;*/
-        width: calc(50% - $event-card-margin);
 
         &_title {
           @include hover-transition-content($color-blue-primary);
@@ -233,15 +232,22 @@ $event-card-footer-margin: 15px;
   }
 }
 
+#block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+          /*width: calc((#{$event-grid-width} - $event-card-margin * 2)/ 2);*/
+        /*background-color: pink;*/
+        $event-card-margin: 20px;
+        width: calc( (100% - #{$event-card-margin} * 2) / 2);
+}
+
 /* Mobile styles scoped to homepage calendar only, because
 the events landing page is different */
 @media (max-width: $max-content-width) {
   /*border: 5px solid pink;*/
-  .event_calendar {
+  #block-eventcalendarblock .event_calendar {
     .event_calendar_calendar {
       width: 50%;
     }
-    .event_calendar_grid {
+    .event_calendar_feature .event_calendar_grid {
       padding: 0px 0px 0px 20px;
       width: 50%;
 
@@ -320,8 +326,8 @@ the events landing page is different */
 }
 
 @media (max-width: $mobile-breakpoint) {
-  .event_calendar_feature {
-    padding: 0px;
+  #block-eventcalendarblock .event_calendar .event_calendar_feature {
+    padding: 0px 20px;
 
     .event_calendar_calendar {
       display: none;

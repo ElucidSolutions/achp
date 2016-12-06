@@ -5,8 +5,6 @@ html {
   box-sizing: inherit; }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -202,9 +200,7 @@ $arrow-padding: 5px;*/
       overflow-wrap: break-word;
       padding: 10px 10px 35px 10px;
       position: relative;
-      vertical-align: top;
-      /*width: 260px;*/
-      width: calc(50% - $event-card-margin); }
+      vertical-align: top; }
       .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title {
         transition: color 0.25s;
         cursor: pointer;
@@ -244,18 +240,23 @@ $arrow-padding: 5px;*/
   margin-top: 20px;
   width: 100%; }
 
+#block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+  /*width: calc((66.66667% - $event-card-margin * 2)/ 2);*/
+  /*background-color: pink;*/
+  width: calc( (100% - 20px * 2) / 2); }
+
 /* Mobile styles scoped to homepage calendar only, because
 the events landing page is different */
 @media (max-width: 1024px) {
   /*border: 5px solid pink;*/
-  .event_calendar .event_calendar_calendar {
+  #block-eventcalendarblock .event_calendar .event_calendar_calendar {
     width: 50%; }
-  .event_calendar .event_calendar_grid {
+  #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid {
     padding: 0px 0px 0px 20px;
     width: 50%; }
-    .event_calendar .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
+    #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
       margin: 0; }
-    .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+    #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
       border: none;
       height: 75px;
       margin: 0 0 15px;
@@ -263,13 +264,13 @@ the events landing page is different */
       min-height: 75px;
       padding: 0;
       width: 100%; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_header {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_header {
         background-color: #fff;
         border-bottom: 1px solid #5d0002;
         height: 75px;
         margin-left: 60px;
         position: relative; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title {
         transition: color 0.25s;
         position: absolute;
         top: 50%;
@@ -281,9 +282,9 @@ the events landing page is different */
         cursor: pointer;
         font-size: .9rem;
         width: 95%; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover {
           color: #0990FE; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
           content: "";
           background-image: url("../images/right-arrow-icon.svg");
           background-repeat: no-repeat;
@@ -301,17 +302,17 @@ the events landing page is different */
           -o-transform: translategY(-50%);
           transform: translateY(-50%);
           transition: background-image 0.25s; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
           background-image: url("../images/right-arrow-icon-blue.svg"); }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
           width: 40px; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title a {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title a {
           display: block;
           padding: 25px 25px 25px 15px;
           width: 100%; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_date, .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_location, .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_footer {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_date, #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_location, #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_footer {
         display: none; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
         background-color: #950306;
         border-bottom: solid 1px #5d0002;
         color: #fff;
@@ -324,32 +325,30 @@ the events landing page is different */
         text-align: center;
         top: 0;
         width: 60px; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_month {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_month {
           font-size: 1.125rem;
           text-transform: uppercase; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
           font-size: 2.125rem; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
           font-size: 2rem;
           font-weight: 300; } }
 @media (max-width: 650px) {
-  .event_calendar_feature {
-    padding: 0px; }
-    .event_calendar_feature .event_calendar_calendar {
+  #block-eventcalendarblock .event_calendar .event_calendar_feature {
+    padding: 0px 20px; }
+    #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_calendar {
       display: none; }
-      .event_calendar_feature .event_calendar_calendar_header .event_calendar_calendar_title {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_calendar_header .event_calendar_calendar_title {
         font-size: 1.125rem;
         margin-left: 20px; }
-    .event_calendar_feature .event_calendar_grid {
+    #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid {
       padding: 0px;
       width: 100%; }
-      .event_calendar_feature .event_calendar_grid .event_calendar_grid_header {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header {
         display: none; }
-      .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
         font-size: 1rem; } }
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -448,8 +447,6 @@ $arrow-padding: 5px;*/
             background-image: url("../images/right-arrow-icon-blue.svg"); } }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -526,8 +523,6 @@ $arrow-padding: 5px;*/
         height: 370px; } }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -1060,8 +1055,6 @@ $arrow-padding: 5px;*/
         padding-right: 40px; }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -1430,12 +1423,34 @@ $arrow-padding: 5px;*/
     text-transform: uppercase; }
 
 /*
+  Styles for Add Event block module
+*/
+#page[data-page-node-type="event"] .add_event_link {
+  background-image: url("../images/add-calendar-icon.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: block;
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0 0 40px;
+  transition: background-image 0.25s; }
+  #page[data-page-node-type="event"] .add_event_link:hover {
+    background-image: url("../images/add-calendar-icon-lightblue.svg"); }
+    #page[data-page-node-type="event"] .add_event_link:hover:after {
+      color: #71BFFE; }
+  #page[data-page-node-type="event"] .add_event_link:after {
+    color: #0990FE;
+    content: "ADD TO YOUR CALENDAR";
+    margin-left: 30px;
+    transition: color 0.25s;
+    vertical-align: sub; }
+
+/*
   This module contains styles for the page
   footer element.
 */
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -1566,8 +1581,6 @@ $arrow-padding: 5px;*/
     #footer .content_wrapper #footer_right:last-child {
       margin-right: 0; } }
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -1806,8 +1819,6 @@ header {
     font-size: 1.25rem;
     width: 225px; } }
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -2253,8 +2264,6 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
   Library page.
 */
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -2294,8 +2303,6 @@ $arrow-padding: 5px;*/
   Homepage.
 */
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -2793,8 +2800,6 @@ $arrow-padding: 5px;*/
       #news_landing_page #content .news-landing-container .news-item ul li a {
         margin: 0; } }
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -3116,8 +3121,6 @@ $arrow-padding: 5px;*/
     border-top: 1px solid #d0efd7; }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -3269,8 +3272,6 @@ $arrow-padding: 5px;*/
 /*
 */
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
 /* Variables for homepage cards */
@@ -3306,8 +3307,6 @@ $arrow-padding: 5px;*/
       vertical-align: super; }
   #page[data-page-node-type="event"] #main #event_item_container {
     font-family: "p22-underground", sans-serif; }
-    #page[data-page-node-type="event"] #main #event_item_container .autolabel {
-      display: none; }
     #page[data-page-node-type="event"] #main #event_item_container .event_item_field {
       margin-bottom: 20px; }
       #page[data-page-node-type="event"] #main #event_item_container .event_item_field_label {
@@ -3319,6 +3318,8 @@ $arrow-padding: 5px;*/
         margin: 0; }
     #page[data-page-node-type="event"] #main #event_item_container .event_description .body {
       font-family: "minion-pro", serif; }
+    #page[data-page-node-type="event"] #main #event_item_container .event_attachments a {
+      color: #0990FE; }
 @media (min-width: 1150px) {
   #page[data-page-node-type="event"] #main-wrapper {
     box-shadow: inset 0 3px 5px -3px #4F4F4F; } }
@@ -3330,6 +3331,9 @@ $arrow-padding: 5px;*/
       margin-left: 15px; }
       #page[data-page-node-type="event"] #main #block-sharethispageblock .share_this_page_button_print {
         display: none; } }
+@media (max-width: 650px) {
+  #page[data-page-node-type="event"] #block-breadcrumbs {
+    /*display: none;*/ } }
 
 html,
 body {
