@@ -27,11 +27,6 @@ h1, h2, h3 {
 h1 {
   @include font-size($h1-font-sizes);
   font-weight: 500;
-  
-  &.heading_subtitle {
-    @include font-size($h1-subtitle-font-sizes);
-    font-weight: 300;
-  }
 }
 
 h2 {
@@ -71,16 +66,16 @@ button {
   @include font-size($button-font-sizes);
   @include hover-transition-background($color-lightblue-primary);
   background-color: $color-blue-primary;
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
   border: none;
   border-radius: 2px;  
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
   color: #FFFFFF;
   cursor: pointer;
   display: block;
   font-family: $sans-text;
   letter-spacing: 0.02rem;
   line-height: 1.4rem;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 30px;
   padding: 12px 53px 8px;
   text-transform: uppercase;
 }
@@ -96,13 +91,13 @@ button {
   text-align: center;
 }
 
-.header_container {
+/*.header_container {
   display: inline-block;  
   width: auto;
   hr {
     width: 60%;
   }
-}
+}*/
 
 .card {
   border-top: 6px solid $color-red;
@@ -110,6 +105,10 @@ button {
   box-sizing: border-box;
   font-family: $sans-text;
   text-align: left;
+
+  h3 {
+    font-size: 1.25rem
+  }
 }
 
 .card_date {
