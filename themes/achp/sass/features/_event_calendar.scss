@@ -25,15 +25,11 @@ $event-card-footer-margin: 15px;
     .clndr {
       padding: 5px;
     }
-    &_header {
-      height: 50px;
-
-      .event_calendar_calendar_title {
-        color: #FFFFFF;
-        font-size: rem(28);
-        font-weight: 300;      
-        margin-bottom: 5px;
-      }
+    &_header .event_calendar_calendar_title {
+      color: #FFFFFF;
+      font-size: rem(28);
+      font-weight: 300;      
+      margin-bottom: 5px; 
     }
     &_body {
       @extend .card;
@@ -139,15 +135,11 @@ $event-card-footer-margin: 15px;
     vertical-align: top;
     width: $event-grid-width;
 
-    &_header {
-      height: 50px;
-
-      .event_calendar_grid_title {
-        color: #FFFFFF;
-        font-size: rem(28);
-        font-weight: 300;      
-        margin: 0 0 5px $event-calendar-spacing;
-      }
+    &_header event_calendar_grid_title {
+      color: #FFFFFF;
+      font-size: rem(28);
+      font-weight: 300;      
+      margin: 0 0 5px $event-calendar-spacing;
     }
     &_body {
       text-align: left;
@@ -233,16 +225,13 @@ $event-card-footer-margin: 15px;
 }
 
 #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
-          /*width: calc((#{$event-grid-width} - $event-card-margin * 2)/ 2);*/
-        /*background-color: pink;*/
-        $event-card-margin: 20px;
-        width: calc( (100% - #{$event-card-margin} * 2) / 2);
+  $event-card-margin: 20px;
+  width: calc( (100% - #{$event-card-margin} * 2) / 2);
 }
 
 /* Mobile styles scoped to homepage calendar only, because
 the events landing page is different */
 @media (max-width: $max-content-width) {
-  /*border: 5px solid pink;*/
   #block-eventcalendarblock .event_calendar {
     .event_calendar_calendar {
       width: 50%;

@@ -81,16 +81,21 @@
     }
   }
 
-/*  @media (max-width: $mobile-breakpoint) {
-    #block-breadcrumbs {
-      nav#achp-breadcrumb {
-        display: none;
-      }
+  @media (max-width: 400px) {
 
-      .mobile_breadcrumb {
-        display: block;
-      }
+    #main #block-sharethispageblock .share_this_page {
+      padding-left: 0;
 
+      .share_this_page_buttons {
+        text-align: left;
+
+        &:before {
+          padding-right: calc(100% - 235px);
+        }
+        .share_this_page_button {
+          margin-left: 10px;
+        }
+      }
     }
-  }*/
+  }
 }
