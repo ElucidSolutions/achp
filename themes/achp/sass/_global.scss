@@ -71,65 +71,47 @@ $gutter: 0;
 $grid-columns: 12;
 
 /* Mixin for centering horizontally */
-
 @mixin center-x {
-  position: absolute;
+  @include prefixer(transform, translateX(-50%), webkit moz ms o spec);
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
+  position: absolute;
 }
 
 /* Mixin for centering vertically */
-
 @mixin center-y {
+  @include prefixer(transform, translateY(-50%), webkit moz ms o spec);
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translategY(-50%);
-  transform: translateY(-50%);
 }
-
 
 /* Mixin for centering vertically & horizontally */
-
 @mixin center-xy {
+  @include prefixer(transform, translateX(-50%) translateY(-50%), webkit moz ms o spec);
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
 }
 
-
 /* Mixin for generating solid-colored hr elements*/
-
 @mixin hr($color) {
-  color: $color;
   background-color: $color;
   border: none;
+  color: $color;
   height: 1px;
 }
 
 /* Mixin for centering and cropping to fit images*/
 @mixin fit-and-center-image($height) {
-  position: relative;
   height: $height;
-  width: 100%;
   overflow: hidden;
+  position: relative;
+  width: 100%;
   /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
   img {
     @include center-xy;
     height: 100%;
-    width: auto;
     min-width: 100%;
+    width: auto;
   }
 }
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -139,17 +121,17 @@ $grid-columns: 12;
   @include hover-transition-content($color);
 
   &:after {
-    content: "";
+    @include center-y;
     background-image: url($icon-path);
-    background-repeat: no-repeat;
     background-position: center;
-    width: 20px;
+    background-repeat: no-repeat;
+    content: "";
+    cursor: pointer;
     height: 20px;
     padding-left: 15px;
     right: $right-positioning;
-    cursor: pointer;
-    @include center-y;
     transition: background-image 0.25s;
+    width: 20px;
   }
 
   &:hover:after {
@@ -160,16 +142,16 @@ $grid-columns: 12;
 /* Mixin for attaching icons as after-elements, without hover effects */
 @mixin after-element-icon($icon-path, $right-positioning) {
   &:after {
-    content: "";
+    @include center-y;
     background-image: url($icon-path);
-    background-repeat: no-repeat;
     background-position: center;
-    width: 20px;
+    background-repeat: no-repeat;
+    content: "";
+    cursor: pointer;
     height: 20px;
     padding-left: 15px;
     right: $right-positioning;
-    cursor: pointer;
-    @include center-y;
+    width: 20px;
   }
 }
 
@@ -195,8 +177,8 @@ $grid-columns: 12;
   transition: color 0.25s, background-color 0.25s;
 
   &:hover {
-    color: $content-color;
     background-color: $background-color;
+    color: $content-color;
   }
 }
 

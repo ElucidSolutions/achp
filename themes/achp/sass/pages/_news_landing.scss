@@ -52,7 +52,6 @@
           display: none;
         }
       }
-
       $filter-padding-right: 20px;
 
       .views-exposed-form {
@@ -65,10 +64,6 @@
           @include span-columns (12 of 12);
           margin-top: 10px;
           padding-bottom: 40px;
-
-/*          .js-form-item {
-            width: 100%;
-          }*/
         }
         div[data-drupal-selector="edit-actions"] {
           bottom: 10px;
@@ -112,7 +107,6 @@
             cursor: pointer;
             padding: 10px 0;
             width: 100%;
-            /*position: absolute;*/
           }
           .view_term_list_list_toggle_button {
             @include hover-transition-content($color-blue-primary);
@@ -145,31 +139,17 @@
           background-image: url('../images/calendar-icon.svg');
           background-position: 5px center;
           background-repeat: no-repeat;
-          /*background-color: pink;*/
           border: 1px solid $color-darkblue;
-          /*color: $color-lightgrey;*/
           color: $color-darkgrey2;
-          /*color: purple;*/
           font-family: $sans-text;
           font-size: rem(16px);
           margin-bottom: 10px;
-          /*max-width: 100%;*/
           padding: 10px 0 5px 30px;
           width: 100%;
 
-          &::-webkit-input-placeholder {
-            color: $color-lightgrey;  
+          @include placeholder {
+            color: $color-lightgrey;
           }
-          &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-             color: $color-lightgrey;
-          }
-          &::-moz-placeholder { /* Mozilla Firefox 19+ */
-             color: $color-lightgrey;
-          }
-          &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-             color: $color-lightgrey;
-          }          
-
         }
         input[type="submit"] {
           display: none;
@@ -179,7 +159,6 @@
           margin-bottom: 15px;
         }
       }
-
       $full-story-link-height: 35px;
 
       .news_no_results {
@@ -387,7 +366,6 @@
       }
       .news_filter {
         @include span-columns (12 of 12);
-        /*@include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-dark-blue.svg', 0, $color-blue-primary);*/
         font-size: rem(14px);
         border-bottom: 1px solid $color-grey;
         bottom: 10px;
@@ -431,10 +409,6 @@
         width: 100%;
 
         img {
-/*          height: auto;
-          max-height: 100%;
-          max-width: 100%;
-          width: 100%;*/
           display: block;
           float: none;
           margin: 0 auto;
