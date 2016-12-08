@@ -315,7 +315,7 @@ the events landing page is different */
     padding: 0px 0px 0px 20px;
     width: 50%; }
     #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
-      margin: 0; }
+      margin: 0 0 5px; }
     #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
       border: none;
       height: 75px;
@@ -2297,6 +2297,7 @@ header {
             width: 185px; }
           .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
             display: inline-block;
+            height: 185px;
             left: 225px;
             padding-right: 20px;
             position: absolute;
@@ -2322,12 +2323,13 @@ header {
               display: inline-block; }
               .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a {
                 transition: color 0.25s;
+                bottom: 0;
                 color: #4F4F4F;
                 font-family: "p22-underground", sans-serif;
                 font-size: 0.875rem;
                 font-weight: 500;
                 line-height: 1.2rem;
-                padding-top: 3px;
+                padding: 3px 40px 0 0;
                 position: absolute;
                 text-decoration: none;
                 text-transform: uppercase; }
@@ -2347,9 +2349,8 @@ header {
                   content: "";
                   cursor: pointer;
                   height: 20px;
-                  margin-right: 20px;
-                  padding-left: 15px;
-                  right: -45px;
+                  padding: 0 20px 0 15px;
+                  right: 0px;
                   transition: background-image 0.25s;
                   width: 20px; }
                 .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:hover:after {
@@ -2375,6 +2376,7 @@ header {
     margin-top: 10px;
     width: 300px; }
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
+      height: auto;
       position: static;
       text-align: center; }
       .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right p {
@@ -2382,15 +2384,13 @@ header {
       .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-widescreen {
         display: none; }
       .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile, .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile a {
-        display: inline-block; }
+        display: inline-block;
+        position: relative;
+        padding-right: 0; }
         .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile:after, .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link-mobile a:after {
-          -webkit-transform: translateY(-50%);
-          -moz-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-          -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-          position: absolute;
-          top: 50%; }
+          margin-right: 20px;
+          padding-left: 15px;
+          right: -45px; }
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
       height: 250px;
       width: 250px; } }
