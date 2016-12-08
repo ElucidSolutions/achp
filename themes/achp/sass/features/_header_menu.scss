@@ -18,7 +18,6 @@
     padding-left: 0;
     z-index: 91;
   }
-
   ul[data-menu-level="0"] {
     display: inline-block;
     display: flex;
@@ -40,8 +39,6 @@
       &:last-of-type {
         margin: 0;
       }
-
-
       &.menu_selected {
         background: white;
         border: $header-menu-border-width solid $color-red2;
@@ -51,7 +48,6 @@
           color: #008BFD;
         }
       }
-
       > a {
         @include center-y;
         display: block;
@@ -59,7 +55,6 @@
         padding: 0;
         position: relative;
       }
-
       a {
         color: #013B5E;
         text-align: center;
@@ -67,13 +62,11 @@
         width: 100%;
       }
     }
-
     ul[data-menu-level="1"] {
       display: none;
     }
   }
 }
-
 
 #subheader_widescreen {
   @include outer-container;
@@ -105,7 +98,6 @@
           }
         }
       }
-
       ul[data-menu-level="1"] {
         background-color: white;
         line-height: 1.4;
@@ -128,7 +120,6 @@
           }
         }
       }
-
       ul[data-menu-level="2"] {
         display: inline-block;
         margin-top: 0;
@@ -155,7 +146,6 @@
           width: 100%;
         }
       }
-
       $dropdown-menu-padding: 55px;
 
       ul[data-menu-level="1"] {
@@ -163,7 +153,7 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="1"] {
         @include span-columns(1 of 4);
-        width: 1024/4 + $dropdown-menu-padding * 2;
+        width: $max-content-width/4 + $dropdown-menu-padding * 2;
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 1);
@@ -171,7 +161,7 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="2"] {
         @include span-columns(2 of 4);
-        width: 1024/2 + $dropdown-menu-padding * 2;
+        width: $max-content-width/2 + $dropdown-menu-padding * 2;
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 2);
@@ -179,7 +169,7 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="3"] {
         @include span-columns(3 of 4);
-        width: 1024/4 * 3 + $dropdown-menu-padding * 2;
+        width: $max-content-width/4 * 3 + $dropdown-menu-padding * 2;
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 3);
@@ -187,7 +177,7 @@
       }
       ul[data-menu-level="1"][data-menu-num-children="4"] {
         @include span-columns(4 of 4);
-        width: 1024px;
+        width: $max-content-width;
 
         li[data-menu-level="1"] {
           @include span-columns(1 of 4);
@@ -224,7 +214,6 @@
       }
     }
   }  
-
   #subheader_mobile {
     box-shadow: 0 0 1px $color-grey;
     position: relative;
@@ -307,7 +296,6 @@
               transition: background-image 0.25s;
               width: 20px;
             }
-
             &:hover:after {
               background-image: url('../images/right-arrow-icon-blue.svg')      
             }
@@ -335,7 +323,7 @@
             width: 100%;
 
             li {
-              border-bottom: 1px solid #4A4A4A;
+              border-bottom: 1px solid $color-grey2;
               display: block;
               height: 100%;
               list-style-type: none;
@@ -344,18 +332,16 @@
               text-align: center;
 
               a {
-                color: #4A4A4A;
+                color: $color-grey2;
                 text-decoration: none;
               }
             }
           }
-
           ul[data-menu-level="1"] {
             display: none;
           }
         }
       }
-
       #subheader_mobile_footer {
         bottom: 0;
         height: 54px;
@@ -381,11 +367,9 @@
     height: auto;
     width: auto;
   }
-
   #header_menu {
     height: auto;
   }
-
   #block-achp-search {
     height: 55px;
     margin: 0;
@@ -416,14 +400,13 @@
           -webkit-appearance: none; 
         }
       }
-
       .form-actions {
         float: right;
         height: 100%;
         margin: 0;
 
         input.form-submit {
-          @include hover-transition-background(#71bffe);;
+          @include hover-transition-background($color-lightblue-primary);
           background-color: $color-blue-primary;
           background-image: url('../images/search-icon.svg');
           background-position: center;

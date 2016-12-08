@@ -4,10 +4,10 @@
 */
 
 #homepage_flowchart_region {
-  padding: 25px 0px 0px 0px;
-  width: 100%;
-  height: auto;
   background-color: $background-color-lightblue;
+  height: auto;
+  padding: 25px 0 0;
+  width: 100%;
 }
 
 .flowchart_content_wrapper {
@@ -16,21 +16,23 @@
 }
 
 .header_container {
-  width: auto;
   display: inline-block;
   padding: 0px 20px;
+  height: auto;
+
   hr {
     width: 60%;
   }
 }
 
 #homepage_flowchart_region {
-  padding: 25px 0px 0px 0px;
+  padding: 25px 0 0;
 }
 
 #block-readmoreaboutthefederalpreservationprocess {
   div {
-  	margin: 20px 20px 30px 20px;
+  	margin: 20px 20px 30px;
+    
     button {    
       text-transform: uppercase;
     }
