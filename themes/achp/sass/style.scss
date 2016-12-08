@@ -78,6 +78,9 @@ button {
   margin: 0 auto 30px;
   padding: 12px 53px 8px;
   text-transform: uppercase;
+  @media (max-width: $mobile-breakpoint) {
+    line-height: 1.2rem;
+  }
 }
 
 .region_container {
@@ -90,14 +93,6 @@ button {
   position: relative;
   text-align: center;
 }
-
-/*.header_container {
-  display: inline-block;  
-  width: auto;
-  hr {
-    width: 60%;
-  }
-}*/
 
 .card {
   border-top: 6px solid $color-red;

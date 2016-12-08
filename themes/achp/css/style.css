@@ -1414,7 +1414,6 @@ the events landing page is different */
             cursor: pointer;
             height: auto;
             padding: 15px;
-            top: 0;
             width: 95%; }
             #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:hover {
               color: #0990FE; }
@@ -2071,9 +2070,9 @@ header {
           font-size: 1.375rem; } }
     #homepage_hero_region #homepage_hero_content button {
       margin: 40px auto 0; }
-    @media (max-width: 925px) {
-      #homepage_hero_region #homepage_hero_content {
-        margin-top: 20px; } }
+      @media (max-width: 925px) {
+        #homepage_hero_region #homepage_hero_content button {
+          margin-top: 20px; } }
 
 /*
   This module contains styles used in the Quick
@@ -3617,6 +3616,9 @@ button {
       font-size: 16px; } }
   button:hover {
     background-color: #71BFFE; }
+  @media (max-width: 650px) {
+    button {
+      line-height: 1.2rem; } }
 
 .region_container {
   float: left;
@@ -3632,13 +3634,6 @@ button {
   position: relative;
   text-align: center; }
 
-/*.header_container {
-  display: inline-block;  
-  width: auto;
-  hr {
-    width: 60%;
-  }
-}*/
 .card, .event_calendar .event_calendar_calendar_body, .event_calendar .event_calendar_grid_body .event_calendar_grid_card, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container {
   border-top: 6px solid #950306;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
