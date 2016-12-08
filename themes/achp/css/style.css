@@ -139,7 +139,6 @@ html {
   This module contains styles used by the Event
   Calendar feature.
 */
-/*$event-card-height: 10 * 32px;*/
 .event_calendar .event_calendar_feature {
   padding: 0 40px; }
 .event_calendar .event_calendar_calendar {
@@ -3533,6 +3532,11 @@ header {
       font-family: "minion-pro", serif; }
     #page[data-page-node-type="event"] #main #event_item_container .event_attachments a {
       color: #0990FE; }
+    #page[data-page-node-type="event"] #main #event_item_container .event_attachments .event_attachment_body {
+      font-family: "minion-pro", serif;
+      margin-bottom: 20px; }
+      #page[data-page-node-type="event"] #main #event_item_container .event_attachments .event_attachment_body p {
+        margin: 0; }
 @media (min-width: 1150px) {
   #page[data-page-node-type="event"] #main-wrapper {
     box-shadow: inset 0 3px 5px -3px #4F4F4F; } }

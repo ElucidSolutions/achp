@@ -52,8 +52,18 @@
       .event_description .body {
         font-family: $serif-text;
       }
-      .event_attachments a {
-        color: $color-blue-primary;
+      .event_attachments { 
+        a {
+          color: $color-blue-primary;
+        }
+        .event_attachment_body {
+          font-family: $serif-text;
+          margin-bottom: 20px;
+
+          p {
+            margin: 0;
+          }
+        }
       }
     }
   }
