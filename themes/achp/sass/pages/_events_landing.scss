@@ -137,7 +137,7 @@
     }
 
     @media (max-width: 900px) {
-      #block-eventcalendarpage-block .event_calendar {
+      #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature {
         .event_calendar_calendar {
           padding-right: 0;
           width: 100%;
@@ -156,18 +156,18 @@
     @media (max-width: $mobile-breakpoint) {
       #content_region {
         padding: 0;
-      }
-      
-      #block-eventslandingpageheader .header_container h2 {
-        font-size: 2rem;
-      }
-      #block-eventcalendarpage-block {
-        .event_calendar {
-          h3:not(.event_calendar_grid_card_title) {
-            text-align: center;
-          }
-          .event_calendar_grid {
-            padding: 0 50px;
+        
+        #block-eventslandingpageheader .header_container h2 {
+          font-size: 2rem;
+        }
+        #block-eventcalendarpage-block {
+          .event_calendar {
+            h3:not(.event_calendar_grid_card_title) {
+              text-align: center;
+            }
+            .event_calendar_feature .event_calendar_grid {
+              padding: 0 50px;
+            }
           }
         }
       }

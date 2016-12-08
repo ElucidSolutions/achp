@@ -35,9 +35,6 @@
     #event_item_container {
       font-family: $sans-text;
 
-      .autolabel {
-        display: none;
-      }
       .event_item_field {
         margin-bottom: 20px;
 
@@ -54,6 +51,9 @@
       }
       .event_description .body {
         font-family: $serif-text;
+      }
+      .event_attachments a {
+        color: $color-blue-primary;
       }
     }
   }
@@ -76,6 +76,24 @@
           &_print {
             display: none;
           }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+
+    #main #block-sharethispageblock .share_this_page {
+      padding-left: 0;
+
+      .share_this_page_buttons {
+        text-align: left;
+
+        &:before {
+          padding-right: calc(100% - 235px);
+        }
+        .share_this_page_button {
+          margin-left: 10px;
         }
       }
     }

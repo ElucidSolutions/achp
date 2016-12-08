@@ -1,0 +1,13 @@
+add_event_library:
+  # css:
+  #   theme:
+  #     css/add_event.css: {}
+  js:
+    js/add_event.js: {}
+    lib/moment.js: {}
+  dependencies:
+    - core/underscore
+    - core/jquery
+    - core/drupalSettings
+    - core/modernizr
+    - core/drupal

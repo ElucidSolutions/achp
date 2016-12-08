@@ -8,6 +8,7 @@ $event-grid-width: 100% - $event-calendar-width;
 $event-card-border-color: rgba(93,0,2,1);
 $event-card-height: 10 * 32px;
 $event-card-footer-height: 20px;
+$event-calendar-spacing: 20px;
 $event-card-footer-margin: 15px;
 
 .event_calendar {
@@ -17,22 +18,18 @@ $event-card-footer-margin: 15px;
   .event_calendar_calendar {
     display: inline-block;
     height: 420px;
-    padding: 0px 20px 0px 0px;
+    padding: 0px $event-calendar-spacing 0px 0px;
     vertical-align: top;
     width: $event-calendar-width;
 
     .clndr {
       padding: 5px;
     }
-    &_header {
-      height: 50px;
-
-      .event_calendar_calendar_title {
-        color: #FFFFFF;
-        font-size: rem(28);
-        font-weight: 300;      
-        margin-bottom: 5px;
-      }
+    &_header .event_calendar_calendar_title {
+      color: #fff;
+      font-size: rem(28);
+      font-weight: 300;      
+      margin-bottom: 5px; 
     }
     &_body {
       @extend .card;
@@ -60,7 +57,6 @@ $event-card-footer-margin: 15px;
             width: 80%;
           }
         }
-
         .clndr-previous-button, .clndr-next-button {
           @include center-y;
           background-position: center;
@@ -71,7 +67,6 @@ $event-card-footer-margin: 15px;
           width: 15%;
           z-index: 50;
         }
-
         .clndr-previous-button {
           background-image: url('../images/left-calendar-arrow.svg');
           left: 0;
@@ -82,8 +77,8 @@ $event-card-footer-margin: 15px;
         }
         
         .clndr-next-button {
-          right: 0;
           background-image: url('../images/right-calendar-arrow.svg');
+          right: 0;
 
           &:hover {
             background-image: url('../images/right-calendar-arrow-blue.svg');
@@ -92,9 +87,9 @@ $event-card-footer-margin: 15px;
       }
       .clndr-table {
         border: none;
-        width: 100%;
-        text-align: center;
         font-size: 0.75rem;
+        text-align: center;
+        width: 100%;
 
         thead {
           font-family: $serif-text;
@@ -108,9 +103,9 @@ $event-card-footer-margin: 15px;
               background-color: #fff;
 
               &:hover {
-                cursor: default;
                 background-color: #fff;
-                color: #c6c6c6;
+                color: $color-lightgrey;
+                cursor: default;
               }
             }
           }
@@ -138,15 +133,11 @@ $event-card-footer-margin: 15px;
     vertical-align: top;
     width: $event-grid-width;
 
-    &_header {
-      height: 50px;
-
-      .event_calendar_grid_title {
-        color: #FFFFFF;
-        font-size: rem(28);
-        font-weight: 300;      
-        margin: 0 0 5px 20px;
-      }
+    &_header .event_calendar_grid_title {
+      color: #FFFFFF;
+      font-size: rem(28);
+      font-weight: 300;      
+      margin: 0 0 5px $event-calendar-spacing;
     }
     &_body {
       text-align: left;
@@ -159,17 +150,19 @@ $event-card-footer-margin: 15px;
         font-family: $sans-text;
         text-align: left;
       }
+
+      $event-card-margin: 20px;
+      
       .event_calendar_grid_card {
         @extend .card;  
         background-color: #fff;
         display: inline-block;
-        margin: 0px 0px 20px 20px;
+        margin: 0px 0px $event-card-margin $event-card-margin;
         min-height: $event-card-height;
         overflow-wrap: break-word;
         padding: 10px 10px ($event-card-footer-height + $event-card-footer-margin) 10px;
         position: relative;
         vertical-align: top;
-        width: 260px;
 
         &_title {
           @include hover-transition-content($color-blue-primary);
@@ -229,15 +222,19 @@ $event-card-footer-margin: 15px;
   }
 }
 
+#block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+  $event-card-margin: 20px;
+  width: calc( (100% - #{$event-card-margin} * 2) / 2);
+}
+
 /* Mobile styles scoped to homepage calendar only, because
 the events landing page is different */
 @media (max-width: $max-content-width) {
-  /*border: 5px solid pink;*/
-  .event_calendar {
+  #block-eventcalendarblock .event_calendar {
     .event_calendar_calendar {
       width: 50%;
     }
-    .event_calendar_grid {
+    .event_calendar_feature .event_calendar_grid {
       padding: 0px 0px 0px 20px;
       width: 50%;
 
@@ -316,8 +313,8 @@ the events landing page is different */
 }
 
 @media (max-width: $mobile-breakpoint) {
-  .event_calendar_feature {
-    padding: 0px;
+  #block-eventcalendarblock .event_calendar .event_calendar_feature {
+    padding: 0px 20px;
 
     .event_calendar_calendar {
       display: none;

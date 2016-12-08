@@ -5,19 +5,30 @@ html {
   box-sizing: inherit; }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -39,37 +50,91 @@ $arrow-padding: 5px;*/
   This module provides styling for breadcrumbs
   created using the Easy Breadcrumb module.
 */
-.achp-breadcrumb {
+#block-breadcrumbs .mobile_breadcrumb {
+  display: none; }
+#block-breadcrumbs .achp-breadcrumb {
   font-family: "p22-underground", sans-serif;
   font-size: 0.875rem;
   text-transform: uppercase; }
-  .achp-breadcrumb ol {
+  #block-breadcrumbs .achp-breadcrumb ol {
     color: #4F4F4F;
     list-style-type: none;
     padding-left: 0; }
-    .achp-breadcrumb ol .breadcrumb_link {
+    #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link {
       display: inline;
       padding-left: 5px;
       position: relative; }
-      .achp-breadcrumb ol .breadcrumb_link a {
+      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link a {
         color: #4F4F4F;
         text-decoration: none;
         transition: color 0.25s; }
-      .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon {
+      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon {
         display: inline-block; }
-        .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='arrow'] {
+        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='arrow'] {
           padding: 0 20px; }
-        .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'] {
+        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'] {
           padding: 0 10px 0 0; }
-      .achp-breadcrumb ol .breadcrumb_link:hover a {
+      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link:hover a {
         color: #0990FE; }
-    .achp-breadcrumb ol .breadcrumb_page {
+    #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_page {
       color: #0990FE; }
-    .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
+    #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
       transition: fill 0.25s; }
-    .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
+    #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
       fill: #0990FE !important; }
 
+@media (max-width: 650px) {
+  #block-breadcrumbs {
+    height: 50px; }
+    #block-breadcrumbs .achp-breadcrumb {
+      display: none; }
+    #block-breadcrumbs .mobile_breadcrumb {
+      transition: color 0.25s;
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+      display: block;
+      font-family: "p22-underground", sans-serif;
+      font-size: 0.875rem;
+      padding-top: 3px;
+      text-transform: uppercase; }
+      #block-breadcrumbs .mobile_breadcrumb:hover {
+        color: #0990FE; }
+      #block-breadcrumbs .mobile_breadcrumb:after {
+        content: "";
+        background-image: url("../images/left-arrow-icon.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        padding-left: 15px;
+        right: 0;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translategY(-50%);
+        transform: translateY(-50%);
+        transition: background-image 0.25s; }
+      #block-breadcrumbs .mobile_breadcrumb:hover:after {
+        background-image: url("../images/left-arrow-icon-blue.svg"); }
+      #block-breadcrumbs .mobile_breadcrumb:after {
+        left: 0; }
+      #block-breadcrumbs .mobile_breadcrumb a {
+        color: #4F4F4F;
+        display: block;
+        padding-left: 30px;
+        text-decoration: none;
+        transition: color 0.25s;
+        width: 225px; }
+      #block-breadcrumbs .mobile_breadcrumb:hover a {
+        color: #0990FE; } }
 /*
   This module contains styles used by the Event
   Calendar feature.
@@ -84,13 +149,11 @@ $arrow-padding: 5px;*/
   width: 33.33333%; }
   .event_calendar .event_calendar_calendar .clndr {
     padding: 5px; }
-  .event_calendar .event_calendar_calendar_header {
-    height: 50px; }
-    .event_calendar .event_calendar_calendar_header .event_calendar_calendar_title {
-      color: #FFFFFF;
-      font-size: 1.75rem;
-      font-weight: 300;
-      margin-bottom: 5px; }
+  .event_calendar .event_calendar_calendar_header .event_calendar_calendar_title {
+    color: #fff;
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin-bottom: 5px; }
   .event_calendar .event_calendar_calendar_body {
     background-color: #fff;
     color: #7C7C7C;
@@ -140,15 +203,15 @@ $arrow-padding: 5px;*/
         .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-previous-button:hover {
           background-image: url("../images/left-calendar-arrow-blue.svg"); }
       .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button {
-        right: 0;
-        background-image: url("../images/right-calendar-arrow.svg"); }
+        background-image: url("../images/right-calendar-arrow.svg");
+        right: 0; }
         .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button:hover {
           background-image: url("../images/right-calendar-arrow-blue.svg"); }
     .event_calendar .event_calendar_calendar_body .clndr-table {
       border: none;
-      width: 100%;
+      font-size: 0.75rem;
       text-align: center;
-      font-size: 0.75rem; }
+      width: 100%; }
       .event_calendar .event_calendar_calendar_body .clndr-table thead {
         font-family: "minion-pro", serif;
         font-weight: bold; }
@@ -157,9 +220,9 @@ $arrow-padding: 5px;*/
         .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event {
           background-color: #fff; }
           .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event:hover {
-            cursor: default;
             background-color: #fff;
-            color: #c6c6c6; }
+            color: #C6C6C6;
+            cursor: default; }
       .event_calendar .event_calendar_calendar_body .clndr-table tbody .event {
         cursor: pointer;
         background-color: #E6F8FF; }
@@ -175,13 +238,11 @@ $arrow-padding: 5px;*/
   display: inline-block;
   vertical-align: top;
   width: 66.66667%; }
-  .event_calendar .event_calendar_grid_header {
-    height: 50px; }
-    .event_calendar .event_calendar_grid_header .event_calendar_grid_title {
-      color: #FFFFFF;
-      font-size: 1.75rem;
-      font-weight: 300;
-      margin: 0 0 5px 20px; }
+  .event_calendar .event_calendar_grid_header .event_calendar_grid_title {
+    color: #FFFFFF;
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin: 0 0 5px 20px; }
   .event_calendar .event_calendar_grid_body {
     text-align: left; }
     .event_calendar .event_calendar_grid_body .event_calendar_grid_message {
@@ -202,8 +263,7 @@ $arrow-padding: 5px;*/
       overflow-wrap: break-word;
       padding: 10px 10px 35px 10px;
       position: relative;
-      vertical-align: top;
-      width: 260px; }
+      vertical-align: top; }
       .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title {
         transition: color 0.25s;
         cursor: pointer;
@@ -243,18 +303,20 @@ $arrow-padding: 5px;*/
   margin-top: 20px;
   width: 100%; }
 
+#block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+  width: calc( (100% - 20px * 2) / 2); }
+
 /* Mobile styles scoped to homepage calendar only, because
 the events landing page is different */
 @media (max-width: 1024px) {
-  /*border: 5px solid pink;*/
-  .event_calendar .event_calendar_calendar {
+  #block-eventcalendarblock .event_calendar .event_calendar_calendar {
     width: 50%; }
-  .event_calendar .event_calendar_grid {
+  #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid {
     padding: 0px 0px 0px 20px;
     width: 50%; }
-    .event_calendar .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
+    #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header .event_calendar_grid_title {
       margin: 0; }
-    .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+    #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
       border: none;
       height: 75px;
       margin: 0 0 15px;
@@ -262,13 +324,13 @@ the events landing page is different */
       min-height: 75px;
       padding: 0;
       width: 100%; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_header {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_header {
         background-color: #fff;
         border-bottom: 1px solid #5d0002;
         height: 75px;
         margin-left: 60px;
         position: relative; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title {
         transition: color 0.25s;
         position: absolute;
         top: 50%;
@@ -280,9 +342,9 @@ the events landing page is different */
         cursor: pointer;
         font-size: .9rem;
         width: 95%; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover {
           color: #0990FE; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
           content: "";
           background-image: url("../images/right-arrow-icon.svg");
           background-repeat: no-repeat;
@@ -300,17 +362,17 @@ the events landing page is different */
           -o-transform: translategY(-50%);
           transform: translateY(-50%);
           transition: background-image 0.25s; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
           background-image: url("../images/right-arrow-icon-blue.svg"); }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
           width: 40px; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title a {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title a {
           display: block;
           padding: 25px 25px 25px 15px;
           width: 100%; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_date, .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_location, .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_footer {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_date, #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_location, #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_footer {
         display: none; }
-      .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
         background-color: #950306;
         border-bottom: solid 1px #5d0002;
         color: #fff;
@@ -323,43 +385,54 @@ the events landing page is different */
         text-align: center;
         top: 0;
         width: 60px; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_month {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_month {
           font-size: 1.125rem;
           text-transform: uppercase; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
           font-size: 2.125rem; }
-        .event_calendar .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
+        #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_mobile_date_day {
           font-size: 2rem;
           font-weight: 300; } }
 @media (max-width: 650px) {
-  .event_calendar_feature {
-    padding: 0px; }
-    .event_calendar_feature .event_calendar_calendar {
+  #block-eventcalendarblock .event_calendar .event_calendar_feature {
+    padding: 0px 20px; }
+    #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_calendar {
       display: none; }
-      .event_calendar_feature .event_calendar_calendar_header .event_calendar_calendar_title {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_calendar_header .event_calendar_calendar_title {
         font-size: 1.125rem;
         margin-left: 20px; }
-    .event_calendar_feature .event_calendar_grid {
+    #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid {
       padding: 0px;
       width: 100%; }
-      .event_calendar_feature .event_calendar_grid .event_calendar_grid_header {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header {
         display: none; }
-      .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
         font-size: 1rem; } }
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -447,19 +520,30 @@ $arrow-padding: 5px;*/
             background-image: url("../images/right-arrow-icon-blue.svg"); } }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -525,19 +609,30 @@ $arrow-padding: 5px;*/
         height: 370px; } }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -1059,19 +1154,30 @@ $arrow-padding: 5px;*/
         padding-right: 40px; }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -1429,23 +1535,58 @@ $arrow-padding: 5px;*/
     text-transform: uppercase; }
 
 /*
+  Styles for Add Event block module
+*/
+#page[data-page-node-type="event"] .add_event_link {
+  background-image: url("../images/add-calendar-icon.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: block;
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0 0 40px;
+  transition: background-image 0.25s; }
+  #page[data-page-node-type="event"] .add_event_link:hover {
+    background-image: url("../images/add-calendar-icon-lightblue.svg"); }
+    #page[data-page-node-type="event"] .add_event_link:hover:after {
+      color: #71BFFE; }
+  #page[data-page-node-type="event"] .add_event_link:after {
+    color: #0990FE;
+    content: "ADD TO YOUR CALENDAR";
+    margin-left: 30px;
+    transition: color 0.25s;
+    vertical-align: sub; }
+
+/*
   This module contains styles for the page
   footer element.
 */
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -1458,7 +1599,6 @@ $arrow-padding: 5px;*/
   font-size: 0.875rem;
   font-family: "p22-underground", sans-serif;
   letter-spacing: 0.02rem;
-  /*max-width: 100%;*/
   padding: 40px;
   width: 100%; }
   #footer h1, #footer #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer p {
@@ -1565,137 +1705,145 @@ $arrow-padding: 5px;*/
     #footer .content_wrapper #footer_right:last-child {
       margin-right: 0; } }
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
 /* px-to-rem mixin */
 /* Maps for type changes*/
 header {
-  background-color: #043B62;
-  overflow: hidden;
-  height: 100px;
-  width: 100%;
   max-width: 100%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  background-color: #043B62;
+  height: 100px;
+  overflow: hidden;
+  width: 100%; }
   header::after {
     clear: both;
     content: "";
     display: table; }
   header #header-container {
+    height: 100px;
+    margin: 0 auto;
     max-width: 1024px;
-    height: 100px; }
-    @media (min-width: 1100px) {
-      header #header-container {
-        margin: 0 auto; } }
-    @media (max-width: 1099px) {
-      header #header-container {
-        margin: 0 50px; } }
-    @media (max-width: 500px) {
-      header #header-container {
-        margin: 0 auto;
-        width: 289px; } }
+    /*    @media (min-width: 1100px) {
+          margin: 0 auto;
+        }
+        @media (max-width: 1099px) {
+          margin: 0 50px;
+        }
+        @media (maxw-reidth: 500px) { 
+          margin: 0 auto;
+          width: $header-title-small-width + $header-logo-small-width;
+        }*/ }
   header #header_region {
-    display: inline-block;
     max-width: 100%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: inline-block; }
     header #header_region::after {
       clear: both;
       content: "";
       display: table; }
-  header #header_left_container, header #header_right_container {
-    max-height: 100px; }
-  header #block-headerbranding, header #block-headerbranding3 {
+  header #header_left_container, header #header_right_container, header #block-headerbranding, header #block-headerbranding3 {
     max-height: 100px; }
   header #header_branding_logo img {
-    height: 100px;
-    border: none; }
+    border: none;
+    height: 100px; }
   header #header_branding_title {
-    font-size: 2rem;
+    color: #fff;
     display: inline-block;
-    max-width: 400px;
-    text-align: left;
+    font-size: 2rem;
+    font-weight: 100;
+    line-height: 1.25;
     padding: 10px;
     padding-left: 40px;
-    line-height: 1.25;
-    color: #fff;
-    font-weight: 100;
-    text-shadow: none;
-    text-decoration: none; }
+    max-width: 400px;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: none; }
     header #header_branding_title a {
       color: #fff;
       text-decoration: none; }
   header #block-headercontactlinks {
     color: white;
+    float: right;
     font-weight: 300;
-    padding: 15px 0 5px;
-    float: right; }
+    padding: 15px 0 5px; }
     header #block-headercontactlinks a {
+      transition: color 0.25s;
       color: white;
       font-family: "p22-underground", sans-serif;
       font-size: 0.875rem;
-      text-decoration: none;
-      transition: color 0.25s; }
+      text-decoration: none; }
       header #block-headercontactlinks a:hover {
-        color: #71bffe; }
+        color: #71BFFE; }
     header #block-headercontactlinks .text_links a {
-      padding: 5px 15px;
-      border-right: 1px solid rgba(9, 144, 254, 0.6); }
+      border-right: 1px solid rgba(9, 144, 254, 0.6);
+      padding: 5px 15px; }
     header #block-headercontactlinks .social_icons {
-      vertical-align: sub;
-      margin-left: 15px; }
+      margin-left: 15px;
+      vertical-align: sub; }
       header #block-headercontactlinks .social_icons .social_media {
-        padding-right: 10px;
-        transition: color 0.25s; }
+        transition: color 0.25s;
+        padding-right: 10px; }
         header #block-headercontactlinks .social_icons .social_media:hover {
-          color: #71bffe; }
+          color: #71BFFE; }
         header #block-headercontactlinks .social_icons .social_media:last-of-type {
           padding-right: 0; }
     header #block-headercontactlinks img {
       vertical-align: text-bottom; }
   header #block-headertextdropdown, header #block-headertextdropdown-3 {
     color: white;
-    font-weight: 300;
     font-family: "p22-underground", sans-serif;
     font-size: 0.875rem;
+    font-weight: 300;
     height: 30px; }
     header #block-headertextdropdown .header_dropdown_text, header #block-headertextdropdown-3 .header_dropdown_text {
       vertical-align: text-top; }
     header #block-headertextdropdown select.header_dropdown_menu, header #block-headertextdropdown-3 select.header_dropdown_menu {
-      font-family: "p22-underground", sans-serif;
       border: 1px solid #979797;
-      font-size: 0.75rem;
       border-radius: 2px;
+      color: #C6C6C6;
+      font-family: "p22-underground", sans-serif;
+      font-size: 0.75rem;
       height: 100%;
       line-height: 1.25;
+      margin: 1px 10px 0;
       outline: none;
-      padding: 7px;
-      width: 50%;
-      margin: 0 10px;
-      color: #C6C6C6;
-      margin-top: 1px;
-      padding: 6px 7px; }
+      padding: 6px 7px;
+      width: 50%; }
       header #block-headertextdropdown select.header_dropdown_menu option, header #block-headertextdropdown-3 select.header_dropdown_menu option {
         font-family: "p22-underground", sans-serif; }
         header #block-headertextdropdown select.header_dropdown_menu option.selection, header #block-headertextdropdown-3 select.header_dropdown_menu option.selection {
           color: #000; }
   header #header_widescreen_search_bar {
-    height: 30px;
-    float: right; }
+    float: right;
+    height: 30px; }
     header #header_widescreen_search_bar #block-achp-search {
       height: auto; }
       header #header_widescreen_search_bar #block-achp-search .form-item {
@@ -1703,8 +1851,8 @@ header {
         width: 90%; }
         header #header_widescreen_search_bar #block-achp-search .form-item input.form-search {
           border: 1px solid #979797;
-          font-size: 0.75rem;
           border-radius: 2px;
+          font-size: 0.75rem;
           height: 100%;
           line-height: 1.25;
           outline: none;
@@ -1717,24 +1865,26 @@ header {
         margin: 0;
         width: 11%; }
         header #header_widescreen_search_bar #block-achp-search .form-actions input.form-submit {
+          transition: background-color 0.25s;
+          background-color: #0990FE;
+          background-image: url("../images/search-icon.svg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 63%;
           border: none;
           border-radius: 0 2px 2px 0;
-          height: 100%;
-          width: 100%;
-          position: relative;
           bottom: 30px;
-          background-image: url("../images/search-icon.svg");
-          background-repeat: no-repeat;
-          background-color: #0990FE;
           color: transparent;
-          background-position: center;
-          background-size: 63%;
           cursor: pointer;
-          transition: background-color 0.25s; }
+          height: 100%;
+          position: relative;
+          width: 100%; }
           header #header_widescreen_search_bar #block-achp-search .form-actions input.form-submit:hover {
-            background-color: #71bffe; }
+            background-color: #71BFFE; }
 
 @media (min-width: 1150px) {
+  header #header-container {
+    margin: 0 auto; }
   header #header_region {
     float: left;
     display: block;
@@ -1769,22 +1919,17 @@ header {
   header {
     height: 75px; }
     header #header-container {
-      height: 75px; }
+      height: 75px;
+      margin: 0 50px; }
     header #header_left {
       margin: 0 auto;
-      width: 348px;
-      position: relative; }
+      position: relative;
+      width: 348px; }
     header #header_branding_logo {
       float: left; }
       header #header_branding_logo img {
         height: 75px; }
     header #header_branding_title {
-      text-align: center;
-      float: left;
-      padding: 0;
-      font-size: 1.625rem;
-      width: 300px;
-      right: 0;
       position: absolute;
       top: 50%;
       -webkit-transform: translateY(-50%);
@@ -1792,32 +1937,49 @@ header {
       -ms-transform: translateY(-50%);
       -o-transform: translategY(-50%);
       transform: translateY(-50%);
-      top: 37.5px; }
+      float: left;
+      font-size: 1.625rem;
+      padding: 0;
+      right: 0;
+      text-align: center;
+      top: 37.5px;
+      width: 300px; }
     header #block-headercontactlinks {
       display: none; } }
 @media (max-width: 500px) {
   header #header_left {
     margin: 0 auto;
+    position: relative;
     text-align: center;
-    width: 273px;
-    position: relative; }
+    width: 273px; }
   header #header_branding_title {
     font-size: 1.25rem;
     width: 225px; } }
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -1828,12 +1990,7 @@ $arrow-padding: 5px;*/
   #outer_container #main-wrapper {
     max-width: 100%;
     margin-left: auto;
-    margin-right: auto;
-    /*    footer {
-          background-color: #fff;
-          height: auto;
-          margin-bottom: 20px;
-        }*/ }
+    margin-right: auto; }
     #outer_container #main-wrapper::after {
       clear: both;
       content: "";
@@ -1842,14 +1999,11 @@ $arrow-padding: 5px;*/
       padding: 20px 0 0;
       margin: 0 auto; }
       #outer_container #main-wrapper #content_region #block-achp-page-title h1 {
-        font-size: 1.25rem;
+        font-size: 1.625rem;
         line-height: 1;
         text-shadow: none;
         text-align: left; }
         @media screen and (min-width: 650px) {
-          #outer_container #main-wrapper #content_region #block-achp-page-title h1 {
-            font-size: 2rem; } }
-        @media screen and (min-width: 925px) {
           #outer_container #main-wrapper #content_region #block-achp-page-title h1 {
             font-size: 2.25rem; } }
       #outer_container #main-wrapper #content_region #block-achp-local-tasks ul {
@@ -1866,23 +2020,13 @@ $arrow-padding: 5px;*/
   This module contains styles used within the
   Homepage Hero region.
 */
-h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-page-title h1.heading_subtitle {
-  font-size: 1.25rem;
-  font-weight: 300; }
-  @media screen and (min-width: 650px) {
-    h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-page-title h1.heading_subtitle {
-      font-size: 2rem; } }
-  @media screen and (min-width: 925px) {
-    h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-page-title h1.heading_subtitle {
-      font-size: 2.25rem; } }
-
 #homepage_hero_region {
-  padding: 25px 50px;
-  height: 500px;
-  position: relative;
   background-image: url("../images/columns-banner-bg.png");
+  background-position: center;
   background-size: cover;
-  background-position: center; }
+  height: 500px;
+  padding: 25px 50px;
+  position: relative; }
   #homepage_hero_region #homepage_hero_content {
     position: absolute;
     top: 50%;
@@ -1893,12 +2037,28 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
     -o-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     color: #FFFFFF;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-    width: 100%;
     max-width: 1024px;
-    padding: 0 42px; }
+    padding: 0 42px;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    width: 100%; }
     #homepage_hero_region #homepage_hero_content h1, #homepage_hero_region #homepage_hero_content #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #homepage_hero_region #homepage_hero_content h1 {
+      font-size: 1.25rem;
       text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
+      @media screen and (min-width: 650px) {
+        #homepage_hero_region #homepage_hero_content h1, #homepage_hero_region #homepage_hero_content #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #homepage_hero_region #homepage_hero_content h1 {
+          font-size: 2rem; } }
+      @media screen and (min-width: 925px) {
+        #homepage_hero_region #homepage_hero_content h1, #homepage_hero_region #homepage_hero_content #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #homepage_hero_region #homepage_hero_content h1 {
+          font-size: 2.5rem; } }
+      #homepage_hero_region #homepage_hero_content h1.heading_subtitle, #homepage_hero_region #homepage_hero_content #outer_container #main-wrapper #content_region #block-achp-page-title h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-page-title #homepage_hero_region #homepage_hero_content h1.heading_subtitle {
+        font-size: 1.25rem;
+        font-weight: 300; }
+        @media screen and (min-width: 650px) {
+          #homepage_hero_region #homepage_hero_content h1.heading_subtitle, #homepage_hero_region #homepage_hero_content #outer_container #main-wrapper #content_region #block-achp-page-title h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-page-title #homepage_hero_region #homepage_hero_content h1.heading_subtitle {
+            font-size: 2rem; } }
+        @media screen and (min-width: 925px) {
+          #homepage_hero_region #homepage_hero_content h1.heading_subtitle, #homepage_hero_region #homepage_hero_content #outer_container #main-wrapper #content_region #block-achp-page-title h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-page-title #homepage_hero_region #homepage_hero_content h1.heading_subtitle {
+            font-size: 2.25rem; } }
     #homepage_hero_region #homepage_hero_content hr {
       color: #FFFFFF;
       background-color: #FFFFFF;
@@ -1915,35 +2075,26 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
         #homepage_hero_region #homepage_hero_content p {
           font-size: 1.375rem; } }
     #homepage_hero_region #homepage_hero_content button {
-      margin-top: 40px;
-      margin-bottom: 0;
-      font-size: 0.75rem; }
-      @media screen and (min-width: 650px) {
-        #homepage_hero_region #homepage_hero_content button {
-          font-size: 16px; } }
-      @media (max-width: 925px) {
-        #homepage_hero_region #homepage_hero_content button {
-          font-size: 0.875rem;
-          margin-top: 20px; } }
+      margin: 40px auto 0; }
+    @media (max-width: 925px) {
+      #homepage_hero_region #homepage_hero_content {
+        margin-top: 20px; } }
 
 /*
   This module contains styles used in the Quick
   Links region.
 */
 #homepage_quicklinks_region {
-  padding: 25px 50px;
-  height: auto;
   background-color: #F4F4F4;
-  overflow-y: visible; }
+  height: auto;
+  overflow-y: visible;
+  padding: 25px 50px; }
   @media (max-width: 700px) {
     #homepage_quicklinks_region {
       height: auto;
       padding: 25px 0; }
       #homepage_quicklinks_region #block-quicklinks {
         margin-bottom: 5px; } }
-  @media (max-width: 384px) {
-    #homepage_quicklinks_region {
-      /*padding: 25px 10px;*/ } }
 
 /*
   This module contains styles used by the
@@ -1984,17 +2135,17 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
   Homepage Flowchart region.
 */
 #homepage_flowchart_region {
+  background-color: #E8F8FF;
   padding: 25px 0px 0px 0px;
-  width: 100%;
-  background-color: #E8F8FF; }
+  width: 100%; }
 
 /*
   This module contains styles used in the
   Homepage Map region.
 */
 #homepage_map_region {
-  padding: 25px 0px 0px 0px;
-  background-color: #043B62; }
+  background-color: #043B62;
+  padding: 25px 0px 0px 0px; }
   #homepage_map_region h2 {
     color: #FFFFFF; }
   #homepage_map_region hr {
@@ -2008,9 +2159,9 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
   Homepage Success region.
 */
 #homepage_success_region {
-  padding: 25px 50px;
+  background-color: #F4F4F4;
   height: auto;
-  background-color: #F4F4F4; }
+  padding: 25px 50px; }
   #homepage_success_region p {
     margin-bottom: 0; }
   #homepage_success_region button {
@@ -2028,18 +2179,19 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
   Issues region.
 */
 #homepage_issues_region {
-  padding: 25px 0px 0px 0px;
   height: auto;
-  background-color: #E8F8FF; }
+  background-color: #E8F8FF;
+  height: auto;
+  padding: 25px 0px 0px 0px; }
 
 /*
   This module contains styles used in the
   Homepage Impact region.
 */
 #homepage_impact_region {
-  padding: 25px 50px;
+  background-color: #fff;
   margin: 0 auto;
-  background-color: #fff; }
+  padding: 25px 50px; }
   #homepage_impact_region #block-ourimpact {
     margin: 0 auto; }
   #homepage_impact_region .impact_item {
@@ -2047,59 +2199,58 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
     display: block;
     margin-right: 0%;
     width: 33.33333%;
-    height: 300px;
-    text-align: center;
     box-sizing: border-box;
+    height: 300px;
+    margin-bottom: 15px;
     padding: 25px;
-    margin-bottom: 15px; }
+    text-align: center; }
     #homepage_impact_region .impact_item:last-child {
       margin-right: 0; }
     #homepage_impact_region .impact_item img {
       height: 120px; }
     #homepage_impact_region .impact_item .impact_number {
+      font-size: 1.25rem;
       color: #309AEE;
       font-family: "p22-underground", sans-serif;
-      font-size: 1.25rem;
-      margin-top: 20px;
-      font-weight: 500; }
+      font-weight: 500;
+      margin-top: 20px; }
       @media screen and (min-width: 650px) {
         #homepage_impact_region .impact_item .impact_number {
           font-size: 1.625rem; } }
     #homepage_impact_region .impact_item p {
       color: #4F4F4F;
       margin: 5px 0 25px; }
+  #homepage_impact_region button {
+    clear: both; }
   @media (max-width: 750px) {
     #homepage_impact_region #block-ourimpact {
       margin-bottom: 25px; }
     #homepage_impact_region .impact_item {
-      margin-bottom: 25px;
-      height: auto;
-      padding: 0;
       float: left;
       display: block;
       margin-right: 0%;
-      width: 100%; }
+      width: 100%;
+      height: auto;
+      margin-bottom: 25px;
+      padding: 0; }
       #homepage_impact_region .impact_item:last-child {
         margin-right: 0; }
       #homepage_impact_region .impact_item_1 {
         margin-left: 0; }
       #homepage_impact_region .impact_item_3 {
         margin-bottom: 25px; }
-      #homepage_impact_region .impact_item .impact_number,
-      #homepage_impact_region .impact_item p {
+      #homepage_impact_region .impact_item .impact_number, #homepage_impact_region .impact_item p {
         margin: 0; }
       #homepage_impact_region .impact_item img {
         height: 60px; } }
-  #homepage_impact_region button {
-    clear: both; }
 
 /*
   This module contains styles used in the
   Homepage Preserve America region.
 */
 #homepage_preserveamerica_region {
-  padding: 25px 50px;
-  background-color: #F4F4F4; }
+  background-color: #F4F4F4;
+  padding: 25px 50px; }
   #homepage_preserveamerica_region hr {
     width: 100px; }
 
@@ -2155,7 +2306,8 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
             position: absolute;
             vertical-align: top; }
             .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right a:first-child {
-              color: #043b62;
+              /*color: rgba(4, 59, 98, 1);*/
+              color: #043B62;
               display: block;
               font-family: "p22-underground", sans-serif;
               font-size: 1.25rem;
@@ -2163,7 +2315,7 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
               position: relative;
               text-decoration: none; }
             .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right p {
-              color: #1e1e1e;
+              color: #1E1E1E;
               font-family: "minion-pro", serif;
               font-size: 1rem;
               line-height: 1.4rem;
@@ -2173,19 +2325,19 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
             .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link {
               display: inline-block; }
               .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a {
+                transition: color 0.25s;
                 color: #4F4F4F;
                 font-family: "p22-underground", sans-serif;
                 font-size: 0.875rem;
                 font-weight: 500;
                 line-height: 1.2rem;
+                padding-top: 3px;
                 position: absolute;
                 text-decoration: none;
-                text-transform: uppercase;
-                transition: color 0.25s; }
+                text-transform: uppercase; }
                 .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:hover {
                   color: #0990FE; }
                 .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-link a:after {
-                  position: absolute;
                   position: absolute;
                   top: 50%;
                   -webkit-transform: translateY(-50%);
@@ -2211,8 +2363,8 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
 
 @media (max-width: 900px) {
   .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
-    margin: 0 auto;
-    display: block; }
+    display: block;
+    margin: 0 auto; }
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body {
       display: none; }
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right .community-spotlight-body-mobile {
@@ -2224,8 +2376,8 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
     display: block;
     margin: 0 auto; }
   .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item {
-    width: 300px;
-    margin-top: 10px; }
+    margin-top: 10px;
+    width: 300px; }
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item .community-spotlight-item-content-right {
       position: static;
       text-align: center; }
@@ -2242,8 +2394,7 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
           -moz-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
           -o-transform: translategY(-50%);
-          transform: translateY(-50%);
-          /*left: 100%;*/ }
+          transform: translateY(-50%); }
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
       height: 250px;
       width: 250px; } }
@@ -2252,19 +2403,30 @@ h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-
   Library page.
 */
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -2292,20 +2454,37 @@ $arrow-padding: 5px;*/
   This module contains styles used by the
   Homepage.
 */
+.header_container {
+  display: inline-block;
+  width: auto; }
+  .header_container hr {
+    width: 60%; }
+
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -2792,19 +2971,30 @@ $arrow-padding: 5px;*/
       #news_landing_page #content .news-landing-container .news-item ul li a {
         margin: 0; } }
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -3115,19 +3305,30 @@ $arrow-padding: 5px;*/
     border-top: 1px solid #d0efd7; }
 
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -3247,40 +3448,51 @@ $arrow-padding: 5px;*/
       #events_landing_page #content #content_region #block-achp-content {
         display: none; }
     @media (max-width: 900px) {
-      #events_landing_page #content #block-eventcalendarpage-block .event_calendar .event_calendar_calendar {
+      #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_calendar {
         padding-right: 0;
         width: 100%; }
-      #events_landing_page #content #block-eventcalendarpage-block .event_calendar .event_calendar_grid {
+      #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid {
         padding-left: 0;
         width: 100%; }
-        #events_landing_page #content #block-eventcalendarpage-block .event_calendar .event_calendar_grid_title, #events_landing_page #content #block-eventcalendarpage-block .event_calendar .event_calendar_grid_card {
+        #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid_title, #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid_card {
           margin-left: 0; } }
     @media (max-width: 650px) {
       #events_landing_page #content #content_region {
         padding: 0; }
-      #events_landing_page #content #block-eventslandingpageheader .header_container h2 {
-        font-size: 2rem; }
-      #events_landing_page #content #block-eventcalendarpage-block .event_calendar h3:not(.event_calendar_grid_card_title) {
-        text-align: center; }
-      #events_landing_page #content #block-eventcalendarpage-block .event_calendar .event_calendar_grid {
-        padding: 0 50px; } }
+        #events_landing_page #content #content_region #block-eventslandingpageheader .header_container h2 {
+          font-size: 2rem; }
+        #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar h3:not(.event_calendar_grid_card_title) {
+          text-align: center; }
+        #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid {
+          padding: 0 50px; } }
 
 /*
 */
 /* Global variables: widths, heights, & breakpoints */
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 /* Global variables: text */
 /* Global variables: colors */
+/* Colors in Styleguide */
+/* navy blue */
+/* primary blue */
+/* light blue */
+/* deep red */
+/* red */
+/* pink */
+/* dark gray */
+/* gray */
+/* light gray */
+/* lightest gray */
+/* Colors not in Styleguide */
 /* Variables for homepage cards */
-/* Grid variables */
+/* Bourbon Grid variables */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as right after-elements */
+/* Mixin for attaching icons as after-elements */
+/* Mixin for attaching icons as after-elements, without hover effects */
 /* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
@@ -3305,8 +3517,6 @@ $arrow-padding: 5px;*/
       vertical-align: super; }
   #page[data-page-node-type="event"] #main #event_item_container {
     font-family: "p22-underground", sans-serif; }
-    #page[data-page-node-type="event"] #main #event_item_container .autolabel {
-      display: none; }
     #page[data-page-node-type="event"] #main #event_item_container .event_item_field {
       margin-bottom: 20px; }
       #page[data-page-node-type="event"] #main #event_item_container .event_item_field_label {
@@ -3318,6 +3528,8 @@ $arrow-padding: 5px;*/
         margin: 0; }
     #page[data-page-node-type="event"] #main #event_item_container .event_description .body {
       font-family: "minion-pro", serif; }
+    #page[data-page-node-type="event"] #main #event_item_container .event_attachments a {
+      color: #0990FE; }
 @media (min-width: 1150px) {
   #page[data-page-node-type="event"] #main-wrapper {
     box-shadow: inset 0 3px 5px -3px #4F4F4F; } }
@@ -3329,6 +3541,15 @@ $arrow-padding: 5px;*/
       margin-left: 15px; }
       #page[data-page-node-type="event"] #main #block-sharethispageblock .share_this_page_button_print {
         display: none; } }
+@media (max-width: 400px) {
+  #page[data-page-node-type="event"] #main #block-sharethispageblock .share_this_page {
+    padding-left: 0; }
+    #page[data-page-node-type="event"] #main #block-sharethispageblock .share_this_page .share_this_page_buttons {
+      text-align: left; }
+      #page[data-page-node-type="event"] #main #block-sharethispageblock .share_this_page .share_this_page_buttons:before {
+        padding-right: calc(100% - 235px); }
+      #page[data-page-node-type="event"] #main #block-sharethispageblock .share_this_page .share_this_page_buttons .share_this_page_button {
+        margin-left: 10px; } }
 
 html,
 body {
@@ -3346,39 +3567,27 @@ h1, #outer_container #main-wrapper #content_region #block-achp-page-title h1, h2
   font-weight: normal; }
 
 h1, #outer_container #main-wrapper #content_region #block-achp-page-title h1 {
-  font-size: 1.25rem;
+  font-size: 1.625rem;
   font-weight: 500; }
   @media screen and (min-width: 650px) {
     h1, #outer_container #main-wrapper #content_region #block-achp-page-title h1 {
-      font-size: 2rem; } }
-  @media screen and (min-width: 925px) {
-    h1, #outer_container #main-wrapper #content_region #block-achp-page-title h1 {
-      font-size: 2.5rem; } }
-  h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-page-title h1.heading_subtitle {
-    font-size: 1.25rem;
-    font-weight: 300; }
-    @media screen and (min-width: 650px) {
-      h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-page-title h1.heading_subtitle {
-        font-size: 2rem; } }
-    @media screen and (min-width: 925px) {
-      h1.heading_subtitle, #outer_container #main-wrapper #content_region #block-achp-page-title h1.heading_subtitle {
-        font-size: 2.25rem; } }
+      font-size: 2.25rem; } }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   color: #043B62; }
   @media screen and (min-width: 650px) {
     h2 {
       font-size: 2rem; } }
 
 h3 {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: #043B62;
   text-align: left;
   font-weight: 500; }
   @media screen and (min-width: 650px) {
     h3 {
-      font-size: 1.25rem; } }
+      font-size: 1.75rem; } }
   h3 a {
     color: inherit;
     text-decoration: none; }
@@ -3403,16 +3612,16 @@ button {
   font-size: 0.75rem;
   transition: background-color 0.25s;
   background-color: #0990FE;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
   border: none;
   border-radius: 2px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
   color: #FFFFFF;
   cursor: pointer;
   display: block;
   font-family: "p22-underground", sans-serif;
   letter-spacing: 0.02rem;
   line-height: 1.4rem;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 30px;
   padding: 12px 53px 8px;
   text-transform: uppercase; }
   @media screen and (min-width: 650px) {
@@ -3435,18 +3644,21 @@ button {
   position: relative;
   text-align: center; }
 
-.header_container {
-  display: inline-block;
-  width: auto; }
-  .header_container hr {
-    width: 60%; }
-
+/*.header_container {
+  display: inline-block;  
+  width: auto;
+  hr {
+    width: 60%;
+  }
+}*/
 .card, .event_calendar .event_calendar_calendar_body, .event_calendar .event_calendar_grid_body .event_calendar_grid_card, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container {
   border-top: 6px solid #950306;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
   box-sizing: border-box;
   font-family: "p22-underground", sans-serif;
   text-align: left; }
+  .card h3, .event_calendar .event_calendar_calendar_body h3, .event_calendar .event_calendar_grid_body .event_calendar_grid_card h3, #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container h3 {
+    font-size: 1.25rem; }
 
 .card_date, .event_calendar .event_calendar_grid_body .event_calendar_grid_card_date, #homepage_news_content #block-views-block-latest-news-block .homepage_news_item .news_item_date {
   color: #C6C6C6;

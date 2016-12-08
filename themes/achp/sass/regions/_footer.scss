@@ -6,6 +6,7 @@
 @import "../bourbon/bourbon";
 
 $footer-padding: 40px;
+
 #footer {
   background-color: $color-darkblue;
   color: white;
@@ -13,11 +14,10 @@ $footer-padding: 40px;
   font-size: rem(14);
   font-family: $sans-text;
   letter-spacing: 0.02rem;
-  /*max-width: 100%;*/
   padding: $footer-padding;
   width: 100%;
 
-  h1, h2, h3, h4, h5, p{
+  h1, h2, h3, h4, h5, p {
     color: white;
     text-align: left;
     text-transform: uppercase;

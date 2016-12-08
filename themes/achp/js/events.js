@@ -10,6 +10,7 @@
     reformatEventItemDates ();
   
   })
+
   /*
     Accepts no arguments, appends an event's reformatted dates, 
     and returns undefined.
