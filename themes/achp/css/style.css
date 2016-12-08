@@ -139,6 +139,7 @@ html {
   This module contains styles used by the Event
   Calendar feature.
 */
+/*$event-card-height: 10 * 32px;*/
 .event_calendar .event_calendar_feature {
   padding: 0 40px; }
 .event_calendar .event_calendar_calendar {
@@ -224,14 +225,14 @@ html {
             color: #C6C6C6;
             cursor: default; }
       .event_calendar .event_calendar_calendar_body .clndr-table tbody .event {
-        cursor: pointer;
-        background-color: #E6F8FF; }
+        background-color: #E6F8FF;
+        cursor: pointer; }
       .event_calendar .event_calendar_calendar_body .clndr-table tbody .today {
-        color: #fff;
-        background-color: #003A53; }
+        background-color: #003A53;
+        color: #fff; }
       .event_calendar .event_calendar_calendar_body .clndr-table tbody .event:hover {
-        color: #fff;
-        background-color: #0990FE; }
+        background-color: #0990FE;
+        color: #fff; }
       .event_calendar .event_calendar_calendar_body .clndr-table .day, .event_calendar .event_calendar_calendar_body .clndr-table .header-day {
         line-height: 3.5; }
 .event_calendar .event_calendar_grid {
@@ -246,8 +247,8 @@ html {
   .event_calendar .event_calendar_grid_body {
     text-align: left; }
     .event_calendar .event_calendar_grid_body .event_calendar_grid_message {
-      color: #fff;
       font-size: 0.75rem;
+      color: #fff;
       margin-left: 20px;
       font-style: italic;
       font-family: "p22-underground", sans-serif;
@@ -259,7 +260,7 @@ html {
       background-color: #fff;
       display: inline-block;
       margin: 0px 0px 20px 20px;
-      min-height: 320px;
+      min-height: 250px;
       overflow-wrap: break-word;
       padding: 10px 10px 35px 10px;
       position: relative;
@@ -2166,6 +2167,8 @@ header {
     margin-bottom: 0; }
   #homepage_success_region button {
     clear: both; }
+  #homepage_success_region .success-story.card .success_story_body p, #homepage_success_region .event_calendar .success-story.event_calendar_calendar_body .success_story_body p, .event_calendar #homepage_success_region .success-story.event_calendar_calendar_body .success_story_body p, #homepage_success_region .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body #homepage_success_region .success-story.event_calendar_grid_card .success_story_body p, #homepage_success_region #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_region .success-story.views-element-container .success_story_body p {
+    font-size: 0.875rem; }
   @media (max-width: 384px) {
     #homepage_success_region {
       padding: 25px 10px; }
