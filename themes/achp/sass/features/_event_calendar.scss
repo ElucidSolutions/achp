@@ -26,7 +26,7 @@ $event-card-footer-margin: 15px;
       padding: 5px;
     }
     &_header .event_calendar_calendar_title {
-      color: #FFFFFF;
+      color: #fff;
       font-size: rem(28);
       font-weight: 300;      
       margin-bottom: 5px; 
@@ -57,7 +57,6 @@ $event-card-footer-margin: 15px;
             width: 80%;
           }
         }
-
         .clndr-previous-button, .clndr-next-button {
           @include center-y;
           background-position: center;
@@ -68,7 +67,6 @@ $event-card-footer-margin: 15px;
           width: 15%;
           z-index: 50;
         }
-
         .clndr-previous-button {
           background-image: url('../images/left-calendar-arrow.svg');
           left: 0;
@@ -79,8 +77,8 @@ $event-card-footer-margin: 15px;
         }
         
         .clndr-next-button {
-          right: 0;
           background-image: url('../images/right-calendar-arrow.svg');
+          right: 0;
 
           &:hover {
             background-image: url('../images/right-calendar-arrow-blue.svg');
@@ -89,9 +87,9 @@ $event-card-footer-margin: 15px;
       }
       .clndr-table {
         border: none;
-        width: 100%;
-        text-align: center;
         font-size: 0.75rem;
+        text-align: center;
+        width: 100%;
 
         thead {
           font-family: $serif-text;
@@ -105,9 +103,9 @@ $event-card-footer-margin: 15px;
               background-color: #fff;
 
               &:hover {
-                cursor: default;
                 background-color: #fff;
-                color: #c6c6c6;
+                color: $color-lightgrey;
+                cursor: default;
               }
             }
           }

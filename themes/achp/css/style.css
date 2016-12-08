@@ -150,7 +150,7 @@ html {
   .event_calendar .event_calendar_calendar .clndr {
     padding: 5px; }
   .event_calendar .event_calendar_calendar_header .event_calendar_calendar_title {
-    color: #FFFFFF;
+    color: #fff;
     font-size: 1.75rem;
     font-weight: 300;
     margin-bottom: 5px; }
@@ -203,15 +203,15 @@ html {
         .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-previous-button:hover {
           background-image: url("../images/left-calendar-arrow-blue.svg"); }
       .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button {
-        right: 0;
-        background-image: url("../images/right-calendar-arrow.svg"); }
+        background-image: url("../images/right-calendar-arrow.svg");
+        right: 0; }
         .event_calendar .event_calendar_calendar_body .clndr-controls .clndr-next-button:hover {
           background-image: url("../images/right-calendar-arrow-blue.svg"); }
     .event_calendar .event_calendar_calendar_body .clndr-table {
       border: none;
-      width: 100%;
+      font-size: 0.75rem;
       text-align: center;
-      font-size: 0.75rem; }
+      width: 100%; }
       .event_calendar .event_calendar_calendar_body .clndr-table thead {
         font-family: "minion-pro", serif;
         font-weight: bold; }
@@ -220,9 +220,9 @@ html {
         .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event {
           background-color: #fff; }
           .event_calendar .event_calendar_calendar_body .clndr-table tbody .adjacent-month.event:hover {
-            cursor: default;
             background-color: #fff;
-            color: #c6c6c6; }
+            color: #C6C6C6;
+            cursor: default; }
       .event_calendar .event_calendar_calendar_body .clndr-table tbody .event {
         cursor: pointer;
         background-color: #E6F8FF; }
@@ -2085,19 +2085,16 @@ header {
   Links region.
 */
 #homepage_quicklinks_region {
-  padding: 25px 50px;
-  height: auto;
   background-color: #F4F4F4;
-  overflow-y: visible; }
+  height: auto;
+  overflow-y: visible;
+  padding: 25px 50px; }
   @media (max-width: 700px) {
     #homepage_quicklinks_region {
       height: auto;
       padding: 25px 0; }
       #homepage_quicklinks_region #block-quicklinks {
         margin-bottom: 5px; } }
-  @media (max-width: 384px) {
-    #homepage_quicklinks_region {
-      /*padding: 25px 10px;*/ } }
 
 /*
   This module contains styles used by the
@@ -2162,9 +2159,9 @@ header {
   Homepage Success region.
 */
 #homepage_success_region {
-  padding: 25px 50px;
+  background-color: #F4F4F4;
   height: auto;
-  background-color: #F4F4F4; }
+  padding: 25px 50px; }
   #homepage_success_region p {
     margin-bottom: 0; }
   #homepage_success_region button {
