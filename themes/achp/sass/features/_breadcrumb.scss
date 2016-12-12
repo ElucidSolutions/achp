@@ -6,16 +6,25 @@
   .mobile_breadcrumb {
     display: none;
   }
+
+  $breadcrumb-font-size: 14px;
   .achp-breadcrumb {
     font-family: $sans-text;
-    font-size: rem(14px);
+    font-size: rem($breadcrumb-font-size);
+    min-height: 50px;
     text-transform: uppercase;
 
     ol {
-      color: $color-grey;
+      color: $color-blue-primary;
       list-style-type: none;
+      max-height: $default-line-height * $breadcrumb-font-size;
+      overflow: hidden;
       padding-left: 0;
-
+      position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-wrap: normal;
+   
       .breadcrumb_link {
         display: inline;
         padding-left: 5px;
@@ -43,7 +52,7 @@
         }
       }
       .breadcrumb_page {
-        color: $color-blue-primary;
+        /*color: $color-blue-primary;*/
       }
       .breadcrumb_link_home {
         [data-achp-breadbrumb-icon-name='home'] {

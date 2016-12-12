@@ -38,7 +38,7 @@
           color: $color-darkblue;
         }
         .event_calendar_feature {
-          padding: 0;
+          padding: 0 0 40px;
 
           $view-event-link-height: 35px;
           $card-padding-x: 20px;
@@ -66,8 +66,12 @@
               padding: 15px $card-padding-x;
               width: 100%;
 
-              &_title {
+              &_full_title {
                 font-size: rem(20px);
+              }
+
+              &_short_title {
+                display: none;
               }
 
               &_description {

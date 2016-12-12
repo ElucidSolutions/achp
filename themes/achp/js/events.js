@@ -8,7 +8,7 @@
   $(document).ready (function () {
 
     reformatEventItemDates ();
-  
+
   })
 
   /*
@@ -26,18 +26,28 @@
       .addClass (classPrefix)
       .append ($('<span</span>')
         .addClass (classPrefix + '_start')
-        .text (startDate.isSame (endDate, 'day') ?
-          startDate.format ('MMMM D, YYYY') :
-          startDate.format ('MMMM D, YYYY') + " - "))
+        .text (startDate.format ('MMMM D, YYYY h:mm A') + " - "))
       .append ($('<span></span>')
         .addClass (classPrefix + '_end')
         .text (startDate.isSame (endDate, 'day') ?
-          "" : endDate.format ('MMMM D, YYYY')))
-      .append ($('<div></div>')
-        .addClass (classPrefix + '_time')
-        .text (startDate.isSame (endDate, 'day') ?
-          startDate.format ('h:mm A') + ' to ' + endDate.format ('h:mm A') :
-          "")))
+          endDate.format('h:mm A') : endDate.format ('MMMM D, YYYY h:mm A'))))
+
+    // getEventFieldContainer ().append($('<div></div>')
+    //   .addClass (classPrefix)
+    //   .append ($('<span</span>')
+    //     .addClass (classPrefix + '_start')
+    //     .text (startDate.isSame (endDate, 'day') ?
+    //       startDate.format ('MMMM D, YYYY') :
+    //       startDate.format ('MMMM D, YYYY') + " - "))
+    //   .append ($('<span></span>')
+    //     .addClass (classPrefix + '_end')
+    //     .text (startDate.isSame (endDate, 'day') ?
+    //       "" : endDate.format ('MMMM D, YYYY')))
+    //   .append ($('<div></div>')
+    //     .addClass (classPrefix + '_time')
+    //     .text (startDate.isSame (endDate, 'day') ?
+    //       startDate.format ('h:mm A') + ' to ' + endDate.format ('h:mm A') :
+    //       "")))
   }
 
   function appendGoogleCalenderLink () {

@@ -55,11 +55,18 @@ html {
 #block-breadcrumbs .achp-breadcrumb {
   font-family: "p22-underground", sans-serif;
   font-size: 0.875rem;
+  min-height: 50px;
   text-transform: uppercase; }
   #block-breadcrumbs .achp-breadcrumb ol {
-    color: #4F4F4F;
+    color: #0990FE;
     list-style-type: none;
-    padding-left: 0; }
+    max-height: 21px;
+    overflow: hidden;
+    padding-left: 0;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal; }
     #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link {
       display: inline;
       padding-left: 5px;
@@ -77,7 +84,7 @@ html {
       #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link:hover a {
         color: #0990FE; }
     #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_page {
-      color: #0990FE; }
+      /*color: $color-blue-primary;*/ }
     #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
       transition: fill 0.25s; }
     #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
@@ -264,11 +271,11 @@ html {
       padding: 10px 10px 35px 10px;
       position: relative;
       vertical-align: top; }
-      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title {
+      .event_calendar .event_calendar_grid_body .event_calendar_grid_card_short_title, .event_calendar .event_calendar_grid_body .event_calendar_grid_card_full_title {
         transition: color 0.25s;
         cursor: pointer;
         font-size: 1rem; }
-        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_title:hover {
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_short_title:hover, .event_calendar .event_calendar_grid_body .event_calendar_grid_card_full_title:hover {
           color: #0990FE; }
       .event_calendar .event_calendar_grid_body .event_calendar_grid_card_mobile_date {
         display: none; }
@@ -305,6 +312,8 @@ html {
 
 #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
   width: calc( (100% - 20px * 2) / 2); }
+  #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_full_title {
+    display: none; }
 
 /* Mobile styles scoped to homepage calendar only, because
 the events landing page is different */
@@ -406,7 +415,7 @@ the events landing page is different */
       width: 100%; }
       #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_header {
         display: none; }
-      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_title {
+      #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_short_title {
         font-size: 1rem; } }
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
@@ -3355,7 +3364,7 @@ header {
         #events_landing_page #content #content_region #block-eventcalendarpage-block h3 {
           color: #043B62; }
         #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature {
-          padding: 0; }
+          padding: 0 0 40px; }
           #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid {
             padding-left: 20px; }
             #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_title {
@@ -3371,8 +3380,10 @@ header {
               min-height: 250px;
               padding: 15px 20px;
               width: 100%; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_title {
+              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_full_title {
                 font-size: 1.25rem; }
+              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_short_title {
+                display: none; }
               #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_description {
                 display: block;
                 font-family: "minion-pro", serif;
@@ -3495,28 +3506,29 @@ header {
       content: 'SHARE';
       font-family: "p22-underground", sans-serif;
       vertical-align: super; }
-  #page[data-page-node-type="event"] #main #event_item_container {
-    font-family: "p22-underground", sans-serif; }
-    #page[data-page-node-type="event"] #main #event_item_container .event_item_field {
-      margin-bottom: 20px; }
-      #page[data-page-node-type="event"] #main #event_item_container .event_item_field_label {
-        border-bottom: 1px solid #C6C6C6;
-        color: #950306;
-        margin-bottom: 10px;
-        width: 100%; }
-      #page[data-page-node-type="event"] #main #event_item_container .event_item_field .field_event_location p {
-        margin: 0; }
-    #page[data-page-node-type="event"] #main #event_item_container .event_description .body {
-      font-family: "minion-pro", serif; }
-      #page[data-page-node-type="event"] #main #event_item_container .event_description .body p:first-of-type {
-        margin-top: 0; }
-    #page[data-page-node-type="event"] #main #event_item_container .event_attachments a {
-      color: #0990FE; }
-    #page[data-page-node-type="event"] #main #event_item_container .event_attachments .event_attachment_body {
-      font-family: "minion-pro", serif;
-      margin-bottom: 20px; }
-      #page[data-page-node-type="event"] #main #event_item_container .event_attachments .event_attachment_body p {
-        margin: 0; }
+  #page[data-page-node-type="event"] #main #event_item_container .event_item_field {
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px; }
+    #page[data-page-node-type="event"] #main #event_item_container .event_item_field_label {
+      border-bottom: 1px solid #C6C6C6;
+      color: #950306;
+      font-family: "p22-underground", sans-serif;
+      margin-bottom: 10px;
+      width: 100%; }
+    #page[data-page-node-type="event"] #main #event_item_container .event_item_field .field_event_location p {
+      margin: 0; }
+  #page[data-page-node-type="event"] #main #event_item_container .event_description .body {
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem; }
+    #page[data-page-node-type="event"] #main #event_item_container .event_description .body p:first-of-type {
+      margin-top: 0; }
+  #page[data-page-node-type="event"] #main #event_item_container .event_attachments a {
+    color: #0990FE; }
+  #page[data-page-node-type="event"] #main #event_item_container .event_attachments .event_attachment_body {
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px; }
+    #page[data-page-node-type="event"] #main #event_item_container .event_attachments .event_attachment_body p {
+      margin: 0; }
 @media (min-width: 1150px) {
   #page[data-page-node-type="event"] #main-wrapper {
     box-shadow: inset 0 3px 5px -3px #4F4F4F; } }

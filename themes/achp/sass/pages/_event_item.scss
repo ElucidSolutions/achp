@@ -33,24 +33,24 @@
       }
     }
     #event_item_container {
-      font-family: $sans-text;
-
       .event_item_field {
+        font-family: $serif-text;
         margin-bottom: 20px;
 
         &_label {
           border-bottom: 1px solid $color-lightgrey;
           color: $color-red;
+          font-family: $sans-text;
           margin-bottom: 10px;
           width: 100%;
         }
-
         .field_event_location p {
           margin: 0;
         }
       }
       .event_description .body {
         font-family: $serif-text;
+        font-size: rem(18px);
 
         p:first-of-type {
           margin-top: 0;

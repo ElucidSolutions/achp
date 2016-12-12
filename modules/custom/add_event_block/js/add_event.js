@@ -34,7 +34,6 @@
     to a Google calendar.
   */
   function createLinkElement (event) {
-
     return $('<div></div>')
       .addClass (getAddEventLinkElementClassName ())
       .click (function () {
@@ -50,13 +49,11 @@
     calendar.
   */
   function createGoogleCalendarLink (event) {
-    // console.log(removeHTMLTags(event.body || ""));
-    console.log(event.location);
     return "http://www.google.com/calendar/event?action=TEMPLATE&text=" 
       + encodeURIComponent(event.title || "") 
       + "&dates=" + convertToGoogleCalendarTime(event.start_date) + "/" + convertToGoogleCalendarTime(event.end_date) 
       + "&details=" + encodeURIComponent(removeHTMLTags(event.body || "")) 
-      + "&location=" + encodeURIComponent(removeHTMLTags(addSpaceToLineBreaks(event.location) || ""));
+      + "&location=" + encodeURIComponent(removeHTMLTags(event.location || ""));
   }
 
   /*
@@ -80,28 +77,25 @@
   }
 
   /*
-    Accepts one argument: eventValue, a string; and 
-    returns eventValue with a space preceding any
-    line breaks, so that when the HTML is stripped from
-    the string the two lines are separated.
-  */
-  function addSpaceToLineBreaks (eventValue) {
-    return eventValue && eventValue.indexOf('<br') >= 0 ? 
-      eventValue.replace('<br', ' <br') :
-      eventValue;
-  }
-
-  /*
     Accepts one argument, html, an HTML string,
     strips it of its HTML tags, and returns
     the resulting string.
   */
   function removeHTMLTags (html) {
-    return $('<div></div>').html (html).text ();
+    return $('<div></div>').html (addSpaceToLineBreaks(html)).text ();
   }
 
-
-
+  /*
+    Accepts one argument: vlue, a string; and returns 
+    value with a space preceding any line breaks, so
+    that when the HTML is stripped from the string the
+    two lines are separated.
+  */
+  function addSpaceToLineBreaks (value) {
+    return value && value.indexOf('<br') >= 0 ? 
+      value.replace('<br', ' <br') :
+      value;
+  }
   /*
     Accepts no arguments and returns an object that represents
     the event associated with the current page.
