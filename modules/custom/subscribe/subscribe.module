@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Declares the subscribe block's template
+ * variables.
+ */
+
+// Implements hook_theme ()
+function subscribe_theme () {
+  return [
+    'subscribe' => [
+      'variables' => [
+        'subscribe' => [
+          'url' => '',
+          'submit_label' => ''
+        ]
+      ]
+    ],
+    'unsubscribe' => [
+      'variables' => [
+        'unsubscribe' => [
+          'url' => '',
+          'submit_label' => ''
+        ]
+      ]
+    ]
+  ];
+}
