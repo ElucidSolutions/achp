@@ -4,10 +4,10 @@
 */
 
 #homepage_quicklinks_region {
-  padding: 25px 50px;
-  height: auto;
   background-color: $background-color-grey;
+  height: auto;
   overflow-y: visible;
+  padding: 25px 50px;
 
   @media (max-width: 700px) {
     height: auto;
@@ -17,9 +17,5 @@
       margin-bottom: 5px;
     }
   }
-
-  @media (max-width: 384px) {
-    /*padding: 25px 10px;*/
-  } 
 }
 

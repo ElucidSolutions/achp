@@ -30,4 +30,11 @@
     {% endfor %}
     </ol>
   </nav>
+  <div class="mobile_breadcrumb">
+    {% for item in breadcrumb %}
+      {% if (item.url) and (item.url != '/') %}
+        <a href="{{ item.url }}">BACK TO {{ item.text }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
 {% endif %}
