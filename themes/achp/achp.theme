@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\file\Entity\File;
+use Drupal\Core\Url;
+
 // Implements hook_preprocess ().
 function achp_preprocess_views_view__community_spotlight (&$variables) {
   foreach ($variables['rows'] as $id => &$row) {
@@ -63,11 +66,22 @@ function achp_preprocess_field (&$variables, $hook) {
       if (!$node) { continue; }
 
       $title_value = $node->title->first ();
-      if ($title_value) { $variables ['items'][$item_key]['title'] = $title_value->getString (); }
+      if ($title_value) { 
+        $variables ['items'][$item_key]['title'] = $title_value->getString (); 
+      }
 
-      global $base_url;
-      $url = $base_url . \Drupal::service ('path.alias_manager')->getAliasByPath ('/node/' . $nid);
-      $variables ['url'] = $url;
+      $url = null;
+
+      if ($node->field_attachment) {
+        $value = $node->field_attachment->first ()->getValue ();
+        $file = File::load ($value ['target_id']);
+        $url = $file->url (); 
+      } else {
+        global $base_url;
+        $url = $base_url . \Drupal::service ('path.alias_manager')->getAliasByPath ('/node/' . $nid);
+      }
+
+      $variables ['items'][$item_key]['url'] = $url;
 
       foreach ($node->body->getValue () as $value_key => $value) {
         $variables ['items'][$item_key]['body'] = $value ['summary'] ? 
