@@ -58,7 +58,10 @@
  * @see html.html.twig
  */
 #}
-<div id="page" {% if node_type is defined %} data-page-node-type="{{ node_type }}" {% endif %}>
+<div id="page"
+  {% if node_type is defined %} data-page-node-type="{{ node_type }}" {% endif %}
+  {% if view_id is defined %} data-page-view-id="{{ view_id }}" {% endif %}
+>
   <header id="header">
     <div id="header-container">
       <div class="header_left_container">

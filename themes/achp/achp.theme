@@ -15,6 +15,10 @@ function achp_preprocess_page (&$variables) {
   if (isset ($variables ['node'])) {
     $variables ['node_type'] = $variables ['node']->getType ();
   }
+  $parameters = \Drupal::routeMatch ()->getParameters ();
+  if ($parameters->has ('view_id')) {
+    $variables ['view_id'] = $parameters->get ('view_id');
+  }
 }
 
 /**
