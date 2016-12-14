@@ -45,6 +45,13 @@ h3 {
   }
 }
 
+h4 {
+  @include font-size($h4-font-sizes);
+  color: $color-darkblue; 
+  font-family: $sans-text; 
+  font-weight: normal;
+}
+
 hr {
   @include hr($color-red);
   min-width: 50px;

@@ -3,41 +3,116 @@
 
 #page[data-page-node-type="page_with_banner"] {
 
+  @mixin main-column-positioning {
+    border-right: 1px solid #E5E3E4;
+    margin-bottom: $bottom-margin;
+    padding: 0 40px $form-margin 0;
+
+    @media (min-width: 800px) {
+      $sidebar-width: 250px;  
+      max-width: calc(100% - #{$sidebar-width} - #{$padding-between-columns});
+    }
+    @media (max-width: 800px) {
+      $sidebar-width: 200px;
+      max-width: calc(100% - #{$sidebar-width} - #{$padding-between-columns});
+    }
+    @media (max-width: $mobile-breakpoint) {
+      /*border-right: none;*/
+      /*max-width: 100%;*/
+    }
+  }
+
   $text-input-width: 220px;
   $form-margin: 15px;
   $newsletter-section-margin: 70px;
+  /*$sidebar-width: 250px;*/
+  $padding-between-columns: 30px;
+  $bottom-margin: -15px;
 
-  #main {
+  #content #content_region {
     margin: 0 auto 40px;
     max-width: $max-content-width;
+    padding: 0 50px;
 
-    p {
-      margin-top: 0;
+    #block-pagetitle-2 {
+      display: none;
     }
-    .edition_links {
-      padding-left: 30px;
 
-      li {
-        padding: 0 0 5px 10px;
+    article {
+      display: none;
+    }
+    
+    #block-sharethispage {
+      margin: 15px auto;
+
+      .share_this_page_buttons:before {
+        color: $color-red;
+        content: 'SHARE';
+        font-family: $sans-text;
+        vertical-align: super;
+      }
+    }
+
+    .newsletter_related {
+      $sidebar-width: 250px;
+
+      float: right;
+      width: $sidebar-width;
+
+      h4 {
+        margin: 0 0 20px;
+      }
+      .related_item {
+        font-size: rem(18px);
+        margin-bottom: $form-margin;
 
         a {
           color: $color-blue-primary;
         }
       }
     }
-    .subscribe_header {
-      color: $color-darkgrey2;
-      font-family: $sans-text;
-      font-weight: 500;
-    }
-    .unsubscribe_header {
-      @extend .subscribe_header;
-      margin-top: 40px;
+
+    .newsletter_info {
+      @include main-column-positioning;
+
+      p {
+        margin-top: 0;
+      }
+      .edition_links {
+        padding-left: 30px;
+
+        li {
+          padding: 0 0 5px 10px;
+
+          a {
+            color: $color-blue-primary;
+          }
+        }
+      }
+      .subscribe_header {
+        color: $color-darkgrey2;
+        font-family: $sans-text;
+        font-weight: 500;
+      }
     }
 
-    #block-subscribeblock, #block-subscribeblock-2, #block-subscribeblock-3,
-    #block-unsubscribeblock, #block-unsubscribeblock-2, #block-unsubscribeblock-3 {
-      margin-top: $form-margin;
+    .newsletter_disclaimer {
+      @include main-column-positioning;
+      margin-top: 20px;
+
+      p {
+        margin-top: 0;
+      }
+      .unsubscribe_header {
+        color: $color-darkgrey2;
+        font-family: $sans-text;
+        font-weight: 500;
+        margin-top: 40px;
+      }
+    }
+
+    .subscribe-container, .unsubscribe-container {
+      @include main-column-positioning;
 
       .subscribe-form-field, .unsubscribe-form-field {
         position: relative;
@@ -54,7 +129,6 @@
           &.has-input {
             font-size: rem(14px);
             top: -10px;
-            /*color: orange;              */
           }
         }
         input {
@@ -72,20 +146,22 @@
             width: $text-input-width;
             z-index: 20;
 
-            /* The following two selectors must be listed
+            /* The :focus and :valid selectors must be listed
             separately, or IE9 will not implement the one
             it recognizes*/
-            &:focus ~ label {
-              font-size: rem(14px);
-              top: -10px;
-            }
+            &:focus {
+              outline: none;
 
+                & ~ label {
+                font-size: rem(14px);
+                top: -10px;
+              }
+            }
             &:valid ~ label {
               font-size: rem(14px);
               top: -10px; 
             }
           }
-    
           &[type="submit"] {
             @include font-size($button-font-sizes);
             @include hover-transition-background($color-lightblue-primary);
@@ -107,6 +183,10 @@
       }
     }
 
+    .unsubscribe-container {
+      margin-bottom: 0
+    }
+
     #block-unsubscribeblock, #block-unsubscribeblock-2 {
       &:after {
         background-color: $background-color-grey2;
@@ -115,6 +195,29 @@
         height: 1px;
         margin: $newsletter-section-margin 0;
         width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    #content #content_region {
+      .newsletter_related {
+        $sidebar-width: 200px;
+        width: $sidebar-width;
+
+        .related_item {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    #content #content_region {
+      .newsletter_related {
+        /*float: none;*/
+        /*clear: both;*/
+        /*width: 100%;*/
       }
     }
   }
