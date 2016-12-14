@@ -1,0 +1,121 @@
+/*
+*/
+
+#page[data-page-node-type="page_with_banner"] {
+
+  $text-input-width: 220px;
+  $form-margin: 15px;
+  $newsletter-section-margin: 70px;
+
+  #main {
+    margin: 0 auto 40px;
+    max-width: $max-content-width;
+
+    p {
+      margin-top: 0;
+    }
+    .edition_links {
+      padding-left: 30px;
+
+      li {
+        padding: 0 0 5px 10px;
+
+        a {
+          color: $color-blue-primary;
+        }
+      }
+    }
+    .subscribe_header {
+      color: $color-darkgrey2;
+      font-family: $sans-text;
+      font-weight: 500;
+    }
+    .unsubscribe_header {
+      @extend .subscribe_header;
+      margin-top: 40px;
+    }
+
+    #block-subscribeblock, #block-subscribeblock-2, #block-subscribeblock-3,
+    #block-unsubscribeblock, #block-unsubscribeblock-2, #block-unsubscribeblock-3 {
+      margin-top: $form-margin;
+
+      .subscribe-form-field, .unsubscribe-form-field {
+        position: relative;
+      
+        label {
+          @include transition (all 0.2s);
+          color: $color-darkgrey2;
+          font-family: $sans-text;
+          left: 15px;
+          position: absolute;
+          top: 25px;
+          z-index: 5;
+
+          &.has-input {
+            font-size: rem(14px);
+            top: -10px;
+            /*color: orange;              */
+          }
+        }
+        input {
+          height: 40px;
+          margin: $form-margin 0;
+
+          &[type="text"], &[type="email"] {
+            background-color: transparent;
+            border: 1px solid $color-lightgrey-2;
+            border-radius: 2px;
+            font-family: $sans-text;
+            font-size: rem(16px);
+            padding: 2px 0 0 15px;
+            position: relative;
+            width: $text-input-width;
+            z-index: 20;
+
+            /* The following two selectors must be listed
+            separately, or IE9 will not implement the one
+            it recognizes*/
+            &:focus ~ label {
+              font-size: rem(14px);
+              top: -10px;
+            }
+
+            &:valid ~ label {
+              font-size: rem(14px);
+              top: -10px; 
+            }
+          }
+    
+          &[type="submit"] {
+            @include font-size($button-font-sizes);
+            @include hover-transition-background($color-lightblue-primary);
+            background-color: $color-blue-primary;
+            border: none;
+            border-radius: 2px;  
+            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+            color: #FFFFFF;
+            cursor: pointer;
+            display: block;
+            height: 32px;
+            font-family: $sans-text;
+            letter-spacing: 0.02rem;
+            line-height: 1.4rem;
+            margin: $form-margin 0;
+            padding: 7px 53px;
+          }
+        }
+      }
+    }
+
+    #block-unsubscribeblock, #block-unsubscribeblock-2 {
+      &:after {
+        background-color: $background-color-grey2;
+        content: " ";
+        display: block;
+        height: 1px;
+        margin: $newsletter-section-margin 0;
+        width: 100%;
+      }
+    }
+  }
+}

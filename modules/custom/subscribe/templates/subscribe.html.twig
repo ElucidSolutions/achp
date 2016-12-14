@@ -21,26 +21,28 @@
     method="post"
   >
     <div class="subscribe-form-field subscribe-form-field-name">
-      <label
-        class="subscribe-form-field-label subscribe-form-field-name-label"
-        for="mb-name"
-      >Name:</label>
       <input
         class="subscribe-form-field-input subscribe-form-field-name-input"
         name="mb-name"
         type="text"
+        required
       />
+      <label
+        class="subscribe-form-field-label subscribe-form-field-name-label"
+        for="mb-name"
+      >Name</label>
     </div>
     <div class="subscribe-form-field subscribe-form-field-email">
-      <label
-        class="subscribe-form-field-label subscribe-form-field-email-label"
-        for="mb-stuk-stuk"
-      >Email:</label>
       <input
         class="subscribe-form-field-input subscribe-form-field-email-input"
         name="mb-stuk-stuk"
         type="text"
+        required
       />
+      <label
+        class="subscribe-form-field-label subscribe-form-field-email-label"
+        for="mb-stuk-stuk"
+      >Email</label>
     </div>
     <div class="subscribe-form-field subscribe-form-field-submit">
       <input value="{{ subscribe.submit_label }}" type="submit"/>
