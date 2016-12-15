@@ -17,8 +17,8 @@
       max-width: calc(100% - #{$sidebar-width} - #{$padding-between-columns});
     }
     @media (max-width: $mobile-breakpoint) {
-      /*border-right: none;*/
-      /*max-width: 100%;*/
+      border-right: none;
+      max-width: 100%;
     }
   }
 
@@ -32,14 +32,36 @@
   /*#main-wrapper #main #secondary_header #secondary_header_region  {*/
 /*    border: 3px solid pink;*/
     
-    .node-banner .node-banner-banner {
+/*    .node-banner .node-banner-banner {
       
       .node-banner-banner-overlay {
         @include center-xy;
+        background-color: rgba(1,59,94,0.75);
+        max-width: 75%;
+        padding: 25px 0;
+        width: 750px;
 
         .node-banner-banner-overlay-field {
           &[data-node-banner-overlay-field="title"] {
             @extend h1;
+            font-weight: 300;
+            text-transform: uppercase;
+
+            span {
+              display: inline-block;
+            }
+
+            &:after {
+              background-color: rgba(255,255,255,0.25);
+              -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+              -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+              box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+              content: "";
+              display: block;
+              height: 1px;
+              margin: 5px auto;
+              width: 140px;
+            }
           }
 
           &[data-node-banner-overlay-field="field_banner_page_tagline"] {
@@ -48,7 +70,7 @@
           }
         }
       }
-    }
+    }*/
   /*}*/
 
   #content #content_region {
@@ -56,16 +78,23 @@
     max-width: $max-content-width;
     padding: 0 50px;
 
-    #block-pagetitle-2 {
+    #block-pagetitle-2, 
+    #block-relatedcontentmembersinthenews-mobile, 
+    #block-relatedcontentsection106-mobile, 
+    #block-relatedcontentpreserveamerica-mobile {
       display: none;
     }
 
     article {
       display: none;
     }
+
+    .mobile_breadcrumb {
+      display: none;
+    }
     
     #block-sharethispage {
-      margin: 15px auto;
+      margin: 15px auto 30px;
 
       .share_this_page_buttons:before {
         color: $color-red;
@@ -121,7 +150,7 @@
 
     .newsletter_disclaimer {
       @include main-column-positioning;
-      margin-top: 20px;
+      margin-top: 5px;
 
       p {
         margin-top: 0;
@@ -229,15 +258,80 @@
           font-size: 1rem;
         }
       }
+      #block-sharethispage {
+        .share_this_page_button {
+          margin-left: 15px;
+
+          &_print {
+            display: none;
+          }
+        }
+      }
     }
   }
 
   @media (max-width: $mobile-breakpoint) {
     #content #content_region {
-      .newsletter_related {
-        /*float: none;*/
-        /*clear: both;*/
-        /*width: 100%;*/
+      #block-breadcrumbs,
+      #block-relatedcontentmembersinthenews, 
+      #block-relatedcontentsection106, 
+      #block-relatedcontentpreserveamerica,
+      #block-unsubscribeblock:after, 
+      #block-unsubscribeblock-2:after {
+        display: none;
+      }
+      #block-relatedcontentmembersinthenews-mobile, 
+      #block-relatedcontentsection106-mobile, 
+      #block-relatedcontentpreserveamerica-mobile {
+        display: block;
+        margin-top: 20px;
+        width: 100%;
+        .newsletter_related {
+          float: none;
+          width: 100%;
+        }
+      }
+      #block-relatedcontentmembersinthenews-mobile:after, 
+      #block-relatedcontentsection106-mobile:after {
+        background-color: $background-color-grey2;
+        content: " ";
+        display: block;
+        height: 1px;
+        margin: $newsletter-section-margin 0;
+        width: 100%;
+      }
+/*      #block-unsubscribeblock:after, #block-unsubscribeblock-2:after {
+        display: none;
+      } */
+      .newsletter_info, .subscribe-container, .newsletter_disclaimer, .unsubscribe-container {
+        padding-right: 0;
+      }
+      .subscribe-container .subscribe-form-field  {
+        input[type="text"], input[type="email"] {
+          width: 100%;
+        }
+      }
+      .unsubscribe-container .unsubscribe-form-field  {
+        input[type="text"], input[type="email"] {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    #content #content_region #block-sharethispage .share_this_page {
+      padding-left: 0;
+
+      .share_this_page_buttons {
+        text-align: left;
+
+        &:before {
+          padding-right: calc(100% - 215px);
+        }
+        .share_this_page_button {
+          margin-left: 10px;
+        }
       }
     }
   }

@@ -20,8 +20,8 @@
       text-align: left;   
     }
 
-    #block-sharethispageblock {
-      @extend #block-sharethispage;
+    #block-sharethispage {
+      /*@extend #block-sharethispage;*/
       margin: 15px auto;
       max-width: $max-event-width;
 
@@ -83,7 +83,7 @@
       margin: 0 $max-width-padding; 
       max-width: 100%;      
 
-      #block-sharethispageblock {
+      #block-sharethispage {
         .share_this_page_button {
           margin-left: 15px;
 
@@ -96,7 +96,7 @@
   }
 
   @media (max-width: 400px) {
-    #main #block-sharethispageblock .share_this_page {
+    #main #block-sharethispage .share_this_page {
       padding-left: 0;
 
       .share_this_page_buttons {
