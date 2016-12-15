@@ -29,6 +29,28 @@
   $padding-between-columns: 30px;
   $bottom-margin: -15px;
 
+  /*#main-wrapper #main #secondary_header #secondary_header_region  {*/
+/*    border: 3px solid pink;*/
+    
+    .node-banner .node-banner-banner {
+      
+      .node-banner-banner-overlay {
+        @include center-xy;
+
+        .node-banner-banner-overlay-field {
+          &[data-node-banner-overlay-field="title"] {
+            @extend h1;
+          }
+
+          &[data-node-banner-overlay-field="field_banner_page_tagline"] {
+            font-size: rem(22px);
+            text-align: center;
+          }
+        }
+      }
+    }
+  /*}*/
+
   #content #content_region {
     margin: 0 auto 40px;
     max-width: $max-content-width;
@@ -93,6 +115,7 @@
         color: $color-darkgrey2;
         font-family: $sans-text;
         font-weight: 500;
+        margin-bottom: 10px;
       }
     }
 
@@ -107,7 +130,7 @@
         color: $color-darkgrey2;
         font-family: $sans-text;
         font-weight: 500;
-        margin-top: 40px;
+        margin: 40px 0 10px;
       }
     }
 
@@ -126,10 +149,10 @@
           top: 25px;
           z-index: 5;
 
-          &.has-input {
+/*          &.has-input {
             font-size: rem(14px);
             top: -10px;
-          }
+          }*/
         }
         input {
           height: 40px;
@@ -146,19 +169,16 @@
             width: $text-input-width;
             z-index: 20;
 
-            /* The :focus and :valid selectors must be listed
-            separately, or IE9 will not implement the one
-            it recognizes*/
             &:focus {
               outline: none;
 
                 & ~ label {
-                font-size: rem(14px);
+                /*font-size: rem(14px);*/
                 top: -10px;
               }
             }
             &:valid ~ label {
-              font-size: rem(14px);
+              /*font-size: rem(14px);*/
               top: -10px; 
             }
           }

@@ -2,55 +2,58 @@
   This module defines default styles for banner
   elements created by the Node Banner module.
 */
+/*$node-banner-with-icon-height: 450px;*/
+/*$node-banner-arrow-height: 52px;
+$node-banner-arrow-icon-width: 100px;*/
 #block-nodebannerblock {
-  padding-bottom: 30px;
-}
+  padding-bottom: 30px; }
+
 .node-banner {
-  height: 350px;
+  height: 300px;
   position: relative;
-}
-.node-banner.node-banner-with-icon {
-  height: 450px;
-}
-.node-banner .node-banner-arrow {
-  height: 52px;
-  position: absolute;
-  bottom: -1px;
-  width: 100%;
-}
-.node-banner .node-banner-arrow .node-banner-arrow-mask {
-  background-color: white;
-  float: left;
-  height: 100%;
-  width: 50%;
-  z-index: 10;
-}
-.node-banner .node-banner-arrow .node-banner-arrow-mask-left {
-  transform: skewX(45deg) translateX(-26px);
-}
-.node-banner .node-banner-arrow .node-banner-arrow-mask-right {
-  transform: skewX(-45deg) translateX(26px);
-}
-.node-banner .node-banner-arrow .node-banner-arrow-icon {
-  background-image: url("../images/down-arrow.svg");
-  background-position: center top;
-  background-repeat: no-repeat;
-  height: 100%;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  width: 100px;
-}
-.node-banner .node-banner-banner {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
-  padding-bottom: 52px;
-}
-.node-banner .node-banner-banner .node-banner-banner-overlay {
-  color: white;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  /*  &.node-banner-with-icon {
+      height: $node-banner-with-icon-height;
+      border: 2px solid pink;
+    }
+  
+    .node-banner-arrow {
+      height: $node-banner-arrow-height;
+      position: absolute;
+      bottom: -1px;
+      width: 100%;
+  
+      .node-banner-arrow-mask {
+        background-color: $node-banner-arrow-mask-color;
+        float: left;
+        height: 100%;
+        width: 50%;
+        z-index: 10;
+      }
+      .node-banner-arrow-mask-left {
+        transform: skewX(45deg) translateX(- $node-banner-arrow-height / 2);
+      }
+      .node-banner-arrow-mask-right {
+        transform: skewX(-45deg) translateX($node-banner-arrow-height / 2);
+      }
+      .node-banner-arrow-icon {
+        @include center-x;
+        background-image: url('../images/down-arrow.svg');
+        background-position: center top;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: $node-banner-arrow-icon-width;
+      }
+    }*/ }
+  .node-banner .node-banner-banner {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    /*padding-bottom: $node-banner-arrow-height;*/
+    padding-bottom: 50px; }
+    .node-banner .node-banner-banner .node-banner-banner-overlay {
+      /*@include center-y;*/
+      color: white;
+      position: relative; }
+
+/*# sourceMappingURL=style.css.map */

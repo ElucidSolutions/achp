@@ -59,21 +59,9 @@ $node-banner-banner-overlay-text-color: white;
     padding-bottom: 50px;
 
     .node-banner-banner-overlay {
-      @include center-y;
+      /*@include center-y;*/
       color: white;
       position: relative;
-      border: 1px solid pink;
-
-      .node-banner-banner-overlay-field {
-        &[data-node-banner-overlay-field="title"] {
-          @extend h1;
-        }
-
-        &[data-node-banner-overlay-field="field_banner_page_tagline"] {
-          font-size: rem(22px);
-          text-align: center;
-        }
-      }
     }
   }
 }
