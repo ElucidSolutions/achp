@@ -1,4 +1,5 @@
 /*
+  Styles for a general page that contains a banner image.
 */
 
 #page[data-page-node-type="page_with_banner"] {
@@ -25,228 +26,188 @@
   $text-input-width: 220px;
   $form-margin: 15px;
   $newsletter-section-margin: 70px;
-  /*$sidebar-width: 250px;*/
   $padding-between-columns: 30px;
   $bottom-margin: -15px;
 
-  /*#main-wrapper #main #secondary_header #secondary_header_region  {*/
-/*    border: 3px solid pink;*/
-    
-/*    .node-banner .node-banner-banner {
+  #content { 
+    width: 100%;
+
+    #content_region {
+      margin: 0 auto 40px;
+      max-width: $max-content-width;
+      padding: 25px 50px;
+
+      #block-pagetitle-2, 
+      #block-relatedcontentmembersinthenews-mobile, 
+      #block-relatedcontentsection106-mobile, 
+      #block-relatedcontentpreserveamerica-mobile {
+        display: none;
+      }
+
+      article {
+        display: none;
+      }
+
+      .mobile_breadcrumb {
+        display: none;
+      }
       
-      .node-banner-banner-overlay {
-        @include center-xy;
-        background-color: rgba(1,59,94,0.75);
-        max-width: 75%;
-        padding: 25px 0;
-        width: 750px;
+      #block-sharethispage {
+        margin: 15px auto 30px;
 
-        .node-banner-banner-overlay-field {
-          &[data-node-banner-overlay-field="title"] {
-            @extend h1;
-            font-weight: 300;
-            text-transform: uppercase;
-
-            span {
-              display: inline-block;
-            }
-
-            &:after {
-              background-color: rgba(255,255,255,0.25);
-              -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
-              -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
-              box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
-              content: "";
-              display: block;
-              height: 1px;
-              margin: 5px auto;
-              width: 140px;
-            }
-          }
-
-          &[data-node-banner-overlay-field="field_banner_page_tagline"] {
-            font-size: rem(22px);
-            text-align: center;
-          }
+        .share_this_page_buttons:before {
+          color: $color-red;
+          content: 'SHARE';
+          font-family: $sans-text;
+          vertical-align: super;
         }
       }
-    }*/
-  /*}*/
 
-  #content #content_region {
-    margin: 0 auto 40px;
-    max-width: $max-content-width;
-    padding: 0 50px;
+      .newsletter_related {
+        $sidebar-width: 250px;
 
-    #block-pagetitle-2, 
-    #block-relatedcontentmembersinthenews-mobile, 
-    #block-relatedcontentsection106-mobile, 
-    #block-relatedcontentpreserveamerica-mobile {
-      display: none;
-    }
+        float: right;
+        width: $sidebar-width;
 
-    article {
-      display: none;
-    }
-
-    .mobile_breadcrumb {
-      display: none;
-    }
-    
-    #block-sharethispage {
-      margin: 15px auto 30px;
-
-      .share_this_page_buttons:before {
-        color: $color-red;
-        content: 'SHARE';
-        font-family: $sans-text;
-        vertical-align: super;
-      }
-    }
-
-    .newsletter_related {
-      $sidebar-width: 250px;
-
-      float: right;
-      width: $sidebar-width;
-
-      h4 {
-        margin: 0 0 20px;
-      }
-      .related_item {
-        font-size: rem(18px);
-        margin-bottom: $form-margin;
-
-        a {
-          color: $color-blue-primary;
+        h4 {
+          margin: 0 0 20px;
         }
-      }
-    }
-
-    .newsletter_info {
-      @include main-column-positioning;
-
-      p {
-        margin-top: 0;
-      }
-      .edition_links {
-        padding-left: 30px;
-
-        li {
-          padding: 0 0 5px 10px;
+        .related_item {
+          font-size: rem(18px);
+          margin-bottom: $form-margin;
 
           a {
             color: $color-blue-primary;
           }
         }
       }
-      .subscribe_header {
-        color: $color-darkgrey2;
-        font-family: $sans-text;
-        font-weight: 500;
-        margin-bottom: 10px;
-      }
-    }
 
-    .newsletter_disclaimer {
-      @include main-column-positioning;
-      margin-top: 5px;
+      .newsletter_info {
+        @include main-column-positioning;
 
-      p {
-        margin-top: 0;
-      }
-      .unsubscribe_header {
-        color: $color-darkgrey2;
-        font-family: $sans-text;
-        font-weight: 500;
-        margin: 40px 0 10px;
-      }
-    }
+        p {
+          margin-top: 0;
+        }
+        .edition_links {
+          padding-left: 30px;
 
-    .subscribe-container, .unsubscribe-container {
-      @include main-column-positioning;
+          li {
+            padding: 0 0 5px 10px;
 
-      .subscribe-form-field, .unsubscribe-form-field {
-        position: relative;
-      
-        label {
-          @include transition (all 0.2s);
+            a {
+              color: $color-blue-primary;
+            }
+          }
+        }
+        .subscribe_header {
           color: $color-darkgrey2;
           font-family: $sans-text;
-          left: 15px;
-          position: absolute;
-          top: 25px;
-          z-index: 5;
-
-/*          &.has-input {
-            font-size: rem(14px);
-            top: -10px;
-          }*/
+          font-weight: 500;
+          margin-bottom: 10px;
         }
-        input {
-          height: 40px;
-          margin: $form-margin 0;
+      }
 
-          &[type="text"], &[type="email"] {
-            background-color: transparent;
-            border: 1px solid $color-lightgrey-2;
-            border-radius: 2px;
+      .newsletter_disclaimer {
+        @include main-column-positioning;
+        margin-top: 5px;
+
+        p {
+          margin-top: 0;
+        }
+        .unsubscribe_header {
+          color: $color-darkgrey2;
+          font-family: $sans-text;
+          font-weight: 500;
+          margin: 40px 0 10px;
+        }
+      }
+
+      .subscribe-container, .unsubscribe-container {
+        @include main-column-positioning;
+
+        .subscribe-form-field, .unsubscribe-form-field {
+          position: relative;
+        
+          label {
+            @include transition (all 0.2s);
+            color: $color-darkgrey2;
             font-family: $sans-text;
-            font-size: rem(16px);
-            padding: 2px 0 0 15px;
-            position: relative;
-            width: $text-input-width;
-            z-index: 20;
+            left: 15px;
+            position: absolute;
+            top: 25px;
+            z-index: 5;
+          }
+          input {
+            height: 40px;
+            margin: $form-margin 0;
 
-            &:focus {
-              outline: none;
+            &[type="text"], &[type="email"] {
+              background-color: transparent;
+              border: 1px solid $color-lightgrey-2;
+              border-radius: 2px;
+              font-family: $sans-text;
+              font-size: rem(16px);
+              padding: 0 0 0 15px;
+              position: relative;
+              width: $text-input-width;
+              z-index: 20;
 
-                & ~ label {
+              &:focus {
+                outline: none;
+
+                  & ~ label {
+                  /*font-size: rem(14px);*/
+                  top: -10px;
+                }
+              }
+              &:valid ~ label {
                 /*font-size: rem(14px);*/
-                top: -10px;
+                top: -10px; 
               }
             }
-            &:valid ~ label {
-              /*font-size: rem(14px);*/
-              top: -10px; 
+            &[type="submit"] {
+              @include font-size($button-font-sizes);
+              @include hover-transition-background($color-lightblue-primary);
+              background-color: $color-blue-primary;
+              border: none;
+              border-radius: 2px;  
+              box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+              color: #FFFFFF;
+              cursor: pointer;
+              display: block;
+              height: 32px;
+              font-family: $sans-text;
+              letter-spacing: 0.02rem;
+              line-height: 1.4rem;
+              margin: $form-margin 0;
+              padding: 7px 53px;
             }
-          }
-          &[type="submit"] {
-            @include font-size($button-font-sizes);
-            @include hover-transition-background($color-lightblue-primary);
-            background-color: $color-blue-primary;
-            border: none;
-            border-radius: 2px;  
-            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-            color: #FFFFFF;
-            cursor: pointer;
-            display: block;
-            height: 32px;
-            font-family: $sans-text;
-            letter-spacing: 0.02rem;
-            line-height: 1.4rem;
-            margin: $form-margin 0;
-            padding: 7px 53px;
           }
         }
       }
-    }
 
-    .unsubscribe-container {
-      margin-bottom: 0
-    }
+      .unsubscribe-container {
+        margin-bottom: 0
+      }
 
-    #block-unsubscribeblock, #block-unsubscribeblock-2 {
-      &:after {
-        background-color: $background-color-grey2;
-        content: " ";
-        display: block;
-        height: 1px;
-        margin: $newsletter-section-margin 0;
-        width: 100%;
+      #block-unsubscribeblock, #block-unsubscribeblock-2 {
+        &:after {
+          background-color: $background-color-grey2;
+          content: " ";
+          display: block;
+          height: 1px;
+          margin: $newsletter-section-margin 0;
+          width: 100%;
+        }
       }
     }
   }
+
+/*  @media (max-width: $hero-breakpoint) {
+    #content {
+      box-shadow: none;
+    }
+  }*/
 
   @media (max-width: 800px) {
     #content #content_region {
@@ -300,9 +261,6 @@
         margin: $newsletter-section-margin 0;
         width: 100%;
       }
-/*      #block-unsubscribeblock:after, #block-unsubscribeblock-2:after {
-        display: none;
-      } */
       .newsletter_info, .subscribe-container, .newsletter_disclaimer, .unsubscribe-container {
         padding-right: 0;
       }
