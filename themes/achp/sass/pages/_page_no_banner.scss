@@ -68,6 +68,17 @@
     }
   }
 
+  @media (max-width: $mobile-breakpoint) {
+    #content #content_region {
+      .achp-breadcrumb {
+        display: none;
+      }
+      .mobile_breadcrumb {
+        display: block;
+      }
+    }
+  }
+
   @media (max-width: 400px) {
     #content #content_region #block-sharethispage .share_this_page {
       padding-left: 0;

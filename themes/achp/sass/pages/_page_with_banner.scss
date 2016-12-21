@@ -6,7 +6,7 @@
 
   @mixin main-column-positioning {
     border-right: 1px solid #E5E3E4;
-    margin-bottom: $bottom-margin;
+    margin-bottom: 0;
     padding: 0 40px $form-margin 0;
 
     @media (min-width: 800px) {
@@ -25,9 +25,9 @@
 
   $text-input-width: 220px;
   $form-margin: 15px;
-  $newsletter-section-margin: 70px;
+  /*$newsletter-section-margin: 25px;*/
   $padding-between-columns: 30px;
-  $bottom-margin: -15px;
+  $section-divider-margin: 35px;
 
   #content { 
     width: 100%;
@@ -35,7 +35,7 @@
     #content_region {
       margin: 0 auto 40px;
       max-width: $max-content-width;
-      padding: 25px 50px;
+      padding: 0 50px;
 
       #block-pagetitle-2, 
       #block-relatedcontentmembersinthenews-mobile, 
@@ -109,7 +109,6 @@
 
       .newsletter_disclaimer {
         @include main-column-positioning;
-        margin-top: 5px;
 
         p {
           margin-top: 0;
@@ -118,7 +117,7 @@
           color: $color-darkgrey2;
           font-family: $sans-text;
           font-weight: 500;
-          margin: 40px 0 10px;
+          margin: 25px 0 10px;
         }
       }
 
@@ -184,7 +183,7 @@
             }
           }
         }
-      }
+      }f
 
       .unsubscribe-container {
         margin-bottom: 0
@@ -196,7 +195,7 @@
           content: " ";
           display: block;
           height: 1px;
-          margin: $newsletter-section-margin 0;
+          margin: $section-divider-margin 0;
           width: 100%;
         }
       }
@@ -258,7 +257,7 @@
         content: " ";
         display: block;
         height: 1px;
-        margin: $newsletter-section-margin 0;
+        margin: $section-divider-margin 0;
         width: 100%;
       }
       .newsletter_info, .subscribe-container, .newsletter_disclaimer, .unsubscribe-container {
