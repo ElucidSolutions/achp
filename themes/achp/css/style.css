@@ -3931,6 +3931,83 @@ header {
           padding-right: 15px; }
           #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after {
             right: 0; }
+#page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories {
+  background-color: #E6F8FF;
+  clear: both;
+  height: auto;
+  /*      @media (max-width: 384px) {
+          padding: 25px 10px;
+  
+          #block-preservationsuccessstories {
+            padding: 0 40px;
+          }
+          #block-moresuccessstoriesbutton {
+            padding: 0 40px;
+          }
+        }*/ }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories h2 {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 25px 50px 0; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 25px 50px; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container {
+    background-color: #ffffff;
+    display: inline-block;
+    width: calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3);
+    height: 400px;
+    text-align: center;
+    margin-right: 20px; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card:last-of-type, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body:last-of-type, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body:last-of-type, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card:last-of-type, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card:last-of-type, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:last-of-type, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container:last-of-type {
+      margin-right: 0;
+      /*position: absolute;*/ }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story {
+      height: 370px;
+      padding: 5px 10px;
+      position: relative; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_image, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_image, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_image, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_image, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_image {
+        height: 185px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
+        /*            max-width: 250px;*/
+        margin-bottom: 15px; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_image img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_image img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_image img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_image img {
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -o-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          height: 100%;
+          min-width: 100%;
+          width: auto; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_title h3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_title h3, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_title h3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_title h3, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_title h3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_title h3, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_title h3 {
+        text-align: inherit; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_location, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_location, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_location, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_location, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_location, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_location, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_location {
+        color: #7C7C7C; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_body p, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_body p, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_body p, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_body p, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_body p {
+        font-family: "minion-pro", serif;
+        margin: 5px;
+        text-align: center; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_link, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link {
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+        left: 50%;
+        position: absolute;
+        bottom: 0;
+        padding-right: 5px; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_link img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link img, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link img, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link img, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link img {
+          margin-left: 5px;
+          vertical-align: -1px; }
 @media (max-width: 750px) {
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container img {
     -webkit-transform: translateX(-50%);
@@ -4105,6 +4182,63 @@ button {
       width: 20px; }
     .read_more a:hover:after {
       background-image: url("../images/right-arrow-icon-blue.svg"); }
+
+.textblock_with_background {
+  /*$border-width: 1px;*/
+  height: 450px;
+  max-width: 450px;
+  position: relative;
+  /*border: $border-width solid grey;*/ }
+  .textblock_with_background:after {
+    clear: both;
+    content: "";
+    display: block; }
+  .textblock_with_background.textblock_left {
+    /*background-image: url('http://placehold.it/460x460');*/
+    background-color: darkred;
+    float: left;
+    margin-left: calc((100% - calc(450px * 2 + 10px * 2))/2); }
+  .textblock_with_background.textblock_right {
+    /*background-image: url('http://placehold.it/460x460');*/
+    background-color: navy;
+    float: right;
+    margin-right: calc((100% - calc(450px * 2 + 10px * 2))/2); }
+  .textblock_with_background .split_block_container {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative; }
+    .textblock_with_background .split_block_container h2 {
+      color: #fff;
+      line-height: 1.4;
+      text-align: center !important; }
+    .textblock_with_background .split_block_container p {
+      color: #fff;
+      margin-bottom: 35px;
+      text-align: center !important; }
+    .textblock_with_background .split_block_container button {
+      margin-bottom: 0; }
+  @media (max-width: 1024px) {
+    .textblock_with_background {
+      width: calc(50% - 10px - 50px); }
+      .textblock_with_background.textblock_left {
+        margin-left: 50px; }
+      .textblock_with_background.textblock_right {
+        margin-right: 50px; } }
+  @media (max-width: 700px) {
+    .textblock_with_background.textblock_left, .textblock_with_background.textblock_right {
+      float: none;
+      margin: 0;
+      max-width: 100%;
+      width: 100%; }
+      .textblock_with_background.textblock_left .split_block_container, .textblock_with_background.textblock_right .split_block_container {
+        padding: 20px 50px; } }
 
 .toast-message {
   font-family: "p22-underground", sans-serif; }

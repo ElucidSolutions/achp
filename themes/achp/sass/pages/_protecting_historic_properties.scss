@@ -1,9 +1,6 @@
 #page[data-page-node-type="page_with_banner"] {
 
-  $img-width: 300px;
-  $img-height: 195px;
   $vertical-padding: 25px;
-  $img-padding: 20px;
   $container-padding: 50px;
 
   #content #content_region {
@@ -12,6 +9,10 @@
       padding-bottom: $vertical-padding;
     }
     #block-anintroductiontosection106 {
+      $img-width: 300px;
+      $img-height: 195px;
+      $img-padding: 20px;
+
       background: $background-color-grey2;
       padding: $vertical-padding 0;
 
@@ -53,6 +54,91 @@
           }
         }
       } 
+    }
+
+    #block-featured-success-stories {
+      $success-card-margin-vert: 25px;
+      $success-card-margin-horiz: 20px;
+      $success-card-height: 400px;
+      $success-card-shadow-width: 3px;
+      $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
+
+      background-color: $color-lightblue3;
+      clear: both;
+      height: auto;
+      
+      h2 {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: $vertical-padding $container-padding 0;
+      }
+
+      & > div {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: $vertical-padding $container-padding;
+      }
+      .card {
+        background-color: #ffffff;
+        display: inline-block;
+        width: $success-card-width;
+        height: $success-card-height;
+        text-align: center;
+        margin-right: $success-card-margin-horiz;
+
+        &:last-of-type {
+          margin-right: 0;
+          /*position: absolute;*/
+        }
+
+        .success_story {
+          height: $success-card-height - 30px; 
+          padding: 5px 10px;
+          position: relative;  
+
+          &_image {
+            $success_story_image_height: 185px;
+            @include fit-and-center-image($success_story_image_height);    
+/*            max-width: 250px;*/
+            margin-bottom: 15px;
+          }
+
+          &_title h3 {
+            text-align: inherit;
+          }
+
+          &_location {
+            color: $color-lightgrey-2;
+          }
+
+          &_body p {
+            font-family: $serif-text;
+            margin: 5px;
+            text-align: center;
+          }
+
+          &_link {
+            @include center-x;
+            bottom: 0;
+            padding-right: 5px;
+
+            img {
+              margin-left: 5px;
+              vertical-align: -1px;
+            }
+          }
+        }
+      }
+/*      @media (max-width: 384px) {
+        padding: 25px 10px;
+
+        #block-preservationsuccessstories {
+          padding: 0 40px;
+        }
+        #block-moresuccessstoriesbutton {
+          padding: 0 40px;
+        }
+      }*/
     }
 
     @media (max-width: 750px) {
