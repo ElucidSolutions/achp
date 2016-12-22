@@ -168,6 +168,15 @@ $grid-columns: 12;
   }
 }
 
+/* Mixin to include in the container of a floated element, to clear it */
+@mixin clear-float {
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 @mixin hover-transition-content-and-background($content-color, $background-color) {
   transition: color 0.25s, background-color 0.25s;
