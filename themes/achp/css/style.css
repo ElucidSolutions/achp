@@ -136,6 +136,27 @@ html {
       #block-breadcrumbs .mobile_breadcrumb:hover a {
         color: #0990FE; } }
 /*
+  This stylesheet provides default styling for
+  the Digital Library pages.
+*/
+[data-page-view-id="digital_library"] #content_region {
+  margin: 0 auto;
+  max-width: 1024px; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container header {
+    background-color: white;
+    height: auto; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item label {
+    display: block; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item #edit-type {
+    width: 100%; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item-type {
+    width: 75%; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item-keys {
+    width: 50%; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item-field-tags-target-id {
+    width: 50%; }
+
+/*
   This module contains styles used by the Event
   Calendar feature.
 */

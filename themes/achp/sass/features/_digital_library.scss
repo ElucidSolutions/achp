@@ -1,0 +1,36 @@
+/*
+  This stylesheet provides default styling for
+  the Digital Library pages.
+*/
+[data-page-view-id="digital_library"] {
+  #content_region {
+    margin: 0 auto;
+    max-width: $max-content-width;
+
+    .views-element-container {
+      header {
+        background-color: white;
+        height: auto;
+      }
+      .views-exposed-form {
+        .form-item {
+          label {
+            display: block;
+          }
+          #edit-type {
+            width: 100%;
+          }
+        }
+        .form-item-type {
+          width: 75%;
+        }
+        .form-item-keys {
+          width: 50%;
+        }
+        .form-item-field-tags-target-id {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
