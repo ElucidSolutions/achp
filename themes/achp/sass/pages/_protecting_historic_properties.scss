@@ -260,5 +260,68 @@
         }
       }
     }
+    #block-electronic106submissionsystem {
+      $img-width: 100px;
+      background-color: $color-lightblue3;
+
+      .block_container {
+        @include content-container;
+        padding: $vertical-padding $container-padding; 
+
+        .warning_block {
+          background-color: rgba(255,237,234,1);
+          height: $img-width;
+          margin-bottom: $vertical-padding;
+          position: relative;
+          width: 100%;
+
+          img {
+            @include clear-float;
+            float: left;
+            padding-right: 25px;
+          }
+          p {
+            @include center-y;
+            position: relative;
+            padding-right: 15px;
+          }
+        }
+      }
+
+      @media (max-width: 850px) {
+        .block_container .warning_block {
+          height: 150px;
+
+          $mobile-img-left-padding: 15px;
+
+          img {
+            @include center-y;
+            left: $mobile-img-left-padding;
+          }
+          p {
+            @include center-y;
+            left: calc(#{$img-width} + #{$mobile-img-left-padding} * 2);
+            margin-top: 0;
+          }
+        }
+      } 
+
+      @media (max-width: 600px) {
+        .block_container .warning_block {
+          height: auto;
+
+          img {
+            @include undo-center-y;
+            float: left;
+            padding-right: 15px;
+          }
+
+          p {
+            @include undo-center-y;
+            padding: 10px;
+          }
+        }        
+      }
+    }
   }
 }

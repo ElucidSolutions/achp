@@ -24,6 +24,7 @@ html {
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -439,6 +440,7 @@ the events landing page is different */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -552,6 +554,7 @@ the events landing page is different */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -643,6 +646,7 @@ the events landing page is different */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -1187,6 +1191,7 @@ the events landing page is different */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -1638,6 +1643,7 @@ the events landing page is different */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -1782,6 +1788,7 @@ the events landing page is different */
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -2035,6 +2042,7 @@ header {
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -2486,6 +2494,7 @@ header {
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -2546,6 +2555,7 @@ header {
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -3042,6 +3052,7 @@ header {
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -3378,6 +3389,7 @@ header {
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -3546,6 +3558,7 @@ header {
 /* Mixin for centering horizontally */
 /* Mixin for centering vertically */
 /* Mixin for centering vertically & horizontally */
+/* Undo the center-y mixin. Useful for media queries */
 /* Mixin for generating solid-colored hr elements*/
 /* Mixin for centering and cropping to fit images*/
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
@@ -3625,7 +3638,7 @@ header {
 */
 #page[data-page-node-type="page_with_banner"] #content {
   width: 100%;
-  margin: 0 0 40px; }
+  /*margin: 0 0 40px;*/ }
   #page[data-page-node-type="page_with_banner"] #content #content_region article .field_page_tagline {
     display: none; }
   #page[data-page-node-type="page_with_banner"] #content #content_region h2 {
@@ -3726,189 +3739,195 @@ header {
 /*
   Styles specific to the newsletters page
 */
-#page[data-page-node-type="page_with_banner"] #content #content_region #block-pagetitle-2,
-#page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews-mobile,
-#page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentsection106-mobile,
-#page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentpreserveamerica-mobile {
-  display: none; }
-#page[data-page-node-type="page_with_banner"] #content #content_region #block-pagetitle-2,
-#page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews-mobile,
-#page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentsection106-mobile,
-#page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentpreserveamerica-mobile {
-  display: none; }
-#page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related {
-  float: right;
-  padding-right: 50px;
-  width: 250px; }
-  @media (min-width: 1024px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related {
-      margin-right: calc((100% - 1024px)/2); } }
-  @media (max-width: 1024px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related {
-      margin-right: 0; } }
-  @media (max-width: 750px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related {
-      float: none;
-      padding: 0 50px;
-      width: 100%; } }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related h4 {
-    margin: 0 0 20px; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related .related_item {
-    font-size: 1.125rem;
-    margin-bottom: 15px; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related .related_item a {
-      color: #0990FE; }
-#page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info {
-  border-right: 1px solid #E5E3E4;
-  margin-bottom: 0;
-  max-width: calc(1024px - calc(250px + 30px));
-  padding: 0 50px 15px 50px;
-  width: calc(100% - calc(250px + 30px)); }
-  @media (min-width: 1024px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info {
-      margin-left: calc((100% - 1024px)/2); } }
-  @media (max-width: 750px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info {
-      border-right: none;
-      max-width: 100%;
-      width: 100%; } }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info p {
-    margin-top: 0; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info .edition_links {
-    padding-left: 30px; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info .edition_links li {
-      padding: 0 0 5px 10px; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info .edition_links li a {
-        color: #0990FE; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info .subscribe_header {
-    color: #1E1E1E;
-    font-family: "p22-underground", sans-serif;
-    font-weight: 500;
-    margin-bottom: 0; }
-#page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer {
-  border-right: 1px solid #E5E3E4;
-  margin-bottom: 0;
-  max-width: calc(1024px - calc(250px + 30px));
-  padding: 0 50px 15px 50px;
-  width: calc(100% - calc(250px + 30px)); }
-  @media (min-width: 1024px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer {
-      margin-left: calc((100% - 1024px)/2); } }
-  @media (max-width: 750px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer {
-      border-right: none;
-      max-width: 100%;
-      width: 100%; } }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer p {
-    margin-top: 0; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer .unsubscribe_header {
-    color: #1E1E1E;
-    font-family: "p22-underground", sans-serif;
-    font-weight: 500;
-    margin: 25px 0 0; }
-#page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container {
-  border-right: 1px solid #E5E3E4;
-  margin-bottom: 0;
-  max-width: calc(1024px - calc(250px + 30px));
-  padding: 0 50px 15px 50px;
-  width: calc(100% - calc(250px + 30px)); }
-  @media (min-width: 1024px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container {
-      margin-left: calc((100% - 1024px)/2); } }
-  @media (max-width: 750px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container {
-      border-right: none;
-      max-width: 100%;
-      width: 100%; } }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field {
-    position: relative; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field label {
-      -webkit-transition: all 0.2s;
-      -moz-transition: all 0.2s;
-      transition: all 0.2s;
-      color: #1E1E1E;
-      font-family: "p22-underground", sans-serif;
-      left: 15px;
-      position: absolute;
-      top: 25px;
-      z-index: 5; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input {
-      height: 40px;
-      margin: 15px 0; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="email"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="email"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"] {
-        background-color: transparent;
-        border: 1px solid #7C7C7C;
-        border-radius: 2px;
-        font-family: "p22-underground", sans-serif;
-        font-size: 1rem;
-        padding: 0 0 0 15px;
-        position: relative;
-        width: 220px;
-        z-index: 20; }
-        #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="text"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="email"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="text"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="email"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"]:focus {
-          outline: none; }
-          #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="text"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="email"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="text"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="email"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"]:focus ~ label {
-            top: -10px; }
-        #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="text"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="email"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="text"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="email"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"]:valid ~ label {
-          top: -10px; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="submit"] {
-        font-size: 0.75rem;
-        transition: background-color 0.25s;
-        background-color: #0990FE;
-        border: none;
-        border-radius: 2px;
-        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
-        color: #FFFFFF;
-        cursor: pointer;
-        display: block;
-        height: 32px;
-        font-family: "p22-underground", sans-serif;
-        letter-spacing: 0.02rem;
-        line-height: 1.4rem;
-        margin: 15px 0;
-        padding: 7px 53px; }
-        @media screen and (min-width: 650px) {
-          #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="submit"] {
-            font-size: 16px; } }
-        #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="submit"]:hover, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="submit"]:hover, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="submit"]:hover, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="submit"]:hover {
-          background-color: #71BFFE; }
-#page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container {
-  margin-bottom: 0; }
-#page[data-page-node-type="page_with_banner"] #content #content_region #block-unsubscribeblock:after, #page[data-page-node-type="page_with_banner"] #content #content_region #block-unsubscribeblock-2:after {
-  background-color: #E5E3E4;
-  content: " ";
-  display: block;
-  height: 1px;
-  margin: 35px 0;
-  width: 100%; }
-@media (max-width: 800px) {
-  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related .related_item {
-    font-size: 1rem; } }
-@media (max-width: 750px) {
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews,
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentsection106,
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentpreserveamerica,
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-unsubscribeblock:after,
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-unsubscribeblock-2:after {
-    display: none; }
+#page[data-page-node-type="page_with_banner"] {
+  /*  #content {
+      margin-bottom: 40px;
+    }*/ }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-pagetitle-2,
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews-mobile,
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentsection106-mobile,
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentpreserveamerica-mobile {
-    display: block;
-    margin-top: 20px;
-    width: 100%; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews-mobile:after,
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentsection106-mobile:after {
+    display: none; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-pagetitle-2,
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews-mobile,
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentsection106-mobile,
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentpreserveamerica-mobile {
+    display: none; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related {
+    float: right;
+    padding-right: 50px;
+    width: 250px; }
+    @media (min-width: 1024px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related {
+        margin-right: calc((100% - 1024px)/2); } }
+    @media (max-width: 1024px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related {
+        margin-right: 0; } }
+    @media (max-width: 750px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related {
+        float: none;
+        padding: 0 50px;
+        width: 100%; } }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related h4 {
+      margin: 0 0 20px; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related .related_item {
+      font-size: 1.125rem;
+      margin-bottom: 15px; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related .related_item a {
+        color: #0990FE; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info {
+    border-right: 1px solid #E5E3E4;
+    margin-bottom: 0;
+    max-width: calc(1024px - calc(250px + 30px));
+    padding: 0 50px 15px 50px;
+    width: calc(100% - calc(250px + 30px)); }
+    @media (min-width: 1024px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info {
+        margin-left: calc((100% - 1024px)/2); } }
+    @media (max-width: 750px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info {
+        border-right: none;
+        max-width: 100%;
+        width: 100%; } }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info p {
+      margin-top: 0; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info .edition_links {
+      padding-left: 30px; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info .edition_links li {
+        padding: 0 0 5px 10px; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info .edition_links li a {
+          color: #0990FE; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info .subscribe_header {
+      color: #1E1E1E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 500;
+      margin-bottom: 0; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer {
+    border-right: 1px solid #E5E3E4;
+    margin-bottom: 0;
+    max-width: calc(1024px - calc(250px + 30px));
+    padding: 0 50px 15px 50px;
+    width: calc(100% - calc(250px + 30px)); }
+    @media (min-width: 1024px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer {
+        margin-left: calc((100% - 1024px)/2); } }
+    @media (max-width: 750px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer {
+        border-right: none;
+        max-width: 100%;
+        width: 100%; } }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer p {
+      margin-top: 0; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer .unsubscribe_header {
+      color: #1E1E1E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 500;
+      margin: 25px 0 0; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container {
+    border-right: 1px solid #E5E3E4;
+    margin-bottom: 0;
+    max-width: calc(1024px - calc(250px + 30px));
+    padding: 0 50px 15px 50px;
+    width: calc(100% - calc(250px + 30px)); }
+    @media (min-width: 1024px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container {
+        margin-left: calc((100% - 1024px)/2); } }
+    @media (max-width: 750px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container {
+        border-right: none;
+        max-width: 100%;
+        width: 100%; } }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field {
+      position: relative; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field label {
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        transition: all 0.2s;
+        color: #1E1E1E;
+        font-family: "p22-underground", sans-serif;
+        left: 15px;
+        position: absolute;
+        top: 25px;
+        z-index: 5; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input {
+        height: 40px;
+        margin: 15px 0; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="email"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="email"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"] {
+          background-color: transparent;
+          border: 1px solid #7C7C7C;
+          border-radius: 2px;
+          font-family: "p22-underground", sans-serif;
+          font-size: 1rem;
+          padding: 0 0 0 15px;
+          position: relative;
+          width: 220px;
+          z-index: 20; }
+          #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="text"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="email"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="text"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="email"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"]:focus, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"]:focus {
+            outline: none; }
+            #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="text"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="email"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="text"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="email"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"]:focus ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"]:focus ~ label {
+              top: -10px; }
+          #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="text"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="email"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="text"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="email"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"]:valid ~ label, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"]:valid ~ label {
+            top: -10px; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="submit"] {
+          font-size: 0.75rem;
+          transition: background-color 0.25s;
+          background-color: #0990FE;
+          border: none;
+          border-radius: 2px;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          color: #FFFFFF;
+          cursor: pointer;
+          display: block;
+          height: 32px;
+          font-family: "p22-underground", sans-serif;
+          letter-spacing: 0.02rem;
+          line-height: 1.4rem;
+          margin: 15px 0;
+          padding: 7px 53px; }
+          @media screen and (min-width: 650px) {
+            #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="submit"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="submit"] {
+              font-size: 16px; } }
+          #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="submit"]:hover, #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .unsubscribe-form-field input[type="submit"]:hover, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .subscribe-form-field input[type="submit"]:hover, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="submit"]:hover {
+            background-color: #71BFFE; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container {
+    margin-bottom: 0; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-unsubscribeblock:after, #page[data-page-node-type="page_with_banner"] #content #content_region #block-unsubscribeblock-2:after {
     background-color: #E5E3E4;
     content: " ";
     display: block;
     height: 1px;
     margin: 35px 0;
     width: 100%; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"] {
-    width: 100%; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"] {
-    width: 100%; } }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-unsubscribeblock-3 {
+    margin-bottom: 35px; }
+  @media (max-width: 800px) {
+    #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_related .related_item {
+      font-size: 1rem; } }
+  @media (max-width: 750px) {
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews,
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentsection106,
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentpreserveamerica,
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-unsubscribeblock:after,
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-unsubscribeblock-2:after {
+      display: none; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews-mobile,
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentsection106-mobile,
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentpreserveamerica-mobile {
+      display: block;
+      margin-top: 20px;
+      width: 100%; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews-mobile:after,
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentsection106-mobile:after {
+      background-color: #E5E3E4;
+      content: " ";
+      display: block;
+      height: 1px;
+      margin: 35px 0;
+      width: 100%; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container .subscribe-form-field input[type="email"] {
+      width: 100%; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"] {
+      width: 100%; } }
 
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content {
   padding-bottom: 35px; }
@@ -4118,6 +4137,80 @@ header {
         margin-top: 10px; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category .library_icon {
         display: inline; } }
+#page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem {
+  background-color: #E6F8FF; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 50px;
+    padding: 35px 50px; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block {
+      background-color: #ffedea;
+      height: 100px;
+      margin-bottom: 35px;
+      position: relative;
+      width: 100%; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img {
+        float: left;
+        padding-right: 25px; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img:after {
+          clear: both;
+          content: "";
+          display: block; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p {
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        position: relative;
+        padding-right: 15px; }
+  @media (max-width: 850px) {
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block {
+      height: 150px; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img {
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        left: 15px; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p {
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        left: calc(100px + 15px * 2);
+        margin-top: 0; } }
+  @media (max-width: 600px) {
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block {
+      height: auto; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img {
+        position: static;
+        top: 0;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+        float: left;
+        padding-right: 15px; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p {
+        position: static;
+        top: 0;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+        padding: 10px; } }
 
 html,
 body {

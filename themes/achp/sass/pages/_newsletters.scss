@@ -44,6 +44,10 @@
     }
   }   
 
+/*  #content {
+    margin-bottom: 40px;
+  }*/
+
   #content #content_region {
     #block-pagetitle-2, 
     #block-relatedcontentmembersinthenews-mobile, 
@@ -52,145 +56,148 @@
       display: none;
     }
 
-      #block-pagetitle-2, 
-      #block-relatedcontentmembersinthenews-mobile, 
-      #block-relatedcontentsection106-mobile, 
-      #block-relatedcontentpreserveamerica-mobile {
-        display: none;
-      }
-       
-      .newsletter_related {
-        @include side-column-positioning;
-        float: right;
-        padding-right: 50px;
-        width: $sidebar-width;
+    #block-pagetitle-2, 
+    #block-relatedcontentmembersinthenews-mobile, 
+    #block-relatedcontentsection106-mobile, 
+    #block-relatedcontentpreserveamerica-mobile {
+      display: none;
+    }
+     
+    .newsletter_related {
+      @include side-column-positioning;
+      float: right;
+      padding-right: 50px;
+      width: $sidebar-width;
 
-        h4 {
-          margin: 0 0 20px;
+      h4 {
+        margin: 0 0 20px;
+      }
+      .related_item {
+        font-size: rem(18px);
+        margin-bottom: $form-margin;
+
+        a {
+          color: $color-blue-primary;
         }
-        .related_item {
-          font-size: rem(18px);
-          margin-bottom: $form-margin;
+      }
+    }
+    .newsletter_info {
+      @include main-column-positioning;
+
+      p {
+        margin-top: 0;
+      }
+      .edition_links {
+        padding-left: 30px;
+
+        li {
+          padding: 0 0 5px 10px;
 
           a {
             color: $color-blue-primary;
           }
         }
       }
-      .newsletter_info {
-        @include main-column-positioning;
+      .subscribe_header {
+        color: $color-darkgrey2;
+        font-family: $sans-text;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+    }
+    .newsletter_disclaimer {
+      @include main-column-positioning;
 
-        p {
-          margin-top: 0;
-        }
-        .edition_links {
-          padding-left: 30px;
+      p {
+        margin-top: 0;
+      }
+      .unsubscribe_header {
+        color: $color-darkgrey2;
+        font-family: $sans-text;
+        font-weight: 500;
+        margin: 25px 0 0;
+      }
+    }
 
-          li {
-            padding: 0 0 5px 10px;
+    .subscribe-container, .unsubscribe-container {
+      @include main-column-positioning;
 
-            a {
-              color: $color-blue-primary;
-            }
-          }
-        }
-        .subscribe_header {
+      .subscribe-form-field, .unsubscribe-form-field {
+        position: relative;
+      
+        label {
+          @include transition (all 0.2s);
           color: $color-darkgrey2;
           font-family: $sans-text;
-          font-weight: 500;
-          margin-bottom: 0;
+          left: 15px;
+          position: absolute;
+          top: 25px;
+          z-index: 5;
         }
-      }
-      .newsletter_disclaimer {
-        @include main-column-positioning;
+        input {
+          height: 40px;
+          margin: $form-margin 0;
 
-        p {
-          margin-top: 0;
-        }
-        .unsubscribe_header {
-          color: $color-darkgrey2;
-          font-family: $sans-text;
-          font-weight: 500;
-          margin: 25px 0 0;
-        }
-      }
-
-      .subscribe-container, .unsubscribe-container {
-        @include main-column-positioning;
-
-        .subscribe-form-field, .unsubscribe-form-field {
-          position: relative;
-        
-          label {
-            @include transition (all 0.2s);
-            color: $color-darkgrey2;
+          &[type="text"], &[type="email"] {
+            background-color: transparent;
+            border: 1px solid $color-lightgrey-2;
+            border-radius: 2px;
             font-family: $sans-text;
-            left: 15px;
-            position: absolute;
-            top: 25px;
-            z-index: 5;
+            font-size: rem(16px);
+            padding: 0 0 0 15px;
+            position: relative;
+            width: $text-input-width;
+            z-index: 20;
+
+            &:focus {
+              outline: none;
+
+                & ~ label {
+                top: -10px;
+              }
+            }
+            &:valid ~ label {
+              top: -10px; 
+            }
           }
-          input {
-            height: 40px;
+          &[type="submit"] {
+            @include font-size($button-font-sizes);
+            @include hover-transition-background($color-lightblue-primary);
+            background-color: $color-blue-primary;
+            border: none;
+            border-radius: 2px;  
+            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+            color: #FFFFFF;
+            cursor: pointer;
+            display: block;
+            height: 32px;
+            font-family: $sans-text;
+            letter-spacing: 0.02rem;
+            line-height: 1.4rem;
             margin: $form-margin 0;
-
-            &[type="text"], &[type="email"] {
-              background-color: transparent;
-              border: 1px solid $color-lightgrey-2;
-              border-radius: 2px;
-              font-family: $sans-text;
-              font-size: rem(16px);
-              padding: 0 0 0 15px;
-              position: relative;
-              width: $text-input-width;
-              z-index: 20;
-
-              &:focus {
-                outline: none;
-
-                  & ~ label {
-                  top: -10px;
-                }
-              }
-              &:valid ~ label {
-                top: -10px; 
-              }
-            }
-            &[type="submit"] {
-              @include font-size($button-font-sizes);
-              @include hover-transition-background($color-lightblue-primary);
-              background-color: $color-blue-primary;
-              border: none;
-              border-radius: 2px;  
-              box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-              color: #FFFFFF;
-              cursor: pointer;
-              display: block;
-              height: 32px;
-              font-family: $sans-text;
-              letter-spacing: 0.02rem;
-              line-height: 1.4rem;
-              margin: $form-margin 0;
-              padding: 7px 53px;
-            }
+            padding: 7px 53px;
           }
         }
       }
+    }
 
-      .unsubscribe-container {
-        margin-bottom: 0
-      }
+    .unsubscribe-container {
+      margin-bottom: 0
+    }
 
-      #block-unsubscribeblock, #block-unsubscribeblock-2 {
-        &:after {
-          background-color: $background-color-grey2;
-          content: " ";
-          display: block;
-          height: 1px;
-          margin: $section-divider-margin 0;
-          width: 100%;
-        }
+    #block-unsubscribeblock, #block-unsubscribeblock-2 {
+      &:after {
+        background-color: $background-color-grey2;
+        content: " ";
+        display: block;
+        height: 1px;
+        margin: $section-divider-margin 0;
+        width: 100%;
       }
+    }
+    #block-unsubscribeblock-3 {
+      margin-bottom: $section-divider-margin;
+    }
   }
 
   @media (max-width: 800px) {
