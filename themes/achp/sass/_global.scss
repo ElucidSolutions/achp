@@ -177,6 +177,13 @@ $grid-columns: 12;
   }
 }
 
+/* Applies default width, margin, and padding to elements */
+@mixin content-container {
+  margin: 0 auto;
+  max-width: $max-content-width;
+  padding: 0 50px;
+}
+
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 @mixin hover-transition-content-and-background($content-color, $background-color) {
   transition: color 0.25s, background-color 0.25s;
