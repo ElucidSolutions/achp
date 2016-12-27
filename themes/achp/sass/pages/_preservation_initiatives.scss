@@ -5,20 +5,30 @@
 
   #content #content_region {
     #block-preservation-initiatives-list {
-
       $img-height: 250px;
       $img-width: 375px;
+      $img-margin: 20px;
 
       @include content-container;
 
+      header {
+        background-color: white;
+        height: auto;
+      }
       .views-row {
-        .views-field:not(.views-field-field-issue-image) {
+        position: relative;
 
+        .views-field-title h4 {
+          margin-bottom: 10px;
+          a {
+            color: $color-darkblue2;
+          }
         }
         .views-field-field-issue-image {
           @include clear-float;
           float: left;
           height: $img-height;
+          margin: 0 $img-margin $img-margin 0;
           position: relative;
           width: $img-width;
           background-color: $color-lightblue3;
@@ -29,11 +39,21 @@
             width: auto;
           }
         }
-        .views-field-view-node .read_more {
-          font-family: $sans-text;
-          text-transform: uppercase;
-        }
+        .views-field-view-node {
+          bottom: 35px;
+          left: 395px;
+          left: calc(#{$img-width} + #{$img-margin});
+          position: absolute;
 
+          .read_more {
+            font-family: $sans-text;
+            text-transform: uppercase;
+
+            a:after {
+              right: -30px;
+            }
+          }
+        }
 
         &:after {
           background-color: $background-color-grey2;
@@ -41,15 +61,31 @@
           content: " ";
           display: block;
           height: 1px;
-          margin: 10px 0 $vertical-padding;
+          margin: 20px 0 $vertical-padding;
           width: 100%;
         }
+      }
+    }
+    #block-more-initiatives-list {
+      @include content-container;
+      padding: 20px $container-padding $container-padding;
 
+      header {
+        background-color: white;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      .views-field-title {
+        font-family: $sans-text;
+        font-size: rem(18px);
+        margin: 10px 0;
+        text-transform: uppercase;
 
+        a {
+          color: $color-blue-primary;
+        }
       }
 
     }
-
-
   }
 }

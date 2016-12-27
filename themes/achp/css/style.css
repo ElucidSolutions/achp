@@ -2749,7 +2749,7 @@ header {
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75.0%;
+        width: 75%;
         background-color: #fff;
         border-bottom: 35px solid transparent;
         float: right;
@@ -4127,8 +4127,8 @@ header {
       float: left;
       display: block;
       margin-right: 0%;
-      width: 75.0%;
-      margin-left: 25.0%; }
+      width: 75%;
+      margin-left: 25%; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child {
         margin-right: 0; } }
   @media (max-width: 500px) {
@@ -4235,38 +4235,71 @@ header {
   margin: 0 auto;
   max-width: 1024px;
   padding: 0 50px; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-image {
-    float: left;
-    height: 250px;
-    position: relative;
-    width: 375px;
-    background-color: #E6F8FF; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-image:after {
-      clear: both;
-      content: "";
-      display: block; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-image img {
-      -webkit-transform: translateX(-50%) translateY(-50%);
-      -moz-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-      -o-transform: translateX(-50%) translateY(-50%);
-      transform: translateX(-50%) translateY(-50%);
-      left: 50%;
-      position: absolute;
-      top: 50%;
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list header {
+    background-color: white;
+    height: auto; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row {
+    position: relative; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-title h4 {
+      margin-bottom: 10px; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-title h4 a {
+        color: #003A5E; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-image {
+      float: left;
       height: 250px;
-      width: auto; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read_more {
+      margin: 0 20px 20px 0;
+      position: relative;
+      width: 375px;
+      background-color: #E6F8FF; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-image:after {
+        clear: both;
+        content: "";
+        display: block; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-image img {
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        height: 250px;
+        width: auto; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node {
+      bottom: 35px;
+      left: 395px;
+      left: calc(375px + 20px);
+      position: absolute; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read_more {
+        font-family: "p22-underground", sans-serif;
+        text-transform: uppercase; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read_more a:after {
+          right: -30px; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row:after {
+      background-color: #E5E3E4;
+      clear: both;
+      content: " ";
+      display: block;
+      height: 1px;
+      margin: 20px 0 35px;
+      width: 100%; }
+#page[data-page-node-type="page_with_banner"] #content #content_region #block-more-initiatives-list {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 0 50px;
+  padding: 20px 50px 50px; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-more-initiatives-list header {
+    background-color: white;
+    height: auto;
+    margin-bottom: 20px; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-more-initiatives-list .views-field-title {
     font-family: "p22-underground", sans-serif;
+    font-size: 1.125rem;
+    margin: 10px 0;
     text-transform: uppercase; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row:after {
-    background-color: #E5E3E4;
-    clear: both;
-    content: " ";
-    display: block;
-    height: 1px;
-    margin: 10px 0 35px;
-    width: 100%; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-more-initiatives-list .views-field-title a {
+      color: #0990FE; }
 
 html,
 body {
@@ -4499,3 +4532,5 @@ other variables */
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
+
+/*# sourceMappingURL=style.css.map */
