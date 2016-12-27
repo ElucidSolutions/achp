@@ -94,6 +94,10 @@
       }
     }
     #block-featured-success-stories {
+      /* IE has a lot of trouble interpreting calculated values from variables,
+      so I included two values for many of the margins and widths below: the
+      first as a simple px value, and the second the calculated variable-based
+      value. If the second value fails, it will revert to the first.*/
       $success-card-margin-vert: 25px;
       $success-card-margin-horiz: 20px;
       $success-card-height: 400px;
@@ -107,28 +111,25 @@
       margin-top: $vertical-padding;
       
       h2 {
-        max-width: 1024px;
+        max-width: $max-content-width;
         margin: 0 auto;
         padding: $vertical-padding $container-padding 0;
       }
 
       & > div {
-        max-width: 1024px;
         margin: 0 auto;
-        padding: $vertical-padding $container-padding;
+        max-width: 1024px;
+        padding: 0 $container-padding $vertical-padding;
+        width: 100%;
       }
       .card {
         background-color: #ffffff;
         display: inline-block;
-        width: $success-card-width;
         height: $success-card-height;
+        margin: 25px $success-card-margin-horiz 0 0;
         text-align: center;
-        margin-right: $success-card-margin-horiz;
-
-        &:last-of-type {
-          margin-right: 0;
-        }
-
+        width: $success-card-width;
+        
         .success_story {
           height: $success-card-height - 30px; 
           padding: 5px 10px;
@@ -138,6 +139,10 @@
             $success_story_image_height: 185px;
             @include fit-and-center-image($success_story_image_height);    
             margin-bottom: 15px;
+
+            img {
+              border: none !important;
+            }
           }
 
           &_title h3 {
@@ -166,28 +171,33 @@
           }
         }
       }
+      .card.view-item-3 {
+        margin-right: 0 !important;
+      }
       @media (max-width: $max-content-width) {
         & > div {
+          max-width: 100%;
+          padding: 0 $container-padding $vertical-padding;
+          width: 710px;
           width: $two-card-container-width;
 
           .card {
             &:nth-of-type(2) {
               margin-right: 0;
             }
-            &:last-of-type {
-              display: block;
-              margin: 25px auto 0;
-            }
+          }
+          .card.view-item-3 {
+            margin: 25px 0 0;
+            margin-left: 151px;
+            margin-left: calc(#{$success-card-width} / 2);
           }
         }
       }
       @media (max-width: 710px) {
-        & > div {
-          width: calc(#{$success-card-width} + #{$container-padding} * 2);
-
-          .card {
-            display: block;
-            margin: 0 auto 25px;
+       & > div {
+          .success-story.card {
+            margin: 25px auto 0 !important;
+            display: block !important;
           }
         }
       }

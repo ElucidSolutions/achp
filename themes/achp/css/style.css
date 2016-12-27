@@ -3994,6 +3994,10 @@ header {
         padding-left: 25px;
         padding-right: 25px; } }
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories {
+  /* IE has a lot of trouble interpreting calculated values from variables,
+  so I included two values for many of the margins and widths below: the
+  first as a simple px value, and the second the calculated variable-based
+  value. If the second value fails, it will revert to the first.*/
   background-color: #E6F8FF;
   clear: both;
   height: auto;
@@ -4003,18 +4007,17 @@ header {
     margin: 0 auto;
     padding: 35px 50px 0; }
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div {
-    max-width: 1024px;
     margin: 0 auto;
-    padding: 35px 50px; }
+    max-width: 1024px;
+    padding: 0 50px 35px;
+    width: 100%; }
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container {
     background-color: #ffffff;
     display: inline-block;
-    width: calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3);
     height: 400px;
+    margin: 25px 20px 0 0;
     text-align: center;
-    margin-right: 20px; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card:last-of-type, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body:last-of-type, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body:last-of-type, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card:last-of-type, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card:last-of-type, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:last-of-type, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container:last-of-type {
-      margin-right: 0; }
+    width: calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3); }
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story {
       height: 370px;
       padding: 5px 10px;
@@ -4038,6 +4041,8 @@ header {
           height: 100%;
           min-width: 100%;
           width: auto; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_image img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_image img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_image img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_image img {
+          border: none !important; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_title h3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_title h3, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_title h3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_title h3, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_title h3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_title h3, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_title h3 {
         text-align: inherit; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_location, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_location, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_location, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_location, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_location, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_location, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_location {
@@ -4059,20 +4064,24 @@ header {
         #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_link img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link img, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link img, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link img, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link img {
           margin-left: 5px;
           vertical-align: -1px; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card.view-item-3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .view-item-3.views-element-container {
+    margin-right: 0 !important; }
   @media (max-width: 1024px) {
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div {
+      max-width: 100%;
+      padding: 0 50px 35px;
+      width: 710px;
       width: calc(calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3) * 2 + 20px + 3px * 2 + 50px * 2); }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .card:nth-of-type(2), #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body:nth-of-type(2), .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body:nth-of-type(2), #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card:nth-of-type(2), .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card:nth-of-type(2), #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:nth-of-type(2), #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .views-element-container:nth-of-type(2) {
         margin-right: 0; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .card:last-of-type, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body:last-of-type, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body:last-of-type, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card:last-of-type, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card:last-of-type, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:last-of-type, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .views-element-container:last-of-type {
-        display: block;
-        margin: 25px auto 0; } }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .card.view-item-3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .view-item-3.views-element-container {
+        margin: 25px 0 0;
+        margin-left: 151px;
+        margin-left: calc(calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3) / 2); } }
   @media (max-width: 710px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div {
-      width: calc(calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3) + 50px * 2); }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .views-element-container {
-        display: block;
-        margin: 0 auto 25px; } }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .success-story.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.views-element-container {
+      margin: 25px auto 0 !important;
+      display: block !important; } }
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-moresuccessstoriesbutton-2 {
   background-color: #E6F8FF;
   padding-bottom: 35px; }
@@ -4193,23 +4202,33 @@ header {
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block {
       height: auto; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img {
-        position: static;
-        top: 0;
         -webkit-transform: none;
         -moz-transform: none;
         -ms-transform: none;
         -o-transform: none;
         transform: none;
+        position: static;
+        top: 0;
+        /*  -webkit-transform: none;
+          -moz-transform: none;
+          -ms-transform: none;
+          -o-transform: none;
+          transform: none;*/
         float: left;
         padding-right: 15px; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p {
-        position: static;
-        top: 0;
         -webkit-transform: none;
         -moz-transform: none;
         -ms-transform: none;
         -o-transform: none;
         transform: none;
+        position: static;
+        top: 0;
+        /*  -webkit-transform: none;
+          -moz-transform: none;
+          -ms-transform: none;
+          -o-transform: none;
+          transform: none;*/
         padding: 10px; } }
 
 html,
@@ -4369,30 +4388,26 @@ button {
       background-image: url("../images/right-arrow-icon-blue.svg"); }
 
 .textblock_with_background {
-  /*$border-width: 1px;*/
+                      /* Equal to double the sum of $block-width and $textblock-margin. IE 
+only executes this correctly when it's a specific number value, not a calculated sum of
+other variables */
   height: 450px;
   max-width: 450px;
-  position: relative;
-  /*border: $border-width solid grey;*/ }
+  position: relative; }
   .textblock_with_background:after {
     clear: both;
     content: "";
     display: block; }
   .textblock_with_background.textblock_left {
-    /*@include clear-float;*/
     /*background-image: url('http://placehold.it/460x460');*/
     background-color: darkred;
     float: left;
-    margin-left: calc((100% - calc(450px * 2 + 10px * 2))/2); }
+    margin-left: calc((100% - 920px)/2) !important; }
   .textblock_with_background.textblock_right {
     /*background-image: url('http://placehold.it/460x460');*/
     background-color: navy;
     float: right;
-    margin-right: calc((100% - calc(450px * 2 + 10px * 2))/2);
-    /*    &:after {
-          clear: both;
-                content: "1";
-        }*/ }
+    margin-right: calc((100% - 920px)/2); }
     .textblock_with_background.textblock_right:after {
       clear: both;
       content: "";
@@ -4422,23 +4437,24 @@ button {
     .textblock_with_background {
       width: calc(50% - 10px - 50px); }
       .textblock_with_background.textblock_left {
-        margin-left: 50px; }
+        margin-left: 50px !important; }
       .textblock_with_background.textblock_right {
-        margin-right: 50px; } }
+        margin-right: 50px !important; } }
   @media (max-width: 750px) {
-    .textblock_with_background {
-      /*    &.textblock_right {
-            margin-top: 10px;
-          }*/ }
-      .textblock_with_background.textblock_with_background {
-        float: none;
-        margin: 0 20px;
-        max-width: 100%;
-        width: 100%; }
-        .textblock_with_background.textblock_with_background .split_block_container {
-          padding: 20px 50px; }
-        .textblock_with_background.textblock_with_background.textblock_left {
-          margin-bottom: 30px; } }
+    .textblock_with_background.textblock_with_background {
+      float: none;
+      margin: 30px 0 !important;
+      max-width: 100%;
+      width: 100%; }
+      .textblock_with_background.textblock_with_background .split_block_container {
+        padding: 20px 50px; }
+      .textblock_with_background.textblock_with_background.textblock_left {
+        margin-bottom: 0 !important; } }
+  @media (max-width: 400px) {
+    .textblock_with_background.textblock_with_background .split_block_container {
+      padding: 15px; }
+      .textblock_with_background.textblock_with_background .split_block_container p {
+        margin: 10px 0; } }
 
 .toast-message {
   font-family: "p22-underground", sans-serif; }
