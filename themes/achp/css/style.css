@@ -4231,6 +4231,43 @@ header {
           transform: none;*/
         padding: 10px; } }
 
+#page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 0 50px; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-image {
+    float: left;
+    height: 250px;
+    position: relative;
+    width: 375px;
+    background-color: #E6F8FF; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-image:after {
+      clear: both;
+      content: "";
+      display: block; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-image img {
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      height: 250px;
+      width: auto; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read_more {
+    font-family: "p22-underground", sans-serif;
+    text-transform: uppercase; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row:after {
+    background-color: #E5E3E4;
+    clear: both;
+    content: " ";
+    display: block;
+    height: 1px;
+    margin: 10px 0 35px;
+    width: 100%; }
+
 html,
 body {
   font-family: "minion-pro", serif;
