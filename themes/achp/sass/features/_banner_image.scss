@@ -7,7 +7,7 @@
     @include center-xy;
     background-color: rgba(1,59,94,0.75);
     max-width: 75%;
-    padding: 25px 15px;
+    padding: 35px 15px;
     width: 750px;
 
     .node-banner-banner-overlay-field {
@@ -31,7 +31,8 @@
           width: 50%;
         }
       }
-      &[data-node-banner-overlay-field="field_banner_page_tagline"] {
+      &[data-node-banner-overlay-field="field_banner_page_tagline"],
+      &[data-node-banner-overlay-field="field_issue_tagline"] {
         @include font-size($h4-font-sizes);
         padding: 0 25px;
         text-align: center;

@@ -1,12 +1,12 @@
-#page[data-page-node-type="page_with_banner"] {
+#page[data-page-node-type="page_with_banner"], #page[data-page-node-type="issue"] {
 
   $vertical-padding: 35px;
   $container-padding: 50px;
 
   #content #content_region {
-    #block-preservation-initiatives-list {
-      $img-height: 250px;
-      $img-width: 375px;
+    #block-preservation-initiatives-list, #block-youth-outreach-initiatives {
+      $img-height: 200px;
+      $img-width: 300px;
       $img-margin: 20px;
 
       @include content-container;
@@ -14,14 +14,19 @@
       header {
         background-color: white;
         height: auto;
+
+        h2 {
+          font-size: rem(36px);
+          margin-bottom: 25px;
+        }
       }
       .views-row {
         position: relative;
 
-        .views-field-title h4 {
+        .views-field-title h3 {
           margin-bottom: 10px;
           a {
-            color: $color-darkblue2;
+            color: $color-red;
           }
         }
         .views-field-field-issue-image {
@@ -29,6 +34,7 @@
           float: left;
           height: $img-height;
           margin: 0 $img-margin $img-margin 0;
+          max-width: 100%;
           position: relative;
           width: $img-width;
           background-color: $color-lightblue3;
@@ -36,6 +42,7 @@
           img {
             @include center-xy;
             height: $img-height;
+            max-width: 100%;
             width: auto;
           }
         }
@@ -45,12 +52,19 @@
           left: calc(#{$img-width} + #{$img-margin});
           position: absolute;
 
-          .read_more {
-            font-family: $sans-text;
-            text-transform: uppercase;
-
-            a:after {
-              right: -30px;
+          .read-more {
+            a {
+              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
+              color: $color-grey;
+              font-family: $sans-text;
+              font-size: 0.875rem;
+              font-weight: 500;
+              text-decoration: none;
+              text-transform: uppercase;
+              vertical-align: bottom;
+            }
+            &:hover {
+              color: $color-blue-primary;
             }
           }
         }
@@ -63,6 +77,43 @@
           height: 1px;
           margin: 20px 0 $vertical-padding;
           width: 100%;
+        }
+      }
+      @media (max-width: 800px) {
+        .views-row {
+          .views-field-field-issue-image {
+            float: none;
+            margin: 0 auto;
+
+            img {
+              /*height: auto;*/
+              max-height: 100%;
+              max-width: 100%;
+              width: auto;
+            }
+          }
+          .views-field-field-issue-summary {
+            padding-bottom: 30px;
+          }
+          .views-field-view-node {
+            bottom: 10px;
+            left: 0;
+          }
+        }
+      }
+      @media (max-width: 475px) {
+        .views-row {
+          .views-field-field-issue-image {
+            img {
+              height: auto;
+              max-height: 100%;
+              max-width: 100%;
+              width: auto;
+            }
+          }
+          .views-field-field-issue-summary {
+            padding-bottom: 40px;
+          }
         }
       }
     }
@@ -85,7 +136,6 @@
           color: $color-blue-primary;
         }
       }
-
     }
   }
 }

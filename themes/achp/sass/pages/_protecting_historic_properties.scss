@@ -211,8 +211,7 @@
       }
     }
     #block-digitallibrary {
-      @include content-container;
-      padding: $vertical-padding $container-padding;
+      @include content-container-section;
 
       .library_categories {
         @include outer-container;
@@ -275,8 +274,7 @@
       background-color: $color-lightblue3;
 
       .block_container {
-        @include content-container;
-        padding: $vertical-padding $container-padding; 
+        @include content-container-section;
 
         .warning_block {
           background-color: rgba(255,237,234,1);
