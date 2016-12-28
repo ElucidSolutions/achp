@@ -53,45 +53,66 @@ html {
   This module provides styling for breadcrumbs
   created using the Easy Breadcrumb module.
 */
-#block-breadcrumbs .mobile_breadcrumb {
-  display: none; }
-#block-breadcrumbs .achp-breadcrumb {
+#block-breadcrumbs {
   font-family: "p22-underground", sans-serif;
   font-size: 0.875rem;
-  min-height: 50px;
   text-transform: uppercase; }
-  #block-breadcrumbs .achp-breadcrumb ol {
-    color: #0990FE;
-    list-style-type: none;
-    max-height: 21px;
-    overflow: hidden;
-    padding-left: 0;
-    position: relative;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal; }
-    #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link {
-      display: inline;
-      padding-left: 5px;
-      position: relative; }
-      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link a {
-        color: #4F4F4F;
-        text-decoration: none;
-        transition: color 0.25s; }
-      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon {
-        display: inline-block; }
-        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='arrow'] {
-          padding: 0 20px; }
-        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'] {
-          padding: 0 10px 0 0; }
-      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link:hover a {
+  #block-breadcrumbs .mobile_breadcrumb {
+    display: none;
+    text-align: center; }
+    #block-breadcrumbs .mobile_breadcrumb:before {
+      background-image: url("../images/left-arrow-icon.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      content: "";
+      cursor: pointer;
+      height: 20px;
+      padding: 3px 0 0 15px;
+      transition: background-image 0.25s;
+      width: 20px; }
+    #block-breadcrumbs .mobile_breadcrumb:hover:before {
+      background-image: url("../images/left-arrow-icon-blue.svg"); }
+    #block-breadcrumbs .mobile_breadcrumb a {
+      color: #4F4F4F; }
+      #block-breadcrumbs .mobile_breadcrumb a:hover {
         color: #0990FE; }
-    #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_page {
-      /*color: $color-blue-primary;*/ }
-    #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
-      transition: fill 0.25s; }
-    #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
-      fill: #0990FE !important; }
+  #block-breadcrumbs .achp-breadcrumb {
+    font-family: "p22-underground", sans-serif;
+    font-size: 0.875rem;
+    min-height: 50px;
+    text-transform: uppercase; }
+    #block-breadcrumbs .achp-breadcrumb ol {
+      color: #0990FE;
+      list-style-type: none;
+      max-height: 21px;
+      overflow: hidden;
+      padding-left: 0;
+      position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-wrap: normal; }
+      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link {
+        display: inline;
+        padding-left: 5px;
+        position: relative; }
+        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link a {
+          color: #4F4F4F;
+          text-decoration: none;
+          transition: color 0.25s; }
+        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon {
+          display: inline-block; }
+          #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='arrow'] {
+            padding: 0 20px; }
+          #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'] {
+            padding: 0 10px 0 0; }
+        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link:hover a {
+          color: #0990FE; }
+      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_page {
+        /*color: $color-blue-primary;*/ }
+      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
+        transition: fill 0.25s; }
+      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
+        fill: #0990FE !important; }
 
 @media (max-width: 650px) {
   #block-breadcrumbs {
@@ -99,52 +120,7 @@ html {
     #block-breadcrumbs .achp-breadcrumb {
       display: none; }
     #block-breadcrumbs .mobile_breadcrumb {
-      transition: color 0.25s;
-      -webkit-transform: translateX(-50%);
-      -moz-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      -o-transform: translateX(-50%);
-      transform: translateX(-50%);
-      left: 50%;
-      position: absolute;
-      display: block;
-      font-family: "p22-underground", sans-serif;
-      font-size: 0.875rem;
-      padding-top: 3px;
-      text-transform: uppercase; }
-      #block-breadcrumbs .mobile_breadcrumb:hover {
-        color: #0990FE; }
-      #block-breadcrumbs .mobile_breadcrumb:after {
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        position: absolute;
-        top: 50%;
-        background-image: url("../images/left-arrow-icon.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        content: "";
-        cursor: pointer;
-        height: 20px;
-        padding-left: 15px;
-        right: 0;
-        transition: background-image 0.25s;
-        width: 20px; }
-      #block-breadcrumbs .mobile_breadcrumb:hover:after {
-        background-image: url("../images/left-arrow-icon-blue.svg"); }
-      #block-breadcrumbs .mobile_breadcrumb:after {
-        left: 0; }
-      #block-breadcrumbs .mobile_breadcrumb a {
-        color: #4F4F4F;
-        display: block;
-        padding-left: 30px;
-        text-decoration: none;
-        transition: color 0.25s;
-        width: 225px; }
-      #block-breadcrumbs .mobile_breadcrumb:hover a {
-        color: #0990FE; } }
+      display: block; } }
 /*
   This module contains styles used by the Event
   Calendar feature.
@@ -2565,39 +2541,10 @@ header {
   .header_container hr {
     width: 60%; }
 
-/* Global variables: widths, heights, & breakpoints */
-/* Global variables: text */
-/* Global variables: colors */
-/* Colors in Styleguide */
-/* navy blue */
-/* primary blue */
-/* light blue */
-/* deep red */
-/* red */
-/* pink */
-/* dark gray */
-/* gray */
-/* light gray */
-/* lightest gray */
-/* Colors not in Styleguide */
-/* Variables for homepage cards */
-/* Bourbon Grid variables */
-/* Mixin for centering horizontally */
-/* Mixin for centering vertically */
-/* Mixin for centering vertically & horizontally */
-/* Undo the center-y mixin. Useful for media queries */
-/* Mixin for generating solid-colored hr elements*/
-/* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as after-elements */
-/* Mixin for attaching icons as after-elements, without hover effects */
-/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
-/* Mixin to include in the container of a floated element, to clear it */
-/* Applies default width, margin, and padding to elements */
-/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
-/* Mixin for responsive type size */
-/* px-to-rem mixin */
-/* Maps for type changes*/
+/*
+  Styles for the news landing page
+*/
+/*@import "../global";*/
 #news_landing_page {
   height: 100%; }
   #news_landing_page #outer_container {
@@ -3062,39 +3009,10 @@ header {
       margin-top: 0; }
       #news_landing_page #content .news-landing-container .news-item ul li a {
         margin: 0; } }
-/* Global variables: widths, heights, & breakpoints */
-/* Global variables: text */
-/* Global variables: colors */
-/* Colors in Styleguide */
-/* navy blue */
-/* primary blue */
-/* light blue */
-/* deep red */
-/* red */
-/* pink */
-/* dark gray */
-/* gray */
-/* light gray */
-/* lightest gray */
-/* Colors not in Styleguide */
-/* Variables for homepage cards */
-/* Bourbon Grid variables */
-/* Mixin for centering horizontally */
-/* Mixin for centering vertically */
-/* Mixin for centering vertically & horizontally */
-/* Undo the center-y mixin. Useful for media queries */
-/* Mixin for generating solid-colored hr elements*/
-/* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as after-elements */
-/* Mixin for attaching icons as after-elements, without hover effects */
-/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
-/* Mixin to include in the container of a floated element, to clear it */
-/* Applies default width, margin, and padding to elements */
-/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
-/* Mixin for responsive type size */
-/* px-to-rem mixin */
-/* Maps for type changes*/
+/*
+  Styles for the news item page
+*/
+/*@import "../global";*/
 #page[data-page-node-type="news_story"] #main {
   margin: 0 auto;
   max-width: 620px; }
@@ -3567,40 +3485,9 @@ header {
           padding: 0 50px; } }
 
 /*
+  Styles for the event item page
 */
-/* Global variables: widths, heights, & breakpoints */
-/* Global variables: text */
-/* Global variables: colors */
-/* Colors in Styleguide */
-/* navy blue */
-/* primary blue */
-/* light blue */
-/* deep red */
-/* red */
-/* pink */
-/* dark gray */
-/* gray */
-/* light gray */
-/* lightest gray */
-/* Colors not in Styleguide */
-/* Variables for homepage cards */
-/* Bourbon Grid variables */
-/* Mixin for centering horizontally */
-/* Mixin for centering vertically */
-/* Mixin for centering vertically & horizontally */
-/* Undo the center-y mixin. Useful for media queries */
-/* Mixin for generating solid-colored hr elements*/
-/* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as after-elements */
-/* Mixin for attaching icons as after-elements, without hover effects */
-/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
-/* Mixin to include in the container of a floated element, to clear it */
-/* Applies default width, margin, and padding to elements */
-/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
-/* Mixin for responsive type size */
-/* px-to-rem mixin */
-/* Maps for type changes*/
+/*@import "../global";*/
 #page[data-page-node-type="event"] #main {
   margin: 0 auto;
   max-width: 620px; }
@@ -3676,8 +3563,6 @@ header {
     margin: 0 auto;
     max-width: 1024px;
     padding: 0 50px; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-breadcrumbs .mobile_breadcrumb, #page[data-page-node-type="issue"] #content #content_region #block-breadcrumbs .mobile_breadcrumb {
-      display: none; }
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage {
     margin: 0 auto;
     max-width: 1024px;
@@ -3701,9 +3586,6 @@ header {
     margin-left: 15px; }
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page_button_print {
       display: none; } }
-@media (max-width: 750px) {
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-breadcrumbs, #page[data-page-node-type="issue"] #content #content_region #block-breadcrumbs {
-    display: none; } }
 @media (max-width: 400px) {
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page {
     padding-left: 0; }
@@ -3724,8 +3606,6 @@ header {
     margin: 0 auto 40px;
     max-width: 1024px;
     padding: 25px 50px; }
-    #page[data-page-node-type="page"] #content #content_region .mobile_breadcrumb {
-      display: none; }
     #page[data-page-node-type="page"] #content #content_region .addtoany_list {
       display: none; }
     #page[data-page-node-type="page"] #content #content_region h1, #page[data-page-node-type="page"] #content #content_region #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #page[data-page-node-type="page"] #content #content_region .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #page[data-page-node-type="page"] #content #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #page[data-page-node-type="page"] #content #content_region #block-achp-page-title h1 {
@@ -3740,8 +3620,7 @@ header {
     #page[data-page-node-type="page"] #content #content_region #block-members-in-the-news-archives .item-list ul li a, #page[data-page-node-type="page"] #content #content_region #block-section-106-archives .item-list ul li a {
       color: #0990FE; }
     #page[data-page-node-type="page"] #content #content_region #block-members-in-the-news-archives .item-list ul li:first-of-type a:after, #page[data-page-node-type="page"] #content #content_region #block-section-106-archives .item-list ul li:first-of-type a:after {
-      content: " - latest edition";
-      /*border: 1px solid pink;*/ }
+      content: " - latest edition"; }
 @media (max-width: 925px) {
   #page[data-page-node-type="page"] #content {
     box-shadow: none; } }
@@ -3971,6 +3850,9 @@ header {
     #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"], #page[data-page-node-type="issue"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="text"], #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"], #page[data-page-node-type="issue"] #content #content_region .unsubscribe-container .unsubscribe-form-field input[type="email"] {
       width: 100%; } }
 
+/*
+  Styles for the protecting historic properties page
+*/
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content, #page[data-page-node-type="issue"] #content #content_region #block-achp-content {
   padding-bottom: 35px; }
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 {
@@ -4271,6 +4153,9 @@ header {
           transform: none;*/
         padding: 10px; } }
 
+/*
+  Styles for the preservation initiates landing page.
+*/
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list, #page[data-page-node-type="page_with_banner"] #content #content_region #block-youth-outreach-initiatives, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives {
   margin: 0 auto;
   max-width: 1024px;

@@ -3,11 +3,36 @@
   created using the Easy Breadcrumb module.
 */
 #block-breadcrumbs {
+  $breadcrumb-font-size: 14px;
+  font-family: $sans-text;
+  font-size: rem($breadcrumb-font-size);
+  text-transform: uppercase;
+
   .mobile_breadcrumb {
     display: none;
-  }
+    text-align: center;
 
-  $breadcrumb-font-size: 14px;
+    &:before {
+      background-image: url('../images/left-arrow-icon.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      content: "";
+      cursor: pointer;
+      height: 20px;
+      padding: 3px 0 0 15px;
+      transition: background-image 0.25s;
+      width: 20px;
+    }
+    &:hover:before {
+      background-image: url('../images/left-arrow-icon-blue.svg')
+    }
+    a {
+      color: $color-grey;
+      &:hover {
+        color: $color-blue-primary;
+      }
+    }
+  }
   .achp-breadcrumb {
     font-family: $sans-text;
     font-size: rem($breadcrumb-font-size);
@@ -80,28 +105,7 @@
       display: none;
     }
     .mobile_breadcrumb {
-      @include after-element-icon-with-hover ('../images/left-arrow-icon.svg', '../images/left-arrow-icon-blue.svg', 0, $color-blue-primary);
-      @include center-x;
       display: block;
-      font-family: $sans-text;
-      font-size: rem(14px);
-      padding-top: 3px;
-      text-transform: uppercase;
-
-      &:after {
-        left: 0;
-      }
-      a {
-        color: $color-grey;
-        display: block;
-        padding-left: 30px;
-        text-decoration: none;
-        transition: color 0.25s;
-        width: 225px;
-      }
-      &:hover a {
-        color: $color-blue-primary;
-      }
     }
   }
 }
