@@ -1,0 +1,241 @@
+/*
+  Styles specific to the newsletters page
+*/
+#page[data-page-node-type="page_with_banner"] {
+
+  $text-input-width: 220px;
+  $form-margin: 15px;
+  $padding-between-columns: 30px;
+  $section-divider-margin: 35px;
+  $sidebar-width: 250px;  
+
+  @mixin main-column-positioning {
+    $width-outside-main-column: calc(#{$sidebar-width} + #{$padding-between-columns});
+    border-right: 1px solid #E5E3E4;
+    margin-bottom: 0;
+    max-width: calc(#{$max-content-width} - #{$width-outside-main-column});
+    padding: 0 50px $form-margin 50px;
+    width: calc(100% - #{$width-outside-main-column});
+
+    @media (min-width: $max-content-width) { 
+      margin-left: calc((100% - #{$max-content-width})/2);
+    }
+    @media (max-width: 750px) {
+      border-right: none;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  @mixin side-column-positioning {
+    $width-outside-side-column: calc(#{$sidebar-width} + #{$padding-between-columns});
+
+    @media (min-width: $max-content-width) {
+      $width-outside-side-column: calc(#{$sidebar-width} + #{$padding-between-columns});
+      margin-right: calc((100% - #{$max-content-width})/2);
+    }
+    @media (max-width: $max-content-width) {
+      margin-right: 0;
+    }
+    @media (max-width: 750px) {
+      float: none;
+      padding: 0 50px;
+      width: 100%;
+    }
+  }   
+
+  #content #content_region {
+    #block-pagetitle-2, 
+    #block-relatedcontentmembersinthenews-mobile, 
+    #block-relatedcontentsection106-mobile, 
+    #block-relatedcontentpreserveamerica-mobile {
+      display: none;
+    }
+
+      #block-pagetitle-2, 
+      #block-relatedcontentmembersinthenews-mobile, 
+      #block-relatedcontentsection106-mobile, 
+      #block-relatedcontentpreserveamerica-mobile {
+        display: none;
+      }
+       
+      .newsletter_related {
+        @include side-column-positioning;
+        float: right;
+        padding-right: 50px;
+        width: $sidebar-width;
+
+        h4 {
+          margin: 0 0 20px;
+        }
+        .related_item {
+          font-size: rem(18px);
+          margin-bottom: $form-margin;
+
+          a {
+            color: $color-blue-primary;
+          }
+        }
+      }
+      .newsletter_info {
+        @include main-column-positioning;
+
+        p {
+          margin-top: 0;
+        }
+        .edition_links {
+          padding-left: 30px;
+
+          li {
+            padding: 0 0 5px 10px;
+
+            a {
+              color: $color-blue-primary;
+            }
+          }
+        }
+        .subscribe_header {
+          color: $color-darkgrey2;
+          font-family: $sans-text;
+          font-weight: 500;
+          margin-bottom: 0;
+        }
+      }
+      .newsletter_disclaimer {
+        @include main-column-positioning;
+
+        p {
+          margin-top: 0;
+        }
+        .unsubscribe_header {
+          color: $color-darkgrey2;
+          font-family: $sans-text;
+          font-weight: 500;
+          margin: 25px 0 0;
+        }
+      }
+
+      .subscribe-container, .unsubscribe-container {
+        @include main-column-positioning;
+
+        .subscribe-form-field, .unsubscribe-form-field {
+          position: relative;
+        
+          label {
+            @include transition (all 0.2s);
+            color: $color-darkgrey2;
+            font-family: $sans-text;
+            left: 15px;
+            position: absolute;
+            top: 25px;
+            z-index: 5;
+          }
+          input {
+            height: 40px;
+            margin: $form-margin 0;
+
+            &[type="text"], &[type="email"] {
+              background-color: transparent;
+              border: 1px solid $color-lightgrey-2;
+              border-radius: 2px;
+              font-family: $sans-text;
+              font-size: rem(16px);
+              padding: 0 0 0 15px;
+              position: relative;
+              width: $text-input-width;
+              z-index: 20;
+
+              &:focus {
+                outline: none;
+
+                  & ~ label {
+                  top: -10px;
+                }
+              }
+              &:valid ~ label {
+                top: -10px; 
+              }
+            }
+            &[type="submit"] {
+              @include font-size($button-font-sizes);
+              @include hover-transition-background($color-lightblue-primary);
+              background-color: $color-blue-primary;
+              border: none;
+              border-radius: 2px;  
+              box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+              color: #FFFFFF;
+              cursor: pointer;
+              display: block;
+              height: 32px;
+              font-family: $sans-text;
+              letter-spacing: 0.02rem;
+              line-height: 1.4rem;
+              margin: $form-margin 0;
+              padding: 7px 53px;
+            }
+          }
+        }
+      }
+
+      .unsubscribe-container {
+        margin-bottom: 0
+      }
+
+      #block-unsubscribeblock, #block-unsubscribeblock-2 {
+        &:after {
+          background-color: $background-color-grey2;
+          content: " ";
+          display: block;
+          height: 1px;
+          margin: $section-divider-margin 0;
+          width: 100%;
+        }
+      }
+  }
+
+  @media (max-width: 800px) {
+    #content #content_region {
+      .newsletter_related .related_item {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 750px) {
+    #content #content_region {
+      #block-relatedcontentmembersinthenews, 
+      #block-relatedcontentsection106, 
+      #block-relatedcontentpreserveamerica,
+      #block-unsubscribeblock:after, 
+      #block-unsubscribeblock-2:after {
+        display: none;
+      }
+      #block-relatedcontentmembersinthenews-mobile, 
+      #block-relatedcontentsection106-mobile, 
+      #block-relatedcontentpreserveamerica-mobile {
+        display: block;
+        margin-top: 20px;
+        width: 100%;
+      }
+      #block-relatedcontentmembersinthenews-mobile:after, 
+      #block-relatedcontentsection106-mobile:after {
+        background-color: $background-color-grey2;
+        content: " ";
+        display: block;
+        height: 1px;
+        margin: $section-divider-margin 0;
+        width: 100%;
+      }
+      .subscribe-container .subscribe-form-field  {
+        input[type="text"], input[type="email"] {
+          width: 100%;
+        }
+      }
+      .unsubscribe-container .unsubscribe-form-field  {
+        input[type="text"], input[type="email"] {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

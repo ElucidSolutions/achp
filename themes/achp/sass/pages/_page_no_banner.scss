@@ -1,0 +1,98 @@
+/*
+  Styles for a general page without a banner image.
+*/
+
+#page[data-page-node-type="page"] {
+  #content {
+    box-shadow: inset 0 3px 5px -3px $color-grey;    
+    width: 100%;
+
+    #content_region {
+      margin: 0 auto 40px;
+      max-width: $max-content-width;
+      padding: 25px 50px;
+
+      .mobile_breadcrumb {
+        display: none;
+      }
+      .addtoany_list{
+        display: none;
+      }
+
+      h1 {
+        color: $color-darkblue2;
+      }
+
+      #block-sharethispage {
+        margin: 15px auto 30px;
+
+        .share_this_page_buttons:before {
+          color: $color-red;
+          content: 'SHARE';
+          font-family: $sans-text;
+          vertical-align: super;
+        }
+      }
+
+      #block-members-in-the-news-archives, #block-section-106-archives {
+        .item-list ul li {
+          a {
+            color: $color-blue-primary;
+          }
+          &:first-of-type a:after {
+            content: " - latest edition";
+            /*border: 1px solid pink;*/
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $hero-breakpoint) {
+    #content {
+      box-shadow: none;
+    }
+  }
+
+  @media (max-width: 800px) {
+    #content #content_region {
+      #block-sharethispage {
+        .share_this_page_button {
+          margin-left: 15px;
+
+          &_print {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    #content #content_region {
+      .achp-breadcrumb {
+        display: none;
+      }
+      .mobile_breadcrumb {
+        display: block;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    #content #content_region #block-sharethispage .share_this_page {
+      padding-left: 0;
+
+      .share_this_page_buttons {
+        text-align: left;
+
+        &:before {
+          padding-right: calc(100% - 215px);
+        }
+        .share_this_page_button {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

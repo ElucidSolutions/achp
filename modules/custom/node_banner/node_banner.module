@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ */
+
+// Implements hook_theme ()
+function node_banner_theme () {
+  return [
+    'node_banner' => [
+      'variables' => [
+        'node_banner_banner_image_url' => '',
+        'node_banner_overlay_fields' => []
+      ]
+    ]
+  ];
+}

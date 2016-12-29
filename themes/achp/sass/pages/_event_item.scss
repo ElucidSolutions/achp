@@ -20,8 +20,8 @@
       text-align: left;   
     }
 
-    #block-sharethispageblock {
-      @extend #block-sharethispage;
+    #block-sharethispage {
+      /*@extend #block-sharethispage;*/
       margin: 15px auto;
       max-width: $max-event-width;
 
@@ -33,24 +33,24 @@
       }
     }
     #event_item_container {
-      font-family: $sans-text;
-
       .event_item_field {
+        font-family: $serif-text;
         margin-bottom: 20px;
 
         &_label {
           border-bottom: 1px solid $color-lightgrey;
           color: $color-red;
+          font-family: $sans-text;
           margin-bottom: 10px;
           width: 100%;
         }
-
         .field_event_location p {
           margin: 0;
         }
       }
       .event_description .body {
         font-family: $serif-text;
+        font-size: rem(18px);
 
         p:first-of-type {
           margin-top: 0;
@@ -83,7 +83,7 @@
       margin: 0 $max-width-padding; 
       max-width: 100%;      
 
-      #block-sharethispageblock {
+      #block-sharethispage {
         .share_this_page_button {
           margin-left: 15px;
 
@@ -96,7 +96,7 @@
   }
 
   @media (max-width: 400px) {
-    #main #block-sharethispageblock .share_this_page {
+    #main #block-sharethispage .share_this_page {
       padding-left: 0;
 
       .share_this_page_buttons {

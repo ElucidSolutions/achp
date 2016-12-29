@@ -93,9 +93,9 @@
     </div>
     <div class="event_item_field event_description">
       <div class="event_item_field_label">DESCRIPTION</div>
-      {{ content.body }}  
+      {{ content.body }}
     </div>
-    {% if content.field_event_attachments[0] != "" %}
+    {% if content.field_event_attachments[0] != "" or content.field_event_file_attachments[0] != "" %}
       <div class="event_item_field event_attachments">
         <div class="event_item_field_label">ATTACHMENTS</div>
         {{ content.field_event_attachments }}
