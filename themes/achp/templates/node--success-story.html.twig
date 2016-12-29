@@ -74,13 +74,14 @@
   #}
   <div id="success_story_container">
     <div class="success_story_image">
-      {{ content.field_success_images[0] }}
-      <div class="success_story_image_caption">
-        Alt text goes here
-      </div>
+      {{ content.field_success_images }}
     </div>
-    <div>Share Strip Goes Here</div>
-    <a href="{{ field_success_story_pdf }}"><button>Download PDF Success Story</button></a>
+    {% set pdfLink %}
+      {{ content.field_success_story_pdf|raw }}
+    {% endset %}
+    <div class="success_story_pdf">
+      <a href="{{ pdfLink|striptags }}"><button>Download PDF Success Story</button></a>
+    </div>
     <div class="success_story_body">
       {{ content.body }}
     </div>
