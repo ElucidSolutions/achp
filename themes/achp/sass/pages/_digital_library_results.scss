@@ -13,7 +13,22 @@
   #content_region {
     margin: 0 auto;
     max-width: $max-content-width;
+    padding: $margin-large;
 
+    h1 {
+      color: $color-darkblue2;
+      font-size: rem(36px);
+      font-weight: 300;
+      margin-bottom: $margin-med;
+
+      &:after {
+        content: "";
+        display: block;
+        max-width: 200px;
+        margin: 0 auto;
+        border-bottom: 1px solid $color-red2;
+      }
+    }
     .views-element-container {
       header {
         background-color: white;

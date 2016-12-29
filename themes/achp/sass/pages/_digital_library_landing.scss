@@ -6,17 +6,39 @@
   $margin-xsmall: 5px;
   $margin-small: 10px;
   $margin-med: 20px;
+  $margin-large: 40px;
 
   #content_region {
     margin: 0 auto;
     max-width: $max-content-width;
+    padding: $margin-small $margin-large $margin-med !important;
 
+    h1 {
+      color: $color-darkblue2;
+      font-size: rem(36px);
+      font-weight: 300;
+      margin-bottom: $margin-med;
+
+      &:after {
+        content: "";
+        display: block;
+        max-width: 200px;
+        margin: 0 auto;
+        border-bottom: 1px solid $color-red2;
+      }
+    }
+    h2 {
+      border-bottom: 1px solid $color-lightgrey;
+      font-size: rem(32px);
+      margin: $margin-med 0;
+      text-align: left;
+    }
     .views-element-container {
       h2 {
+        border: none;
         color: $color-red2;
         font-size: rem(22px);
         margin: $margin-small 0;
-        text-align: left;
       }
       header {
         background-color: transparent;
