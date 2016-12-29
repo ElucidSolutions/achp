@@ -11,7 +11,7 @@
  */
 #}
 {% spaceless %}
-  <select class="achp-select" {{ attributes }}>
+  <select {{ attributes }}>
     {% for option in options %}
       {% if option.type == 'optgroup' %}
         <optgroup label="{{ option.label }}">

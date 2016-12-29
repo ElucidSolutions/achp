@@ -10,6 +10,8 @@ function achp_preprocess_views_view__community_spotlight (&$variables) {
 
 /**
  * Implements hook_preprocess_page ().
+ *
+ * Expose node/view IDs as template variables.
  */
 function achp_preprocess_page (&$variables) {
   if (isset ($variables ['node'])) {
@@ -62,6 +64,49 @@ function achp_pre_render_alter (&$build) {
  */
 function achp_form_views_exposed_form_alter (&$form, &$form_state, $form_id) {
   $form ['field_news_date_value']['#weight'] = 20;
+
+  switch ($form ['#id']) {
+    case 'views-exposed-form-digital-library-page-1':
+    case 'views-exposed-form-digital-library-page-2':
+    case 'views-exposed-form-digital-library-page-3':
+      \Drupal::logger ('achp_theme')->notice ('[achp_form_views_exposed_form_alter] form: <pre>' . print_r (array_keys ($form ['keys']), true) . '</pre>');
+      $form ['keys']['#attributes']['placeholder'] = 'Search';
+
+      $form ['type']['#attributes']['class'][] = 'achp-select'; 
+      $form ['type']['#attributes']['data-placeholder'] = 'All Types';
+
+      $form ['field_tags_target_id']['#attributes']['class'][] = 'achp-select';
+      $form ['field_tags_target_id']['#attributes']['data-placeholder'] = 'All Topics';
+
+      $form ['actions']['submit']['#value'] = 'Search';
+
+      $form ['#submit'][] = 'achp_digital_library_form_submit';
+      break;
+  }
+}
+
+/**
+ * Process the select fields in the Digital
+ * Library view form.
+ *
+ * Note: this function must be added to
+ * the form's submit handlers list using
+ * hook_form_alter.
+ */
+function achp_digital_library_form_submit (&$form, $form_state) {
+  // select all of the content type options if none have been explicitly selected.
+  if (empty ($form ['type']['#value'])) {
+    foreach ($form ['type']['#options'] as $option) {
+      array_push ($form ['type']['#value'], $option);
+    }
+  }
+
+  // select all of the topic options if none have been explicitly selected.
+  if (empty ($form ['field_tags_target_id']['#value'])) {
+    foreach ($form ['field_tags_target_id']['#options'] as $option) {
+      array_push ($form ['field_tags_target_id']['#value'], $option);
+    }
+  }
 }
 
 /**

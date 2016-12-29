@@ -137,24 +137,74 @@ html {
         color: #0990FE; } }
 /*
   This stylesheet provides default styling for
-  the Digital Library pages.
+  the Digital Library search form blocks.
 */
-[data-page-view-id="digital_library"] #content_region {
-  margin: 0 auto;
-  max-width: 1024px; }
-  [data-page-view-id="digital_library"] #content_region .views-element-container header {
-    background-color: white;
-    height: auto; }
-  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item label {
+#block-exposedformdigital-librarypage-2 {
+  border-top: 5px solid #9B0008;
+  box-shadow: 0px 1px 1px #C6C6C6;
+  padding: 20px 0 20px 20px; }
+  #block-exposedformdigital-librarypage-2 a {
+    color: #0990FE; }
+  #block-exposedformdigital-librarypage-2 input {
+    border: 1px solid #4A4A4A;
+    height: 30px;
+    padding: 5px; }
+  #block-exposedformdigital-librarypage-2 select {
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1px solid #4A4A4A;
+    height: 30px;
+    padding: 5px; }
+  #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices {
+    border: 1px solid #4A4A4A;
+    margin: 0;
+    min-height: 30px;
+    padding: 0 0 0 10px; }
+    #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices .search-choice {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      height: 30px;
+      line-height: 30px;
+      margin: 0;
+      padding: 0 20px 0 0; }
+      #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices .search-choice .search-choice-close {
+        top: 9px; }
+  #block-exposedformdigital-librarypage-2 .form-item {
+    float: left;
+    min-height: 100px;
+    padding: 0 20px 20px 0; }
+    #block-exposedformdigital-librarypage-2 .form-item label {
+      display: block;
+      padding: 10px 0; }
+    #block-exposedformdigital-librarypage-2 .form-item input {
+      width: 100%; }
+    #block-exposedformdigital-librarypage-2 .form-item select {
+      width: 100%; }
+    #block-exposedformdigital-librarypage-2 .form-item #edit-type {
+      width: 100%; }
+  #block-exposedformdigital-librarypage-2 .form-actions {
+    clear: both;
+    float: left; }
+    #block-exposedformdigital-librarypage-2 .form-actions .form-submit {
+      background-color: #0990FE;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 20px;
+      text-transform: uppercase; }
+  #block-exposedformdigital-librarypage-2 .form-item-keys {
+    width: 65%; }
+  #block-exposedformdigital-librarypage-2 .form-item-field-tags-target-id-2 {
+    width: 35%; }
+  #block-exposedformdigital-librarypage-2 .form-item-type {
+    width: 50%; }
+  #block-exposedformdigital-librarypage-2 .form-item-field-tags-target-id {
+    width: 50%; }
+  #block-exposedformdigital-librarypage-2:after {
+    clear: both;
+    content: '';
     display: block; }
-  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item #edit-type {
-    width: 100%; }
-  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item-type {
-    width: 75%; }
-  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item-keys {
-    width: 50%; }
-  [data-page-view-id="digital_library"] #content_region .views-element-container .views-exposed-form .form-item-field-tags-target-id {
-    width: 50%; }
 
 /*
   This module contains styles used by the Event
@@ -2416,56 +2466,122 @@ header {
       height: 250px;
       width: 250px; } }
 /*
-  This module contains styles for the Digital
-  Library page.
+  This stylesheet provides styling for the
+  Digital Library Landing pages.
 */
-/* Global variables: widths, heights, & breakpoints */
-/* Global variables: text */
-/* Global variables: colors */
-/* Colors in Styleguide */
-/* navy blue */
-/* primary blue */
-/* light blue */
-/* deep red */
-/* red */
-/* pink */
-/* dark gray */
-/* gray */
-/* light gray */
-/* lightest gray */
-/* Colors not in Styleguide */
-/* Variables for homepage cards */
-/* Bourbon Grid variables */
-/* Mixin for centering horizontally */
-/* Mixin for centering vertically */
-/* Mixin for centering vertically & horizontally */
-/* Mixin for generating solid-colored hr elements*/
-/* Mixin for centering and cropping to fit images*/
-/* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
-/* Mixin for attaching icons as after-elements */
-/* Mixin for attaching icons as after-elements, without hover effects */
-/* Mixins for hover effects on buttons etc. Will not show .25s transition on IE9, just jump directly to hover state*/
-/* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
-/* Mixin for responsive type size */
-/* px-to-rem mixin */
-/* Maps for type changes*/
-.digital-library-page #block-achp-page-title h1, .digital-library-page #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region .digital-library-page #block-achp-page-title h1 {
-  color: #043B62;
-  text-align: left; }
-.digital-library-page #block-sharethispageblock .share_this_page {
-  border-color: #4F4F4F; }
-.digital-library-page #block-achp-content header {
-  background-color: white; }
-.digital-library-page #block-achp-content .views-exposed-form {
-  box-shadow: 0px 1px 2px 0px #E2E2E2;
-  border-top: 6px solid #950306;
-  padding: 25px 20px; }
-  .digital-library-page #block-achp-content .views-exposed-form:before {
-    content: "Search";
-    color: #043B62;
+[data-page-node-type="digital_library_landing_page"] #content_region {
+  margin: 0 auto;
+  max-width: 1024px; }
+  [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container h2 {
+    color: #9B0008;
+    font-size: 1.375rem;
+    margin: 10px 0;
+    text-align: left; }
+  [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container header {
+    background-color: transparent;
+    font-weight: 300;
+    height: auto;
+    margin: 0 0 20px; }
+  [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list {
+    box-shadow: 0px 1px 3px #C6C6C6; }
+    [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol {
+      margin: 0;
+      padding: 0; }
+      [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol li {
+        border-bottom: 1px solid #C6C6C6;
+        list-style-type: none;
+        padding: 20px 0 20px 20px; }
+        [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol li .views-field-title a {
+          color: #0990FE; }
+        [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol li .views-field-type {
+          color: #E2E2E2; }
+
+/*
+  This stylesheet provides styling for the
+  Digital Library results page.
+*/
+[data-page-view-id="digital_library"] a {
+  color: #0990FE; }
+[data-page-view-id="digital_library"] #content_region {
+  margin: 0 auto;
+  max-width: 1024px; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container header {
+    background-color: white;
+    height: auto; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container .item-list {
+    padding: 20px 20px; }
+    [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol {
+      margin: 0;
+      padding: 0 40px;
+      counter-reset: li-counter; }
+      [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol li {
+        border-left: 2px solid #E8F8FF;
+        list-style-type: none;
+        list-style-image: none;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        position: relative; }
+        [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol li .views-field-type {
+          color: #E2E2E2; }
+        [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol li:before {
+          position: absolute;
+          top: 2px;
+          left: -40px;
+          width: 20px;
+          font-size: 1.25rem;
+          line-height: 1.25rem;
+          text-align: right;
+          color: #9B0008;
+          content: counter(li-counter);
+          counter-increment: li-counter; }
+    [data-page-view-id="digital_library"] #content_region .views-element-container .item-list:before {
+      border-bottom: 1px solid #C6C6C6;
+      color: #003A5E;
+      content: 'Search Results';
+      display: block;
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+      position: relative;
+      font-size: 1.75rem; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container nav {
+    float: left;
     display: block;
-    font-size: 20px;
-    line-height: 30px; }
+    margin-right: 0%;
+    width: 100%;
+    color: #262626;
+    font-family: "p22-underground", sans-serif;
+    font-size: 0.875rem; }
+    [data-page-view-id="digital_library"] #content_region .views-element-container nav:last-child {
+      margin-right: 0; }
+    [data-page-view-id="digital_library"] #content_region .views-element-container nav ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: center; }
+      [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li {
+        display: inline-block;
+        line-height: 27px;
+        padding: 0 8px; }
+        [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item--last, [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item--first {
+          display: none; }
+        [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item.is-active {
+          background-color: #0990FE;
+          border-radius: 50%;
+          cursor: default;
+          height: 25px;
+          padding: 0;
+          width: 25px; }
+          [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item.is-active a {
+            transition: color 0.25s;
+            color: #fff;
+            cursor: default; }
+            [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item.is-active a:hover {
+              color: #fff; }
+        [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li a {
+          transition: color 0.25s;
+          color: #262626;
+          text-decoration: none; }
+          [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li a:hover {
+            color: #0990FE; }
 
 /*
   This module contains styles used by the

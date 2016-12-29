@@ -1,0 +1,110 @@
+/*
+  This stylesheet provides styling for the
+  Digital Library results page.
+*/
+[data-page-view-id="digital_library"] {
+  $margin-xsmall: 5px;
+  $margin-med: 20px;
+  $margin-large: 40px;
+
+  a {
+    color: $color-blue-primary;
+  }
+  #content_region {
+    margin: 0 auto;
+    max-width: $max-content-width;
+
+    .views-element-container {
+      header {
+        background-color: white;
+        height: auto;
+      }
+      .item-list {
+        padding: $margin-med $margin-med;
+
+        ol {
+          margin: 0;
+          padding: 0 $margin-large;
+          counter-reset: li-counter;
+
+          li {
+            border-left: 2px solid $background-color-lightblue;
+            list-style-type: none;
+            list-style-image: none;
+            margin-bottom: $margin-med;
+            padding-left: $margin-med;
+            position: relative;
+
+            .views-field-type {
+              color: $color-grey3;
+            }
+            &:before {
+              position: absolute;
+              top: 2px;
+              left: - $margin-large;
+              width: $margin-med;
+              font-size: rem(20px);
+              line-height: rem(20px);
+              text-align: right;
+              color: $color-red2;
+              content: counter(li-counter);
+              counter-increment: li-counter;
+            }
+          }
+        }
+
+        &:before {
+          border-bottom: 1px solid $color-lightgrey;
+          color: $color-darkblue2;
+          content: 'Search Results';
+          display: block;
+          margin-bottom: $margin-med;
+          padding-bottom: $margin-xsmall;
+          position: relative;
+          font-size: rem(28px);
+        }
+      }
+      nav {
+        @include span-columns (12 of 12);
+        color: $color-darkgrey;
+        font-family: $sans-text;
+        font-size: rem(14px);
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+          text-align: center;
+
+          li {
+            display: inline-block;
+            line-height: 27px;
+            padding: 0 8px;
+
+            &.pager__item--last, &.pager__item--first {
+              display: none;
+            }
+            &.pager__item.is-active {
+              background-color: $color-blue-primary;
+              border-radius: 50%;
+              cursor: default;
+              height: 25px;
+              padding: 0;
+              width: 25px;
+
+              a {
+                @include hover-transition-content(#fff);              
+                color: #fff;
+                cursor: default;
+              }
+            }
+            a {
+              @include hover-transition-content($color-blue-primary);            
+              color: $color-darkgrey;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

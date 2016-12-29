@@ -1,36 +1,101 @@
 /*
   This stylesheet provides default styling for
-  the Digital Library pages.
+  the Digital Library search form blocks.
 */
-[data-page-view-id="digital_library"] {
-  #content_region {
-    margin: 0 auto;
-    max-width: $max-content-width;
+#block-exposedformdigital-librarypage-2 {
+  $input-height: 30px;
+  $item-height: 100px;
+  $margin-xsmall: 5px;
+  $margin-small: 10px;
+  $margin-med: 20px;
 
-    .views-element-container {
-      header {
-        background-color: white;
-        height: auto;
-      }
-      .views-exposed-form {
-        .form-item {
-          label {
-            display: block;
-          }
-          #edit-type {
-            width: 100%;
-          }
-        }
-        .form-item-type {
-          width: 75%;
-        }
-        .form-item-keys {
-          width: 50%;
-        }
-        .form-item-field-tags-target-id {
-          width: 50%;
-        }
+  border-top: $margin-xsmall solid $color-red2;
+  box-shadow: 0px 1px 1px $color-lightgrey;
+  padding: $margin-med 0 $margin-med $margin-med;
+
+  a {
+    color: $color-blue-primary;
+  }
+  input {
+    border: 1px solid $color-grey2;
+    height: $input-height;
+    padding: $margin-xsmall;
+  }
+  select {
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1px solid $color-grey2;
+    height: $input-height;
+    padding: $margin-xsmall;
+  }
+  .chosen-container-multi .chosen-choices {
+    border: 1px solid $color-grey2;
+    margin: 0;
+    min-height: $input-height;
+    padding: 0 0 0 $margin-small;
+
+    .search-choice {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      height: $input-height;
+      line-height: $input-height;
+      margin: 0;
+      padding: 0 $margin-med 0 0;
+
+      .search-choice-close {
+        top: 9px; // fine-tuned.
       }
     }
   }
+  .form-item {
+    float: left;
+    min-height: $item-height;
+    padding: 0 $margin-med $margin-med 0;
+
+    label {
+      display: block;
+      padding: $margin-small 0;
+    }
+    input {
+      width: 100%;
+    }
+    select {
+      width: 100%;
+    }
+    #edit-type {
+      width: 100%;
+    }
+  }
+  .form-actions {
+    clear: both;
+    float: left;
+
+    .form-submit {
+      background-color: $color-blue-primary;
+      color: white;
+      border: none;
+      border-radius: $margin-xsmall;
+      padding: $margin-xsmall $margin-med;
+      text-transform: uppercase;
+    }
+  }
+  .form-item-keys {
+    width: 65%;
+  }
+  .form-item-field-tags-target-id-2 {
+    width: 35%;
+  }
+  .form-item-type {
+    width: 50%;
+  }
+  .form-item-field-tags-target-id {
+    width: 50%;
+  }
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+  
 }
