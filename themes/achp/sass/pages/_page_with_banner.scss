@@ -20,13 +20,6 @@
       #block-sharethispage {
         @include content-container;
         margin: 15px auto 30px;
-
-        .share_this_page_buttons:before {
-          color: $color-red;
-          content: 'SHARE';
-          font-family: $sans-text;
-          vertical-align: super;
-        }
       }
       #block-achp-content, #block-achp-local-tasks {
         @include content-container;
