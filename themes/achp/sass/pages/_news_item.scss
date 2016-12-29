@@ -50,28 +50,7 @@
           p {
             margin: 0;
           }   
-          $blockquote-margin: 20px;
 
-          blockquote {
-            color: $color-lightgrey-2;
-            font-family: $sans-text;
-            font-size: rem(24px);
-            font-weight: 300;
-            margin: 35px 0 35px $blockquote-margin;
-/*            margin-right: 0;*/
-            position: relative;
-
-            &:before {
-              @include center-y;
-              background-color: $background-color-grey2;
-              content: "";
-              height: 95%;
-              left: -$blockquote-margin;
-              position: absolute;
-              top: 50%;
-              width: 4px;
-            }
-          }
         }
         .news_divider {
           background-color: $color-lightgrey;

@@ -90,6 +90,27 @@ button {
   }
 }
 
+blockquote {
+  $blockquote-margin: 20px;
+  color: $color-lightgrey-2;
+  font-family: $sans-text;
+  font-size: rem(24px);
+  font-weight: 300;
+  margin: 35px 0 35px $blockquote-margin;
+  position: relative;
+
+  &:before {
+    @include center-y;
+    background-color: $background-color-grey2;
+    content: "";
+    height: 95%;
+    left: -$blockquote-margin;
+    position: absolute;
+    top: 50%;
+    width: 4px;
+  }
+}
+
 .region_container {
   @include span-columns(12);
 }
@@ -224,6 +245,10 @@ button {
   }
 }
 
+/* For IE9 */
+a img {
+  border: none !important;
+}
 
 .toast-message {
   font-family: $sans-text;

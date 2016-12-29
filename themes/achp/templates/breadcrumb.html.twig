@@ -31,14 +31,11 @@
     </ol>
   </nav>
   <div class="mobile_breadcrumb">
-  {% if (breadcrumb|length <= 2) %}
+  {% if (breadcrumb|length == 2) %}
     <a href="/">BACK HOME</a>
   {% else %}
-    {% for item in breadcrumb %}
-      {% if (item.url) and (item.url != '/') %}
-        <a href="{{ item.url }}">BACK TO {{ item.text }}</a>
-      {% endif %}
-    {% endfor %}
+    {% set mobile_crumb = breadcrumb[(breadcrumb|length - 2)] %}
+    <a href="{{ mobile_crumb.url }}">BACK TO {{ mobile_crumb.text }}</a>
   {% endif %}
   </div>
 {% endif %}

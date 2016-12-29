@@ -3052,29 +3052,6 @@ header {
         font-size: 1.125rem; }
         #page[data-page-node-type="news_story"] #main #news_item_page #news_content_container .news_item_body p {
           margin: 0; }
-        #page[data-page-node-type="news_story"] #main #news_item_page #news_content_container .news_item_body blockquote {
-          color: #7C7C7C;
-          font-family: "p22-underground", sans-serif;
-          font-size: 1.5rem;
-          font-weight: 300;
-          margin: 35px 0 35px 20px;
-          /*            margin-right: 0;*/
-          position: relative; }
-          #page[data-page-node-type="news_story"] #main #news_item_page #news_content_container .news_item_body blockquote:before {
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
-            position: absolute;
-            top: 50%;
-            background-color: #E5E3E4;
-            content: "";
-            height: 95%;
-            left: -20px;
-            position: absolute;
-            top: 50%;
-            width: 4px; }
       #page[data-page-node-type="news_story"] #main #news_item_page #news_content_container .news_divider {
         background-color: #C6C6C6;
         height: 2px;
@@ -4281,69 +4258,66 @@ header {
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-more-initiatives-list .views-field-title a, #page[data-page-node-type="issue"] #content #content_region #block-more-initiatives-list .views-field-title a, #page[data-page-node-type="issue"] #content #content_region #block-more-initiatives-list .views-field-title a {
       color: #0990FE; }
 
-#page[data-page-node-type="issue"] #content #content_region {
-  /*    article:before {
-        @extend h2;
-        content: "Introduction";
-      }*/ }
-  #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news {
-    background-color: #F4F4F4;
-    width: 100%; }
-    #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news h2 {
-      margin: 0 auto;
-      max-width: 1024px;
-      padding: 0 50px;
-      padding-top: 35px; }
-    #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container {
-      margin: 0 auto;
-      max-width: 1024px;
-      padding: 0 50px;
-      height: auto;
-      margin: 0 auto; }
-      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .views-element-container {
-        background: #fff;
-        float: left;
-        height: 350px;
-        margin: 25px 0;
-        margin-right: 19px;
-        padding: 20px;
-        position: relative;
-        width: 295px; }
-        #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card:after, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_calendar_body:after, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_calendar_body:after, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .event_calendar_grid_card:after, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_grid_card:after, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:after, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .views-element-container:after {
-          clear: both;
-          content: "";
-          display: block; }
-        #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-3, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.views-element-container {
-          margin-right: 0; }
-        #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card .read-more, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_calendar_body .read-more, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_calendar_body .read-more, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .event_calendar_grid_card .read-more, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_grid_card .read-more, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .read-more, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .views-element-container .read-more {
-          bottom: 25px;
-          position: absolute; }
-    #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news footer {
-      clear: both;
-      padding-bottom: 35px; }
-      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news footer button {
-        margin-bottom: 0; }
-    @media (max-width: 1024px) {
-      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container {
-        height: auto;
-        padding: 0;
-        width: 609px; }
-        #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-2, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.views-element-container {
-          margin-right: 0; }
-        #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-3, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.views-element-container {
-          margin: 0 157px 25px; } }
-    @media (max-width: 709px) {
-      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container {
-        height: 100%;
-        width: 295px; }
-        #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .views-element-container, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-2, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.views-element-container {
-          margin: 25px 0 0; }
-        #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-3, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.views-element-container {
-          margin: 25px 0; } }
-  #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives {
+#page[data-page-node-type="issue"] #content #content_region #block-achp-content article a {
+  color: #0990FE; }
+#page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news {
+  background-color: #F4F4F4;
+  width: 100%; }
+  #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news h2 {
     margin: 0 auto;
     max-width: 1024px;
-    padding: 35px 50px; }
+    padding: 0 50px;
+    padding-top: 35px; }
+  #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 50px;
+    height: auto;
+    margin: 0 auto; }
+    #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .views-element-container {
+      background: #fff;
+      float: left;
+      height: 350px;
+      margin: 25px 0;
+      margin-right: 19px;
+      padding: 20px;
+      position: relative;
+      width: 295px; }
+      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card:after, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_calendar_body:after, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_calendar_body:after, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .event_calendar_grid_card:after, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_grid_card:after, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:after, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .views-element-container:after {
+        clear: both;
+        content: "";
+        display: block; }
+      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-3, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.views-element-container {
+        margin-right: 0; }
+      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card .read-more, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_calendar_body .read-more, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_calendar_body .read-more, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .event_calendar_grid_card .read-more, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_grid_card .read-more, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .read-more, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .views-element-container .read-more {
+        bottom: 25px;
+        position: absolute; }
+  #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news footer {
+    clear: both;
+    padding-bottom: 35px; }
+    #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news footer button {
+      margin-bottom: 0; }
+  @media (max-width: 1024px) {
+    #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container {
+      height: auto;
+      padding: 0;
+      width: 609px; }
+      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-2, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.views-element-container {
+        margin-right: 0; }
+      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-3, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.views-element-container {
+        margin: 0 157px 25px; } }
+  @media (max-width: 709px) {
+    #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container {
+      height: 100%;
+      width: 295px; }
+      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .views-element-container, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-2, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-2.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-2.views-element-container {
+        margin: 25px 0 0; }
+      #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card.view-item-3, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .view-item-3.views-element-container {
+        margin: 25px 0; } }
+#page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 35px 50px; }
 
 html,
 body {
@@ -4435,6 +4409,29 @@ button {
   @media (max-width: 650px) {
     button {
       line-height: 1.2rem; } }
+
+blockquote {
+  color: #7C7C7C;
+  font-family: "p22-underground", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 35px 0 35px 20px;
+  position: relative; }
+  blockquote:before {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    background-color: #E5E3E4;
+    content: "";
+    height: 95%;
+    left: -20px;
+    position: absolute;
+    top: 50%;
+    width: 4px; }
 
 .region_container {
   float: left;
@@ -4569,6 +4566,10 @@ other variables */
       padding: 15px; }
       .textblock_with_background.textblock_with_background .split_block_container p {
         margin: 10px 0; } }
+
+/* For IE9 */
+a img {
+  border: none !important; }
 
 .toast-message {
   font-family: "p22-underground", sans-serif; }
