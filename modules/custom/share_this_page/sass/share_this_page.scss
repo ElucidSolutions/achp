@@ -28,8 +28,9 @@ $share-this-page-element-icon-width: $share-this-page-element-height;
     }
     .share_this_page_label {
       @include share-this-page-element();
+      font-family: $sans-text;
       line-height: $share-this-page-element-height;
-      vertical-align: top;
+      vertical-align: super;
     }
     .share_this_page_button {
       @include share-this-page-element();

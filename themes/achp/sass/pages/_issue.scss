@@ -1,0 +1,96 @@
+#page[data-page-node-type="issue"] {
+  @extend #page[data-page-node-type="page_with_banner"];
+
+  $vertical-padding: 35px;
+  $container-padding: 50px;
+  
+  #content #content_region {
+    #block-achp-content article a {
+      color: $color-blue-primary;
+    }
+    #block-youth-outreach-in-the-news {
+      background-color: $background-color-grey;
+      width: 100%;
+
+      $card-width: 295px;
+      $card-margin-horiz: 19px;
+      $card-height: 350px;
+      $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
+      $two-card-container-width: $card-width * 2 + $card-margin-horiz;
+      $single-card-screen-max-width: $two-card-container-width + $container-padding * 2;
+
+      h2 {
+        @include content-container;
+        padding-top: $vertical-padding;
+      }
+      .news-card-container {
+        @include content-container;
+        height: auto;
+        margin: 0 auto;
+
+        .card {
+          @include clear-float;
+          background: #fff;
+          float: left;
+          height: $card-height;
+          margin: $card-margin-vert 0;
+          margin-right: $card-margin-horiz;
+          padding: 20px;
+          position: relative;
+          width: $card-width;
+
+          &.view-item-3 {
+            margin-right: 0;
+          }
+          .read-more {
+            bottom: 25px;
+            position: absolute;
+          }
+        }
+      }
+      footer {
+        clear: both;
+        padding-bottom: $vertical-padding;
+
+        button {
+          margin-bottom: 0;
+        }
+      }
+      @media (max-width: $max-content-width) {   
+        .news-card-container { 
+          height: auto;
+          padding: 0;
+          width: $two-card-container-width; 
+
+          .card {
+            &.view-item-2 {
+              margin-right: 0;
+            }
+            &.view-item-3 {
+              $horiz-margin: ($two-card-container-width - $card-width) / 2;
+              margin: 0 $horiz-margin $card-margin-vert;
+            }
+          }
+        }
+      }   
+      @media (max-width: $single-card-screen-max-width) {
+        $card-vertical-margin: 25px;
+
+        .news-card-container { 
+          height: 100%;
+          width: $card-width;
+
+          .card, .card.view-item-2 {
+            margin: $card-vertical-margin 0 0;
+          }
+          .card.view-item-3 {
+            margin: $card-vertical-margin 0;
+          }
+        }
+      }
+    }
+    #block-youth-outreach-initiatives {
+      @include content-container-section;
+    }
+  }
+}

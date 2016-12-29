@@ -12,9 +12,6 @@
       max-width: $max-content-width;
       padding: 25px 50px;
 
-      .mobile_breadcrumb {
-        display: none;
-      }
       .addtoany_list{
         display: none;
       }
@@ -25,13 +22,6 @@
 
       #block-sharethispage {
         margin: 15px auto 30px;
-
-        .share_this_page_buttons:before {
-          color: $color-red;
-          content: 'SHARE';
-          font-family: $sans-text;
-          vertical-align: super;
-        }
       }
 
       #block-members-in-the-news-archives, #block-section-106-archives {
@@ -41,7 +31,6 @@
           }
           &:first-of-type a:after {
             content: " - latest edition";
-            /*border: 1px solid pink;*/
           }
         }
       }

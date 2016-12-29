@@ -1,3 +1,6 @@
+/*
+  Styles for the protecting historic properties page
+*/
 #page[data-page-node-type="page_with_banner"] {
 
   $vertical-padding: 35px;
@@ -115,7 +118,6 @@
         margin: 0 auto;
         padding: $vertical-padding $container-padding 0;
       }
-
       & > div {
         margin: 0 auto;
         max-width: 1024px;
@@ -211,8 +213,7 @@
       }
     }
     #block-digitallibrary {
-      @include content-container;
-      padding: $vertical-padding $container-padding;
+      @include content-container-section;
 
       .library_categories {
         @include outer-container;
@@ -275,8 +276,7 @@
       background-color: $color-lightblue3;
 
       .block_container {
-        @include content-container;
-        padding: $vertical-padding $container-padding; 
+        @include content-container-section;
 
         .warning_block {
           background-color: rgba(255,237,234,1);

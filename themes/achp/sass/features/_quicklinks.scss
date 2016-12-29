@@ -100,7 +100,7 @@
 
 #homepage_quicklinks_region > #homepage_quicklinks_content {
   @media (min-width: 700px) {
-    .views-element-container .quicklinks-column > .views-row .views-field a {
+    .quicklinks-column > .views-row a {
       @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -2px, $color-blue-primary);
     }
   }

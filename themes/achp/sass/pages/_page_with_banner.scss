@@ -6,7 +6,6 @@
 
   #content { 
     width: 100%;
-    /*margin: 0 0 40px;*/
 
     #content_region {
       article .field_page_tagline {
@@ -17,20 +16,10 @@
       }
       #block-breadcrumbs {
         @include content-container;
-        .mobile_breadcrumb {
-          display: none;
-        }   
       }
       #block-sharethispage {
         @include content-container;
         margin: 15px auto 30px;
-
-        .share_this_page_buttons:before {
-          color: $color-red;
-          content: 'SHARE';
-          font-family: $sans-text;
-          vertical-align: super;
-        }
       }
       #block-achp-content, #block-achp-local-tasks {
         @include content-container;
@@ -51,14 +40,6 @@
             display: none;
           }
         }
-      }
-    }
-  }
-
-  @media (max-width: 750px) {
-    #content #content_region {
-      #block-breadcrumbs {
-        display: none;
       }
     }
   }

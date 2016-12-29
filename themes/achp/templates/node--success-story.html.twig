@@ -72,24 +72,20 @@
   * @ingroup themeable
   */
   #}
-  <div id="event_item_container">
-    <div class="event_item_field event_date">
-      <div class="event_item_field_label">WHEN</div>
-      {{ content.field_event_start_date }} 
-      {{ content.field_event_end_date }}
+  <div id="success_story_container">
+    <div class="success_story_image">
+      {{ content.field_success_images }}
     </div>
-    <div class="event_item_field event_location">
-      <div class="event_item_field_label">WHERE</div>
-      {{ content.field_event_location }}
+    {% set pdfLink %}
+      {{ content.field_success_story_pdf|raw }}
+    {% endset %}
+    <div class="success_story_pdf">
+      <a href="{{ pdfLink|striptags }}"><button>Download PDF Success Story</button></a>
     </div>
-    <div class="event_item_field event_description">
-      <div class="event_item_field_label">DESCRIPTION</div>
+    <div class="success_story_body">
       {{ content.body }}
     </div>
-    {% if content.field_event_attachments[0] != "" or content.field_event_file_attachments[0] != "" %}
-      <div class="event_item_field event_attachments">
-        <div class="event_item_field_label">ATTACHMENTS</div>
-        {{ content.field_event_attachments }}
-      </div>
-    {% endif %}
+    <div class="success_story_parties"> 
+      {{ content.field_success_consulting_parties}}
+    </div>
   </div>

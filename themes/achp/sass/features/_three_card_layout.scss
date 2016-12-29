@@ -1,7 +1,8 @@
 @import "../global";
 
 /* These styles apply to the success stories and latest news views on the homepage */
-#block-views-block-latest-news-block, #block-views-block-homepage-success-stories-block {
+#block-views-block-latest-news-block, 
+#block-views-block-homepage-success-stories-block {
   /* On wide screens, all 3 cards are on one row, with no right margin on last card */
   $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
   height: $card-height + $card-margin-vert * 2;

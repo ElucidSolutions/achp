@@ -1,4 +1,7 @@
-@import "../global";
+/*
+  Styles for the news landing page
+*/
+/*@import "../global";*/
 
 #news_landing_page {
   height: 100%;
@@ -299,137 +302,137 @@
       }
     }
   }
-}
 
-@media (max-width: $max-content-width) {
-  #news_landing_page #content .news-landing-container {
-    .views-exposed-form {
-      @include span-columns (4 of 12);
-    }
-    .news-item {
-      @include span-columns (8 of 12);
-      float: right;
+  @media (max-width: $max-content-width) {
+    #news_landing_page #content .news-landing-container {
+      .views-exposed-form {
+        @include span-columns (4 of 12);
+      }
+      .news-item {
+        @include span-columns (8 of 12);
+        float: right;
+      }
     }
   }
-}
 
-@media (max-width: 900px) and (min-width: 750px){
-  #news_landing_page #content .news-landing-container {
-    .news-item {
-      .views-field-field-news-photo .field-content {
-        background-color: $color-darkgrey;
-        margin-bottom: 10px;
-        width: 100%;
+  @media (max-width: 900px) and (min-width: 750px){
+    #news_landing_page #content .news-landing-container {
+      .news-item {
+        .views-field-field-news-photo .field-content {
+          background-color: $color-darkgrey;
+          margin-bottom: 10px;
+          width: 100%;
 
-        img {
-          display: block;
-          float: none;
-          margin: 0 auto;
-          max-height: 100%;
-          max-width: 100%;
-          padding: 0;
+          img {
+            display: block;
+            float: none;
+            margin: 0 auto;
+            max-height: 100%;
+            max-width: 100%;
+            padding: 0;
+          }
         }
       }
     }
   }
-}
 
-@media (max-width: 750px) {
-  #news_landing_page #content .news-landing-container {
-    .views-exposed-form {
-      @include span-columns (12 of 12);
-      border-bottom: 1px solid $color-grey;
-      display: none; 
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      padding-right: 0;
-
-      .view_term_list_list {
+  @media (max-width: 750px) {
+    #news_landing_page #content .news-landing-container {
+      .views-exposed-form {
         @include span-columns (12 of 12);
-      }
-      .date_filter_container {
-        @include span-columns (12 of 12);
-        padding-bottom: 20px;
-      }
-    }
-    .news_no_results {
-      padding-bottom: 40px;
-    }
-    .news-item {
-      @include span-columns (12 of 12);
-    }
-    header {
-      height: 150px;
-
-      .header_container {
-        top: 35%;
-      }
-      .news_filter {
-        @include span-columns (12 of 12);
-        font-size: rem(14px);
         border-bottom: 1px solid $color-grey;
-        bottom: 10px;
-        color: $color-grey;
-        cursor: pointer;
-        display: block;
-        font-family: $sans-text;
-        font-weight: 500;
-        position: absolute;
-        padding-bottom: 5px;
+        display: none; 
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        padding-right: 0;
 
-        .news_filter_text {
-          display: inline-block;
-          line-height: 1;
-          vertical-align: sub;
+        .view_term_list_list {
+          @include span-columns (12 of 12);
         }
-        &:after {
-          left: 85px;
+        .date_filter_container {
+          @include span-columns (12 of 12);
+          padding-bottom: 20px;
+        }
+      }
+      .news_no_results {
+        padding-bottom: 40px;
+      }
+      .news-item {
+        @include span-columns (12 of 12);
+      }
+      header {
+        height: 150px;
+
+        .header_container {
+          top: 35%;
+        }
+        .news_filter {
+          @include span-columns (12 of 12);
+          font-size: rem(14px);
+          border-bottom: 1px solid $color-grey;
+          bottom: 10px;
+          color: $color-grey;
+          cursor: pointer;
+          display: block;
+          font-family: $sans-text;
+          font-weight: 500;
           position: absolute;
-          top: 3px;
-        }
-        &.news_filter_closed {
-          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-dark-blue.svg', 0, $color-blue-primary);
-        }
-        &.news_filter_open {
-          @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-dark-blue.svg', 0, $color-blue-primary);
-          border-bottom: none;
-          bottom: 11px;
+          padding-bottom: 5px;
+
+          .news_filter_text {
+            display: inline-block;
+            line-height: 1;
+            vertical-align: sub;
+          }
+          &:after {
+            left: 85px;
+            position: absolute;
+            top: 3px;
+          }
+          &.news_filter_closed {
+            @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-dark-blue.svg', 0, $color-blue-primary);
+          }
+          &.news_filter_open {
+            @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-dark-blue.svg', 0, $color-blue-primary);
+            border-bottom: none;
+            bottom: 11px;
+          }
         }
       }
     }
   }
-}
 
-@media (max-width: 600px) {
-  #news_landing_page #content .news-landing-container {
-    .news-item {
-      .views-field-field-news-photo .field-content {
-        background-color: $color-darkgrey;
-        margin-bottom: 10px;
-        width: 100%;
+  @media (max-width: 600px) {
+    #news_landing_page #content .news-landing-container {
+      .news-item {
+        .views-field-field-news-photo .field-content {
+          background-color: $color-darkgrey;
+          margin-bottom: 10px;
+          width: 100%;
 
-        img {
-          display: block;
-          float: none;
-          margin: 0 auto;
-          max-height: 100%;
-          max-width: 100%;
-          padding: 0;
+          img {
+            display: block;
+            float: none;
+            margin: 0 auto;
+            max-height: 100%;
+            max-width: 100%;
+            padding: 0;
+          }
         }
-      }
-      .views-field-field-tags .field-content {
-        height: auto;
-        position: static;
-      }      
-      ul  {
-        padding-top: 0;
+        .views-field-field-tags .field-content {
+          height: auto;
+          position: static;
+        }      
+        ul  {
+          padding-top: 0;
 
-        li {
-          display: list-item;
-          margin-top: 0;
+          li {
+            display: list-item;
+            margin-top: 0;
 
-          a {
-            margin: 0;
+            a {
+              margin: 0;
+            }
           }
         }
       }
