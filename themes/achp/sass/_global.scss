@@ -88,6 +88,18 @@ $grid-columns: 12;
   top: 50%;
 }
 
+/* Undo the center-y mixin. Useful for media queries */
+@mixin undo-center-y {
+  @include prefixer(transform, none, webkit moz ms o spec);
+  position: static;
+  top: 0;
+/*  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;*/
+}
+
 /* Mixin for generating solid-colored hr elements*/
 @mixin hr($color) {
   background-color: $color;

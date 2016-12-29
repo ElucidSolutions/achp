@@ -1,0 +1,55 @@
+#page[data-page-node-type="page_with_banner"] {
+
+  $vertical-padding: 35px;
+  $container-padding: 50px;
+
+  #content #content_region {
+    #block-preservation-initiatives-list {
+
+      $img-height: 250px;
+      $img-width: 375px;
+
+      @include content-container;
+
+      .views-row {
+        .views-field:not(.views-field-field-issue-image) {
+
+        }
+        .views-field-field-issue-image {
+          @include clear-float;
+          float: left;
+          height: $img-height;
+          position: relative;
+          width: $img-width;
+          background-color: $color-lightblue3;
+
+          img {
+            @include center-xy;
+            height: $img-height;
+            width: auto;
+          }
+        }
+        .views-field-view-node .read_more {
+          font-family: $sans-text;
+          text-transform: uppercase;
+        }
+
+
+        &:after {
+          background-color: $background-color-grey2;
+          clear: both;
+          content: " ";
+          display: block;
+          height: 1px;
+          margin: 10px 0 $vertical-padding;
+          width: 100%;
+        }
+
+
+      }
+
+    }
+
+
+  }
+}

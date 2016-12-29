@@ -141,8 +141,9 @@ button {
 .textblock_with_background {
   $block-width: 450px;
   $textblock-margin: 10px;
-  /*$border-width: 1px;*/
-  $content-width: calc(#{$block-width} * 2 + #{$textblock-margin} * 2);
+  $content-width: 920px; /* Equal to double the sum of $block-width and $textblock-margin. IE 
+   only executes this correctly when it's a specific number value, not a calculated sum of
+   other variables */
   $side-margin: calc((100% - #{$content-width})/2);
   $min-side-margin: 50px;
 
@@ -150,14 +151,12 @@ button {
   height: $block-width;
   max-width: $block-width;
   position: relative;
-  /*border: $border-width solid grey;*/
 
   &.textblock_left {
-    /*@include clear-float;*/
     /*background-image: url('http://placehold.it/460x460');*/
     background-color: darkred;
     float: left;
-    margin-left: $side-margin;
+    margin-left: $side-margin !important;
   }
   &.textblock_right {
     @include clear-float;
@@ -165,11 +164,6 @@ button {
     background-color: navy;
     float: right;
     margin-right: $side-margin;
-
-/*    &:after {
-      clear: both;
-            content: "1";
-    }*/
   }
   .split_block_container {
     @include center-y;
@@ -193,22 +187,21 @@ button {
       margin-bottom: 0;
     }
   }
-
   @media (max-width: $max-content-width) {
     width: calc(50% - #{$textblock-margin} - #{$min-side-margin});
 
     &.textblock_left {
-      margin-left: $min-side-margin;
+      margin-left: $min-side-margin !important;
     }
 
     &.textblock_right {
-      margin-right: $min-side-margin;
+      margin-right: $min-side-margin !important;
     }
   }
   @media (max-width: 750px) {
     &.textblock_with_background {
       float: none;
-      margin: 0 20px;
+      margin: 30px 0 !important;
       max-width: 100%;
       width: 100%;
       
@@ -216,13 +209,18 @@ button {
         padding: 20px $min-side-margin;
       }
       &.textblock_left {
-        margin-bottom: 30px;
+        margin-bottom: 0 !important;
       }
     }
+  }
+  @media (max-width: 400px) {
+    &.textblock_with_background .split_block_container {
+      padding: 15px;
 
-/*    &.textblock_right {
-      margin-top: 10px;
-    }*/
+      p {
+        margin: 10px 0;
+      }
+    }
   }
 }
 
