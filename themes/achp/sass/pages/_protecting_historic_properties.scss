@@ -9,7 +9,9 @@
   #content #content_region {
 
     #block-achp-content {
-      padding-bottom: $vertical-padding;
+      article {
+        padding-bottom: $vertical-padding;
+      }
     }
     #block-anintroductiontosection106 {
       $img-width: 300px;
@@ -195,7 +197,7 @@
           }
         }
       }
-      @media (max-width: 710px) {
+      @media (max-width: 711px) {
        & > div {
           .success-story.card {
             margin: 25px auto 0 !important;

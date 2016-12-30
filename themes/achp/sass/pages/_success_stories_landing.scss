@@ -1,131 +1,128 @@
 #page[data-page-node-type="page_with_banner"] {
+  #content #content_region {
+    #block-success-stories-list {
+      @include content-container-section;
+      padding-bottom: 100px;
 
+      $img-height: 180px;
+      $img-width: 268px;
+      $img-margin: 30px;
+      $row-padding: 20px;
+      $vertical-padding: 35px;
+      $container-padding: 50px;
 
-  #block-success-stories-list {
-    @include content-container-section;
-
-    $img-height: 180px;
-    $img-width: 268px;
-    $img-margin: 30px;
-    $row-padding: 20px;
-    $vertical-padding: 35px;
-    $container-padding: 50px;
-
-    h2 {
-      margin-bottom: 20px;
-    }
-    .views-row {
-      @include clear-float;
-      border: 1px solid $background-color-grey2;
-      border-bottom: none;
-      padding: $row-padding;
-      position: relative;
-
-      &:last-of-type {
-        border-bottom: 1px solid$background-color-grey2;
+      h2 {
+        margin-bottom: $row-padding;
       }
+      .success_stories_list_container {
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
 
-      .views-field-field-success-short-title h4 {
-        font-size: rem(20px);
-        margin: 0;
+        .views-row {
+          @include clear-float;
+          border-bottom: 1px solid $background-color-grey2;
+          padding: $row-padding;
+          position: relative;
 
-        a {
-          color: $color-darkblue;
-        }
-      }
-      .views-field-field-success-images {
-        @include clear-float;
-        float: left;
-        height: $img-height;
-        margin-right: $img-margin;
-        max-width: 100%;
-        position: relative;
-        width: $img-width;
-        background-color: $color-lightblue3;
-
-        img {
-          @include center-xy;
-          height: $img-height;
-          max-width: 100%;
-          width: auto;
-        }
-      }
-      .views-field-field-success-state {
-        color: $color-lightgrey-2;
-        font-family: $sans-text;
-        margin-bottom: 15px;
-      }
-      .views-field-body {
-        color: $color-grey;
-      }
-      .views-field-view-node {
-        bottom: 35px;
-        left: 395px;
-        left: calc(#{$img-width} + #{$img-margin} + #{$row-padding});
-/*        left: $img-width + $img-margin + $row-padding;
-*/        position: absolute;
-
-        .read-more {
-          a {
-            @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
-            color: $color-grey;
-            font-family: $sans-text;
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-decoration: none;
-            text-transform: uppercase;
-            vertical-align: bottom;
+          &:last-of-type {
+            border-bottom: 1px solid$background-color-grey2;
           }
-          &:hover {
-            color: $color-blue-primary;
+          .views-field-field-success-short-title h4 {
+            font-size: rem(20px);
+            margin: 0;
+
+            a {
+              color: $color-darkblue;
+            }
           }
-        }
-      }
-
-/*      &:after {
-        background-color: $background-color-grey2;
-        clear: both;
-        content: " ";
-        display: block;
-        height: 1px;
-        margin: 20px 0 $vertical-padding;
-        width: 100%;
-      }*/
-    }
-    @media (max-width: 800px) {
-      .views-row {
-        .views-field-field-issue-image {
-          float: none;
-          margin: 0 auto $img-margin;
-
-          img {
-            /*height: auto;*/
-            max-height: 100%;
+          .views-field-field-success-images {
+            @include clear-float;
+            float: left;
+            height: $img-height;
+            margin-right: $img-margin;
             max-width: 100%;
-            width: auto;
+            position: relative;
+            width: $img-width;
+            background-color: $color-lightblue3;
+
+            img {
+              @include center-xy;
+              height: $img-height;
+              max-width: 100%;
+              width: auto;
+            }
+          }
+          .views-field-field-success-state {
+            color: $color-lightgrey-2;
+            font-family: $sans-text;
+            margin-bottom: 15px;
+          }
+          .views-field-body {
+            color: $color-grey;
+          }
+          .views-field-view-node {
+            bottom: 35px;
+            left: 395px;
+            left: calc(#{$img-width} + #{$img-margin} + #{$row-padding});
+            position: absolute;
+
+            .read-more {
+              a {
+                @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
+                color: $color-grey;
+                font-family: $sans-text;
+                font-size: 0.875rem;
+                font-weight: 500;
+                text-decoration: none;
+                text-transform: uppercase;
+                vertical-align: bottom;
+              }
+              &:hover {
+                color: $color-blue-primary;
+              }
+            }
           }
         }
-        .views-field-field-issue-summary {
-          padding-bottom: 30px;
-        }
-        .views-field-view-node {
-          bottom: 10px;
-          left: 0;
+      }
+    @media (max-width: 800px) {
+      .success_stories_list_container {
+        .views-row {
+          padding-bottom: $img-margin;
+          .views-field-field-success-images {
+            float: none;
+            margin: 0 auto $row-padding;
+
+            img {
+              max-height: 100%;
+              max-width: 100%;
+              width: auto;
+            }
+          }
+          .views-field-body {
+            padding-bottom: 30px;
+          }
+          .views-field-view-node {
+            bottom: $row-padding;
+            left: $row-padding;
+          }
         }
       }
     }
     @media (max-width: 475px) {
-      .views-row {
-        .views-field-field-issue-image {
-          img {
-            height: auto;
-            max-height: 100%;
-            max-width: 100%;
-            width: auto;
+        padding: $vertical-padding 20px 50px;
+        .success_stories_list_container {
+          .views-row {
+            .views-field-field-success-images {
+              img {
+                height: auto;
+                max-height: 100%;
+                max-width: 100%;
+                width: auto;
+              }
+            }
+            .views-field-body {
+              padding-bottom: 40px;
+            }
           }
-        }
-        .views-field-field-issue-summary {
-          padding-bottom: 40px;
         }
       }
     }
