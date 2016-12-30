@@ -194,12 +194,20 @@ $grid-columns: 12;
   margin: 0 auto;
   max-width: $max-content-width;
   padding: 0 50px;
+
+  @media (max-width: 400px) {
+    padding: 0 20px;
+  }
 }
 
 @mixin content-container-section {
   margin: 0 auto;
   max-width: $max-content-width;
   padding: 35px 50px;
+  
+  @media (max-width: 400px) {
+    padding: 35px 20px;
+  }
 }
 
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */

@@ -8,23 +8,25 @@
     width: 100%;
 
     #content_region {
-      margin: 0 auto 40px;
+/*      margin: 0 auto 40px;
       max-width: $max-content-width;
-      padding: 25px 50px;
+      padding: 25px 50px;*/
 
       .addtoany_list{
         display: none;
       }
-
       h1 {
         color: $color-darkblue2;
       }
-
+      #block-breadcrumbs, #block-achp-content, #block-achp-local-tasks {
+        @include content-container;
+      }
       #block-sharethispage {
+        @include content-container;
         margin: 15px auto 30px;
       }
-
       #block-members-in-the-news-archives, #block-section-106-archives {
+        @include content-container;
         .item-list ul li {
           a {
             color: $color-blue-primary;

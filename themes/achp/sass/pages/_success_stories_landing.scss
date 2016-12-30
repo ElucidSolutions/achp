@@ -1,3 +1,6 @@
+/*
+  Styles for the success stories landing page
+*/
 #page[data-page-node-type="page_with_banner"] {
   #content #content_region {
     #block-success-stories-list {
@@ -83,11 +86,17 @@
           }
         }
       }
+    }
     @media (max-width: 800px) {
-      .success_stories_list_container {
+      #block-success-stories-list .success_stories_list_container {
+        $img-margin: 30px;
+        $row-padding: 20px;
+
         .views-row {
           padding-bottom: $img-margin;
+
           .views-field-field-success-images {
+            background-color: #fff;
             float: none;
             margin: 0 auto $row-padding;
 
@@ -108,7 +117,24 @@
       }
     }
     @media (max-width: 475px) {
-        padding: $vertical-padding 20px 50px;
+      $vertical-padding: 35px;
+      $row-padding: 20px;
+
+      #block-featured-success-stories {
+        h2 {
+          padding: $vertical-padding $row-padding 0;
+        }
+        & > div {
+          padding: 0 20px $vertical-padding;
+          
+          .success-story.card {
+            max-width: 100%;
+          }
+        }
+      }
+      #block-success-stories-list {
+        padding: $vertical-padding $row-padding 50px;
+
         .success_stories_list_container {
           .views-row {
             .views-field-field-success-images {
