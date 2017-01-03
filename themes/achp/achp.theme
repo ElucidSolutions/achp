@@ -72,6 +72,9 @@ function achp_form_views_exposed_form_alter (&$form, &$form_state, $form_id) {
     case 'views-exposed-form-digital-library-page-1':
     case 'views-exposed-form-digital-library-page-2':
     case 'views-exposed-form-digital-library-page-3':
+    case 'views-exposed-form-digital-library-page-4':
+    case 'views-exposed-form-digital-library-page-5':
+    case 'views-exposed-form-digital-library-page-6':
       \Drupal::logger ('achp_theme')->notice ('[achp_form_views_exposed_form_alter] form: <pre>' . print_r (array_keys ($form ['keys']), true) . '</pre>');
       $form ['keys']['#attributes']['placeholder'] = 'Search';
 
