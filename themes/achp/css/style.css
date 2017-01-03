@@ -209,19 +209,23 @@ html {
   This stylesheet provides default styling for
   the Digital Library search form blocks.
 */
+#block-exposedformdigital-librarypage-1,
 #block-exposedformdigital-librarypage-2,
 #block-exposedformdigital-librarypage-3 {
   border-top: 5px solid #9B0008;
   box-shadow: 0px 1px 1px #C6C6C6;
   padding: 20px 0 20px 20px; }
+  #block-exposedformdigital-librarypage-1 a,
   #block-exposedformdigital-librarypage-2 a,
   #block-exposedformdigital-librarypage-3 a {
     color: #0990FE; }
+  #block-exposedformdigital-librarypage-1 input,
   #block-exposedformdigital-librarypage-2 input,
   #block-exposedformdigital-librarypage-3 input {
     border: 1px solid #4A4A4A;
     height: 30px;
     padding: 5px; }
+  #block-exposedformdigital-librarypage-1 select,
   #block-exposedformdigital-librarypage-2 select,
   #block-exposedformdigital-librarypage-3 select {
     -moz-appearance: none;
@@ -229,12 +233,14 @@ html {
     border: 1px solid #4A4A4A;
     height: 30px;
     padding: 5px; }
+  #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-choices,
   #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices,
   #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-choices {
     border: 1px solid #4A4A4A;
     margin: 0;
     min-height: 30px;
     padding: 0 0 0 10px; }
+    #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-choices .search-choice,
     #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices .search-choice,
     #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-choices .search-choice {
       background: transparent;
@@ -244,31 +250,39 @@ html {
       line-height: 30px;
       margin: 0;
       padding: 0 20px 0 0; }
+      #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
       #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
       #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-choices .search-choice .search-choice-close {
         top: 9px; }
+  #block-exposedformdigital-librarypage-1 .form-item,
   #block-exposedformdigital-librarypage-2 .form-item,
   #block-exposedformdigital-librarypage-3 .form-item {
     float: left;
     min-height: 100px;
     padding: 0 20px 20px 0; }
+    #block-exposedformdigital-librarypage-1 .form-item label,
     #block-exposedformdigital-librarypage-2 .form-item label,
     #block-exposedformdigital-librarypage-3 .form-item label {
       display: block;
       padding: 10px 0; }
+    #block-exposedformdigital-librarypage-1 .form-item input,
     #block-exposedformdigital-librarypage-2 .form-item input,
     #block-exposedformdigital-librarypage-3 .form-item input {
       width: 100%; }
+    #block-exposedformdigital-librarypage-1 .form-item select,
     #block-exposedformdigital-librarypage-2 .form-item select,
     #block-exposedformdigital-librarypage-3 .form-item select {
       width: 100%; }
+    #block-exposedformdigital-librarypage-1 .form-item #edit-type,
     #block-exposedformdigital-librarypage-2 .form-item #edit-type,
     #block-exposedformdigital-librarypage-3 .form-item #edit-type {
       width: 100%; }
+  #block-exposedformdigital-librarypage-1 .form-actions,
   #block-exposedformdigital-librarypage-2 .form-actions,
   #block-exposedformdigital-librarypage-3 .form-actions {
     clear: both;
     float: left; }
+    #block-exposedformdigital-librarypage-1 .form-actions .form-submit,
     #block-exposedformdigital-librarypage-2 .form-actions .form-submit,
     #block-exposedformdigital-librarypage-3 .form-actions .form-submit {
       background-color: #0990FE;
@@ -278,18 +292,23 @@ html {
       border-radius: 5px;
       padding: 5px 20px;
       text-transform: uppercase; }
+  #block-exposedformdigital-librarypage-1 .form-item-keys,
   #block-exposedformdigital-librarypage-2 .form-item-keys,
   #block-exposedformdigital-librarypage-3 .form-item-keys {
     width: 65%; }
+  #block-exposedformdigital-librarypage-1 .form-item-field-tags-target-id-2,
   #block-exposedformdigital-librarypage-2 .form-item-field-tags-target-id-2,
   #block-exposedformdigital-librarypage-3 .form-item-field-tags-target-id-2 {
     width: 35%; }
+  #block-exposedformdigital-librarypage-1 .form-item-type,
   #block-exposedformdigital-librarypage-2 .form-item-type,
   #block-exposedformdigital-librarypage-3 .form-item-type {
     width: 50%; }
+  #block-exposedformdigital-librarypage-1 .form-item-field-tags-target-id,
   #block-exposedformdigital-librarypage-2 .form-item-field-tags-target-id,
   #block-exposedformdigital-librarypage-3 .form-item-field-tags-target-id {
     width: 50%; }
+  #block-exposedformdigital-librarypage-1:after,
   #block-exposedformdigital-librarypage-2:after,
   #block-exposedformdigital-librarypage-3:after {
     clear: both;
