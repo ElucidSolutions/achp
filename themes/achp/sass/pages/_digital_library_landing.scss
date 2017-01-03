@@ -7,6 +7,7 @@
   $margin-small: 10px;
   $margin-med: 20px;
   $margin-large: 40px;
+  $margin-xlarge: 60px;
 
   #content_region {
     margin: 0 auto;
@@ -34,6 +35,8 @@
       text-align: left;
     }
     .views-element-container {
+      margin-bottom: $margin-xlarge;
+
       h2 {
         border: none;
         color: $color-red2;
