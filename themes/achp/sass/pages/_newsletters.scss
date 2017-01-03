@@ -13,8 +13,10 @@
     $width-outside-main-column: calc(#{$sidebar-width} + #{$padding-between-columns});
     border-right: 1px solid #E5E3E4;
     margin-bottom: 0;
+    max-width: 744px;
     max-width: calc(#{$max-content-width} - #{$width-outside-main-column});
     padding: 0 50px $form-margin 50px;
+    width: calc(100% - 280px);
     width: calc(100% - #{$width-outside-main-column});
 
     @media (min-width: $max-content-width) { 

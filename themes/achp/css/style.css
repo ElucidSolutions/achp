@@ -3710,8 +3710,10 @@ header {
   #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info, #page[data-page-node-type="issue"] #content #content_region .newsletter_info {
     border-right: 1px solid #E5E3E4;
     margin-bottom: 0;
+    max-width: 744px;
     max-width: calc(1024px - calc(250px + 30px));
     padding: 0 50px 15px 50px;
+    width: calc(100% - 280px);
     width: calc(100% - calc(250px + 30px)); }
     @media (min-width: 1024px) {
       #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_info, #page[data-page-node-type="issue"] #content #content_region .newsletter_info {
@@ -3737,8 +3739,10 @@ header {
   #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer, #page[data-page-node-type="issue"] #content #content_region .newsletter_disclaimer {
     border-right: 1px solid #E5E3E4;
     margin-bottom: 0;
+    max-width: 744px;
     max-width: calc(1024px - calc(250px + 30px));
     padding: 0 50px 15px 50px;
+    width: calc(100% - 280px);
     width: calc(100% - calc(250px + 30px)); }
     @media (min-width: 1024px) {
       #page[data-page-node-type="page_with_banner"] #content #content_region .newsletter_disclaimer, #page[data-page-node-type="issue"] #content #content_region .newsletter_disclaimer {
@@ -3758,8 +3762,10 @@ header {
   #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container, #page[data-page-node-type="issue"] #content #content_region .subscribe-container, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container, #page[data-page-node-type="issue"] #content #content_region .unsubscribe-container {
     border-right: 1px solid #E5E3E4;
     margin-bottom: 0;
+    max-width: 744px;
     max-width: calc(1024px - calc(250px + 30px));
     padding: 0 50px 15px 50px;
+    width: calc(100% - 280px);
     width: calc(100% - calc(250px + 30px)); }
     @media (min-width: 1024px) {
       #page[data-page-node-type="page_with_banner"] #content #content_region .subscribe-container, #page[data-page-node-type="issue"] #content #content_region .subscribe-container, #page[data-page-node-type="page_with_banner"] #content #content_region .unsubscribe-container, #page[data-page-node-type="issue"] #content #content_region .unsubscribe-container {
@@ -4743,6 +4749,72 @@ header {
     background-color: #979797;
     height: 1px;
     margin: 25px 0; }
+
+#page[data-page-node-type="page_with_banner"] #content #content_region, #page[data-page-node-type="issue"] #content #content_region {
+  /* Where two width and max-width attributes are included, it's to account for IE's 
+  trouble with variables inside calc values. If a browser can't evaluate the calc 
+  function, it will revert to the pixel value defined beforehand. */ }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"], #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"] {
+    border-right: 1px solid #E5E3E4;
+    margin-bottom: 0;
+    max-width: 719px;
+    max-width: calc(1024px - calc(275px + 30px));
+    padding: 0 50px;
+    width: calc(100% - 305px);
+    width: calc(100% - calc(275px + 30px));
+    float: left;
+    margin-bottom: 50px; }
+    @media (min-width: 1024px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"], #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"] {
+        margin-left: calc((100% - 1024px)/2); } }
+    @media (max-width: 850px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"], #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"] {
+        margin: 0 auto;
+        max-width: 1024px;
+        padding: 0 50px;
+        border-right: none;
+        float: none;
+        width: 100%; } }
+  @media (max-width: 850px) and (max-width: 400px) {
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"], #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"] {
+      padding: 0 20px; } }
+
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"] .presidential_award_questions p, #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"] .presidential_award_questions p {
+      margin: 0; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"] .presidential_award_questions p a, #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article[about="/preserve-america/presidential-award"] .presidential_award_questions p a {
+        color: #0990FE; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar {
+    float: right;
+    width: 275px; }
+    @media (min-width: 1024px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar {
+        margin-right: calc((100% - 1024px)/2); } }
+    @media (max-width: 1024px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar {
+        margin-right: 0; } }
+    @media (max-width: 850px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar {
+        margin: 0 auto;
+        max-width: 1024px;
+        padding: 35px 50px;
+        float: none;
+        width: 100%; } }
+  @media (max-width: 850px) and (max-width: 400px) {
+    #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar {
+      padding: 35px 20px; } }
+
+    #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar h4, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar h4 {
+      margin: 0; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar ul, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar ul {
+      margin-top: 10px;
+      padding-left: 10px; }
+      @media (max-width: 850px) {
+        #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar ul, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar ul {
+          padding-left: 30px; } }
+      #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar ul li, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar ul li {
+        padding-left: 5px; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region .presidential_award_sidebar ul li a, #page[data-page-node-type="issue"] #content #content_region .presidential_award_sidebar ul li a {
+          color: #0990FE; }
 
 html,
 body {
