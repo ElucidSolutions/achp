@@ -3,6 +3,9 @@
 */
 #page[data-page-node-type="page_with_banner"] {
   #content #content_region {
+    #block-achp-content > article[about="/success-stories"] {
+      display: none;
+    }
     #block-success-stories-list {
       @include content-container-section;
       padding-bottom: 100px;

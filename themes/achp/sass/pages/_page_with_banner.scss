@@ -14,18 +14,18 @@
       h2 {
         text-align: left;
       }
-      #block-breadcrumbs {
-        @include content-container;
-      }
       #block-sharethispage {
         @include content-container;
         margin: 15px auto 30px;
       }
-      #block-achp-content, #block-achp-local-tasks {
+      #block-achp-local-tasks, 
+      .block_container, 
+      #block-achp-content > article {
         @include content-container;
       }
-      .block_container {
+      #block-breadcrumbs {
         @include content-container;
+        margin-top: 20px;
       }
     }
   }
@@ -49,7 +49,7 @@
       padding-left: 0;
 
       .share_this_page_buttons {
-        text-align: left;
+        /*text-align: left;*/
 
         &:before {
           padding-right: calc(100% - 215px);

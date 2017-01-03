@@ -3,11 +3,13 @@
 */
 
 #page[data-page-node-type="page_with_banner"], #page[data-page-node-type="issue"] {
-
   $vertical-padding: 35px;
   $container-padding: 50px;
 
   #content #content_region {
+    #block-achp-content > article[about="/initiatives"] {
+      display: none;
+    }
     #block-preservation-initiatives-list, #block-youth-outreach-initiatives {
       $img-height: 200px;
       $img-width: 300px;
@@ -35,13 +37,13 @@
         }
         .views-field-field-issue-image {
           @include clear-float;
+          background-color: $color-lightblue3;
           float: left;
           height: $img-height;
           margin: 0 $img-margin $img-margin 0;
           max-width: 100%;
           position: relative;
           width: $img-width;
-          background-color: $color-lightblue3;
 
           img {
             @include center-xy;

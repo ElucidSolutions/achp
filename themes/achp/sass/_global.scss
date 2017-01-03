@@ -210,6 +210,43 @@ $grid-columns: 12;
   }
 }
 
+/* Mixin for an image floated to the left, with text on its right */
+@mixin floated-image-with-text ($img-width, $img-height, $breakpoint) {
+  @include clear-float;
+  height: $img-height;
+  position: relative;
+
+  img {
+    float: left;
+    margin-right: 20px;
+    max-width: 100%;
+  }
+  p {
+    position: relative;
+    height: $img-height;
+  }
+  @media (max-width: $breakpoint) {
+    height: auto;
+
+    img {
+      @include center-x;
+      float: none;
+      margin: 0 0 10px;
+      position: relative;
+    }
+    p {
+      height: auto;
+      margin-top: 0;
+      
+      .read_more {
+        left: 0;
+        margin-top: 15px;
+        position: relative;
+      }
+    }
+  }
+}
+
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 @mixin hover-transition-content-and-background($content-color, $background-color) {
   transition: color 0.25s, background-color 0.25s;
