@@ -57,6 +57,7 @@ html {
 #block-breadcrumbs {
   font-family: "p22-underground", sans-serif;
   font-size: 0.875rem;
+  padding-top: 30px;
   text-transform: uppercase; }
   #block-breadcrumbs .mobile_breadcrumb {
     display: none;
@@ -80,7 +81,7 @@ html {
   #block-breadcrumbs .achp-breadcrumb {
     font-family: "p22-underground", sans-serif;
     font-size: 0.875rem;
-    min-height: 50px;
+    min-height: 40px;
     text-transform: uppercase; }
     #block-breadcrumbs .achp-breadcrumb ol {
       color: #0990FE;
@@ -696,11 +697,18 @@ the events landing page is different */
         margin: 0 160px; } }
 
 #header_region {
+  box-shadow: 0 3px 5px -3px #4F4F4F;
   height: 72px;
-  margin: 0 auto;
-  width: 1024px; }
+  width: 100%; }
 
 #header_menu {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
   border-bottom: #043B62;
   font-family: "p22-underground", sans-serif;
   font-size: 0.875rem;
@@ -1615,9 +1623,6 @@ the events landing page is different */
     text-transform: uppercase; }
     #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after {
       background-color: rgba(255, 255, 255, 0.25);
-      -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
-      -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
-      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
       content: "";
       display: block;
       height: 1px;
@@ -1625,6 +1630,7 @@ the events landing page is different */
       width: 50%; }
   #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="field_banner_page_tagline"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="field_issue_tagline"] {
     font-size: 1.125rem;
+    line-height: 1.4;
     padding: 0 25px;
     text-align: center; }
     @media screen and (min-width: 650px) {
@@ -2616,7 +2622,6 @@ header {
       content: "";
       display: table; }
   #news_landing_page #content {
-    box-shadow: inset 0 3px 5px -3px #4F4F4F;
     width: 100%; }
     #news_landing_page #content #content_region {
       background-color: transparent;
@@ -3125,9 +3130,6 @@ header {
     #page[data-page-node-type="news_story"] #block-views-block-related-news-items-block-1 .views-row .views-field-field-news-date {
       font-family: "p22-underground", sans-serif;
       color: #7C7C7C; }
-@media (min-width: 1150px) {
-  #page[data-page-node-type="news_story"] #main-wrapper {
-    box-shadow: inset 0 3px 5px -3px #4F4F4F; } }
 @media (max-width: 720px) {
   #page[data-page-node-type="news_story"] #outer_container #main-wrapper #content_region {
     max-width: 100%;
@@ -3354,7 +3356,6 @@ header {
       content: "";
       display: table; }
   #events_landing_page #content {
-    box-shadow: inset 0 3px 5px -3px #4F4F4F;
     width: 100%; }
     #events_landing_page #content #content_region {
       background-color: transparent;
@@ -3514,9 +3515,6 @@ header {
     margin-bottom: 20px; }
     #page[data-page-node-type="event"] #main #event_item_container .event_attachments .event_attachment_body p {
       margin: 0; }
-@media (min-width: 1150px) {
-  #page[data-page-node-type="event"] #main-wrapper {
-    box-shadow: inset 0 3px 5px -3px #4F4F4F; } }
 @media (max-width: 720px) {
   #page[data-page-node-type="event"] #main {
     margin: 0 50px;
@@ -3538,69 +3536,67 @@ header {
 /*
   Styles common to multiple banner image pages.
 */
-#page[data-page-node-type="page_with_banner"] #content, #page[data-page-node-type="issue"] #content {
-  width: 100%; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region article .field_page_tagline, #page[data-page-node-type="issue"] #content #content_region article .field_page_tagline {
-    display: none; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region h2, #page[data-page-node-type="issue"] #content #content_region h2 {
-    text-align: left; }
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage {
-    margin: 0 auto;
-    max-width: 1024px;
-    padding: 0 50px;
-    margin: 15px auto 30px; }
-    @media (max-width: 400px) {
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage {
-        padding: 0 20px; } }
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-local-tasks, #page[data-page-node-type="issue"] #content #content_region #block-achp-local-tasks,
-  #page[data-page-node-type="page_with_banner"] #content #content_region .block_container,
-  #page[data-page-node-type="issue"] #content #content_region .block_container,
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article,
-  #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article {
-    margin: 0 auto;
-    max-width: 1024px;
-    padding: 0 50px; }
-    @media (max-width: 400px) {
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-local-tasks, #page[data-page-node-type="issue"] #content #content_region #block-achp-local-tasks,
-      #page[data-page-node-type="page_with_banner"] #content #content_region .block_container,
-      #page[data-page-node-type="issue"] #content #content_region .block_container,
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article,
-      #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article {
-        padding: 0 20px; } }
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-breadcrumbs, #page[data-page-node-type="issue"] #content #content_region #block-breadcrumbs {
-    margin: 0 auto;
-    max-width: 1024px;
-    padding: 0 50px;
-    margin-top: 20px; }
-    @media (max-width: 400px) {
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-breadcrumbs, #page[data-page-node-type="issue"] #content #content_region #block-breadcrumbs {
-        padding: 0 20px; } }
-@media (max-width: 800px) {
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page_button {
-    margin-left: 15px; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page_button_print {
-      display: none; } }
-@media (max-width: 400px) {
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page {
-    padding-left: 0; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons {
-      /*text-align: left;*/ }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before {
-        padding-right: calc(100% - 215px); }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button {
-        margin-left: 10px; } }
+#page[data-page-node-type="page_with_banner"], #page[data-page-node-type="issue"] {
+  font-size: 1.125rem; }
+  #page[data-page-node-type="page_with_banner"] #content, #page[data-page-node-type="issue"] #content {
+    width: 100%; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region article .field_page_tagline, #page[data-page-node-type="issue"] #content #content_region article .field_page_tagline {
+      display: none; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region h2, #page[data-page-node-type="issue"] #content #content_region h2 {
+      text-align: left; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage {
+      margin: 0 auto;
+      max-width: 1024px;
+      padding: 0 50px;
+      margin: 0 auto 30px; }
+      @media (max-width: 400px) {
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage {
+          padding: 0 20px; } }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-local-tasks, #page[data-page-node-type="issue"] #content #content_region #block-achp-local-tasks,
+    #page[data-page-node-type="page_with_banner"] #content #content_region .block_container,
+    #page[data-page-node-type="issue"] #content #content_region .block_container,
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article,
+    #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article {
+      margin: 0 auto;
+      max-width: 1024px;
+      padding: 0 50px; }
+      @media (max-width: 400px) {
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-local-tasks, #page[data-page-node-type="issue"] #content #content_region #block-achp-local-tasks,
+        #page[data-page-node-type="page_with_banner"] #content #content_region .block_container,
+        #page[data-page-node-type="issue"] #content #content_region .block_container,
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-achp-content > article,
+        #page[data-page-node-type="issue"] #content #content_region #block-achp-content > article {
+          padding: 0 20px; } }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-breadcrumbs, #page[data-page-node-type="issue"] #content #content_region #block-breadcrumbs {
+      margin: 0 auto;
+      max-width: 1024px;
+      padding: 0 50px;
+      margin-top: 30px; }
+      @media (max-width: 400px) {
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-breadcrumbs, #page[data-page-node-type="issue"] #content #content_region #block-breadcrumbs {
+          padding: 0 20px; } }
+  @media (max-width: 800px) {
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page_button {
+      margin-left: 15px; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page_button_print {
+        display: none; } }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page {
+      padding-left: 0; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons {
+        /*text-align: left;*/ }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before {
+          padding-right: calc(100% - 215px); }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button {
+          margin-left: 10px; } }
 
 /*
   Styles for a general page without a banner image.
 */
 #page[data-page-node-type="page"] #content {
-  box-shadow: inset 0 3px 5px -3px #4F4F4F;
   width: 100%; }
   #page[data-page-node-type="page"] #content #content_region {
-    padding: 20px 0;
-    /*      margin: 0 auto 40px;
-          max-width: $max-content-width;
-          padding: 25px 50px;*/ }
+    padding: 20px 0; }
     #page[data-page-node-type="page"] #content #content_region .addtoany_list {
       display: none; }
     #page[data-page-node-type="page"] #content #content_region h1, #page[data-page-node-type="page"] #content #content_region #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #page[data-page-node-type="page"] #content #content_region .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #page[data-page-node-type="page"] #content #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #page[data-page-node-type="page"] #content #content_region #block-achp-page-title h1 {
@@ -3893,7 +3889,7 @@ header {
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container img, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container img {
       float: left;
       margin-right: 20px;
-      max-width: 100%; }
+      max-width: 300px; }
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text {
       position: relative;
       height: 195px; }
@@ -3911,36 +3907,13 @@ header {
           padding-right: 15px; }
           #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after {
             right: 0; }
-  @media (max-width: 750px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container img, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container img {
-      -webkit-transform: translateX(-50%);
-      -moz-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      -o-transform: translateX(-50%);
-      transform: translateX(-50%);
-      left: 50%;
-      position: absolute;
-      float: none;
-      position: relative;
-      margin: 0 0 10px; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text {
-      height: auto; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more {
-        left: 0;
-        margin-top: 15px;
-        position: relative; } }
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background {
   margin-bottom: 35px;
   margin-top: 35px; }
-@media (max-width: 750px) {
-  #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases {
-    margin: 0 50px; }
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background {
-      height: 300px;
-      margin: 35px auto; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background button, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background button, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background button, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background button {
-        padding-left: 25px;
-        padding-right: 25px; } }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background.textblock_left, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background.textblock_left, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background.textblock_left, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background.textblock_left {
+    background-image: url("../images/half-section-section-106-map.png"); }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background.textblock_right, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background.textblock_right, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background.textblock_right, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background.textblock_right {
+    background-image: url("../images/half-section-section-106-comments.png"); }
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories {
   /* IE has a lot of trouble interpreting calculated values from variables,
   so I included two values for many of the margins and widths below: the
@@ -3997,6 +3970,7 @@ header {
         color: #7C7C7C; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_body p, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .card .success_story_body p, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_body p, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_body p, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_body p, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_body p, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_body p, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_body p, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_body p, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .views-element-container .success_story_body p {
         font-family: "minion-pro", serif;
+        font-size: 1rem;
         margin: 5px;
         text-align: center; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_link, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .card .success_story_link, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link {
@@ -4009,27 +3983,10 @@ header {
         position: absolute;
         bottom: 0;
         padding-right: 5px; }
-        #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_link img, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .card .success_story_link img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link img, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link img, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link img, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link img, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link img, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link img, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link img, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link img, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link img, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link img {
-          margin-left: 5px;
-          vertical-align: -1px; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card .success_story_link a, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .card .success_story_link a, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link a, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link a, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link a, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link a, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link a, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link a, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link a, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link a, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link a, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link a, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link a, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link a {
+          vertical-align: 0; }
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .card.view-item-3, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .card.view-item-3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories .view-item-3.views-element-container, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories .view-item-3.views-element-container {
     margin-right: 0 !important; }
-  @media (max-width: 1024px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div {
-      max-width: 100%;
-      padding: 0 50px 35px;
-      width: 710px;
-      width: calc(calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3) * 2 + 20px + 3px * 2 + 50px * 2); }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .card:nth-of-type(2), #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .card:nth-of-type(2), #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body:nth-of-type(2), .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body:nth-of-type(2), #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body:nth-of-type(2), .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body:nth-of-type(2), #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card:nth-of-type(2), .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card:nth-of-type(2), #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card:nth-of-type(2), .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card:nth-of-type(2), #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:nth-of-type(2), #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .views-element-container:nth-of-type(2), #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:nth-of-type(2), #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .views-element-container:nth-of-type(2) {
-        margin-right: 0; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .card.view-item-3, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .card.view-item-3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .view-item-3.views-element-container, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .view-item-3.views-element-container {
-        margin: 25px 0 0;
-        margin-left: 151px;
-        margin-left: calc(calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3) / 2); } }
-  @media (max-width: 711px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.card, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .success-story.card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .success-story.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .success-story.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.views-element-container, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .success-story.views-element-container {
-      margin: 25px auto 0 !important;
-      display: block !important; } }
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-moresuccessstoriesbutton-2, #page[data-page-node-type="issue"] #content #content_region #block-moresuccessstoriesbutton-2 {
   background-color: #E6F8FF;
   padding-bottom: 35px; }
@@ -4059,49 +4016,45 @@ header {
       margin-right: 0%;
       width: 41.66667%;
       margin-left: 8.33333%;
-      margin-bottom: 15px; }
+      height: 60px;
+      position: relative;
+      margin-bottom: 10px; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child {
         margin-right: 0; }
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category .library_icon, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category .library_icon {
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
         border: 1px solid #013B5E;
         border-radius: 50%;
-        padding: 8px; }
+        height: 46px;
+        padding: 10px;
+        width: 46px; }
         #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category .library_icon img, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category .library_icon img {
-          margin-top: 10px;
-          padding-top: 10px;
-          vertical-align: -25%; }
+          height: 100%;
+          width: 100%; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category .library_text, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category .library_text {
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        margin-left: 60px; }
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_button button, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_button button {
     margin-bottom: 0; }
-  @media (max-width: 725px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category {
-      float: left;
-      display: block;
-      margin-right: 0%;
-      width: 75%;
-      margin-left: 25%; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child {
-        margin-right: 0; } }
-  @media (max-width: 500px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category {
-      float: left;
-      display: block;
-      margin-right: 0%;
-      width: 100%;
-      margin-left: 0%;
-      text-align: center; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child {
-        margin-right: 0; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category span, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category span {
-        display: block;
-        margin-top: 10px; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category .library_icon, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category .library_icon {
-        display: inline; } }
 #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem {
   background-color: #E6F8FF; }
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container {
     margin: 0 auto;
     max-width: 1024px;
-    padding: 35px 50px; }
+    padding: 35px 50px;
+    padding-bottom: 5px; }
     @media (max-width: 400px) {
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container {
         padding: 35px 20px; } }
@@ -4111,10 +4064,15 @@ header {
       margin-bottom: 35px;
       position: relative;
       width: 100%; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img {
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block .warning_icon, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block .warning_icon {
+        background: #CD1803 url("../images/warning-icon.svg") no-repeat center;
+        background-size: 60px;
+        display: inline-block;
+        height: 100px;
+        width: 100px;
         float: left;
-        padding-right: 25px; }
-        #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img:after, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img:after {
+        margin-right: 25px; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block .warning_icon:after, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block .warning_icon:after {
           clear: both;
           content: "";
           display: block; }
@@ -4126,62 +4084,139 @@ header {
         transform: translateY(-50%);
         position: absolute;
         top: 50%;
-        position: relative;
-        padding-right: 15px; }
-  @media (max-width: 850px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block {
-      height: 150px; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img {
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        position: absolute;
-        top: 50%;
-        left: 15px; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p {
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        position: absolute;
-        top: 50%;
-        left: calc(100px + 15px * 2);
-        margin-top: 0; } }
-  @media (max-width: 600px) {
-    #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block {
-      height: auto; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block img {
-        -webkit-transform: none;
+        padding-right: 15px;
+        position: relative; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p a, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p a {
+          color: #0990FE; }
+#page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystembutton, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystembutton {
+  background-color: #E6F8FF;
+  padding-bottom: 35px; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystembutton > div, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystembutton > div {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 50px; }
+    @media (max-width: 400px) {
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystembutton > div, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystembutton > div {
+        padding: 0 20px; } }
+@media (max-width: 1024px) {
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div {
+    max-width: 100%;
+    padding: 0 50px 35px;
+    width: 710px;
+    width: calc(calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3) * 2 + 20px + 3px * 2 + 50px * 2); }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .card:nth-of-type(2), #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .card:nth-of-type(2), #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body:nth-of-type(2), .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body:nth-of-type(2), #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body:nth-of-type(2), .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body:nth-of-type(2), #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card:nth-of-type(2), .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card:nth-of-type(2), #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card:nth-of-type(2), .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card:nth-of-type(2), #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:nth-of-type(2), #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .views-element-container:nth-of-type(2), #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:nth-of-type(2), #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .views-element-container:nth-of-type(2) {
+      margin-right: 0; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .card.view-item-3, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .card.view-item-3, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .view-item-3.views-element-container, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .view-item-3.views-element-container {
+      margin: 25px 0 0;
+      margin-left: 151px;
+      margin-left: calc(calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3) / 2); } }
+@media (max-width: 950px) {
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block {
+    height: 150px; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block .warning_icon, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block .warning_icon {
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      position: absolute;
+      top: 50%;
+      left: 15px; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p {
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      position: absolute;
+      top: 50%;
+      left: calc(100px + 15px * 2);
+      margin-top: 0; } }
+@media (max-width: 750px) {
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container img, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container img {
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    float: none;
+    position: relative;
+    margin: 0 0 10px; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text {
+    height: auto; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more {
+      left: 0;
+      margin-top: 15px;
+      position: relative; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases {
+    margin: 0 50px; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background {
+      height: 300px;
+      margin: 35px auto; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background button, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background button, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background button, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background button {
+        padding-left: 25px;
+        padding-right: 25px; }
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 75%;
+    margin-left: 25%; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child {
+      margin-right: 0; } }
+@media (max-width: 724px) {
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.card, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .success-story.card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .success-story.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .success-story.event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_calendar_body, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_grid_card, #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div .success-story.views-element-container, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div .success-story.views-element-container {
+    margin: 25px auto 0 !important;
+    display: block !important; } }
+@media (max-width: 675px) {
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block {
+    height: auto; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block .warning_icon, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block .warning_icon {
+      -webkit-transform: none;
+      -moz-transform: none;
+      -ms-transform: none;
+      -o-transform: none;
+      transform: none;
+      position: static;
+      top: 0;
+      /*  -webkit-transform: none;
         -moz-transform: none;
         -ms-transform: none;
         -o-transform: none;
-        transform: none;
-        position: static;
-        top: 0;
-        /*  -webkit-transform: none;
-          -moz-transform: none;
-          -ms-transform: none;
-          -o-transform: none;
-          transform: none;*/
-        float: left;
-        padding-right: 15px; }
-      #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p {
-        -webkit-transform: none;
+        transform: none;*/
+      float: left;
+      padding-right: 15px; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystem .block_container .warning_block p {
+      -webkit-transform: none;
+      -moz-transform: none;
+      -ms-transform: none;
+      -o-transform: none;
+      transform: none;
+      position: static;
+      top: 0;
+      /*  -webkit-transform: none;
         -moz-transform: none;
         -ms-transform: none;
         -o-transform: none;
-        transform: none;
-        position: static;
-        top: 0;
-        /*  -webkit-transform: none;
-          -moz-transform: none;
-          -ms-transform: none;
-          -o-transform: none;
-          transform: none;*/
-        padding: 10px; } }
+        transform: none;*/
+      padding: 10px; } }
+@media (max-width: 500px) {
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%;
+    margin-left: 0%;
+    text-align: center; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category:last-child {
+      margin-right: 0; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category span, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category span {
+      display: block;
+      margin-top: 10px; }
+    #page[data-page-node-type="page_with_banner"] #content #content_region #block-digitallibrary .library_categories .library_category .library_icon, #page[data-page-node-type="issue"] #content #content_region #block-digitallibrary .library_categories .library_category .library_icon {
+      display: inline; } }
 
 /*
   Styles for the preservation initiates landing page.
@@ -4405,9 +4440,6 @@ header {
           #page[data-page-node-type="success_story"] #content #content_region #block-achp-content #success_story_container .success_story_consulting_parties ul li a {
             color: #043B62;
             text-decoration: none; }
-@media (min-width: 1150px) {
-  #page[data-page-node-type="success_story"] #main-wrapper {
-    box-shadow: inset 0 3px 5px -3px #4F4F4F; } }
 @media (max-width: 800px) {
   #page[data-page-node-type="success_story"] #content #content_region #block-sharethispage .share_this_page_button {
     margin-left: 15px; }
@@ -4896,7 +4928,7 @@ button {
   letter-spacing: 0.02rem;
   line-height: 1.4rem;
   margin: 0 auto 30px;
-  padding: 12px 53px 8px;
+  padding: 12px 38px 8px;
   text-transform: uppercase; }
   @media screen and (min-width: 650px) {
     button {
@@ -5000,6 +5032,8 @@ blockquote {
                       /* Equal to double the sum of $block-width and $textblock-margin. IE 
 only executes this correctly when it's a specific number value, not a calculated sum of
 other variables */
+  background-position: center;
+  background-size: cover;
   height: 450px;
   max-width: 450px;
   position: relative; }
@@ -5008,13 +5042,9 @@ other variables */
     content: "";
     display: block; }
   .textblock_with_background.textblock_left {
-    /*background-image: url('http://placehold.it/460x460');*/
-    background-color: darkred;
     float: left;
     margin-left: calc((100% - 920px)/2) !important; }
   .textblock_with_background.textblock_right {
-    /*background-image: url('http://placehold.it/460x460');*/
-    background-color: navy;
     float: right;
     margin-right: calc((100% - 920px)/2); }
     .textblock_with_background.textblock_right:after {

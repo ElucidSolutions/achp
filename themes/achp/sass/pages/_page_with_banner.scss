@@ -4,6 +4,8 @@
 
 #page[data-page-node-type="page_with_banner"] {
 
+  font-size: rem(18px);
+
   #content { 
     width: 100%;
 
@@ -16,7 +18,7 @@
       }
       #block-sharethispage {
         @include content-container;
-        margin: 15px auto 30px;
+        margin: 0 auto 30px;
       }
       #block-achp-local-tasks, 
       .block_container, 
@@ -25,7 +27,7 @@
       }
       #block-breadcrumbs {
         @include content-container;
-        margin-top: 20px;
+        margin-top: 30px;
       }
     }
   }

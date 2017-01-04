@@ -2,32 +2,24 @@
   This module defines default styles for banner
   elements created by the Node Banner module.
 */
-$node-banner-height: 300px;
 /*$node-banner-with-icon-height: 450px;*/
 /*$node-banner-arrow-height: 52px;
 $node-banner-arrow-icon-width: 100px;*/
-$node-banner-arrow-mask-color: white;
-$node-banner-banner-overlay-text-color: white;
-
 #block-nodebannerblock {
-  padding-top: 2px;
-}
+  padding-bottom: 0px; }
 
 .node-banner {
-  height: $node-banner-height;
-  position: relative;
-
-  .node-banner-banner {
+  height: 300px;
+  position: relative; }
+  .node-banner .node-banner-banner {
     background-position: center 75%;
     /* Don't know the best way to position this?? */
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    padding-bottom: 50px;
-
-    .node-banner-banner-overlay {
+    padding-bottom: 50px; }
+    .node-banner .node-banner-banner .node-banner-banner-overlay {
       color: white;
-      position: relative;
-    }
-  }
-}
+      position: relative; }
+
+/*# sourceMappingURL=style.css.map */
