@@ -3,9 +3,48 @@
   Share This Page block elements.
 */
 (function ($) {
+  // Represents the set of Add to Any icons.
+  var a2aIcons = [
+    {
+      'selector': '.share_this_page_button_icon_facebook',
+      'url': '/images/facebook-icon.svg'
+    },
+    {
+      'selector': '.share_this_page_button_icon_twitter',
+      'url': '/images/twitter-icon.svg'
+    }
+  ];
+
+  // Represents the set of icons that do not depend on Add to Any.
+  var icons = [
+    {
+      'selector': '.share_this_page_button_icon_email',
+      'url': '/images/email-icon.svg'
+    },
+    {
+      'selector': '.share_this_page_button_icon_link',
+      'url': '/images/link-icon.svg'
+    },
+    {
+      'selector': '.share_this_page_button_icon_print',
+      'url': '/images/print-icon.svg'
+    }
+  ];
+
+  // Loads and enables the share icons when the page loads.
   $(document).ready (function () {
-    // enable the Add To Any share elements.
-    a2a.init_all ('page');
+    if (a2a) {
+      // enable the Add To Any share elements.
+      a2a.init_all ('page');
+
+      // load the Add to Any icons.
+      loadSVGIcons (a2aIcons);
+    } else {
+      // remove the Add to Any share elements.
+      a2aIcons.forEach (function (icon) {
+        $(icon.selector).remove ();
+      });
+    }
 
     // enable the link button.
     var clipboard = new Clipboard ('.share_this_page_button_direct_link');
@@ -26,40 +65,19 @@
     });
 
     // load share button icons
-    loadSVGIcons ();
+    loadSVGIcons (icons);
   });
 
   /*
-    Accepts no arguments; loads the SVG icons;
-    and returns undefined.
+    Accepts one argument: icons, an array of
+    icon objects; loads the SVG icons; and
+    returns undefined.
   */
-  function loadSVGIcons () {
-    [
-      {
-        'selector': '.share_this_page_button_icon_facebook',
-        'url': '/images/facebook-icon.svg'
-      },
-      {
-        'selector': '.share_this_page_button_icon_twitter',
-        'url': '/images/twitter-icon.svg'
-      },
-      {
-        'selector': '.share_this_page_button_icon_email',
-        'url': '/images/email-icon.svg'
-      },
-      {
-        'selector': '.share_this_page_button_icon_link',
-        'url': '/images/link-icon.svg'
-      },
-      {
-        'selector': '.share_this_page_button_icon_print',
-        'url': '/images/print-icon.svg'
-      }
-    ].forEach (function (icon) {
+  function loadSVGIcons (icons) {
+    icons.forEach (function (icon) {
       $(icon.selector).html (loadSVG (drupalSettings.share_this_page.module_path + icon.url));
     });
   }
-
 
   /*
     Accepts one argument: url, a URL string;
