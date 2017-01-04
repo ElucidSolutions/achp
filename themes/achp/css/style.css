@@ -1255,29 +1255,29 @@ the events landing page is different */
   This stylesheet defines default styling for
   the Page Menu feature.
 */
-.page-menu-block {
+[data-plugin-id="page_menu_block"] {
   display: flex;
   flex-grow: 1;
   padding-top: 10px;
   position: relative; }
-  .page-menu-block .page-menu-instance-container {
+  [data-plugin-id="page_menu_block"] .page-menu-instance-container {
     display: flex;
     flex-grow: 1; }
-    .page-menu-block .page-menu-instance-container .page-menu-instance {
+    [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance {
       flex-grow: 1;
       margin-right: 50px;
       width: 300px; }
-      .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
+      [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
         background-color: #C6C6C6;
         width: 100%; }
-        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
+        [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
           background-color: #e67f00;
           color: white;
           cursor: pointer;
           display: none;
           padding-bottom: 10px;
           padding-top: 10px; }
-          .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header:after {
+          [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header:after {
             background-image: url("../images/plus-icon.svg");
             background-position: center;
             background-repeat: no-repeat;
@@ -1288,20 +1288,20 @@ the events landing page is different */
             right: 15px;
             top: 24px;
             width: 15px; }
-        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list {
+        [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list {
           list-style-type: none;
           margin: 0;
           padding: 0;
           width: 100%; }
-          .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item {
+          [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item {
             border-bottom: 1px solid #e1e1e1;
             cursor: pointer;
             padding: 10px;
             position: relative;
             width: 100%; }
-            .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item:last-of-type {
+            [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item:last-of-type {
               border-bottom: none; }
-      .page-menu-block .page-menu-instance-container .page-menu-instance.page-menu-instance-menu-expanded .page-menu-instance-menu .page-menu-instance-menu-header:after {
+      [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance.page-menu-instance-menu-expanded .page-menu-instance-menu .page-menu-instance-menu-header:after {
         background-image: url("../images/minus-icon.svg");
         background-position: center;
         background-repeat: no-repeat;
@@ -4668,6 +4668,7 @@ header {
   for the Publication content type.
 */
 [data-page-node-type="publication"] #content_region {
+  display: flex;
   margin: 0 auto;
   max-width: 1024px; }
 
