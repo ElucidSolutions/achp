@@ -23,24 +23,24 @@
 
         h2 {
           font-size: rem(36px);
-          margin-bottom: 25px;
+          margin-bottom: 0;
         }
       }
       .views-row {
+        margin-top: 50px;
         position: relative;
 
-        .views-field-title h3 {
-          margin-bottom: 10px;
+        .views-field-title h4 {
+          margin-bottom: 5px;
           a {
             color: $color-red;
           }
         }
-        .views-field-field-issue-image {
+        .views-field-field-issue-thumbnail-image {
           @include clear-float;
-          background-color: $color-lightblue3;
           float: left;
           height: $img-height;
-          margin: 0 $img-margin $img-margin 0;
+          margin-right: $img-margin;
           max-width: 100%;
           position: relative;
           width: $img-width;
@@ -53,12 +53,15 @@
           }
         }
         .views-field-view-node {
-          bottom: 35px;
+          bottom: 5px;
           left: 395px;
           left: calc(#{$img-width} + #{$img-margin});
           position: absolute;
 
           .read-more {
+            display: inline-block;
+            vertical-align: 25%;
+
             a {
               @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
               color: $color-grey;
@@ -67,7 +70,6 @@
               font-weight: 500;
               text-decoration: none;
               text-transform: uppercase;
-              vertical-align: bottom;
             }
             &:hover {
               color: $color-blue-primary;
@@ -77,17 +79,23 @@
 
         &:after {
           background-color: $background-color-grey2;
+          bottom: -$img-margin;
           clear: both;
           content: " ";
           display: block;
           height: 1px;
           margin: 20px 0 $vertical-padding;
+          position: relative;
           width: 100%;
         }
       }
-      @media (max-width: 800px) {
+
+      @media (max-width: 850px) {
         .views-row {
-          .views-field-field-issue-image {
+          .views-field-title h4 {
+            margin-bottom: 0;
+          }
+          .views-field-field-issue-thumbnail-image {
             float: none;
             margin: 0 auto $img-margin;
 
@@ -99,17 +107,18 @@
             }
           }
           .views-field-field-issue-summary {
-            padding-bottom: 30px;
+            padding-bottom: 20px;
           }
           .views-field-view-node {
-            bottom: 10px;
+            bottom: 0px;
             left: 0;
           }
         }
       }
-      @media (max-width: 475px) {
+
+      @media (max-width: 500px) {
         .views-row {
-          .views-field-field-issue-image {
+          .views-field-field-issue-thumbnail-image {
             img {
               height: auto;
               max-height: 100%;
@@ -119,6 +128,12 @@
           }
           .views-field-field-issue-summary {
             padding-bottom: 40px;
+          }
+          .views-field-view-node a {
+            padding-right: 20px;
+            &:after {
+              right: 0;
+            }
           }
         }
       }
