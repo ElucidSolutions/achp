@@ -242,7 +242,7 @@
         @include content-container;
       }
     }
-    @media (max-width: $max-content-width) {
+    @media (max-width: 1040px) {
       #block-featured-success-stories > div {
         max-width: 100%;
         padding: 0 $container-padding $vertical-padding;
@@ -293,6 +293,10 @@
             left: 0;
             margin-top: 15px;
             position: relative;
+
+            a:after {
+              right: auto;
+            }
           }
         }
       }
@@ -373,6 +377,13 @@
           @include undo-center-y;
           padding: 0 10px 10px;
           top: 60%;
+        }
+      }
+    }
+    @media (max-width: 500px) {
+      #block-anintroductiontosection106 .block_container {
+        .intro_106_text .read_more a:after {
+          right: 0;
         }
       }
     }

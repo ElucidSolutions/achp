@@ -1636,7 +1636,7 @@ the events landing page is different */
     @media screen and (min-width: 650px) {
       #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="field_banner_page_tagline"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="field_issue_tagline"] {
         font-size: 1.375rem; } }
-  @media (max-width: 400px) {
+  @media (max-width: 450px) {
     #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay {
       max-height: 95%;
       padding: 15px; }
@@ -4099,7 +4099,7 @@ header {
     @media (max-width: 400px) {
       #page[data-page-node-type="page_with_banner"] #content #content_region #block-electronic106submissionsystembutton > div, #page[data-page-node-type="issue"] #content #content_region #block-electronic106submissionsystembutton > div {
         padding: 0 20px; } }
-@media (max-width: 1024px) {
+@media (max-width: 1040px) {
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-featured-success-stories > div, #page[data-page-node-type="issue"] #content #content_region #block-featured-success-stories > div {
     max-width: 100%;
     padding: 0 50px 35px;
@@ -4151,6 +4151,8 @@ header {
       left: 0;
       margin-top: 15px;
       position: relative; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after {
+        right: auto; }
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases {
     margin: 0; }
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background, #page[data-page-node-type="issue"] #content #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background, #page[data-page-node-type="page_with_banner"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background, #page[data-page-node-type="issue"] #content #content_region #block-commentonrecentlyclosedsection106cases .textblock_with_background {
@@ -4244,6 +4246,9 @@ header {
         transform: none;*/
       padding: 0 10px 10px;
       top: 60%; } }
+@media (max-width: 500px) {
+  #page[data-page-node-type="page_with_banner"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after, #page[data-page-node-type="issue"] #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after {
+    right: 0; } }
 
 /*
   Styles for the preservation initiates landing page.
@@ -4358,7 +4363,11 @@ header {
       padding-bottom: 20px; }
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node, #page[data-page-node-type="page_with_banner"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node {
       bottom: 0px;
-      left: 0; } }
+      left: 0; }
+      #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more a, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more a, #page[data-page-node-type="page_with_banner"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more a, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a {
+        padding-right: 30px; }
+        #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more a:after, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more a:after, #page[data-page-node-type="page_with_banner"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a:after, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a:after, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more a:after, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a:after {
+          right: 0; } }
   @media (max-width: 500px) {
     #page[data-page-node-type="page_with_banner"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-thumbnail-image img, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-thumbnail-image img, #page[data-page-node-type="page_with_banner"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-field-issue-thumbnail-image img, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-field-issue-thumbnail-image img, #page[data-page-node-type="issue"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-thumbnail-image img, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-field-issue-thumbnail-image img {
       height: auto;

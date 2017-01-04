@@ -112,6 +112,13 @@
           .views-field-view-node {
             bottom: 0px;
             left: 0;
+
+            .read-more a {
+              padding-right: 30px;
+              &:after {
+                right: 0;
+              }
+            }
           }
         }
       }
