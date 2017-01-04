@@ -3,6 +3,28 @@
 use Drupal\file\Entity\File;
 use Drupal\Core\Url;
 
+/**
+ * Implements hook_preprocess_block ().
+ *
+ * Ensures that every block element includes
+ * its block ID in a data attribute.
+ */
+function achp_preprocess_block (&$variables) {
+  $variables ['attributes']['data-plugin-id']            = $variables ['plugin_id'];
+  $variables ['attributes']['data-derivative-plugin-id'] = $variables ['derivative_plugin_id'];
+  $variables ['attributes']['data-base-plugin-id']       = $variables ['base_plugin_id'];
+}
+
+/**
+ * Implements hook_preprocess_views_view ().
+ *
+ * Ensures that every view element includes its
+ * view ID in a data attribute.
+ */
+function achp_preprocess_views_view (&$variables) {
+  $variables ['attributes']['data-view-id'] = $variables ['id'];
+}
+
 // Implements hook_preprocess ().
 function achp_preprocess_views_view__community_spotlight (&$variables) {
   foreach ($variables['rows'] as $id => &$row) {
@@ -17,6 +39,7 @@ function achp_preprocess_views_view__community_spotlight (&$variables) {
  * Expose node/view IDs as template variables.
  */
 function achp_preprocess_page (&$variables) {
+  \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_page] variables: <pre>' . print_r (array_keys ($variables), true) . '</pre>');
   if (isset ($variables ['node'])) {
     $variables ['node_type'] = $variables ['node']->getType ();
   }
@@ -34,6 +57,7 @@ function achp_preprocess_page (&$variables) {
  * as date_default_timezone.
  */
 function achp_preprocess_node (&$variables) {
+  \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_node] variables: <pre>' . print_r (array_keys ($variables), true) . '</pre>');
   $variables ['achp_default_timezone'] = date_default_timezone_get ();
 }
 

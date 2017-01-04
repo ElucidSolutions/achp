@@ -1568,6 +1568,29 @@ the events landing page is different */
                 background-image: url("../images/up-arrow-icon-blue.svg"); } }
 
 /*
+  This stylesheet provides the default styling
+  for the Related Resources block.
+*/
+[data-derivative-plugin-id^="related_resources"] h2 {
+  border-bottom: 2px solid #C6C6C6;
+  color: #9B0008;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  text-align: left;
+  text-transform: uppercase; }
+[data-derivative-plugin-id^="related_resources"] .views-field-title {
+  font-size: 1.125rem;
+  margin-bottom: 5px; }
+  [data-derivative-plugin-id^="related_resources"] .views-field-title a {
+    color: #0990FE; }
+[data-derivative-plugin-id^="related_resources"] .views-field-body {
+  color: #4A4A4A;
+  font-size: 1.125rem;
+  margin-bottom: 20px; }
+
+/*
 ** This Sass file defines the styles for the 
 ** Section 106 Process module.
 */
