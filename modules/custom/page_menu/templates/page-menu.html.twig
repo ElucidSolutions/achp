@@ -1,0 +1,29 @@
+{#
+/**
+ * page_menu_title: The title that should be
+ *   displayed for this nav menu. Note: this is
+ *   the same as the block title.
+ * page_menu_page_title: The title of the page
+ *   that this block has been embeded within.
+ * page_menu_target: The jQuery selector that
+ *   should be used to select headers that will be
+ *   linked to by the nav menu.
+ * page_menu_margin: The minimum distance that
+ *   the menu will try to maintain from the top of
+ *   the screen as the user scrolls down the page.
+ * page_menu_header_margin: The minimum distance
+ *   that separates headers from the top of the
+ *   page when linked to directly.
+ * page_menu_min_num_items: The minimum number
+ *   of headers that must be present before this
+ *   module inserts a nav menu.
+ */
+#}
+<div
+  class="page-menu-instance-container"
+  data-page-menu-instance-container-title="{{ page_menu_title }}"
+  data-page-menu-instance-container-target="{{ page_menu_target }}"
+  data-page-menu-instance-container-margin="{{ page_menu_margin }}"
+  data-page-menu-instance-container-header-margin="{{ page_menu_header_margin }}"
+  data-page-menu-instance-container-min-num-items="{{ page_menu_min_num_items }}"
+></div>

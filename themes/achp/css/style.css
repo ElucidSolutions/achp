@@ -1251,6 +1251,100 @@ the events landing page is different */
           #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after {
             background-image: url("../images/right-arrow-icon-blue.svg"); } }
 
+/*
+  This stylesheet defines default styling for
+  the Page Menu feature.
+*/
+.page-menu-block {
+  display: flex;
+  flex-grow: 1;
+  padding-top: 10px;
+  position: relative; }
+  .page-menu-block .page-menu-instance-container {
+    display: flex;
+    flex-grow: 1; }
+    .page-menu-block .page-menu-instance-container .page-menu-instance {
+      flex-grow: 1;
+      margin-right: 50px;
+      width: 300px; }
+      .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
+        background-color: #C6C6C6;
+        width: 100%; }
+        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
+          background-color: #e67f00;
+          color: white;
+          cursor: pointer;
+          display: none;
+          padding-bottom: 10px;
+          padding-top: 10px; }
+          .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header:after {
+            background-image: url("../images/plus-icon.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            content: '';
+            display: block;
+            height: 15px;
+            position: absolute;
+            right: 15px;
+            top: 24px;
+            width: 15px; }
+        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          width: 100%; }
+          .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item {
+            border-bottom: 1px solid #e1e1e1;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            width: 100%; }
+            .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item:last-of-type {
+              border-bottom: none; }
+      .page-menu-block .page-menu-instance-container .page-menu-instance.page-menu-instance-menu-expanded .page-menu-instance-menu .page-menu-instance-menu-header:after {
+        background-image: url("../images/minus-icon.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        content: '';
+        display: block;
+        height: 15px;
+        position: absolute;
+        right: 15px;
+        top: 24px;
+        width: 15px; }
+
+@media screen and (min-width: 1150px) {
+  .page-menu-block .page-menu-instance-container {
+    /*min-width: 300px;*/ }
+    .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
+      display: block !important; }
+      .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected {
+        background-color: #e67f00;
+        color: white; }
+        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected:after {
+          border: 10px solid #e67f00;
+          border-top-color: transparent;
+          border-right-color: transparent;
+          border-bottom-color: transparent;
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: -18px; } }
+@media screen and (max-width: 1150px) {
+  .page-menu-block {
+    width: 100%; }
+    .page-menu-block .page-menu-instance-container .page-menu-instance {
+      margin: 0;
+      position: static;
+      width: 100%; }
+      .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
+        margin: 0px;
+        position: static; }
+        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
+          display: block; }
+        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
+          display: none; } }
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -2668,21 +2762,25 @@ header {
   This stylesheet provides styling for the
   Digital Library Landing pages.
 */
-[data-page-node-type="digital_library_landing_page"] #content_region {
+[data-page-node-type="digital_library_landing_page"] #secondary_header {
   margin: 0 auto;
   max-width: 1024px;
-  padding: 10px 40px 20px !important; }
-  [data-page-node-type="digital_library_landing_page"] #content_region h1, [data-page-node-type="digital_library_landing_page"] #content_region #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="digital_library_landing_page"] #content_region .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="digital_library_landing_page"] #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper [data-page-node-type="digital_library_landing_page"] #content_region #block-achp-page-title h1 {
+  padding: 10px 40px 0 !important; }
+  [data-page-node-type="digital_library_landing_page"] #secondary_header h1, [data-page-node-type="digital_library_landing_page"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="digital_library_landing_page"] #secondary_header #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title [data-page-node-type="digital_library_landing_page"] #secondary_header h1 {
     color: #003A5E;
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: 20px; }
-    [data-page-node-type="digital_library_landing_page"] #content_region h1:after, [data-page-node-type="digital_library_landing_page"] #content_region #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="digital_library_landing_page"] #content_region .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, [data-page-node-type="digital_library_landing_page"] #outer_container #main-wrapper #content_region #block-achp-page-title h1:after, #outer_container #main-wrapper [data-page-node-type="digital_library_landing_page"] #content_region #block-achp-page-title h1:after {
+    [data-page-node-type="digital_library_landing_page"] #secondary_header h1:after, [data-page-node-type="digital_library_landing_page"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, [data-page-node-type="digital_library_landing_page"] #secondary_header #outer_container #main-wrapper #content_region #block-achp-page-title h1:after, #outer_container #main-wrapper #content_region #block-achp-page-title [data-page-node-type="digital_library_landing_page"] #secondary_header h1:after {
       content: "";
       display: block;
       max-width: 200px;
       margin: 0 auto;
       border-bottom: 1px solid #9B0008; }
+[data-page-node-type="digital_library_landing_page"] #content_region {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 10px 40px 20px !important; }
   [data-page-node-type="digital_library_landing_page"] #content_region h2 {
     border-bottom: 1px solid #C6C6C6;
     font-size: 2rem;
@@ -2720,21 +2818,25 @@ header {
 */
 [data-page-view-id="digital_library"] a {
   color: #0990FE; }
-[data-page-view-id="digital_library"] #content_region {
+[data-page-view-id="digital_library"] #secondary_header {
   margin: 0 auto;
   max-width: 1024px;
-  padding: 40px; }
-  [data-page-view-id="digital_library"] #content_region h1, [data-page-view-id="digital_library"] #content_region #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-view-id="digital_library"] #content_region .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-view-id="digital_library"] #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper [data-page-view-id="digital_library"] #content_region #block-achp-page-title h1 {
+  padding: 10px 40px 0 !important; }
+  [data-page-view-id="digital_library"] #secondary_header h1, [data-page-view-id="digital_library"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-view-id="digital_library"] #secondary_header #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title [data-page-view-id="digital_library"] #secondary_header h1 {
     color: #003A5E;
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: 20px; }
-    [data-page-view-id="digital_library"] #content_region h1:after, [data-page-view-id="digital_library"] #content_region #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-view-id="digital_library"] #content_region .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, [data-page-view-id="digital_library"] #outer_container #main-wrapper #content_region #block-achp-page-title h1:after, #outer_container #main-wrapper [data-page-view-id="digital_library"] #content_region #block-achp-page-title h1:after {
+    [data-page-view-id="digital_library"] #secondary_header h1:after, [data-page-view-id="digital_library"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, [data-page-view-id="digital_library"] #secondary_header #outer_container #main-wrapper #content_region #block-achp-page-title h1:after, #outer_container #main-wrapper #content_region #block-achp-page-title [data-page-view-id="digital_library"] #secondary_header h1:after {
       content: "";
       display: block;
       max-width: 200px;
       margin: 0 auto;
       border-bottom: 1px solid #9B0008; }
+[data-page-view-id="digital_library"] #content_region {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 40px; }
   [data-page-view-id="digital_library"] #content_region .views-element-container header {
     background-color: white;
     height: auto; }
@@ -2819,7 +2921,8 @@ header {
 /*@import "../global";*/
 #page[data-page-node-type="event"] #main {
   margin: 0 auto;
-  max-width: 620px; }
+  max-width: 620px;
+  padding-top: 5px; }
   #page[data-page-node-type="event"] #main #block-pagetitle-2 h1, #page[data-page-node-type="event"] #main #block-pagetitle-2 #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #page[data-page-node-type="event"] #main #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #page[data-page-node-type="event"] #main #block-pagetitle-2 #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #page[data-page-node-type="event"] #main #block-pagetitle-2 h1 {
     color: #043B62;
     font-size: 2.25rem;
@@ -3118,7 +3221,8 @@ header {
 /*@import "../global";*/
 #page[data-page-node-type="news_story"] #main {
   margin: 0 auto;
-  max-width: 620px; }
+  max-width: 620px;
+  padding-top: 5px; }
   #page[data-page-node-type="news_story"] #main #block-pagetitle-2 h1, #page[data-page-node-type="news_story"] #main #block-pagetitle-2 #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #page[data-page-node-type="news_story"] #main #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #page[data-page-node-type="news_story"] #main #block-pagetitle-2 #outer_container #main-wrapper #content_region #block-achp-page-title h1, #outer_container #main-wrapper #content_region #block-achp-page-title #page[data-page-node-type="news_story"] #main #block-pagetitle-2 h1 {
     color: #043B62;
     font-size: 2.25rem;
@@ -3713,6 +3817,10 @@ header {
   /*  #content {
       margin-bottom: 40px;
     }*/ }
+  #page[data-page-node-type="page_with_banner"] [data-plugin-id="system_breadcrumb_block"], #page[data-page-node-type="issue"] [data-plugin-id="system_breadcrumb_block"] {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0px 40px; }
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-pagetitle-2, #page[data-page-node-type="issue"] #content #content_region #block-pagetitle-2,
   #page[data-page-node-type="page_with_banner"] #content #content_region #block-relatedcontentmembersinthenews-mobile,
   #page[data-page-node-type="issue"] #content #content_region #block-relatedcontentmembersinthenews-mobile,
@@ -4554,6 +4662,14 @@ header {
           -o-transform: none;
           transform: none;*/
         padding: 10px; } }
+
+/*
+  This stylesheet defines the default styles
+  for the Publication content type.
+*/
+[data-page-node-type="publication"] #content_region {
+  margin: 0 auto;
+  max-width: 1024px; }
 
 /*
   This module defines the sass directives used

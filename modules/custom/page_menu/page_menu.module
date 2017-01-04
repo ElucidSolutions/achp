@@ -1,0 +1,21 @@
+<?php
+/**
+ * @file
+ * Defines the Page Menu theme function.
+ */
+
+// Implements hook_theme ()
+function page_menu_theme () {
+  return [
+    'page_menu' => [
+      'variables' => [
+        'page_menu_target' => null,
+        'page_menu_margin' => 0,
+        'page_menu_header_margin' => 0,
+        'page_menu_title' => '',
+        'page_menu_page_title' => '',
+        'page_menu_min_num_items' => 0
+      ]
+    ]
+  ];
+}

@@ -9,10 +9,10 @@
   $margin-large: 40px;
   $margin-xlarge: 60px;
 
-  #content_region {
+  #secondary_header {
     margin: 0 auto;
     max-width: $max-content-width;
-    padding: $margin-small $margin-large $margin-med !important;
+    padding: $margin-small $margin-large 0 !important;
 
     h1 {
       color: $color-darkblue2;
@@ -28,6 +28,12 @@
         border-bottom: 1px solid $color-red2;
       }
     }
+  }
+  #content_region {
+    margin: 0 auto;
+    max-width: $max-content-width;
+    padding: $margin-small $margin-large $margin-med !important;
+
     h2 {
       border-bottom: 1px solid $color-lightgrey;
       font-size: rem(32px);
