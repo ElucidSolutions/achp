@@ -3,6 +3,7 @@
     width: 100%;
 
     $main-content-max-width: 700px;
+    $vertical-padding: 35px;
 
     #content_region {
       padding: 20px 0 0;
@@ -65,7 +66,9 @@
               margin-top: 5px;
             }
           }
-          .success_story_consulting_parties {
+          .success_story_parties {
+            margin-bottom: 50px;
+
             h4 {
               color: $color-red;
               margin: 0;
