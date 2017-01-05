@@ -42,6 +42,7 @@ function achp_preprocess_page (&$variables) {
   \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_page] variables: <pre>' . print_r (array_keys ($variables), true) . '</pre>');
   if (isset ($variables ['node'])) {
     $variables ['node_type'] = $variables ['node']->getType ();
+    $variables ['node_id']   = $variables ['node']->id ();
   }
   $parameters = \Drupal::routeMatch ()->getParameters ();
   if ($parameters->has ('view_id')) {
