@@ -39,6 +39,13 @@
           position: relative;
           width: $card-width;
 
+          &-body, &-date {
+            font-size: rem(16px);
+
+            p {
+              margin: 0;
+            }
+          }
           &.view-item-3 {
             margin-right: 0;
           }
@@ -90,7 +97,7 @@
       }
     }
     #block-youth-outreach-initiatives {
-      @include content-container-section;
+      @include content-container-section;  
     }
   }
 }

@@ -31,6 +31,12 @@
       margin-top: $vertical-padding;
       margin-bottom: $container-padding;
 
+      &.textblock_left {
+        background-image: url('../images/half-section-section-106-map.png');
+      }
+      &.textblock_right {
+        background-image: url('../images/half-section-section-106-comments.png');          
+      }
       @media (max-width: 750px) {
         height: 275px;
       }
@@ -52,10 +58,10 @@
             position: relative;
             top: -2px;
 
-            @media (max-width: 550px) {
+/*            @media (max-width: 550px) {
               @include center-y;
               position: absolute;
-            }
+            }*/
           }
         }
       }
@@ -64,7 +70,32 @@
         height: 1px;
         margin: 25px 0;
       }
+    }
+    @media (max-width: 750px) {
+      #block-preserveamericacommunities, #block-applytobecomearecognizedcommunity {
+        .textblock_with_background {
+          height: 275px;
+          margin: 0 !important;
 
+          .split_block_container {
+            @include content-container;
+
+            p {
+              margin-bottom: 25px;
+            }
+          }
+          button {
+            padding-left: 25px;
+            padding-right: 25px;
+          }
+        }
+      }
+    }
+    @media (max-width: 550px) {
+      #block-preserveamericapagelinks .read_more a:after {
+              @include center-y;
+              position: absolute;        
+      }
     }
   }
 }

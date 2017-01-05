@@ -15,11 +15,22 @@
   $intro-106-img-padding: 20px;
   $e106-img-width: 100px;
 
-  #content #content_region {
+  #content {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+  }
+  #content_region {
+        margin: 0 auto;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
 
     #block-achp-content {
       article {
-        padding-bottom: $vertical-padding;
+        margin: 0 auto;
+        padding: $vertical-padding $container-padding;
       }
     }
     #block-anintroductiontosection106 {
@@ -28,6 +39,7 @@
 
       .block_container {
         @include clear-float;
+        @include content-container;
         position: relative;
 
         h2 {
@@ -179,18 +191,10 @@
           position: relative;
           margin-bottom: 10px;
 
-          .library_icon {
+          img {
             @include center-y;
-            border: 1px solid #013B5E;
-            border-radius: 50%;
-            height: $icon-height;
-            padding: 10px;
-            width: $icon-width;
-
-            img {
-              height: 100%;
-              width: 100%;
-            }
+            height: 50px;
+            width: 50px;
           }
           .library_text {
             @include center-y;
@@ -212,6 +216,7 @@
         padding-bottom: 5px;
 
         .warning_block {
+          @include clear-float;
           background-color: rgba(255,237,234,1);
           height: $e106-img-width;
           margin-bottom: $vertical-padding;
@@ -219,7 +224,7 @@
           width: 100%;
 
           .warning_icon {
-            @include clear-float;
+            /*@include clear-float;*/
             background: #CD1803 url('../images/warning-icon.svg') no-repeat center;
             background-size: 60px;
             display: inline-block;
@@ -248,7 +253,7 @@
         @include content-container;
       }
     }
-    @media (max-width: $max-content-width) {
+    @media (max-width: 1040px) {
       #block-featured-success-stories > div {
         max-width: 100%;
         padding: 0 $container-padding $vertical-padding;
@@ -299,16 +304,27 @@
             left: 0;
             margin-top: 15px;
             position: relative;
+
+            a:after {
+              right: auto;
+            }
           }
         }
       }
       #block-viewactivesection106casesinvolvingtheachp, #block-commentonrecentlyclosedsection106cases {
-        margin: 0 50px;
+        margin: 0;
 
         .textblock_with_background {
-          height: 300px;
-          margin: $vertical-padding auto;
+          height: 275px;
+          margin: 0 !important;
 
+          .split_block_container {
+            @include content-container;
+
+            p {
+              margin-bottom: 25px;
+            }
+          }
           button {
             padding-left: 25px;
             padding-right: 25px;
@@ -321,6 +337,9 @@
           @include shift(3);
         }
       }
+      #block-featured-success-stories {
+        margin-top: 0;
+      }
     }
     @media (max-width: 724px) {
       #block-featured-success-stories > div {
@@ -330,36 +349,52 @@
         }
       }
     }
-    @media (max-width: 675px) {
+    @media (max-width: 700px) {
+      #block-electronic106submissionsystem .block_container .warning_block {
+        height: 200px;
+      }
+    }
+    @media (max-width: 650px) {
+      #block-digitallibrary .library_categories {
+        .library_category {
+          @include shift(0);
+          height: 100px;
+          text-align: center;
+          width: 100%;
+
+          .library_text, img {
+            @include undo-center-y;
+            display: block;
+            margin: 0 auto;
+          }
+          .library_text {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+    @media (max-width: 550px) {
       #block-electronic106submissionsystem .block_container .warning_block {
         height: auto;
 
         .warning_icon {
           @include undo-center-y;
-          float: left;
-          padding-right: 15px;
+          float: none;
+          height: 70px;
+          margin: 0;
+          width: 100%;
         }
-
         p {
           @include undo-center-y;
-          padding: 10px;
+          padding: 0 10px 10px;
+          top: 60%;
         }
-      }        
+      }
     }
     @media (max-width: 500px) {
-      #block-digitallibrary .library_categories {
-        .library_category {
-          @include span-columns(12 of 12);
-          @include shift(0);
-          text-align: center;
-
-          span {
-            display: block;
-            margin-top: 10px;
-          }
-          .library_icon {
-            display: inline;
-          }
+      #block-anintroductiontosection106 .block_container {
+        .intro_106_text .read_more a:after {
+          right: 0;
         }
       }
     }
