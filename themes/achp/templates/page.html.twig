@@ -60,6 +60,7 @@
 #}
 <div id="page"
   {% if node_type is defined %} data-page-node-type="{{ node_type }}" {% endif %}
+  {% if node_id is defined %} data-page-node-id="{{ node_id }}" {% endif %}
   {% if view_id is defined %} data-page-view-id="{{ view_id }}" {% endif %}
 >
   <header id="header">
