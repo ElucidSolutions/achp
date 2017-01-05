@@ -3118,125 +3118,125 @@ header {
       clear: both;
       content: "";
       display: table; }
-  #events_landing_page #content {
+  #events_landing_page #secondary_header_region {
+    max-width: 1024px;
+    margin: 0 auto 40px;
+    padding: 0 40px; }
+    #events_landing_page #secondary_header_region #block-eventslandingpageheader {
+      background-color: #F4F4F4;
+      position: relative; }
+      #events_landing_page #secondary_header_region #block-eventslandingpageheader .header_container {
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        margin-top: 50px;
+        width: auto; }
+  #events_landing_page #content #content_region {
+    background-color: transparent;
     width: 100%; }
-    #events_landing_page #content #content_region {
-      background-color: transparent;
-      margin: 0 auto;
-      max-width: 1024px;
-      padding: 0 50px; }
-      #events_landing_page #content #content_region #block-eventslandingpageheader {
-        background-color: #F4F4F4;
-        position: relative; }
-        #events_landing_page #content #content_region #block-eventslandingpageheader .header_container {
-          -webkit-transform: translateX(-50%) translateY(-50%);
-          -moz-transform: translateX(-50%) translateY(-50%);
-          -ms-transform: translateX(-50%) translateY(-50%);
-          -o-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-          left: 50%;
-          position: absolute;
-          top: 50%;
-          display: inline-block;
-          margin-top: 50px;
-          width: auto; }
-      #events_landing_page #content #content_region #block-eventcalendarpage-block {
-        padding-top: 100px; }
-        #events_landing_page #content #content_region #block-eventcalendarpage-block h3 {
-          color: #043B62; }
-        #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature {
-          padding: 0 0 40px; }
-          #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid {
-            padding-left: 20px; }
-            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_title {
-              margin-left: 0; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_title:before {
-                content: 'Upcoming '; }
-            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_message {
-              color: #000; }
-            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card {
-              border-bottom: 35px solid #F4F4F4;
-              height: auto;
-              margin-left: 0;
-              min-height: 250px;
-              padding: 15px 20px;
+    #events_landing_page #content #content_region #block-eventcalendarpage-block {
+      padding-top: 100px; }
+      #events_landing_page #content #content_region #block-eventcalendarpage-block h3 {
+        color: #043B62; }
+      #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature {
+        padding: 0 0 40px; }
+        #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid {
+          padding-left: 20px; }
+          #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_title {
+            margin-left: 0; }
+            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_title:before {
+              content: 'Upcoming '; }
+          #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_message {
+            color: #000; }
+          #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card {
+            border-bottom: 35px solid #F4F4F4;
+            height: auto;
+            margin-left: 0;
+            min-height: 250px;
+            padding: 15px 20px;
+            width: 100%; }
+            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_full_title {
+              font-size: 1.25rem; }
+            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_short_title {
+              display: none; }
+            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_description {
+              display: block;
+              font-family: "minion-pro", serif;
+              margin-bottom: 50px; }
+            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_footer {
+              bottom: 0px;
+              height: auto; }
+            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar {
+              float: none;
+              font-size: 0.875rem;
+              font-weight: 500;
+              margin: 20px 0;
+              padding-top: 2px;
               width: 100%; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_full_title {
-                font-size: 1.25rem; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_short_title {
-                display: none; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_description {
-                display: block;
-                font-family: "minion-pro", serif;
-                margin-bottom: 50px; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_footer {
-                bottom: 0px;
-                height: auto; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar {
-                float: none;
-                font-size: 0.875rem;
-                font-weight: 500;
-                margin: 20px 0;
-                padding-top: 2px;
-                width: 100%; }
-                #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar:after {
-                  color: #0990FE;
-                  content: 'ADD TO YOUR CALENDAR';
-                  margin-left: 30px;
-                  transition: color 0.25s; }
-                #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar:hover:after {
-                  color: #71BFFE; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link {
-                transition: background-color 0.25s;
-                background-color: #E5E3E4;
-                bottom: -35px;
-                height: 35px;
-                left: -20px;
+              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar:after {
+                color: #0990FE;
+                content: 'ADD TO YOUR CALENDAR';
+                margin-left: 30px;
+                transition: color 0.25s; }
+              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar:hover:after {
+                color: #71BFFE; }
+            #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link {
+              transition: background-color 0.25s;
+              background-color: #E5E3E4;
+              bottom: -35px;
+              height: 35px;
+              left: -20px;
+              position: absolute;
+              width: 100%; }
+              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link:hover {
+                background-color: #E8F8FF; }
+              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link a {
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -ms-transform: translateX(-50%) translateY(-50%);
+                -o-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+                left: 50%;
                 position: absolute;
+                top: 50%;
+                color: #4F4F4F;
+                font-weight: 500;
+                text-align: center;
+                text-decoration: none;
+                transition: color 0.25s;
                 width: 100%; }
-                #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link:hover {
-                  background-color: #E8F8FF; }
-                #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link a {
-                  -webkit-transform: translateX(-50%) translateY(-50%);
-                  -moz-transform: translateX(-50%) translateY(-50%);
-                  -ms-transform: translateX(-50%) translateY(-50%);
-                  -o-transform: translateX(-50%) translateY(-50%);
-                  transform: translateX(-50%) translateY(-50%);
-                  left: 50%;
-                  position: absolute;
-                  top: 50%;
-                  color: #4F4F4F;
-                  font-weight: 500;
-                  text-align: center;
-                  text-decoration: none;
-                  transition: color 0.25s;
-                  width: 100%; }
-                  #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link a:after {
-                    background-image: none; }
-                #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link:hover a {
-                  color: #0990FE; }
-          #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature_footer {
-            display: none; }
-      #events_landing_page #content #content_region #block-achp-content {
-        display: none; }
-    @media (max-width: 900px) {
-      #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_calendar {
-        padding-right: 0;
-        width: 100%; }
+                #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link a:after {
+                  background-image: none; }
+              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link:hover a {
+                color: #0990FE; }
+        #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature_footer {
+          display: none; }
+    #events_landing_page #content #content_region #block-achp-content {
+      display: none; }
+  @media (max-width: 900px) {
+    #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_calendar {
+      padding-right: 0;
+      width: 100%; }
+    #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid {
+      padding-left: 0;
+      width: 100%; }
+      #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid_title, #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid_card {
+        margin-left: 0; } }
+  @media (max-width: 650px) {
+    #events_landing_page #content #secondary_header_region #block-eventslandingpageheader .header_container h2 {
+      font-size: 2rem; }
+    #events_landing_page #content #content_region {
+      padding: 0; }
+      #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar h3:not(.event_calendar_grid_card_title) {
+        text-align: center; }
       #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid {
-        padding-left: 0;
-        width: 100%; }
-        #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid_title, #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid_card {
-          margin-left: 0; } }
-    @media (max-width: 650px) {
-      #events_landing_page #content #content_region {
-        padding: 0; }
-        #events_landing_page #content #content_region #block-eventslandingpageheader .header_container h2 {
-          font-size: 2rem; }
-        #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar h3:not(.event_calendar_grid_card_title) {
-          text-align: center; }
-        #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid {
-          padding: 0 50px; } }
+        padding: 0 50px; } }
 
 /*
   This module contains styles used by the

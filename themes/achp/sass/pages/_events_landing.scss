@@ -10,26 +10,29 @@
     @include outer-container(100%);
     background-color: $background-color-grey;
   }
+  #secondary_header_region {
+    max-width: $max-content-width;
+    margin: 0 auto 40px;
+    padding: 0 40px;
+
+    #block-eventslandingpageheader {
+      background-color: $background-color-grey;
+      position: relative;
+
+      .header_container {
+        @include center-xy;
+        display: inline-block;
+        margin-top: 50px;
+        width: auto;       
+      }
+    }
+  }
   #content {  
-    width: 100%;
 
     #content_region {
       background-color: transparent;
-      margin: 0 auto;
-      max-width: $max-content-width;
-      padding: 0 50px; 
+      width: 100%;
 
-      #block-eventslandingpageheader {
-        background-color: $background-color-grey;
-        position: relative;
-
-        .header_container {
-          @include center-xy;
-          display: inline-block;
-          margin-top: 50px;
-          width: auto;       
-        }
-      }
       #block-eventcalendarpage-block {
         padding-top: 100px;
 
@@ -157,12 +160,14 @@
     }
     
     @media (max-width: $mobile-breakpoint) {
-      #content_region {
-        padding: 0;
-        
+      #secondary_header_region {
         #block-eventslandingpageheader .header_container h2 {
           font-size: 2rem;
         }
+      }
+      #content_region {
+        padding: 0;
+        
         #block-eventcalendarpage-block {
           .event_calendar {
             h3:not(.event_calendar_grid_card_title) {
