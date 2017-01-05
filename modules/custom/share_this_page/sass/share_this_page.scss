@@ -58,4 +58,14 @@ $share-this-page-element-icon-width: $share-this-page-element-height;
       width: $share-this-page-element-icon-width;
     }
   }
+  @media (max-width: 650px) {
+    .share_this_page_buttons {
+      .share_this_page_button {
+        margin-left: $share-this-page-element-margin / 2;
+      }
+      .share_this_page_button_print {
+        padding-left: $share-this-page-element-margin / 2;
+      }
+    }
+  }
 }

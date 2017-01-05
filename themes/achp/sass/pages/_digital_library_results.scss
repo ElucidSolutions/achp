@@ -32,17 +32,13 @@
     }
   }
   #content_region {
-    margin: 0 auto;
-    max-width: $max-content-width;
-    padding: $margin-large;
-
     .views-element-container {
       header {
         background-color: white;
         height: auto;
       }
       .item-list {
-        padding: $margin-med $margin-med;
+        padding: $margin-med 0;
 
         ol {
           margin: 0;

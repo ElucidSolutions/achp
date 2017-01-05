@@ -2872,40 +2872,36 @@ header {
       max-width: 200px;
       margin: 0 auto;
       border-bottom: 1px solid #9B0008; }
-[data-page-node-type="digital_library_landing_page"] #content_region {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 10px 40px 20px !important; }
-  [data-page-node-type="digital_library_landing_page"] #content_region h2 {
-    border-bottom: 1px solid #C6C6C6;
-    font-size: 2rem;
-    margin: 20px 0;
-    text-align: left; }
-  [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container {
-    margin-bottom: 60px; }
-    [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container h2 {
-      border: none;
-      color: #9B0008;
-      font-size: 1.375rem;
-      margin: 10px 0; }
-    [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container header {
-      background-color: transparent;
-      font-weight: 300;
-      height: auto;
-      margin: 0 0 20px; }
-    [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list {
-      box-shadow: 0px 1px 3px #C6C6C6; }
-      [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol {
-        margin: 0;
-        padding: 0; }
-        [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol li {
-          border-bottom: 1px solid #C6C6C6;
-          list-style-type: none;
-          padding: 20px 0 20px 20px; }
-          [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol li .views-field-title a {
-            color: #0990FE; }
-          [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol li .views-field-type {
-            color: #E2E2E2; }
+[data-page-node-type="digital_library_landing_page"] #content_region h2 {
+  border-bottom: 1px solid #C6C6C6;
+  font-size: 2rem;
+  margin: 20px 0;
+  text-align: left; }
+[data-page-node-type="digital_library_landing_page"] #content_region .views-element-container {
+  margin-bottom: 60px; }
+  [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container h2 {
+    border: none;
+    color: #9B0008;
+    font-size: 1.375rem;
+    margin: 10px 0; }
+  [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container header {
+    background-color: transparent;
+    font-weight: 300;
+    height: auto;
+    margin: 0 0 20px; }
+  [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list {
+    box-shadow: 0px 1px 3px #C6C6C6; }
+    [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol {
+      margin: 0;
+      padding: 0; }
+      [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol li {
+        border-bottom: 1px solid #C6C6C6;
+        list-style-type: none;
+        padding: 20px 0 20px 20px; }
+        [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol li .views-field-title a {
+          color: #0990FE; }
+        [data-page-node-type="digital_library_landing_page"] #content_region .views-element-container .item-list ol li .views-field-type {
+          color: #E2E2E2; }
 
 /*
   This stylesheet provides styling for the
@@ -2928,87 +2924,83 @@ header {
       max-width: 200px;
       margin: 0 auto;
       border-bottom: 1px solid #9B0008; }
-[data-page-view-id="digital_library"] #content_region {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 40px; }
-  [data-page-view-id="digital_library"] #content_region .views-element-container header {
-    background-color: white;
-    height: auto; }
-  [data-page-view-id="digital_library"] #content_region .views-element-container .item-list {
-    padding: 20px 20px; }
-    [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol {
-      margin: 0;
-      padding: 0 40px;
-      counter-reset: li-counter; }
-      [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol li {
-        border-left: 2px solid #E8F8FF;
-        list-style-type: none;
-        list-style-image: none;
-        margin-bottom: 20px;
-        padding-left: 20px;
-        position: relative; }
-        [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol li .views-field-type {
-          color: #E2E2E2; }
-        [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol li:before {
-          position: absolute;
-          top: 2px;
-          left: -40px;
-          width: 20px;
-          font-size: 1.25rem;
-          line-height: 1.25rem;
-          text-align: right;
-          color: #9B0008;
-          content: counter(li-counter);
-          counter-increment: li-counter; }
-    [data-page-view-id="digital_library"] #content_region .views-element-container .item-list:before {
-      border-bottom: 1px solid #C6C6C6;
-      color: #003A5E;
-      content: 'Search Results';
-      display: block;
-      margin-bottom: 20px;
-      padding-bottom: 5px;
-      position: relative;
-      font-size: 1.75rem; }
-  [data-page-view-id="digital_library"] #content_region .views-element-container nav {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 100%;
-    color: #262626;
-    font-family: "p22-underground", sans-serif;
-    font-size: 0.875rem; }
-    [data-page-view-id="digital_library"] #content_region .views-element-container nav:last-child {
-      margin-right: 0; }
-    [data-page-view-id="digital_library"] #content_region .views-element-container nav ul {
+[data-page-view-id="digital_library"] #content_region .views-element-container header {
+  background-color: white;
+  height: auto; }
+[data-page-view-id="digital_library"] #content_region .views-element-container .item-list {
+  padding: 20px 0; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol {
+    margin: 0;
+    padding: 0 40px;
+    counter-reset: li-counter; }
+    [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol li {
+      border-left: 2px solid #E8F8FF;
       list-style-type: none;
-      padding: 0;
-      text-align: center; }
-      [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li {
-        display: inline-block;
-        line-height: 27px;
-        padding: 0 8px; }
-        [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item--last, [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item--first {
-          display: none; }
-        [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item.is-active {
-          background-color: #0990FE;
-          border-radius: 50%;
-          cursor: default;
-          height: 25px;
-          padding: 0;
-          width: 25px; }
-          [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item.is-active a {
-            transition: color 0.25s;
-            color: #fff;
-            cursor: default; }
-            [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item.is-active a:hover {
-              color: #fff; }
-        [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li a {
+      list-style-image: none;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      position: relative; }
+      [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol li .views-field-type {
+        color: #E2E2E2; }
+      [data-page-view-id="digital_library"] #content_region .views-element-container .item-list ol li:before {
+        position: absolute;
+        top: 2px;
+        left: -40px;
+        width: 20px;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+        text-align: right;
+        color: #9B0008;
+        content: counter(li-counter);
+        counter-increment: li-counter; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container .item-list:before {
+    border-bottom: 1px solid #C6C6C6;
+    color: #003A5E;
+    content: 'Search Results';
+    display: block;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    position: relative;
+    font-size: 1.75rem; }
+[data-page-view-id="digital_library"] #content_region .views-element-container nav {
+  float: left;
+  display: block;
+  margin-right: 0%;
+  width: 100%;
+  color: #262626;
+  font-family: "p22-underground", sans-serif;
+  font-size: 0.875rem; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container nav:last-child {
+    margin-right: 0; }
+  [data-page-view-id="digital_library"] #content_region .views-element-container nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; }
+    [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li {
+      display: inline-block;
+      line-height: 27px;
+      padding: 0 8px; }
+      [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item--last, [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item--first {
+        display: none; }
+      [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item.is-active {
+        background-color: #0990FE;
+        border-radius: 50%;
+        cursor: default;
+        height: 25px;
+        padding: 0;
+        width: 25px; }
+        [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item.is-active a {
           transition: color 0.25s;
-          color: #262626;
-          text-decoration: none; }
-          [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li a:hover {
-            color: #0990FE; }
+          color: #fff;
+          cursor: default; }
+          [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li.pager__item.is-active a:hover {
+            color: #fff; }
+      [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li a {
+        transition: color 0.25s;
+        color: #262626;
+        text-decoration: none; }
+        [data-page-view-id="digital_library"] #content_region .views-element-container nav ul li a:hover {
+          color: #0990FE; }
 
 /*
   Styles for the event item page
