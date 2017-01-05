@@ -1,0 +1,91 @@
+#page[data-page-node-type="page_with_banner"] {
+  #content #content_region {
+    $vertical-padding: 35px;
+    $container-padding: 50px;
+    $padding-between-columns: 30px;
+    $sidebar-width: 275px; 
+    $column-breakpoint: 850px;
+
+    /* Where two width and max-width attributes are included, it's to account for IE's 
+    trouble with variables inside calc values. If a browser can't evaluate the calc 
+    function, it will revert to the pixel value defined beforehand. */
+
+    @mixin main-column-positioning {
+      $width-outside-main-column: calc(#{$sidebar-width} + #{$padding-between-columns});
+      border-right: 1px solid #E5E3E4;
+      margin-bottom: 0;
+      max-width: 719px;
+      max-width: calc(#{$max-content-width} - #{$width-outside-main-column});
+      padding: 0 50px;
+      width: calc(100% - 305px);
+      width: calc(100% - #{$width-outside-main-column});
+
+      @media (min-width: $max-content-width) { 
+        margin-left: calc((100% - #{$max-content-width})/2);
+      }
+      @media (max-width: $column-breakpoint) {
+        @include content-container;
+        border-right: none;
+        float: none;
+        width: 100%;
+      }
+    }
+
+    @mixin side-column-positioning {
+      $width-outside-side-column: calc(#{$sidebar-width} + #{$padding-between-columns});
+
+      @media (min-width: $max-content-width) {
+        $width-outside-side-column: calc(#{$sidebar-width} + #{$padding-between-columns});
+        margin-right: calc((100% - #{$max-content-width})/2);
+      }
+      @media (max-width: $max-content-width) {
+        margin-right: 0;
+      }
+      @media (max-width: $column-breakpoint) {
+        @include content-container-section;
+        float: none;
+        width: 100%;
+      }
+    }    
+
+    #block-achp-content > article[about="/preserve-america/presidential-award"] {
+      @include main-column-positioning;
+      float: left;
+      margin-bottom: $container-padding;
+
+      .presidential_award_questions {
+        p {
+          margin: 0;
+          a {
+            color: $color-blue-primary;
+          }
+        }
+      }
+    }
+    .presidential_award_sidebar {
+      @include side-column-positioning;
+      float: right;
+      width: $sidebar-width;
+
+      h4 {
+        margin: 0;
+      }
+      ul {
+        margin-top: 10px;
+        padding-left: 10px;
+
+        @media (max-width: $column-breakpoint) {
+          padding-left: 30px;
+        }
+
+        li {
+          padding-left: 5px;
+
+          a {
+            color: $color-blue-primary;
+          }
+        }
+      }
+    }
+  }
+}

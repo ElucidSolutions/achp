@@ -14,7 +14,6 @@ $share-this-page-element-icon-width: $share-this-page-element-height;
   border-bottom: $border-style !important;
   box-sizing: content-box;
   height: $share-this-page-element-height;
-  width: calc(100% - $share-this-page-element-padding * 2);
   padding: $share-this-page-element-padding;
 
   .share_this_page_buttons {
@@ -28,7 +27,6 @@ $share-this-page-element-icon-width: $share-this-page-element-height;
     }
     .share_this_page_label {
       @include share-this-page-element();
-      font-family: $sans-text;
       line-height: $share-this-page-element-height;
       vertical-align: super;
     }

@@ -10,56 +10,22 @@ $node-banner-arrow-mask-color: white;
 $node-banner-banner-overlay-text-color: white;
 
 #block-nodebannerblock {
-  padding-bottom: 10px;
+  padding-top: 2px;
 }
 
 .node-banner {
   height: $node-banner-height;
   position: relative;
 
-/*  &.node-banner-with-icon {
-    height: $node-banner-with-icon-height;
-    border: 2px solid pink;
-  }
-
-  .node-banner-arrow {
-    height: $node-banner-arrow-height;
-    position: absolute;
-    bottom: -1px;
-    width: 100%;
-
-    .node-banner-arrow-mask {
-      background-color: $node-banner-arrow-mask-color;
-      float: left;
-      height: 100%;
-      width: 50%;
-      z-index: 10;
-    }
-    .node-banner-arrow-mask-left {
-      transform: skewX(45deg) translateX(- $node-banner-arrow-height / 2);
-    }
-    .node-banner-arrow-mask-right {
-      transform: skewX(-45deg) translateX($node-banner-arrow-height / 2);
-    }
-    .node-banner-arrow-icon {
-      @include center-x;
-      background-image: url('../images/down-arrow.svg');
-      background-position: center top;
-      background-repeat: no-repeat;
-      height: 100%;
-      width: $node-banner-arrow-icon-width;
-    }
-  }*/
   .node-banner-banner {
-    background-position: center;
+    background-position: center 75%;
+    /* Don't know the best way to position this?? */
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    /*padding-bottom: $node-banner-arrow-height;*/
     padding-bottom: 50px;
 
     .node-banner-banner-overlay {
-      /*@include center-y;*/
       color: white;
       position: relative;
     }

@@ -83,7 +83,7 @@ button {
   letter-spacing: 0.02rem;
   line-height: 1.4rem;
   margin: 0 auto 30px;
-  padding: 12px 53px 8px;
+  padding: 12px 38px 8px;
   text-transform: uppercase;
   @media (max-width: $mobile-breakpoint) {
     line-height: 1.2rem;
@@ -148,6 +148,7 @@ blockquote {
 
 .read_more, .read-more {
   cursor: pointer;
+  font-family: $sans-text;
 
   a {
     @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -20px, $color-blue-primary);
@@ -169,20 +170,18 @@ blockquote {
   $min-side-margin: 50px;
 
   @include clear-float;
+  background-position: center;
+  background-size: cover;
   height: $block-width;
   max-width: $block-width;
   position: relative;
 
   &.textblock_left {
-    /*background-image: url('http://placehold.it/460x460');*/
-    background-color: darkred;
     float: left;
     margin-left: $side-margin !important;
   }
   &.textblock_right {
     @include clear-float;
-    /*background-image: url('http://placehold.it/460x460');*/
-    background-color: navy;
     float: right;
     margin-right: $side-margin;
   }

@@ -1,0 +1,44 @@
+/*
+  Styles for the case map page
+*/
+#page[data-page-node-type="page"] {
+  #content #content_region {
+    #block-active-106-map-block {
+      .section_106_map .section_106_map_feature {
+        .section_106_map_feature_tab {
+          color: $color-darkblue2;
+          border-bottom: 5px solid #fff;
+
+          &.section_106_map_feature_map_tab {
+            background-image: url("../images/map-icon-navy-blue.svg");
+          }
+          &.section_106_map_feature_grid_tab {
+            background-image: url("../images/grid-icon-navy-blue.svg");
+          }            
+          &:hover, &.section_106_map_selected {
+            color: $color-blue-primary;
+            border-bottom: 5px solid $color-blue-primary;
+
+            &.section_106_map_feature_map_tab {
+              background-image: url("../images/map-icon-primary-blue.svg");
+            }
+            &.section_106_map_feature_grid_tab {
+              background-image: url("../images/grid-icon-primary-blue.svg");
+            }  
+          }
+        }
+        .section_106_map_filter {
+          left: 50px;
+          @media (max-width: 650px) {
+            left: 0;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    position: relative;
+    z-index: 20;
+  }
+}

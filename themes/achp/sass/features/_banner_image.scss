@@ -1,41 +1,49 @@
-#secondary_header #secondary_header_region .node-banner .node-banner-banner {
-  
-  $banner-overlay-padding: 25px;
-  $banner-overlay-width: 750px;
+#secondary_header #secondary_header_region {
+  .node-banner .node-banner-banner {
+    
+    $banner-overlay-padding: 25px;
+    $banner-overlay-width: 750px;
 
-  .node-banner-banner-overlay {
-    @include center-xy;
-    background-color: rgba(1,59,94,0.75);
-    max-width: 75%;
-    padding: 35px 15px;
-    width: 750px;
+    .node-banner-banner-overlay {
+      @include center-xy;
+      background-color: rgba(1,59,94,0.75);
+      max-width: 75%;
+      padding: 35px 15px;
+      width: 750px;
 
-    .node-banner-banner-overlay-field {
-      &[data-node-banner-overlay-field="title"] {
-        @extend h1;
-        @include center-x;
-        display: inline-block;
-        font-weight: 300 !important; 
-        position: relative;
-        text-transform: uppercase;
+      .node-banner-banner-overlay-field {
+        &[data-node-banner-overlay-field="title"] {
+          @extend h1;
+          @include center-x;
+          display: inline-block;
+          font-weight: 300 !important; 
+          position: relative;
+          text-transform: uppercase;
 
-        &:after {
-          background-color: rgba(255,255,255,0.25);
-          -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
-          -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
-          box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
-          content: "";
-          display: block;
-          height: 1px;
-          margin: 5px auto;
-          width: 50%;
+          &:after {
+            background-color: rgba(255,255,255,0.25);
+            content: "";
+            display: block;
+            height: 1px;
+            margin: 5px auto;
+            width: 50%;
+          }
+        }
+        &[data-node-banner-overlay-field="field_banner_page_tagline"],
+        &[data-node-banner-overlay-field="field_issue_tagline"] {
+          @include font-size($h4-font-sizes);
+          line-height: 1.4;
+          padding: 0 25px;
+          text-align: center;
         }
       }
-      &[data-node-banner-overlay-field="field_banner_page_tagline"],
-      &[data-node-banner-overlay-field="field_issue_tagline"] {
-        @include font-size($h4-font-sizes);
-        padding: 0 25px;
-        text-align: center;
+
+      @media (max-width: 400px) {
+        max-height: 95%;
+        padding: 15px;
+        .node-banner-banner-overlay-field .field_page_tagline {
+          font-size: 1rem;
+        }
       }
     }
   }

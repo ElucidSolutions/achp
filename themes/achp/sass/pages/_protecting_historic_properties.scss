@@ -2,24 +2,31 @@
   Styles for the protecting historic properties page
 */
 #page[data-page-node-type="page_with_banner"] {
-
   $vertical-padding: 35px;
   $container-padding: 50px;
+  $success-card-margin-vert: 25px;
+  $success-card-margin-horiz: 20px;
+  $success-card-height: 400px;
+  $success-card-shadow-width: 3px;
+  $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
+  $two-card-container-width: calc(#{$success-card-width} * 2 + #{$success-card-margin-horiz} + #{$success-card-shadow-width} * 2 + #{$container-padding} * 2);
+  $intro-106-img-width: 300px;
+  $intro-106-img-height: 195px;
+  $intro-106-img-padding: 20px;
+  $e106-img-width: 100px;
 
   #content #content_region {
 
     #block-achp-content {
-      padding-bottom: $vertical-padding;
+      article {
+        padding-bottom: $vertical-padding;
+      }
     }
     #block-anintroductiontosection106 {
-      $img-width: 300px;
-      $img-height: 195px;
-      $img-padding: 20px;
-
       background: $background-color-grey2;
       padding: $vertical-padding 0;
 
-      .block_container{
+      .block_container {
         @include clear-float;
         position: relative;
 
@@ -28,12 +35,12 @@
         }
         img {
           float: left;
-          margin-right: 20px;
-          max-width: 100%;
+          margin-right: $intro-106-img-padding;
+          max-width: $intro-106-img-width;
         }
         .intro_106_text {
           position: relative;
-          height: $img-height;
+          height: $intro-106-img-height;
 
           p {
             margin: 0;
@@ -42,7 +49,7 @@
             bottom: 0;
             font-family: $sans-text;
             font-size: rem(14px);
-            left: calc(#{$img-width} + #{$img-padding});
+            left: calc(#{$intro-106-img-width} + #{$intro-106-img-padding});
             padding: 3px 15px 0 0;
             position: absolute;
 
@@ -57,42 +64,17 @@
           }
         }
       } 
-      @media (max-width: 750px) {
-        .block_container {
-          img {
-            @include center-x;
-            float: none;
-            position: relative;
-            margin: 0 0 10px;
-          }
-          .intro_106_text {
-            height: auto;
-
-            .read_more {
-              left: 0;
-              margin-top: 15px;
-              position: relative;
-            }
-          }
-        }
-      }
     }
     #block-viewactivesection106casesinvolvingtheachp, #block-commentonrecentlyclosedsection106cases {
       .textblock_with_background {
         margin-bottom: $vertical-padding;
         margin-top: $vertical-padding;
-      }
-      @media (max-width: 750px) {
-        margin: 0 50px;
 
-        .textblock_with_background {
-          height: 300px;
-          margin: $vertical-padding auto;
-
-          button {
-            padding-left: 25px;
-            padding-right: 25px;
-          }
+        &.textblock_left {
+          background-image: url('../images/half-section-section-106-map.png');
+        }
+        &.textblock_right {
+          background-image: url('../images/half-section-section-106-comments.png');          
         }
       }
     }
@@ -101,12 +83,6 @@
       so I included two values for many of the margins and widths below: the
       first as a simple px value, and the second the calculated variable-based
       value. If the second value fails, it will revert to the first.*/
-      $success-card-margin-vert: 25px;
-      $success-card-margin-horiz: 20px;
-      $success-card-height: 400px;
-      $success-card-shadow-width: 3px;
-      $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
-      $two-card-container-width: calc(#{$success-card-width} * 2 + #{$success-card-margin-horiz} + #{$success-card-shadow-width} * 2 + #{$container-padding} * 2);
 
       background-color: $color-lightblue3;
       clear: both;
@@ -157,6 +133,7 @@
 
           &_body p {
             font-family: $serif-text;
+            font-size: rem(16px);
             margin: 5px;
             text-align: center;
           }
@@ -166,42 +143,14 @@
             bottom: 0;
             padding-right: 5px;
 
-            img {
-              margin-left: 5px;
-              vertical-align: -1px;
+            a {
+              vertical-align: 0;   
             }
           }
         }
       }
       .card.view-item-3 {
         margin-right: 0 !important;
-      }
-      @media (max-width: $max-content-width) {
-        & > div {
-          max-width: 100%;
-          padding: 0 $container-padding $vertical-padding;
-          width: 710px;
-          width: $two-card-container-width;
-
-          .card {
-            &:nth-of-type(2) {
-              margin-right: 0;
-            }
-          }
-          .card.view-item-3 {
-            margin: 25px 0 0;
-            margin-left: 151px;
-            margin-left: calc(#{$success-card-width} / 2);
-          }
-        }
-      }
-      @media (max-width: 710px) {
-       & > div {
-          .success-story.card {
-            margin: 25px auto 0 !important;
-            display: block !important;
-          }
-        }
       }
     }
     #block-moresuccessstoriesbutton-2 {
@@ -214,6 +163,8 @@
     }
     #block-digitallibrary {
       @include content-container-section;
+      $icon-width: 46px;
+      $icon-height: $icon-width;
 
       .library_categories {
         @include outer-container;
@@ -224,18 +175,26 @@
         .library_category {
           @include span-columns(5 of 12);
           @include shift(1);
-          margin-bottom: 15px;
+          height: 60px;
+          position: relative;
+          margin-bottom: 10px;
 
           .library_icon {
+            @include center-y;
             border: 1px solid #013B5E;
             border-radius: 50%;
-            padding: 8px;
+            height: $icon-height;
+            padding: 10px;
+            width: $icon-width;
 
             img {
-              margin-top: 10px;
-              padding-top: 10px;
-              vertical-align: -25%;
+              height: 100%;
+              width: 100%;
             }
+          }
+          .library_text {
+            @include center-y;
+            margin-left: 60px;
           }
         }
       }
@@ -244,93 +203,164 @@
           margin-bottom: 0;
         }
       }
-      @media (max-width: 725px) {
-        .library_categories {
-          .library_category {
-            @include span-columns(9 of 12);
-            @include shift(3);
+    }
+    #block-electronic106submissionsystem {
+      background-color: $color-lightblue3;
+
+      .block_container {
+        @include content-container-section;
+        padding-bottom: 5px;
+
+        .warning_block {
+          background-color: rgba(255,237,234,1);
+          height: $e106-img-width;
+          margin-bottom: $vertical-padding;
+          position: relative;
+          width: 100%;
+
+          .warning_icon {
+            @include clear-float;
+            background: #CD1803 url('../images/warning-icon.svg') no-repeat center;
+            background-size: 60px;
+            display: inline-block;
+            height: $e106-img-width;
+            width: $e106-img-width;
+            float: left;
+            margin-right: 25px;  
           }
-        }
-      }
+          p {
+            @include center-y;
+            padding-right: 15px;
+            position: relative;
 
-      @media (max-width: 500px) {
-        .library_categories {
-          .library_category {
-            @include span-columns(12 of 12);
-            @include shift(0);
-            text-align: center;
-
-            span {
-              display: block;
-              margin-top: 10px;
-            }
-            .library_icon {
-              display: inline;
+            a {
+              color: $color-blue-primary;
             }
           }
         }
       }
     }
-    #block-electronic106submissionsystem {
-      $img-width: 100px;
+    #block-electronic106submissionsystembutton {
       background-color: $color-lightblue3;
+      padding-bottom: $vertical-padding;   
 
-      .block_container {
-        @include content-container-section;
+      &>div {
+        @include content-container;
+      }
+    }
+    @media (max-width: $max-content-width) {
+      #block-featured-success-stories > div {
+        max-width: 100%;
+        padding: 0 $container-padding $vertical-padding;
+        width: 710px;
+        width: $two-card-container-width;
 
-        .warning_block {
-          background-color: rgba(255,237,234,1);
-          height: $img-width;
-          margin-bottom: $vertical-padding;
-          position: relative;
-          width: 100%;
-
-          img {
-            @include clear-float;
-            float: left;
-            padding-right: 25px;
+        .card {
+          &:nth-of-type(2) {
+            margin-right: 0;
           }
-          p {
-            @include center-y;
+        }
+        .card.view-item-3 {
+          margin: 25px 0 0;
+          margin-left: 151px;
+          margin-left: calc(#{$success-card-width} / 2);
+        }
+      }
+    }
+    @media (max-width: 950px) {
+      #block-electronic106submissionsystem .block_container .warning_block {
+        height: 150px;
+
+        $mobile-img-left-padding: 15px;
+
+        .warning_icon {
+          @include center-y;
+          left: $mobile-img-left-padding;
+        }
+        p {
+          @include center-y;
+          left: calc(#{$e106-img-width} + #{$mobile-img-left-padding} * 2);
+          margin-top: 0;
+        }
+      }
+    }
+    @media (max-width: 750px) {
+      #block-anintroductiontosection106 .block_container {
+        img {
+          @include center-x;
+          float: none;
+          position: relative;
+          margin: 0 0 10px;
+        }
+        .intro_106_text {
+          height: auto;
+
+          .read_more {
+            left: 0;
+            margin-top: 15px;
             position: relative;
-            padding-right: 15px;
           }
         }
       }
+      #block-viewactivesection106casesinvolvingtheachp, #block-commentonrecentlyclosedsection106cases {
+        margin: 0 50px;
 
-      @media (max-width: 850px) {
-        .block_container .warning_block {
-          height: 150px;
+        .textblock_with_background {
+          height: 300px;
+          margin: $vertical-padding auto;
 
-          $mobile-img-left-padding: 15px;
-
-          img {
-            @include center-y;
-            left: $mobile-img-left-padding;
-          }
-          p {
-            @include center-y;
-            left: calc(#{$img-width} + #{$mobile-img-left-padding} * 2);
-            margin-top: 0;
+          button {
+            padding-left: 25px;
+            padding-right: 25px;
           }
         }
-      } 
+      }
+      #block-digitallibrary .library_categories {
+        .library_category {
+          @include span-columns(9 of 12);
+          @include shift(3);
+        }
+      }
+    }
+    @media (max-width: 724px) {
+      #block-featured-success-stories > div {
+        .success-story.card {
+          margin: 25px auto 0 !important;
+          display: block !important;
+        }
+      }
+    }
+    @media (max-width: 675px) {
+      #block-electronic106submissionsystem .block_container .warning_block {
+        height: auto;
 
-      @media (max-width: 600px) {
-        .block_container .warning_block {
-          height: auto;
+        .warning_icon {
+          @include undo-center-y;
+          float: left;
+          padding-right: 15px;
+        }
 
-          img {
-            @include undo-center-y;
-            float: left;
-            padding-right: 15px;
+        p {
+          @include undo-center-y;
+          padding: 10px;
+        }
+      }        
+    }
+    @media (max-width: 500px) {
+      #block-digitallibrary .library_categories {
+        .library_category {
+          @include span-columns(12 of 12);
+          @include shift(0);
+          text-align: center;
+
+          span {
+            display: block;
+            margin-top: 10px;
           }
-
-          p {
-            @include undo-center-y;
-            padding: 10px;
+          .library_icon {
+            display: inline;
           }
-        }        
+        }
       }
     }
   }

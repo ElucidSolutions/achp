@@ -10,78 +10,87 @@
   $news-item-padding: 70px;  
 
   #main {
-    margin: 0 auto;
-    max-width: $max-news-width;
-    padding-top: 5px;
+    // margin: 0 auto;
+    // max-width: $max-news-width;
+    // padding-top: 5px;
   
-    #block-pagetitle-2 h1 {
-      color: $color-darkblue;
-      font-size: rem(36px);        
-      font-weight: 400;
-      line-height: 1.25;
-      text-align: left;        
+    #secondary_header_region {
+      max-width: $max-news-width;
+      margin: 0 auto 40px;
+      padding: 0 40px;
     }
-    .views-field-field-news-date {
-      color: $color-lightgrey-2;   
-      font-family: $sans-text; 
-      margin-bottom: 10px;
-    }
-    #news_item_page {
-      @include outer-container(100%);
-      height: 100%;
+    #content {
+      max-width: $max-news-width;
 
-      #news_content_container {
-        margin: 0 auto;
-        max-width: 100%;
-        overflow: auto;
-        padding: 0;
-        position: relative;
-
-        .news_title {
-          color: $color-darkblue;          
-          font-size: rem(36px);        
-          font-weight: 400;
-          text-align: left;
-        }
-        .news_item_body {
-          color: $color-darkgrey2; 
-          font-family: $serif-text;
-          font-size: rem(18);  
-
-          p {
-            margin: 0;
-          }   
-
-        }
-        .news_divider {
-          background-color: $color-lightgrey;
-          height: 2px;
-          margin: 30px 0 20px;
-        }
-        .news_item_tags {
-          font-family: $sans-text;
-
-          .news_item_tags_label {
-            color: $color-darkblue;
-            text-transform: uppercase;
-          }
-          .field_tags {
-            display: inline-block;
-            margin: 5px 25px 0 0;
-
-            &_label {
-              display: none;
-            }
-            a {
-              color: $color-blue-primary;
-              text-decoration: none;
-            }
-          }
-        }
+      #block-pagetitle-2 h1 {
+        color: $color-darkblue;
+        font-size: rem(36px);        
+        font-weight: 400;
+        line-height: 1.25;
+        text-align: left;        
       }
-      .news_item_photo {
-        display: none;
-      }      
+      .views-field-field-news-date {
+        color: $color-lightgrey-2;   
+        font-family: $sans-text; 
+        margin-bottom: 10px;
+      }
+      #news_item_page {
+        @include outer-container(100%);
+        height: 100%;
+
+        #news_content_container {
+          margin: 0 auto;
+          max-width: 100%;
+          overflow: auto;
+          padding: 0;
+          position: relative;
+
+          .news_title {
+            color: $color-darkblue;          
+            font-size: rem(36px);        
+            font-weight: 400;
+            text-align: left;
+          }
+          .news_item_body {
+            color: $color-darkgrey2; 
+            font-family: $serif-text;
+            font-size: rem(18);  
+
+            p {
+              margin: 0;
+            }   
+
+          }
+          .news_divider {
+            background-color: $color-lightgrey;
+            height: 2px;
+            margin: 30px 0 20px;
+          }
+          .news_item_tags {
+            font-family: $sans-text;
+
+            .news_item_tags_label {
+              color: $color-darkblue;
+              text-transform: uppercase;
+            }
+            .field_tags {
+              display: inline-block;
+              margin: 5px 25px 0 0;
+
+              &_label {
+                display: none;
+              }
+              a {
+                color: $color-blue-primary;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+        .news_item_photo {
+          display: none;
+        }      
+      }
     }
   }
   #block-sharethispage {
@@ -131,12 +140,6 @@
         font-family: $sans-text;
         color: $color-lightgrey-2;
       }
-    }
-  }
-
-  @media (min-width: $menu-breakpoint) {
-    #main-wrapper {
-      box-shadow: inset 0 3px 5px -3px $color-grey;
     }
   }
 
