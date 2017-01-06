@@ -40,6 +40,11 @@ function achp_preprocess_views_view__community_spotlight (&$variables) {
  */
 function achp_preprocess_page (&$variables) {
   \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_page] variables: <pre>' . print_r (array_keys ($variables), true) . '</pre>');
+
+  $current_path = \Drupal::service ('path.current')->getPath ();
+  $variables ['page_path'] = $current_path;
+  $variables ['page_path_alias'] = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+
   if (isset ($variables ['node'])) {
     $variables ['node_type'] = $variables ['node']->getType ();
     $variables ['node_id']   = $variables ['node']->id ();

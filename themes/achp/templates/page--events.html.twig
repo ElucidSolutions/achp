@@ -5,7 +5,13 @@
  */
 #}
 
-<div id="events_landing_page">
+<div id="events_landing_page"
+  {% if page_path is defined %} data-page-path="{{ page_path }}" {% endif %}
+  {% if page_path_alias is defined %} data-page-path-alias="{{ page_path_alias }}" {% endif %}
+  {% if node_type is defined %} data-page-node-type="{{ node_type }}" {% endif %}
+  {% if node_id is defined %} data-page-node-id="{{ node_id }}" {% endif %}
+  {% if view_id is defined %} data-page-view-id="{{ view_id }}" {% endif %}
+>
   <header id="header">
     <div id="header-container">
       <div class="header_left_container">
