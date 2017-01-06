@@ -125,18 +125,15 @@ html {
   This module provides styling for breadcrumbs
   created using the Easy Breadcrumb module.
 */
-#block-breadcrumbs,
-#block-breadcrumbs-2 {
+[data-plugin-id="system_breadcrumb_block"] {
   font-family: "p22-underground", sans-serif;
   font-size: 0.875rem;
   padding-top: 30px;
   text-transform: uppercase; }
-  #block-breadcrumbs .mobile_breadcrumb,
-  #block-breadcrumbs-2 .mobile_breadcrumb {
+  [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb {
     display: none;
     text-align: center; }
-    #block-breadcrumbs .mobile_breadcrumb:before,
-    #block-breadcrumbs-2 .mobile_breadcrumb:before {
+    [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb:before {
       background-image: url("../images/left-arrow-icon.svg");
       background-position: center;
       background-repeat: no-repeat;
@@ -146,23 +143,18 @@ html {
       padding: 3px 0 0 15px;
       transition: background-image 0.25s;
       width: 20px; }
-    #block-breadcrumbs .mobile_breadcrumb:hover:before,
-    #block-breadcrumbs-2 .mobile_breadcrumb:hover:before {
+    [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb:hover:before {
       background-image: url("../images/left-arrow-icon-blue.svg"); }
-    #block-breadcrumbs .mobile_breadcrumb a,
-    #block-breadcrumbs-2 .mobile_breadcrumb a {
+    [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb a {
       color: #4F4F4F; }
-      #block-breadcrumbs .mobile_breadcrumb a:hover,
-      #block-breadcrumbs-2 .mobile_breadcrumb a:hover {
+      [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb a:hover {
         color: #0990FE; }
-  #block-breadcrumbs .achp-breadcrumb,
-  #block-breadcrumbs-2 .achp-breadcrumb {
+  [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb {
     font-family: "p22-underground", sans-serif;
     font-size: 0.875rem;
     min-height: 40px;
     text-transform: uppercase; }
-    #block-breadcrumbs .achp-breadcrumb ol,
-    #block-breadcrumbs-2 .achp-breadcrumb ol {
+    [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol {
       color: #0990FE;
       list-style-type: none;
       max-height: 21px;
@@ -172,36 +164,27 @@ html {
       text-overflow: ellipsis;
       white-space: nowrap;
       word-wrap: normal; }
-      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link,
-      #block-breadcrumbs-2 .achp-breadcrumb ol .breadcrumb_link {
+      [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link {
         display: inline;
         padding-left: 5px;
         position: relative; }
-        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link a,
-        #block-breadcrumbs-2 .achp-breadcrumb ol .breadcrumb_link a {
+        [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link a {
           color: #4F4F4F;
           text-decoration: none;
           transition: color 0.25s; }
-        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon,
-        #block-breadcrumbs-2 .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon {
+        [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon {
           display: inline-block; }
-          #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='arrow'],
-          #block-breadcrumbs-2 .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='arrow'] {
+          [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='arrow'] {
             padding: 0 20px; }
-          #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'],
-          #block-breadcrumbs-2 .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'] {
+          [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'] {
             padding: 0 10px 0 0; }
-        #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link:hover a,
-        #block-breadcrumbs-2 .achp-breadcrumb ol .breadcrumb_link:hover a {
+        [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link:hover a {
           color: #0990FE; }
-      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_page,
-      #block-breadcrumbs-2 .achp-breadcrumb ol .breadcrumb_page {
+      [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_page {
         /*color: $color-blue-primary;*/ }
-      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon,
-      #block-breadcrumbs-2 .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
+      [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
         transition: fill 0.25s; }
-      #block-breadcrumbs .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon,
-      #block-breadcrumbs-2 .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
+      [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link_home:hover [data-achp-breadbrumb-icon-name='home'] #home-icon {
         fill: #0990FE !important; }
 
 @media (max-width: 650px) {

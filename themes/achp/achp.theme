@@ -61,10 +61,26 @@ function achp_preprocess_page (&$variables) {
  * This function adds variables to the node
  * template that represent system settings such
  * as date_default_timezone.
+ *
+ * It also adds the URL of each file field item
+ * to the file's item array.
  */
 function achp_preprocess_node (&$variables) {
   \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_node] variables: <pre>' . print_r (array_keys ($variables), true) . '</pre>');
   $variables ['achp_default_timezone'] = date_default_timezone_get ();
+
+  $node = $variables ['node'];
+  $field_definitions = \Drupal::service ('entity_field.manager')->getFieldDefinitions ('node', $node->getType ());
+  foreach ($field_definitions as $field_name => $field_definition) {
+    $field = $node->get ($field_name);
+    if ($field instanceof \Drupal\file\Plugin\Field\FieldType\FileFieldItemList) {
+      foreach ($field->referencedEntities () as $key => $file) {
+        if ($file instanceof \Drupal\file\Entity\File) {
+          $variables ['content'][$field_name][$key]['file_url'] = file_create_url ($file->getFileUri ());
+        }
+      }
+    }
+  }
 }
 
 /**

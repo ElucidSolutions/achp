@@ -2,8 +2,7 @@
   This module provides styling for breadcrumbs
   created using the Easy Breadcrumb module.
 */
-#block-breadcrumbs,
-#block-breadcrumbs-2 {
+[data-plugin-id="system_breadcrumb_block"] {
   $breadcrumb-font-size: 14px;
   font-family: $sans-text;
   font-size: rem($breadcrumb-font-size);
