@@ -3,4 +3,43 @@
   for the Publication content type.
 */
 [data-page-node-type="publication"] {
+  $margin-xsmall: 5px;
+  $margin-small: 10px;
+  $margin-med: 20px;
+  $margin-large: 40px;
+
+  h1 {
+    color: $color-darkblue2;
+    font-weight: 400;
+    text-align: left;
+  }
+  h2 {
+    color: $color-darkblue2;
+  }
+  h3 {
+    color: $color-red2;
+  }
+  header {
+    background-color: transparent;
+    color: $color-lightgrey-2;
+    font-style: italic;
+    height: auto;
+  }
+  .views-field-field-download {
+    background-color: $color-blue-primary;
+    border-radius: $margin-small;
+    padding: $margin-small;
+
+    a {
+      color: white;
+    }
+    &:before {
+      background-image: url('../images/map-icon-navy-blue.svg');
+      background-size: $margin-med;
+      content: '';
+      display: block;
+      height: $margin-med;
+      width: $margin-med;
+    }
+  }
 }

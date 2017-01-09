@@ -73,7 +73,7 @@
 <article{{ attributes }}>
   {{ drupal_block('template_breadcrumbs') }}
   <h1>{{label}}</h1>
-  <div class="achp_date_published">{{ content.field_publication_date }}</div>
+  <div class="achp_date_published">{{ node.field_publication_date }}</div>
   {{ drupal_block('sharethispage') }}
   {{ drupal_block('template_document_download') }}
   {% if content %}
