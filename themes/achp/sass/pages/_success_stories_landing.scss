@@ -2,9 +2,104 @@
   Styles for the success stories landing page
 */
 [data-page-path-alias="/success-stories"] {
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+
+    #block-success-landing-share-block {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+
   #content #content_region {
-    #block-achp-content > article[about="/success-stories"] {
-      display: none;
+    $vertical-padding: 35px;
+    $container-padding: 50px;
+
+    article {
+      /*display: none;*/
+    }
+    #block-featured-success-stories {
+      /* IE has a lot of trouble interpreting calculated values from variables,
+      so I included two values for many of the margins and widths below: the
+      first as a simple px value, and the second the calculated variable-based
+      value. If the second value fails, it will revert to the first.*/
+
+      $success-card-margin-horiz: 17px;
+
+      background-color: $color-lightblue3;
+      /*clear: both;*/
+      height: 550px;
+      /*margin-top: $vertical-padding;*/
+      
+      h2 {
+        max-width: $max-content-width;
+        margin: 0 auto;
+        padding: $vertical-padding 0 0;
+      }
+      & > div {
+        margin: 0 auto;
+        max-width: 1024px;
+        padding: 0 0 $vertical-padding;
+        width: 100%;
+      }
+      .card {
+        @include clear-float;
+        background-color: #ffffff;
+        display: inline-block;
+        float: left;
+        height: $success-card-height;
+        margin: 25px $success-card-margin-horiz 0 0;
+        text-align: center;
+        width: $success-card-width;
+        
+        .success_story {
+          height: $success-card-height - 30px; 
+          padding: 5px 10px;
+          position: relative;  
+
+          &_image {
+            $success_story_image_height: 185px;
+            @include fit-and-center-image($success_story_image_height);    
+            margin-bottom: 15px;
+
+            img {
+              border: none !important;
+            }
+          }
+
+          &_title h3 {
+            text-align: inherit;
+          }
+
+          &_location {
+            color: $color-lightgrey-2;
+          }
+
+          &_body p {
+            font-family: $serif-text;
+            font-size: rem(16px);
+            margin: 5px;
+            text-align: center;
+          }
+
+          &_link {
+            @include center-x;
+            bottom: 0;
+            padding-right: 5px;
+
+            a {
+              vertical-align: 0;   
+            }
+          }
+        }
+      }
+      .card.view-item-3 {
+        margin-right: 0 !important;
+      }
     }
     #block-success-stories-list {
       @include content-container-section;

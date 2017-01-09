@@ -1,11 +1,67 @@
 #page[data-page-node-type="success_story"] {
+  $main-content-max-width: 700px;
+
+  @mixin content-container {
+    margin: 0 auto;
+    max-width: $main-content-max-width;
+    width: 100%;
+
+    @media (max-width: 400px) {
+      padding: 0 20px;
+    }
+  }
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+      /*max-width: $main-content-max-width;*/
+      padding-top: 0;
+    }
+    #block-sharethispage {
+      @include content-container;
+      margin: 0 auto 30px;
+      /*max-width: $main-content-max-width;*/
+    }
+
+    #block-success-story-lead-fields {
+      @include content-container;
+      /*max-width: $main-content-max-width;*/
+      text-align: center;
+
+      h1 {
+        color: $color-darkblue2;
+      }
+      .views-field-field-success-state {
+        color: $color-red;
+        display: inline-block;
+        font-family: $sans-text;
+        font-size: rem(22px);
+
+        &:before {
+          @include hr($color-red);
+          content: "";
+          display: block;
+          margin: 5px auto 10px;
+          width: 85%;
+        }
+      }
+      .views-field-title {
+        color: $color-grey2;
+        font-size: rem(18px);
+        font-style: italic;
+        margin: 25px 0;
+      }
+    }
+  }
+
   #content { 
     width: 100%;
 
-    $main-content-max-width: 700px;
     $vertical-padding: 35px;
 
     #content_region {
+      margin: 0 auto;
       padding: 20px 0 0;
 
       #block-breadcrumbs {
@@ -14,44 +70,15 @@
       #block-sharethispage {
         @include content-container;
         margin: 15px auto 40px;
-        max-width: $main-content-max-width;
+        /*max-width: $main-content-max-width;*/
       }
       #block-achp-local-tasks {
         @include content-container;
-        max-width: $main-content-max-width;
-      }
-      #block-success-story-lead-fields {
-        @include content-container;
-        max-width: $main-content-max-width;
-        text-align: center;
-
-        h1 {
-          color: $color-darkblue2;
-        }
-        .views-field-field-success-state {
-          color: $color-red;
-          display: inline-block;
-          font-family: $sans-text;
-          font-size: rem(22px);
-
-          &:before {
-            @include hr($color-red);
-            content: "";
-            display: block;
-            margin: 5px auto 10px;
-            width: 85%;
-          }
-        }
-        .views-field-title {
-          color: $color-grey2;
-          font-size: rem(18px);
-          font-style: italic;
-          margin: 25px 0;
-        }
+        /*max-width: $main-content-max-width;*/
       }
       #block-achp-content {
         @include content-container;
-        max-width: $main-content-max-width;
+        /*max-width: $main-content-max-width;*/
 
         #success_story_container {
           .success_story_image {
@@ -90,6 +117,10 @@
             }
           }
         }
+      }
+      #block-views-block-related-resources-block-1 {
+        @include content-container;
+        /*max-width: $main-content-max-width;*/
       }
     }
   }

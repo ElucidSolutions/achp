@@ -21,8 +21,6 @@
     $container-padding: 50px;
 
     article {
-      /*padding: 0 40px;*/
-
       .preserve_america_intro_block {
         @include floated-image-with-text (235px, 154px, 800px);
         margin-top: 25px;
@@ -61,11 +59,9 @@
       }
     }
     #block-preserveamericapagelinks {
-      /*@include content-container-section;*/
 
       .read_more {
-        /* To account for the 20px positioning of the link's afterelement*/
-        /*max-width: calc(100% - 20px);*/
+
 
         a {
           display: block;
@@ -76,11 +72,6 @@
             @include undo-center-y;
             position: relative;
             top: -2px;
-
-/*            @media (max-width: 550px) {
-              @include center-y;
-              position: absolute;
-            }*/
           }
         }
       }

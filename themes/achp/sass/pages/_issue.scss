@@ -7,211 +7,257 @@
   #secondary_header_region {
     #block-breadcrumbs {
       @include content-container;
-      margin-top: 30px;
+      margin: 30px auto 0;
     }
     #block-sharethispage {
       @include content-container;
-      margin: 30px auto;
+      margin: 0 auto 30px;
     }
   }
-  #content #content_region {
-    #block-achp-content article {
-      /*padding: $vertical-padding 0;*/
-      a {
-        color: $color-blue-primary;
-      }
-    }
-    #block-youth-outreach-in-the-news {
-      background-color: $background-color-grey;
+  #content {
+    padding: 0;
+    max-width: 100%;
+
+    #content_region {
       width: 100%;
 
-      $card-width: 300px;
-      $card-margin-horiz: 21px;
-      $card-height: 375px;
-      $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
-      $two-card-container-width: $card-width * 2 + $card-margin-horiz;
-      $single-card-screen-max-width: $two-card-container-width + $container-padding * 2;
+      #block-achp-content article {
+        @include content-container;
+        margin-bottom: 50px;
 
-      h2 {
-        /*@include content-container;*/
-        padding: $vertical-padding 0 0;
-      }
-      .news-card-container {
-        /*@include content-container;*/
-        height: auto;
-        margin: 0 auto;
-        padding: 0;
-
-        .card {
-          @include clear-float;
-          background: #fff;
-          float: left;
-          height: $card-height;
-          margin: $card-margin-vert 0;
-          margin-right: $card-margin-horiz;
-          padding: 20px;
-          position: relative;
-          width: $card-width;
-
-          &-body, &-date {
-            font-size: rem(16px);
-
-            p {
-              margin: 0;
-            }
-          }
-          &.view-item-3 {
-            margin-right: 0;
-          }
-          .read-more {
-            bottom: 25px;
-            position: absolute;
-          }
+        p {
+          margin-top: 0;
+        }
+        a {
+          color: $color-blue-primary;
         }
       }
-      footer {
-        clear: both;
-        padding-bottom: $vertical-padding;
+      #block-youth-outreach-in-the-news {
+        background-color: $background-color-grey;
+        width: 100%;
 
-        button {
-          margin-bottom: 0;
-        }
-      }
-      @media (max-width: $max-content-width) {   
-        .news-card-container { 
-          height: auto;
-          padding: 0;
-          width: $two-card-container-width; 
-
-          .card {
-            &.view-item-2 {
-              margin-right: 0;
-            }
-            &.view-item-3 {
-              $horiz-margin: ($two-card-container-width - $card-width) / 2;
-              margin: 0 $horiz-margin $card-margin-vert;
-            }
-          }
-        }
-      }   
-      @media (max-width: $single-card-screen-max-width) {
-        $card-vertical-margin: 25px;
-
-        .news-card-container { 
-          height: 100%;
-          width: $card-width;
-
-          .card, .card.view-item-2 {
-            margin: $card-vertical-margin 0 0;
-          }
-          .card.view-item-3 {
-            margin: $card-vertical-margin 0;
-          }
-        }
-      }
-    }
-    #block-youth-outreach-initiatives {
-      $img-height: 200px;
-      $img-width: 300px;
-      $img-margin: 20px;
-
-      header {
-        background-color: white;
-        height: auto;
+        $card-width: 300px;
+        $card-margin-horiz: 21px;
+        $card-height: 375px;
+        $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
+        $two-card-container-width: $card-width * 2 + $card-margin-horiz;
+        $single-card-screen-max-width: $two-card-container-width + $container-padding * 2;
 
         h2 {
-          font-size: rem(36px);
-          margin-bottom: 0;
+          @include content-container;
+          padding-top: $vertical-padding;
         }
-      }
-      .views-row {
-        margin-top: 50px;
-        position: relative;
+        .news-card-container {
+          @include content-container;
+          height: auto;
+          /*margin: 0 auto;*/
+          /*padding: 0 40px;*/
+          /*max-width: 1024px;*/
 
-        .views-field-title h4 {
-          margin-bottom: 5px;
-          a {
-            color: $color-red;
-          }
-        }
-        .views-field-field-issue-thumbnail-image {
-          @include clear-float;
-          float: left;
-          height: $img-height;
-          margin-right: $img-margin;
-          max-width: 100%;
-          position: relative;
-          width: $img-width;
+          .card {
+            @include clear-float;
+            background: #fff;
+            float: left;
+            height: $card-height;
+            margin: $card-margin-vert 0;
+            margin-right: $card-margin-horiz;
+            padding: 20px;
+            position: relative;
+            width: $card-width;
 
-          img {
-            @include center-xy;
-            height: $img-height;
-            max-width: 100%;
-            width: auto;
-          }
-        }
-        .views-field-view-node {
-          bottom: 5px;
-          left: 395px;
-          left: calc(#{$img-width} + #{$img-margin});
-          position: absolute;
-
-          .read-more {
-            display: inline-block;
-            vertical-align: 25%;
-
-            a {
-              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
-              color: $color-grey;
-              font-family: $sans-text;
-              font-size: 0.875rem;
-              font-weight: 500;
-              text-decoration: none;
-              text-transform: uppercase;
+            h3 a {
+              color: $color-darkblue2;
             }
-            &:hover {
-              color: $color-blue-primary;
+
+            &-body, &-date {
+              font-size: rem(16px);
+
+              p {
+                margin: 0;
+              }
+            }
+            &.view-item-3 {
+              margin-right: 0;
+            }
+            .read-more {
+              bottom: 25px;
+              position: absolute;
+
+              a:after {
+                @include undo-center-y;
+                padding-left: 30px;
+              }
             }
           }
         }
-
-        &:after {
-          background-color: $background-color-grey2;
-          bottom: -$img-margin;
+        footer {
           clear: both;
-          content: " ";
-          display: block;
-          height: 1px;
-          margin: 20px 0 $vertical-padding;
-          position: relative;
-          width: 100%;
-        }
-      }
+          padding-bottom: $vertical-padding;
 
-      @media (max-width: 850px) {
-        .views-row {
-          .views-field-title h4 {
+          button {
             margin-bottom: 0;
           }
+        }
+        @media (max-width: $max-content-width) {   
+          .news-card-container { 
+            height: auto;
+            padding: 0;
+            width: $two-card-container-width; 
+
+            .card {
+              &.view-item-2 {
+                margin-right: 0;
+              }
+              &.view-item-3 {
+                $horiz-margin: ($two-card-container-width - $card-width) / 2;
+                margin: 0 $horiz-margin $card-margin-vert;
+              }
+            }
+          }
+        }   
+        @media (max-width: $single-card-screen-max-width) {
+          $card-vertical-margin: 25px;
+
+          .news-card-container { 
+            height: 100%;
+            width: $card-width;
+
+            .card, .card.view-item-2 {
+              margin: $card-vertical-margin 0 0;
+            }
+            .card.view-item-3 {
+              margin: $card-vertical-margin 0;
+            }
+          }
+        }
+      }
+      #block-youth-outreach-initiatives {
+        @include content-container;
+
+        $img-height: 200px;
+        $img-width: 300px;
+        $img-margin: 20px;
+
+        header {
+          background-color: white;
+          height: auto;
+
+          h2 {
+            font-size: rem(36px);
+            margin-bottom: 0;
+          }
+        }
+        .views-row {
+          margin-top: 50px;
+          position: relative;
+
+          .views-field-title h3 {
+            margin-bottom: 5px;
+            a {
+              color: $color-red;
+            }
+          }
           .views-field-field-issue-thumbnail-image {
-            float: none;
-            margin: 0 auto $img-margin;
+            @include clear-float;
+            float: left;
+            height: $img-height;
+            margin-right: $img-margin;
+            max-width: 100%;
+            position: relative;
+            width: $img-width;
 
             img {
-              max-height: 100%;
+              @include center-xy;
+              height: $img-height;
               max-width: 100%;
               width: auto;
             }
           }
-          .views-field-field-issue-summary {
-            padding-bottom: 20px;
-          }
           .views-field-view-node {
-            bottom: 0px;
-            left: 0;
+            bottom: 5px;
+            left: 395px;
+            left: calc(#{$img-width} + #{$img-margin});
+            position: absolute;
 
-            .read-more a {
-              padding-right: 30px;
+            .read-more {
+              display: inline-block;
+              vertical-align: 25%;
+
+              a {
+                @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
+                color: $color-grey;
+                font-family: $sans-text;
+                font-size: 0.875rem;
+                font-weight: 500;
+                text-decoration: none;
+                text-transform: uppercase;
+              }
+              &:hover {
+                color: $color-blue-primary;
+              }
+            }
+          }
+
+          &:after {
+            background-color: $background-color-grey2;
+            bottom: -$img-margin;
+            clear: both;
+            content: " ";
+            display: block;
+            height: 1px;
+            margin: 20px 0 $vertical-padding;
+            position: relative;
+            width: 100%;
+          }
+        }
+
+        @media (max-width: 850px) {
+          .views-row {
+            .views-field-title h4 {
+              margin-bottom: 0;
+            }
+            .views-field-field-issue-thumbnail-image {
+              float: none;
+              margin: 0 auto $img-margin;
+
+              img {
+                max-height: 100%;
+                max-width: 100%;
+                width: auto;
+              }
+            }
+            .views-field-field-issue-summary {
+              padding-bottom: 20px;
+            }
+            .views-field-view-node {
+              bottom: 0px;
+              left: 0;
+
+              .read-more a {
+                padding-right: 30px;
+                &:after {
+                  right: 0;
+                }
+              }
+            }
+          }
+        }
+
+        @media (max-width: 500px) {
+          .views-row {
+            .views-field-field-issue-thumbnail-image {
+              img {
+                height: auto;
+                max-height: 100%;
+                max-width: 100%;
+                width: auto;
+              }
+            }
+            .views-field-field-issue-summary {
+              padding-bottom: 40px;
+            }
+            .views-field-view-node a {
+              padding-right: 20px;
               &:after {
                 right: 0;
               }
@@ -219,27 +265,10 @@
           }
         }
       }
-
-      @media (max-width: 500px) {
-        .views-row {
-          .views-field-field-issue-thumbnail-image {
-            img {
-              height: auto;
-              max-height: 100%;
-              max-width: 100%;
-              width: auto;
-            }
-          }
-          .views-field-field-issue-summary {
-            padding-bottom: 40px;
-          }
-          .views-field-view-node a {
-            padding-right: 20px;
-            &:after {
-              right: 0;
-            }
-          }
-        }
+      #block-views-block-related-resources-block-1 {
+        @include content-container;
+        padding-top: 50px;
+        padding-bottom: 50px;
       }
     }
   }
