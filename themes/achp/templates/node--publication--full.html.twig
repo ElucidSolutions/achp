@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a Publication nodes.
+ * Theme override to display Publication nodes.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -75,30 +75,7 @@
   <h1>{{label}}</h1>
   <div class="achp_date_published">{{ content.field_publication_date }}</div>
   {{ drupal_block('sharethispage') }}
-  <p class="achp_download_caption">Read the publication below or download the document</p>
-  <div class="achp_download">
-    <div class="achp_download_header">
-      <h3 class="achp_download_title>Download Document</h3>
-    </div>
-    <div class="achp_download_body">
-      {% for key in content.field_publication_download ["#items"]|keys %}
-        {% set file = content.field_publication_download [key] %}
-        {% if file.file_url ends with ".pdf" %}
-          <div class="achp_download_item achp_download_pdf_item">
-            <a href="{{ file.file_url }}">Download PDF Doc (.pdf)</a>
-          </div>
-        {% elseif file.file.url ends with ".docx" %}
-          <div class="achp_download_item achp_download_doc_item">
-            <a href="{{ file.file_url }}">Download Word Doc (.docx)</a>
-          </div>
-        {% else %}
-          <div class="achp_download_item">
-            <a href="{{ file.file_url }}">Download File</a>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
+  {{ drupal_block('template_document_download') }}
   {% if content %}
     <div{{ content_attributes }}>
       {{ content }}
