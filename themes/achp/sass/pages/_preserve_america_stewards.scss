@@ -8,7 +8,18 @@
         margin-top: $container-padding
       }
       .read_more {
-        margin: 0 40px;
+        margin: 0 0 25px;
+        
+        a {
+          display: inline-block;
+          position: relative;
+
+          &:after {
+            @include undo-center-y;
+            position: absolute;
+            top: -1px;
+          }
+        }
       }
       h4 {
         color: $color-red;
@@ -18,7 +29,7 @@
       p > .application_link {
         margin-bottom: 0;
       }
-      a {
+      .application_link a {
         color: $color-blue-primary;
       }
     }

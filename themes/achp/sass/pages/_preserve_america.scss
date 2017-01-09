@@ -1,9 +1,28 @@
-[data-page-path-alias="/preserve-america"] {
+[data-page-path-alias="/preserve-america"],
+[data-page-path-alias="/preserve-america/stewards"],
+[data-page-path-alias="/preserve-america/presidential-award"],
+[data-page-path-alias="/preserve-america/federal-support"],
+[data-page-path-alias="/preserve-america/clearinghouse"] {
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      margin: 30px auto 0;
+      max-width: 1024px;
+      padding: 0 40px;
+    }
+    #block-preserveamerica-shareblock {
+      margin: 0 auto 30px;
+      max-width: 1024px;
+      padding: 0 40px;     
+    }
+  }
   #content #content_region {
     $vertical-padding: 35px;
     $container-padding: 50px;
 
-    #block-achp-content > article[about="/preserve-america"] {
+    article {
+      /*padding: 0 40px;*/
+
       .preserve_america_intro_block {
         @include floated-image-with-text (235px, 154px, 800px);
         margin-top: 25px;
@@ -42,7 +61,7 @@
       }
     }
     #block-preserveamericapagelinks {
-      @include content-container-section;
+      /*@include content-container-section;*/
 
       .read_more {
         /* To account for the 20px positioning of the link's afterelement*/

@@ -24,7 +24,7 @@
       font-size: rem(18px);
       font-family: $sans-text;
       font-weight: 500;
-      margin: 0 0 $margin-med;
+      margin: 0 0 30px;
     }
     p {
       margin: 0 0 $margin-small;
@@ -81,6 +81,7 @@
         @include transition (all 0.2s);
         color: $color-darkgrey2;
         font-family: $sans-text;
+        font-size: 1rem;
         left: $margin-small;
         position: absolute;
         top: 8px;
