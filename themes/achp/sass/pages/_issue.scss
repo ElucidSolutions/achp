@@ -3,30 +3,44 @@
 
   $vertical-padding: 35px;
   $container-padding: 50px;
-  
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin-top: 30px;
+    }
+    #block-sharethispage {
+      @include content-container;
+      margin: 30px auto;
+    }
+  }
   #content #content_region {
-    #block-achp-content article a {
-      color: $color-blue-primary;
+    #block-achp-content article {
+      /*padding: $vertical-padding 0;*/
+      a {
+        color: $color-blue-primary;
+      }
     }
     #block-youth-outreach-in-the-news {
       background-color: $background-color-grey;
       width: 100%;
 
-      $card-width: 295px;
-      $card-margin-horiz: 19px;
-      $card-height: 350px;
+      $card-width: 300px;
+      $card-margin-horiz: 21px;
+      $card-height: 375px;
       $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
       $two-card-container-width: $card-width * 2 + $card-margin-horiz;
       $single-card-screen-max-width: $two-card-container-width + $container-padding * 2;
 
       h2 {
-        @include content-container;
-        padding-top: $vertical-padding;
+        /*@include content-container;*/
+        padding: $vertical-padding 0 0;
       }
       .news-card-container {
-        @include content-container;
+        /*@include content-container;*/
         height: auto;
         margin: 0 auto;
+        padding: 0;
 
         .card {
           @include clear-float;
@@ -97,7 +111,136 @@
       }
     }
     #block-youth-outreach-initiatives {
-      @include content-container-section;  
+      $img-height: 200px;
+      $img-width: 300px;
+      $img-margin: 20px;
+
+      header {
+        background-color: white;
+        height: auto;
+
+        h2 {
+          font-size: rem(36px);
+          margin-bottom: 0;
+        }
+      }
+      .views-row {
+        margin-top: 50px;
+        position: relative;
+
+        .views-field-title h4 {
+          margin-bottom: 5px;
+          a {
+            color: $color-red;
+          }
+        }
+        .views-field-field-issue-thumbnail-image {
+          @include clear-float;
+          float: left;
+          height: $img-height;
+          margin-right: $img-margin;
+          max-width: 100%;
+          position: relative;
+          width: $img-width;
+
+          img {
+            @include center-xy;
+            height: $img-height;
+            max-width: 100%;
+            width: auto;
+          }
+        }
+        .views-field-view-node {
+          bottom: 5px;
+          left: 395px;
+          left: calc(#{$img-width} + #{$img-margin});
+          position: absolute;
+
+          .read-more {
+            display: inline-block;
+            vertical-align: 25%;
+
+            a {
+              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
+              color: $color-grey;
+              font-family: $sans-text;
+              font-size: 0.875rem;
+              font-weight: 500;
+              text-decoration: none;
+              text-transform: uppercase;
+            }
+            &:hover {
+              color: $color-blue-primary;
+            }
+          }
+        }
+
+        &:after {
+          background-color: $background-color-grey2;
+          bottom: -$img-margin;
+          clear: both;
+          content: " ";
+          display: block;
+          height: 1px;
+          margin: 20px 0 $vertical-padding;
+          position: relative;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 850px) {
+        .views-row {
+          .views-field-title h4 {
+            margin-bottom: 0;
+          }
+          .views-field-field-issue-thumbnail-image {
+            float: none;
+            margin: 0 auto $img-margin;
+
+            img {
+              max-height: 100%;
+              max-width: 100%;
+              width: auto;
+            }
+          }
+          .views-field-field-issue-summary {
+            padding-bottom: 20px;
+          }
+          .views-field-view-node {
+            bottom: 0px;
+            left: 0;
+
+            .read-more a {
+              padding-right: 30px;
+              &:after {
+                right: 0;
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: 500px) {
+        .views-row {
+          .views-field-field-issue-thumbnail-image {
+            img {
+              height: auto;
+              max-height: 100%;
+              max-width: 100%;
+              width: auto;
+            }
+          }
+          .views-field-field-issue-summary {
+            padding-bottom: 40px;
+          }
+          .views-field-view-node a {
+            padding-right: 20px;
+            &:after {
+              right: 0;
+            }
+          }
+        }
+      }
     }
   }
 }

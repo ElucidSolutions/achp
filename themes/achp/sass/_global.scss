@@ -1,6 +1,7 @@
 /* Global variables: widths, heights, & breakpoints */
 
 $max-content-width: 1024px;
+$max-content-width-with-padding: 1124px;
 $mobile-breakpoint: 650px;
 $hero-breakpoint: 925px;
 $menu-breakpoint: 1150px;
@@ -193,7 +194,8 @@ $grid-columns: 12;
 @mixin content-container {
   margin: 0 auto;
   max-width: $max-content-width;
-  padding: 0 50px;
+  padding: 0 40px;
+  width: 100%;
 
   @media (max-width: 400px) {
     padding: 0 20px;
@@ -203,7 +205,7 @@ $grid-columns: 12;
 @mixin content-container-section {
   margin: 0 auto;
   max-width: $max-content-width;
-  padding: 35px 50px;
+  padding: 35px 40px;
   
   @media (max-width: 400px) {
     padding: 35px 20px;

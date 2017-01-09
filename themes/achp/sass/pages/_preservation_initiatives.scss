@@ -6,6 +6,11 @@
   $vertical-padding: 35px;
   $container-padding: 50px;
 
+  #block-breadcrumbs {
+    @include content-container;
+    margin: 30px auto;
+  }
+
   #content #content_region {
     #block-achp-content > article[about="/initiatives"] {
       display: none;
@@ -14,8 +19,6 @@
       $img-height: 200px;
       $img-width: 300px;
       $img-margin: 20px;
-
-      @include content-container;
 
       header {
         background-color: white;
@@ -145,8 +148,7 @@
       }
     }
     #block-more-initiatives-list {
-      @include content-container;
-      padding: 20px $container-padding $container-padding;
+      padding: 20px 0;
 
       header {
         background-color: white;
