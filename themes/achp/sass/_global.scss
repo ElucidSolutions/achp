@@ -17,6 +17,7 @@ $header-logo-small-width: 64px;
 $header-logo-mobile-width: 48px;
 $more-quicklinks-height: 51px;
 $quicklink-image-height: 160px;
+$quicklink-image-width: 270px;
 $quicklink-item-height: 67px;
 $quicklink-header-height: 160px + 100px;
 $mobile-card-item-height: 75px;
@@ -190,15 +191,29 @@ $grid-columns: 12;
   }
 }
 
+
+@mixin content-container-subsection {
+  margin: 0 auto;
+  max-width: $max-content-width;
+  width: 100%;
+  /*padding: 0 40px;*/
+
+  @media (max-width: 400px) {
+    /*padding: 0 20px;*/
+  }  
+}
+
 /* Applies default width, margin, and padding to elements */
 @mixin content-container {
   margin: 0 auto;
   max-width: $max-content-width;
-  padding: 0 40px;
+  padding-left: 40px;
+  padding-right: 40px;
   width: 100%;
 
   @media (max-width: 400px) {
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 

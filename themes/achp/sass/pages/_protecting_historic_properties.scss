@@ -15,6 +15,18 @@
   $intro-106-img-padding: 20px;
   $e106-img-width: 100px;
 
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+      padding-top: 0;
+    }
+    #block-php-shareblock {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+
   #content {
     margin: 0 auto;
     max-width: 100%;
@@ -22,15 +34,16 @@
     width: 100%;
   }
   #content_region {
-        margin: 0 auto;
+    margin: 0 auto;
     max-width: 100%;
     padding: 0;
     width: 100%;
 
     #block-achp-content {
       article {
-        margin: 0 auto;
-        padding: $vertical-padding $container-padding;
+        @include content-container;
+        padding-bottom: $vertical-padding;
+        /*padding-top: $vertical-padding;*/
       }
     }
     #block-anintroductiontosection106 {
@@ -225,7 +238,9 @@
 
           .warning_icon {
             /*@include clear-float;*/
-            background: #CD1803 url('../images/warning-icon.svg') no-repeat center;
+            background: #CD1803 url('../images/warning-icon.svg');
+            background-position: center;
+            background-repeat: no-repeat;
             background-size: 60px;
             display: inline-block;
             height: $e106-img-width;

@@ -33,7 +33,21 @@
           transform: none;
         }
         .views-field-field-quicklink-image {
-          @include fit-and-center-image($quicklink-image-height);    
+          /*@include fit-and-center-image($quicklink-image-height); */
+          height: $quicklink-image-height;
+          width: $quicklink-image-width; 
+
+          .field-content {
+            height: $quicklink-image-height;
+            overflow: hidden;
+            position: relative;
+
+            img {
+              height: $quicklink-image-height;
+              object-fit: cover;
+              width: $quicklink-image-width;
+            }
+          }         
         }
         h3 {
           padding-top: 20px;
