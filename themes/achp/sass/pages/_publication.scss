@@ -3,43 +3,66 @@
   for the Publication content type.
 */
 [data-page-node-type="publication"] {
-  $margin-xsmall: 5px;
-  $margin-small: 10px;
-  $margin-med: 20px;
-  $margin-large: 40px;
+  @import "../styleguide";
 
-  h1 {
-    color: $color-darkblue2;
-    font-weight: 400;
-    text-align: left;
-  }
-  h2 {
-    color: $color-darkblue2;
-  }
-  h3 {
-    color: $color-red2;
-  }
-  header {
-    background-color: transparent;
-    color: $color-lightgrey-2;
-    font-style: italic;
-    height: auto;
-  }
-  .views-field-field-download {
-    background-color: $color-blue-primary;
-    border-radius: $margin-small;
-    padding: $margin-small;
-
-    a {
-      color: white;
+  #main {
+    h1 {
+      text-align: left;
     }
-    &:before {
-      background-image: url('../images/map-icon-navy-blue.svg');
-      background-size: $margin-med;
-      content: '';
-      display: block;
-      height: $margin-med;
-      width: $margin-med;
+    h2 {
+      text-align: left;
+    }
+    h3 {
+      color: $color-red2;
+    }
+    header {
+      background-color: transparent;
+      color: $color-lightgrey-2;
+      font-style: italic;
+      height: auto;
+      margin: $margin-small 0;
+    }
+    .achp_date_published {
+      color: $color-lightgrey-2;
+      font-style: italic;
+      margin: $margin-small 0;
+    }
+    .views-field-field-download {
+      a {
+        @include hover-transition-content($color-lightblue-primary);
+        color: $color-blue-primary;
+        font-family: $header-font-family;
+        text-transform: uppercase;
+
+        &:after {
+          background-image: url('../images/downloading-icon.svg');
+          backgound-position-y: bottom;
+          background-size: 12px;
+          background-repeat: no-repeat;
+          content: '';
+          display: inline-block;
+          height: 16px;
+          margin-left: $margin-small;
+          width: $margin-med;
+        }
+      }
+    }
+  }
+  #content_region {
+    [data-plugin-id="page_menu_block"] {
+      display: none;
+    }
+  }
+  @media screen and (max-width: $hero-breakpoint) {
+    #content_left_region {
+      [data-plugin-id="page_menu_block"] {
+        display: none;
+      }
+    }
+    #content_region {
+      [data-plugin-id="page_menu_block"] {
+        display: block
+      }
     }
   }
 }

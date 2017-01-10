@@ -1253,10 +1253,86 @@ the events landing page is different */
   the Page Menu feature.
 */
 [data-plugin-id="page_menu_block"] {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts one argument: font-size, a CSS length
+    measure; and resets the mobile font size of
+    the element this mixin is applied to.
+  */
   display: flex;
   flex-grow: 1;
-  padding-top: 10px;
+  padding-top: 20px;
   position: relative; }
+  [data-plugin-id="page_menu_block"] a {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px; }
+  [data-plugin-id="page_menu_block"] blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-style: italic; }
+    @media screen and (max-width: 650px) {
+      [data-plugin-id="page_menu_block"] blockquote {
+        font-size: 1.125rem; } }
+  [data-plugin-id="page_menu_block"] h1, [data-plugin-id="page_menu_block"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-plugin-id="page_menu_block"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-plugin-id="page_menu_block"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-plugin-id="page_menu_block"] h1 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-size: 2.25rem; }
+    @media screen and (max-width: 650px) {
+      [data-plugin-id="page_menu_block"] h1, [data-plugin-id="page_menu_block"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-plugin-id="page_menu_block"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-plugin-id="page_menu_block"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-plugin-id="page_menu_block"] h1 {
+        font-size: 1.625rem; } }
+  [data-plugin-id="page_menu_block"] h2 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-size: 2rem; }
+    @media screen and (max-width: 650px) {
+      [data-plugin-id="page_menu_block"] h2 {
+        font-size: 1.375rem; } }
+  [data-plugin-id="page_menu_block"] h3 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.75rem; }
+    @media screen and (max-width: 650px) {
+      [data-plugin-id="page_menu_block"] h3 {
+        font-size: 1.25rem; } }
+  [data-plugin-id="page_menu_block"] h4 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.375rem; }
+    @media screen and (max-width: 650px) {
+      [data-plugin-id="page_menu_block"] h4 {
+        font-size: 1.125rem; } }
+  [data-plugin-id="page_menu_block"] p {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px; }
+  [data-plugin-id="page_menu_block"] ul {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px; }
   [data-plugin-id="page_menu_block"] .page-menu-instance-container {
     display: flex;
     flex-grow: 1; }
@@ -1265,15 +1341,17 @@ the events landing page is different */
       margin-right: 50px;
       width: 300px; }
       [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
-        background-color: #C6C6C6;
+        background-color: #F4F4F4;
         width: 100%; }
         [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-          background-color: #e67f00;
+          background-color: #0990FE;
           color: white;
           cursor: pointer;
           display: none;
-          padding-bottom: 10px;
-          padding-top: 10px; }
+          font-family: "p22-underground", sans-serif;
+          margin-bottom: 20px;
+          padding: 10px 20px;
+          text-transform: uppercase; }
           [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header:after {
             background-image: url("../images/plus-icon.svg");
             background-position: center;
@@ -1293,7 +1371,7 @@ the events landing page is different */
           [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item {
             border-bottom: 1px solid #e1e1e1;
             cursor: pointer;
-            padding: 10px;
+            padding: 10px 20px;
             position: relative;
             width: 100%; }
             [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item:last-of-type {
@@ -1309,17 +1387,14 @@ the events landing page is different */
         right: 15px;
         top: 24px;
         width: 15px; }
-
-@media screen and (min-width: 1150px) {
-  .page-menu-block .page-menu-instance-container {
-    /*min-width: 300px;*/ }
-    .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
+  @media screen and (min-width: 925px) {
+    [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
       display: block !important; }
-      .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected {
-        background-color: #e67f00;
+      [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected {
+        background-color: #0990FE;
         color: white; }
-        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected:after {
-          border: 10px solid #e67f00;
+        [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected:after {
+          border: 10px solid #0990FE;
           border-top-color: transparent;
           border-right-color: transparent;
           border-bottom-color: transparent;
@@ -1328,20 +1403,21 @@ the events landing page is different */
           top: 50%;
           transform: translateY(-50%);
           right: -18px; } }
-@media screen and (max-width: 1150px) {
-  .page-menu-block {
-    width: 100%; }
-    .page-menu-block .page-menu-instance-container .page-menu-instance {
-      margin: 0;
-      position: static;
+  @media screen and (max-width: 925px) {
+    [data-plugin-id="page_menu_block"] {
       width: 100%; }
-      .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
-        margin: 0px;
-        position: static; }
-        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-          display: block; }
-        .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
-          display: none; } }
+      [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance {
+        margin: 0;
+        position: static;
+        width: 100%; }
+        [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
+          margin: 0px;
+          position: static; }
+          [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
+            display: block; }
+          [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
+            display: none; } }
+
 #block-success-stories-list nav, #block-achp-content nav {
   float: left;
   display: block;
@@ -2425,6 +2501,9 @@ header {
       #content #block-achp-local-tasks ul li a {
         font-family: "p22-underground", sans-serif; }
 
+@media screen and (max-width: 650px) {
+  #content {
+    display: block; } }
 /*
   This module contains styles used within the
   Homepage Hero region.
@@ -3725,7 +3804,7 @@ header {
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75%;
+        width: 75.0%;
         background-color: #fff;
         border-bottom: 35px solid transparent;
         float: right;
@@ -5016,8 +5095,8 @@ header {
       float: left;
       display: block;
       margin-right: 0%;
-      width: 75%;
-      margin-left: 25%; }
+      width: 75.0%;
+      margin-left: 25.0%; }
       [data-page-path-alias="/protecting-historic-properties"] #content_region #block-digitallibrary .library_categories .library_category:last-child {
         margin-right: 0; }
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories {
@@ -5095,6 +5174,124 @@ header {
   This stylesheet defines the default styles
   for the Publication content type.
 */
+[data-page-node-type="publication"] {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts one argument: font-size, a CSS length
+    measure; and resets the mobile font size of
+    the element this mixin is applied to.
+  */ }
+  [data-page-node-type="publication"] a {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px; }
+  [data-page-node-type="publication"] blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-style: italic; }
+    @media screen and (max-width: 650px) {
+      [data-page-node-type="publication"] blockquote {
+        font-size: 1.125rem; } }
+  [data-page-node-type="publication"] h1, [data-page-node-type="publication"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="publication"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="publication"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="publication"] h1 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-size: 2.25rem; }
+    @media screen and (max-width: 650px) {
+      [data-page-node-type="publication"] h1, [data-page-node-type="publication"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="publication"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="publication"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="publication"] h1 {
+        font-size: 1.625rem; } }
+  [data-page-node-type="publication"] h2 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-size: 2rem; }
+    @media screen and (max-width: 650px) {
+      [data-page-node-type="publication"] h2 {
+        font-size: 1.375rem; } }
+  [data-page-node-type="publication"] h3 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.75rem; }
+    @media screen and (max-width: 650px) {
+      [data-page-node-type="publication"] h3 {
+        font-size: 1.25rem; } }
+  [data-page-node-type="publication"] h4 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.375rem; }
+    @media screen and (max-width: 650px) {
+      [data-page-node-type="publication"] h4 {
+        font-size: 1.125rem; } }
+  [data-page-node-type="publication"] p {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px; }
+  [data-page-node-type="publication"] ul {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    margin-bottom: 20px; }
+  [data-page-node-type="publication"] #main h1, [data-page-node-type="publication"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="publication"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="publication"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="publication"] #main h1 {
+    text-align: left; }
+  [data-page-node-type="publication"] #main h2 {
+    text-align: left; }
+  [data-page-node-type="publication"] #main h3 {
+    color: #9B0008; }
+  [data-page-node-type="publication"] #main header {
+    background-color: transparent;
+    color: #7C7C7C;
+    font-style: italic;
+    height: auto;
+    margin: 10px 0; }
+  [data-page-node-type="publication"] #main .achp_date_published {
+    color: #7C7C7C;
+    font-style: italic;
+    margin: 10px 0; }
+  [data-page-node-type="publication"] #main .views-field-field-download a {
+    transition: color 0.25s;
+    color: #0990FE;
+    font-family: "p22-underground", sans-serif;
+    text-transform: uppercase; }
+    [data-page-node-type="publication"] #main .views-field-field-download a:hover {
+      color: #71BFFE; }
+    [data-page-node-type="publication"] #main .views-field-field-download a:after {
+      background-image: url("../images/downloading-icon.svg");
+      backgound-position-y: bottom;
+      background-size: 12px;
+      background-repeat: no-repeat;
+      content: '';
+      display: inline-block;
+      height: 16px;
+      margin-left: 10px;
+      width: 20px; }
+  [data-page-node-type="publication"] #content_region [data-plugin-id="page_menu_block"] {
+    display: none; }
+  @media screen and (max-width: 925px) {
+    [data-page-node-type="publication"] #content_left_region [data-plugin-id="page_menu_block"] {
+      display: none; }
+    [data-page-node-type="publication"] #content_region [data-plugin-id="page_menu_block"] {
+      display: block; } }
+
 /*
   This module defines the sass directives used
   to style Section 106 Process Step pages.
@@ -5749,5 +5946,3 @@ a img {
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
-
-/*# sourceMappingURL=style.css.map */

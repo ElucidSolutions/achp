@@ -1,0 +1,95 @@
+/*
+  This stylesheet defines the default styles
+  for various elements as defined by the current
+  version of the ACHP styleguide.
+*/
+
+// Standardized margin sizes.
+$margin-xsmall: 5px;
+$margin-small: 10px;
+$margin-med: 20px;
+$margin-large: 40px;
+$margin-xlarge: 60px;
+
+// The default body text size.
+$default-font-size: rem(18px);
+
+// The default small text size.
+$small-font-size: rem(16px);
+
+// The default body font.
+$default-font-family: "minion-pro", serif;
+
+// The default header font.
+$header-font-family: "p22-underground", sans-serif;
+
+/*
+  Accepts no arguments and removes the padding
+  and margins from the element this mixin is
+  applied to.
+*/
+@mixin strip-margins {
+  margin: 0;
+  padding: 0;
+}
+
+// Represents the set of shared header styles.
+@mixin header {
+  @include strip-margins;
+  color: $color-darkblue2;
+  font-family: $header-font-family;
+}
+
+// Represents the set of shared body text styles.
+@mixin body-text {
+  @include strip-margins;
+  font-family: $default-font-family;
+  margin-bottom: $margin-med;
+}
+
+/*
+  Accepts one argument: font-size, a CSS length
+  measure; and resets the mobile font size of
+  the element this mixin is applied to.
+*/
+@mixin mobile-font-size($font-size) {
+  @media screen and (max-width: $mobile-breakpoint) {
+    font-size: $font-size;
+  }
+}
+
+a {
+  @include body-text;
+}
+blockquote {
+  @include body-text;
+  font-size: rem(24px);
+  font-style: italic;
+  @include mobile-font-size($default-font-size);
+}
+h1 {
+  @include header;
+  font-size: rem(36px);
+  @include mobile-font-size(rem(26px));
+}
+h2 {
+  @include header;
+  font-size: rem(32px);
+  @include mobile-font-size(rem(22px));
+}
+h3 {
+  @include header;
+  font-size: rem(28px);
+  @include mobile-font-size(rem(20px));
+}
+h4 {
+  @include header;
+  font-size: rem(22px);
+  @include mobile-font-size($default-font-size);
+}
+p {
+  @include body-text;
+}
+ul {
+  @include body-text;
+}

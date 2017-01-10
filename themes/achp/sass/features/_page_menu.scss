@@ -2,21 +2,22 @@
   This stylesheet defines default styling for
   the Page Menu feature.
 */
-
-$page-widescreen-padding: 50px;
-$page-menu-block-margin: 10px;
-$page-menu-instance-margin: 50px;
-$page-menu-instance-width: 300px;
-$page-menu-instance-menu-color: $background-color-grey;
-$page-menu-instance-menu-header-color: rgb(230,127,0);
-$page-menu-instance-menu-header-text-color: white;
-$page-menu-instance-menu-header-icon-height: 15px;
-$page-menu-instance-menu-item-arrow-size: 10px;
-$page-menu-instance-menu-item-border: 1px solid rgb(225,225,225);
-$page-menu-instance-menu-item-padding: 10px;
-$page-menu-instance-menu-item-selected-color: $color-blue-primary;
-
 [data-plugin-id="page_menu_block"] {
+  @import "../styleguide";
+
+  $page-widescreen-padding: 50px;
+  $page-menu-block-margin: 20px;
+  $page-menu-instance-margin: 50px;
+  $page-menu-instance-width: 300px;
+  $page-menu-instance-menu-color: $background-color-grey;
+  $page-menu-instance-menu-header-color: $color-blue-primary;
+  $page-menu-instance-menu-header-text-color: white;
+  $page-menu-instance-menu-header-icon-height: 15px;
+  $page-menu-instance-menu-item-arrow-size: 10px;
+  $page-menu-instance-menu-item-border: 1px solid rgb(225,225,225);
+  $page-menu-instance-menu-item-padding: 10px 20px;
+  $page-menu-instance-menu-item-selected-color: $color-blue-primary;
+
   display: flex;
   flex-grow: 1;
   padding-top: $page-menu-block-margin;
@@ -40,8 +41,10 @@ $page-menu-instance-menu-item-selected-color: $color-blue-primary;
           color: $page-menu-instance-menu-header-text-color;
           cursor: pointer;
           display: none;
-          padding-bottom: $page-menu-instance-menu-item-padding;
-          padding-top: $page-menu-instance-menu-item-padding;
+          font-family: $header-font-family;
+          margin-bottom: $margin-med;
+          padding: $page-menu-instance-menu-item-padding;
+          text-transform: uppercase;
 
           &:after {
             background-image: url('../images/plus-icon.svg');
@@ -72,10 +75,6 @@ $page-menu-instance-menu-item-selected-color: $color-blue-primary;
             &:last-of-type {
               border-bottom: none;
             }
-            &.page-menu-instance-menu-item-selected {
-              background-color: $page-menu-instance-menu-item-selected-color;
-              color: white;
-            }
           }
         }
       }
@@ -97,12 +96,8 @@ $page-menu-instance-menu-item-selected-color: $color-blue-primary;
       }
     }
   }
-}
-@media screen and (min-width: $menu-breakpoint) {
-  .page-menu-block {
+  @media screen and (min-width: $hero-breakpoint) {
     .page-menu-instance-container {
-      /*min-width: 300px;*/
-
       .page-menu-instance {
         .page-menu-instance-menu {
           .page-menu-instance-menu-collapsible {
@@ -129,9 +124,7 @@ $page-menu-instance-menu-item-selected-color: $color-blue-primary;
       }
     }
   }
-}
-@media screen and (max-width: $menu-breakpoint) {
-  .page-menu-block {
+  @media screen and (max-width: $hero-breakpoint) {
     width: 100%;
 
     .page-menu-instance-container {
