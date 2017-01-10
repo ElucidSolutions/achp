@@ -8,244 +8,294 @@
       @include content-container;
       margin: 30px auto 0;
     }
-
     #block-success-landing-share-block {
       @include content-container;
       margin: 0 auto 30px;
     }
   }
 
-  #content #content_region {
-    $vertical-padding: 35px;
-    $container-padding: 50px;
+  #content {
+    padding: 0;
+    max-width: 100%;
 
-    article {
-      /*display: none;*/
-    }
-    #block-featured-success-stories {
-      /* IE has a lot of trouble interpreting calculated values from variables,
-      so I included two values for many of the margins and widths below: the
-      first as a simple px value, and the second the calculated variable-based
-      value. If the second value fails, it will revert to the first.*/
-
-      $success-card-margin-horiz: 17px;
-
-      background-color: $color-lightblue3;
-      /*clear: both;*/
-      height: 550px;
-      /*margin-top: $vertical-padding;*/
-      
-      h2 {
-        max-width: $max-content-width;
-        margin: 0 auto;
-        padding: $vertical-padding 0 0;
-      }
-      & > div {
-        margin: 0 auto;
-        max-width: 1024px;
-        padding: 0 0 $vertical-padding;
-        width: 100%;
-      }
-      .card {
-        @include clear-float;
-        background-color: #ffffff;
-        display: inline-block;
-        float: left;
-        height: $success-card-height;
-        margin: 25px $success-card-margin-horiz 0 0;
-        text-align: center;
-        width: $success-card-width;
-        
-        .success_story {
-          height: $success-card-height - 30px; 
-          padding: 5px 10px;
-          position: relative;  
-
-          &_image {
-            $success_story_image_height: 185px;
-            @include fit-and-center-image($success_story_image_height);    
-            margin-bottom: 15px;
-
-            img {
-              border: none !important;
-            }
-          }
-
-          &_title h3 {
-            text-align: inherit;
-          }
-
-          &_location {
-            color: $color-lightgrey-2;
-          }
-
-          &_body p {
-            font-family: $serif-text;
-            font-size: rem(16px);
-            margin: 5px;
-            text-align: center;
-          }
-
-          &_link {
-            @include center-x;
-            bottom: 0;
-            padding-right: 5px;
-
-            a {
-              vertical-align: 0;   
-            }
-          }
-        }
-      }
-      .card.view-item-3 {
-        margin-right: 0 !important;
-      }
-    }
-    #block-success-stories-list {
-      @include content-container-section;
-      padding-bottom: 100px;
-
-      $img-height: 180px;
-      $img-width: 268px;
-      $img-margin: 30px;
-      $row-padding: 20px;
+    #content_region {
+      width: 100%;
       $vertical-padding: 35px;
       $container-padding: 50px;
 
-      h2 {
-        margin-bottom: $row-padding;
-      }
-      .success_stories_list_container {
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
-
-        .views-row {
-          @include clear-float;
-          border-bottom: 1px solid $background-color-grey2;
-          padding: $row-padding;
-          position: relative;
-
-          &:last-of-type {
-            border-bottom: 1px solid$background-color-grey2;
-          }
-          .views-field-field-success-short-title h4 {
-            font-size: rem(20px);
-            margin: 0;
-
-            a {
-              color: $color-darkblue;
-            }
-          }
-          .views-field-field-success-images {
-            @include clear-float;
-            float: left;
-            height: $img-height;
-            margin-right: $img-margin;
-            max-width: 100%;
-            position: relative;
-            width: $img-width;
-            background-color: $color-lightblue3;
-
-            img {
-              @include center-xy;
-              height: $img-height;
-              max-width: 100%;
-              width: auto;
-            }
-          }
-          .views-field-field-success-state {
-            color: $color-lightgrey-2;
-            font-family: $sans-text;
-            margin-bottom: 15px;
-          }
-          .views-field-body {
-            color: $color-grey;
-          }
-          .views-field-view-node {
-            bottom: 35px;
-            left: 395px;
-            left: calc(#{$img-width} + #{$img-margin} + #{$row-padding});
-            position: absolute;
-
-            .read-more {
-              a {
-                @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
-                color: $color-grey;
-                font-family: $sans-text;
-                font-size: 0.875rem;
-                font-weight: 500;
-                text-decoration: none;
-                text-transform: uppercase;
-                vertical-align: bottom;
-              }
-              &:hover {
-                color: $color-blue-primary;
-              }
-            }
-          }
-        }
-      }
-    }
-    @media (max-width: 800px) {
-      #block-success-stories-list .success_stories_list_container {
-        $img-margin: 30px;
-        $row-padding: 20px;
-
-        .views-row {
-          padding-bottom: $img-margin;
-
-          .views-field-field-success-images {
-            background-color: #fff;
-            float: none;
-            margin: 0 auto $row-padding;
-
-            img {
-              max-height: 100%;
-              max-width: 100%;
-              width: auto;
-            }
-          }
-          .views-field-body {
-            padding-bottom: 30px;
-          }
-          .views-field-view-node {
-            bottom: $row-padding;
-            left: $row-padding;
-          }
-        }
-      }
-    }
-    @media (max-width: 475px) {
-      $vertical-padding: 35px;
-      $row-padding: 20px;
-
       #block-featured-success-stories {
+        /* IE has a lot of trouble interpreting calculated values from variables,
+        so I included two values for many of the margins and widths below: the
+        first as a simple px value, and the second the calculated variable-based
+        value. If the second value fails, it will revert to the first.*/
+
+        $success-card-margin-horiz: 17px;
+
+        background-color: $color-lightblue3;
+        min-height: 550px;
+        
         h2 {
-          padding: $vertical-padding $row-padding 0;
+          @include content-container;
+          padding-top: $vertical-padding;
         }
         & > div {
-          padding: 0 20px $vertical-padding;
+          margin: 0 auto;
+          max-width: 1024px;
+          padding: 0 40px $vertical-padding;
+          width: 100%;
+        }
+        .card {
+          @include clear-float;
+          background-color: #ffffff;
+          display: inline-block;
+          float: left;
+          height: $success-card-height;
+          margin: 25px $success-card-margin-horiz 0 0;
+          text-align: center;
+          width: $success-card-width;
           
-          .success-story.card {
-            max-width: 100%;
+          .success_story {
+            height: $success-card-height - 30px; 
+            padding: 5px 10px;
+            position: relative;  
+
+            &_image {
+              $success_story_image_height: 185px;
+              @include fit-and-center-image($success_story_image_height);    
+              margin-bottom: 15px;
+
+              img {
+                border: none !important;
+              }
+            }
+
+            &_title h3 {
+              text-align: inherit;
+            }
+
+            &_location {
+              color: $color-lightgrey-2;
+            }
+
+            &_body p {
+              font-family: $serif-text;
+              font-size: rem(16px);
+              margin: 5px;
+              text-align: center;
+            }
+
+            .read_more {
+              @include center-x;
+              bottom: 0;
+              padding-right: 5px;
+
+              a {
+                vertical-align: -3%;   
+              }
+            }
           }
+        }
+        .card.view-item-3 {
+          margin-right: 0 !important;
         }
       }
       #block-success-stories-list {
-        padding: $vertical-padding $row-padding 50px;
+        @include content-container-section;
+        padding-bottom: 100px;
 
+        $img-height: 180px;
+        $img-width: 268px;
+        $img-margin: 30px;
+        $row-padding: 20px;
+        $vertical-padding: 35px;
+        $container-padding: 50px;
+
+        h2 {
+          margin-bottom: $row-padding;
+        }
         .success_stories_list_container {
+          box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+
           .views-row {
+            @include clear-float;
+            border-bottom: 1px solid $background-color-grey2;
+            padding: $row-padding;
+            position: relative;
+
+            &:last-of-type {
+              border-bottom: 1px solid$background-color-grey2;
+            }
+            .views-field-field-success-short-title h4 {
+              font-size: rem(20px);
+              margin: 0;
+
+              a {
+                color: $color-darkblue;
+              }
+            }
             .views-field-field-success-images {
+              @include clear-float;
+              float: left;
+              height: $img-height;
+              margin-right: $img-margin;
+              max-width: 100%;
+              position: relative;
+              width: $img-width;
+              background-color: $color-lightblue3;
+
               img {
-                height: auto;
+                @include center-xy;
+                height: $img-height;
+                max-width: 100%;
+                width: auto;
+              }
+            }
+            .views-field-field-success-state {
+              color: $color-lightgrey-2;
+              font-family: $sans-text;
+              margin-bottom: 15px;
+            }
+            .views-field-body {
+              color: $color-grey;
+            }
+            .views-field-view-node {
+              bottom: 35px;
+              left: 395px;
+              left: calc(#{$img-width} + #{$img-margin} + #{$row-padding});
+              position: absolute;
+
+              .read-more {
+                a {
+                  @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
+                  color: $color-grey;
+                  font-family: $sans-text;
+                  font-size: 0.875rem;
+                  font-weight: 500;
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  vertical-align: 0;
+                }
+                &:hover {
+                  color: $color-blue-primary;
+                }
+              }
+            }
+          }
+        }
+      }
+      @media (max-width: 1040px) {
+        #block-featured-success-stories {
+          height: auto;
+
+          & > div {
+            padding: 0 0 $vertical-padding;
+            margin: 0 auto;
+            width: 624px;
+
+            .card {
+              float: none;
+              &:nth-of-type(2) {
+                margin-right: 0;
+              }
+            }
+            .card.view-item-3 {
+              margin: 25px 0 0;
+              margin-left: 151px;
+              margin-left: calc(#{$success-card-width} / 2);
+            }
+          }
+        }
+      }
+      @media (max-width: 800px) {
+        #block-success-stories-list .success_stories_list_container {
+          $img-margin: 30px;
+          $row-padding: 20px;
+
+          .views-row {
+            padding-bottom: $img-margin;
+
+            .views-field-field-success-images {
+              background-color: #fff;
+              float: none;
+              margin: 0 auto $row-padding;
+
+              img {
                 max-height: 100%;
                 max-width: 100%;
                 width: auto;
               }
             }
             .views-field-body {
-              padding-bottom: 40px;
+              padding-bottom: 30px;
             }
+            .views-field-view-node {
+              bottom: $row-padding;
+              left: $row-padding;
+            }
+          }
+        }
+      }
+      @media (max-width: 700px) {
+        #block-featured-success-stories {
+          & > div {
+            position: relative;
+            width: 380px;
+
+            .card {
+              @include center-x;
+              position: relative;
+              margin-right: 0;
+              margin-left: 0;
+
+              &:nth-of-type(3) {
+                margin-left: 0 !important;
+              }
+            }
+            .card.view-item-3 {
+              margin: 25px 0 0;
+              margin-left: 151px;
+              margin-left: calc(#{$success-card-width} / 2);
+            }
+          }
+        }
+      }
+      @media (max-width: 475px) {
+        $vertical-padding: 35px;
+        $row-padding: 20px;
+        
+        #block-featured-success-stories {
+          & > div {
+            max-width: 340px;
+
+            .success-story.card {
+              max-width: 100%;
+            }
+          }
+        }
+        #block-success-stories-list {
+          padding: $vertical-padding $row-padding 50px;
+
+          .success_stories_list_container {
+            .views-row {
+              .views-field-field-success-images {
+                img {
+                  height: auto;
+                  max-height: 100%;
+                  max-width: 100%;
+                  width: auto;
+                }
+              }
+              .views-field-body {
+                padding-bottom: 40px;
+              }
+            }
+          }
+        }
+      }
+      @media (max-width: 400px) {
+        #block-featured-success-stories {
+          & > div {
+            width: 340px;
           }
         }
       }

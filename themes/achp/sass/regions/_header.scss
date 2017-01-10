@@ -11,17 +11,6 @@ header {
     height: $header-height;
     margin: 0 auto;
     max-width: $max-content-width;
-
-/*    @media (min-width: 1100px) {
-      margin: 0 auto;
-    }
-    @media (max-width: 1099px) {
-      margin: 0 50px;
-    }
-    @media (maxw-reidth: 500px) { 
-      margin: 0 auto;
-      width: $header-title-small-width + $header-logo-small-width;
-    }*/
   }
   #header_region {
     @include outer-container(100%);
@@ -40,7 +29,7 @@ header {
     color: #fff;
     display: inline-block;
     font-size: 2rem;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 1.25;
     padding: 10px;
     padding-left: 40px;
@@ -58,7 +47,7 @@ header {
   #block-headercontactlinks {
     color: white;
     float: right;
-    font-weight: 300;
+    font-weight: 400;
     padding: 15px 0 5px;
 
     a {

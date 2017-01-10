@@ -4,9 +4,11 @@
 */
 
 #homepage_success_region {
+  @include content-container;
   background-color: $background-color-grey;
   height: auto;
-  padding: 25px 50px;
+  padding-bottom: 25px;
+  padding-top: 25px;
 
   p {
     margin-bottom: 0;
@@ -14,17 +16,19 @@
   button {
     clear: both;
   }
-  .success-story.card .success_story_body p {
-    font-size: rem(14px);
-  }
-  @media (max-width: 384px) {
-    padding: 25px 10px;
+  .success-story.card {
+    max-width: 100%;
 
-    #block-preservationsuccessstories {
-      padding: 0 40px;
+    .success_story_body p {
+      font-size: rem(14px);
     }
+  }
+  #block-views-block-homepage-success-stories-block {
+    max-width: 100%;
+  }
+  @media (max-width: 400px) {
     #block-moresuccessstoriesbutton {
-      padding: 0 40px;
+      width: 100%;
     }
   }
 }

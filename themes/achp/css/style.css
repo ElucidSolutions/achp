@@ -128,7 +128,6 @@ html {
 [data-plugin-id="system_breadcrumb_block"] {
   font-family: "p22-underground", sans-serif;
   font-size: 0.875rem;
-  padding-top: 30px;
   text-transform: uppercase; }
   [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb {
     display: none;
@@ -1452,23 +1451,17 @@ the events landing page is different */
         position: static;
         transform: none; }
       #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-field-field-quicklink-image {
+        /*@include fit-and-center-image($quicklink-image-height); */
         height: 160px;
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-        /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */ }
-        #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-field-field-quicklink-image img {
-          -webkit-transform: translateX(-50%) translateY(-50%);
-          -moz-transform: translateX(-50%) translateY(-50%);
-          -ms-transform: translateX(-50%) translateY(-50%);
-          -o-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-          left: 50%;
-          position: absolute;
-          top: 50%;
-          height: 100%;
-          min-width: 100%;
-          width: auto; }
+        width: 270px; }
+        #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-field-field-quicklink-image .field-content {
+          height: 160px;
+          overflow: hidden;
+          position: relative; }
+          #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header .views-field-field-quicklink-image .field-content img {
+            height: 160px;
+            object-fit: cover;
+            width: 270px; }
       #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container header h3 {
         padding-top: 20px; }
     #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .quicklinks-column > .views-row {
@@ -2152,17 +2145,7 @@ header {
   header #header-container {
     height: 100px;
     margin: 0 auto;
-    max-width: 1024px;
-    /*    @media (min-width: 1100px) {
-          margin: 0 auto;
-        }
-        @media (max-width: 1099px) {
-          margin: 0 50px;
-        }
-        @media (maxw-reidth: 500px) { 
-          margin: 0 auto;
-          width: $header-title-small-width + $header-logo-small-width;
-        }*/ }
+    max-width: 1024px; }
   header #header_region {
     max-width: 100%;
     margin-left: auto;
@@ -2181,7 +2164,7 @@ header {
     color: #fff;
     display: inline-block;
     font-size: 2rem;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 1.25;
     padding: 10px;
     padding-left: 40px;
@@ -2195,7 +2178,7 @@ header {
   header #block-headercontactlinks {
     color: white;
     float: right;
-    font-weight: 300;
+    font-weight: 400;
     padding: 15px 0 5px; }
     header #block-headercontactlinks a {
       transition: color 0.25s;
@@ -2450,11 +2433,18 @@ header {
     left: 50%;
     position: absolute;
     top: 50%;
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
     color: #FFFFFF;
     max-width: 1024px;
-    padding: 0 42px;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-    width: 100%; }
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
+    @media (max-width: 400px) {
+      #homepage_hero_region #homepage_hero_content {
+        padding-left: 20px;
+        padding-right: 20px; } }
     #homepage_hero_region #homepage_hero_content h1, #homepage_hero_region #homepage_hero_content #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #homepage_hero_region #homepage_hero_content .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"] {
       font-size: 1.25rem;
       text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
@@ -2573,22 +2563,32 @@ header {
   Homepage Success region.
 */
 #homepage_success_region {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
   background-color: #F4F4F4;
   height: auto;
-  padding: 25px 50px; }
+  padding-bottom: 25px;
+  padding-top: 25px; }
+  @media (max-width: 400px) {
+    #homepage_success_region {
+      padding-left: 20px;
+      padding-right: 20px; } }
   #homepage_success_region p {
     margin-bottom: 0; }
   #homepage_success_region button {
     clear: both; }
-  #homepage_success_region .success-story.card .success_story_body p, #homepage_success_region .event_calendar .success-story.event_calendar_calendar_body .success_story_body p, .event_calendar #homepage_success_region .success-story.event_calendar_calendar_body .success_story_body p, #homepage_success_region .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body #homepage_success_region .success-story.event_calendar_grid_card .success_story_body p, #homepage_success_region #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_region .success-story.views-element-container .success_story_body p {
-    font-size: 0.875rem; }
-  @media (max-width: 384px) {
-    #homepage_success_region {
-      padding: 25px 10px; }
-      #homepage_success_region #block-preservationsuccessstories {
-        padding: 0 40px; }
-      #homepage_success_region #block-moresuccessstoriesbutton {
-        padding: 0 40px; } }
+  #homepage_success_region .success-story.card, #homepage_success_region .event_calendar .success-story.event_calendar_calendar_body, .event_calendar #homepage_success_region .success-story.event_calendar_calendar_body, #homepage_success_region .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_region .success-story.event_calendar_grid_card, #homepage_success_region #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_region .success-story.views-element-container {
+    max-width: 100%; }
+    #homepage_success_region .success-story.card .success_story_body p, #homepage_success_region .event_calendar .success-story.event_calendar_calendar_body .success_story_body p, .event_calendar #homepage_success_region .success-story.event_calendar_calendar_body .success_story_body p, #homepage_success_region .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body #homepage_success_region .success-story.event_calendar_grid_card .success_story_body p, #homepage_success_region #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_region .success-story.views-element-container .success_story_body p {
+      font-size: 0.875rem; }
+  #homepage_success_region #block-views-block-homepage-success-stories-block {
+    max-width: 100%; }
+  @media (max-width: 400px) {
+    #homepage_success_region #block-moresuccessstoriesbutton {
+      width: 100%; } }
 
 /*
   This module contains styles for the Homepage
@@ -2605,9 +2605,18 @@ header {
   Homepage Impact region.
 */
 #homepage_impact_region {
-  background-color: #fff;
   margin: 0 auto;
-  padding: 25px 50px; }
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  background-color: #fff;
+  padding-bottom: 25px;
+  padding-top: 25px; }
+  @media (max-width: 400px) {
+    #homepage_impact_region {
+      padding-left: 20px;
+      padding-right: 20px; } }
   #homepage_impact_region #block-ourimpact {
     margin: 0 auto; }
   #homepage_impact_region .impact_item {
@@ -2665,8 +2674,28 @@ header {
   Homepage Preserve America region.
 */
 #homepage_preserveamerica_region {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
   background-color: #F4F4F4;
-  padding: 25px 50px; }
+  padding-bottom: 25px;
+  padding-top: 25px;
+  padding: 25px 50px;
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%; }
+  @media (max-width: 400px) {
+    #homepage_preserveamerica_region {
+      padding-left: 20px;
+      padding-right: 20px; } }
+  @media (max-width: 400px) {
+    #homepage_preserveamerica_region {
+      padding-left: 20px;
+      padding-right: 20px; } }
   #homepage_preserveamerica_region hr {
     width: 100px; }
 
@@ -2789,6 +2818,9 @@ header {
     .preserveamerica_content_wrapper .views-element-container .item-list ul li .community-spotlight-item img {
       margin-bottom: 10px; } }
 @media (max-width: 700px) {
+  #block-views-block-community-spotlight-block-1 h3 {
+    text-align: center; }
+
   .preserveamerica_content_wrapper .views-element-container h2 {
     display: block;
     margin: 0 auto; }
@@ -4446,41 +4478,47 @@ header {
     [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background,
     [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region .textblock_with_background {
       height: 275px; } }
-[data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a,
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a,
-[data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a,
-[data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a,
-[data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a {
-  display: block;
-  max-width: calc(100% - 20px);
-  position: relative; }
-  [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a:after {
-    -webkit-transform: none;
-    -moz-transform: none;
-    -ms-transform: none;
-    -o-transform: none;
-    transform: none;
-    position: static;
-    top: 0;
-    /*  -webkit-transform: none;
+[data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks,
+[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks,
+[data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks,
+[data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks,
+[data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks {
+  margin-bottom: 50px; }
+  [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a,
+  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a,
+  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a,
+  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a,
+  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a {
+    display: block;
+    max-width: calc(100% - 20px);
+    position: relative; }
+    [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a:after {
+      -webkit-transform: none;
       -moz-transform: none;
       -ms-transform: none;
       -o-transform: none;
-      transform: none;*/
-    position: relative;
-    top: -2px; }
-[data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks hr,
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks hr,
-[data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks hr,
-[data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks hr,
-[data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks hr {
-  background-color: #979797;
-  height: 1px;
-  margin: 25px 0; }
+      transform: none;
+      position: static;
+      top: 0;
+      /*  -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;*/
+      position: relative;
+      top: -2px; }
+  [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks hr,
+  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks hr,
+  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks hr,
+  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks hr,
+  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks hr {
+    background-color: #979797;
+    height: 1px;
+    margin: 25px 0; }
 @media (max-width: 750px) {
   [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
   [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
@@ -4771,35 +4809,35 @@ header {
         [data-page-path-alias="/initiatives"] #content #content_region #block-views-block-related-resources-block-1 {
           /*padding: 0 20px;*/ } }
 
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] ul > h2 {
-  margin-top: 50px; }
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more {
-  margin: 0 0 25px; }
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more a {
-    display: inline-block;
-    position: relative; }
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more a:after {
-      -webkit-transform: none;
-      -moz-transform: none;
-      -ms-transform: none;
-      -o-transform: none;
-      transform: none;
-      position: static;
-      top: 0;
-      /*  -webkit-transform: none;
+[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] {
+  padding-bottom: 50px; }
+  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more {
+    margin: 0 0 25px; }
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more a {
+      display: inline-block;
+      position: relative; }
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more a:after {
+        -webkit-transform: none;
         -moz-transform: none;
         -ms-transform: none;
         -o-transform: none;
-        transform: none;*/
-      position: absolute;
-      top: -1px; }
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] h4 {
-  color: #950306;
-  margin-bottom: 0; }
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] p > .application_link {
-  margin-bottom: 0; }
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .application_link a {
-  color: #0990FE; }
+        transform: none;
+        position: static;
+        top: 0;
+        /*  -webkit-transform: none;
+          -moz-transform: none;
+          -ms-transform: none;
+          -o-transform: none;
+          transform: none;*/
+        position: absolute;
+        top: -1px; }
+  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] h4 {
+    color: #950306;
+    margin-bottom: 0; }
+  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] p > .application_link {
+    margin-bottom: 0; }
+  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .application_link a {
+    color: #0990FE; }
 
 [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article {
   display: table;
@@ -4841,6 +4879,29 @@ header {
 /*
   Styles for the protecting historic properties page
 */
+[data-page-path-alias="/protecting-historic-properties"] #secondary_header_region #block-breadcrumbs {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 30px auto 0;
+  padding-top: 0; }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/protecting-historic-properties"] #secondary_header_region #block-breadcrumbs {
+      padding-left: 20px;
+      padding-right: 20px; } }
+[data-page-path-alias="/protecting-historic-properties"] #secondary_header_region #block-php-shareblock {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 30px; }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/protecting-historic-properties"] #secondary_header_region #block-php-shareblock {
+      padding-left: 20px;
+      padding-right: 20px; } }
 [data-page-path-alias="/protecting-historic-properties"] #content {
   margin: 0 auto;
   max-width: 100%;
@@ -4853,7 +4914,16 @@ header {
   width: 100%; }
   [data-page-path-alias="/protecting-historic-properties"] #content_region #block-achp-content article {
     margin: 0 auto;
-    padding: 35px 50px; }
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    padding-bottom: 35px;
+    /*padding-top: $vertical-padding;*/ }
+    @media (max-width: 400px) {
+      [data-page-path-alias="/protecting-historic-properties"] #content_region #block-achp-content article {
+        padding-left: 20px;
+        padding-right: 20px; } }
   [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 {
     background: #E5E3E4;
     padding: 35px 0; }
@@ -5052,7 +5122,9 @@ header {
           display: block; }
         [data-page-path-alias="/protecting-historic-properties"] #content_region #block-electronic106submissionsystem .block_container .warning_block .warning_icon {
           /*@include clear-float;*/
-          background: #CD1803 url("../images/warning-icon.svg") no-repeat center;
+          background: #CD1803 url("../images/warning-icon.svg");
+          background-position: center;
+          background-repeat: no-repeat;
           background-size: 60px;
           display: inline-block;
           height: 100px;
@@ -5421,213 +5493,258 @@ header {
     [data-page-path-alias="/success-stories"] #secondary_header_region #block-success-landing-share-block {
       padding-left: 20px;
       padding-right: 20px; } }
-[data-page-path-alias="/success-stories"] #content #content_region article {
-  /*display: none;*/ }
-[data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories {
-  /* IE has a lot of trouble interpreting calculated values from variables,
-  so I included two values for many of the margins and widths below: the
-  first as a simple px value, and the second the calculated variable-based
-  value. If the second value fails, it will revert to the first.*/
-  background-color: #E6F8FF;
-  /*clear: both;*/
-  height: 550px;
-  /*margin-top: $vertical-padding;*/ }
-  [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories h2 {
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 35px 0 0; }
-  [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
-    margin: 0 auto;
-    max-width: 1024px;
-    padding: 0 0 35px;
+[data-page-path-alias="/success-stories"] #content {
+  padding: 0;
+  max-width: 100%; }
+  [data-page-path-alias="/success-stories"] #content #content_region {
     width: 100%; }
-  [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container {
-    background-color: #ffffff;
-    display: inline-block;
-    float: left;
-    height: 400px;
-    margin: 25px 17px 0 0;
-    text-align: center;
-    width: 300px; }
-    [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card:after, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body:after, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body:after, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card:after, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card:after, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:after, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container:after {
-      clear: both;
-      content: "";
-      display: block; }
-    [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story {
-      height: 370px;
-      padding: 5px 10px;
-      position: relative; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_image, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_image, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_image, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_image, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_image {
-        height: 185px;
-        overflow: hidden;
-        position: relative;
+    [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories {
+      /* IE has a lot of trouble interpreting calculated values from variables,
+      so I included two values for many of the margins and widths below: the
+      first as a simple px value, and the second the calculated variable-based
+      value. If the second value fails, it will revert to the first.*/
+      background-color: #E6F8FF;
+      min-height: 550px; }
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories h2 {
+        margin: 0 auto;
+        max-width: 1024px;
+        padding-left: 40px;
+        padding-right: 40px;
         width: 100%;
-        /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
-        margin-bottom: 15px; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_image img {
-          -webkit-transform: translateX(-50%) translateY(-50%);
-          -moz-transform: translateX(-50%) translateY(-50%);
-          -ms-transform: translateX(-50%) translateY(-50%);
-          -o-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-          left: 50%;
-          position: absolute;
-          top: 50%;
-          height: 100%;
-          min-width: 100%;
-          width: auto; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_image img {
-          border: none !important; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_title h3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_title h3, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_title h3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_title h3, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_title h3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_title h3, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_title h3 {
-        text-align: inherit; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_location, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_location, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_location, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_location, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_location, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_location, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_location {
-        color: #7C7C7C; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_body p, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_body p, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_body p, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_body p, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_body p {
-        font-family: "minion-pro", serif;
-        font-size: 1rem;
-        margin: 5px;
-        text-align: center; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_link, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link {
-        -webkit-transform: translateX(-50%);
-        -moz-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        -o-transform: translateX(-50%);
-        transform: translateX(-50%);
-        left: 50%;
-        position: absolute;
-        bottom: 0;
-        padding-right: 5px; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_link a, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_link a, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_link a, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_link a, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_link a, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_link a, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_link a {
-          vertical-align: 0; }
-  [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card.view-item-3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .view-item-3.views-element-container {
-    margin-right: 0 !important; }
-[data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 35px 40px;
-  padding-bottom: 100px; }
-  @media (max-width: 400px) {
-    [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list {
-      padding: 35px 20px; } }
-  [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list h2 {
-    margin-bottom: 20px; }
-  [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25); }
-    [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row {
-      border-bottom: 1px solid #E5E3E4;
-      padding: 20px;
-      position: relative; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row:after {
-        clear: both;
-        content: "";
-        display: block; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row:last-of-type {
-        border-bottom: 1px solid #E5E3E4; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-short-title h4 {
-        font-size: 1.25rem;
-        margin: 0; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-short-title h4 a {
-          color: #043B62; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images {
+        padding-top: 35px; }
+        @media (max-width: 400px) {
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories h2 {
+            padding-left: 20px;
+            padding-right: 20px; } }
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
+        margin: 0 auto;
+        max-width: 1024px;
+        padding: 0 40px 35px;
+        width: 100%; }
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container {
+        background-color: #ffffff;
+        display: inline-block;
         float: left;
-        height: 180px;
-        margin-right: 30px;
-        max-width: 100%;
-        position: relative;
-        width: 268px;
-        background-color: #E6F8FF; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images:after {
+        height: 400px;
+        margin: 25px 17px 0 0;
+        text-align: center;
+        width: 300px; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card:after, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body:after, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body:after, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card:after, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card:after, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:after, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container:after {
           clear: both;
           content: "";
           display: block; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images img {
-          -webkit-transform: translateX(-50%) translateY(-50%);
-          -moz-transform: translateX(-50%) translateY(-50%);
-          -ms-transform: translateX(-50%) translateY(-50%);
-          -o-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story {
+          height: 370px;
+          padding: 5px 10px;
+          position: relative; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_image, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_image, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_image, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_image, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_image {
+            height: 185px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
+            margin-bottom: 15px; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_image img {
+              -webkit-transform: translateX(-50%) translateY(-50%);
+              -moz-transform: translateX(-50%) translateY(-50%);
+              -ms-transform: translateX(-50%) translateY(-50%);
+              -o-transform: translateX(-50%) translateY(-50%);
+              transform: translateX(-50%) translateY(-50%);
+              left: 50%;
+              position: absolute;
+              top: 50%;
+              height: 100%;
+              min-width: 100%;
+              width: auto; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_image img, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_image img, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_image img, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_image img, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_image img {
+              border: none !important; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_title h3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_title h3, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_title h3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_title h3, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_title h3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_title h3, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_title h3 {
+            text-align: inherit; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_location, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_location, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_location, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_location, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_location, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_location, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_location {
+            color: #7C7C7C; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_body p, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story_body p, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story_body p, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story_body p, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story_body p, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story_body p, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story_body p {
+            font-family: "minion-pro", serif;
+            font-size: 1rem;
+            margin: 5px;
+            text-align: center; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story .read_more, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story .read_more, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story .read_more, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story .read_more, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story .read_more, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story .read_more, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story .read_more {
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+            left: 50%;
+            position: absolute;
+            bottom: 0;
+            padding-right: 5px; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story .read_more a, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_calendar_body .success_story .read_more a, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_calendar_body .success_story .read_more a, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .event_calendar_grid_card .success_story .read_more a, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar_grid_card .success_story .read_more a, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container .success_story .read_more a, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .views-element-container .success_story .read_more a {
+              vertical-align: -3%; }
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card.view-item-3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .view-item-3.event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .view-item-3.views-element-container {
+        margin-right: 0 !important; }
+    [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list {
+      margin: 0 auto;
+      max-width: 1024px;
+      padding: 35px 40px;
+      padding-bottom: 100px; }
+      @media (max-width: 400px) {
+        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list {
+          padding: 35px 20px; } }
+      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list h2 {
+        margin-bottom: 20px; }
+      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25); }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row {
+          border-bottom: 1px solid #E5E3E4;
+          padding: 20px;
+          position: relative; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row:after {
+            clear: both;
+            content: "";
+            display: block; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row:last-of-type {
+            border-bottom: 1px solid #E5E3E4; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-short-title h4 {
+            font-size: 1.25rem;
+            margin: 0; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-short-title h4 a {
+              color: #043B62; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images {
+            float: left;
+            height: 180px;
+            margin-right: 30px;
+            max-width: 100%;
+            position: relative;
+            width: 268px;
+            background-color: #E6F8FF; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images:after {
+              clear: both;
+              content: "";
+              display: block; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images img {
+              -webkit-transform: translateX(-50%) translateY(-50%);
+              -moz-transform: translateX(-50%) translateY(-50%);
+              -ms-transform: translateX(-50%) translateY(-50%);
+              -o-transform: translateX(-50%) translateY(-50%);
+              transform: translateX(-50%) translateY(-50%);
+              left: 50%;
+              position: absolute;
+              top: 50%;
+              height: 180px;
+              max-width: 100%;
+              width: auto; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-state {
+            color: #7C7C7C;
+            font-family: "p22-underground", sans-serif;
+            margin-bottom: 15px; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-body {
+            color: #4F4F4F; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node {
+            bottom: 35px;
+            left: 395px;
+            left: calc(268px + 30px + 20px);
+            position: absolute; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a {
+              transition: color 0.25s;
+              color: #4F4F4F;
+              font-family: "p22-underground", sans-serif;
+              font-size: 0.875rem;
+              font-weight: 500;
+              text-decoration: none;
+              text-transform: uppercase;
+              vertical-align: 0; }
+              [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a:hover {
+                color: #0990FE; }
+              [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a:after {
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                transform: translateY(-50%);
+                position: absolute;
+                top: 50%;
+                background-image: url("../images/right-arrow-icon.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                content: "";
+                cursor: pointer;
+                height: 20px;
+                padding-left: 15px;
+                right: -30px;
+                transition: background-image 0.25s;
+                width: 20px; }
+              [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a:hover:after {
+                background-image: url("../images/right-arrow-icon-blue.svg"); }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more:hover {
+              color: #0990FE; }
+    @media (max-width: 1040px) {
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories {
+        height: auto; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
+          padding: 0 0 35px;
+          margin: 0 auto;
+          width: 624px; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .views-element-container {
+            float: none; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card:nth-of-type(2), [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body:nth-of-type(2), .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body:nth-of-type(2), [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card:nth-of-type(2), .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card:nth-of-type(2), [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:nth-of-type(2), #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .views-element-container:nth-of-type(2) {
+              margin-right: 0; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card.view-item-3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .view-item-3.views-element-container {
+            margin: 25px 0 0;
+            margin-left: 151px;
+            margin-left: calc(300px / 2); } }
+    @media (max-width: 800px) {
+      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row {
+        padding-bottom: 30px; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images {
+          background-color: #fff;
+          float: none;
+          margin: 0 auto 20px; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images img {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-body {
+          padding-bottom: 30px; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node {
+          bottom: 20px;
+          left: 20px; } }
+    @media (max-width: 700px) {
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
+        position: relative;
+        width: 380px; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .views-element-container {
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          transform: translateX(-50%);
           left: 50%;
           position: absolute;
-          top: 50%;
-          height: 180px;
+          position: relative;
+          margin-right: 0;
+          margin-left: 0; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card:nth-of-type(3), [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_calendar_body:nth-of-type(3), .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar_calendar_body:nth-of-type(3), [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .event_calendar_grid_card:nth-of-type(3), .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar_grid_card:nth-of-type(3), [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container:nth-of-type(3), #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .views-element-container:nth-of-type(3) {
+            margin-left: 0 !important; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card.view-item-3, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .view-item-3.event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .view-item-3.event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .view-item-3.views-element-container {
+          margin: 25px 0 0;
+          margin-left: 151px;
+          margin-left: calc(300px / 2); } }
+    @media (max-width: 475px) {
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
+        max-width: 340px; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .success-story.card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .success-story.event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .success-story.views-element-container {
+          max-width: 100%; }
+      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list {
+        padding: 35px 20px 50px; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images img {
+          height: auto;
+          max-height: 100%;
           max-width: 100%;
           width: auto; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-state {
-        color: #7C7C7C;
-        font-family: "p22-underground", sans-serif;
-        margin-bottom: 15px; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-body {
-        color: #4F4F4F; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node {
-        bottom: 35px;
-        left: 395px;
-        left: calc(268px + 30px + 20px);
-        position: absolute; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a {
-          transition: color 0.25s;
-          color: #4F4F4F;
-          font-family: "p22-underground", sans-serif;
-          font-size: 0.875rem;
-          font-weight: 500;
-          text-decoration: none;
-          text-transform: uppercase;
-          vertical-align: bottom; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a:hover {
-            color: #0990FE; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a:after {
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
-            position: absolute;
-            top: 50%;
-            background-image: url("../images/right-arrow-icon.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            content: "";
-            cursor: pointer;
-            height: 20px;
-            padding-left: 15px;
-            right: -30px;
-            transition: background-image 0.25s;
-            width: 20px; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a:hover:after {
-            background-image: url("../images/right-arrow-icon-blue.svg"); }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more:hover {
-          color: #0990FE; }
-@media (max-width: 800px) {
-  [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row {
-    padding-bottom: 30px; }
-    [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images {
-      background-color: #fff;
-      float: none;
-      margin: 0 auto 20px; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images img {
-        max-height: 100%;
-        max-width: 100%;
-        width: auto; }
-    [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-body {
-      padding-bottom: 30px; }
-    [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node {
-      bottom: 20px;
-      left: 20px; } }
-@media (max-width: 475px) {
-  [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories h2 {
-    padding: 35px 20px 0; }
-  [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
-    padding: 0 20px 35px; }
-    [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .success-story.card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .success-story.event_calendar_calendar_body, .event_calendar [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_calendar_body, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .event_calendar .event_calendar_grid_body .success-story.event_calendar_grid_card, .event_calendar .event_calendar_grid_body [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .success-story.event_calendar_grid_card, [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div #homepage_quicklinks_region #homepage_quicklinks_content .success-story.views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .success-story.views-element-container {
-      max-width: 100%; }
-  [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list {
-    padding: 35px 20px 50px; }
-    [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images img {
-      height: auto;
-      max-height: 100%;
-      max-width: 100%;
-      width: auto; }
-    [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-body {
-      padding-bottom: 40px; } }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-body {
+          padding-bottom: 40px; } }
+    @media (max-width: 400px) {
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
+        width: 340px; } }
 
 #page[data-page-node-type="success_story"] #secondary_header_region #block-breadcrumbs {
   margin: 0 auto;
@@ -5838,6 +5955,7 @@ button {
   cursor: pointer;
   display: block;
   font-family: "p22-underground", sans-serif;
+  font-weight: 500;
   letter-spacing: 0.02rem;
   line-height: 1.4rem;
   margin: 0 auto 30px;
@@ -5851,6 +5969,9 @@ button {
   @media (max-width: 650px) {
     button {
       line-height: 1.2rem; } }
+  @media (max-width: 400px) {
+    button {
+      width: 100%; } }
 
 blockquote {
   color: #7C7C7C;
