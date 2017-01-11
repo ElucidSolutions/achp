@@ -109,7 +109,7 @@ html {
   #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="field_banner_page_tagline"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="field_issue_tagline"] {
     font-size: 1.125rem;
     line-height: 1.4;
-    padding: 0 25px;
+    padding: 10px 25px 0;
     text-align: center; }
     @media screen and (min-width: 650px) {
       #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="field_banner_page_tagline"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="field_issue_tagline"] {
@@ -1266,7 +1266,7 @@ the events landing page is different */
       margin-right: 50px;
       width: 300px; }
       [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
-        background-color: #C6C6C6;
+        background-color: #F4F4F4;
         width: 100%; }
         [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
           background-color: #e67f00;
@@ -1299,6 +1299,9 @@ the events landing page is different */
             width: 100%; }
             [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item:last-of-type {
               border-bottom: none; }
+            [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item.page-menu-instance-menu-item-selected {
+              background-color: #0990FE;
+              color: white; }
       [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance.page-menu-instance-menu-expanded .page-menu-instance-menu .page-menu-instance-menu-header:after {
         background-image: url("../images/minus-icon.svg");
         background-position: center;
@@ -1317,10 +1320,10 @@ the events landing page is different */
     .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
       display: block !important; }
       .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected {
-        background-color: #e67f00;
+        background-color: #0990FE;
         color: white; }
         .page-menu-block .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected:after {
-          border: 10px solid #e67f00;
+          border: 10px solid #0990FE;
           border-top-color: transparent;
           border-right-color: transparent;
           border-bottom-color: transparent;
@@ -3330,7 +3333,7 @@ header {
         #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_calendar_body, .event_calendar #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_calendar_body, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .event_calendar_grid_card, #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .views-element-container {
           background: #fff;
           float: left;
-          height: 375px;
+          height: 350px;
           margin: 25px 0;
           margin-right: 21px;
           padding: 20px;
@@ -4345,207 +4348,351 @@ header {
 [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-breadcrumbs,
 [data-page-path-alias="/preserve-america/presidential-award"] #secondary_header_region #block-breadcrumbs,
 [data-page-path-alias="/preserve-america/federal-support"] #secondary_header_region #block-breadcrumbs,
-[data-page-path-alias="/preserve-america/clearinghouse"] #secondary_header_region #block-breadcrumbs {
-  margin: 30px auto 0;
+[data-page-path-alias="/preserve-america/clearinghouse"] #secondary_header_region #block-breadcrumbs,
+[data-page-path-alias="/preserve-america/application"] #secondary_header_region #block-breadcrumbs {
+  margin: 0 auto;
   max-width: 1024px;
-  padding: 0 40px; }
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 30px auto 0; }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/preserve-america"] #secondary_header_region #block-breadcrumbs,
+    [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-breadcrumbs,
+    [data-page-path-alias="/preserve-america/presidential-award"] #secondary_header_region #block-breadcrumbs,
+    [data-page-path-alias="/preserve-america/federal-support"] #secondary_header_region #block-breadcrumbs,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #secondary_header_region #block-breadcrumbs,
+    [data-page-path-alias="/preserve-america/application"] #secondary_header_region #block-breadcrumbs {
+      padding-left: 20px;
+      padding-right: 20px; } }
 [data-page-path-alias="/preserve-america"] #secondary_header_region #block-preserveamerica-shareblock,
 [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-preserveamerica-shareblock,
 [data-page-path-alias="/preserve-america/presidential-award"] #secondary_header_region #block-preserveamerica-shareblock,
 [data-page-path-alias="/preserve-america/federal-support"] #secondary_header_region #block-preserveamerica-shareblock,
-[data-page-path-alias="/preserve-america/clearinghouse"] #secondary_header_region #block-preserveamerica-shareblock {
-  margin: 0 auto 30px;
+[data-page-path-alias="/preserve-america/clearinghouse"] #secondary_header_region #block-preserveamerica-shareblock,
+[data-page-path-alias="/preserve-america/application"] #secondary_header_region #block-preserveamerica-shareblock {
+  margin: 0 auto;
   max-width: 1024px;
-  padding: 0 40px; }
-[data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block,
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block,
-[data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block,
-[data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block,
-[data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block {
-  height: 154px;
-  position: relative;
-  margin-top: 25px; }
-  [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block:after,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block:after,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block:after,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block:after,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block:after {
-    clear: both;
-    content: "";
-    display: block; }
-  [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block img,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block img,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block img,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block img,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block img {
-    float: left;
-    margin-right: 20px;
-    max-width: 100%; }
-  [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block p {
-    position: relative;
-    height: 154px; }
-  @media (max-width: 800px) {
-    [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block,
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block,
-    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block,
-    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block,
-    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block {
-      height: auto; }
-      [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block img,
-      [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block img,
-      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block img,
-      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block img,
-      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block img {
-        -webkit-transform: translateX(-50%);
-        -moz-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        -o-transform: translateX(-50%);
-        transform: translateX(-50%);
-        left: 50%;
-        position: absolute;
-        float: none;
-        margin: 0 0 10px;
-        position: relative; }
-      [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p,
-      [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p,
-      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p,
-      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p,
-      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block p {
-        height: auto;
-        margin-top: 0; }
-        [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p .read_more,
-        [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p .read_more,
-        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p .read_more,
-        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p .read_more,
-        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block p .read_more {
-          left: 0;
-          margin-top: 15px;
-          position: relative; } }
-[data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions h4,
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions h4,
-[data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions h4,
-[data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions h4,
-[data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_questions h4 {
-  color: #950306;
-  margin-bottom: 10px;
-  padding-top: 10px; }
-[data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions p,
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions p,
-[data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions p,
-[data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions p,
-[data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_questions p {
-  margin: 0; }
-[data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions ul,
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions ul,
-[data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions ul,
-[data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions ul,
-[data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_questions ul {
-  margin: 0;
-  padding-left: 30px; }
-  [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions ul li,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions ul li,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions ul li,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions ul li,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_questions ul li {
-    padding-left: 10px; }
-[data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background,
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background,
-[data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background,
-[data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background,
-[data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region .textblock_with_background {
-  margin-top: 35px;
-  margin-bottom: 50px; }
-  [data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background.textblock_left,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background.textblock_left,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background.textblock_left,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background.textblock_left,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region .textblock_with_background.textblock_left {
-    background-image: url("../images/half-section-section-106-map.png"); }
-  [data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background.textblock_right,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background.textblock_right,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background.textblock_right,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background.textblock_right,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region .textblock_with_background.textblock_right {
-    background-image: url("../images/half-section-section-106-comments.png"); }
-  @media (max-width: 750px) {
-    [data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background,
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background,
-    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background,
-    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background,
-    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region .textblock_with_background {
-      height: 275px; } }
-[data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks,
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks,
-[data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks,
-[data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks,
-[data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks {
-  margin-bottom: 50px; }
-  [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a {
-    display: block;
-    max-width: calc(100% - 20px);
-    position: relative; }
-    [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a:after {
-      -webkit-transform: none;
-      -moz-transform: none;
-      -ms-transform: none;
-      -o-transform: none;
-      transform: none;
-      position: static;
-      top: 0;
-      /*  -webkit-transform: none;
-        -moz-transform: none;
-        -ms-transform: none;
-        -o-transform: none;
-        transform: none;*/
-      position: relative;
-      top: -2px; }
-  [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks hr,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks hr,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks hr,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks hr,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks hr {
-    background-color: #979797;
-    height: 1px;
-    margin: 25px 0; }
-@media (max-width: 750px) {
-  [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background {
-    height: 275px;
-    margin: 0 !important; }
-    [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
-    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
-    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
-    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
-    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
-    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
-    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container {
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 30px; }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/preserve-america"] #secondary_header_region #block-preserveamerica-shareblock,
+    [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-preserveamerica-shareblock,
+    [data-page-path-alias="/preserve-america/presidential-award"] #secondary_header_region #block-preserveamerica-shareblock,
+    [data-page-path-alias="/preserve-america/federal-support"] #secondary_header_region #block-preserveamerica-shareblock,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #secondary_header_region #block-preserveamerica-shareblock,
+    [data-page-path-alias="/preserve-america/application"] #secondary_header_region #block-preserveamerica-shareblock {
+      padding-left: 20px;
+      padding-right: 20px; } }
+[data-page-path-alias="/preserve-america"] #content,
+[data-page-path-alias="/preserve-america/stewards"] #content,
+[data-page-path-alias="/preserve-america/presidential-award"] #content,
+[data-page-path-alias="/preserve-america/federal-support"] #content,
+[data-page-path-alias="/preserve-america/clearinghouse"] #content,
+[data-page-path-alias="/preserve-america/application"] #content {
+  padding: 0;
+  max-width: 100%; }
+  [data-page-path-alias="/preserve-america"] #content #content_region,
+  [data-page-path-alias="/preserve-america/stewards"] #content #content_region,
+  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region,
+  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region,
+  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region,
+  [data-page-path-alias="/preserve-america/application"] #content #content_region {
+    width: 100%; }
+    [data-page-path-alias="/preserve-america"] #content #content_region h2 + p, [data-page-path-alias="/preserve-america"] #content #content_region h3 + p, [data-page-path-alias="/preserve-america"] #content #content_region h4 + p,
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region h2 + p,
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region h3 + p,
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region h4 + p,
+    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region h2 + p,
+    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region h3 + p,
+    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region h4 + p,
+    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region h2 + p,
+    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region h3 + p,
+    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region h4 + p,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region h2 + p,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region h3 + p,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region h4 + p,
+    [data-page-path-alias="/preserve-america/application"] #content #content_region h2 + p,
+    [data-page-path-alias="/preserve-america/application"] #content #content_region h3 + p,
+    [data-page-path-alias="/preserve-america/application"] #content #content_region h4 + p {
+      margin-top: 0; }
+    [data-page-path-alias="/preserve-america"] #content #content_region p + ul,
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region p + ul,
+    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region p + ul,
+    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region p + ul,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region p + ul,
+    [data-page-path-alias="/preserve-america/application"] #content #content_region p + ul {
+      margin-top: -10px; }
+    [data-page-path-alias="/preserve-america"] #content #content_region article,
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region article,
+    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article,
+    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article,
+    [data-page-path-alias="/preserve-america/application"] #content #content_region article {
       margin: 0 auto;
       max-width: 1024px;
       padding-left: 40px;
       padding-right: 40px;
-      width: 100%; } }
-    @media (max-width: 750px) and (max-width: 400px) {
+      width: 100%;
+      margin-bottom: 50px; }
+      @media (max-width: 400px) {
+        [data-page-path-alias="/preserve-america"] #content #content_region article,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region article,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region article {
+          padding-left: 20px;
+          padding-right: 20px; } }
+      [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block {
+        height: 154px;
+        position: relative;
+        margin-top: 25px; }
+        [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block:after,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block:after,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block:after,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block:after,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block:after,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block:after {
+          clear: both;
+          content: "";
+          display: block; }
+        [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block img {
+          float: left;
+          margin-right: 20px;
+          max-width: 100%; }
+        [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block p,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block p {
+          position: relative;
+          height: 154px; }
+        @media (max-width: 950px) {
+          [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block,
+          [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block,
+          [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block,
+          [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block,
+          [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block,
+          [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block {
+            height: auto; }
+            [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block img,
+            [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block img,
+            [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block img,
+            [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block img,
+            [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block img,
+            [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block img {
+              -webkit-transform: translateX(-50%);
+              -moz-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
+              -o-transform: translateX(-50%);
+              transform: translateX(-50%);
+              left: 50%;
+              position: absolute;
+              float: none;
+              margin: 0 0 10px;
+              position: relative; }
+            [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p,
+            [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p,
+            [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p,
+            [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p,
+            [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block p,
+            [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block p {
+              height: auto;
+              margin-top: 0; }
+              [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block p .read_more {
+                left: 0;
+                margin-top: 15px;
+                position: relative; } }
+        [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block img {
+          height: 154px;
+          width: 235px; }
+      [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions h4,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions h4,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions h4,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions h4,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_questions h4,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_questions h4 {
+        color: #950306;
+        margin-bottom: 10px;
+        padding-top: 10px; }
+      [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions p,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions p,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions p,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions p,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_questions p,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_questions p {
+        margin: 0; }
+      [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions ul,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions ul,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions ul,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions ul,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_questions ul,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_questions ul {
+        margin: 0;
+        padding-left: 30px; }
+        [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions ul li,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions ul li,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions ul li,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions ul li,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_questions ul li,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_questions ul li {
+          padding-left: 10px; }
+    [data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background,
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background,
+    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background,
+    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region .textblock_with_background,
+    [data-page-path-alias="/preserve-america/application"] #content #content_region .textblock_with_background {
+      margin-top: 35px;
+      margin-bottom: 50px; }
+      [data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background.textblock_left,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background.textblock_left,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background.textblock_left,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background.textblock_left,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region .textblock_with_background.textblock_left,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region .textblock_with_background.textblock_left {
+        background-image: url("../images/half-section-preserve-america-map.png"); }
+      [data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background.textblock_right,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background.textblock_right,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background.textblock_right,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background.textblock_right,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region .textblock_with_background.textblock_right,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region .textblock_with_background.textblock_right {
+        background-image: url("../images/half-section-preserve-america-application.png"); }
+    [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks,
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks,
+    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks,
+    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks,
+    [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericapagelinks {
+      margin: 0 auto;
+      max-width: 1024px;
+      padding-left: 40px;
+      padding-right: 40px;
+      width: 100%;
+      margin-bottom: 50px; }
+      @media (max-width: 400px) {
+        [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericapagelinks {
+          padding-left: 20px;
+          padding-right: 20px; } }
+      [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericapagelinks .read_more a {
+        display: block;
+        max-width: calc(100% - 20px);
+        position: relative; }
+        [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericapagelinks .read_more a:after {
+          -webkit-transform: none;
+          -moz-transform: none;
+          -ms-transform: none;
+          -o-transform: none;
+          transform: none;
+          position: static;
+          top: 0;
+          /*  -webkit-transform: none;
+            -moz-transform: none;
+            -ms-transform: none;
+            -o-transform: none;
+            transform: none;*/
+          position: relative;
+          top: -2px; }
+      [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks hr,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks hr,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks hr,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks hr,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks hr,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericapagelinks hr {
+        background-color: #979797;
+        height: 1px;
+        margin: 25px 0; }
+    [data-page-path-alias="/preserve-america"] #content #content_region #block-related-resources-block,
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-related-resources-block,
+    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-related-resources-block,
+    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-related-resources-block,
+    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-related-resources-block,
+    [data-page-path-alias="/preserve-america/application"] #content #content_region #block-related-resources-block {
+      margin: 0 auto;
+      max-width: 1024px;
+      padding-left: 40px;
+      padding-right: 40px;
+      width: 100%;
+      margin-bottom: 50px; }
+      @media (max-width: 400px) {
+        [data-page-path-alias="/preserve-america"] #content #content_region #block-related-resources-block,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-related-resources-block,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-related-resources-block,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-related-resources-block,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-related-resources-block,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region #block-related-resources-block {
+          padding-left: 20px;
+          padding-right: 20px; } }
+    @media (max-width: 800px) {
+      [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background {
+        height: 300px; }
+        [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container {
+          margin: 0 auto;
+          max-width: 1024px;
+          padding-left: 40px;
+          padding-right: 40px;
+          width: 100%; } }
+    @media (max-width: 800px) and (max-width: 400px) {
       [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
@@ -4554,45 +4701,52 @@ header {
       [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
       [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
       [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
-      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container {
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container {
         padding-left: 20px;
         padding-right: 20px; } }
-@media (max-width: 750px) {
-      [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
-      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
-      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
-      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
-      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
-      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
-      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
-      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
-      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p {
-        margin-bottom: 25px; }
-    [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background button, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
-    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
-    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
-    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
-    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
-    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
-    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button {
-      padding-left: 25px;
-      padding-right: 25px; } }
-@media (max-width: 550px) {
-  [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-  [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-  [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-  [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a:after {
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    position: absolute;
-    top: 50%;
-    position: absolute; } }
+    @media (max-width: 800px) {
+          [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/application"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p {
+            margin-bottom: 25px; }
+        [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background button, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/application"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button {
+          padding-left: 25px;
+          padding-right: 25px; } }
+    @media (max-width: 550px) {
+      [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
+      [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericapagelinks .read_more a:after {
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        position: absolute; } }
 
 /*
   Styles for the preservation initiates landing page.
@@ -4838,6 +4992,65 @@ header {
     margin-bottom: 0; }
   [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .application_link a {
     color: #0990FE; }
+
+[data-page-path-alias="/preserve-america/application"] #content #content_region article {
+  padding-bottom: 50px; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; }
+    [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table::after {
+      clear: both;
+      content: "";
+      display: table; }
+    [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 33.33333%;
+      padding: 5px 10px; }
+      [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type:last-child {
+        margin-right: 0; }
+      [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type h4 {
+        color: #950306;
+        margin: 10px 0; }
+      [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type .application_description {
+        height: 110px;
+        margin-top: 10px; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article p a {
+    color: #0990FE; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article h4 {
+    margin-bottom: 10px; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article .read_more a {
+    position: relative;
+    text-transform: uppercase; }
+    [data-page-path-alias="/preserve-america/application"] #content #content_region article .read_more a:after {
+      -webkit-transform: none;
+      -moz-transform: none;
+      -ms-transform: none;
+      -o-transform: none;
+      transform: none;
+      position: static;
+      top: 0;
+      /*  -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;*/
+      margin-left: 10px;
+      top: -1px; }
+@media (max-width: 900px) {
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%;
+    padding: 0px; }
+    [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type:last-child {
+      margin-right: 0; }
+    [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type .application_description {
+      height: auto; } }
 
 [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article {
   display: table;
@@ -5314,6 +5527,33 @@ header {
   This stylesheet defines the default styles
   for the Publication content type.
 */
+[data-page-node-type="publication"] h1, [data-page-node-type="publication"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="publication"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="publication"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="publication"] h1 {
+  color: #003A5E;
+  font-weight: 400;
+  text-align: left; }
+[data-page-node-type="publication"] h2 {
+  color: #003A5E; }
+[data-page-node-type="publication"] h3 {
+  color: #9B0008; }
+[data-page-node-type="publication"] header {
+  background-color: transparent;
+  color: #7C7C7C;
+  font-style: italic;
+  height: auto; }
+[data-page-node-type="publication"] .views-field-field-download {
+  background-color: #0990FE;
+  border-radius: 10px;
+  padding: 10px; }
+  [data-page-node-type="publication"] .views-field-field-download a {
+    color: white; }
+  [data-page-node-type="publication"] .views-field-field-download:before {
+    background-image: url("../images/map-icon-navy-blue.svg");
+    background-size: 20px;
+    content: '';
+    display: block;
+    height: 20px;
+    width: 20px; }
+
 /*
   This module defines the sass directives used
   to style Section 106 Process Step pages.
@@ -5945,7 +6185,7 @@ a {
   background-color: #fff; }
 
 button {
-  font-size: 0.75rem;
+  /*@include font-size($button-font-sizes);*/
   transition: background-color 0.25s;
   background-color: #0990FE;
   border: none;
@@ -5961,9 +6201,6 @@ button {
   margin: 0 auto 30px;
   padding: 12px 38px 8px;
   text-transform: uppercase; }
-  @media screen and (min-width: 650px) {
-    button {
-      font-size: 16px; } }
   button:hover {
     background-color: #71BFFE; }
   @media (max-width: 650px) {
@@ -6063,9 +6300,6 @@ blockquote {
       background-image: url("../images/right-arrow-icon-blue.svg"); }
 
 .textblock_with_background {
-                      /* Equal to double the sum of $block-width and $textblock-margin. IE 
-only executes this correctly when it's a specific number value, not a calculated sum of
-other variables */
   background-position: center;
   background-size: cover;
   height: 450px;
@@ -6077,10 +6311,10 @@ other variables */
     display: block; }
   .textblock_with_background.textblock_left {
     float: left;
-    margin-left: calc((100% - 920px)/2) !important; }
+    margin-left: calc((100% - 950px)/2) !important; }
   .textblock_with_background.textblock_right {
     float: right;
-    margin-right: calc((100% - 920px)/2); }
+    margin-right: calc((100% - 950px)/2); }
     .textblock_with_background.textblock_right:after {
       clear: both;
       content: "";
@@ -6108,21 +6342,30 @@ other variables */
       margin-bottom: 0; }
   @media (max-width: 1024px) {
     .textblock_with_background {
-      width: calc(50% - 10px - 50px); }
+      /*width: 50% - 10px;*/
+      width: calc(50% - 10px - 40px);
+      /*width: calc(50% - 10px);*/ }
       .textblock_with_background.textblock_left {
-        margin-left: 50px !important; }
+        /*margin-left: 0;*/
+        margin-left: 40px !important;
+        /*margin-left: 40px;*/ }
       .textblock_with_background.textblock_right {
-        margin-right: 50px !important; } }
-  @media (max-width: 750px) {
+        /*margin-right: 0;*/
+        margin-right: 40px !important;
+        /*margin-left: 40px;*/ } }
+  @media (max-width: 800px) {
     .textblock_with_background.textblock_with_background {
       float: none;
+      height: 300px;
       margin: 30px 0 !important;
       max-width: 100%;
       width: 100%; }
       .textblock_with_background.textblock_with_background .split_block_container {
-        padding: 20px 50px; }
+        padding: 20px 40px; }
       .textblock_with_background.textblock_with_background.textblock_left {
-        margin-bottom: 0 !important; } }
+        margin-bottom: 0 !important; }
+      .textblock_with_background.textblock_with_background.textblock_right {
+        margin-top: 0 !important; } }
   @media (max-width: 400px) {
     .textblock_with_background.textblock_with_background .split_block_container {
       padding: 15px; }
