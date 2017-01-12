@@ -2573,6 +2573,7 @@ header {
   width: 100%;
   background-color: #F4F4F4;
   height: auto;
+  max-width: 100%;
   padding-bottom: 25px;
   padding-top: 25px; }
   @media (max-width: 400px) {
@@ -2614,6 +2615,7 @@ header {
   padding-right: 40px;
   width: 100%;
   background-color: #fff;
+  max-width: 100%;
   padding-bottom: 25px;
   padding-top: 25px; }
   @media (max-width: 400px) {
@@ -2683,18 +2685,9 @@ header {
   padding-right: 40px;
   width: 100%;
   background-color: #F4F4F4;
+  max-width: 100%;
   padding-bottom: 25px;
-  padding-top: 25px;
-  padding: 25px 50px;
-  margin: 0 auto;
-  max-width: 1024px;
-  padding-left: 40px;
-  padding-right: 40px;
-  width: 100%; }
-  @media (max-width: 400px) {
-    #homepage_preserveamerica_region {
-      padding-left: 20px;
-      padding-right: 20px; } }
+  padding-top: 25px; }
   @media (max-width: 400px) {
     #homepage_preserveamerica_region {
       padding-left: 20px;
@@ -5052,6 +5045,82 @@ header {
     [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type .application_description {
       height: auto; } }
 
+/*
+  Styles for Preserve America community profile pages
+*/
+#page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-breadcrumbs {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 30px auto 0; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-breadcrumbs {
+      padding-left: 20px;
+      padding-right: 20px; } }
+#page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-pagetitle-2 {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  max-width: 750px;
+  text-align: center; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-pagetitle-2 {
+      padding-left: 20px;
+      padding-right: 20px; } }
+  #page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-pagetitle-2 h1, #page[data-page-node-type="preserve_america_community_profi"] #secondary_header #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #page[data-page-node-type="preserve_america_community_profi"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"] {
+    color: #003A5E;
+    font-weight: normal; }
+    #page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-pagetitle-2 h1:after, #page[data-page-node-type="preserve_america_community_profi"] #secondary_header #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #page[data-page-node-type="preserve_america_community_profi"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after {
+      background-color: #950306;
+      display: block;
+      content: "";
+      height: 1px;
+      margin: 5px auto 25px;
+      width: 15%; }
+#page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-preserveamerica-shareblock {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 30px;
+  max-width: 750px; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="preserve_america_community_profi"] #secondary_header_region #block-preserveamerica-shareblock {
+      padding-left: 20px;
+      padding-right: 20px; } }
+#page[data-page-node-type="preserve_america_community_profi"] #content #content_region {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 50px;
+  max-width: 750px; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="preserve_america_community_profi"] #content #content_region {
+      padding-left: 20px;
+      padding-right: 20px; } }
+  #page[data-page-node-type="preserve_america_community_profi"] #content #content_region .views-field-body p:first-of-type {
+    margin-top: 0; }
+  #page[data-page-node-type="preserve_america_community_profi"] #content #content_region img {
+    display: none; }
+  #page[data-page-node-type="preserve_america_community_profi"] #content #content_region a {
+    color: #0990FE; }
+  #page[data-page-node-type="preserve_america_community_profi"] #content #content_region .views-field-field-community-website h4 {
+    margin-bottom: 10px; }
+    #page[data-page-node-type="preserve_america_community_profi"] #content #content_region .views-field-field-community-website h4:before {
+      background-color: #979797;
+      display: block;
+      content: "";
+      height: 1px;
+      margin: 35px auto;
+      width: 100%; }
+
 [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article {
   display: table;
   max-width: 1024px;
@@ -6195,6 +6264,7 @@ button {
   cursor: pointer;
   display: block;
   font-family: "p22-underground", sans-serif;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.02rem;
   line-height: 1.4rem;
