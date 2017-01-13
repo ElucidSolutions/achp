@@ -43,9 +43,13 @@
           display: none;
           font-family: $header-font-family;
           margin-bottom: $margin-med;
-          padding: $page-menu-instance-menu-item-padding;
+          padding: 0 $margin-med;
+          position: relative;
           text-transform: uppercase;
 
+          .page-menu-instance-menu-header-title {
+            line-height: $margin-large;
+          }
           &:after {
             background-image: url('../images/plus-icon.svg');
             background-position: center;
@@ -55,7 +59,7 @@
             height: $page-menu-instance-menu-header-icon-height;
             position: absolute;
             right: $page-menu-instance-menu-header-icon-height;
-            top: 24px;
+            top: $margin-small;
             width: $page-menu-instance-menu-header-icon-height;
           }
         }
@@ -89,7 +93,7 @@
             height: $page-menu-instance-menu-header-icon-height;
             position: absolute;
             right: $page-menu-instance-menu-header-icon-height;
-            top: 24px;
+            top: $margin-small;
             width: $page-menu-instance-menu-header-icon-height;
           }
         }

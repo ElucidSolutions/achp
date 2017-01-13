@@ -36,33 +36,43 @@
  * @see template_preprocess_field()
  */
 #}
-
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes }}>
+    <div{{ attributes }} data-achp-field-name="{{ field_name }}" class="achp-field">
       {% for item in items %}
-        <div class="event_attachment_title"><a href="{{ item.url }}">{{ item.title }}</a></div>
-        <div class="1">{{ item.field_attachment }}</div>
-        <div class="event_attachment_body">{{ item.body|raw }}</div>
+        <div{{ item.attributes }}
+          class="achp-field-item"
+          data-achp-field-item-index="{{ loop.index }}"
+          {% if loop.last %}class="achp-field-item-last"{% endif %}
+          {% if loop.first %}class="achp-field-item-first"{% endif %}
+        >{{ item.content }}</div>
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <div class="event_attachment_title"><a href="{{ item.url }}">{{ item.title }}</a></div>
-      <div class="1">{{ item.field_attachment }}</div>
-      <div class="event_attachment_body">{{ item.body|raw }}</div>
+      <div{{ attributes }}
+        class="achp-field"
+        class="achp-field-item"
+        data-achp-field-name="{{ field_name }}"
+        data-achp-field-item-index="{{ loop.index }}"
+        {% if loop.last %}class="achp-field-item-last"{% endif %}
+        {% if loop.first %}class="achp-field-item-first"{% endif %}
+      >{{ item.content }}</div>
     {% endfor %}
   {% endif %}
 {% else %}
-  <div{{ attributes }}>
-    <div{{ title_attributes }}>{{ label }}</div>
+  <div{{ attributes }} data-achp-field-name="{{ field_name }}" class="achp-field" class="achp-field-item">
+    <div{{ title_attributes }} class="achp-field-label">{{ label }}</div>
     {% if multiple %}
       <div>
     {% endif %}
     {% for item in items %}
-      <div class="event_attachment_title"><a href="{{ item.url }}">{{ item.title }}</a></div>
-      <div class="1">{{ item.field_attachment }}</div>
-      <div class="event_attachment_body">{{ item.body|raw }}</div>
+      <div{{ item.attributes }}
+        class="achp-field-item"
+        data-achp-field-item-index="{{ loop.index }}"
+        {% if loop.last %}class="achp-field-item-last"{% endif %}
+        {% if loop.first %}class="achp-field-item-first"{% endif %}
+      >{{ item.content }}</div>
     {% endfor %}
     {% if multiple %}
       </div>

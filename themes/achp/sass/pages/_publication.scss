@@ -16,27 +16,41 @@
       color: $color-red2;
     }
     header {
+      @include body-text;
       background-color: transparent;
       color: $color-lightgrey-2;
       font-style: italic;
       height: auto;
-      margin: $margin-small 0;
+      margin-bottom: $margin-small;
+    }
+    [data-plugin-id="system_breadcrumb_block"] {
+      padding-top: 0;
     }
     .achp_date_published {
       color: $color-lightgrey-2;
       font-style: italic;
-      margin: $margin-small 0;
+      margin: 0 0 $margin-small;
+    }
+    [data-plugin-id="share_this_page_block"] {
+      margin-bottom: $margin-large;
+    }
+    .achp_synopsis {
+      @include body-text;
+    }
+    [data-derivative-plugin-id="document_download-block_1"] {
+      margin-bottom: $margin-med;
+      padding-bottom: $margin-med;
+      border-bottom: $separator;
     }
     .views-field-field-download {
       a {
-        @include hover-transition-content($color-lightblue-primary);
-        color: $color-blue-primary;
         font-family: $header-font-family;
+        font-size: $default-font-size;
         text-transform: uppercase;
 
         &:after {
           background-image: url('../images/downloading-icon.svg');
-          backgound-position-y: bottom;
+          background-position-y: bottom;
           background-size: 12px;
           background-repeat: no-repeat;
           content: '';
@@ -46,6 +60,21 @@
           width: $margin-med;
         }
       }
+    }
+    [data-achp-field-name="field_tags"] {
+      border-top: $separator;
+      padding-top: $margin-med;
+      margin-bottom: $margin-med;
+
+      .achp-field-label {
+        @include h4;
+        text-align: left;
+      }
+    }
+  }
+  #content_left_region {
+    .page-menu-instance-container {
+      padding-top: 280px; // manually positioned the menu next to the Synopsis Header.
     }
   }
   #content_region {
@@ -60,8 +89,28 @@
       }
     }
     #content_region {
+      [data-plugin-id="share_this_page_block"] {
+        margin-bottom: $margin-med;
+      }
       [data-plugin-id="page_menu_block"] {
-        display: block
+        display: block;
+        padding-top: 0;
+      }
+    }
+  }
+  @media screen and (max-width: $mobile-breakpoint) {
+    #content_region {
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+      }
+      .achp_date_published {
+        text-align: center;
       }
     }
   }

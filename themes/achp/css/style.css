@@ -188,11 +188,12 @@ html {
         fill: #0990FE !important; }
 
 @media (max-width: 650px) {
-  #block-breadcrumbs {
-    height: 50px; }
-    #block-breadcrumbs .achp-breadcrumb {
-      display: none; }
-    #block-breadcrumbs .mobile_breadcrumb {
+  [data-plugin-id="system_breadcrumb_block"] {
+    height: 50px;
+    padding-top: 0; }
+    [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb {
+      display: none !important; }
+    [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb {
       display: block; } }
 /*
   This stylesheet provides default styling for
@@ -1264,9 +1265,33 @@ the events landing page is different */
     applied to.
   */
   /*
-    Accepts one argument: font-size, a CSS length
-    measure; and resets the mobile font size of
-    the element this mixin is applied to.
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin accepts sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H4 element.
   */
   display: flex;
   flex-grow: 1;
@@ -1276,63 +1301,88 @@ the events landing page is different */
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
-    margin-bottom: 20px; }
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    transition: color 0.25s;
+    color: #0990FE;
+    font-family: "p22-underground", sans-serif; }
+    [data-plugin-id="page_menu_block"] a:hover {
+      color: #71BFFE; }
   [data-plugin-id="page_menu_block"] blockquote {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
     margin-bottom: 20px;
     font-size: 1.5rem;
     font-style: italic; }
     @media screen and (max-width: 650px) {
       [data-plugin-id="page_menu_block"] blockquote {
-        font-size: 1.125rem; } }
+        font-size: 1.125rem;
+        margin-bottom: 20px; } }
   [data-plugin-id="page_menu_block"] h1, [data-plugin-id="page_menu_block"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-plugin-id="page_menu_block"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-plugin-id="page_menu_block"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-plugin-id="page_menu_block"] h1 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
+    font-weight: 400;
     font-size: 2.25rem; }
     @media screen and (max-width: 650px) {
       [data-plugin-id="page_menu_block"] h1, [data-plugin-id="page_menu_block"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-plugin-id="page_menu_block"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-plugin-id="page_menu_block"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-plugin-id="page_menu_block"] h1 {
-        font-size: 1.625rem; } }
+        font-size: 1.625rem;
+        margin-bottom: 0; } }
   [data-plugin-id="page_menu_block"] h2 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
-    font-size: 2rem; }
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 20px; }
     @media screen and (max-width: 650px) {
       [data-plugin-id="page_menu_block"] h2 {
-        font-size: 1.375rem; } }
+        font-size: 1.375rem;
+        margin-bottom: 5px; } }
   [data-plugin-id="page_menu_block"] h3 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
-    font-size: 1.75rem; }
+    font-weight: 400;
+    font-size: 1.375rem;
+    margin-bottom: 5px; }
     @media screen and (max-width: 650px) {
       [data-plugin-id="page_menu_block"] h3 {
-        font-size: 1.25rem; } }
+        font-size: 1.25rem;
+        margin-bottom: 0; } }
   [data-plugin-id="page_menu_block"] h4 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
+    font-weight: 400;
     font-size: 1.375rem; }
     @media screen and (max-width: 650px) {
       [data-plugin-id="page_menu_block"] h4 {
-        font-size: 1.125rem; } }
+        font-size: 1.125rem;
+        margin-bottom: 0; } }
   [data-plugin-id="page_menu_block"] p {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
     margin-bottom: 20px; }
   [data-plugin-id="page_menu_block"] ul {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
-    margin-bottom: 20px; }
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    margin-left: 20px; }
   [data-plugin-id="page_menu_block"] .page-menu-instance-container {
     display: flex;
     flex-grow: 1; }
@@ -1350,8 +1400,11 @@ the events landing page is different */
           display: none;
           font-family: "p22-underground", sans-serif;
           margin-bottom: 20px;
-          padding: 10px 20px;
+          padding: 0 20px;
+          position: relative;
           text-transform: uppercase; }
+          [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header .page-menu-instance-menu-header-title {
+            line-height: 40px; }
           [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header:after {
             background-image: url("../images/plus-icon.svg");
             background-position: center;
@@ -1361,7 +1414,7 @@ the events landing page is different */
             height: 15px;
             position: absolute;
             right: 15px;
-            top: 24px;
+            top: 10px;
             width: 15px; }
         [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list {
           list-style-type: none;
@@ -1385,7 +1438,7 @@ the events landing page is different */
         height: 15px;
         position: absolute;
         right: 15px;
-        top: 24px;
+        top: 10px;
         width: 15px; }
   @media screen and (min-width: 925px) {
     [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
@@ -1779,24 +1832,148 @@ the events landing page is different */
   This stylesheet provides the default styling
   for the Related Resources block.
 */
-[data-derivative-plugin-id^="related_resources"] h2 {
-  border-bottom: 2px solid #C6C6C6;
-  color: #9B0008;
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 20px;
-  padding-bottom: 5px;
-  text-align: left;
-  text-transform: uppercase; }
-[data-derivative-plugin-id^="related_resources"] .views-field-title {
-  font-size: 1.125rem;
-  margin-bottom: 5px; }
-  [data-derivative-plugin-id^="related_resources"] .views-field-title a {
-    color: #0990FE; }
-[data-derivative-plugin-id^="related_resources"] .views-field-body {
-  color: #4A4A4A;
-  font-size: 1.125rem;
-  margin-bottom: 20px; }
+[data-derivative-plugin-id^="related_resources"] {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin accepts sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */ }
+  [data-derivative-plugin-id^="related_resources"] a {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    transition: color 0.25s;
+    color: #0990FE;
+    font-family: "p22-underground", sans-serif; }
+    [data-derivative-plugin-id^="related_resources"] a:hover {
+      color: #71BFFE; }
+  [data-derivative-plugin-id^="related_resources"] blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-style: italic; }
+    @media screen and (max-width: 650px) {
+      [data-derivative-plugin-id^="related_resources"] blockquote {
+        font-size: 1.125rem;
+        margin-bottom: 20px; } }
+  [data-derivative-plugin-id^="related_resources"] h1, [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-derivative-plugin-id^="related_resources"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-derivative-plugin-id^="related_resources"] h1 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    font-size: 2.25rem; }
+    @media screen and (max-width: 650px) {
+      [data-derivative-plugin-id^="related_resources"] h1, [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-derivative-plugin-id^="related_resources"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-derivative-plugin-id^="related_resources"] h1 {
+        font-size: 1.625rem;
+        margin-bottom: 0; } }
+  [data-derivative-plugin-id^="related_resources"] h2 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 20px; }
+    @media screen and (max-width: 650px) {
+      [data-derivative-plugin-id^="related_resources"] h2 {
+        font-size: 1.375rem;
+        margin-bottom: 5px; } }
+  [data-derivative-plugin-id^="related_resources"] h3 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    font-size: 1.375rem;
+    margin-bottom: 5px; }
+    @media screen and (max-width: 650px) {
+      [data-derivative-plugin-id^="related_resources"] h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0; } }
+  [data-derivative-plugin-id^="related_resources"] h4 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    font-size: 1.375rem; }
+    @media screen and (max-width: 650px) {
+      [data-derivative-plugin-id^="related_resources"] h4 {
+        font-size: 1.125rem;
+        margin-bottom: 0; } }
+  [data-derivative-plugin-id^="related_resources"] p {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  [data-derivative-plugin-id^="related_resources"] ul {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    margin-left: 20px; }
+  [data-derivative-plugin-id^="related_resources"] h2 {
+    border-bottom: 1px solid #E5E3E4;
+    color: #9B0008;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    text-align: left;
+    text-transform: uppercase; }
+  [data-derivative-plugin-id^="related_resources"] .views-field-title {
+    font-size: 1.125rem;
+    margin-bottom: 5px; }
+    [data-derivative-plugin-id^="related_resources"] .views-field-title a {
+      color: #0990FE; }
+  [data-derivative-plugin-id^="related_resources"] .views-field-body {
+    color: #4A4A4A;
+    font-size: 1.125rem;
+    margin-bottom: 20px; }
 
 /*
 ** This Sass file defines the styles for the 
@@ -2503,7 +2680,8 @@ header {
 
 @media screen and (max-width: 650px) {
   #content {
-    display: block; } }
+    display: block;
+    padding: 0 20px; } }
 /*
   This module contains styles used within the
   Homepage Hero region.
@@ -5186,71 +5364,120 @@ header {
     applied to.
   */
   /*
-    Accepts one argument: font-size, a CSS length
-    measure; and resets the mobile font size of
-    the element this mixin is applied to.
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin accepts sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H4 element.
   */ }
   [data-page-node-type="publication"] a {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
-    margin-bottom: 20px; }
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    transition: color 0.25s;
+    color: #0990FE;
+    font-family: "p22-underground", sans-serif; }
+    [data-page-node-type="publication"] a:hover {
+      color: #71BFFE; }
   [data-page-node-type="publication"] blockquote {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
     margin-bottom: 20px;
     font-size: 1.5rem;
     font-style: italic; }
     @media screen and (max-width: 650px) {
       [data-page-node-type="publication"] blockquote {
-        font-size: 1.125rem; } }
+        font-size: 1.125rem;
+        margin-bottom: 20px; } }
   [data-page-node-type="publication"] h1, [data-page-node-type="publication"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="publication"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="publication"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="publication"] h1 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
+    font-weight: 400;
     font-size: 2.25rem; }
     @media screen and (max-width: 650px) {
       [data-page-node-type="publication"] h1, [data-page-node-type="publication"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="publication"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="publication"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="publication"] h1 {
-        font-size: 1.625rem; } }
+        font-size: 1.625rem;
+        margin-bottom: 0; } }
   [data-page-node-type="publication"] h2 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
-    font-size: 2rem; }
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 20px; }
     @media screen and (max-width: 650px) {
       [data-page-node-type="publication"] h2 {
-        font-size: 1.375rem; } }
+        font-size: 1.375rem;
+        margin-bottom: 5px; } }
   [data-page-node-type="publication"] h3 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
-    font-size: 1.75rem; }
+    font-weight: 400;
+    font-size: 1.375rem;
+    margin-bottom: 5px; }
     @media screen and (max-width: 650px) {
       [data-page-node-type="publication"] h3 {
-        font-size: 1.25rem; } }
+        font-size: 1.25rem;
+        margin-bottom: 0; } }
   [data-page-node-type="publication"] h4 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
+    font-weight: 400;
     font-size: 1.375rem; }
     @media screen and (max-width: 650px) {
       [data-page-node-type="publication"] h4 {
-        font-size: 1.125rem; } }
+        font-size: 1.125rem;
+        margin-bottom: 0; } }
   [data-page-node-type="publication"] p {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
     margin-bottom: 20px; }
   [data-page-node-type="publication"] ul {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
-    margin-bottom: 20px; }
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    margin-left: 20px; }
   [data-page-node-type="publication"] #main h1, [data-page-node-type="publication"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="publication"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="publication"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="publication"] #main h1 {
     text-align: left; }
   [data-page-node-type="publication"] #main h2 {
@@ -5258,25 +5485,43 @@ header {
   [data-page-node-type="publication"] #main h3 {
     color: #9B0008; }
   [data-page-node-type="publication"] #main header {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
     background-color: transparent;
     color: #7C7C7C;
     font-style: italic;
     height: auto;
-    margin: 10px 0; }
+    margin-bottom: 10px; }
+  [data-page-node-type="publication"] #main [data-plugin-id="system_breadcrumb_block"] {
+    padding-top: 0; }
   [data-page-node-type="publication"] #main .achp_date_published {
     color: #7C7C7C;
     font-style: italic;
-    margin: 10px 0; }
+    margin: 0 0 10px; }
+  [data-page-node-type="publication"] #main [data-plugin-id="share_this_page_block"] {
+    margin-bottom: 40px; }
+  [data-page-node-type="publication"] #main .achp_synopsis {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  [data-page-node-type="publication"] #main [data-derivative-plugin-id="document_download-block_1"] {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E5E3E4; }
   [data-page-node-type="publication"] #main .views-field-field-download a {
-    transition: color 0.25s;
-    color: #0990FE;
     font-family: "p22-underground", sans-serif;
+    font-size: 1.125rem;
     text-transform: uppercase; }
-    [data-page-node-type="publication"] #main .views-field-field-download a:hover {
-      color: #71BFFE; }
     [data-page-node-type="publication"] #main .views-field-field-download a:after {
       background-image: url("../images/downloading-icon.svg");
-      backgound-position-y: bottom;
+      background-position-y: bottom;
       background-size: 12px;
       background-repeat: no-repeat;
       content: '';
@@ -5284,13 +5529,43 @@ header {
       height: 16px;
       margin-left: 10px;
       width: 20px; }
+  [data-page-node-type="publication"] #main [data-achp-field-name="field_tags"] {
+    border-top: 1px solid #E5E3E4;
+    padding-top: 20px;
+    margin-bottom: 20px; }
+    [data-page-node-type="publication"] #main [data-achp-field-name="field_tags"] .achp-field-label {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      font-size: 1.375rem;
+      text-align: left; }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="publication"] #main [data-achp-field-name="field_tags"] .achp-field-label {
+          font-size: 1.125rem;
+          margin-bottom: 0; } }
+  [data-page-node-type="publication"] #content_left_region .page-menu-instance-container {
+    padding-top: 280px; }
   [data-page-node-type="publication"] #content_region [data-plugin-id="page_menu_block"] {
     display: none; }
   @media screen and (max-width: 925px) {
     [data-page-node-type="publication"] #content_left_region [data-plugin-id="page_menu_block"] {
       display: none; }
+    [data-page-node-type="publication"] #content_region [data-plugin-id="share_this_page_block"] {
+      margin-bottom: 20px; }
     [data-page-node-type="publication"] #content_region [data-plugin-id="page_menu_block"] {
-      display: block; } }
+      display: block;
+      padding-top: 0; } }
+  @media screen and (max-width: 650px) {
+    [data-page-node-type="publication"] #content_region h1, [data-page-node-type="publication"] #content_region #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="publication"] #content_region .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="publication"] #content_region #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="publication"] #content_region h1 {
+      text-align: center; }
+    [data-page-node-type="publication"] #content_region h2 {
+      text-align: center; }
+    [data-page-node-type="publication"] #content_region h3 {
+      text-align: center; }
+    [data-page-node-type="publication"] #content_region .achp_date_published {
+      text-align: center; } }
 
 /*
   This module defines the sass directives used

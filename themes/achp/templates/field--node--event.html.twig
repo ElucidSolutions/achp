@@ -89,7 +89,7 @@
   <div{{ attributes }}>
     <div{{ title_attributes }} class="{{ field_name }}_label autolabel">{{ label }}</div>
     {% if multiple %}
-      <div">
+      <div>
     {% endif %}
     {% for item in items %}
       <div{{ item.attributes }} class="{{ field_name }}">{{ item.content }}</div>
