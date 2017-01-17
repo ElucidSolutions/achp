@@ -11,22 +11,8 @@
   #content {
     position: relative;
   }
-  #content_left_region {
-    @include tablet(display, none);
-    height: 100%;
-    position: absolute;
-    width: $content_left_region_width;
-
-    [data-plugin-id="page_menu_block"] {
-      @include responsive(display, flex, none);
-
-      .page-menu-instance-container {
-        padding-top: 280px; // manually positioned the menu next to the Synopsis Header.
-      }
-    }
-  }
   #content_region {
-    @include responsive(margin-left, $content_left_region_width, 0);
+    @include tablet(margin-left, 0 !important);
 
     h3 {
       color: $color-red2;
@@ -43,8 +29,11 @@
       @include responsive(margin-bottom, $margin-large, $margin-med);
     }
     [data-plugin-id="page_menu_block"] {
-      @include responsive(display, none, block);
-      @include tablet(padding-top, 0);
+      @include responsive(position, absolute, static);
+
+      .page-menu-instance-container {
+        @include responsive(margin-top, 300px, 0 !important);
+      }
     }
     .achp_synopsis {
       @include body-text-block;
