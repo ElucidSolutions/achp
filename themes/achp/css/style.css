@@ -3469,10 +3469,10 @@ header {
         [data-page-node-type="alternative_procedure"] #main #content_region [data-plugin-id="page_menu_block"] {
           position: static; } }
       [data-page-node-type="alternative_procedure"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-        margin-top: 300px; }
+        padding-top: 300px; }
         @media screen and (max-width: 925px) {
           [data-page-node-type="alternative_procedure"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-            margin-top: 0 !important; } }
+            padding-top: 0 !important; } }
     [data-page-node-type="alternative_procedure"] #main #content_region .achp_synopsis {
       margin: 0;
       padding: 0;
@@ -4176,10 +4176,10 @@ header {
         [data-page-node-type="exemption"] #main #content_region [data-plugin-id="page_menu_block"] {
           position: static; } }
       [data-page-node-type="exemption"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-        margin-top: 300px; }
+        padding-top: 300px; }
         @media screen and (max-width: 925px) {
           [data-page-node-type="exemption"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-            margin-top: 0 !important; } }
+            padding-top: 0 !important; } }
     [data-page-node-type="exemption"] #main #content_region .achp_synopsis {
       margin: 0;
       padding: 0;
@@ -4482,10 +4482,10 @@ header {
         [data-page-node-type="guidance_document"] #main #content_region [data-plugin-id="page_menu_block"] {
           position: static; } }
       [data-page-node-type="guidance_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-        margin-top: 300px; }
+        padding-top: 300px; }
         @media screen and (max-width: 925px) {
           [data-page-node-type="guidance_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-            margin-top: 0 !important; } }
+            padding-top: 0 !important; } }
     [data-page-node-type="guidance_document"] #main #content_region .achp_synopsis {
       margin: 0;
       padding: 0;
@@ -4993,10 +4993,10 @@ header {
         [data-page-node-type="legislation"] #main #content_region [data-plugin-id="page_menu_block"] {
           position: static; } }
       [data-page-node-type="legislation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-        margin-top: 300px; }
+        padding-top: 300px; }
         @media screen and (max-width: 925px) {
           [data-page-node-type="legislation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-            margin-top: 0 !important; } }
+            padding-top: 0 !important; } }
     [data-page-node-type="legislation"] #main #content_region .achp_synopsis {
       margin: 0;
       padding: 0;
@@ -5299,10 +5299,10 @@ header {
         [data-page-node-type="memorandum_of_agreement"] #main #content_region [data-plugin-id="page_menu_block"] {
           position: static; } }
       [data-page-node-type="memorandum_of_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-        margin-top: 300px; }
+        padding-top: 300px; }
         @media screen and (max-width: 925px) {
           [data-page-node-type="memorandum_of_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-            margin-top: 0 !important; } }
+            padding-top: 0 !important; } }
     [data-page-node-type="memorandum_of_agreement"] #main #content_region .achp_synopsis {
       margin: 0;
       padding: 0;
@@ -6285,10 +6285,10 @@ header {
         [data-page-node-type="opinion_statement"] #main #content_region [data-plugin-id="page_menu_block"] {
           position: static; } }
       [data-page-node-type="opinion_statement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-        margin-top: 300px; }
+        padding-top: 300px; }
         @media screen and (max-width: 925px) {
           [data-page-node-type="opinion_statement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-            margin-top: 0 !important; } }
+            padding-top: 0 !important; } }
     [data-page-node-type="opinion_statement"] #main #content_region .achp_synopsis {
       margin: 0;
       padding: 0;
@@ -6471,6 +6471,312 @@ header {
           padding-right: calc(100% - 215px); }
         #page[data-page-node-type="page_with_banner"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-node-type="issue"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button {
           margin-left: 10px; } }
+
+/*
+  This stylesheet defines the default styles
+  for the Policy Document content type.
+*/
+[data-page-node-type="policy_document"] {
+  /*
+    This stylesheet defines default styles shared
+    by the Digital Library document pages.
+  */ }
+  [data-page-node-type="policy_document"] #main {
+    /*
+      This stylesheet defines the default styles
+      for various elements as defined by the current
+      version of the ACHP styleguide.
+    */
+    /*
+      Accepts no arguments and removes the padding
+      and margins from the element this mixin is
+      applied to.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and mobile-value, another CSS value
+    
+      sets property to mobile-value and adds a media
+      query that sets property to mobile-value for
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and tablet-value, another CSS value
+    
+      sets property to tablet-value and adds a media
+      query that sets property to tablet-value for
+      tablet screens.
+    */
+    /*
+      Accepts four arguments:
+    
+      * property, a CSS property
+      * widescreen-value, a CSS value
+      * tablet-value, a CSS value
+      * and mobile-value, an optional CSS value
+    
+      sets property to widescreen-value and
+      adds media queries that sets property to
+      tablet-value and mobile-value for tablet and
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * front-size, a CSS length measure
+      * margin-bottom, a CSS length measure
+    
+      and sets both the font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area -
+      affecting the bottom margin.
+    */
+    /*
+      Accepts two arguments:
+    
+      * font-size, a CSS length measure
+      * and margin-bottom, a CSS length measure
+    
+      and sets the mobile font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area.
+    */
+    /*
+      Accepts four length measures as
+      arguments: $widescreen-font-size,
+      $widescreen-margin-bottom, $mobile-font-size,
+      and $mobile-margin-bottom, and sets the
+      widescreen and mobile font sizes while
+      adjusting the bottom margins.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H1 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H2 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H3 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H4 element.
+    */
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7; }
+    [data-page-node-type="policy_document"] #main a {
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: color 0.25s;
+      color: #0990FE;
+      font-family: "p22-underground", sans-serif; }
+      [data-page-node-type="policy_document"] #main a:hover {
+        color: #71BFFE; }
+    [data-page-node-type="policy_document"] #main blockquote {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-style: italic; }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main blockquote {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main blockquote {
+          margin-bottom: 20px; } }
+    [data-page-node-type="policy_document"] #main h1, [data-page-node-type="policy_document"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="policy_document"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="policy_document"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="policy_document"] #main h1 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2.25rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="policy_document"] #main h1, [data-page-node-type="policy_document"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="policy_document"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="policy_document"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="policy_document"] #main h1 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main h1, [data-page-node-type="policy_document"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="policy_document"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="policy_document"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="policy_document"] #main h1 {
+          font-size: 1.625rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main h1, [data-page-node-type="policy_document"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="policy_document"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="policy_document"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="policy_document"] #main h1 {
+          margin-bottom: 0; } }
+    [data-page-node-type="policy_document"] #main h2 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="policy_document"] #main h2 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main h2 {
+          font-size: 1.375rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main h2 {
+          margin-bottom: 5px; } }
+    [data-page-node-type="policy_document"] #main h3 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 5px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="policy_document"] #main h3 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main h3 {
+          font-size: 1.25rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main h3 {
+          margin-bottom: 0; } }
+    [data-page-node-type="policy_document"] #main h4 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="policy_document"] #main h4 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main h4 {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="policy_document"] #main h4 {
+          margin-bottom: 0; } }
+    [data-page-node-type="policy_document"] #main p {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="policy_document"] #main ul {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="policy_document"] #main #content {
+      position: relative; }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="policy_document"] #main #content_region {
+        margin-left: 0 !important; } }
+    [data-page-node-type="policy_document"] #main #content_region h3 {
+      color: #9B0008; }
+    [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="system_breadcrumb_block"] {
+      padding-top: 0; }
+    [data-page-node-type="policy_document"] #main #content_region .achp_date_published {
+      color: #7C7C7C;
+      font-style: italic;
+      margin: 0 0 10px; }
+    [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="share_this_page_block"] {
+      margin-bottom: 40px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="share_this_page_block"] {
+          margin-bottom: 20px; } }
+    [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="page_menu_block"] {
+      position: absolute; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="page_menu_block"] {
+          position: static; } }
+      [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+        padding-top: 300px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+            padding-top: 0 !important; } }
+    [data-page-node-type="policy_document"] #main #content_region .achp_synopsis {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="policy_document"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E5E3E4; }
+      [data-page-node-type="policy_document"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
+        margin: 0;
+        padding: 0;
+        font-family: "minion-pro", serif;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        background-color: transparent;
+        color: #7C7C7C;
+        font-style: italic;
+        height: auto;
+        margin-bottom: 10px; }
+      [data-page-node-type="policy_document"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+        font-family: "p22-underground", sans-serif;
+        font-size: 1.125rem;
+        text-transform: uppercase; }
+        [data-page-node-type="policy_document"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:after {
+          background-image: url("../images/downloading-icon.svg");
+          background-position-y: bottom;
+          background-size: 12px;
+          background-repeat: no-repeat;
+          content: '';
+          display: inline-block;
+          height: 16px;
+          margin-left: 10px;
+          width: 20px; }
+    [data-page-node-type="policy_document"] #main #content_region [data-achp-field-name="field_tags"] {
+      border-top: 1px solid #E5E3E4;
+      padding-top: 20px;
+      margin: 20px 0; }
+      [data-page-node-type="policy_document"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+        margin: 0;
+        padding: 0;
+        color: #003A5E;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 400;
+        text-align: left;
+        font-size: 1.375rem;
+        margin-bottom: 0;
+        text-align: left; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="policy_document"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            text-align: center; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="policy_document"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            font-size: 1.125rem; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="policy_document"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            margin-bottom: 0; } }
 
 [data-page-path-alias="/preserve-america"] #secondary_header_region #block-breadcrumbs,
 [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-breadcrumbs,
@@ -7348,6 +7654,924 @@ header {
 
 /*
   This stylesheet defines the default styles
+  for the Program Comment content type.
+*/
+[data-page-node-type="program_comments"] {
+  /*
+    This stylesheet defines default styles shared
+    by the Digital Library document pages.
+  */ }
+  [data-page-node-type="program_comments"] #main {
+    /*
+      This stylesheet defines the default styles
+      for various elements as defined by the current
+      version of the ACHP styleguide.
+    */
+    /*
+      Accepts no arguments and removes the padding
+      and margins from the element this mixin is
+      applied to.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and mobile-value, another CSS value
+    
+      sets property to mobile-value and adds a media
+      query that sets property to mobile-value for
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and tablet-value, another CSS value
+    
+      sets property to tablet-value and adds a media
+      query that sets property to tablet-value for
+      tablet screens.
+    */
+    /*
+      Accepts four arguments:
+    
+      * property, a CSS property
+      * widescreen-value, a CSS value
+      * tablet-value, a CSS value
+      * and mobile-value, an optional CSS value
+    
+      sets property to widescreen-value and
+      adds media queries that sets property to
+      tablet-value and mobile-value for tablet and
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * front-size, a CSS length measure
+      * margin-bottom, a CSS length measure
+    
+      and sets both the font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area -
+      affecting the bottom margin.
+    */
+    /*
+      Accepts two arguments:
+    
+      * font-size, a CSS length measure
+      * and margin-bottom, a CSS length measure
+    
+      and sets the mobile font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area.
+    */
+    /*
+      Accepts four length measures as
+      arguments: $widescreen-font-size,
+      $widescreen-margin-bottom, $mobile-font-size,
+      and $mobile-margin-bottom, and sets the
+      widescreen and mobile font sizes while
+      adjusting the bottom margins.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H1 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H2 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H3 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H4 element.
+    */
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7; }
+    [data-page-node-type="program_comments"] #main a {
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: color 0.25s;
+      color: #0990FE;
+      font-family: "p22-underground", sans-serif; }
+      [data-page-node-type="program_comments"] #main a:hover {
+        color: #71BFFE; }
+    [data-page-node-type="program_comments"] #main blockquote {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-style: italic; }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main blockquote {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main blockquote {
+          margin-bottom: 20px; } }
+    [data-page-node-type="program_comments"] #main h1, [data-page-node-type="program_comments"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="program_comments"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="program_comments"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="program_comments"] #main h1 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2.25rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="program_comments"] #main h1, [data-page-node-type="program_comments"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="program_comments"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="program_comments"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="program_comments"] #main h1 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main h1, [data-page-node-type="program_comments"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="program_comments"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="program_comments"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="program_comments"] #main h1 {
+          font-size: 1.625rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main h1, [data-page-node-type="program_comments"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="program_comments"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="program_comments"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="program_comments"] #main h1 {
+          margin-bottom: 0; } }
+    [data-page-node-type="program_comments"] #main h2 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="program_comments"] #main h2 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main h2 {
+          font-size: 1.375rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main h2 {
+          margin-bottom: 5px; } }
+    [data-page-node-type="program_comments"] #main h3 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 5px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="program_comments"] #main h3 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main h3 {
+          font-size: 1.25rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main h3 {
+          margin-bottom: 0; } }
+    [data-page-node-type="program_comments"] #main h4 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="program_comments"] #main h4 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main h4 {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="program_comments"] #main h4 {
+          margin-bottom: 0; } }
+    [data-page-node-type="program_comments"] #main p {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="program_comments"] #main ul {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="program_comments"] #main #content {
+      position: relative; }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="program_comments"] #main #content_region {
+        margin-left: 0 !important; } }
+    [data-page-node-type="program_comments"] #main #content_region h3 {
+      color: #9B0008; }
+    [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="system_breadcrumb_block"] {
+      padding-top: 0; }
+    [data-page-node-type="program_comments"] #main #content_region .achp_date_published {
+      color: #7C7C7C;
+      font-style: italic;
+      margin: 0 0 10px; }
+    [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="share_this_page_block"] {
+      margin-bottom: 40px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="share_this_page_block"] {
+          margin-bottom: 20px; } }
+    [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="page_menu_block"] {
+      position: absolute; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="page_menu_block"] {
+          position: static; } }
+      [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+        padding-top: 300px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+            padding-top: 0 !important; } }
+    [data-page-node-type="program_comments"] #main #content_region .achp_synopsis {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="program_comments"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E5E3E4; }
+      [data-page-node-type="program_comments"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
+        margin: 0;
+        padding: 0;
+        font-family: "minion-pro", serif;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        background-color: transparent;
+        color: #7C7C7C;
+        font-style: italic;
+        height: auto;
+        margin-bottom: 10px; }
+      [data-page-node-type="program_comments"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+        font-family: "p22-underground", sans-serif;
+        font-size: 1.125rem;
+        text-transform: uppercase; }
+        [data-page-node-type="program_comments"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:after {
+          background-image: url("../images/downloading-icon.svg");
+          background-position-y: bottom;
+          background-size: 12px;
+          background-repeat: no-repeat;
+          content: '';
+          display: inline-block;
+          height: 16px;
+          margin-left: 10px;
+          width: 20px; }
+    [data-page-node-type="program_comments"] #main #content_region [data-achp-field-name="field_tags"] {
+      border-top: 1px solid #E5E3E4;
+      padding-top: 20px;
+      margin: 20px 0; }
+      [data-page-node-type="program_comments"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+        margin: 0;
+        padding: 0;
+        color: #003A5E;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 400;
+        text-align: left;
+        font-size: 1.375rem;
+        margin-bottom: 0;
+        text-align: left; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="program_comments"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            text-align: center; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="program_comments"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            font-size: 1.125rem; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="program_comments"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            margin-bottom: 0; } }
+
+/*
+  This stylesheet defines the default styles
+  for the Programmatic Agreement content type.
+*/
+[data-page-node-type="programmatic_agreement"] {
+  /*
+    This stylesheet defines default styles shared
+    by the Digital Library document pages.
+  */ }
+  [data-page-node-type="programmatic_agreement"] #main {
+    /*
+      This stylesheet defines the default styles
+      for various elements as defined by the current
+      version of the ACHP styleguide.
+    */
+    /*
+      Accepts no arguments and removes the padding
+      and margins from the element this mixin is
+      applied to.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and mobile-value, another CSS value
+    
+      sets property to mobile-value and adds a media
+      query that sets property to mobile-value for
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and tablet-value, another CSS value
+    
+      sets property to tablet-value and adds a media
+      query that sets property to tablet-value for
+      tablet screens.
+    */
+    /*
+      Accepts four arguments:
+    
+      * property, a CSS property
+      * widescreen-value, a CSS value
+      * tablet-value, a CSS value
+      * and mobile-value, an optional CSS value
+    
+      sets property to widescreen-value and
+      adds media queries that sets property to
+      tablet-value and mobile-value for tablet and
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * front-size, a CSS length measure
+      * margin-bottom, a CSS length measure
+    
+      and sets both the font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area -
+      affecting the bottom margin.
+    */
+    /*
+      Accepts two arguments:
+    
+      * font-size, a CSS length measure
+      * and margin-bottom, a CSS length measure
+    
+      and sets the mobile font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area.
+    */
+    /*
+      Accepts four length measures as
+      arguments: $widescreen-font-size,
+      $widescreen-margin-bottom, $mobile-font-size,
+      and $mobile-margin-bottom, and sets the
+      widescreen and mobile font sizes while
+      adjusting the bottom margins.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H1 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H2 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H3 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H4 element.
+    */
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7; }
+    [data-page-node-type="programmatic_agreement"] #main a {
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: color 0.25s;
+      color: #0990FE;
+      font-family: "p22-underground", sans-serif; }
+      [data-page-node-type="programmatic_agreement"] #main a:hover {
+        color: #71BFFE; }
+    [data-page-node-type="programmatic_agreement"] #main blockquote {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-style: italic; }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main blockquote {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main blockquote {
+          margin-bottom: 20px; } }
+    [data-page-node-type="programmatic_agreement"] #main h1, [data-page-node-type="programmatic_agreement"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="programmatic_agreement"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="programmatic_agreement"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="programmatic_agreement"] #main h1 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2.25rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="programmatic_agreement"] #main h1, [data-page-node-type="programmatic_agreement"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="programmatic_agreement"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="programmatic_agreement"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="programmatic_agreement"] #main h1 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main h1, [data-page-node-type="programmatic_agreement"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="programmatic_agreement"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="programmatic_agreement"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="programmatic_agreement"] #main h1 {
+          font-size: 1.625rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main h1, [data-page-node-type="programmatic_agreement"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="programmatic_agreement"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="programmatic_agreement"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="programmatic_agreement"] #main h1 {
+          margin-bottom: 0; } }
+    [data-page-node-type="programmatic_agreement"] #main h2 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="programmatic_agreement"] #main h2 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main h2 {
+          font-size: 1.375rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main h2 {
+          margin-bottom: 5px; } }
+    [data-page-node-type="programmatic_agreement"] #main h3 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 5px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="programmatic_agreement"] #main h3 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main h3 {
+          font-size: 1.25rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main h3 {
+          margin-bottom: 0; } }
+    [data-page-node-type="programmatic_agreement"] #main h4 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="programmatic_agreement"] #main h4 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main h4 {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="programmatic_agreement"] #main h4 {
+          margin-bottom: 0; } }
+    [data-page-node-type="programmatic_agreement"] #main p {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="programmatic_agreement"] #main ul {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="programmatic_agreement"] #main #content {
+      position: relative; }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="programmatic_agreement"] #main #content_region {
+        margin-left: 0 !important; } }
+    [data-page-node-type="programmatic_agreement"] #main #content_region h3 {
+      color: #9B0008; }
+    [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="system_breadcrumb_block"] {
+      padding-top: 0; }
+    [data-page-node-type="programmatic_agreement"] #main #content_region .achp_date_published {
+      color: #7C7C7C;
+      font-style: italic;
+      margin: 0 0 10px; }
+    [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="share_this_page_block"] {
+      margin-bottom: 40px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="share_this_page_block"] {
+          margin-bottom: 20px; } }
+    [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] {
+      position: absolute; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] {
+          position: static; } }
+      [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+        padding-top: 300px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+            padding-top: 0 !important; } }
+    [data-page-node-type="programmatic_agreement"] #main #content_region .achp_synopsis {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E5E3E4; }
+      [data-page-node-type="programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
+        margin: 0;
+        padding: 0;
+        font-family: "minion-pro", serif;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        background-color: transparent;
+        color: #7C7C7C;
+        font-style: italic;
+        height: auto;
+        margin-bottom: 10px; }
+      [data-page-node-type="programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+        font-family: "p22-underground", sans-serif;
+        font-size: 1.125rem;
+        text-transform: uppercase; }
+        [data-page-node-type="programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:after {
+          background-image: url("../images/downloading-icon.svg");
+          background-position-y: bottom;
+          background-size: 12px;
+          background-repeat: no-repeat;
+          content: '';
+          display: inline-block;
+          height: 16px;
+          margin-left: 10px;
+          width: 20px; }
+    [data-page-node-type="programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] {
+      border-top: 1px solid #E5E3E4;
+      padding-top: 20px;
+      margin: 20px 0; }
+      [data-page-node-type="programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+        margin: 0;
+        padding: 0;
+        color: #003A5E;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 400;
+        text-align: left;
+        font-size: 1.375rem;
+        margin-bottom: 0;
+        text-align: left; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            text-align: center; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            font-size: 1.125rem; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            margin-bottom: 0; } }
+
+/*
+  This stylesheet defines the default styles
+  for the Prototype Programmatic Agreement content type.
+*/
+[data-page-node-type="prototype_programmatic_agreement"] {
+  /*
+    This stylesheet defines default styles shared
+    by the Digital Library document pages.
+  */ }
+  [data-page-node-type="prototype_programmatic_agreement"] #main {
+    /*
+      This stylesheet defines the default styles
+      for various elements as defined by the current
+      version of the ACHP styleguide.
+    */
+    /*
+      Accepts no arguments and removes the padding
+      and margins from the element this mixin is
+      applied to.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and mobile-value, another CSS value
+    
+      sets property to mobile-value and adds a media
+      query that sets property to mobile-value for
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and tablet-value, another CSS value
+    
+      sets property to tablet-value and adds a media
+      query that sets property to tablet-value for
+      tablet screens.
+    */
+    /*
+      Accepts four arguments:
+    
+      * property, a CSS property
+      * widescreen-value, a CSS value
+      * tablet-value, a CSS value
+      * and mobile-value, an optional CSS value
+    
+      sets property to widescreen-value and
+      adds media queries that sets property to
+      tablet-value and mobile-value for tablet and
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * front-size, a CSS length measure
+      * margin-bottom, a CSS length measure
+    
+      and sets both the font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area -
+      affecting the bottom margin.
+    */
+    /*
+      Accepts two arguments:
+    
+      * font-size, a CSS length measure
+      * and margin-bottom, a CSS length measure
+    
+      and sets the mobile font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area.
+    */
+    /*
+      Accepts four length measures as
+      arguments: $widescreen-font-size,
+      $widescreen-margin-bottom, $mobile-font-size,
+      and $mobile-margin-bottom, and sets the
+      widescreen and mobile font sizes while
+      adjusting the bottom margins.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H1 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H2 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H3 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H4 element.
+    */
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7; }
+    [data-page-node-type="prototype_programmatic_agreement"] #main a {
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: color 0.25s;
+      color: #0990FE;
+      font-family: "p22-underground", sans-serif; }
+      [data-page-node-type="prototype_programmatic_agreement"] #main a:hover {
+        color: #71BFFE; }
+    [data-page-node-type="prototype_programmatic_agreement"] #main blockquote {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-style: italic; }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main blockquote {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main blockquote {
+          margin-bottom: 20px; } }
+    [data-page-node-type="prototype_programmatic_agreement"] #main h1, [data-page-node-type="prototype_programmatic_agreement"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="prototype_programmatic_agreement"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="prototype_programmatic_agreement"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="prototype_programmatic_agreement"] #main h1 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2.25rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h1, [data-page-node-type="prototype_programmatic_agreement"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="prototype_programmatic_agreement"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="prototype_programmatic_agreement"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="prototype_programmatic_agreement"] #main h1 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h1, [data-page-node-type="prototype_programmatic_agreement"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="prototype_programmatic_agreement"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="prototype_programmatic_agreement"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="prototype_programmatic_agreement"] #main h1 {
+          font-size: 1.625rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h1, [data-page-node-type="prototype_programmatic_agreement"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="prototype_programmatic_agreement"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="prototype_programmatic_agreement"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="prototype_programmatic_agreement"] #main h1 {
+          margin-bottom: 0; } }
+    [data-page-node-type="prototype_programmatic_agreement"] #main h2 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h2 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h2 {
+          font-size: 1.375rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h2 {
+          margin-bottom: 5px; } }
+    [data-page-node-type="prototype_programmatic_agreement"] #main h3 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 5px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h3 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h3 {
+          font-size: 1.25rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h3 {
+          margin-bottom: 0; } }
+    [data-page-node-type="prototype_programmatic_agreement"] #main h4 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h4 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h4 {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main h4 {
+          margin-bottom: 0; } }
+    [data-page-node-type="prototype_programmatic_agreement"] #main p {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="prototype_programmatic_agreement"] #main ul {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="prototype_programmatic_agreement"] #main #content {
+      position: relative; }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="prototype_programmatic_agreement"] #main #content_region {
+        margin-left: 0 !important; } }
+    [data-page-node-type="prototype_programmatic_agreement"] #main #content_region h3 {
+      color: #9B0008; }
+    [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="system_breadcrumb_block"] {
+      padding-top: 0; }
+    [data-page-node-type="prototype_programmatic_agreement"] #main #content_region .achp_date_published {
+      color: #7C7C7C;
+      font-style: italic;
+      margin: 0 0 10px; }
+    [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="share_this_page_block"] {
+      margin-bottom: 40px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="share_this_page_block"] {
+          margin-bottom: 20px; } }
+    [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] {
+      position: absolute; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] {
+          position: static; } }
+      [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+        padding-top: 300px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+            padding-top: 0 !important; } }
+    [data-page-node-type="prototype_programmatic_agreement"] #main #content_region .achp_synopsis {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E5E3E4; }
+      [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
+        margin: 0;
+        padding: 0;
+        font-family: "minion-pro", serif;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        background-color: transparent;
+        color: #7C7C7C;
+        font-style: italic;
+        height: auto;
+        margin-bottom: 10px; }
+      [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+        font-family: "p22-underground", sans-serif;
+        font-size: 1.125rem;
+        text-transform: uppercase; }
+        [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:after {
+          background-image: url("../images/downloading-icon.svg");
+          background-position-y: bottom;
+          background-size: 12px;
+          background-repeat: no-repeat;
+          content: '';
+          display: inline-block;
+          height: 16px;
+          margin-left: 10px;
+          width: 20px; }
+    [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] {
+      border-top: 1px solid #E5E3E4;
+      padding-top: 20px;
+      margin: 20px 0; }
+      [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+        margin: 0;
+        padding: 0;
+        color: #003A5E;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 400;
+        text-align: left;
+        font-size: 1.375rem;
+        margin-bottom: 0;
+        text-align: left; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            text-align: center; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            font-size: 1.125rem; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            margin-bottom: 0; } }
+
+/*
+  This stylesheet defines the default styles
   for the Publication content type.
 */
 [data-page-node-type="publication"] {
@@ -7587,10 +8811,10 @@ header {
         [data-page-node-type="publication"] #main #content_region [data-plugin-id="page_menu_block"] {
           position: static; } }
       [data-page-node-type="publication"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-        margin-top: 300px; }
+        padding-top: 300px; }
         @media screen and (max-width: 925px) {
           [data-page-node-type="publication"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-            margin-top: 0 !important; } }
+            padding-top: 0 !important; } }
     [data-page-node-type="publication"] #main #content_region .achp_synopsis {
       margin: 0;
       padding: 0;
@@ -7650,6 +8874,618 @@ header {
             font-size: 1.125rem; } }
         @media screen and (max-width: 650px) {
           [data-page-node-type="publication"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            margin-bottom: 0; } }
+
+/*
+  This stylesheet defines the default styles
+  for the Regulation content type.
+*/
+[data-page-node-type="regulation"] {
+  /*
+    This stylesheet defines default styles shared
+    by the Digital Library document pages.
+  */ }
+  [data-page-node-type="regulation"] #main {
+    /*
+      This stylesheet defines the default styles
+      for various elements as defined by the current
+      version of the ACHP styleguide.
+    */
+    /*
+      Accepts no arguments and removes the padding
+      and margins from the element this mixin is
+      applied to.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and mobile-value, another CSS value
+    
+      sets property to mobile-value and adds a media
+      query that sets property to mobile-value for
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and tablet-value, another CSS value
+    
+      sets property to tablet-value and adds a media
+      query that sets property to tablet-value for
+      tablet screens.
+    */
+    /*
+      Accepts four arguments:
+    
+      * property, a CSS property
+      * widescreen-value, a CSS value
+      * tablet-value, a CSS value
+      * and mobile-value, an optional CSS value
+    
+      sets property to widescreen-value and
+      adds media queries that sets property to
+      tablet-value and mobile-value for tablet and
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * front-size, a CSS length measure
+      * margin-bottom, a CSS length measure
+    
+      and sets both the font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area -
+      affecting the bottom margin.
+    */
+    /*
+      Accepts two arguments:
+    
+      * font-size, a CSS length measure
+      * and margin-bottom, a CSS length measure
+    
+      and sets the mobile font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area.
+    */
+    /*
+      Accepts four length measures as
+      arguments: $widescreen-font-size,
+      $widescreen-margin-bottom, $mobile-font-size,
+      and $mobile-margin-bottom, and sets the
+      widescreen and mobile font sizes while
+      adjusting the bottom margins.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H1 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H2 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H3 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H4 element.
+    */
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7; }
+    [data-page-node-type="regulation"] #main a {
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: color 0.25s;
+      color: #0990FE;
+      font-family: "p22-underground", sans-serif; }
+      [data-page-node-type="regulation"] #main a:hover {
+        color: #71BFFE; }
+    [data-page-node-type="regulation"] #main blockquote {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-style: italic; }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main blockquote {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main blockquote {
+          margin-bottom: 20px; } }
+    [data-page-node-type="regulation"] #main h1, [data-page-node-type="regulation"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="regulation"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="regulation"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="regulation"] #main h1 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2.25rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="regulation"] #main h1, [data-page-node-type="regulation"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="regulation"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="regulation"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="regulation"] #main h1 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main h1, [data-page-node-type="regulation"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="regulation"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="regulation"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="regulation"] #main h1 {
+          font-size: 1.625rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main h1, [data-page-node-type="regulation"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="regulation"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="regulation"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="regulation"] #main h1 {
+          margin-bottom: 0; } }
+    [data-page-node-type="regulation"] #main h2 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="regulation"] #main h2 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main h2 {
+          font-size: 1.375rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main h2 {
+          margin-bottom: 5px; } }
+    [data-page-node-type="regulation"] #main h3 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 5px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="regulation"] #main h3 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main h3 {
+          font-size: 1.25rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main h3 {
+          margin-bottom: 0; } }
+    [data-page-node-type="regulation"] #main h4 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="regulation"] #main h4 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main h4 {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="regulation"] #main h4 {
+          margin-bottom: 0; } }
+    [data-page-node-type="regulation"] #main p {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="regulation"] #main ul {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="regulation"] #main #content {
+      position: relative; }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="regulation"] #main #content_region {
+        margin-left: 0 !important; } }
+    [data-page-node-type="regulation"] #main #content_region h3 {
+      color: #9B0008; }
+    [data-page-node-type="regulation"] #main #content_region [data-plugin-id="system_breadcrumb_block"] {
+      padding-top: 0; }
+    [data-page-node-type="regulation"] #main #content_region .achp_date_published {
+      color: #7C7C7C;
+      font-style: italic;
+      margin: 0 0 10px; }
+    [data-page-node-type="regulation"] #main #content_region [data-plugin-id="share_this_page_block"] {
+      margin-bottom: 40px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="regulation"] #main #content_region [data-plugin-id="share_this_page_block"] {
+          margin-bottom: 20px; } }
+    [data-page-node-type="regulation"] #main #content_region [data-plugin-id="page_menu_block"] {
+      position: absolute; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="regulation"] #main #content_region [data-plugin-id="page_menu_block"] {
+          position: static; } }
+      [data-page-node-type="regulation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+        padding-top: 300px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="regulation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+            padding-top: 0 !important; } }
+    [data-page-node-type="regulation"] #main #content_region .achp_synopsis {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="regulation"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E5E3E4; }
+      [data-page-node-type="regulation"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
+        margin: 0;
+        padding: 0;
+        font-family: "minion-pro", serif;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        background-color: transparent;
+        color: #7C7C7C;
+        font-style: italic;
+        height: auto;
+        margin-bottom: 10px; }
+      [data-page-node-type="regulation"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+        font-family: "p22-underground", sans-serif;
+        font-size: 1.125rem;
+        text-transform: uppercase; }
+        [data-page-node-type="regulation"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:after {
+          background-image: url("../images/downloading-icon.svg");
+          background-position-y: bottom;
+          background-size: 12px;
+          background-repeat: no-repeat;
+          content: '';
+          display: inline-block;
+          height: 16px;
+          margin-left: 10px;
+          width: 20px; }
+    [data-page-node-type="regulation"] #main #content_region [data-achp-field-name="field_tags"] {
+      border-top: 1px solid #E5E3E4;
+      padding-top: 20px;
+      margin: 20px 0; }
+      [data-page-node-type="regulation"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+        margin: 0;
+        padding: 0;
+        color: #003A5E;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 400;
+        text-align: left;
+        font-size: 1.375rem;
+        margin-bottom: 0;
+        text-align: left; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="regulation"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            text-align: center; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="regulation"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            font-size: 1.125rem; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="regulation"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            margin-bottom: 0; } }
+
+/*
+  This stylesheet defines the default styles
+  for the Report content type.
+*/
+[data-page-node-type="report"] {
+  /*
+    This stylesheet defines default styles shared
+    by the Digital Library document pages.
+  */ }
+  [data-page-node-type="report"] #main {
+    /*
+      This stylesheet defines the default styles
+      for various elements as defined by the current
+      version of the ACHP styleguide.
+    */
+    /*
+      Accepts no arguments and removes the padding
+      and margins from the element this mixin is
+      applied to.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and mobile-value, another CSS value
+    
+      sets property to mobile-value and adds a media
+      query that sets property to mobile-value for
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and tablet-value, another CSS value
+    
+      sets property to tablet-value and adds a media
+      query that sets property to tablet-value for
+      tablet screens.
+    */
+    /*
+      Accepts four arguments:
+    
+      * property, a CSS property
+      * widescreen-value, a CSS value
+      * tablet-value, a CSS value
+      * and mobile-value, an optional CSS value
+    
+      sets property to widescreen-value and
+      adds media queries that sets property to
+      tablet-value and mobile-value for tablet and
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * front-size, a CSS length measure
+      * margin-bottom, a CSS length measure
+    
+      and sets both the font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area -
+      affecting the bottom margin.
+    */
+    /*
+      Accepts two arguments:
+    
+      * font-size, a CSS length measure
+      * and margin-bottom, a CSS length measure
+    
+      and sets the mobile font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area.
+    */
+    /*
+      Accepts four length measures as
+      arguments: $widescreen-font-size,
+      $widescreen-margin-bottom, $mobile-font-size,
+      and $mobile-margin-bottom, and sets the
+      widescreen and mobile font sizes while
+      adjusting the bottom margins.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H1 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H2 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H3 element.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as an H4 element.
+    */
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7; }
+    [data-page-node-type="report"] #main a {
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: color 0.25s;
+      color: #0990FE;
+      font-family: "p22-underground", sans-serif; }
+      [data-page-node-type="report"] #main a:hover {
+        color: #71BFFE; }
+    [data-page-node-type="report"] #main blockquote {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-style: italic; }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main blockquote {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main blockquote {
+          margin-bottom: 20px; } }
+    [data-page-node-type="report"] #main h1, [data-page-node-type="report"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="report"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="report"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="report"] #main h1 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2.25rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="report"] #main h1, [data-page-node-type="report"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="report"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="report"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="report"] #main h1 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main h1, [data-page-node-type="report"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="report"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="report"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="report"] #main h1 {
+          font-size: 1.625rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main h1, [data-page-node-type="report"] #main #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-page-node-type="report"] #main .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-node-type="report"] #main #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-node-type="report"] #main h1 {
+          margin-bottom: 0; } }
+    [data-page-node-type="report"] #main h2 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="report"] #main h2 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main h2 {
+          font-size: 1.375rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main h2 {
+          margin-bottom: 5px; } }
+    [data-page-node-type="report"] #main h3 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 5px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="report"] #main h3 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main h3 {
+          font-size: 1.25rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main h3 {
+          margin-bottom: 0; } }
+    [data-page-node-type="report"] #main h4 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="report"] #main h4 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main h4 {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="report"] #main h4 {
+          margin-bottom: 0; } }
+    [data-page-node-type="report"] #main p {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="report"] #main ul {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="report"] #main #content {
+      position: relative; }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="report"] #main #content_region {
+        margin-left: 0 !important; } }
+    [data-page-node-type="report"] #main #content_region h3 {
+      color: #9B0008; }
+    [data-page-node-type="report"] #main #content_region [data-plugin-id="system_breadcrumb_block"] {
+      padding-top: 0; }
+    [data-page-node-type="report"] #main #content_region .achp_date_published {
+      color: #7C7C7C;
+      font-style: italic;
+      margin: 0 0 10px; }
+    [data-page-node-type="report"] #main #content_region [data-plugin-id="share_this_page_block"] {
+      margin-bottom: 40px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="report"] #main #content_region [data-plugin-id="share_this_page_block"] {
+          margin-bottom: 20px; } }
+    [data-page-node-type="report"] #main #content_region [data-plugin-id="page_menu_block"] {
+      position: absolute; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="report"] #main #content_region [data-plugin-id="page_menu_block"] {
+          position: static; } }
+      [data-page-node-type="report"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+        padding-top: 300px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="report"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+            padding-top: 0 !important; } }
+    [data-page-node-type="report"] #main #content_region .achp_synopsis {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="report"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E5E3E4; }
+      [data-page-node-type="report"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
+        margin: 0;
+        padding: 0;
+        font-family: "minion-pro", serif;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        background-color: transparent;
+        color: #7C7C7C;
+        font-style: italic;
+        height: auto;
+        margin-bottom: 10px; }
+      [data-page-node-type="report"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+        font-family: "p22-underground", sans-serif;
+        font-size: 1.125rem;
+        text-transform: uppercase; }
+        [data-page-node-type="report"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:after {
+          background-image: url("../images/downloading-icon.svg");
+          background-position-y: bottom;
+          background-size: 12px;
+          background-repeat: no-repeat;
+          content: '';
+          display: inline-block;
+          height: 16px;
+          margin-left: 10px;
+          width: 20px; }
+    [data-page-node-type="report"] #main #content_region [data-achp-field-name="field_tags"] {
+      border-top: 1px solid #E5E3E4;
+      padding-top: 20px;
+      margin: 20px 0; }
+      [data-page-node-type="report"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+        margin: 0;
+        padding: 0;
+        color: #003A5E;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 400;
+        text-align: left;
+        font-size: 1.375rem;
+        margin-bottom: 0;
+        text-align: left; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="report"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            text-align: center; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="report"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+            font-size: 1.125rem; } }
+        @media screen and (max-width: 650px) {
+          [data-page-node-type="report"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
             margin-bottom: 0; } }
 
 /*
@@ -8288,10 +10124,10 @@ header {
         [data-page-node-type="whitepapers"] #main #content_region [data-plugin-id="page_menu_block"] {
           position: static; } }
       [data-page-node-type="whitepapers"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-        margin-top: 300px; }
+        padding-top: 300px; }
         @media screen and (max-width: 925px) {
           [data-page-node-type="whitepapers"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
-            margin-top: 0 !important; } }
+            padding-top: 0 !important; } }
     [data-page-node-type="whitepapers"] #main #content_region .achp_synopsis {
       margin: 0;
       padding: 0;
