@@ -98,6 +98,7 @@
     returns undefined.
   */
   function addFilterToggleListener () {
+    console.log(getFilterButton ());
     getFilterButton ().click ( function (e) {
       filterDisplayState === COLLAPSED ? expandFilter () : collapseFilter ();
     });    
@@ -252,7 +253,8 @@
     representing the news landing page's filter container.
   */
   function getFilterContainerSelectors () {
-    return $('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ());
+    console.log($('.' + getNewsLandingContainerClassName () + ' #' + getExposedFormID ()))
+    return $('.' + getNewsLandingContainerClassName () + ' #' + getExposedFormID ());
   }    
 
   /*
@@ -332,11 +334,11 @@
 
   /*
     Accepts no arguments and returns a string that
-    represents the class name of the element that
+    represents the ID of the element that
     contains the filters.
   */
-  function getExposedFormClassName () {
-    return 'views-exposed-form';
+  function getExposedFormID () {
+    return 'views-exposed-form-latest-news-news-landing';
   }  
 
   /*
