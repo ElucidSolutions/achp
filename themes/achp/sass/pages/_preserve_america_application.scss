@@ -1,0 +1,56 @@
+[data-page-path-alias="/preserve-america/application"] {
+  #content #content_region {
+
+    article {
+      padding-bottom: 50px;
+
+      .applications_table {
+        @include outer-container;
+        @include fill-parent;
+
+        .application_type {
+          @include span-columns(4 of 12);
+          @include pad(5px 10px);
+
+          h4 {
+            color: $color-red;
+            margin: 10px 0;
+          }
+          .application_description {
+            height: 110px;
+            margin-top: 10px;
+          }
+        }
+      }
+      p a {
+        color: $color-blue-primary;
+      }
+      h4 {
+        margin-bottom: 10px;
+      }
+      .read_more a {
+        position: relative;
+        text-transform: uppercase;
+
+        &:after {
+          @include undo-center-y;
+          margin-left: 10px;
+          top: -1px;
+        }
+      }
+    }
+
+    @media (max-width: 900px) {
+      article {
+        .applications_table .application_type {
+          @include span-columns(12 of 12);
+          @include pad(0px);    
+
+          .application_description {
+            height: auto;
+          }    
+        }
+      }
+    }
+  }
+}

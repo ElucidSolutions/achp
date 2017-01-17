@@ -40,7 +40,6 @@ h3 {
   @include font-size($h3-font-sizes);
   color: $color-darkblue;
   text-align: left;
-  /*font-weight: 500;*/
   a {
     color: inherit;
     text-decoration: none;
@@ -72,7 +71,7 @@ a {
 }
 
 button {
-  @include font-size($button-font-sizes);
+  /*@include font-size($button-font-sizes);*/
   @include hover-transition-background($color-lightblue-primary);
   background-color: $color-blue-primary;
   border: none;
@@ -82,13 +81,20 @@ button {
   cursor: pointer;
   display: block;
   font-family: $sans-text;
+  font-size: rem(16px);
+  font-weight: 500;
   letter-spacing: 0.02rem;
   line-height: 1.4rem;
   margin: 0 auto 30px;
   padding: 12px 38px 8px;
   text-transform: uppercase;
+
   @media (max-width: $mobile-breakpoint) {
     line-height: 1.2rem;
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
   }
 }
 
@@ -132,12 +138,12 @@ blockquote {
   text-align: left;
 
   h3 {
-    font-size: 1.25rem
+    font-size: 1.25rem;
   }
 }
 
 .card_date, .card-date {
-  color: $color-lightgrey;
+  color: $color-lightgrey-2;
   margin-top: 15px;
 }
 
@@ -148,7 +154,7 @@ blockquote {
   color: $color-grey;
 }
 
-.read_more, .read-more {
+.read_more, .read-more {  
   cursor: pointer;
   font-family: $sans-text;
 
@@ -165,11 +171,9 @@ blockquote {
 .textblock_with_background {
   $block-width: 450px;
   $textblock-margin: 10px;
-  $content-width: 920px; /* Equal to double the sum of $block-width and $textblock-margin. IE 
-   only executes this correctly when it's a specific number value, not a calculated sum of
-   other variables */
+  $content-width: 950px; 
   $side-margin: calc((100% - #{$content-width})/2);
-  $min-side-margin: 50px;
+  $min-side-margin: 40px;
 
   @include clear-float;
   background-position: center;
@@ -210,19 +214,26 @@ blockquote {
     }
   }
   @media (max-width: $max-content-width) {
+    /*width: 50% - 10px;*/
     width: calc(50% - #{$textblock-margin} - #{$min-side-margin});
+    /*width: calc(50% - 10px);*/
 
     &.textblock_left {
+      /*margin-left: 0;*/
       margin-left: $min-side-margin !important;
+      /*margin-left: 40px;*/
     }
 
     &.textblock_right {
+      /*margin-right: 0;*/
       margin-right: $min-side-margin !important;
+      /*margin-left: 40px;*/
     }
   }
-  @media (max-width: 750px) {
+  @media (max-width: 800px) {
     &.textblock_with_background {
       float: none;
+      height: 300px;
       margin: 30px 0 !important;
       max-width: 100%;
       width: 100%;
@@ -232,6 +243,9 @@ blockquote {
       }
       &.textblock_left {
         margin-bottom: 0 !important;
+      }
+      &.textblock_right {
+        margin-top: 0 !important;
       }
     }
   }

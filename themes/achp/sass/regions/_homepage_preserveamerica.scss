@@ -4,8 +4,11 @@
 */
 
 #homepage_preserveamerica_region {
+  @include content-container;
   background-color: $background-color-grey;
-  padding: 25px 50px;
+  max-width: 100%;
+  padding-bottom: 25px;
+  padding-top: 25px;
 
   hr {
     width: 100px;
@@ -166,6 +169,9 @@
 }
 
 @media (max-width: 700px) {
+  #block-views-block-community-spotlight-block-1 h3 {
+    text-align: center;
+  }
   .preserveamerica_content_wrapper .views-element-container {
     h2 {
       display: block;

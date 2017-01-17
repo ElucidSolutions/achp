@@ -1,7 +1,9 @@
 #header_region {
-  box-shadow: 0 3px 5px -3px $color-grey;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.15);
   height: $header-menu-height;
+  position: relative;
   width: 100%;
+  z-index: 500;
 }
 
 #header_menu {

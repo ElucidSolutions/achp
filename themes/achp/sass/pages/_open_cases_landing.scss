@@ -1,0 +1,63 @@
+/*
+  Styles for the Section 106 Cases Open for Comment landing page
+*/
+
+[data-page-path-alias="/protecting-historic-properties/open-cases"] {
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-php-shareblock {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+
+  #content #content_region {
+    p a {
+      color: $color-blue-primary;
+    }
+    #block-list-cases-open {
+        ol {
+          color: $color-red;
+          font-family: $sans-text;
+          font-size: rem(22px);
+          list-style-type: decimal-leading-zero;
+          /*padding-left: 25px;*/
+
+          li {
+            padding-left: 5px;
+          }
+        }
+        h4 {
+          margin-bottom: 0;
+
+          a {
+            color: $color-darkblue2;
+          }
+        }
+        .views-field-field-case-location {
+          color: $color-red;
+          font-family: $sans-text;
+          font-size: rem(16px);
+          font-weight: 300;
+        }
+        .views-field-body p {
+          color: #000;
+          font-family: $serif-text;
+          font-size: rem(18px);
+          margin: 10px 0;
+        }
+        .read-more {
+          position: relative;
+
+          a {
+            vertical-align: 0%;
+          }
+        }
+      }
+    
+  }
+}

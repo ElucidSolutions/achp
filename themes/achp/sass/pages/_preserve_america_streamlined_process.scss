@@ -1,0 +1,37 @@
+/*
+  Styles for the Preserve America streamlined process page
+*/
+
+[data-page-path-alias="/preserve-america/streamlined-process"] {
+  #block-pagetitle-2 h1 {
+    color: $color-darkblue2;
+    font-weight: normal;
+
+    &:after {
+      background-color: $color-red;
+      display: block;
+      content: "";
+      height: 1px;
+      margin: 5px auto 30px;
+      min-width: 100px;
+      width: 7%;
+    }
+  }
+  #content #content_region {
+    $container-padding: 50px;
+
+    #block-achp-content > article {
+/*      padding: 0;*/
+
+      p:first-of-type {
+        margin-top: 0;
+      }
+      h2 {
+        text-align: left;
+      }
+      a {
+        color: $color-blue-primary;
+      }
+    }
+  }
+}

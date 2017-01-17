@@ -15,6 +15,18 @@
   $intro-106-img-padding: 20px;
   $e106-img-width: 100px;
 
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+      padding-top: 0;
+    }
+    #block-php-shareblock {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+
   #content {
     margin: 0 auto;
     max-width: 100%;
@@ -22,15 +34,20 @@
     width: 100%;
   }
   #content_region {
-        margin: 0 auto;
+    margin: 0 auto;
     max-width: 100%;
     padding: 0;
     width: 100%;
 
+    h2 + p {
+      margin-top: 0;
+    }
+
     #block-achp-content {
       article {
-        margin: 0 auto;
-        padding: $vertical-padding $container-padding;
+        @include content-container;
+        padding-bottom: $vertical-padding;
+        /*padding-top: $vertical-padding;*/
       }
     }
     #block-anintroductiontosection106 {
@@ -184,17 +201,41 @@
         max-width: 800px;
         padding: 0 0 $vertical-padding;
 
+        $library_icon_height: 50px;
+
         .library_category {
           @include span-columns(5 of 12);
           @include shift(1);
-          height: 60px;
+          height: $library_icon_height;
           position: relative;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
 
-          img {
-            @include center-y;
-            height: 50px;
-            width: 50px;
+          &:before {
+            background-repeat: no-repeat;
+            background-position: center;
+            content: "";
+            display: block;
+            height: $library_icon_height;
+            width: $library_icon_height;
+          }
+
+          &_regulations:before {
+            background-image: url('../images/regulations-icon.svg');
+          }
+          &_guidance:before {
+            background-image: url('../images/guidance-docs-icon.svg');
+          }
+          &_agreement:before {
+            background-image: url('../images/agreement-docs-icon.svg');
+          }
+          &_faq:before {
+            background-image: url('../images/faq-icon.svg');
+          }
+          &_explanation:before {
+            background-image: url('../images/explanation-resources-icon.svg');
+          }
+          &_publications:before {
+            background-image: url('../images/publications-icon.svg');
           }
           .library_text {
             @include center-y;
@@ -225,7 +266,9 @@
 
           .warning_icon {
             /*@include clear-float;*/
-            background: #CD1803 url('../images/warning-icon.svg') no-repeat center;
+            background: #CD1803 url('../images/warning-icon.svg');
+            background-position: center;
+            background-repeat: no-repeat;
             background-size: 60px;
             display: inline-block;
             height: $e106-img-width;
@@ -359,16 +402,17 @@
         .library_category {
           @include shift(0);
           height: 100px;
+          margin-bottom: 5px;
           text-align: center;
           width: 100%;
 
-          .library_text, img {
-            @include undo-center-y;
-            display: block;
+          &:before {
             margin: 0 auto;
           }
           .library_text {
-            margin-top: 10px;
+            @include undo-center-y;
+            display: block;
+            margin: 5px auto 0;
           }
         }
       }

@@ -4,9 +4,11 @@
 */
 
 #homepage_impact_region {
+  @include content-container;
   background-color: #fff;
-  margin: 0 auto;
-  padding: 25px 50px;
+  max-width: 100%;
+  padding-bottom: 25px;
+  padding-top: 25px;
 
   #block-ourimpact {
     margin: 0 auto;
