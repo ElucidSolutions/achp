@@ -18,17 +18,15 @@
   $page-menu-instance-menu-item-padding: 10px 20px;
   $page-menu-instance-menu-item-selected-color: $color-blue-primary;
 
-  display: flex;
-  flex-grow: 1;
+  height: 100%;
   padding-top: $page-menu-block-margin;
   position: relative;
 
   .page-menu-instance-container {
-    display: flex;
-    flex-grow: 1;
+    height: 100%;
 
     .page-menu-instance {
-      flex-grow: 1;
+      height: 100%;
       margin-right: $page-widescreen-padding;
       width: $page-menu-instance-width;
 

@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display Whitepaper nodes.
+ * Theme override to display Alternate Procedure nodes.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -73,7 +73,7 @@
 <article{{ attributes }}>
   {{ drupal_block('template_breadcrumbs') }}
   <h1>{{label}}</h1>
-  <div class="achp_date_published">{{ node.field_publication_date [0].value|date("F d, Y") }}</div>
+  <div class="achp_date_published">{{ node.field_moa_date [0].value|date("F d, Y") }}</div>
   {{ drupal_block('sharethispage') }}
   {{ drupal_block('template_page_menu') }}
   {% if node.body [0].summary %}
@@ -93,3 +93,5 @@
     </div>
   {% endif %}
 </article>
+
+
