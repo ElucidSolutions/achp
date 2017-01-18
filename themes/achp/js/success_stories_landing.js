@@ -1,15 +1,15 @@
 /* 
-  Behavior for filter on success stories landing page
+  Behavior for success stories landing page
 */
 
 (function ($) {
 
-  Drupal.behaviors.success_story_filter = {
+  Drupal.behaviors.success_stories_landing= {
     attach: function (context, settings) {
-      $(document).once ('success_story_filter').ajaxComplete (
+      $(document).once ('success_stories_landing').ajaxComplete (
         function (event, xhr, settings) {
          if (settings.url.indexOf ('/views/ajax') === 0) {
-          setDropdownListener ();
+          initFilterBehavior ();
         }
       });
     }
@@ -17,33 +17,49 @@
 
   $(document).ready (function () {
 
-    setDropdownListener ();
+    initFilterBehavior ();
 
   })
 
   /*
-    Accepts no arguments and sets a n on-change listener 
-    on the dropdown filter.
+    Accepts no arguments, returns undefined.
   */
-  function setDropdownListener () {
-    // try {
-    //   window.history.pushState("abc", "", "/?SomeParam");
-    // }
-    // catch (err) {
-    //   console.log(err.message);
-    // }
-
-    getDropdownElement ().change (function () {
-      submitFilterForm ();
-    })
-
-
+  function initFilterBehavior () {
+    setTextInputPlaceholder ();
+    removeSubmitButtonText ();
+    setDropdownListener ();
   }
 
   /*
-    Accepts no arguments and submits this
-    filter's view form by simulating a click on
-    the form's submit button.
+    Accepts no input, sets placeholder text on the text input
+    element, and returns undefined.
+  */
+  function setTextInputPlaceholder () {
+    getTextInputElement ().attr('placeholder', 'Filter Success Stories');
+  }
+
+  /*
+    Accepts no input, removes default text from the submit
+    button, and returns undefined.
+  */
+  function removeSubmitButtonText () {
+    getFilterSubmitButton ().attr('value', '');
+  }
+
+  /*
+    Accepts no arguments, sets an on-change listener 
+    on the dropdown filter, and returns undefined.
+  */
+  function setDropdownListener () {
+    getDropdownElement ().change (function () {
+      submitFilterForm ();
+    })
+  }
+
+  /*
+    Accepts no arguments,submits this filter's view form 
+    by simulating a click on the form's submit button, 
+    and returns undefined.
   */
   function submitFilterForm () {
     getSubmitButtonElement ().click ();
@@ -58,6 +74,14 @@
     return getViewContainerElement ().find (getFilterSubmitButton ());
   }
 
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents the text
+    input field.
+  */
+  function getTextInputElement () {
+    return getViewContainerElement ().find (getTextInputSelector ());
+  }
 
   /* 
     Accepts no arguments and returns a jQuery
@@ -69,10 +93,18 @@
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
-    that represents the submmit button for the news filter.
+    that represents the submit button for the news filter.
   */
   function getFilterSubmitButton () {
-    return $('.' + getSubmitClassName ());
+    return getViewContainerElement ().find (getFilterSubmitElement ());
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML element
+    representing a submit button.
+  */
+  function getFilterSubmitElement () {
+    return $(' .' + getSubmitClassName ());
   }
 
   /*
@@ -82,6 +114,14 @@
   */
   function getViewContainerElement () {
     return $('.' + getViewContainerClassName ());
+  }
+
+  /*
+    Accepts no arguments and returns a string representing
+    the text input field selector.
+  */
+  function getTextInputSelector () {
+    return 'input[type="text"]';
   }
 
   /*
