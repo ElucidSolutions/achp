@@ -119,6 +119,7 @@
             font-family: $sans-text;
             font-size: rem(16px);
             margin-bottom: 40px;
+            position: relative;
 
             .js-form-item {
               display: inline-block;
@@ -138,10 +139,11 @@
                 position: relative;
               }
               select {
-                background-image: url("../images/down-arrow-icon.svg");
-                background-position: 90% center;
+                background-image: url("../images/dropdownbox-icon.svg");
+                background-position: right center;
                 background-repeat: no-repeat;
-                width: calc(100% + 30px);
+                cursor: pointer;
+                width: 150px;
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 appearance: none;
@@ -152,11 +154,11 @@
               }
             }
           .form-actions input[type="submit"] {
-            background-color: blue;
-            background-image: url("../images/down-arrow-icon.svg");
+            background-color: $color-blue-primary;
+            background-image: url("../images/filter-icon.svg");
             background-position: center;
             background-repeat: no-repeat;
-            border: 1px solid #CCCCCC;
+            border: none;
             bottom: 0;
             color: transparent;
             cursor: pointer;
@@ -164,8 +166,7 @@
             left: 410px;
             position: absolute;
             width: 40px;
-/*                width: calc(100% + 30px);
-              -webkit-appearance: none;
+/*              -webkit-appearance: none;
               -moz-appearance: none;
               appearance: none;*/
         }

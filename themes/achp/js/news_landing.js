@@ -98,7 +98,6 @@
     returns undefined.
   */
   function addFilterToggleListener () {
-    console.log(getFilterButton ());
     getFilterButton ().click ( function (e) {
       filterDisplayState === COLLAPSED ? expandFilter () : collapseFilter ();
     });    

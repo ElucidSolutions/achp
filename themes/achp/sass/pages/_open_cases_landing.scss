@@ -49,11 +49,11 @@
           }
         }
         .form-actions input[type="submit"] {
-          background-color: blue;
-          background-image: url("../images/down-arrow-icon.svg");
+          background-color: $color-blue-primary;
+          background-image: url("../images/filter-icon.svg");
           background-position: center;
           background-repeat: no-repeat;
-          border: 1px solid #CCCCCC;
+          border: none;
           bottom: 0;
           color: transparent;
           cursor: pointer;
@@ -61,10 +61,6 @@
           left: 410px;
           position: absolute;
           width: $submit-input-width;
-/*                width: calc(100% + 30px);
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              appearance: none;*/
         }
       
       }

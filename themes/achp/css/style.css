@@ -5991,7 +5991,8 @@ header {
       [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form {
         font-family: "p22-underground", sans-serif;
         font-size: 1rem;
-        margin-bottom: 40px; }
+        margin-bottom: 40px;
+        position: relative; }
         [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .js-form-item {
           display: inline-block;
           position: relative; }
@@ -6007,10 +6008,11 @@ header {
             padding: 0 5px;
             position: relative; }
           [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .js-form-item select {
-            background-image: url("../images/down-arrow-icon.svg");
-            background-position: 90% center;
+            background-image: url("../images/dropdownbox-icon.svg");
+            background-position: right center;
             background-repeat: no-repeat;
-            width: calc(100% + 30px);
+            cursor: pointer;
+            width: 150px;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none; }
@@ -6018,11 +6020,11 @@ header {
             margin-right: 20px;
             width: 450px; }
         [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .form-actions input[type="submit"] {
-          background-color: blue;
-          background-image: url("../images/down-arrow-icon.svg");
+          background-color: #0990FE;
+          background-image: url("../images/filter-icon.svg");
           background-position: center;
           background-repeat: no-repeat;
-          border: 1px solid #CCCCCC;
+          border: none;
           bottom: 0;
           color: transparent;
           cursor: pointer;
@@ -6030,8 +6032,7 @@ header {
           left: 410px;
           position: absolute;
           width: 40px;
-          /*                width: calc(100% + 30px);
-                        -webkit-appearance: none;
+          /*              -webkit-appearance: none;
                         -moz-appearance: none;
                         appearance: none;*/ }
       [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row {
@@ -6368,22 +6369,18 @@ header {
       position: relative;
       width: 450px; }
   [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .views-exposed-form .form-actions input[type="submit"] {
-    background-color: blue;
-    background-image: url("../images/down-arrow-icon.svg");
+    background-color: #0990FE;
+    background-image: url("../images/filter-icon.svg");
     background-position: center;
     background-repeat: no-repeat;
-    border: 1px solid #CCCCCC;
+    border: none;
     bottom: 0;
     color: transparent;
     cursor: pointer;
     height: 40px;
     left: 410px;
     position: absolute;
-    width: 40px;
-    /*                width: calc(100% + 30px);
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  appearance: none;*/ }
+    width: 40px; }
 [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open ol {
   color: #950306;
   font-family: "p22-underground", sans-serif;
