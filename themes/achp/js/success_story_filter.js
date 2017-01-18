@@ -26,9 +26,18 @@
     on the dropdown filter.
   */
   function setDropdownListener () {
+    // try {
+    //   window.history.pushState("abc", "", "/?SomeParam");
+    // }
+    // catch (err) {
+    //   console.log(err.message);
+    // }
+
     getDropdownElement ().change (function () {
       submitFilterForm ();
     })
+
+
   }
 
   /*
@@ -50,14 +59,13 @@
   }
 
 
-  /*
+  /* 
     Accepts no arguments and returns a jQuery
     HTML Element representing the dropdown element.
   */
   function getDropdownElement () {
     return getViewContainerElement ().find (getDropdownElementSelector ());
   }
-
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
