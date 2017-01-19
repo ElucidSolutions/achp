@@ -1012,10 +1012,9 @@ the events landing page is different */
   the Image Gallery feature.
 */
 .flickity {
-  background-color: #262626;
   width: 100%; }
   .flickity .flickity-prev-next-button {
-    background-color: #0f0f0f;
+    background-color: #0990FE;
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -1028,7 +1027,7 @@ the events landing page is different */
       left: 0;
       position: static;
       top: 0;
-      width: 20px; }
+      width: 15px; }
       .flickity .flickity-prev-next-button svg .arrow {
         fill: white; }
         .flickity .flickity-prev-next-button svg .arrow:disabled {
@@ -1052,6 +1051,8 @@ the events landing page is different */
 
 /* III. Carousel View Element */
 .flickity.default_group {
+  border: 1px solid #E5E3E4;
+  padding: 20px;
   /*
     Hide the gallery cells until flickity loads
     and inserts the flickity-viewport container
@@ -1067,10 +1068,12 @@ the events landing page is different */
   .flickity.default_group .carousel_image {
     text-align: center; }
     .flickity.default_group .carousel_image img {
-      border: none; }
+      border: none;
+      max-height: 400px;
+      object-fit: contain; }
   .flickity.default_group .carousel_caption {
     caption-side: bottom;
-    color: #F4F4F4;
+    font-family: "p22-underground", sans-serif;
     font-size: 0.875rem;
     padding: 10px 25px; }
 
@@ -1079,7 +1082,7 @@ the events landing page is different */
 
 /* IV. Nav Elements */
 .flickity.navigator {
-  border-top: 1px solid #4F4F4F;
+  border-bottom: 1px solid #E5E3E4;
   min-height: 125px;
   /*
     Hide the gallery cells until flickity loads

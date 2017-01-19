@@ -35,6 +35,12 @@
     imagesLoaded && imagesLoaded (flickity.slider,
       function () {
         initCarouselCells (flickity);
+
+        // Invoke Fitie to shim the object-fit CSS property.
+        flickity.cells.forEach (function (cell) {
+          var imageElements = $('img', cell.element);
+          imageElements.length > 0 && fitie (imageElements.get (0));
+        });
     });
   }
 
