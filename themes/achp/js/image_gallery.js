@@ -2,246 +2,440 @@
   This module overrides some of the default
   behavior of Flickity based slideshows, which
   are used by the ACHP Image Gallery feature.
+
+  Note: This module uses Object Fit Images
+  (https://github.com/bfred-it/object-fit-images/)
+  to scale images using the object-fit CSS property.
 */
 (function ($) {
+
+  // I. Flickity Instances
+
   /*
-    Initializes the Flickity instances once the
+    Creates the navigator elements and
+    initializes the flickity instances when the
     page loads.
   */
   $(document).ready (function () {
-    initializeFlickityInstances ();
+    getFlickityInstances ().forEach (
+      function (flickity) {
+        // create the navigator instance.
+        var navigator = new Navigator (flickity);
+
+        // attach the navigator element.
+        getFlickityElement (flickity).append (navigator.element);
+
+        // initialize the navigator instance.
+        navigator.init ();
+    });
   });
 
-  /*
-    Accepts no arguments, initializes all of the
-    Flickity instances, and returns undefined.
-  */
-  function initializeFlickityInstances () {
-    // I. initialize all flickity instances.
-    getCarouselFlickity ().forEach (initCarouselFlickity);
+  // II. Navigator Instances
 
-    // II. Initialize Navigator instances.
-    getNavigatorFlickity ().forEach (initNavigatorFlickity);
+  /*
+    Accepts one arguments: flickity, a Flickity
+    instance; and returns a Navigator object
+    that represents a navigator instance tied
+    to flickity.
+  */
+  function Navigator (flickity) {
+    this.flickity = flickity;
+    this.itemElements = createItemElements (this);
+    this.slideLeftButtonElement = createSlideLeftButtonElement (this);
+    this.slideRightButtonElement = createSlideRightButtonElement (this);
+    this.slideElement = createSlideElement (this.itemElements);
+    this.slideContainerElement = createSlideContainerElement (this.slideElement);
+    this.element = createNavigatorElement (
+      this.slideContainerElement,
+      this.slideLeftButtonElement,
+      this.slideRightButtonElement
+    );
   }
 
   /*
-    Accepts one argument: flickity, a Flickity
-    object that represents a Flickity instance
-    associated with a carousel; adjusts the
-    padding of caption elements so that they
-    align properly; and returns undefined.
+    Accepts no arguments and initializes this
+    navigator instance.
   */
-  function initCarouselFlickity (flickity) {
-    imagesLoaded && imagesLoaded (flickity.slider,
-      function () {
-        initCarouselCells (flickity);
+  Navigator.prototype.init = function () {
+    var self = this;
+    this.scaleSlideElement ();
+    this.scaleSlideContainerElement ();
+    this.centerSlideContainerElement ();
+    this.positionSlideElement ();
+    this.initSlideButtons ();
 
-        // Invoke Fitie to shim the object-fit CSS property.
-        flickity.cells.forEach (function (cell) {
-          var imageElements = $('img', cell.element);
-          imageElements.length > 0 && fitie (imageElements.get (0));
-        });
+    this.flickity.on ('select', function () {
+      self.slideTo (self.flickity.selectedIndex);
+    });
+
+    $(window).resize (function () {
+      self.scaleSlideElement ();
+      self.scaleSlideContainerElement ();
+      self.centerSlideContainerElement ();
+      self.positionSlideElement ();
     });
   }
 
   /*
-    Accepts one argument: flickity, a Flickity
-    object that represents the Flickity instance
-    associated with the navigator scrollbar; sets
-    the onSelect event handler for the instance
-    so that it disables the previous and next
-    buttons correctly; and returns undefined.
+    Accepts no arguments, sets the show/hide
+    functions for the slide buttons, and returns
+    undefined.
   */
-  function initNavigatorFlickity (flickity) {
-    // I. Align the caption element.
-    setFlickityScrollHandler (flickity,
-      function (progress, positionX) {
-        progress < .01 ?
-          disableFlickityPrevButton (flickity):
-          enableFlickityPrevButton (flickity);
+  Navigator.prototype.initSlideButtons = function () {
+    var self = this;
+    window.setInterval (function () {
+      self.shouldShowSlideLeftButton () ? self.showSlideLeftButton () : self.hideSlideLeftButton ();
+      self.shouldShowSlideRightButton () ? self.showSlideRightButton () : self.hideSlideRightButton ();
+    }, 2000);
+  }
 
-        progress > .99 ?
-          disableFlickityNextButton (flickity):
-          enableFlickityNextButton (flickity);
-    });
-
-    // II. Hide the navigator element if there is only one cell.
-    flickity.cells.length <= 1 && $(flickity.element).hide ();
+ /*
+    Accepts no arguments, scales the slide
+    element so that it can fit all of its item
+    elements; and returns undefined.
+  */
+  Navigator.prototype.scaleSlideElement = function () {
+    var slideWidth = this.itemElements.reduce (
+      function (slideWidth, itemElement) {
+        return slideWidth + $(itemElement).outerWidth (true);
+      }, 0
+    );
+    this.slideElement.width (slideWidth + 'px');
   }
 
   /*
-    Accepts one argument: flickity, a Flickity
-    object that represents a Flickity instance
-    that is associated with a carousel; and
-    aligns the captions within the instance's
-    cells.
+    Accepts no arguments, scales the slide
+    container element so that it can contain the
+    slide element and its overflow w.r.t. this
+    instance's element; and returns undefined.
   */
-  function initCarouselCells (flickity) {
-    getFlickityCellElements (flickity).each (
-      function (i, cellElement) {
-        initCarouselCell ($(cellElement));
-    });
+  Navigator.prototype.scaleSlideContainerElement = function () {
+    var margin = Math.max (0, this.slideElement.width () - this.element.width ());
+    this.slideContainerElement.width (this.slideElement.width () + margin);
   }
 
   /*
-    Accepts one argument: cellElement, a jQuery
-    HTML Element that represents a cell element
-    in a carousel Flickity instance; and aligns
-    cellElement's caption.
+    Accepts no arguments, centers the slide
+    container element within this instance's
+    element, and returns undefined.
+
+    Note: this function assumes that the slide
+    container element is positioned within the
+    navigator element.
   */
-  function initCarouselCell (cellElement) {
-    setCellCaptionPadding (cellElement);
+  Navigator.prototype.centerSlideContainerElement = function () {
+    var margin = (this.element.width () - this.slideContainerElement.width ()) / 2;
+    this.slideContainerElement.css ('left', margin);
   }
 
   /*
-    Accepts one argument: cellElement, a jQuery
-    HTML Element that represents a cell element;
-    and aligns cellElement's caption element
-    as needed.
-
-    Note: will snap align the caption to the
-    image if the image is larger than the Image
-    Width Threshold and smaller than the default
-    caption padding.
+    Accepts no arguments, aligns the slide
+    element with the left-hand side of this
+    instance's element, and returns undefined.
   */
-  function setCellCaptionPadding (cellElement) {
-    if (getImage (cellElement).width () > getImageWidthThreshold ()) {
-      var imageOffset = getImageOffset (cellElement);
-      var captionOffset = getCaptionOffset (cellElement);
+  Navigator.prototype.positionSlideElement = function () {
+    var margin = Math.max (0, (this.slideContainerElement.width () - this.element.width ())/2);
+    this.slideElement.css ('left', margin);
+  }
 
-      if (imageOffset > captionOffset) {
-        var padding = (imageOffset * 100) + '%';
-        getCaption (cellElement)
-          .css ('padding-left', padding)
-          .css ('padding-right', padding);
-      }
+  /*
+    Accepts one argument: itemIndex, an integer
+    that represents a valid item index; triggers
+    this instance's flickity instance to select
+    the item, and returns undefined.
+  */
+  Navigator.prototype.select = function (itemIndex) {
+    this.flickity.select (itemIndex);
+  }
+
+  /*
+    Accepts one argument: index, an integer
+    that references a menu item element; slides
+    the slide element so that the menu item
+    referenced by index is positioned within
+    the focus element; and returns undefined.
+  */
+  Navigator.prototype.slideTo = function (index) {
+    var itemElement = this.getItemElement (index);
+    var itemWidth = itemElement.width ();
+    var itemLeft  = this.slideContainerElement.position ().left + this.slideElement.position ().left + itemElement.position ().left;
+    var itemRight = itemLeft + itemElement.width ();
+    var elementRight = this.element.width ();
+
+    if (itemLeft < 0) {
+      var delta = - itemLeft;
+      return this.slide (delta);
+    } else if (itemRight > elementRight) {
+      var delta = Math.max (0, elementRight - itemWidth) - itemLeft;
+      return this.slide (delta);
     }
   }
 
   /*
-    Accepts two arguments:
+    Accepts no arguments, slides the slide
+    element to the left, and returns undefined.
 
-    * flickity, a Flickity object
-    * handler, a function that accepts two
-      arguments: progress, an integer that
-      represents the percent of the total width
-      represented by the first slide offset;
-      and positionX, the pixel offset of the
-      first slide
-
-    sets handler as the onScroll event handler
-    for flickity and returns undefined.
+    Note: this function assumes that the slide
+    element is positioned absolutely relative
+    to the slide container element.
   */
-  function setFlickityScrollHandler (flickity, handler) {
-    flickity.on ('scroll', handler);
+  Navigator.prototype.slideLeft = function () {
+    this.slide (- this.element.outerWidth ());
   }
 
   /*
-    Accepts no arguments and returns the Flickity
-    instances associated with the carousels as
-    a Flickity object array.
+    Accepts no arguments, slides the slide
+    element to the right, and returns undefined.
+
+    Note: this function assumes that the slide
+    element is positioned absolutely relative
+    to the slide container element.
   */
-  function getCarouselFlickity () {
-    return getFlickityInstances ().filter (isCarouselFlickity);
+  Navigator.prototype.slideRight = function () {
+    this.slide (this.element.outerWidth ());
   }
 
   /*
-    Accepts no arguments and returns the Flickity
-    instances associated with the navigator
-    scrollbars as a Flickity object array.
+    Accepts one argument: delta, an integer
+    that represents an offset; slides the slide
+    element to the right by delta pixels; and
+    returns undefined.
+
+    Note: delta may be a negative value, in this
+    case, the slide element slides the slide
+    element to the left.
+
+    Note: this function assumes that the slide
+    element is positioned absolutely relative
+    to the slide container element.
   */
-  function getNavigatorFlickity () {
-    return getFlickityInstances ().filter (isNavigatorFlickity);
+  Navigator.prototype.slide = function (delta) {
+    this.slideElement.animate ({left: this.slideElement.position ().left + this.constrainDelta (delta)});
   }
 
   /*
-    Accepts one argument: flickity, a Flickity
-    object; and returns true iff the given
-    instance is associated with a carousel.
+    Accepts one argument: delta, an integer
+    that represents a pixel offset; and returns
+    an integer, delta' that represents a valid
+    pixel offset for the slide element.
+
+    Note: this function assumes that the slide
+    element is positioned absolutely relative
+    to the slide container element.
   */
-  function isCarouselFlickity (flickity) {
-    return getFlickityElement (flickity).hasClass (getCarouselElementClassName ());
+  Navigator.prototype.constrainDelta = function (delta) {
+    var left       = this.slideElement.position ().left + this.slideContainerElement.position ().left;
+    var margin     = this.slideElement.width () - this.element.width ();
+    var leftMargin = margin + left;
+
+    return delta < -leftMargin ? -leftMargin :
+      (delta > -left ? -left : delta);
+  } 
+
+  /*
+    Accepts one argument: index, a natural
+    number that references an item element;
+    and returns a jQuery HTML Element that
+    represents the item element referenced
+    by index.
+  */
+  Navigator.prototype.getItemElement = function (index) {
+    return index < this.itemElements.length ? this.itemElements [index] : null;
   }
 
   /*
-    Accepts one argument: flickity, a Flickity
-    object; and returns true iff the given
-    Flickity instance is associated with the
-    navigator scrollbar.
+    Accepts no arguments, shows the slide left
+    button, and returns undefined.
   */
-  function isNavigatorFlickity (flickity) {
-    return getFlickityElement (flickity).hasClass (getNavigatorElementClassName ());
+  Navigator.prototype.showSlideLeftButton = function () {
+    this.slideLeftButtonElement.show ();
   }
 
   /*
-    Accepts one argument: flickity, a Flickity
-    object; enables the instance's previous
-    button; and returns undefined.
+    Accepts no arguments, shows the slide right
+    button, and returns undefined.
   */
-  function enableFlickityPrevButton (flickity) { getFlickityPrevButton (flickity).enable (); }
+  Navigator.prototype.showSlideRightButton = function () {
+    this.slideRightButtonElement.show ();
+  }
 
   /*
-    Accepts one argument: flickity, a Flickity
-    object; enables the instance's next button;
-    and returns undefined.
+    Accepts no arguments, hides the slide left
+    button, and returns undefined.
   */
-  function enableFlickityNextButton (flickity) { getFlickityNextButton (flickity).enable (); }
+  Navigator.prototype.hideSlideLeftButton = function () {
+    this.slideLeftButtonElement.hide ();
+  }
 
   /*
-    Accepts one argument: flickity, a Flickity
-    object; disables the instance's previous
-    button; and returns undefined.
+    Accepts no arguments, hides the slide right
+    button, and returns undefined.
   */
-  function disableFlickityPrevButton (flickity) { getFlickityPrevButton (flickity).disable (); }
+  Navigator.prototype.hideSlideRightButton = function () {
+    this.slideRightButtonElement.hide ();
+  }
+
 
   /*
-    Accepts one argument: flickity, a Flickity
-    object; disables the instance's next button;
-    and returns undefined.
+    Accepts no arguments and returns true iff
+    the slide left button should be displayed.
   */
-  function disableFlickityNextButton (flickity) { getFlickityNextButton (flickity).disable (); }
+  Navigator.prototype.shouldShowSlideLeftButton = function () {
+    var left = this.slideContainerElement.position ().left + this.slideElement.position ().left;
+    var right = left + this.slideElement.width ();
+    return this.isSlideElementCropped () && right > this.element.width ();
+  }
+
+  /*
+    Accepts no arguments and returns true iff
+    the slide right button should be displayed.
+  */
+  Navigator.prototype.shouldShowSlideRightButton = function () {
+    return this.isSlideElementCropped () && (this.slideContainerElement.position ().left + this.slideElement.position ().left < 0);
+  }
+
+  /*
+    Accepts no arguments and returns true iff the
+    slide element has been cropped - I.E. the
+    slide element is wider than the slide
+    container element.
+  */
+  Navigator.prototype.isSlideElementCropped = function () {
+    return this.element.width () < this.slideElement.width ();
+  }
+
+  /*
+    Accepts three arguments:
+
+    * slideContainerElement, a jQuery HTML
+      Element that represents a slide element
+    * slideLeftButtonElement, a jQuery HTML
+      Element that represents a slide left button
+      element
+    * and slideRightButtonElement, a jQuery
+      HTML Element that represents a slide right
+      button element
+
+    and returns a jQuery HTML Element that
+    represents a navigator containing the given
+    component elements.
+  */
+  function createNavigatorElement (slideContainerElement, slideLeftButtonElement, slideRightButtonElement) {
+    return $('<div></div>')
+      .addClass (getNavigatorClassName ())
+      .append (slideContainerElement)
+      .append (slideLeftButtonElement)
+      .append (slideRightButtonElement);
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents a Slide Left
+    button.
+  */
+  function createSlideLeftButtonElement (navigator) {
+    return createButtonElement ()
+      .addClass (getSlideLeftButtonClassName ())
+      .click (function () { navigator.slideLeft (); });
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents a Slide Right
+    button.
+  */
+  function createSlideRightButtonElement (navigator) {
+    return createButtonElement ()
+      .addClass (getSlideRightButtonClassName ())
+      .click (function () { navigator.slideRight (); });
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents a generic
+    button.
+  */
+  function createButtonElement () {
+    return $('<div></div>').addClass (getButtonClassName ());
+  }
+
+  /*
+    Accepts one argument: slideElement, a jQuery
+    HTML Element that represents a slide element;
+    and returns a jQuery HTML Element that
+    represents a slide container element.
+  */
+  function createSlideContainerElement (slideElement) {
+    return $('<div></div>')
+      .addClass (getSlideContainerClassName ())
+      .append (slideElement);
+  }
+
+  /*
+    Accepts one argument: itemElements, a jQuery
+    HTML Element set that represents a collection
+    of item elements; and returns a jQuery HTML
+    Element that represents a slide element
+    containing itemElements.
+  */
+  function createSlideElement (itemElements) {
+    return $('<div></div>')
+      .addClass (getSlideClassName ())
+      .append (itemElements)
+      .draggable ({
+        axis: 'x',
+        containment: 'parent'
+      });
+  }
+
+  /*
+    Accepts one argument:
+
+    * navigator, a Navigator instance
+
+    and returns an array of jQuery HTML Elements
+    that represents a collection of item elements
+    where every cell image in flickity has an
+    associated item.
+  */
+  function createItemElements (navigator) {
+    return getFlickityCellElements (navigator.flickity).map (
+      function (i, cellElement) {
+        var imageElement = getImageElement ($(cellElement)).clone (true);
+        return createItemElement (navigator, i, imageElement);
+    }).toArray ();
+  }
+
+  /*
+    Accepts three arguments:
+
+    * navigator, a Navigator instance
+    * itemIndex, an integer
+    * and imageElement, a jQuery HTML Element
+      that represents an IMG element
+
+    and returns a jQuery HTML Element that
+    represents an item element containing
+    imageElement and linked to navigator.
+  */
+  function createItemElement (navigator, itemIndex, imageElement) {
+    return $('<div></div>')
+      .addClass (getItemClassName ())
+      .attr (getItemIndexAttribute (), itemIndex)
+      .append (imageElement
+        .addClass (getItemImageClassName ()))
+      .click (function () { navigator.select (itemIndex); });
+  }
+
+  // III. Auxiliary Functions
 
   /*
     Accepts one argument: cellElement, a jQuery
     HTML Element that represents a cell element;
-    and returns a float that represents the ratio
-    of cellElement's image's left offset to
-    cellElement's width.
+    and returns a jQuery HTML Element that
+    represents cellElement's image element.
   */
-  function getImageOffset (cellElement) {
-    return getImage (cellElement).position ().left / cellElement.width ();
-  }
-
-  /*
-    Accepts one argument: cellElement, a jQuery
-    HTML Element that represents a cell element;
-    and returns a float that represents the ratio
-    of cellElement's caption's left offset to
-    cellElement's width.
-  */
-  function getCaptionOffset (cellElement) {
-    return getCaption (cellElement).position ().left / cellElement.width ();
-  }
-
-  /*
-    Accepts one argument: cellElement, a jQuery
-    HTML Element that represents a cell element;
-    and returns cellElement's image element as
-    a jQuery HTML Set.
-  */
-  function getImage (cellElement) {
-    return $('.' + getImageClassName () + ' img', cellElement);
-  }
-
-  /*
-    Accepts one argument: cellElement, a jQuery
-    HTML Element that represents a cell element;
-    and returns cellElement's caption element
-    as a jQuery HTML Set.
-  */
-  function getCaption (cellElement) {
-    return $('.' + getCaptionClassName (), cellElement);
-  }
+  function getImageElement (cellElement) { return $('img', cellElement); }
 
   /*
     Accepts one argument: flickity, a Flickity
@@ -252,20 +446,6 @@
   function getFlickityCellElements (flickity) {
     return $('.' + getCellClassName (), getFlickityElement (flickity));
   }
-
-  /*
-    Accepts one argument: flickity, a Flickity
-    object; and returns the instance's previous
-    button as a PrevNextButton.
-  */
-  function getFlickityPrevButton (flickity) { return flickity.prevButton; }
-
-  /*
-    Accepts one argument: flickity, a Flickity
-    object; and returns the instance's next
-    button as a PrevNextButton.
-  */
-  function getFlickityNextButton (flickity) { return flickity.nextButton; }
 
   /*
     Accepts one argument: flickity, a Flickity
@@ -282,41 +462,6 @@
   function getFlickityInstances () { return Drupal.flickity ? Drupal.flickity.instance : []; }
 
   /*
-    Accepts no arguments and returns the name of
-    the class used to label the Flickity element
-    associated with the carousel.
-  */
-  function getCarouselElementClassName () { return 'default_group'; }
-
-  /*
-    Accepts no arguments and returns the name of
-    the class used to label the Flickity element
-    associated with the navigator scrollbar.
-  */
-  function getNavigatorElementClassName () { return 'navigator'; }
-
-  /*
-    Accepts no arguments and returns the name of
-    the class used to label cell image container
-    elements.
-
-    Note: this class was added to the field
-    output using the "Rewrite Results" option
-    in the Views UI.
-  */
-  function getImageClassName () { return 'carousel_image'; }
-
-  /*
-    Accepts no arguments and returns the name
-    of the class used to label caption elements.
-
-    Note: this class was added to the field
-    output using the "Rewrite Results" option
-    in the Views UI.
-  */
-  function getCaptionClassName () { return 'carousel_caption'; }
-
-  /*
     Accepts no arguments and returns the name
     of the class used to label Flickity cell
     elements as a string.
@@ -324,11 +469,85 @@
   function getCellClassName () { return 'gallery-cell'; }
 
   /*
-    Accepts no arguments and returns the minimum
-    width (in pixels) that an image must be
-    for this module to align its caption with
-    its edges as an integer.
+    Accepts no arguments and returns the name
+    of the class used to label item images.
   */
-  function getImageWidthThreshold () { return 300; }
+  function getItemImageClassName () { return getItemClassName () + '-image'; }
 
+  /*
+    Accepts no arguments and returns the name
+    of the item index attribute.
+  */
+  function getItemIndexAttribute () { return getItemAttributePrefix () + '-index'; } 
+
+  /*
+    Accepts no arguments and returns the prefix
+    used by all item data attributes.
+  */
+  function getItemAttributePrefix () { return getAttributePrefix () + '-item'; }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label item elements.
+  */
+  function getItemClassName () { return getClassPrefix () + '-item'; }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label the slide element.
+  */
+  function getSlideClassName () { return getClassPrefix () + '-slide'; }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label the slide
+    container element. 
+  */
+  function getSlideContainerClassName () { return getClassPrefix () + '-slide-container'; }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label the Slide Left
+    button.
+
+    Note: the button on the right slides the
+    slide element to the left.
+  */
+  function getSlideLeftButtonClassName () { return getButtonClassName () + '-right'; }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label the Slide Right
+    button.
+
+    Note: the button on the left slides the
+    slide element to the right.
+  */
+  function getSlideRightButtonClassName () { return getButtonClassName () + '-left'; }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label button elements.
+  */
+  function getButtonClassName () { return getClassPrefix () + '-button'; }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label navigator
+    instances.
+  */
+  function getNavigatorClassName () { return getClassPrefix () + '-navigator'; }
+
+  /*
+    Accepts no arguments and returns the prefix
+    used by data attributes defined by this
+    module.
+  */
+  function getAttributePrefix () { return 'data-image-gallery'; }
+
+  /*
+    Accepts no arguments and returns the prefix
+    used by classes defined by this module.
+  */
+  function getClassPrefix () { return 'image-gallery'; }
 }) (jQuery);

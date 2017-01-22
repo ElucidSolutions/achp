@@ -3,8 +3,114 @@
   the Image Gallery feature.
 */
 .flickity {
+  @import "../styleguide";
+
+  $navigator-height: 125px;
+  $navigator-item-margin: $margin-large;
+  $navigator-item-image-width: 125px;
+  $navigator-button-width: $margin-med;
+
+  border: 1px solid $background-color-grey2;
   width: 100%;
   
+  /*
+    Hide the gallery cells until flickity loads
+    and inserts the flickity-viewport container
+    element.
+    */
+  .gallery-cell {
+    display: none;
+  }
+  .flickity-prev-next-button {
+    display: none;
+  }
+  .flickity-viewport {
+    cursor: default;
+    padding: $margin-med;
+
+    .gallery-cell {
+      display: block;
+      width: 100%;
+    }
+    .carousel_image {
+      text-align: center;
+
+      img {
+        border: none;
+        max-height: 400px;
+        object-fit: contain;
+        font-family: 'object-fit: contain;' // Used by Object Fit Images to Shim support for object-fit in IE and Edge.
+      }
+    }
+    .carousel_caption {
+      caption-side: bottom;
+      font-family: $sans-text;
+      font-size: rem(14);
+      padding: 10px 25px;
+    }
+  }
+  .image-gallery-navigator {
+    border-bottom: 1px solid $background-color-grey2;
+    height: $navigator-height;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    .image-gallery-slide-container {
+      height: 100%;
+      position: relative;
+      width: 100%;
+
+      .image-gallery-slide {
+        cursor: grab;
+        height: 100%;
+
+        .image-gallery-item {
+          float: left;
+          height: 100%;
+          margin-right: $navigator-item-margin;
+          position: relative;
+
+          .image-gallery-item-image {
+            max-height: 100%;
+            object-fit: contain;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            width: $navigator-item-image-width;
+          }
+          &:first-of-type {
+            margin-left: $navigator-item-margin;
+          }
+        }
+      }
+    }
+    .image-gallery-button {
+      background-color: $color-blue-primary;
+      cursor: pointer;
+      display: none;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: $navigator-button-width;
+    }
+    .image-gallery-button-left {
+      background-image: url('../images/image-gallery-left-arrow-icon.svg');
+      background-position: 50%;
+      background-size: 10px;
+      background-repeat: no-repeat;
+      left: 0;
+    }
+    .image-gallery-button-right {
+      background-image: url('../images/image-gallery-right-arrow-icon.svg');
+      background-position: 50%;
+      background-size: 10px;
+      background-repeat: no-repeat;
+      right: 0;
+    }
+  }
+
+
   .flickity-prev-next-button {
     background-color: $color-blue-primary;
     border: none;
@@ -52,93 +158,3 @@
     }
   }
 }
-
-/* III. Carousel View Element */
-.flickity.default_group {
-  border: 1px solid $background-color-grey2;
-  padding: 20px;
-
-  .flickity-prev-next-button {
-    display: none;
-  }
-
-  /*
-    Hide the gallery cells until flickity loads
-    and inserts the flickity-viewport container
-    element.
-    */
-  .gallery-cell {
-    display: none;
-  }
-  .flickity-viewport {
-    .gallery-cell {
-      display: block;
-      width: 100%;
-    }
-  }
-  .carousel_image {
-    text-align: center;
-
-    img {
-      border: none;
-      max-height: 400px;
-      // max-width: 100%;
-      object-fit: contain;
-      // width: 100%;
-    }
-  }
-  .carousel_caption {
-    caption-side: bottom;
-    font-family: $sans-text;
-    font-size: rem(14);
-    padding: 10px 25px;
-  }
-}
-.flickity.default_group.flickity-enabled.is-draggable {
-  .flickity-viewport {
-    cursor: default;
-  }
-}
-
-/* IV. Nav Elements */
-.flickity.navigator {
-  border-bottom: 1px solid $background-color-grey2;
-  min-height: 125px;
-
-  /*
-    Hide the gallery cells until flickity loads
-    and inserts the flickity-viewport container
-    element.
-    */
-  .gallery-cell {
-    display: none;
-  }
-  .flickity-viewport {
-    @include transform(translateY(-50%));
-    position: absolute;
-    top: 50%;
-
-    .gallery-cell {
-      @include span-columns(4 of 12);
-      display: block;
-      text-align: center;
-    
-      img {
-        height: auto;
-        max-height: 100px;
-        max-width: 90%;
-      }
-      &.item-0 {
-        img {
-          padding-left: 40px;
-        }
-      }
-      &.last-item {
-        img {
-          padding-right: 40px;
-        }
-      }
-    }
-  }
-}
-
