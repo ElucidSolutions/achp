@@ -6026,7 +6026,7 @@ header {
           color: #C6C6C6;
           margin-top: 0;
           padding: 10px 0; }
-        #news_landing_page #content .news-landing-container .news-item .views-field-field-news-photo img {
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-image img {
           float: left;
           height: auto;
           max-height: 300px;
@@ -10796,6 +10796,9 @@ header {
   @media (max-width: 400px) {
     #page[data-page-node-type="success_story"] #secondary_header_region #block-breadcrumbs {
       padding: 0 20px; } }
+#page[data-page-node-type="success_story"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
+  margin: 0 auto;
+  max-width: 700px; }
 #page[data-page-node-type="success_story"] #secondary_header_region #block-sharethispage {
   margin: 0 auto;
   max-width: 700px;
