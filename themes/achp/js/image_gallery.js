@@ -83,9 +83,9 @@
   */
   Navigator.prototype.initSlideButtons = function () {
     var self = this;
+    this.updateButtons ();
     window.setInterval (function () {
-      self.shouldShowSlideLeftButton () ? self.showSlideLeftButton () : self.hideSlideLeftButton ();
-      self.shouldShowSlideRightButton () ? self.showSlideRightButton () : self.hideSlideRightButton ();
+      self.updateButtons ();
     }, 2000);
   }
 
@@ -244,35 +244,93 @@
   }
 
   /*
-    Accepts no arguments, shows the slide left
-    button, and returns undefined.
+    Accepts no arguments, updates the Slide
+    Left and Slide Right buttons, and returns
+    undefined.
   */
-  Navigator.prototype.showSlideLeftButton = function () {
-    this.slideLeftButtonElement.show ();
+  Navigator.prototype.updateButtons = function () {
+    if (this.shouldShowButtons ()) {
+      this.showButtons ();
+      this.shouldEnableSlideLeftButton ()?
+        this.enableSlideLeftButton ():
+        this.disableSlideLeftButton ();
+      this.shouldEnableSlideRightButton ()?
+        this.enableSlideRightButton ():
+        this.disableSlideRightButton ();
+    } else {
+      this.hideButtons ();
+    }
   }
 
   /*
-    Accepts no arguments, shows the slide right
-    button, and returns undefined.
+    Accepts no arguments, shows the Slide
+    Left and Slide Right buttons, and returns
+    undefined.
   */
-  Navigator.prototype.showSlideRightButton = function () {
+  Navigator.prototype.showButtons = function () {
+    this.slideLeftButtonElement.show ();
     this.slideRightButtonElement.show ();
   }
 
   /*
-    Accepts no arguments, hides the slide left
-    button, and returns undefined.
+    Accepts no arguments, hides the Slide
+    Left and Slide Right buttons, and returns
+    undefined.
   */
-  Navigator.prototype.hideSlideLeftButton = function () {
+  Navigator.prototype.hideButtons = function () {
     this.slideLeftButtonElement.hide ();
+    this.slideRightButtonElement.hide ();
   }
 
   /*
-    Accepts no arguments, hides the slide right
+    Accepts no arguments and returns true iff
+    the Slide Left and Slide Right buttons should
+    be displayed.
+  */
+  Navigator.prototype.shouldShowButtons = function () {
+    return this.isSlideElementCropped ();
+  }
+
+  /*
+    Accepts no arguments, enables the slide left
     button, and returns undefined.
   */
-  Navigator.prototype.hideSlideRightButton = function () {
-    this.slideRightButtonElement.hide ();
+  Navigator.prototype.enableSlideLeftButton = function () {
+    var self = this;
+    this.slideLeftButtonElement
+      .removeClass (getDisabledButtonClassName ())
+      .click (function () { self.slideLeft (); });
+  }
+
+  /*
+    Accepts no arguments, enables the slide right
+    button, and returns undefined.
+  */
+  Navigator.prototype.enableSlideRightButton = function () {
+    var self = this;
+    this.slideRightButtonElement
+      .removeClass (getDisabledButtonClassName ())
+      .click (function () { self.slideRight (); });
+  }
+
+  /*
+    Accepts no arguments, disables the slide left
+    button, and returns undefined.
+  */
+  Navigator.prototype.disableSlideLeftButton = function () {
+    this.slideLeftButtonElement
+      .addClass (getDisabledButtonClassName ())
+      .off ('click');
+  }
+
+  /*
+    Accepts no arguments, disables the slide right
+    button, and returns undefined.
+  */
+  Navigator.prototype.disableSlideRightButton = function () {
+    this.slideRightButtonElement
+      .addClass (getDisabledButtonClassName ())
+      .off ('click');
   }
 
 
@@ -280,7 +338,7 @@
     Accepts no arguments and returns true iff
     the slide left button should be displayed.
   */
-  Navigator.prototype.shouldShowSlideLeftButton = function () {
+  Navigator.prototype.shouldEnableSlideLeftButton = function () {
     var left = this.slideContainerElement.position ().left + this.slideElement.position ().left;
     var right = left + this.slideElement.width ();
     return this.isSlideElementCropped () && right > this.element.width ();
@@ -290,7 +348,7 @@
     Accepts no arguments and returns true iff
     the slide right button should be displayed.
   */
-  Navigator.prototype.shouldShowSlideRightButton = function () {
+  Navigator.prototype.shouldEnableSlideRightButton = function () {
     return this.isSlideElementCropped () && (this.slideContainerElement.position ().left + this.slideElement.position ().left < 0);
   }
 
@@ -334,9 +392,7 @@
     button.
   */
   function createSlideLeftButtonElement (navigator) {
-    return createButtonElement ()
-      .addClass (getSlideLeftButtonClassName ())
-      .click (function () { navigator.slideLeft (); });
+    return createButtonElement ().addClass (getSlideLeftButtonClassName ());
   }
 
   /*
@@ -345,15 +401,16 @@
     button.
   */
   function createSlideRightButtonElement (navigator) {
-    return createButtonElement ()
-      .addClass (getSlideRightButtonClassName ())
-      .click (function () { navigator.slideRight (); });
+    return createButtonElement ().addClass (getSlideRightButtonClassName ());
   }
 
   /*
     Accepts no arguments and returns a jQuery
     HTML Element that represents a generic
     button.
+
+    Note: This function creates buttons that
+    are disabled by default.
   */
   function createButtonElement () {
     return $('<div></div>').addClass (getButtonClassName ());
@@ -524,6 +581,13 @@
     slide element to the right.
   */
   function getSlideRightButtonClassName () { return getButtonClassName () + '-left'; }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label disabled button
+    elements.
+  */
+  function getDisabledButtonClassName () { return getButtonClassName () + '-disabled'; }
 
   /*
     Accepts no arguments and returns the name

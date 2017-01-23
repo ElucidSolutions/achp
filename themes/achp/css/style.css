@@ -1232,7 +1232,7 @@ the events landing page is different */
     display: none; }
   .flickity .flickity-viewport {
     cursor: default;
-    padding: 20px; }
+    margin: 20px; }
     .flickity .flickity-viewport .gallery-cell {
       display: block;
       width: 100%; }
@@ -1240,7 +1240,7 @@ the events landing page is different */
       text-align: center; }
       .flickity .flickity-viewport .carousel_image img {
         border: none;
-        max-height: 400px;
+        max-height: 350px;
         object-fit: contain;
         font-family: "object-fit: contain;"; }
     .flickity .flickity-viewport .carousel_caption {
@@ -1249,7 +1249,7 @@ the events landing page is different */
       font-size: 0.875rem;
       padding: 10px 25px; }
   .flickity .image-gallery-navigator {
-    border-bottom: 1px solid #E5E3E4;
+    border-top: 1px solid #E5E3E4;
     height: 125px;
     overflow: hidden;
     position: relative;
@@ -1259,8 +1259,10 @@ the events landing page is different */
       position: relative;
       width: 100%; }
       .flickity .image-gallery-navigator .image-gallery-slide-container .image-gallery-slide {
+        cursor: -webkit-grab;
         cursor: grab;
-        height: 100%; }
+        height: 100%;
+        padding: 20px 0; }
         .flickity .image-gallery-navigator .image-gallery-slide-container .image-gallery-slide .image-gallery-item {
           float: left;
           height: 100%;
@@ -1283,6 +1285,8 @@ the events landing page is different */
       position: absolute;
       top: 0;
       width: 20px; }
+    .flickity .image-gallery-navigator .image-gallery-button-disabled {
+      background-color: #E5E3E4; }
     .flickity .image-gallery-navigator .image-gallery-button-left {
       background-image: url("../images/image-gallery-left-arrow-icon.svg");
       background-position: 50%;
