@@ -5146,6 +5146,83 @@ header {
 [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .application_link a {
   color: #0990FE; }
 
+/*
+  Styles for Preserve America steward pages
+*/
+#page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-breadcrumbs {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 30px auto 0; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-breadcrumbs {
+      padding-left: 20px;
+      padding-right: 20px; } }
+#page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-pagetitle-2 {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  max-width: 750px;
+  text-align: center; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-pagetitle-2 {
+      padding-left: 20px;
+      padding-right: 20px; } }
+  #page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-pagetitle-2 h1, #page[data-page-node-type="preserve_america_steward"] #secondary_header #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #page[data-page-node-type="preserve_america_steward"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #page[data-page-node-type="preserve_america_steward"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"] {
+    color: #003A5E;
+    font-weight: normal; }
+    #page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-pagetitle-2 h1:after, #page[data-page-node-type="preserve_america_steward"] #secondary_header #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #page[data-page-node-type="preserve_america_steward"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #page[data-page-node-type="preserve_america_steward"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after {
+      background-color: #950306;
+      display: block;
+      content: "";
+      height: 1px;
+      margin: 5px auto 25px;
+      min-width: 50px;
+      width: 15%; }
+#page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-preserveamerica-shareblock {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 30px;
+  max-width: 750px; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-preserveamerica-shareblock {
+      padding-left: 20px;
+      padding-right: 20px; } }
+#page[data-page-node-type="preserve_america_steward"] #content #content_region {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 50px;
+  max-width: 750px; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="preserve_america_steward"] #content #content_region {
+      padding-left: 20px;
+      padding-right: 20px; } }
+  #page[data-page-node-type="preserve_america_steward"] #content #content_region .views-field-body p:first-of-type {
+    margin-top: 0; }
+  #page[data-page-node-type="preserve_america_steward"] #content #content_region img {
+    display: none; }
+  #page[data-page-node-type="preserve_america_steward"] #content #content_region a {
+    color: #0990FE; }
+  #page[data-page-node-type="preserve_america_steward"] #content #content_region h4 {
+    margin-bottom: 10px; }
+    #page[data-page-node-type="preserve_america_steward"] #content #content_region h4:before {
+      background-color: #979797;
+      display: block;
+      content: "";
+      height: 1px;
+      margin: 35px auto;
+      width: 100%; }
+
 [data-page-path-alias="/preserve-america/application"] #content #content_region article {
   padding-bottom: 50px; }
   [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table {
@@ -5349,60 +5426,101 @@ header {
         padding-right: 0;
         width: 100%; } }
 
-/*#page[data-page-path-alias="/preserve-america/presidential-award/2008"],*/
-#page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-breadcrumbs {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding-left: 40px;
-  padding-right: 40px;
-  width: 100%;
-  margin: 30px auto 0;
-  max-width: 750px; }
-  @media (max-width: 400px) {
-    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-breadcrumbs {
-      padding-left: 20px;
-      padding-right: 20px; } }
-#page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding-left: 40px;
-  padding-right: 40px;
-  width: 100%;
-  max-width: 750px;
-  text-align: center; }
-  @media (max-width: 400px) {
-    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 {
-      padding-left: 20px;
-      padding-right: 20px; } }
-  #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 h1, #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"] {
-    color: #003A5E;
-    font-weight: normal;
-    line-height: 1.2; }
-    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 h1:after, #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after {
-      background-color: #950306;
-      display: block;
-      content: "";
-      height: 1px;
-      margin: 15px auto 25px;
-      min-width: 50px;
-      width: 15%; }
-#page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-preserveamerica-shareblock {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding-left: 40px;
-  padding-right: 40px;
-  width: 100%;
-  margin: 0 auto 30px;
-  max-width: 750px; }
-  @media (max-width: 400px) {
-    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-preserveamerica-shareblock {
-      padding-left: 20px;
-      padding-right: 20px; } }
-#page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region {
-  margin: 0 auto;
-  max-width: 750px; }
-  #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region article div[data-achp-field-name="field_image"] .achp-field-label, #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region article div[data-achp-field-name="field_image"] img {
-    display: none; }
+#page[data-page-path-alias^="/preserve-america/presidential-award/2"] {
+  font-size: 1.125rem; }
+  #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-breadcrumbs {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    margin: 30px auto 0 !important;
+    max-width: 750px; }
+    @media (max-width: 400px) {
+      #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-breadcrumbs {
+        padding-left: 20px;
+        padding-right: 20px; } }
+  #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    max-width: 750px;
+    text-align: center; }
+    @media (max-width: 400px) {
+      #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 {
+        padding-left: 20px;
+        padding-right: 20px; } }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 h1, #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"] {
+      color: #003A5E;
+      font-weight: normal;
+      line-height: 1.2; }
+      #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 h1:after, #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-pagetitle-2 .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-pagetitle-2 .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after {
+        background-color: #950306;
+        display: block;
+        content: "";
+        height: 1px;
+        margin: 15px auto 25px;
+        min-width: 50px;
+        width: 15%; }
+  #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-preserveamerica-shareblock {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    margin: 30px auto 15px !important;
+    max-width: 750px; }
+    @media (max-width: 400px) {
+      #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-preserveamerica-shareblock {
+        padding-left: 20px;
+        padding-right: 20px; } }
+  #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region {
+    margin: 0 auto;
+    max-width: 750px; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article figure {
+      margin: 15px 0 25px; }
+      #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article figure img {
+        max-width: 100%; }
+      #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article figure figcaption {
+        font-family: "p22-underground", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        padding-top: 10px; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article h2 {
+      line-height: 1.2;
+      margin-top: 35px;
+      text-align: left; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article h3 {
+      color: #950306;
+      margin-top: 15px; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article p + h3 {
+      margin-top: 35px; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article h3 + p {
+      margin-top: 0; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article .text_beside_photo img {
+      float: left;
+      height: 125px;
+      margin: 0 10px 10px 0; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article a {
+      color: #0990FE; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article div[data-achp-field-name="field_image"] .achp-field-label, #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article div[data-achp-field-name="field_image"] img {
+      display: none; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-achp-content article #project_details p a {
+      font-family: "p22-underground", sans-serif; }
+    #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-related-resources-page-specific {
+      margin: 0 auto;
+      max-width: 1024px;
+      padding-left: 40px;
+      padding-right: 40px;
+      width: 100%;
+      margin: 30px auto 50px;
+      max-width: 750px; }
+      @media (max-width: 400px) {
+        #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #content #content_region #block-related-resources-page-specific {
+          padding-left: 20px;
+          padding-right: 20px; } }
 
 /*
   Styles for the protecting historic properties page
@@ -6506,9 +6624,10 @@ body {
 
 h1, #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #content #block-achp-page-title h1, h2, h3 {
   font-family: "p22-underground", sans-serif;
+  font-weight: normal;
   text-align: center;
   margin: 0;
-  font-weight: normal; }
+  text-align: center; }
 
 h1, #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #content #block-achp-page-title h1 {
   font-size: 1.625rem;
