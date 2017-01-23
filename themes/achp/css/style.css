@@ -1012,10 +1012,300 @@ the events landing page is different */
   the Image Gallery feature.
 */
 .flickity {
-  background-color: #262626;
-  width: 100%; }
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and mobile-value, another CSS value
+  
+    sets property to mobile-value and adds a media
+    query that sets property to mobile-value for
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and tablet-value, another CSS value
+  
+    sets property to tablet-value and adds a media
+    query that sets property to tablet-value for
+    tablet screens.
+  */
+  /*
+    Accepts four arguments:
+  
+    * property, a CSS property
+    * widescreen-value, a CSS value
+    * tablet-value, a CSS value
+    * and mobile-value, an optional CSS value
+  
+    sets property to widescreen-value and
+    adds media queries that sets property to
+    tablet-value and mobile-value for tablet and
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * front-size, a CSS length measure
+    * margin-bottom, a CSS length measure
+  
+    and sets both the font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area -
+    affecting the bottom margin.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Accepts four length measures as
+    arguments: $widescreen-font-size,
+    $widescreen-margin-bottom, $mobile-font-size,
+    and $mobile-margin-bottom, and sets the
+    widescreen and mobile font sizes while
+    adjusting the bottom margins.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */
+  font-family: "minion-pro", serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  border: 1px solid #E5E3E4;
+  width: 100%;
+  /*
+    Hide the gallery cells until flickity loads
+    and inserts the flickity-viewport container
+    element.
+    */ }
+  .flickity a {
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    transition: color 0.25s;
+    color: #0990FE;
+    font-family: "p22-underground", sans-serif; }
+    .flickity a:hover {
+      color: #71BFFE; }
+  .flickity blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-style: italic; }
+    @media screen and (max-width: 650px) {
+      .flickity blockquote {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      .flickity blockquote {
+        margin-bottom: 20px; } }
+  .flickity h1, .flickity #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .flickity .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], .flickity #content #block-achp-page-title h1, #content #block-achp-page-title .flickity h1 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 2.25rem;
+    margin-bottom: 0; }
+    @media screen and (max-width: 925px) {
+      .flickity h1, .flickity #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .flickity .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], .flickity #content #block-achp-page-title h1, #content #block-achp-page-title .flickity h1 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      .flickity h1, .flickity #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .flickity .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], .flickity #content #block-achp-page-title h1, #content #block-achp-page-title .flickity h1 {
+        font-size: 1.625rem; } }
+    @media screen and (max-width: 650px) {
+      .flickity h1, .flickity #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .flickity .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], .flickity #content #block-achp-page-title h1, #content #block-achp-page-title .flickity h1 {
+        margin-bottom: 0; } }
+  .flickity h2 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 20px; }
+    @media screen and (max-width: 925px) {
+      .flickity h2 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      .flickity h2 {
+        font-size: 1.375rem; } }
+    @media screen and (max-width: 650px) {
+      .flickity h2 {
+        margin-bottom: 5px; } }
+  .flickity h3 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 5px; }
+    @media screen and (max-width: 925px) {
+      .flickity h3 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      .flickity h3 {
+        font-size: 1.25rem; } }
+    @media screen and (max-width: 650px) {
+      .flickity h3 {
+        margin-bottom: 0; } }
+  .flickity h4 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 0; }
+    @media screen and (max-width: 925px) {
+      .flickity h4 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      .flickity h4 {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      .flickity h4 {
+        margin-bottom: 0; } }
+  .flickity p {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  .flickity ul {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  .flickity .gallery-cell {
+    display: none; }
   .flickity .flickity-prev-next-button {
-    background-color: #0f0f0f;
+    display: none; }
+  .flickity .flickity-viewport {
+    cursor: default;
+    margin: 20px; }
+    .flickity .flickity-viewport .gallery-cell {
+      display: block;
+      width: 100%; }
+    .flickity .flickity-viewport .carousel_image {
+      text-align: center; }
+      .flickity .flickity-viewport .carousel_image img {
+        border: none;
+        max-height: 350px;
+        object-fit: contain;
+        font-family: 'object-fit: contain;'; }
+    .flickity .flickity-viewport .carousel_caption {
+      caption-side: bottom;
+      font-family: "p22-underground", sans-serif;
+      font-size: 0.875rem;
+      padding: 10px 25px; }
+  .flickity .image-gallery-navigator {
+    border-top: 1px solid #E5E3E4;
+    height: 125px;
+    overflow: hidden;
+    position: relative;
+    width: 100%; }
+    .flickity .image-gallery-navigator .image-gallery-slide-container {
+      height: 100%;
+      position: relative;
+      width: 100%; }
+      .flickity .image-gallery-navigator .image-gallery-slide-container .image-gallery-slide {
+        cursor: -webkit-grab;
+        cursor: grab;
+        height: 100%;
+        padding: 20px 0; }
+        .flickity .image-gallery-navigator .image-gallery-slide-container .image-gallery-slide .image-gallery-item {
+          float: left;
+          height: 100%;
+          margin-right: 40px;
+          position: relative; }
+          .flickity .image-gallery-navigator .image-gallery-slide-container .image-gallery-slide .image-gallery-item .image-gallery-item-image {
+            max-height: 100%;
+            object-fit: contain;
+            font-family: 'object-fit: contain;';
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 125px; }
+          .flickity .image-gallery-navigator .image-gallery-slide-container .image-gallery-slide .image-gallery-item:first-of-type {
+            margin-left: 40px; }
+    .flickity .image-gallery-navigator .image-gallery-button {
+      background-color: #0990FE;
+      cursor: pointer;
+      display: none;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 20px; }
+    .flickity .image-gallery-navigator .image-gallery-button-disabled {
+      background-color: #E5E3E4; }
+    .flickity .image-gallery-navigator .image-gallery-button-left {
+      background-image: url("../images/image-gallery-left-arrow-icon.svg");
+      background-position: 50%;
+      background-size: 10px;
+      background-repeat: no-repeat;
+      left: 0; }
+    .flickity .image-gallery-navigator .image-gallery-button-right {
+      background-image: url("../images/image-gallery-right-arrow-icon.svg");
+      background-position: 50%;
+      background-size: 10px;
+      background-repeat: no-repeat;
+      right: 0; }
+  .flickity .flickity-prev-next-button {
+    background-color: #0990FE;
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -1028,7 +1318,7 @@ the events landing page is different */
       left: 0;
       position: static;
       top: 0;
-      width: 20px; }
+      width: 15px; }
       .flickity .flickity-prev-next-button svg .arrow {
         fill: white; }
         .flickity .flickity-prev-next-button svg .arrow:disabled {
@@ -1049,70 +1339,6 @@ the events landing page is different */
     .flickity .gallery-cell .field-content img {
       height: auto;
       max-width: 100%; }
-
-/* III. Carousel View Element */
-.flickity.default_group {
-  /*
-    Hide the gallery cells until flickity loads
-    and inserts the flickity-viewport container
-    element.
-    */ }
-  .flickity.default_group .flickity-prev-next-button {
-    display: none; }
-  .flickity.default_group .gallery-cell {
-    display: none; }
-  .flickity.default_group .flickity-viewport .gallery-cell {
-    display: block;
-    width: 100%; }
-  .flickity.default_group .carousel_image {
-    text-align: center; }
-    .flickity.default_group .carousel_image img {
-      border: none; }
-  .flickity.default_group .carousel_caption {
-    caption-side: bottom;
-    color: #F4F4F4;
-    font-size: 0.875rem;
-    padding: 10px 25px; }
-
-.flickity.default_group.flickity-enabled.is-draggable .flickity-viewport {
-  cursor: default; }
-
-/* IV. Nav Elements */
-.flickity.navigator {
-  border-top: 1px solid #4F4F4F;
-  min-height: 125px;
-  /*
-    Hide the gallery cells until flickity loads
-    and inserts the flickity-viewport container
-    element.
-    */ }
-  .flickity.navigator .gallery-cell {
-    display: none; }
-  .flickity.navigator .flickity-viewport {
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    position: absolute;
-    top: 50%; }
-    .flickity.navigator .flickity-viewport .gallery-cell {
-      float: left;
-      display: block;
-      margin-right: 0%;
-      width: 33.33333%;
-      display: block;
-      text-align: center; }
-      .flickity.navigator .flickity-viewport .gallery-cell:last-child {
-        margin-right: 0; }
-      .flickity.navigator .flickity-viewport .gallery-cell img {
-        height: auto;
-        max-height: 100px;
-        max-width: 90%; }
-      .flickity.navigator .flickity-viewport .gallery-cell.item-0 img {
-        padding-left: 40px; }
-      .flickity.navigator .flickity-viewport .gallery-cell.last-item img {
-        padding-right: 40px; }
 
 /*
 ** This Sass file defines the styles for the 
@@ -5800,7 +6026,7 @@ header {
           color: #C6C6C6;
           margin-top: 0;
           padding: 10px 0; }
-        #news_landing_page #content .news-landing-container .news-item .views-field-field-news-photo img {
+        #news_landing_page #content .news-landing-container .news-item .views-field-field-image img {
           float: left;
           height: auto;
           max-height: 300px;
@@ -10570,6 +10796,9 @@ header {
   @media (max-width: 400px) {
     #page[data-page-node-type="success_story"] #secondary_header_region #block-breadcrumbs {
       padding: 0 20px; } }
+#page[data-page-node-type="success_story"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
+  margin: 0 auto;
+  max-width: 700px; }
 #page[data-page-node-type="success_story"] #secondary_header_region #block-sharethispage {
   margin: 0 auto;
   max-width: 700px;
