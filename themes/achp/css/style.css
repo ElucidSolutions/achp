@@ -1249,8 +1249,7 @@ the events landing page is different */
       caption-side: bottom;
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      font-weight: 600;
-      padding: 10px 25px; }
+      font-weight: 600; }
   .flickity .image-gallery-navigator {
     border-top: 1px solid #E5E3E4;
     height: 125px;
@@ -1342,6 +1341,219 @@ the events landing page is different */
     .flickity .gallery-cell .field-content img {
       height: auto;
       max-width: 100%; }
+
+#lightbox {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and mobile-value, another CSS value
+  
+    sets property to mobile-value and adds a media
+    query that sets property to mobile-value for
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and tablet-value, another CSS value
+  
+    sets property to tablet-value and adds a media
+    query that sets property to tablet-value for
+    tablet screens.
+  */
+  /*
+    Accepts four arguments:
+  
+    * property, a CSS property
+    * widescreen-value, a CSS value
+    * tablet-value, a CSS value
+    * and mobile-value, an optional CSS value
+  
+    sets property to widescreen-value and
+    adds media queries that sets property to
+    tablet-value and mobile-value for tablet and
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * front-size, a CSS length measure
+    * margin-bottom, a CSS length measure
+  
+    and sets both the font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area -
+    affecting the bottom margin.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Accepts four length measures as
+    arguments: $widescreen-font-size,
+    $widescreen-margin-bottom, $mobile-font-size,
+    and $mobile-margin-bottom, and sets the
+    widescreen and mobile font sizes while
+    adjusting the bottom margins.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */
+  font-family: "minion-pro", serif;
+  font-size: 1.125rem;
+  line-height: 1.7; }
+  #lightbox a {
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    transition: color 0.25s;
+    color: #0990FE;
+    font-family: "p22-underground", sans-serif; }
+    #lightbox a:hover {
+      color: #71BFFE; }
+  #lightbox blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-style: italic; }
+    @media screen and (max-width: 650px) {
+      #lightbox blockquote {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      #lightbox blockquote {
+        margin-bottom: 20px; } }
+  #lightbox h1, #lightbox #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #lightbox .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #lightbox #content #block-achp-page-title h1, #content #block-achp-page-title #lightbox h1 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 2.25rem;
+    margin-bottom: 0; }
+    @media screen and (max-width: 925px) {
+      #lightbox h1, #lightbox #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #lightbox .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #lightbox #content #block-achp-page-title h1, #content #block-achp-page-title #lightbox h1 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      #lightbox h1, #lightbox #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #lightbox .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #lightbox #content #block-achp-page-title h1, #content #block-achp-page-title #lightbox h1 {
+        font-size: 1.625rem; } }
+    @media screen and (max-width: 650px) {
+      #lightbox h1, #lightbox #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #lightbox .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #lightbox #content #block-achp-page-title h1, #content #block-achp-page-title #lightbox h1 {
+        margin-bottom: 0; } }
+  #lightbox h2 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 20px; }
+    @media screen and (max-width: 925px) {
+      #lightbox h2 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      #lightbox h2 {
+        font-size: 1.375rem; } }
+    @media screen and (max-width: 650px) {
+      #lightbox h2 {
+        margin-bottom: 5px; } }
+  #lightbox h3 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 5px; }
+    @media screen and (max-width: 925px) {
+      #lightbox h3 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      #lightbox h3 {
+        font-size: 1.25rem; } }
+    @media screen and (max-width: 650px) {
+      #lightbox h3 {
+        margin-bottom: 0; } }
+  #lightbox h4 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 0; }
+    @media screen and (max-width: 925px) {
+      #lightbox h4 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      #lightbox h4 {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      #lightbox h4 {
+        margin-bottom: 0; } }
+  #lightbox p {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  #lightbox ul {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  #lightbox .lb-caption {
+    font-family: "p22-underground", sans-serif;
+    font-size: 1rem;
+    font-weight: 600; }
 
 /*
 ** This Sass file defines the styles for the 

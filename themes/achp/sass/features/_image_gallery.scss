@@ -49,7 +49,6 @@
       font-family: $sans-text;
       font-size: rem(16px);
       font-weight: 600;
-      padding: 10px 25px;
     }
   }
   .image-gallery-navigator {
@@ -165,5 +164,14 @@
         max-width: 100%;
       }
     }
+  }
+}
+#lightbox {
+  @import "../styleguide";
+  
+  .lb-caption {
+    font-family: $sans-text;
+    font-size: rem(16px);
+    font-weight: 600;
   }
 }
