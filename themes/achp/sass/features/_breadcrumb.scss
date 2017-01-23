@@ -7,6 +7,7 @@
   font-family: $sans-text;
   font-size: rem($breadcrumb-font-size);
   text-transform: uppercase;
+  margin: 15px 0;
 
   a {
     font-size: rem($breadcrumb-font-size) !important;
@@ -45,6 +46,7 @@
     ol {
       color: $color-blue-primary;
       list-style-type: none;
+      margin: 0;
       max-height: $default-line-height * $breadcrumb-font-size;
       overflow: hidden;
       padding-left: 0;
@@ -102,7 +104,6 @@
 
 @media (max-width: $mobile-breakpoint) {
   [data-plugin-id="system_breadcrumb_block"] {
-    height: 50px;
     padding-top: 0;
 
     .achp-breadcrumb {

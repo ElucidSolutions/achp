@@ -75,6 +75,7 @@
       self.scaleImages ();
       self.centerSlideContainerElement ();
       self.positionSlideElement ();
+      self.toggleButtons ();
     });
   }
 
@@ -85,10 +86,11 @@
   */
   Navigator.prototype.initSlideButtons = function () {
     var self = this;
+    this.toggleButtons ();
     this.updateButtons ();
     window.setInterval (function () {
       self.updateButtons ();
-    }, 2000);
+    }, 1000);
   }
 
  /*
@@ -246,22 +248,12 @@
   }
 
   /*
-    Accepts no arguments, updates the Slide
-    Left and Slide Right buttons, and returns
-    undefined.
+    Accepts no arguments, shows or hides the
+    Slide Left and Slide Right buttons, and
+    returns undefined.
   */
-  Navigator.prototype.updateButtons = function () {
-    if (this.shouldShowButtons ()) {
-      this.showButtons ();
-      this.shouldEnableSlideLeftButton ()?
-        this.enableSlideLeftButton ():
-        this.disableSlideLeftButton ();
-      this.shouldEnableSlideRightButton ()?
-        this.enableSlideRightButton ():
-        this.disableSlideRightButton ();
-    } else {
-      this.hideButtons ();
-    }
+  Navigator.prototype.toggleButtons = function () {
+    this.shouldShowButtons () ? this.showButtons () : this.hideButtons ();
   }
 
   /*
@@ -294,14 +286,25 @@
   }
 
   /*
+    Accepts no arguments, updates the Slide
+    Left and Slide Right buttons, and returns
+    undefined.
+  */
+  Navigator.prototype.updateButtons = function () {
+    this.shouldEnableSlideLeftButton ()?
+      this.enableSlideLeftButton ():
+      this.disableSlideLeftButton ();
+    this.shouldEnableSlideRightButton ()?
+      this.enableSlideRightButton ():
+      this.disableSlideRightButton ();
+  }
+
+  /*
     Accepts no arguments, enables the slide left
     button, and returns undefined.
   */
   Navigator.prototype.enableSlideLeftButton = function () {
-    var self = this;
-    this.slideLeftButtonElement
-      .removeClass (getDisabledButtonClassName ())
-      .click (function () { self.slideLeft (); });
+    this.slideLeftButtonElement.removeClass (getDisabledButtonClassName ());
   }
 
   /*
@@ -309,10 +312,7 @@
     button, and returns undefined.
   */
   Navigator.prototype.enableSlideRightButton = function () {
-    var self = this;
-    this.slideRightButtonElement
-      .removeClass (getDisabledButtonClassName ())
-      .click (function () { self.slideRight (); });
+    this.slideRightButtonElement.removeClass (getDisabledButtonClassName ());
   }
 
   /*
@@ -320,9 +320,7 @@
     button, and returns undefined.
   */
   Navigator.prototype.disableSlideLeftButton = function () {
-    this.slideLeftButtonElement
-      .addClass (getDisabledButtonClassName ())
-      .off ('click');
+    this.slideLeftButtonElement.addClass (getDisabledButtonClassName ());
   }
 
   /*
@@ -330,9 +328,7 @@
     button, and returns undefined.
   */
   Navigator.prototype.disableSlideRightButton = function () {
-    this.slideRightButtonElement
-      .addClass (getDisabledButtonClassName ())
-      .off ('click');
+    this.slideRightButtonElement.addClass (getDisabledButtonClassName ());
   }
 
 
@@ -408,7 +404,11 @@
     button.
   */
   function createSlideLeftButtonElement (navigator) {
-    return createButtonElement ().addClass (getSlideLeftButtonClassName ());
+    return createButtonElement ()
+      .addClass (getSlideLeftButtonClassName ())
+      .click (function () {
+        navigator.shouldEnableSlideLeftButton () && navigator.slideLeft ();
+      });
   }
 
   /*
@@ -417,7 +417,11 @@
     button.
   */
   function createSlideRightButtonElement (navigator) {
-    return createButtonElement ().addClass (getSlideRightButtonClassName ());
+    return createButtonElement ()
+      .addClass (getSlideRightButtonClassName ())
+      .click (function () {
+        navigator.shouldEnableSlideRightButton () && navigator.slideRight ();
+      });
   }
 
   /*
