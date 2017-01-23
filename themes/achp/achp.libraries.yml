@@ -4,8 +4,9 @@ global-styling:
       css/style.css: {}
       chosen/chosen_v1.6.2/chosen.css: {}
   js:
-    object-fit-images/dist/ofi.js: {}
-    js/classList.js-master/classList.min.js: {}
+    js/bowser.js: {} # IE - Browser version detection.
+    object-fit-images/dist/ofi.js: {} # IE - Shim for object-fit CSS properties.
+    js/classList.js-master/classList.min.js: {} # IE - Shim for classList DOM property.
     js/achp_theme.js: {}
     js/breadcrumb.js: {}
     js/quicklinks.js: {}

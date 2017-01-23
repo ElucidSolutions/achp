@@ -1242,7 +1242,7 @@ the events landing page is different */
         border: none;
         max-height: 350px;
         object-fit: contain;
-        font-family: "object-fit: contain;"; }
+        font-family: 'object-fit: contain;'; }
     .flickity .flickity-viewport .carousel_caption {
       caption-side: bottom;
       font-family: "p22-underground", sans-serif;
@@ -1271,8 +1271,13 @@ the events landing page is different */
           .flickity .image-gallery-navigator .image-gallery-slide-container .image-gallery-slide .image-gallery-item .image-gallery-item-image {
             max-height: 100%;
             object-fit: contain;
+            font-family: 'object-fit: contain;';
             position: relative;
             top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
             transform: translateY(-50%);
             width: 125px; }
           .flickity .image-gallery-navigator .image-gallery-slide-container .image-gallery-slide .image-gallery-item:first-of-type {

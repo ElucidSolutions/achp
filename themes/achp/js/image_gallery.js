@@ -60,6 +60,7 @@
     var self = this;
     this.scaleSlideElement ();
     this.scaleSlideContainerElement ();
+    this.scaleImages ();
     this.centerSlideContainerElement ();
     this.positionSlideElement ();
     this.initSlideButtons ();
@@ -71,6 +72,7 @@
     $(window).resize (function () {
       self.scaleSlideElement ();
       self.scaleSlideContainerElement ();
+      self.scaleImages ();
       self.centerSlideContainerElement ();
       self.positionSlideElement ();
     });
@@ -360,6 +362,20 @@
   */
   Navigator.prototype.isSlideElementCropped = function () {
     return this.element.width () < this.slideElement.width ();
+  }
+
+  /*
+    Accepts no arguments, calls objectFitImages
+    to scale images on IE, and returns undefined.
+
+    Note: objectFitImages provides a Shim to
+    simulate the object-fit CSS property. See:
+    https://github.com/bfred-it/object-fit-images/
+    for more information.
+  */
+  Navigator.prototype.scaleImages = function () {
+    var imageElements = $('.' + getItemImageClassName ());
+    objectFitImages (imageElements);
   }
 
   /*

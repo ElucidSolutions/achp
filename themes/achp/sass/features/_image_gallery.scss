@@ -40,7 +40,7 @@
         border: none;
         max-height: 350px;
         object-fit: contain;
-        font-family: 'object-fit: contain;' // Used by Object Fit Images to Shim support for object-fit in IE and Edge.
+        font-family: 'object-fit: contain;'; // Used by Object Fit Images to Shim support for object-fit in IE and Edge.
       }
     }
     .carousel_caption {
@@ -77,9 +77,10 @@
           .image-gallery-item-image {
             max-height: 100%;
             object-fit: contain;
+            font-family: 'object-fit: contain;'; // Used by Object Fit Images to Shim support for object-fit in IE and Edge.
             position: relative;
             top: 50%;
-            transform: translateY(-50%);
+            @include transform(translateY(-50%));
             width: $navigator-item-image-width;
           }
           &:first-of-type {
