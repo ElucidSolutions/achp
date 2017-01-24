@@ -3,15 +3,15 @@
 */
 
 #page[data-page-node-type="page"] {
+  #secondary_header_region {
+    [data-derivative-plugin-id="image_carousel-block_1"] {
+      margin: 0 auto;
+      max-width: $max-content-width;
+    }
+  }
   #content {   
     width: 100%;
 
-    #secondary_header_region {
-      [data-derivative-plugin-id="image_carousel-block_1"] {
-        margin: 0 auto;
-        max-width: $max-content-width;
-      }
-    }
     #content_region {
       padding: 0;
 
