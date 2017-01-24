@@ -1,6 +1,5 @@
 /*
 */
-
 #page[data-page-path-alias^="/preserve-america/presidential-award/2"] {
   $page-max-width: 750px;
   font-size: rem(18px);
@@ -31,6 +30,10 @@
           width: 15%;
         }
       }
+    }
+    [data-derivative-plugin-id="image_carousel-block_1"] {
+      @include content-container;
+      max-width: $page-max-width;
     }
     #block-preserveamerica-shareblock {
       @include content-container;
