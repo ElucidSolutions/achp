@@ -1,0 +1,51 @@
+#page[data-page-path-alias="/about"] {
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content {
+    max-width: 100%;
+    padding: 0;
+
+    #content_region {
+      article {
+        margin-bottom: 50px;
+
+        .mission_quote_container {
+          background-color: $color-lightblue3;
+          margin-bottom: 30px;
+
+          .mission_quote {
+            @include content-container;
+            color: $color-darkgrey2;
+            font-family: $serif-text;
+            font-size: rem(24px);
+            font-style: italic;
+            padding: 30px 100px 20px;
+          }
+          .mission_quote_attribution {
+            @include content-container;
+            color: $color-darkgrey2;          
+            font-size: 16px;
+            font-style: normal;
+            margin-right: 250px;
+            padding: 0 100px 25px;
+            text-align: right;
+          }
+        }
+        h2 {
+          @include content-container;
+        }
+        .who_is_achp {
+          @include content-container;
+        }
+      }
+    }
+  }
+}
