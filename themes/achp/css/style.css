@@ -7370,7 +7370,14 @@ header {
 */
 #page[data-page-node-type="page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
   margin: 0 auto;
-  max-width: 1024px; }
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
+      padding-left: 20px;
+      padding-right: 20px; } }
 #page[data-page-node-type="page"] #content {
   width: 100%; }
   #page[data-page-node-type="page"] #content #content_region {
