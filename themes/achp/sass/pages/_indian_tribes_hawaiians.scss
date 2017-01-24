@@ -141,6 +141,7 @@
         background-color: $background-color-grey2;
         clear: both;
         height: auto;
+        padding-bottom: $vertical-padding;
         /*margin-top: $vertical-padding;*/
 
         [data-view-id="homepage_success_stories"] {
@@ -210,12 +211,16 @@
           }
         }
       }
-      #block-moresuccessstoriesbutton-2 {
-        background-color: $color-lightblue3;
+      #block-indian-hawaiian-more-success-stories-button {
+        background-color: $background-color-grey2;
         padding-bottom: $vertical-padding;
 
-        button {
-          margin: 0 auto;
+        div {
+          @include content-container;
+
+          button {
+            margin: 0 auto;
+          }
         }
       }
       @media (max-width: $max-content-width) {
@@ -249,6 +254,32 @@
                   /*right: 0;*/
                 }
               }
+            }
+          }
+        }
+        #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
+          /*border: 1px solid pink;*/
+          /*background: pink;*/
+          /*max-width: 100%;*/
+          /*padding: 0 $container-padding $vertical-padding;*/
+          /*width: 710px;*/
+          /*width: $two-card-container-width;*/
+
+          .success-story.card {
+            /*display: block;*/
+            /*background-color: pink;*/
+
+            &.view-item-1 {
+            }
+            &.view-item-2 {
+
+            }
+            &.view-item-3 {
+              /*display: block;*/
+              margin: 0 auto;
+              /*margin: 25px 0 0;*/
+              /*margin-left: 151px;*/
+              /*margin-left: calc(#{$success-card-width} / 2);*/
             }
           }
         }
