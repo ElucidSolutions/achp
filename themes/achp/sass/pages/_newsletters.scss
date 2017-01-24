@@ -1,7 +1,7 @@
 /*
   Styles specific to the newsletters page
 */
-#page[data-page-path-alias="/newsletters"] {
+#page[data-page-path-alias^="/newsletters"] {
   $text-input-width: 220px;
   $margin-xsmall: 10px;
   $margin-small: 15px;
@@ -10,6 +10,10 @@
   $margin-xlarge: 40px;
 
   #main {
+
+    #secondary_header #block-breadcrumbs {
+      @include content-container;
+    }
     a {
       color: $color-blue-primary;
     }

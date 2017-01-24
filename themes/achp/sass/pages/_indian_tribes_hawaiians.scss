@@ -49,6 +49,7 @@
           h2 {
             font-size: rem(32px);
             margin-bottom: 0;
+            text-align: center;
 
             &+ p {
               margin: 0 0 30px;
@@ -141,6 +142,7 @@
         background-color: $background-color-grey2;
         clear: both;
         height: auto;
+        padding-bottom: $vertical-padding;
         /*margin-top: $vertical-padding;*/
 
         [data-view-id="homepage_success_stories"] {
@@ -206,16 +208,20 @@
             }
           }
           .success-story.card.view-item-3 {
-            margin-right: 0 !important;
+            margin-right: 0;
           }
         }
       }
-      #block-moresuccessstoriesbutton-2 {
-        background-color: $color-lightblue3;
+      #block-indian-hawaiian-more-success-stories-button {
+        background-color: $background-color-grey2;
         padding-bottom: $vertical-padding;
 
-        button {
-          margin: 0 auto;
+        div {
+          @include content-container;
+
+          button {
+            margin: 0 auto;
+          }
         }
       }
       @media (max-width: $max-content-width) {
@@ -244,11 +250,23 @@
               .read-more a {
                 padding-right: 30px;
                 width: 100%;
-
-                &:after {
-                  /*right: 0;*/
-                }
               }
+            }
+          }
+        }
+        #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
+          $two-card-container-width: calc(#{$success-card-width} * 2 
+            + #{$success-card-margin-horiz} 
+            + #{$success-card-shadow-width} * 2);
+          $two-card-container-margin: calc((100% - #{$two-card-container-width})/2);
+
+          .success-story.card {
+            &.view-item-1 {
+              margin-left: $two-card-container-margin;
+            }
+            &.view-item-3 {
+              display: block;
+              margin: 25px auto 0;
             }
           }
         }
@@ -258,7 +276,7 @@
           margin: 0;
 
           .textblock_with_background {
-            height: 275px;
+            height: 325px;
             margin: 0 !important;
 
             .split_block_container {
@@ -272,6 +290,15 @@
               padding-left: 25px;
               padding-right: 25px;
             }
+          }
+        }
+        #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
+          .success-story.card {
+            &.view-item-1, &.view-item-2, &.view-item-3 {
+            /*margin: 25px auto 0;*/
+            display: block;
+            margin: 25px auto 0;
+          }
           }
         }
       }
@@ -309,7 +336,7 @@
               }
             }
             .views-field-field-issue-summary {
-              padding-bottom: 40px;
+              padding-bottom: 70px;
             }
             .views-field-view-node a {
               padding-right: 20px;
