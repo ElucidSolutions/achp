@@ -9,6 +9,13 @@
 */
 (function ($) {
 
+  /*
+    An integer that specifies the minimum
+    number of images that must be displayed in
+    a Flickity element for a navigator to appear.
+  */
+  function MIN_NUM_IMAGES () { return 2; }
+
   // I. Flickity Instances
 
   /*
@@ -22,11 +29,13 @@
         // create the navigator instance.
         var navigator = new Navigator (flickity);
 
-        // attach the navigator element.
-        getFlickityElement (flickity).append (navigator.element);
+        if (navigator.itemElements.length >= MIN_NUM_IMAGES) {
+          // attach the navigator element.
+          getFlickityElement (flickity).append (navigator.element);
 
-        // initialize the navigator instance.
-        navigator.init ();
+          // initialize the navigator instance.
+          navigator.init ();
+        }
     });
   });
 
