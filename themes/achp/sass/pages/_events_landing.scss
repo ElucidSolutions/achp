@@ -27,7 +27,7 @@
       }
     }
   }
-  #content {  
+  #content {
 
     #content_region {
       background-color: transparent;
@@ -141,7 +141,6 @@
         display: none;
       }
     }
-
     @media (max-width: 900px) {
       #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature {
         .event_calendar_calendar {
@@ -158,7 +157,6 @@
         }
       } 
     }
-    
     @media (max-width: $mobile-breakpoint) {
       #secondary_header_region {
         #block-eventslandingpageheader .header_container h2 {
@@ -174,7 +172,7 @@
               text-align: center;
             }
             .event_calendar_feature .event_calendar_grid {
-              padding: 0 50px;
+              padding: 0 !important;
             }
           }
         }

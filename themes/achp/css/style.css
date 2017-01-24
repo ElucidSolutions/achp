@@ -4253,13 +4253,17 @@ header {
       margin: 0; }
 @media (max-width: 720px) {
   #page[data-page-node-type="event"] #main {
-    margin: 0 50px;
+    margin: 0;
     max-width: 100%; }
+    #page[data-page-node-type="event"] #main #secondary_header {
+      padding: 0 20px; }
     #page[data-page-node-type="event"] #main #block-sharethispage .share_this_page_button {
       margin-left: 15px; }
       #page[data-page-node-type="event"] #main #block-sharethispage .share_this_page_button_print {
         display: none; } }
 @media (max-width: 400px) {
+  #page[data-page-node-type="event"] #main #secondary_header {
+    padding: 0 20px; }
   #page[data-page-node-type="event"] #main #block-sharethispage .share_this_page {
     padding-left: 0; }
     #page[data-page-node-type="event"] #main #block-sharethispage .share_this_page .share_this_page_buttons {
@@ -4434,7 +4438,7 @@ header {
       #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar h3:not(.event_calendar_grid_card_title) {
         text-align: center; }
       #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar .event_calendar_feature .event_calendar_grid {
-        padding: 0 50px; } }
+        padding: 0 !important; } }
 
 /*
   This stylesheet defines the default styles
