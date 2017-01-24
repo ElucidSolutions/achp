@@ -7,7 +7,11 @@
   font-family: $sans-text;
   font-size: rem($breadcrumb-font-size);
   text-transform: uppercase;
+  margin: 15px 0;
 
+  a {
+    font-size: rem($breadcrumb-font-size) !important;
+  }
   .mobile_breadcrumb {
     display: none;
     text-align: center;
@@ -42,6 +46,7 @@
     ol {
       color: $color-blue-primary;
       list-style-type: none;
+      margin: 0;
       max-height: $default-line-height * $breadcrumb-font-size;
       overflow: hidden;
       padding-left: 0;
@@ -98,11 +103,12 @@
 }
 
 @media (max-width: $mobile-breakpoint) {
-  #block-breadcrumbs {
-    height: 50px;
+  [data-plugin-id="system_breadcrumb_block"] {
+    padding-top: 0;
+    padding-bottom: 20px;
 
     .achp-breadcrumb {
-      display: none;
+      display: none !important;
     }
     .mobile_breadcrumb {
       display: block;

@@ -25,6 +25,8 @@
     current page.
   */
   $(document).ready (function () {
+    var contentRegionElement = $('#content_region');
+
     getInstanceContainerElements ().each (
       function (i, _instanceContainerElement) {
         var instanceContainerElement = $(_instanceContainerElement);
@@ -37,6 +39,11 @@
         if (instance.items.length >= getInstanceContainerElementMinNumItems (instanceContainerElement)) {
           instanceContainerElement.append (instance.element);
           instance.init ();
+
+          contentRegionElement.css ('margin-left', instance.element.width ());
+          $(window).resize (function () {
+            contentRegionElement.css ('margin-left', instance.element.width ());
+          });
         }
     });
   });

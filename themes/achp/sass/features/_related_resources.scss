@@ -3,16 +3,11 @@
   for the Related Resources block.
 */
 [data-derivative-plugin-id^="related_resources"] {
-  $margin-xsmall: 5px;
-  $margin-small: 10px;
-  $margin-med: 20px;
-  $margin-large: 40px;
+  @import "../styleguide";
 
   h2 {
-    border-bottom: 2px solid $color-lightgrey;
+    border-bottom: $separator;
     color: $color-red2;
-    font-size: rem(20px);
-    font-weight: 500;
     margin-bottom: $margin-med;
     padding-bottom: $margin-xsmall;
     text-align: left;

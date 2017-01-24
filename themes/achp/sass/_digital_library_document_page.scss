@@ -1,0 +1,85 @@
+/*
+  This stylesheet defines default styles shared
+  by the Digital Library document pages.
+*/
+
+#main {
+  @import "styleguide";
+
+  $content_left_region_width: 350px;
+
+  #content {
+    position: relative;
+  }
+  #content_region {
+    @include tablet(margin-left, 0 !important);
+
+    h3 {
+      color: $color-red2;
+    }
+    [data-plugin-id="system_breadcrumb_block"] {
+      padding-top: 0; // fix inherited property.
+    }
+    .achp_date_published {
+      color: $color-lightgrey-2;
+      font-style: italic;
+      margin: 0 0 $margin-small;
+    }
+    [data-plugin-id="share_this_page_block"] {
+      @include responsive(margin-bottom, $margin-large, $margin-med);
+    }
+    [data-plugin-id="page_menu_block"] {
+      @include responsive(position, absolute, static);
+
+      .page-menu-instance-container {
+        @include responsive(padding-top, 300px, 0 !important);
+      }
+    }
+    .achp_synopsis {
+      @include body-text-block;
+    }
+    [data-derivative-plugin-id="document_download-block_1"] {
+      margin-bottom: $margin-med;
+      padding-bottom: $margin-med;
+      border-bottom: $separator;
+
+      header {
+        @include body-text-block;
+        background-color: transparent; // fix inherited property.
+        color: $color-lightgrey-2;
+        font-style: italic;
+        height: auto; // fix inherited property.
+        margin-bottom: $margin-small;
+      }
+      .views-field-field-download {
+        a {
+          font-family: $header-font-family;
+          font-size: $default-font-size;
+          text-transform: uppercase;
+
+          &:after {
+            background-image: url('../images/downloading-icon.svg');
+            background-position-y: bottom;
+            background-size: 12px;
+            background-repeat: no-repeat;
+            content: '';
+            display: inline-block;
+            height: 16px;
+            margin-left: $margin-small;
+            width: $margin-med;
+          }
+        }
+      }
+    }
+    [data-achp-field-name="field_tags"] {
+      border-top: $separator;
+      padding-top: $margin-med;
+      margin: $margin-med 0;
+
+      .achp-field-label {
+        @include h4;
+        text-align: left;
+      }
+    }
+  }
+}
