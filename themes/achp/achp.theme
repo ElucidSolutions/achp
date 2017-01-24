@@ -34,6 +34,20 @@ function achp_preprocess_views_view__community_spotlight (&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_views_view_list ().
+ *
+ * Ensures that every view list item element includes its
+ * item number.
+ */
+function achp_preprocess_views_view_list (&$variables) {
+  \Drupal::logger('achp_theme')->notice('[achp_preprocess_views_view_list] variable keys: <pre>' . print_r (array_keys($variables), true) . '</pre>');
+  \Drupal::logger('achp_theme')->notice('[achp_preprocess_views_view_list] view class: <pre>' . print_r (get_class($variables['view']), true) . '</pre>');
+  $view = $variables['view'];
+  $start_index = $view->getItemsPerPage () * $view->getCurrentPage ();
+  $variables['attributes']['data-achp-theme-view-start-index'] = $start_index;
+}
+
+/**
  * Implements hook_preprocess_page ().
  *
  * Expose node/view IDs as template variables.

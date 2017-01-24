@@ -114,16 +114,76 @@
           margin-bottom: $row-padding;
         }
         .success_stories_list_container {
-          box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+
+          .views-exposed-form {
+            font-family: $sans-text;
+            font-size: rem(16px);
+            margin-bottom: 40px;
+            position: relative;
+
+            .js-form-item {
+              display: inline-block;
+              position: relative;
+
+              label {
+                display: block;
+                font-weight: 500;
+              }
+              input, select {
+                border: 1px solid #CCCCCC;
+                color: $color-darkgrey2;
+                font-family: $sans-text;
+                font-size: rem(16px);
+                height: 40px;
+                padding: 0 5px;
+                position: relative;
+              }
+              select {
+                background-image: url("../images/dropdownbox-icon.svg");
+                background-position: right center;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                width: 150px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+              }
+              input[type="text"] {
+                margin-right: 20px;
+                width: 450px;
+              }
+            }
+          .form-actions input[type="submit"] {
+            background-color: $color-blue-primary;
+            background-image: url("../images/filter-icon.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            border: none;
+            /*bottom: 0;*/
+            color: transparent;
+            cursor: pointer;
+            height: 40px;
+            left: 410px;
+            /*position: absolute;*/
+            width: 40px;
+            position: relative;
+            bottom: 40px;
+/*              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;*/
+        }
+          }
 
           .views-row {
             @include clear-float;
             border-bottom: 1px solid $background-color-grey2;
+            border-top: 4px solid white;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
             padding: $row-padding;
             position: relative;
 
-            &:last-of-type {
-              border-bottom: 1px solid$background-color-grey2;
+            &:first-of-type {
+              border-top: 1px solid $background-color-grey2;
             }
             .views-field-field-success-short-title h4 {
               font-size: rem(20px);

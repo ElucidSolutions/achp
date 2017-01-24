@@ -1,5 +1,10 @@
 (function ($, Drupal, drupalSettings) {
 
+  if (navigator.appName.indexOf("Internet Explorer") != -1 && navigator.appVersion.indexOf("MSIE 9") != -1) {
+    console.log('IE9 detected; disabling Views Ajax History module');
+    return;
+  }
+
   // Need to keep this to check if there are extra parameters in the original URL.
   var original = {
     path: window.location.href,
