@@ -6824,51 +6824,61 @@ header {
 /*
   Styles specific to the newsletters page
 */
-#page[data-page-path-alias="/newsletters"] #main a {
+#page[data-page-path-alias^="/newsletters"] #main #secondary_header #block-breadcrumbs {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%; }
+  @media (max-width: 400px) {
+    #page[data-page-path-alias^="/newsletters"] #main #secondary_header #block-breadcrumbs {
+      padding-left: 20px;
+      padding-right: 20px; } }
+#page[data-page-path-alias^="/newsletters"] #main a {
   color: #0990FE; }
-#page[data-page-path-alias="/newsletters"] #main h3 {
+#page[data-page-path-alias^="/newsletters"] #main h3 {
   margin: 0 0 15px; }
-#page[data-page-path-alias="/newsletters"] #main h4, #page[data-page-path-alias="/newsletters"] #main [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .js-form-item label, [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .js-form-item #page[data-page-path-alias="/newsletters"] #main label {
+#page[data-page-path-alias^="/newsletters"] #main h4, #page[data-page-path-alias^="/newsletters"] #main [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .js-form-item label, [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .js-form-item #page[data-page-path-alias^="/newsletters"] #main label {
   margin: 0 0 15px; }
-#page[data-page-path-alias="/newsletters"] #main h5 {
+#page[data-page-path-alias^="/newsletters"] #main h5 {
   color: #1E1E1E;
   font-size: 1.125rem;
   font-family: "p22-underground", sans-serif;
   font-weight: 500;
   margin: 0 0 30px; }
-#page[data-page-path-alias="/newsletters"] #main p {
+#page[data-page-path-alias^="/newsletters"] #main p {
   margin: 0 0 15px; }
-  #page[data-page-path-alias="/newsletters"] #main p.newsletter_disclaimer {
+  #page[data-page-path-alias^="/newsletters"] #main p.newsletter_disclaimer {
     font-size: 1rem; }
-#page[data-page-path-alias="/newsletters"] #main table {
+#page[data-page-path-alias^="/newsletters"] #main table {
   border-collapse: collapse; }
-  #page[data-page-path-alias="/newsletters"] #main table tr td {
+  #page[data-page-path-alias^="/newsletters"] #main table tr td {
     vertical-align: top;
     border-bottom: 1px solid #E5E3E4;
     border-right: 1px solid #E5E3E4;
     padding: 35px; }
-    #page[data-page-path-alias="/newsletters"] #main table tr td:nth-of-type(2) {
+    #page[data-page-path-alias^="/newsletters"] #main table tr td:nth-of-type(2) {
       border-right: none;
       min-width: 250px; }
-  #page[data-page-path-alias="/newsletters"] #main table tr:first-of-type td {
+  #page[data-page-path-alias^="/newsletters"] #main table tr:first-of-type td {
     padding-top: 0; }
-  #page[data-page-path-alias="/newsletters"] #main table tr:last-of-type td {
+  #page[data-page-path-alias^="/newsletters"] #main table tr:last-of-type td {
     border-bottom: none; }
-#page[data-page-path-alias="/newsletters"] #main ul {
+#page[data-page-path-alias^="/newsletters"] #main ul {
   margin: 0 0 15px; }
-#page[data-page-path-alias="/newsletters"] #main [data-base-plugin-id="system_breadcrumb_block"] {
+#page[data-page-path-alias^="/newsletters"] #main [data-base-plugin-id="system_breadcrumb_block"] {
   margin: 0 auto;
   max-width: 1024px;
   padding: 20px 75px 0; }
-#page[data-page-path-alias="/newsletters"] #main [data-base-plugin-id="share_this_page_block"] {
+#page[data-page-path-alias^="/newsletters"] #main [data-base-plugin-id="share_this_page_block"] {
   margin: 0 auto;
   max-width: 1024px;
   padding: 0 40px 35px; }
-#page[data-page-path-alias="/newsletters"] #main .subscribe-form-field,
-#page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field {
+#page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field,
+#page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field {
   position: relative; }
-  #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field label,
-  #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field label {
+  #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field label,
+  #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field label {
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     transition: all 0.2s;
@@ -6879,12 +6889,12 @@ header {
     position: absolute;
     top: 8px;
     z-index: 5; }
-  #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input,
-  #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input {
+  #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input,
+  #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input {
     height: 40px; }
-    #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="text"], #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="email"],
-    #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="text"],
-    #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="email"] {
+    #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="text"], #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="email"],
+    #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="text"],
+    #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="email"] {
       background-color: transparent;
       border: 1px solid #E5E3E4;
       border-radius: 2px;
@@ -6895,20 +6905,20 @@ header {
       position: relative;
       width: 220px;
       z-index: 20; }
-      #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="text"]:focus, #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="email"]:focus,
-      #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="text"]:focus,
-      #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="email"]:focus {
+      #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="text"]:focus, #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="email"]:focus,
+      #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="text"]:focus,
+      #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="email"]:focus {
         outline: none; }
-        #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="text"]:focus ~ label, #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="email"]:focus ~ label,
-        #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="text"]:focus ~ label,
-        #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="email"]:focus ~ label {
+        #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="text"]:focus ~ label, #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="email"]:focus ~ label,
+        #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="text"]:focus ~ label,
+        #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="email"]:focus ~ label {
           top: -24px; }
-      #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="text"]:valid ~ label, #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="email"]:valid ~ label,
-      #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="text"]:valid ~ label,
-      #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="email"]:valid ~ label {
+      #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="text"]:valid ~ label, #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="email"]:valid ~ label,
+      #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="text"]:valid ~ label,
+      #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="email"]:valid ~ label {
         top: -24px; }
-    #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="submit"],
-    #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="submit"] {
+    #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="submit"],
+    #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="submit"] {
       font-size: 0.75rem;
       transition: background-color 0.25s;
       background-color: #0990FE;
@@ -6925,26 +6935,26 @@ header {
       margin: 0 0 40px;
       padding: 7px 53px; }
       @media screen and (min-width: 650px) {
-        #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="submit"],
-        #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="submit"] {
+        #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="submit"],
+        #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="submit"] {
           font-size: 16px; } }
-      #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="submit"]:hover,
-      #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="submit"]:hover {
+      #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="submit"]:hover,
+      #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="submit"]:hover {
         background-color: #71BFFE; }
 @media (max-width: 750px) {
-  #page[data-page-path-alias="/newsletters"] #main table tr td {
+  #page[data-page-path-alias^="/newsletters"] #main table tr td {
     border: none;
     display: block;
     padding: 0 35px; }
-    #page[data-page-path-alias="/newsletters"] #main table tr td:first-of-type {
+    #page[data-page-path-alias^="/newsletters"] #main table tr td:first-of-type {
       padding-top: 35px; }
-    #page[data-page-path-alias="/newsletters"] #main table tr td:last-of-type {
+    #page[data-page-path-alias^="/newsletters"] #main table tr td:last-of-type {
       border-bottom: 1px solid #E5E3E4;
       padding-bottom: 35px; }
-  #page[data-page-path-alias="/newsletters"] #main table tr:first-of-type td {
+  #page[data-page-path-alias^="/newsletters"] #main table tr:first-of-type td {
     padding-top: 0; }
-  #page[data-page-path-alias="/newsletters"] #main .subscribe-form-field input[type="submit"],
-  #page[data-page-path-alias="/newsletters"] #main .unsubscribe-form-field input[type="submit"] {
+  #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="submit"],
+  #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="submit"] {
     margin: 0 0 35px; } }
 
 /*
@@ -8866,6 +8876,8 @@ header {
         padding-right: 0;
         width: 100%; } }
 
+/*
+*/
 #page[data-page-path-alias^="/preserve-america/presidential-award/2"] {
   font-size: 1.125rem; }
   #page[data-page-path-alias^="/preserve-america/presidential-award/2"] #secondary_header_region #block-breadcrumbs {
@@ -11587,7 +11599,7 @@ header {
           margin: 0; }
           [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-short-title h4 a, [data-page-path-alias="/success-stories"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-short-title .views-exposed-form .js-form-item label a, [data-page-path-alias="/preserve-america/stewards/list"] [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-short-title .views-exposed-form .js-form-item label a, [data-page-path-alias="/success-stories"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .js-form-item #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-short-title label a, [data-page-path-alias="/preserve-america/stewards/list"] [data-page-path-alias="/success-stories"] #content #content_region .views-exposed-form .js-form-item #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-short-title label a {
             color: #043B62; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images {
+        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images, [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-image {
           float: left;
           height: 180px;
           margin-right: 30px;
@@ -11595,11 +11607,11 @@ header {
           position: relative;
           width: 268px;
           background-color: #E6F8FF; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images:after {
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images:after, [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-image:after {
             clear: both;
             content: "";
             display: block; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images img {
+          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-success-images img, [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-image img {
             -webkit-transform: translateX(-50%) translateY(-50%);
             -moz-transform: translateX(-50%) translateY(-50%);
             -ms-transform: translateX(-50%) translateY(-50%);
