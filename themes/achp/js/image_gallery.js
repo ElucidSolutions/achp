@@ -29,7 +29,7 @@
         // create the navigator instance.
         var navigator = new Navigator (flickity);
 
-        if (navigator.itemElements.length >= MIN_NUM_IMAGES) {
+        if (navigator.itemElements.length >= MIN_NUM_IMAGES ()) {
           // attach the navigator element.
           getFlickityElement (flickity).append (navigator.element);
 
