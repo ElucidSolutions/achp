@@ -1,6 +1,16 @@
-[data-page-path-alias="/indian-tribes-native-hawaiians"] {
+#page[data-page-path-alias="/indian-tribes-native-hawaiians"] {
   $vertical-padding: 35px;
   $container-padding: 50px;
+  $img-height: 200px;
+  $img-width: 265px;
+  $img-margin: 20px;
+  $success-card-margin-vert: 25px;
+  $success-card-margin-horiz: 20px;
+  $success-card-height: 400px;
+  $success-card-shadow-width: 3px;
+  $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
+  $two-card-container-width: calc(#{$success-card-width} * 2 + #{$success-card-margin-horiz} + #{$success-card-shadow-width} * 2 + #{$container-padding} * 2);
+ 
 
   #secondary_header_region {
     #block-breadcrumbs {
@@ -19,6 +29,7 @@
 
     #content_region {
       margin: 0 auto;
+      width: 100%;
 
       #block-achp-content {
         @include content-container;
@@ -28,19 +39,20 @@
         }
       }
       #block-indian-tribes-hawaiians-initiatives {
-        $img-height: 200px;
-        $img-width: 300px;
-        $img-margin: 20px;
-
         @include content-container;
+        margin-top: 40px;
 
         header {
           background-color: white;
           height: auto;
 
           h2 {
-            font-size: rem(36px);
-            margin-bottom: 20px;
+            font-size: rem(32px);
+            margin-bottom: 0;
+
+            &+ p {
+              margin: 0 0 30px;
+            }
           }
         }
         .views-row {
@@ -70,7 +82,7 @@
             }
           }
           .views-field-view-node {
-            bottom: 5px;
+            bottom: 0;
             left: 395px;
             left: calc(#{$img-width} + #{$img-margin});
             position: absolute;
@@ -82,18 +94,23 @@
               a {
                 @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
                 color: $color-grey;
+                display: inline-block;
                 font-family: $sans-text;
                 font-size: 0.875rem;
                 font-weight: 500;
                 text-decoration: none;
                 text-transform: uppercase;
+                width: 95%;
+
+                &:after {
+                  right: 0;
+                }
               }
               &:hover {
                 color: $color-blue-primary;
               }
             }
           }
-
           &:after {
             background-color: $background-color-grey2;
             bottom: -$img-margin;
@@ -106,8 +123,103 @@
             width: 100%;
           }
         }
+      }
+      #block-learnaboutpolicies, #block-specificdocument {
+        .textblock_with_background {
+          margin-bottom: $vertical-padding;
+          margin-top: $vertical-padding;
 
-        @media (max-width: 850px) {
+          &.textblock_left {
+            background-image: url('../images/half-section-section-106-map.png');
+          }
+          &.textblock_right {
+            background-image: url('../images/half-section-section-106-comments.png');          
+          }
+        }
+      }
+      #block-indian-hawaiian-success-stories {
+        background-color: $background-color-grey2;
+        clear: both;
+        height: auto;
+        /*margin-top: $vertical-padding;*/
+
+        [data-view-id="homepage_success_stories"] {
+          @include content-container;
+
+          header {
+            background-color: $background-color-grey2;
+            height: auto;
+
+            h2 {
+              margin-top: $vertical-padding
+            }
+          }
+          .success-story.card {
+            background-color: #ffffff;
+            display: inline-block;
+            /*float: left;*/
+            height: $success-card-height;
+            margin: 25px $success-card-margin-horiz 0 0;
+            text-align: center;
+            width: $success-card-width;
+            
+            .success_story {
+              float: left;
+              height: $success-card-height - 20px; 
+              padding: 5px 10px;
+              position: relative;  
+
+              &_image {
+                $success_story_image_height: 185px;
+                @include fit-and-center-image($success_story_image_height);    
+                margin-bottom: 15px;
+
+                img {
+                  border: none !important;
+                }
+              }
+
+              &_title h3 {
+                text-align: inherit;
+              }
+
+              &_location {
+                color: $color-lightgrey-2;
+              }
+
+              &_body p {
+                font-family: $serif-text;
+                font-size: rem(16px);
+                margin: 5px;
+                text-align: center;
+              }
+
+              &_link {
+                @include center-x;
+                bottom: 0;
+                padding-right: 5px;
+
+                a {
+                  vertical-align: 0;   
+                }
+              }
+            }
+          }
+          .success-story.card.view-item-3 {
+            margin-right: 0 !important;
+          }
+        }
+      }
+      #block-moresuccessstoriesbutton-2 {
+        background-color: $color-lightblue3;
+        padding-bottom: $vertical-padding;
+
+        button {
+          margin: 0 auto;
+        }
+      }
+      @media (max-width: $max-content-width) {
+        #block-indian-tribes-hawaiians-initiatives {
           .views-row {
             .views-field-title h3 {
               text-align: center;
@@ -123,7 +235,7 @@
               }
             }
             .views-field-field-issue-summary {
-              padding-bottom: 20px;
+              padding-bottom: 40px;
             }
             .views-field-view-node {
               bottom: 0px;
@@ -131,17 +243,43 @@
 
               .read-more a {
                 padding-right: 30px;
+                width: 100%;
+
                 &:after {
-                  right: 0;
+                  /*right: 0;*/
                 }
               }
             }
           }
         }
-        @media (max-width: 650px) {
-          h2, h3 {
-            text-align: center;
+      }
+      @media (max-width: 750px) {
+        #block-learnaboutpolicies, #block-specificdocument {
+          margin: 0;
+
+          .textblock_with_background {
+            height: 275px;
+            margin: 0 !important;
+
+            .split_block_container {
+              @include content-container;
+
+              p {
+                margin-bottom: 25px;
+              }
+            }
+            button {
+              padding-left: 25px;
+              padding-right: 25px;
+            }
           }
+        }
+      }
+      @media (max-width: 650px) {
+        h2, h3 {
+          text-align: center;
+        }
+        #block-indian-tribes-hawaiians-initiatives {
           [data-view-id="preservation_initiatives"] .views-field-view-node {
             width: 100%;
 
@@ -158,7 +296,9 @@
             }
           }
         }
-        @media (max-width: 500px) {
+      }
+      @media (max-width: 500px) {
+        #block-indian-tribes-hawaiians-initiatives {
           .views-row {
             .views-field-field-issue-thumbnail-image {
               img {
@@ -182,5 +322,4 @@
       }
     }
   }
-
 }
