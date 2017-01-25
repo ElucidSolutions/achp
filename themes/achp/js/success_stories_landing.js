@@ -4,11 +4,13 @@
 
 (function ($) {
 
-  Drupal.behaviors.success_stories_landing= {
+  Drupal.behaviors.success_stories_landing = {
     attach: function (context, settings) {
       $(document).once ('success_stories_landing').ajaxComplete (
         function (event, xhr, settings) {
+          console.log('2')
          if (settings.url.indexOf ('/views/ajax') === 0) {
+          console.log('1')
           initFilterBehavior ();
         }
       });
@@ -16,7 +18,7 @@
   }
 
   $(document).ready (function () {
-
+    
     initFilterBehavior ();
 
   })

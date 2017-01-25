@@ -28,6 +28,32 @@
             font-size: rem(24px);
             font-style: italic;
             padding: 30px 100px 20px;
+            position: relative;
+
+            $quote-icon-height: 30px;
+
+            &:before {
+              background-image: url("../images/left-quotes-icon.svg");
+              background-repeat: no-repeat;
+              content: "";
+              display: block;
+              height: $quote-icon-height;
+              position: absolute;
+              left: 45px;
+              top: 30px;
+              width: $quote-icon-height;
+            }
+            &:after {
+              background-image: url("../images/right-quotes-icon.svg");
+              background-repeat: no-repeat;
+              content: "";
+              display: block;
+              height: $quote-icon-height;
+              position: absolute;
+              right: 60px;
+              bottom: 20px;
+              width: $quote-icon-height;
+            }
           }
           .mission_quote_attribution {
             @include content-container;

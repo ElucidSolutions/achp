@@ -11,8 +11,13 @@
 
   #main {
 
-    #secondary_header #block-breadcrumbs {
-      @include content-container;
+    #secondary_header {
+      #block-breadcrumbs {
+        @include content-container;
+      }
+      #block-views-block-image-carousel-block-1 {
+        display: none;
+      }
     }
     a {
       color: $color-blue-primary;

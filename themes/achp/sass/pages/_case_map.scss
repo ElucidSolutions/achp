@@ -1,7 +1,18 @@
 /*
   Styles for the case map page
 */
-#page[data-page-node-type="page"] {
+/*#page[data-page-node-type="page"] {*/
+[data-page-path-alias="/case-map"] {
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-views-block-image-carousel-block-1 {
+      display: none;
+    }
+  }
+
   #content #content_region {
     #block-active-106-map-block {
       .section_106_map .section_106_map_feature {
