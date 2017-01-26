@@ -778,7 +778,7 @@
     var prefix = getModuleClassPrefix ();
 
     // Get the SVG element.
-    var svgElement = svgDocument.documentElement;
+    var svgElement = document.importNode (svgDocument.documentElement, true);
 
     // Add a class attribute to the icon element.
     svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
@@ -799,7 +799,7 @@
 
     if (state.cases.length > 1) {
       // Add cluster child count to the icon element.
-      labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+      labelElement = document.importNode (svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text'), true);
       labelElement.setAttribute ('transform', 'translate(25, 25)');
       labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix +  '_marker_label';
       labelElement.textContent = state.cases.length.toString ();
@@ -823,7 +823,7 @@
     var prefix = getModuleClassPrefix ();
 
     // Get the SVG element.
-    var svgElement = svgDocument.documentElement;
+    var svgElement = document.importNode (svgDocument.documentElement, true);
 
     // Add a class attribute to the icon element.
     svgElement.className.baseVal = svgElement.className.baseVal + ' ' + prefix + '_cluster_marker';
@@ -835,7 +835,7 @@
     }
 
     // Add cluster child count to the icon element.
-    labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+    labelElement = document.importNode (svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text'), true);
     labelElement.setAttribute ('transform', 'translate(30, 25)');
     labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix + '_cluster_marker_label';
     labelElement.textContent = label;
@@ -1335,7 +1335,7 @@
         .attr (getModuleDataPrefix () + '-map-case', _case.id)
         .append ($('<div></div>')
           .addClass (classPrefix + '_expand_button')
-          .append ($(getRawIcon ('expand-icon', '/modules/custom/section_106_map/images/expand-icon.svg').documentElement) 
+          .append ($(document.importNode (getRawIcon ('expand-icon', '/modules/custom/section_106_map/images/expand-icon.svg').documentElement, true)) 
             .addClass (classPrefix + '_expand_button_icon')))
         .append ($('<div></div>')
           .addClass (classPrefix + '_title')
@@ -1824,7 +1824,7 @@
         .append ($('<a></a>')
           .addClass ('a2a_button_facebook')
           .addClass (classPrefix + '_link')
-          .append ($(getRawIcon ('facebook-icon', '/modules/custom/section_106_map/images/facebook-icon.svg').documentElement)
+          .append ($(document.importNode (getRawIcon ('facebook-icon', '/modules/custom/section_106_map/images/facebook-icon.svg').documentElement, true))
             .addClass (classPrefix + '_icon')
             .addClass (classPrefix + '_facebook_icon'))))
       .append ($('<div></div>')
@@ -1833,7 +1833,7 @@
         .append ($('<a></a>')
           .addClass ('a2a_button_twitter')
           .addClass (classPrefix + '_link')
-          .append ($(getRawIcon ('twitter-icon', '/modules/custom/section_106_map/images/twitter-icon.svg').documentElement)
+          .append ($(document.importNode (getRawIcon ('twitter-icon', '/modules/custom/section_106_map/images/twitter-icon.svg').documentElement, true))
             .addClass (classPrefix + '_icon')
             .addClass (classPrefix + '_twitter_icon'))))
       .append ($('<div></div>')
@@ -1843,14 +1843,14 @@
           .addClass (classPrefix + '_mail_link')
           .addClass (classPrefix + '_link')
           .attr ('href', 'mailto:?subject=Take%20a%20look%20at%20this%20&body=Take%20a%20look%20at%20this%20%3A%0A%0A' + _case.url)
-          .append ($(getRawIcon ('email-icon', '/modules/custom/section_106_map/images/email-icon.svg').documentElement)
+          .append ($(document.importNode (getRawIcon ('email-icon', '/modules/custom/section_106_map/images/email-icon.svg').documentElement, true))
             .addClass (classPrefix + '_icon')
             .addClass (classPrefix + '_mail_icon'))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_button')
         .addClass (getShareLinkClassName ())
         .attr ('data-clipboard-text', _case.url) // Uses clipboard.js to copy URLS to clipboards.
-        .append ($(getRawIcon ('link-icon', '/modules/custom/section_106_map/images/link-icon.svg').documentElement)
+        .append ($(document.importNode (getRawIcon ('link-icon', '/modules/custom/section_106_map/images/link-icon.svg').documentElement, true))
           .addClass (classPrefix + '_icon')
           .addClass (classPrefix + '_link_icon')));
   }
