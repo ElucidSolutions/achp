@@ -1,0 +1,252 @@
+#page[data-page-path-alias="/about/staff"] {
+
+  @mixin create-header($label) {
+    content: $label;
+    color: #000;
+    display: block;
+    font-size: rem(16px);
+    font-family: $sans-text;
+    font-weight: 500;
+    left: -15px;
+    position: relative;
+    top: -30px;
+  }
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+    #block-views-block-image-carousel-block-1 {
+      display: none;
+    }
+    #block-pagetitle-2 {
+      @include content-container;
+      
+      h1 {
+        color: $color-darkblue2;
+        font-weight: normal;
+
+        &:after {
+          background-color: $color-red;
+          display: block;
+          content: "";
+          height: 1px;
+          margin: 5px auto 30px;
+          min-width: 100px;
+          width: 7%;
+        }
+      }
+    }
+  }
+  #content #content_region {
+    @include outer-container (100%);
+    font-size: rem(18px);
+
+    #block-achp-content {
+      padding: 0;
+
+      .achp_contact_box {
+        @include span-columns (20);
+        border: 1px solid $background-color-grey2;
+        margin: 40px 0;
+        padding: 20px 35px 35px;
+        width: 100%;
+
+        .contact_header {
+          @include span-columns (20 of 20);
+
+          h4 {
+            display: inline-block;
+            margin-top: 0;
+
+            &:after {
+              @include hr($color-red);
+              content: "";
+              display: block;
+              margin-top: 20px;
+              width: 80%;
+            }
+          }
+        }
+        .contact_column {
+          .contact_box_label {
+            font-family: $sans-text;
+            font-weight: 600;
+            margin-top: 5px;
+          }
+          a {
+            color: $color-blue-primary;
+          }
+        }
+        .achp_phone_fax, .achp_email {
+          @include span-columns (4 of 20);
+        }
+        .achp_address, .achp_social {
+          @include span-columns (6 of 20);       
+        }
+      }
+    }
+
+    #block-staff-list {
+      margin-bottom: 40px;
+      
+      .views-exposed-form {
+        font-family: $sans-text;
+        font-size: rem(16px);
+        margin-bottom: 50px;
+        /*position: relative;*/
+
+        .js-form-item {
+          display: inline-block;
+          /*position: relative;*/
+
+          label {
+            display: block;
+            font-weight: 500;
+          }
+          input, select {
+            border: 1px solid #CCCCCC;
+            color: $color-darkgrey2;
+            font-family: $sans-text;
+            font-size: rem(16px);
+            height: 40px;
+            padding: 0 5px;
+            /*position: relative;*/
+          }
+          select {
+            background-image: url("../images/dropdownbox-icon.svg");
+            background-position: right center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            width: 150px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+          }
+          input[type="text"] {
+            margin-right: 20px;
+            width: 450px;
+          }
+        }
+        .form-actions input[type="submit"] {
+          background-color: $color-blue-primary;
+          background-image: url("../images/filter-icon.svg");
+          background-position: center;
+          background-repeat: no-repeat;
+          border: none;
+          color: transparent;
+          cursor: pointer;
+          height: 40px;
+          left: 410px;
+          width: 40px;
+          position: relative;
+          bottom: 40px;
+        }
+      }
+
+      .item-list {
+        @include clear-float;
+        padding: 30px 25px 5px;
+        /*position: relative;*/
+
+        &:first-of-type {
+          border-top: 2px solid $color-lightblue-primary;
+          padding-top: 0;
+          /*margin-top: 50px;*/
+
+          h3:before {
+            @include create-header('OFFICE');
+          }
+          ul:before {
+             @include create-header('STAFF MEMBER');
+          }
+        }
+        &:last-of-type {
+          border-bottom: 2px solid $color-lightblue-primary;
+        }
+        &:nth-child(even) {
+          background-color: $background-color-lightblue;
+        }
+        h3 {
+          color: $color-red;
+          float: left;
+          font-size: rem(20px);
+          width: 45%;
+        }
+        ul {
+          float: left;
+          width: 55%;
+          margin: 0;
+          padding: 0;
+
+          li {
+            color: $color-darkgrey;
+            font-family: $sans-text;
+/*            font-size: rem(18px);*/
+            list-style: none;
+            padding-bottom: 15px;
+            /*padding: 20px 0 0;*/
+
+            .views-field-title {
+              color: $color-darkblue2;
+              font-weight: 500;
+            }
+            .views-field-field-staff-position {
+              color: $color-lightgrey-2;
+            }
+            .views-field-field-staff-phone,
+            .views-field-field-staff-fax,
+            .views-field-field-staff-email {
+              position: relative;
+
+              .field-content {
+                display: inline;
+                left: 75px;
+                position: absolute;   
+
+                a {
+                  color: $color-blue-primary;
+                }             
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 900px) {
+      .achp_contact_box {
+        padding-bottom: 25px;
+
+        .contact_column {
+          @include span-columns (10 of 20);
+          padding-bottom: 10px;
+        }
+      }
+    }
+    @media (max-width: 700px) {
+      .achp_contact_box {
+        padding: 20px 20px 25px;
+
+        h4 {
+          font-size: rem(18px);
+        }
+      }
+    }
+    @media (max-width: 600px) {
+      .achp_contact_box {
+        h4:after {
+          width: 60%;
+        }
+        .contact_column {
+          @include span-columns (20 of 20);
+        }
+      }
+    }
+  }
+}

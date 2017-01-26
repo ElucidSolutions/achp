@@ -4,6 +4,24 @@
       @include content-container;
       margin: 30px auto 0;
     }
+    #block-pagetitle-2 {
+      @include content-container;
+
+      h1 {
+        color: $color-darkblue2;
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+
+        &:after {
+          @include hr($color-red);
+          content: "";
+          display: block;
+          margin: 5px auto 10px;
+          width: 80%;
+        }
+      }
+    }
     #block-about-achp-share {
       @include content-container;
       margin: 0 auto 30px;
@@ -14,7 +32,6 @@
     padding: 0;
 
     #content_region {
-
       article {
         margin-bottom: 50px;
 
