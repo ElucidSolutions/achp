@@ -83,7 +83,6 @@ function template_preprocess_flickity_item(&$variables) {
  * Returns the render array for Flickity wrapper.
  */
 function flickity_build($group, $output) {
-  \Drupal::logger ('flickity')->notice ('[template_preprocess_flickity_wrapper] variables: <pre>' . print_r (array_keys ($variables), true) . '</pre>');
   return array(
     '#output' => $output,
     '#attributes' => array('class' => array($group, 'flickity')),
@@ -95,8 +94,5 @@ function flickity_build($group, $output) {
  * Template preprocess Flickity wrapper variables.
  */
 function template_preprocess_flickity_wrapper(&$variables) {
-  \Drupal::logger ('flickity')->notice ('[template_preprocess_flickity_wrapper] variables: <pre>' . print_r (array_keys ($variables), true) . '</pre>');
-  \Drupal::logger ('flickity')->notice ('[template_preprocess_flickity_wrapper] variables: <pre>' . print_r (array_keys ($variables ['output']), true) . '</pre>');
-
   $variables['attributes'] = new Attribute($variables['attributes']);
 }
