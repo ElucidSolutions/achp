@@ -1,5 +1,5 @@
 /* 
-  Behavior for success stories landing page
+  Behavior for staff directory filters
 */
 
 (function ($) {
@@ -35,7 +35,7 @@
     element, and returns undefined.
   */
   function setTextInputPlaceholder () {
-    getTextInputElement ().attr('placeholder', 'Filter Success Stories');
+    getTextInputElement ().attr('placeholder', 'Filter Staff List');
   }
 
   /*
@@ -109,8 +109,7 @@
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
-    that represents the container for the success story
-    view that the filter applies to.
+    that represents the container for the staff list.
   */
   function getViewContainerElement () {
     return $('#' + getViewContainerID ());

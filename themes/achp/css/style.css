@@ -7198,7 +7198,7 @@ header {
       font-size: 1rem;
       height: 40px;
       padding: 0 5px;
-      position: relative;
+      /*position: relative;*/
       width: 450px; }
   [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .views-exposed-form .form-actions input[type="submit"] {
     background-color: #0990FE;
@@ -7206,12 +7206,12 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     border: none;
-    bottom: 0;
     color: transparent;
     cursor: pointer;
     height: 40px;
     left: 410px;
     position: absolute;
+    top: 24px;
     width: 40px; }
 [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open ol {
   color: #950306;
@@ -7250,6 +7250,14 @@ header {
   position: relative; }
   [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .read-more a {
     vertical-align: 0%; }
+@media (max-width: 500px) {
+  [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .views-exposed-form .js-form-item {
+    width: 100%; }
+    [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .views-exposed-form .js-form-item input[type="text"] {
+      margin-right: 0;
+      max-width: calc(100% - 40px); }
+  [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .views-exposed-form .form-actions input[type="submit"] {
+    left: calc(100% - 40px); } }
 
 /*
   This stylesheet defines the default styles
@@ -11737,11 +11745,16 @@ header {
     display: table; }
   #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content {
     padding: 0; }
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content:after {
+      clear: both;
+      content: "";
+      display: block; }
     #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box {
       float: left;
       display: block;
       margin-right: 0%;
       width: 166.66667%;
+      /*@include clear-float;*/
       border: 1px solid #E5E3E4;
       margin: 40px 0;
       padding: 20px 35px 35px;
@@ -11788,14 +11801,16 @@ header {
         #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box .achp_address:last-child, #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box .achp_social:last-child {
           margin-right: 0; }
   #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list {
+    /*clear: both;*/
     margin-bottom: 40px; }
     #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .views-exposed-form {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
       margin-bottom: 50px;
-      /*position: relative;*/ }
+      position: relative; }
       #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .views-exposed-form .js-form-item {
         display: inline-block;
+        max-width: 100%;
         /*position: relative;*/ }
         #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .views-exposed-form .js-form-item label {
           display: block;
@@ -11818,7 +11833,7 @@ header {
           -moz-appearance: none;
           appearance: none; }
         #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .views-exposed-form .js-form-item input[type="text"] {
-          margin-right: 20px;
+          margin: 0 20px 15px 0;
           width: 450px; }
       #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .views-exposed-form .form-actions input[type="submit"] {
         background-color: #0990FE;
@@ -11830,20 +11845,18 @@ header {
         cursor: pointer;
         height: 40px;
         left: 410px;
-        width: 40px;
-        position: relative;
-        bottom: 40px; }
+        position: absolute;
+        top: 24px;
+        width: 40px; }
     #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list {
-      padding: 30px 25px 5px;
-      /*position: relative;*/ }
+      padding: 30px 25px 5px; }
       #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list:after {
         clear: both;
         content: "";
         display: block; }
       #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list:first-of-type {
         border-top: 2px solid #71BFFE;
-        padding-top: 0;
-        /*margin-top: 50px;*/ }
+        padding-top: 0; }
         #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list:first-of-type h3:before {
           content: "OFFICE";
           color: #000;
@@ -11872,19 +11885,18 @@ header {
         color: #950306;
         float: left;
         font-size: 1.25rem;
-        width: 45%; }
+        padding-right: 20px;
+        width: 50%; }
       #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list ul {
         float: left;
-        width: 55%;
+        width: 50%;
         margin: 0;
         padding: 0; }
         #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list ul li {
           color: #262626;
           font-family: "p22-underground", sans-serif;
-          /*            font-size: rem(18px);*/
           list-style: none;
-          padding-bottom: 15px;
-          /*padding: 20px 0 0;*/ }
+          padding-bottom: 15px; }
           #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list ul li .views-field-title {
             color: #003A5E;
             font-weight: 500; }
@@ -11905,31 +11917,48 @@ header {
               #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list ul li .views-field-field-staff-email .field-content a {
                 color: #0990FE; }
   @media (max-width: 900px) {
-    #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box {
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box {
       padding-bottom: 25px; }
-      #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box .contact_column {
+      #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box .contact_column {
         float: left;
         display: block;
         margin-right: 0%;
         width: 50%;
         padding-bottom: 10px; }
-        #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box .contact_column:last-child {
+        #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box .contact_column:last-child {
           margin-right: 0; } }
   @media (max-width: 700px) {
-    #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box {
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box {
       padding: 20px 20px 25px; }
-      #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box h4, #page[data-page-path-alias="/about/staff"] #page[data-page-path-alias="/about"] #content #content_region .achp_contact_box #block-about-achp-menu-block .achp-field nav h2, #page[data-page-path-alias="/about"] #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box #block-about-achp-menu-block .achp-field nav h2, #page[data-page-path-alias="/about/staff"] #page[data-page-path-alias="/about"] #content #content_region #block-about-achp-menu-block .achp-field nav .achp_contact_box h2, #page[data-page-path-alias="/about"] #page[data-page-path-alias="/about/staff"] #content #content_region #block-about-achp-menu-block .achp-field nav .achp_contact_box h2, #page[data-page-path-alias="/about/staff"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .achp_contact_box .views-exposed-form .js-form-item label, [data-page-path-alias="/preserve-america/stewards/list"] #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box .views-exposed-form .js-form-item label, #page[data-page-path-alias="/about/staff"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .js-form-item .achp_contact_box label, [data-page-path-alias="/preserve-america/stewards/list"] #page[data-page-path-alias="/about/staff"] #content #content_region .views-exposed-form .js-form-item .achp_contact_box label {
+      #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box h4, #page[data-page-path-alias="/about/staff"] #page[data-page-path-alias="/about"] #content #content_region #block-achp-content .achp_contact_box #block-about-achp-menu-block .achp-field nav h2, #page[data-page-path-alias="/about"] #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box #block-about-achp-menu-block .achp-field nav h2, #page[data-page-path-alias="/about/staff"] #page[data-page-path-alias="/about"] #content #content_region #block-about-achp-menu-block .achp-field nav #block-achp-content .achp_contact_box h2, #page[data-page-path-alias="/about"] #page[data-page-path-alias="/about/staff"] #content #content_region #block-about-achp-menu-block .achp-field nav #block-achp-content .achp_contact_box h2, #page[data-page-path-alias="/about/staff"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region #block-achp-content .achp_contact_box .views-exposed-form .js-form-item label, [data-page-path-alias="/preserve-america/stewards/list"] #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box .views-exposed-form .js-form-item label, #page[data-page-path-alias="/about/staff"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .js-form-item #block-achp-content .achp_contact_box label, [data-page-path-alias="/preserve-america/stewards/list"] #page[data-page-path-alias="/about/staff"] #content #content_region .views-exposed-form .js-form-item #block-achp-content .achp_contact_box label {
         font-size: 1.125rem; } }
   @media (max-width: 600px) {
-    #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box h4:after, #page[data-page-path-alias="/about/staff"] #page[data-page-path-alias="/about"] #content #content_region .achp_contact_box #block-about-achp-menu-block .achp-field nav h2:after, #page[data-page-path-alias="/about"] #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box #block-about-achp-menu-block .achp-field nav h2:after, #page[data-page-path-alias="/about/staff"] #page[data-page-path-alias="/about"] #content #content_region #block-about-achp-menu-block .achp-field nav .achp_contact_box h2:after, #page[data-page-path-alias="/about"] #page[data-page-path-alias="/about/staff"] #content #content_region #block-about-achp-menu-block .achp-field nav .achp_contact_box h2:after, #page[data-page-path-alias="/about/staff"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .achp_contact_box .views-exposed-form .js-form-item label:after, [data-page-path-alias="/preserve-america/stewards/list"] #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box .views-exposed-form .js-form-item label:after, #page[data-page-path-alias="/about/staff"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .js-form-item .achp_contact_box label:after, [data-page-path-alias="/preserve-america/stewards/list"] #page[data-page-path-alias="/about/staff"] #content #content_region .views-exposed-form .js-form-item .achp_contact_box label:after {
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box h4:after, #page[data-page-path-alias="/about/staff"] #page[data-page-path-alias="/about"] #content #content_region #block-achp-content .achp_contact_box #block-about-achp-menu-block .achp-field nav h2:after, #page[data-page-path-alias="/about"] #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box #block-about-achp-menu-block .achp-field nav h2:after, #page[data-page-path-alias="/about/staff"] #page[data-page-path-alias="/about"] #content #content_region #block-about-achp-menu-block .achp-field nav #block-achp-content .achp_contact_box h2:after, #page[data-page-path-alias="/about"] #page[data-page-path-alias="/about/staff"] #content #content_region #block-about-achp-menu-block .achp-field nav #block-achp-content .achp_contact_box h2:after, #page[data-page-path-alias="/about/staff"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region #block-achp-content .achp_contact_box .views-exposed-form .js-form-item label:after, [data-page-path-alias="/preserve-america/stewards/list"] #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box .views-exposed-form .js-form-item label:after, #page[data-page-path-alias="/about/staff"] [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .js-form-item #block-achp-content .achp_contact_box label:after, [data-page-path-alias="/preserve-america/stewards/list"] #page[data-page-path-alias="/about/staff"] #content #content_region .views-exposed-form .js-form-item #block-achp-content .achp_contact_box label:after {
       width: 60%; }
-    #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box .contact_column {
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box .contact_column {
       float: left;
       display: block;
       margin-right: 0%;
       width: 100%; }
-      #page[data-page-path-alias="/about/staff"] #content #content_region .achp_contact_box .contact_column:last-child {
-        margin-right: 0; } }
+      #page[data-page-path-alias="/about/staff"] #content #content_region #block-achp-content .achp_contact_box .contact_column:last-child {
+        margin-right: 0; }
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list:first-of-type {
+      padding-top: 30px; }
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list h3, #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list ul {
+      float: none;
+      width: 100%; }
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list h3:first-of-type:before {
+      content: ""; }
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .item-list ul:first-of-type:before {
+      content: ""; } }
+  @media (max-width: 500px) {
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .views-exposed-form .js-form-item {
+      width: 100%; }
+      #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .views-exposed-form .js-form-item input[type="text"] {
+        margin-right: 0;
+        max-width: calc(100% - 40px); }
+    #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .views-exposed-form .form-actions input[type="submit"] {
+      left: calc(100% - 40px); } }
 
 /*
   Styles for the success stories landing page
@@ -12072,7 +12101,7 @@ header {
             font-size: 1rem;
             height: 40px;
             padding: 0 5px;
-            position: relative; }
+            /*position: relative;*/ }
           [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .js-form-item select {
             background-image: url("../images/dropdownbox-icon.svg");
             background-position: right center;
@@ -12083,7 +12112,7 @@ header {
             -moz-appearance: none;
             appearance: none; }
           [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .js-form-item input[type="text"] {
-            margin-right: 20px;
+            margin: 0 20px 15px 0;
             width: 450px; }
         [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .form-actions input[type="submit"] {
           background-color: #0990FE;
@@ -12095,9 +12124,9 @@ header {
           cursor: pointer;
           height: 40px;
           left: 410px;
-          width: 40px;
-          position: relative;
-          bottom: 40px; }
+          position: absolute;
+          top: 24px;
+          width: 40px; }
       [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row {
         border-bottom: 1px solid #E5E3E4;
         border-top: 4px solid white;
@@ -12238,6 +12267,14 @@ header {
           margin: 25px 0 0;
           margin-left: 151px;
           margin-left: calc(300px / 2); } }
+    @media (max-width: 500px) {
+      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .js-form-item {
+        width: 100%; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .js-form-item input[type="text"] {
+          margin-right: 0;
+          max-width: calc(100% - 40px); }
+      [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .form-actions input[type="submit"] {
+        left: calc(100% - 40px); } }
     @media (max-width: 475px) {
       [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
         max-width: 340px; }

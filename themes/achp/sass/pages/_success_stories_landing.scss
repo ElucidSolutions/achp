@@ -3,6 +3,8 @@
 */
 [data-page-path-alias="/success-stories"] {
 
+  $submit-button-width: 40px;
+
   #secondary_header_region {
     #block-breadcrumbs {
       @include content-container;
@@ -135,7 +137,7 @@
                 font-size: rem(16px);
                 height: 40px;
                 padding: 0 5px;
-                position: relative;
+                /*position: relative;*/
               }
               select {
                 background-image: url("../images/dropdownbox-icon.svg");
@@ -148,7 +150,7 @@
                 appearance: none;
               }
               input[type="text"] {
-                margin-right: 20px;
+                margin: 0 20px 15px 0;
                 width: 450px;
               }
             }
@@ -160,11 +162,11 @@
               border: none;
               color: transparent;
               cursor: pointer;
-              height: 40px;
+              height: $submit-button-width;
               left: 410px;
-              width: 40px;
-              position: relative;
-              bottom: 40px;
+              position: absolute;
+              top: 24px;
+              width: $submit-button-width;
             }
           }
           .views-row {
@@ -315,6 +317,21 @@
             }
           }
         }
+      }
+      @media (max-width: 500px) {
+        #block-success-stories-list .success_stories_list_container .views-exposed-form {
+          .js-form-item {
+            width: 100%;
+            
+            input[type="text"] {
+              margin-right: 0;
+              max-width: calc(100% - #{$submit-button-width});
+            }
+          }
+          .form-actions input[type="submit"] {
+            left: calc(100% - #{$submit-button-width});
+          }
+        }       
       }
       @media (max-width: 475px) {
         $vertical-padding: 35px;
