@@ -1,0 +1,49 @@
+[data-page-path-alias="/about/onaa"],
+[data-page-path-alias="/about/onaa/staff"] {
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-pagetitle-2, #block-views-block-image-carousel-block-1 {
+      display: none;
+    }
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;     
+    }
+    #block-officeofnativeamericanaffairsmenu {
+      @include content-container;
+      /*max-width: 944px;*/
+    }
+
+      h1 {
+        font-size: rem(36px);
+
+        &:after {
+          @include hr($color-red);
+          content: "";
+          display: block;
+          margin: 5px auto 10px;
+          width: 25%;
+        }
+      }
+  }
+  #content #content-region {
+    font-size: rem(18px);
+
+    #block-achp-content {
+      padding: 0;
+
+      h2 {
+        margin-top: 20px;
+        text-align: left;
+
+        &+p {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

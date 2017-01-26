@@ -2623,6 +2623,62 @@ the events landing page is different */
   .share_this_page .share_this_page_buttons .share_this_page_button_icon:hover svg path {
     fill: #0990FE; }
 
+/*
+  This module defines BLM-specific styling
+  for Slide menus created using the Slide
+  Menu module.
+*/
+.slide-menu-menu {
+  border-bottom: 1px solid #E5E3E4; }
+  .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-focus {
+    max-width: 1024px; }
+  .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-slide .slide-menu-menu-item {
+    font-family: "p22-underground", sans-serif;
+    font-weight: 600;
+    text-align: center; }
+    .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-slide .slide-menu-menu-item a {
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+      left: 50%;
+      position: absolute;
+      bottom: 15px;
+      display: block;
+      color: #4A4A4A;
+      margin-top: 15px; }
+    .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-slide .slide-menu-menu-item:hover a {
+      color: #0990FE; }
+  .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-slide .slide-menu-menu-item.slide-menu-menu-item-active {
+    border-bottom: #0990FE solid 5px; }
+    .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-slide .slide-menu-menu-item.slide-menu-menu-item-active a {
+      color: #0990FE;
+      bottom: 10px; }
+  .slide-menu-menu .slide-menu-menu-left-slide-button {
+    background-image: url("../images/prev-arrow.svg");
+    background-position: 50%;
+    background-size: 12px;
+    background-repeat: no-repeat; }
+  .slide-menu-menu .slide-menu-menu-right-slide-button {
+    background-image: url("../images/next-arrow.svg");
+    background-position: 50%;
+    background-size: 12px;
+    background-repeat: no-repeat; }
+
+/*#block-resourcesmenu,
+#block-publicationsmenu,
+#block-problemsmenu,
+#block-partners,
+#block-aboutmenu {
+  background-color: $slide-menu-menu-background-color;
+  color: $slide-menu-menu-text-color;
+
+  h2 {
+    font-size: rem(18px);
+  }
+}
+*/
 /* Global variables: widths, heights, & breakpoints */
 /* Global variables: text */
 /* Global variables: colors */
@@ -2805,35 +2861,6 @@ the events landing page is different */
       #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container,
       #homepage_quicklinks_region #homepage_quicklinks_content #block-views-block-homepage-success-stories-block .view-item-3.views-element-container {
         margin: 0 160px; } }
-
-[data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form {
-  color: #1E1E1E;
-  counter-reset: application-counter;
-  font-size: 1.125rem; }
-  [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .field--type-file:before {
-    content: counter(application-counter) ".";
-    counter-increment: application-counter;
-    margin-right: 5px; }
-  [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item {
-    position: relative;
-    margin-bottom: 40px; }
-    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item label:before {
-      content: counter(application-counter) ".";
-      counter-increment: application-counter;
-      margin-right: 5px; }
-    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item label[for="edit-field-e106-supporting-docs-0-upload"] {
-      display: none; }
-    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item label.option:before {
-      content: ""; }
-    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item .description {
-      padding: 10px 0 15px 30px;
-      color: #4A4A4A; }
-    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item select {
-      left: 0; }
-    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item p {
-      margin-top: 0; }
-    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item ul {
-      margin: 0; }
 
 /*
   This module contains styles for the page
@@ -7152,6 +7179,84 @@ header {
   #page[data-page-path-alias^="/newsletters"] #main .subscribe-form-field input[type="submit"],
   #page[data-page-path-alias^="/newsletters"] #main .unsubscribe-form-field input[type="submit"] {
     margin: 0 0 35px; } }
+
+[data-page-path-alias="/about/onaa"] #secondary_header_region #block-breadcrumbs,
+[data-page-path-alias="/about/onaa/staff"] #secondary_header_region #block-breadcrumbs {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 30px auto 0; }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/about/onaa"] #secondary_header_region #block-breadcrumbs,
+    [data-page-path-alias="/about/onaa/staff"] #secondary_header_region #block-breadcrumbs {
+      padding-left: 20px;
+      padding-right: 20px; } }
+[data-page-path-alias="/about/onaa"] #secondary_header_region #block-pagetitle-2, [data-page-path-alias="/about/onaa"] #secondary_header_region #block-views-block-image-carousel-block-1,
+[data-page-path-alias="/about/onaa/staff"] #secondary_header_region #block-pagetitle-2,
+[data-page-path-alias="/about/onaa/staff"] #secondary_header_region #block-views-block-image-carousel-block-1 {
+  display: none; }
+[data-page-path-alias="/about/onaa"] #secondary_header_region #block-about-achp-share,
+[data-page-path-alias="/about/onaa/staff"] #secondary_header_region #block-about-achp-share {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 30px; }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/about/onaa"] #secondary_header_region #block-about-achp-share,
+    [data-page-path-alias="/about/onaa/staff"] #secondary_header_region #block-about-achp-share {
+      padding-left: 20px;
+      padding-right: 20px; } }
+[data-page-path-alias="/about/onaa"] #secondary_header_region #block-officeofnativeamericanaffairsmenu,
+[data-page-path-alias="/about/onaa/staff"] #secondary_header_region #block-officeofnativeamericanaffairsmenu {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  /*max-width: 944px;*/ }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/about/onaa"] #secondary_header_region #block-officeofnativeamericanaffairsmenu,
+    [data-page-path-alias="/about/onaa/staff"] #secondary_header_region #block-officeofnativeamericanaffairsmenu {
+      padding-left: 20px;
+      padding-right: 20px; } }
+[data-page-path-alias="/about/onaa"] #secondary_header_region h1, [data-page-path-alias="/about/onaa"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header [data-page-path-alias="/about/onaa"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-page-path-alias="/about/onaa"] #secondary_header_region #content #block-achp-page-title h1, #content #block-achp-page-title [data-page-path-alias="/about/onaa"] #secondary_header_region h1,
+[data-page-path-alias="/about/onaa/staff"] #secondary_header_region h1,
+[data-page-path-alias="/about/onaa/staff"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"],
+#secondary_header [data-page-path-alias="/about/onaa/staff"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"],
+[data-page-path-alias="/about/onaa/staff"] #secondary_header_region #content #block-achp-page-title h1,
+#content #block-achp-page-title [data-page-path-alias="/about/onaa/staff"] #secondary_header_region h1 {
+  font-size: 2.25rem; }
+  [data-page-path-alias="/about/onaa"] #secondary_header_region h1:after, [data-page-path-alias="/about/onaa"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, #secondary_header [data-page-path-alias="/about/onaa"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after, [data-page-path-alias="/about/onaa"] #secondary_header_region #content #block-achp-page-title h1:after, #content #block-achp-page-title [data-page-path-alias="/about/onaa"] #secondary_header_region h1:after,
+  [data-page-path-alias="/about/onaa/staff"] #secondary_header_region h1:after,
+  [data-page-path-alias="/about/onaa/staff"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after,
+  #secondary_header [data-page-path-alias="/about/onaa/staff"] #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"]:after,
+  [data-page-path-alias="/about/onaa/staff"] #secondary_header_region #content #block-achp-page-title h1:after,
+  #content #block-achp-page-title [data-page-path-alias="/about/onaa/staff"] #secondary_header_region h1:after {
+    background-color: #950306;
+    border: none;
+    color: #950306;
+    height: 1px;
+    content: "";
+    display: block;
+    margin: 5px auto 10px;
+    width: 25%; }
+[data-page-path-alias="/about/onaa"] #content #content-region,
+[data-page-path-alias="/about/onaa/staff"] #content #content-region {
+  font-size: 1.125rem; }
+  [data-page-path-alias="/about/onaa"] #content #content-region #block-achp-content,
+  [data-page-path-alias="/about/onaa/staff"] #content #content-region #block-achp-content {
+    padding: 0; }
+    [data-page-path-alias="/about/onaa"] #content #content-region #block-achp-content h2,
+    [data-page-path-alias="/about/onaa/staff"] #content #content-region #block-achp-content h2 {
+      margin-top: 20px;
+      text-align: left; }
+      [data-page-path-alias="/about/onaa"] #content #content-region #block-achp-content h2 + p,
+      [data-page-path-alias="/about/onaa/staff"] #content #content-region #block-achp-content h2 + p {
+        margin-top: 0; }
 
 /*
   Styles for the Section 106 Cases Open for Comment landing page
