@@ -52,14 +52,25 @@
 
     // Create and attach the feature instances.
     $('.section_106_map').each (function (i, containerElement) {
-      instances.push (new FeatureInstance ($(containerElement)));
+      // create and attach a new map instance.
+      var instance = new FeatureInstance ($(containerElement));
+
+      // scale the map instance.
+      instance.scale ();
+
+      // add the instance to the instances array.
+      instances.push (instance);
     });
   });
 
+  /*
+    Resize the instance elements when the screen
+    size changes.
+  */
   $(window).resize (function () {
     // resize each instance's map element.
     instances.forEach (function (instance) {
-      instance.getMap ().getMap ().invalidateSize ();
+      instance.scale ();
     });
   })
 
@@ -91,6 +102,21 @@
   }
 
   // II. Feature Instance.
+
+  /*
+    The Map feature adapts to large and small
+    display sceens. When viewed on a small
+    device, this feature adds a CSS class
+    indicating that it should use a small
+    height. This integer specifies the maximum
+    size that the display screen must be for
+    this feature to add the small class.
+
+    Note: This value should be large enough to
+    ensure that the users screen is neer fully
+    covered by the map.
+  */
+  HEIGHT_THRESHOLD = 750;
 
   // Feature Instance modes
   MAP_MODE  = 0;
@@ -389,6 +415,39 @@
   }
 
   /*
+    Accepts no arguments, measures the size
+    of the current display window, adds or
+    removes a CSS class to indicate whether
+    or not this feature should be displayed in
+    small mode, and returns undefined.
+  */
+  FeatureInstance.prototype.scale = function () {
+    // I. Add/remove the Small CSS class.
+    $(window).height () >= HEIGHT_THRESHOLD ? this.removeSmallClass () : this.addSmallClass ();
+
+    // II. Update the map element.
+    this.getMap ().getMap ().invalidateSize ();
+  }
+
+  /*
+    Accepts no arguments, adds the Small class
+    to this instance's element, and returns
+    undefined.
+  */
+  FeatureInstance.prototype.addSmallClass = function () {
+    this.getInstanceElement ().addClass (getSmallClassName ());
+  }
+
+  /*
+    Accepts no arguments, removes the Small
+    class from this instance's element, and
+    returns undefined.
+  */
+  FeatureInstance.prototype.removeSmallClass = function () {
+    this.getInstanceElement ().removeClass (getSmallClassName ());
+  }
+
+  /*
     Accepts no arguments and returns a string
     representing the name of the class used to
     label the map tab.
@@ -413,6 +472,15 @@
   */
   function getTabClassName () {
     return getFeatureClassName () + '_tab';
+  }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label instance elements
+    in Small mode.
+  */
+  function getSmallClassName () {
+    return getFeatureClassName () + '_small';
   }
 
   /*

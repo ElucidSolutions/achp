@@ -13,9 +13,9 @@ body {
   font-size: $base-text-size;
   letter-spacing: $default-letter-spacing;
   line-height: $default-line-height;
-  margin: 0;
+  margin: 0 !important; // fixes another bug in IE.
   overflow-x: hidden; // fixes a bug in IE.
-  padding: 0;
+  padding: 0 !important;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;  
 }
