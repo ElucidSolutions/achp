@@ -1,11 +1,10 @@
 /*
   Styles for the event item page
 */
-/*@import "../global";*/
 
 #page[data-page-node-type="event"] {
 
-  $max-event-width: 620px;
+  $max-event-width: 705px;
   $max-width-padding: 50px;
   $event-padding: 70px;
 
@@ -24,6 +23,7 @@
       text-align: left;   
     }
     #content {
+      font-size: rem(18px);
       max-width: $max-event-width;
 
       #event_item_container {
@@ -53,8 +53,10 @@
         .event_attachments { 
           a {
             color: $color-blue-primary;
+            font-family: $sans-text;
           }
           .event_attachment_body {
+            color: $color-grey2;
             font-family: $serif-text;
             margin-bottom: 20px;
 

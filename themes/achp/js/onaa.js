@@ -1,12 +1,12 @@
 /* 
-  Behavior for success stories landing page
+  Behavior for ONAA office page
 */
 
 (function ($) {
 
-  Drupal.behaviors.success_stories_landing = {
+  Drupal.behaviors.onaa = {
     attach: function (context, settings) {
-      $(document).once ('success_stories_landing').ajaxComplete (
+      $(document).once ('onaa').ajaxComplete (
         function (event, xhr, settings) {
          if (settings.url.indexOf ('/views/ajax') === 0) {
           initFilterBehavior ();
@@ -27,7 +27,6 @@
   function initFilterBehavior () {
     setTextInputPlaceholder ();
     removeSubmitButtonText ();
-    setDropdownListener ();
   }
 
   /*
@@ -35,7 +34,7 @@
     element, and returns undefined.
   */
   function setTextInputPlaceholder () {
-    getTextInputElement ().attr('placeholder', 'Filter Success Stories');
+    getTextInputElement ().attr('placeholder', 'Filter Organization Assignments');
   }
 
   /*
@@ -44,16 +43,6 @@
   */
   function removeSubmitButtonText () {
     getFilterSubmitButton ().attr('value', '');
-  }
-
-  /*
-    Accepts no arguments, sets an on-change listener 
-    on the dropdown filter, and returns undefined.
-  */
-  function setDropdownListener () {
-    getDropdownElement ().change (function () {
-      submitFilterForm ();
-    })
   }
 
   /*
@@ -83,14 +72,6 @@
     return getViewContainerElement ().find (getTextInputSelector ());
   }
 
-  /* 
-    Accepts no arguments and returns a jQuery
-    HTML Element representing the dropdown element.
-  */
-  function getDropdownElement () {
-    return getViewContainerElement ().find (getDropdownElementSelector ());
-  }
-
   /*
     Accepts no arguments and returns a jQuery HTML Element
     that represents the submit button for the news filter.
@@ -109,11 +90,10 @@
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
-    that represents the container for the success story
-    view that the filter applies to.
+    that represents the container for the staff list.
   */
   function getViewContainerElement () {
-    return $('.' + getViewContainerClassName ());
+    return $('#' + getViewContainerID ());
   }
 
   /*
@@ -122,14 +102,6 @@
   */
   function getTextInputSelector () {
     return 'input[type="text"]';
-  }
-
-  /*
-    Accepts no arguments and returns a string representing
-    the dropdown element selector.
-  */
-  function getDropdownElementSelector () {
-    return 'select';
   }
 
   /*
@@ -146,8 +118,8 @@
     represents the class name of the news landing
     page container.
   */
-  function getViewContainerClassName () {
-    return 'success_stories_list_container';
+  function getViewContainerID () {
+    return 'block-onaa-agency-assignments';
   }   
  
 }) (jQuery);
