@@ -2,6 +2,7 @@ global-styling:
   css:
     theme:
       css/style.css: {}
+      css/pages.css: {}
       chosen/chosen_v1.6.2/chosen.css: {}
   js:
     js/bowser.js: {} # IE - Browser version detection.
@@ -35,10 +36,3 @@ global-styling:
     - core/jquery.ui.datepicker
     - core/modernizr
     - core/drupal
-# conditional-stylesheets:
-#   IE:
-#     all:
-#       css/ie/filters.css
-#   lt IE 10:
-#     all:
-#       css/ie/newsletters_ie9.css

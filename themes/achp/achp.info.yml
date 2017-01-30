@@ -5,6 +5,7 @@ core: 8.x
 css:
   theme:
     css/style.css: {}
+    css/pages.css: {}
 libraries:
   - achp/global-styling
 regions:
@@ -33,7 +34,8 @@ regions:
   footer_left: Footer Left
   footer_middle: Footer Middle
   footer_right: Footer Right
-conditional-stylesheets:
-  IE:
-    all:
-      css/pages/ie9/newsletters_ie9.css
+# conditional-stylesheets:
+#   IE 9:
+#     all:
+#       css/ie/filters.css
+      # css/ie/newsletters_ie9.css

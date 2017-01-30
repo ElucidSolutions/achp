@@ -1,26 +1,27 @@
+// @import "reset";
 @import "bourbon/bourbon";
 $gutter: 0em !global;
 @import "neat/neat";
 @import "global";
 @import "features";
 @import "regions";
-/*@import "pages";*/
+@import "pages";
 
-html, body {
+html,
+body {
   font-family: $serif-text;
   font-size: $base-text-size;
   letter-spacing: $default-letter-spacing;
   line-height: $default-line-height;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: hidden; // fixes a bug in IE.
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;  
-  /*border: 6px solid green;*/
 }
 
 h1, h2, h3 {
-  font-family: 'p22-underground', sans-serif;
+  font-family: $sans-text;
   font-weight: normal;
   text-align: center;
   margin: 0;
@@ -63,6 +64,14 @@ p {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
+#outer_container {
+  background-color: #fff;
+}
+
 button {
   @include hover-transition-background($color-lightblue-primary);
   background-color: $color-blue-primary;
@@ -88,14 +97,6 @@ button {
   @media (max-width: 400px) {
     width: 100%;
   }
-}
-
-a {
-  text-decoration: none;
-}
-
-#outer_container {
-  background-color: #fff;
 }
 
 blockquote {
@@ -262,7 +263,6 @@ a img {
 .toast-message {
   font-family: $sans-text;
 }
-
 
 /* Admin menu overlay */
 

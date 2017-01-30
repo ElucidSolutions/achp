@@ -42,6 +42,7 @@
     });
 
     // V. Handle subheader menu item hover events
+    // $('#header_menu li[data-menu-level="0"]').hover (
     $('#header_menu li[data-menu-level="0"]').hover (
       // When mouse hovers on menu, show drop-down submenu
       function () {
