@@ -1,0 +1,76 @@
+/*
+  Defines the styles for the Preserve America
+  Communities Map page.
+*/
+#page[data-page-path-alias="/preserve-america/preserve-america-communities"] {
+  #main {
+    @import "../styleguide";  
+
+    #secondary_header_region {
+      [data-plugin-id="system_breadcrumb_block"] {
+        @include content-container-subsection;
+        padding-top: $margin-med;
+      }
+      [data-plugin-id="page_title_block"] {
+        @include content-container-subsection;
+
+        h1 {
+          color: $color-darkblue2;
+          font-weight: 400;
+          margin-bottom: $margin-med;
+          text-align: center;
+        }
+      }
+      [data-plugin-id="share_this_page_block"] {
+        @include content-container-subsection;
+        margin-bottom: $margin-small;
+      }
+    }
+    #content {
+      padding: 0;
+      max-width: 100%;
+
+      #content_region {
+        [data-plugin-id="preserve_america_map_block"] {
+          .preserve_america_map {
+            .preserve_america_map_feature {
+              .preserve_america_map_feature_tab {
+                color: $color-darkblue2;
+                border-bottom: 5px solid #fff;
+
+                &.preserve_america_map_feature_map_tab {
+                  background-image: url("../images/map-icon-navy-blue.svg");
+                }
+                &.preserve_america_map_feature_grid_tab {
+                  background-image: url("../images/grid-icon-navy-blue.svg");
+                }            
+                &:hover, &.preserve_america_map_selected {
+                  color: $color-blue-primary;
+                  border-bottom: 5px solid $color-blue-primary;
+
+                  &.preserve_america_map_feature_map_tab {
+                    background-image: url("../images/map-icon-primary-blue.svg");
+                  }
+                  &.preserve_america_map_feature_grid_tab {
+                    background-image: url("../images/grid-icon-primary-blue.svg");
+                  }  
+                }
+              }
+              .preserve_america_map_filter {
+                left: 50px;
+                @media (max-width: 650px) {
+                  left: 0;
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  footer {
+    position: relative;
+    z-index: 20;
+  }
+}

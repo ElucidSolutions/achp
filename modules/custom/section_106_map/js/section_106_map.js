@@ -838,8 +838,8 @@
   function createMarkerIconSVG (state) {
     var svgElementString = '<div></div>';
     var svgDocument = state.cases.length > 1 ?
-      getRawIcon ('multiple-cases-marker-icon', 'modules/custom/section_106_map/images/multiple-cases-marker-icon.svg'):
-      getRawIcon ('single-case-marker-icon', 'modules/custom/section_106_map/images/single-case-marker-icon.svg');
+      getRawIcon ('multiple-cases-marker-icon', drupalSettings.module_path + '/images/multiple-cases-marker-icon.svg'):
+      getRawIcon ('single-case-marker-icon', drupalSettings.module_path + '/images/single-case-marker-icon.svg');
 
     if (!svgDocument) { return null; }
 
@@ -885,7 +885,7 @@
   */
   function createClusterIconSVG (label) {
     var svgElementString = '<div></div>';
-    var svgDocument= getRawIcon ('marker-group-icon', 'modules/custom/section_106_map/images/marker-group-icon.svg');
+    var svgDocument= getRawIcon ('marker-group-icon', drupalSettings.module_path + '/images/marker-group-icon.svg');
     if (!svgDocument) { return null; }
 
     var prefix = getModuleClassPrefix ();
@@ -1403,7 +1403,7 @@
         .attr (getModuleDataPrefix () + '-map-case', _case.id)
         .append ($('<div></div>')
           .addClass (classPrefix + '_expand_button')
-          .append ($(document.importNode (getRawIcon ('expand-icon', '/modules/custom/section_106_map/images/expand-icon.svg').documentElement, true)) 
+          .append ($(document.importNode (getRawIcon ('expand-icon', drupalSettings.module_path + '/images/expand-icon.svg').documentElement, true)) 
             .addClass (classPrefix + '_expand_button_icon')))
         .append ($('<div></div>')
           .addClass (classPrefix + '_title')
@@ -1892,7 +1892,7 @@
         .append ($('<a></a>')
           .addClass ('a2a_button_facebook')
           .addClass (classPrefix + '_link')
-          .append ($(document.importNode (getRawIcon ('facebook-icon', '/modules/custom/section_106_map/images/facebook-icon.svg').documentElement, true))
+          .append ($(document.importNode (getRawIcon ('facebook-icon', drupalSettings.module_path + '/images/facebook-icon.svg').documentElement, true))
             .addClass (classPrefix + '_icon')
             .addClass (classPrefix + '_facebook_icon'))))
       .append ($('<div></div>')
@@ -1901,7 +1901,7 @@
         .append ($('<a></a>')
           .addClass ('a2a_button_twitter')
           .addClass (classPrefix + '_link')
-          .append ($(document.importNode (getRawIcon ('twitter-icon', '/modules/custom/section_106_map/images/twitter-icon.svg').documentElement, true))
+          .append ($(document.importNode (getRawIcon ('twitter-icon', drupalSettings.module_path + '/images/twitter-icon.svg').documentElement, true))
             .addClass (classPrefix + '_icon')
             .addClass (classPrefix + '_twitter_icon'))))
       .append ($('<div></div>')
@@ -1911,14 +1911,14 @@
           .addClass (classPrefix + '_mail_link')
           .addClass (classPrefix + '_link')
           .attr ('href', 'mailto:?subject=Take%20a%20look%20at%20this%20&body=Take%20a%20look%20at%20this%20%3A%0A%0A' + _case.url)
-          .append ($(document.importNode (getRawIcon ('email-icon', '/modules/custom/section_106_map/images/email-icon.svg').documentElement, true))
+          .append ($(document.importNode (getRawIcon ('email-icon', drupalSettings.module_path + '/images/email-icon.svg').documentElement, true))
             .addClass (classPrefix + '_icon')
             .addClass (classPrefix + '_mail_icon'))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_button')
         .addClass (getShareLinkClassName ())
         .attr ('data-clipboard-text', _case.url) // Uses clipboard.js to copy URLS to clipboards.
-        .append ($(document.importNode (getRawIcon ('link-icon', '/modules/custom/section_106_map/images/link-icon.svg').documentElement, true))
+        .append ($(document.importNode (getRawIcon ('link-icon', drupalSettings.module_path + '/images/link-icon.svg').documentElement, true))
           .addClass (classPrefix + '_icon')
           .addClass (classPrefix + '_link_icon')));
   }

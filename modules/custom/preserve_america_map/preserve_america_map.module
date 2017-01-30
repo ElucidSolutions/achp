@@ -1,0 +1,14 @@
+<?php
+/*
+  Defines the Preserve America Map module which
+  defines the Preserve America map.
+*/
+
+// Implements hook_theme ()
+function preserve_america_map_theme () {
+  return [
+    'preserve_america_map' => [
+      'variables' => []
+    ]
+  ];
+}
