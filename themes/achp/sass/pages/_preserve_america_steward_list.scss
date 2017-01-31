@@ -11,52 +11,7 @@
     }
   }
   #content #content_region {
-    margin-bottom: 50px;
-
-    .views-exposed-form {
-      $text-input-width: 550px;
-      $submit-input-width: 40px;
-
-      font-family: $sans-text;
-      font-size: rem(16px);
-      margin-bottom: 40px;
-      position: relative;
-
-      .js-form-item {
-        display: inline-block;
-        position: relative;
-
-        label {
-          @extend h4;
-          display: block;
-          font-weight: 500;
-        }
-        input[type="text"]  {
-          border: 1px solid #CCCCCC;
-          color: $color-darkgrey2;
-          font-family: $sans-text;
-          font-size: rem(16px);
-          height: 40px;
-          padding-left: 5px;
-          position: relative;
-          width: $text-input-width;
-        }
-      }
-      .form-actions input[type="submit"] {
-        background-color: $color-blue-primary;
-        background-image: url("../images/filter-icon.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        border: none;
-        bottom: 0;
-        color: transparent;
-        cursor: pointer;
-        height: $submit-input-width;
-        left: 510px;
-        position: absolute;
-        width: $submit-input-width;
-      }
-    }    
+    margin-bottom: 50px; 
 
     h3 {
       font-size: rem(20px);

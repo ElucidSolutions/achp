@@ -1,12 +1,8 @@
-/* 
-  Behavior for staff directory filters
-*/
-
 (function ($) {
 
-  Drupal.behaviors.staff = {
+  Drupal.behaviors.filters = {
     attach: function (context, settings) {
-      $(document).once ('staff').ajaxComplete (
+      $(document).once ('filters').ajaxComplete (
         function (event, xhr, settings) {
          if (settings.url.indexOf ('/views/ajax') === 0) {
           initFilterBehavior ();
@@ -32,34 +28,12 @@
     setDropdownListener ();
   }
 
-  /* 
-    Accepts no arguments, checks to see if the browser is a version
-    of IE above 9, and returns undefined.
-   */
-  function checkForIE () {
-    // if (window.navigator.userAgent.indexOf('Trident') > 0 && navigator.appVersion.indexOf("MSIE 9") === -1) {
-      // If browser is IE10+, remove icon
-    //   console.log('[success_stories_landing][checkforIE] IE10+ detected; removing incompatible styles');
-    //   removeIEStyling ();
-    // } else if (navigator.appVersion.indexOf("MSIE 9") === -1) {
-    //   addDropdownIcon ();
-    // }
-  }
-  
-  /*
-    Accepts no arguments, removes the dropdown element's 
-    background image, and returns undefined.
-  */
-  function removeIEStyling () {
-    console.log('removeIeStyling')
-    getDropdownElement ().css('background-image', 'none');
-  }
-
-  /*
+ /*
     Accepts no arguments, appends an icon to the dropdown
     menu, and returns undefined.
   */
   function addDropdownIcon () {
+    console.log(getDropdownElement ())
     getDropdownElement ().after($("<div></div>")
       .addClass('dropdown-icon-button')
     );
@@ -182,7 +156,6 @@
     page container.
   */
   function getViewContainerID () {
-    return 'block-staff-list';
-  }   
- 
+    return 'views-element-container'; /* TODO: check it doesn't overflow to digital library */
+   }   
 }) (jQuery);

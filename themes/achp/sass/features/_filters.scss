@@ -1,0 +1,120 @@
+/*
+  Styles for the filter and sort menus
+*/
+
+/*#block-success-stories-list, 
+#block-onaa-agency-assignments, 
+#block-staff-list,
+#block-list-cases-open,
+#block-views-block-preserve-america-stewards-list-block-1 {*/
+.views-element-container {
+  $submit-button-width: 40px; 
+  $dropdown-button-width: 24px;
+  $text-input-width: 450px;
+  $dropdown-menu-width: 240px;
+  $filter-breakpoint: 530px;
+  $filter-breakpoint: calc(#{$text-input-width} + #{$submit-button-width} + #{$mobile-horiz-padding} * 2);
+
+  .views-exposed-form {
+    font-family: $sans-text;
+    font-size: rem(16px);
+    margin-bottom: 40px;
+    position: relative;
+
+    .js-form-item {
+      display: inline-block;
+      position: relative;
+
+      label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      input, select {
+        background-color: #fff;
+        border: 1px solid #CCCCCC;
+        border-radius: 2px;
+        color: $color-darkgrey2;
+        font-family: $sans-text;
+        font-size: rem(16px);
+        height: $submit-button-width;
+        padding-left: 5px;
+      }
+      select {
+        background: transparent;
+        border-right: 0;
+        cursor: pointer;
+        position: relative;
+        width: $dropdown-menu-width;
+        z-index: 100;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      .dropdown-icon-button {
+        background-image: url("../images/dropdownbox-icon.svg");
+        border: none;
+        border-radius: 0 2px 2px 0;
+        bottom: 0;
+        cursor: pointer;
+        content: "";
+        display: block;
+        height: $submit-button-width;
+        position: absolute;
+        right: 0; 
+        width: $dropdown-button-width;
+        pointer-events: none;
+        z-index: 200; 
+      }
+/*      label[for="edit-sort-by"]:after {
+        background-image: url("../images/dropdownbox-icon.svg");
+        border: none;
+        border-radius: 0 2px 2px 0;
+        bottom: 0;
+        cursor: pointer;
+        content: "";
+        display: block;
+        height: $submit-button-width;
+        position: absolute;
+        right: 0; 
+        width: $dropdown-button-width;
+        pointer-events: none;
+        z-index: 200;   
+      }*/
+      input[type="text"] {
+        margin: 0 20px 15px 0;
+        width: 450px;
+      }
+    }
+    .form-actions input[type="submit"] {
+      background-color: $color-blue-primary;
+      background-image: url("../images/filter-icon.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      border-radius: 0 2px 2px 0;
+      color: transparent;
+      cursor: pointer;
+      height: $submit-button-width;
+      left: calc(#{$text-input-width} - #{$submit-button-width});
+      position: absolute;
+      top: 29px;
+      width: $submit-button-width;
+    }
+
+    @media (max-width: 530px) {
+      /*@media (max-width: calc(#{$filter-breakpoint} + 0px) {*/
+      .js-form-item {
+        width: 100%;
+        
+        input[type="text"] {
+          margin-right: 0;
+          max-width: calc(100% - #{$submit-button-width});
+        }
+      }
+      .form-actions input[type="submit"] {
+        left: calc(100% - #{$submit-button-width});
+      }
+    }       
+  }
+}

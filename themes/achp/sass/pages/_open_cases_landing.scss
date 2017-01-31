@@ -3,7 +3,7 @@
 */
 
 [data-page-path-alias="/protecting-historic-properties/open-cases"] {
-
+$submit-button-width: 40px;
   #secondary_header_region {
     #block-breadcrumbs {
       @include content-container;
@@ -20,49 +20,6 @@
       color: $color-blue-primary;
     }
     #block-list-cases-open {
-      .views-exposed-form {
-        $text-input-width: 450px;
-        $submit-input-width: 40px;
-
-        font-family: $sans-text;
-        font-size: rem(16px);
-        margin-bottom: 40px;
-        position: relative;
-
-        .js-form-item {
-          display: inline-block;
-          position: relative;
-
-          label {
-            display: block;
-            font-weight: 500;
-          }
-          input[type="text"]  {
-            border: 1px solid #CCCCCC;
-            color: $color-darkgrey2;
-            font-family: $sans-text;
-            font-size: rem(16px);
-            height: 40px;
-            padding-left: 5px;
-            /*position: relative;*/
-            width: $text-input-width;
-          }
-        }
-        .form-actions input[type="submit"] {
-              background-color: $color-blue-primary;
-              background-image: url("../images/filter-icon.svg");
-              background-position: center;
-              background-repeat: no-repeat;
-              border: none;
-              color: transparent;
-              cursor: pointer;
-              height: $submit-input-width;
-              left: 410px;
-              position: absolute;
-              top: 24px;
-              width: $submit-input-width;
-        }
-      }
       ol {
         color: $color-red;
         counter-reset: achp-theme-cases;
@@ -113,23 +70,6 @@
           vertical-align: 0%;
         }
       }
-    }
-    @media (max-width: 500px) {
-      $submit-button-width: 40px;
-      
-      #block-list-cases-open .views-exposed-form {
-        .js-form-item {
-          width: 100%;
-          
-          input[type="text"] {
-            margin-right: 0;
-            max-width: calc(100% - #{$submit-button-width});
-          }
-        }
-        .form-actions input[type="submit"] {
-          left: calc(100% - #{$submit-button-width});
-        }
-      }       
     }
   }
 }

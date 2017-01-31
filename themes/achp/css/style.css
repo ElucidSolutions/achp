@@ -621,6 +621,102 @@ the events landing page is different */
         display: none; }
       #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_short_title {
         font-size: 1rem; } }
+/*
+  Styles for the filter and sort menus
+*/
+/*#block-success-stories-list, 
+#block-onaa-agency-assignments, 
+#block-staff-list,
+#block-list-cases-open,
+#block-views-block-preserve-america-stewards-list-block-1 {*/
+.views-element-container .views-exposed-form {
+  font-family: "p22-underground", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 40px;
+  position: relative; }
+  .views-element-container .views-exposed-form .js-form-item {
+    display: inline-block;
+    position: relative;
+    /*      label[for="edit-sort-by"]:after {
+            background-image: url("../images/dropdownbox-icon.svg");
+            border: none;
+            border-radius: 0 2px 2px 0;
+            bottom: 0;
+            cursor: pointer;
+            content: "";
+            display: block;
+            height: $submit-button-width;
+            position: absolute;
+            right: 0; 
+            width: $dropdown-button-width;
+            pointer-events: none;
+            z-index: 200;   
+          }*/ }
+    .views-element-container .views-exposed-form .js-form-item label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 5px; }
+    .views-element-container .views-exposed-form .js-form-item input, .views-element-container .views-exposed-form .js-form-item select {
+      background-color: #fff;
+      border: 1px solid #CCCCCC;
+      border-radius: 2px;
+      color: #1E1E1E;
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      height: 40px;
+      padding-left: 5px; }
+    .views-element-container .views-exposed-form .js-form-item select {
+      background: transparent;
+      border-right: 0;
+      cursor: pointer;
+      position: relative;
+      width: 240px;
+      z-index: 100;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none; }
+    .views-element-container .views-exposed-form .js-form-item .dropdown-icon-button {
+      background-image: url("../images/dropdownbox-icon.svg");
+      border: none;
+      border-radius: 0 2px 2px 0;
+      bottom: 0;
+      cursor: pointer;
+      content: "";
+      display: block;
+      height: 40px;
+      position: absolute;
+      right: 0;
+      width: 24px;
+      pointer-events: none;
+      z-index: 200; }
+    .views-element-container .views-exposed-form .js-form-item input[type="text"] {
+      margin: 0 20px 15px 0;
+      width: 450px; }
+  .views-element-container .views-exposed-form .form-actions input[type="submit"] {
+    background-color: #0990FE;
+    background-image: url("../images/filter-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    color: transparent;
+    cursor: pointer;
+    height: 40px;
+    left: calc(450px - 40px);
+    position: absolute;
+    top: 29px;
+    width: 40px; }
+  @media (max-width: 530px) {
+    .views-element-container .views-exposed-form {
+      /*@media (max-width: calc(calc(450px + 40px + 20px * 2) + 0px) {*/ }
+      .views-element-container .views-exposed-form .js-form-item {
+        width: 100%; }
+        .views-element-container .views-exposed-form .js-form-item input[type="text"] {
+          margin-right: 0;
+          max-width: calc(100% - 40px); }
+      .views-element-container .views-exposed-form .form-actions input[type="submit"] {
+        left: calc(100% - 40px); } }
+
 #header_region {
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
   height: 72px;
