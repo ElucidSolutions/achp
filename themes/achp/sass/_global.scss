@@ -30,12 +30,6 @@ $base-text-size: 16px;
 $default-line-height: 1.5;
 $default-letter-spacing: 0.02rem;
 
-$block-width: 450px;
-$textblock-margin: 10px;
-$content-width: 950px; 
-$side-margin: calc((100% - #{$content-width})/2);
-$min-side-margin: 40px;
-
 /* Global variables: colors */
 
 /* Colors in Styleguide */
@@ -201,12 +195,7 @@ $grid-columns: 12;
 @mixin content-container-subsection {
   margin: 0 auto;
   max-width: $max-content-width;
-  width: 100%;
-  /*padding: 0 40px;*/
-
-  @media (max-width: 400px) {
-    /*padding: 0 20px;*/
-  }  
+  width: 100%; 
 }
 
 /* Applies default width, margin, and padding to elements */

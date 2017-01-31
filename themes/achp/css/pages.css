@@ -1787,7 +1787,7 @@ html {
               transform: translateX(-50%);
               left: 50%;
               position: absolute;
-              bottom: 0;
+              bottom: -5px;
               padding-right: 5px; }
               #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_link a {
                 vertical-align: 0; }
@@ -3651,7 +3651,7 @@ html {
           font-family: "p22-underground", sans-serif;
           font-size: 1rem;
           height: 40px;
-          padding: 0 5px;
+          padding-left: 5px;
           /*position: relative;*/ }
         #page[data-page-path-alias="/about/onaa"] #content #content_region #block-onaa-agency-assignments .views-exposed-form .js-form-item select,
         #page[data-page-path-alias="/about/onaa/staff"] #content #content_region #block-onaa-agency-assignments .views-exposed-form .js-form-item select,
@@ -3907,7 +3907,7 @@ html {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
       height: 40px;
-      padding: 0 5px;
+      padding-left: 5px;
       /*position: relative;*/
       width: 450px; }
   [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .views-exposed-form .form-actions input[type="submit"] {
@@ -4768,11 +4768,7 @@ html {
     [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives {
       margin: 0 auto;
       max-width: 1024px;
-      width: 100%;
-      /*padding: 0 40px;*/ }
-      @media (max-width: 400px) {
-        [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives {
-          /*padding: 0 20px;*/ } }
+      width: 100%; }
       [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list header, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives header {
         background-color: white;
         height: auto; }
@@ -4912,12 +4908,8 @@ html {
       margin: 0 auto;
       max-width: 1024px;
       width: 100%;
-      /*padding: 0 40px;*/
       padding-top: 20px;
       padding-bottom: 75px; }
-      @media (max-width: 400px) {
-        [data-page-path-alias="/initiatives"] #content #content_region #block-more-initiatives-list {
-          /*padding: 0 20px;*/ } }
       [data-page-path-alias="/initiatives"] #content #content_region #block-more-initiatives-list header {
         background-color: white;
         height: auto;
@@ -4933,12 +4925,8 @@ html {
       margin: 0 auto;
       max-width: 1024px;
       width: 100%;
-      /*padding: 0 40px;*/
       padding-bottom: 50px;
       padding-top: 50px; }
-      @media (max-width: 400px) {
-        [data-page-path-alias="/initiatives"] #content #content_region #block-views-block-related-resources-block-1 {
-          /*padding: 0 20px;*/ } }
 
 [data-page-path-alias="/preserve-america"] #secondary_header_region #block-breadcrumbs,
 [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-breadcrumbs,
@@ -5655,7 +5643,7 @@ html {
         font-family: "p22-underground", sans-serif;
         font-size: 1rem;
         height: 40px;
-        padding: 0 5px;
+        padding-left: 5px;
         position: relative;
         width: 550px; }
     [data-page-path-alias="/preserve-america/stewards/list"] #content #content_region .views-exposed-form .form-actions input[type="submit"] {
@@ -8531,7 +8519,7 @@ html {
           font-family: "p22-underground", sans-serif;
           font-size: 1rem;
           height: 40px;
-          padding: 0 5px;
+          padding-left: 5px;
           /*position: relative;*/ }
         #page[data-page-path-alias="/about/staff"] #content #content_region #block-staff-list .views-exposed-form .js-form-item select {
           background-image: url("../images/dropdownbox-icon.svg");
@@ -8810,8 +8798,7 @@ html {
             font-family: "p22-underground", sans-serif;
             font-size: 1rem;
             height: 40px;
-            padding: 0 5px;
-            /*position: relative;*/ }
+            padding-left: 5px; }
           [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-exposed-form .js-form-item select {
             background-image: url("../images/dropdownbox-icon.svg");
             background-position: right center;
@@ -9444,3 +9431,5 @@ html {
         @media screen and (max-width: 650px) {
           [data-page-node-type="whitepapers"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
             margin-bottom: 0; } }
+
+/*# sourceMappingURL=pages.css.map */

@@ -15,6 +15,7 @@
     }
   }
 
+
   $(document).ready (function () {
     
     initFilterBehavior ();
@@ -25,9 +26,26 @@
     Accepts no arguments, returns undefined.
   */
   function initFilterBehavior () {
+    checkForIE ();
     setTextInputPlaceholder ();
     removeSubmitButtonText ();
     setDropdownListener ();
+  }
+
+  /* 
+    Accepts no arguments, checks to see if the browser is a version
+    of IE above 9, and if so applies browser-specific styles.
+   */
+  function checkForIE () {
+    if (window.navigator.userAgent.indexOf('Trident') > 0 && navigator.appVersion.indexOf("MSIE 9") === -1) {
+      console.log('[success_stories_landing][checkforIE] IE10+ detected; removing incompatible styles');
+      removeIEStyling ();
+    }
+  }
+
+  function removeIEStyling () {
+    console.log('removeIeStyling')
+    getDropdownElement ().css('background-image', 'none');
   }
 
   /*
