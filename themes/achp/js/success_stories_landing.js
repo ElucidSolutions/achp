@@ -34,7 +34,7 @@
 
   /* 
     Accepts no arguments, checks to see if the browser is a version
-    of IE above 9, and if so applies browser-specific styles.
+    of IE above 9, and returns undefined.
    */
   function checkForIE () {
     if (window.navigator.userAgent.indexOf('Trident') > 0 && navigator.appVersion.indexOf("MSIE 9") === -1) {
@@ -42,7 +42,11 @@
       removeIEStyling ();
     }
   }
-
+  
+  /*
+    Accepts no arguments, removes the dropdown element's 
+    background image, and returns undefined.
+  */
   function removeIEStyling () {
     console.log('removeIeStyling')
     getDropdownElement ().css('background-image', 'none');

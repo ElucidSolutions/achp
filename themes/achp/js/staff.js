@@ -25,9 +25,30 @@
     Accepts no arguments, returns undefined.
   */
   function initFilterBehavior () {
+    checkForIE ();
     setTextInputPlaceholder ();
     removeSubmitButtonText ();
     setDropdownListener ();
+  }
+
+  /* 
+    Accepts no arguments, checks to see if the browser is a version
+    of IE above 9, and returns undefined.
+   */
+  function checkForIE () {
+    if (window.navigator.userAgent.indexOf('Trident') > 0 && navigator.appVersion.indexOf("MSIE 9") === -1) {
+      console.log('[success_stories_landing][checkforIE] IE10+ detected; removing incompatible styles');
+      removeIEStyling ();
+    }
+  }
+  
+  /*
+    Accepts no arguments, removes the dropdown element's 
+    background image, and returns undefined.
+  */
+  function removeIEStyling () {
+    console.log('removeIeStyling')
+    getDropdownElement ().css('background-image', 'none');
   }
 
   /*
