@@ -286,22 +286,6 @@ $grid-columns: 12;
   }
 }
 
-/* Mixin for hiding the last breadcrumb. Used on an individual
-office's staff and agency assignments pages, and placed within
-the #secondary_header_region selector*/
-@mixin hide-last-breadcrumb {
-  .achp-breadcrumb ol {
-    li.breadcrumb_page {
-      display: none;
-    }
-
-    li:nth-last-child(2) a {
-      color: $color-blue-primary;
-      cursor: text;
-    }
-  } 
-}
-
 /* px-to-rem mixin */
 $baseline-px: $base-text-size;
 @mixin rem($property, $px-values) {

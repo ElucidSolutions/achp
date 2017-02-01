@@ -2,14 +2,6 @@
   Styles for ONAA office pages
 */
 
-/* This selector encompasses all ages beyond the overview */
-#page[data-page-path-alias^="/about/offices/onaa/"],
-#page[data-page-path-alias^="/about/offices/ofap/"] {
-  #secondary_header_region {
-    @include hide-last-breadcrumb;
-  }
-}
-
 /* This selector encompasses all pages, including the overview*/
 #page[data-page-path-alias^="/about/offices/onaa"] {
   @mixin create-header($label) {
@@ -25,7 +17,7 @@
   }
   #content #content_region {
     #block-onaa-agency-assignments {
-      margin: 30px 0 40px;
+      margin: 50px 0 40px;
 
       .item-list {
         @include clear-float;
@@ -147,6 +139,24 @@
           }         
         }
       }        
+    }
+  }
+}
+
+/* These selectors encompasses all pages beyond the overview */
+#page[data-page-path-alias^="/about/offices/onaa/"],
+#page[data-page-path-alias^="/about/offices/ofap/"],
+#page[data-page-path-alias^="/about/offices/ogc/"],
+#page[data-page-path-alias^="/about/offices/oed/"],
+#page[data-page-path-alias^="/about/offices/opi/"],
+#page[data-page-path-alias^="/about/offices/ocea/"] {
+  #secondary_header_region .achp-breadcrumb ol {
+    li.breadcrumb_page {
+      display: none;
+    }
+    li:nth-last-child(2) a {
+      color: $color-blue-primary;
+      cursor: text;
     }
   }
 }

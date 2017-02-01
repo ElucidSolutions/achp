@@ -36,9 +36,6 @@ html {
 /* Mixin for an image floated to the left, with text on its right */
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
-/* Mixin for hiding the last breadcrumb. Used on an individual
-office's staff and agency assignments pages, and placed within
-the #secondary_header_region selector*/
 /* px-to-rem mixin */
 /* Maps for type changes*/
 #page[data-page-path-alias="/about"] #secondary_header_region #block-breadcrumbs {
@@ -812,9 +809,6 @@ the #secondary_header_region selector*/
 /* Mixin for an image floated to the left, with text on its right */
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 /* Mixin for responsive type size */
-/* Mixin for hiding the last breadcrumb. Used on an individual
-office's staff and agency assignments pages, and placed within
-the #secondary_header_region selector*/
 /* px-to-rem mixin */
 /* Maps for type changes*/
 #events_landing_page {
@@ -3495,11 +3489,9 @@ the #secondary_header_region selector*/
   Styles for the offices pages
 */
 /* */
-/*#page[data-page-path-alias="/about/offices"] {
-  #content #content_region #block-achp-content {
-    margin-bottom: 40px;  
-  }
-}*/
+#page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article {
+  margin-bottom: 50px; }
+
 /* This selector applies to the offices landing page, as well as 
   any page aliased within that URL */
 #page[data-page-path-alias^="/about/offices"] #secondary_header_region #block-breadcrumbs {
@@ -3565,14 +3557,14 @@ the #secondary_header_region selector*/
 general office landing page */
 #page[data-page-path-alias^="/about/offices/"] #secondary_header_region #block-pagetitle-2 {
   display: none; }
-#page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav {
+#page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav:not(.achp-breadcrumb) {
   margin: 0 auto;
   max-width: 1024px;
   padding-left: 40px;
   padding-right: 40px;
   width: 100%; }
   @media (max-width: 400px) {
-    #page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav {
+    #page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav:not(.achp-breadcrumb) {
       padding-left: 20px;
       padding-right: 20px; } }
 #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-achp-content article {
@@ -3611,26 +3603,17 @@ general office landing page */
         #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-fax .field-content a,
         #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-email .field-content a {
           color: #0990FE; }
-#page[data-page-path-alias^="/about/offices/"] #content #content_region #block-related-resources-block {
-  margin-bottom: 50px; }
-  #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-related-resources-block h2 {
+#page[data-page-path-alias^="/about/offices/"] #content #content_region #block-views-block-related-resources-block-1 {
+  margin: 50px 0; }
+  #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-views-block-related-resources-block-1 h2 {
     font-size: 1.375rem; }
 
 /*
   Styles for ONAA office pages
 */
-/* This selector encompasses all ages beyond the overview */
-#page[data-page-path-alias^="/about/offices/onaa/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/ofap/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page {
-  display: none; }
-#page[data-page-path-alias^="/about/offices/onaa/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/ofap/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a {
-  color: #0990FE;
-  cursor: text; }
-
 /* This selector encompasses all pages, including the overview*/
 #page[data-page-path-alias^="/about/offices/onaa"] #content #content_region #block-onaa-agency-assignments {
-  margin: 30px 0 40px; }
+  margin: 50px 0 40px; }
   #page[data-page-path-alias^="/about/offices/onaa"] #content #content_region #block-onaa-agency-assignments .item-list {
     padding: 30px 25px; }
     #page[data-page-path-alias^="/about/offices/onaa"] #content #content_region #block-onaa-agency-assignments .item-list:after {
@@ -3725,6 +3708,23 @@ general office landing page */
         #page[data-page-path-alias^="/about/offices/onaa"] #content #content_region #block-onaa-agency-assignments .item-list > ul li .views-field-field-staff-agencies-1 ul li {
           list-style-type: disc;
           padding: 0; } }
+
+/* These selectors encompasses all pages beyond the overview */
+#page[data-page-path-alias^="/about/offices/onaa/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias^="/about/offices/ofap/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias^="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias^="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias^="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias^="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page {
+  display: none; }
+#page[data-page-path-alias^="/about/offices/onaa/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias^="/about/offices/ofap/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias^="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias^="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias^="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias^="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a {
+  color: #0990FE;
+  cursor: text; }
 
 /*
   Styles for the Section 106 Cases Open for Comment landing page

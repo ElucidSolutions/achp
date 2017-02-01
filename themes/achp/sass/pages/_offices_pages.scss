@@ -3,11 +3,11 @@
 */
 
 /* */
-/*#page[data-page-path-alias="/about/offices"] {
-  #content #content_region #block-achp-content {
-    margin-bottom: 40px;  
+#page[data-page-path-alias="/about/offices"] {
+  #content #content_region #block-achp-content article {
+    margin-bottom: 50px;  
   }
-}*/
+}
 
 /* This selector applies to the offices landing page, as well as 
   any page aliased within that URL */
@@ -69,24 +69,22 @@ general office landing page */
     #block-pagetitle-2 {
       display: none;
     }
-    nav {
+    nav:not(.achp-breadcrumb) {
       @include content-container;
     }
   }
 
   #content #content_region {
-    #block-achp-content {
-      article {
-        font-size: rem(18px);
-        margin: 25px 0 0;
+    #block-achp-content article {
+      font-size: rem(18px);
+      margin: 25px 0 0;
 
-        h3 {
-          margin-top: 40px;
-          text-align: left;
+      h3 {
+        margin-top: 40px;
+        text-align: left;
 
-          &+p {
-            margin-top: 0;
-          }
+        &+p {
+          margin-top: 0;
         }
       }
     }
@@ -125,8 +123,8 @@ general office landing page */
         }
       }
     }
-    #block-related-resources-block {
-      margin-bottom: 50px;
+    #block-views-block-related-resources-block-1 {
+      margin: 50px 0;
 
       h2 {
         font-size: rem(22px);
