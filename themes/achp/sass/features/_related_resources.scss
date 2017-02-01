@@ -4,13 +4,15 @@
 */
 [data-derivative-plugin-id^="related_resources"] {
   @import "../styleguide";
+  @include styleguide;
+  @include body-text;
 
   h2 {
     border-bottom: $separator;
-    color: $color-red2;
+    color: $color-red2 !important;
     margin-bottom: $margin-med;
     padding-bottom: $margin-xsmall;
-    text-align: left;
+    @include responsive(text-align, left, left !important);
     text-transform: uppercase;
   }
   .views-field-title {

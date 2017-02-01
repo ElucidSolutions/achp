@@ -20,6 +20,9 @@ $small-font-size: rem(16px);
 // The default body text line height.
 $default-line-height: 1.7;
 
+// The default header text line height.
+$header-line-height: 1.4;
+
 // The default body font.
 $default-font-family: "minion-pro", serif;
 
@@ -92,19 +95,56 @@ $separator: 1px solid $background-color-grey2;
   }
 }
 
-// Represents the set of shared header styles.
-@mixin header-text {
-  color: $color-darkblue2;
-  font-family: $header-font-family;
-  font-weight: 400;
-  @include responsive(text-align, left, center);
+/*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
+  and renders the element it is applied to
+  as a header element overriding the default
+  properties with the given values.
+
+  Note: if $center is false, this mixin will
+  not add responsive behavior that centers text
+  within the element on small devices.
+*/
+@mixin header-text(
+  $color: null,
+  $font-family: null,
+  $font-weight: null,
+  $line-height: null,
+  $center: null
+) {
+  color: if($color, $color, $color-darkblue2);
+  font-family: if($font-family, $font-family, $header-font-family);
+  font-weight: if($font-weight, $font-weight, 400);
+  line-height: if($line-height, $line-height, $header-line-height);
+  @if $center == null or $center { @include responsive(text-align, left, center); }
 }
 
-// Represents the set of shared body text styles.
-@mixin body-text {
-  font-family: $default-font-family;
-  font-size: $default-font-size;
-  line-height: $default-line-height;
+/*
+  Accepts three optional arguments:
+
+  * $font-family, a font-family string
+  * $font-size, a CSS dimension
+  * $line-height, a CSS dimension
+
+  and renders the element it is applied to as
+  a body text element overriding the default
+  properties values with the given values.
+*/
+@mixin body-text(
+  $font-family: null,
+  $font-size: null,
+  $line-height: null
+) {
+  font-family: if($font-family, $font-family, $default-font-family);
+  font-size: if($font-size, $font-size, $default-font-size);
+  line-height: if($line-height, $line-height, $default-line-height);
 }
 
 // Represents properties shared by all text blocks.
@@ -112,16 +152,46 @@ $separator: 1px solid $background-color-grey2;
   @include strip-margins;
 }
 
-// Represetns the set of shared header block styles.
-@mixin header-text-block {
+/*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
+  and renders the element it is applied to as
+  a header block element.
+*/
+@mixin header-text-block(
+  $color: null,
+  $font-family: null,
+  $font-weight: null,
+  $line-height: null,
+  $center: null
+) {
   @include text-block;
-  @include header-text;
+  @include header-text($color, $font-family, $font-weight, $line-height, $center);
 }
 
-// Represents the set of shared body text block styles.
-@mixin body-text-block {
+/*
+  Accepts three optional arguments:
+
+  * $font-family, a font-family string
+  * $font-size, a CSS dimension
+  * $line-height, a CSS dimension
+
+  and renders the element it is applied to as
+  a body text block element.
+*/
+@mixin body-text-block (
+  $font-family: null,
+  $font-size: null,
+  $line-height: null
+) {
   @include text-block;
-  @include body-text;
+  @include body-text($font-family, $font-size, $line-height);
   margin-bottom: $margin-med;
 }
 
@@ -176,70 +246,205 @@ $separator: 1px solid $background-color-grey2;
 }
 
 /*
+  Accepts five optional arguments:
+
+  * $color, a CSS color
+  * $font-family, a font-family string
+  * $font-size, a CSS dimension
+  * $highlight-color, a CSS color
+  * $line-height, a CSS dimension
+
+  and renders the element that this mixin is
+  applied to as an anchor element.
+*/
+@mixin a (
+  $color: null,
+  $font-family: null,
+  $font-size: null,
+  $highlight-color: null,
+  $line-height: null
+) {
+  @include body-text(
+    if($font-family, $font-family, $header-font-family),
+    $font-size,
+    $line-height
+  );
+  @include hover-transition-content(if($highlight-color, $highlight-color, $color-lightblue-primary));
+  color: if($color, $color, $color-blue-primary);
+}
+
+/*
+  Accepts seven optional arguments:
+
+  * $background-color, a CSS color
+  * $color, a CSS color
+  * $font-family, a font-family string
+  * $font-size, a CSS dimension
+  * $font-weight, a font-weight
+  * $highlight-color, a CSS color
+  * $uppercase, a boolea
+
+  Renders the element that this mixin is applied
+  to as a button element.
+
+  Note: if $uppercase is false this mixin does
+  not text-transform uppercase the button label.
+*/
+@mixin achp-button(
+  $background-color: null,
+  $color: null,
+  $font-family: null,
+  $font-size: null,
+  $font-weight: null,
+  $highlight-color: null,
+  $uppercase: null
+) {
+  @include hover-transition-background(if($background-color, $background-color, $color-lightblue-primary));
+  @include mobile(width, 100%);
+  background-color: if($background-color, $background-color, $color-blue-primary);
+  border: none;
+  border-radius: 2px;
+  color: if($color, $color, white);
+  cursor: pointer;
+  font-size: if($font-size, $font-size, 16px);
+  font-family: if($font-family, $font-family, $sans-text);
+  font-weight: if($font-weight, $font-weight, 600);
+  padding: $margin-xsmall 35px;
+  @if $uppercase == null or $uppercase { text-transform: uppercase; }
+}
+
+/*
+  Renders the element that this mixin is applied
+  to as a blockquote element.
+*/
+@mixin blockquote {
+  @include body-text-block;
+  font-size: rem(24px);
+  font-style: italic;
+  margin-left: $margin-med;
+  @include mobile-font-size($default-font-size, $margin-med);
+}
+
+/*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
   Renders the element that this mixin is applied
   to as an H1 element.
 */
-@mixin h1 {
-  @include header-text-block;
+@mixin h1(
+  $color: null,
+  $font-family: null,
+  $font-weight: null,
+  $line-height: null,
+  $center: null
+) {
+  @include header-text-block($color, $font-family, $font-weight, $line-height, $center);
   @include widescreen-mobile-font-size(rem(36px), 0, rem(26px), 0);
 }
 
 /*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
   Renders the element that this mixin is applied
   to as an H2 element.
 */
-@mixin h2 {
-  @include header-text-block;
+@mixin h2(
+  $color: null,
+  $font-family: null,
+  $font-weight: null,
+  $line-height: null,
+  $center: null
+) {
+  @include header-text-block($color, $font-family, $font-weight, $line-height, $center);
   @include widescreen-mobile-font-size(rem(32px), $margin-med, rem(22px), $margin-xsmall);
 }
 
 /*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
   Renders the element that this mixin is applied
   to as an H3 element.
 */
-@mixin h3 {
-  @include header-text-block;
+@mixin h3(
+  $color: null,
+  $font-family: null,
+  $font-weight: null,
+  $line-height: null,
+  $center: null
+) {
+  @include header-text-block($color, $font-family, $font-weight, $line-height, $center);
   @include widescreen-mobile-font-size(rem(22px), $margin-xsmall, rem(20px), 0);
 }
 
 /*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
   Renders the element that this mixin is applied
   to as an H4 element.
 */
-@mixin h4 {
-  @include header-text-block;
+@mixin h4(
+  $color: null,
+  $font-family: null,
+  $font-weight: null,
+  $line-height: null,
+  $center: null
+) {
+  @include header-text-block($color, $font-family, $font-weight, $line-height, $center);
   @include widescreen-mobile-font-size(rem(22px), 0, $default-font-size, 0);
 }
 
-@include body-text;
-
-a {
-  @include body-text;
-  @include hover-transition-content($color-lightblue-primary);
-  color: $color-blue-primary;
-  font-family: $header-font-family;
-}
-blockquote {
-  @include body-text-block;
-  font-size: rem(24px);
-  font-style: italic;
-  @include mobile-font-size($default-font-size, $margin-med);
-}
-h1 {
-  @include h1;
-}
-h2 {
-  @include h2;
-}
-h3 {
-  @include h3;
-}
-h4 {
-  @include h4;
-}
-p {
-  @include body-text-block;
-}
-ul {
-  @include body-text-block;
+/*
+  Renders the element children of the element
+  that this mixin is applied to according to
+  the rules specified in the current styleguide.
+*/
+@mixin styleguide {
+  a {
+    @include a;
+  }
+  blockquote {
+    @include blockquote;
+  }
+  h1 {
+    @include h1();
+  }
+  h2 {
+    @include h2;
+  }
+  h3 {
+    @include h3;
+  }
+  h4 {
+    @include h4;
+  }
+  p {
+    @include body-text-block;
+  }
+  ul {
+    @include body-text-block;
+  }
 }

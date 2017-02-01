@@ -3,122 +3,146 @@
   Digital Library results page.
 */
 [data-page-view-id="digital_library"] {
-  $margin-xsmall: 5px;
-  $margin-small: 10px;
-  $margin-med: 20px;
-  $margin-large: 40px;
+  @import "../styleguide";
 
-  a {
-    color: $color-blue-primary;
-  }
-  #secondary_header {
-    margin: 0 auto;
-    max-width: $max-content-width;
-    padding: $margin-small $margin-large 0 !important;
+  #main {
+    @include styleguide;
+    @include body-text;
 
-    h1 {
-      color: $color-darkblue2;
-      font-size: rem(36px);
-      font-weight: 300;
-      margin-bottom: $margin-med;
+    a {
+      color: $color-blue-primary;
+    }
+    #secondary_header {
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: $margin-small $margin-med 0 !important;
 
-      &:after {
-        content: "";
-        display: block;
-        max-width: 200px;
-        margin: 0 auto;
-        border-bottom: 1px solid $color-red2;
+      h1 {
+        color: $color-darkblue2;
+        font-size: rem(36px);
+        font-weight: 300;
+        margin-bottom: $margin-med;
+        text-align: center;
+
+        &:after {
+          content: "";
+          display: block;
+          max-width: 200px;
+          margin: $margin-small auto 0;
+          border-bottom: 1px solid $color-red2;
+        }
+      }
+      [data-plugin-id="system_breadcrumb_block"] {
+        margin-bottom: 10px;
+        margin-top: 5px;
+        .achp-breadcrumb {
+          min-height: 0;
+        }
+      }
+      [data-plugin-id="share_this_page_block"] {
+        margin-bottom: $margin-med;
+      }
+      #block-digitallibrarysection106resultsintro {
+        font-size: rem(18px);
+        line-height: 1.4;
       }
     }
-  }
-  #content_region {
-    .views-element-container {
-      header {
-        background-color: white;
-        height: auto;
-      }
-      .item-list {
-        padding: $margin-med 0;
-
-        ol {
-          margin: 0;
-          padding: 0 $margin-large;
-          counter-reset: li-counter;
-
-          li {
-            border-left: 2px solid $background-color-lightblue;
-            list-style-type: none;
-            list-style-image: none;
-            margin-bottom: $margin-med;
-            padding-left: $margin-med;
-            position: relative;
-
-            .views-field-type {
-              color: $color-grey3;
-            }
-            &:before {
-              position: absolute;
-              top: 2px;
-              left: - $margin-large;
-              width: $margin-med;
-              font-size: rem(20px);
-              line-height: rem(20px);
-              text-align: right;
-              color: $color-red2;
-              content: counter(li-counter);
-              counter-increment: li-counter;
-            }
-          }
-        }
-
+    #content_region {
+      .views-element-container {
+        padding: $margin-med 0 $margin-large;
         &:before {
+          @include h2;
           border-bottom: 1px solid $color-lightgrey;
-          color: $color-darkblue2;
           content: 'Search Results';
           display: block;
+          font-weight: 300;
           margin-bottom: $margin-med;
           padding-bottom: $margin-xsmall;
           position: relative;
-          font-size: rem(28px);
         }
-      }
-      nav {
-        @include span-columns (12 of 12);
-        color: $color-darkgrey;
-        font-family: $sans-text;
-        font-size: rem(14px);
+        header {
+          background-color: white;
+          height: auto;
+        }
+        .item-list {
+          ol {
+            margin: 0;
+            padding: 0 $margin-large;
+            counter-reset: li-counter;
 
-        ul {
-          list-style-type: none;
-          padding: 0;
-          text-align: center;
+            li {
+              border-left: 2px solid $background-color-lightblue;
+              list-style-type: none;
+              list-style-image: none;
+              margin-bottom: $margin-med;
+              padding-left: $margin-med;
+              position: relative;
 
-          li {
-            display: inline-block;
-            line-height: 27px;
-            padding: 0 8px;
-
-            &.pager__item--last, &.pager__item--first {
-              display: none;
-            }
-            &.pager__item.is-active {
-              background-color: $color-blue-primary;
-              border-radius: 50%;
-              cursor: default;
-              height: 25px;
-              padding: 0;
-              width: 25px;
-
-              a {
-                @include hover-transition-content(#fff);              
-                color: #fff;
-                cursor: default;
+              .views-field {
+                font-size: rem(18px);
+                line-height: 1.4;
+              }
+              .views-field-title {
+                @include h3;
+                font-family: $sans-text;
+              }
+              .views-field-type {
+                color: $color-lightgrey-2;
+                font-family: $sans-text;
+                margin-bottom: $margin-xsmall;
+              }
+              &:before {
+                @include body-text($font-family: $sans-text);
+                color: $color-red2;
+                content: counter(li-counter);
+                counter-increment: li-counter;
+                left: - $margin-large;
+                position: absolute;
+                text-align: right;
+                top: 2px;
+                width: $margin-med;
               }
             }
-            a {
-              @include hover-transition-content($color-blue-primary);            
-              color: $color-darkgrey;
-              text-decoration: none;
+          }
+        }
+        nav {
+          @include span-columns (12 of 12);
+          color: $color-darkgrey;
+          font-family: $sans-text;
+          font-size: rem(14px);
+
+          ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+
+            li {
+              display: inline-block;
+              line-height: 27px;
+              padding: 0 8px;
+
+              &.pager__item--last, &.pager__item--first {
+                display: none;
+              }
+              &.pager__item.is-active {
+                background-color: $color-blue-primary;
+                border-radius: 50%;
+                cursor: default;
+                height: 25px;
+                padding: 0;
+                width: 25px;
+
+                a {
+                  @include hover-transition-content(#fff);              
+                  color: #fff;
+                  cursor: default;
+                }
+              }
+              a {
+                @include hover-transition-content($color-blue-primary);            
+                color: $color-darkgrey;
+                text-decoration: none;
+              }
             }
           }
         }

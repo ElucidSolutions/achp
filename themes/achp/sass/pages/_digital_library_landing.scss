@@ -3,73 +3,120 @@
   Digital Library Landing pages.
 */
 [data-page-node-type="digital_library_landing_page"] {
-  $margin-xsmall: 5px;
-  $margin-small: 10px;
-  $margin-med: 20px;
-  $margin-large: 40px;
-  $margin-xlarge: 60px;
+  @import "../styleguide";
 
-  #secondary_header {
-    margin: 0 auto;
-    max-width: $max-content-width;
-    padding: $margin-small $margin-large 0 !important;
+  #main {
+    @include styleguide;
+    @include body-text;
 
-    h1 {
-      color: $color-darkblue2;
-      font-size: rem(36px);
-      font-weight: 300;
-      margin-bottom: $margin-med;
+    #secondary_header {
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: $margin-small $margin-med 0 !important;
 
-      &:after {
-        content: "";
-        display: block;
-        max-width: 200px;
-        margin: 0 auto;
-        border-bottom: 1px solid $color-red2;
-      }
-    }
-  }
-  #content_region {
-    h2 {
-      border-bottom: 1px solid $color-lightgrey;
-      font-size: rem(32px);
-      margin: $margin-med 0;
-      text-align: left;
-    }
-    .views-element-container {
-      margin-bottom: $margin-xlarge;
-
-      h2 {
-        border: none;
-        color: $color-red2;
-        font-size: rem(22px);
-        margin: $margin-small 0;
-      }
-      header {
-        background-color: transparent;
+      h1 {
+        color: $color-darkblue2;
+        font-size: rem(36px);
         font-weight: 300;
-        height: auto;
-        margin: 0 0 $margin-med;
+        margin-bottom: $margin-med;
+        text-align: center;
+
+        &:after {
+          content: "";
+          display: block;
+          max-width: 200px;
+          margin: $margin-small auto 0;
+          border-bottom: 1px solid $color-red2;
+        }
       }
-      .item-list {
-        box-shadow: 0px 1px 3px $color-lightgrey;
+      [data-plugin-id="system_breadcrumb_block"] {
+        margin-bottom: 10px;
+        margin-top: 5px;
+        .achp-breadcrumb {
+          min-height: 0;
+        }
+      }
+      [data-plugin-id="share_this_page_block"] {
+        margin-bottom: $margin-med;
+      }
+      #block-digitallibrarysection106resultsintro {
+        font-size: rem(18px);
+        line-height: 1.4;
+      }
+    }
+    #content_region {
+      h2 {
+        border-bottom: 1px solid $background-color-grey2;
+        font-size: rem(32px);
+        margin: $margin-med 0;
+        text-align: left;
+      }
+      .views-element-container {
+        margin-bottom: $margin-xlarge;
 
-        ol {
-          margin: 0;
-          padding: 0;
+        h2 {
+          border: none;
+          color: $color-red2;
+          font-size: rem(22px);
+          margin: $margin-small 0;
+        }
+        header {
+          background-color: transparent;
+          font-weight: 300;
+          height: auto;
+          margin: 0 0 $margin-med;
+        }
+        .more-link {
+          @include hover-transition-background ($background-color-lightblue);
+          background-color: $background-color-grey2;
+          box-shadow: 0px 1px 3px $color-lightgrey;
+          cursor: pointer;
+          text-align: center;
+          text-transform: uppercase;
+          width: 100%;
 
-          li {
-            border-bottom: 1px solid $color-lightgrey;
-            list-style-type: none;
-            padding: $margin-med 0 $margin-med $margin-med;
+          a {
+            color: $color-grey;
+            font-size: rem(14px);
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            transition: color 0.25s;
+            width: 100%;
+          }
+          &:hover {
+            box-shadow: 0px 1px 3px $background-color-lightblue;
 
-            .views-field-title {
-              a {
-                color: $color-blue-primary;
-              }
+            a {
+              color: $color-blue-primary;
             }
-            .views-field-type {
-              color: $color-grey3;
+          }        
+        }
+        .item-list {
+          box-shadow: 0px 1px 3px $color-lightgrey;
+
+          ol {
+            margin: 0;
+            padding: 0;
+
+            li {
+              border-bottom: 1px solid $background-color-grey2;
+              list-style-type: none;
+              padding: $margin-med;
+
+              .views-field {
+                font-size: rem(18px);
+                line-height: 1.4;
+              }
+              .views-field-title {
+                @include h3;
+                font-family: $sans-text;
+              }
+              .views-field-type {
+                color: $color-lightgrey-2;
+                font-family: $sans-text;
+                margin-bottom: $margin-xsmall;
+              }
             }
           }
         }

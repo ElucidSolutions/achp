@@ -3,8 +3,11 @@
   Communities Map page.
 */
 #page[data-page-path-alias="/preserve-america/preserve-america-communities"] {
+  @import "../styleguide";  
+
   #main {
-    @import "../styleguide";  
+    @include styleguide;
+    @include body-text;
 
     #secondary_header_region {
       [data-plugin-id="system_breadcrumb_block"] {

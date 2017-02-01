@@ -2,8 +2,11 @@
   Styles for the case map page
 */
 #page[data-page-path-alias="/case-map"] {
+  @import "../styleguide";  
+
   #main {
-    @import "../styleguide";  
+    @include styleguide;
+    @include body-text;
 
     #secondary_header_region {
       [data-plugin-id="system_breadcrumb_block"] {

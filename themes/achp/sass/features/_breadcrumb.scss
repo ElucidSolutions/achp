@@ -31,9 +31,9 @@
       background-image: url('../images/left-arrow-icon-blue.svg')
     }
     a {
-      color: $color-grey;
+      color: $color-grey !important;
       &:hover {
-        color: $color-blue-primary;
+        color: $color-blue-primary !important;
       }
     }
   }
@@ -61,7 +61,7 @@
         position: relative;
 
         a {
-          color: $color-grey;
+          color: $color-grey !important;
           text-decoration: none;
           transition: color 0.25s;
         }
@@ -77,7 +77,7 @@
         }
         &:hover {
           a {
-            color: $color-blue-primary;
+            color: $color-blue-primary !important;
           }
         }
       }
