@@ -1,5 +1,9 @@
-#page[data-page-path-alias="/about/onaa/staff"], 
-#page[data-page-path-alias="/about/onaa/agencies"] {
+/*
+  Styles for ONAA office pages
+*/
+
+/* This selector encompasses all pages beyond the overview */
+#page[data-page-path-alias^="/about/offices/onaa/"] {
   #secondary_header_region {
     .achp-breadcrumb ol {
       li.breadcrumb_page {
@@ -14,10 +18,8 @@
   }
 }
 
-#page[data-page-path-alias="/about/onaa"],
-#page[data-page-path-alias="/about/onaa/staff"], 
-#page[data-page-path-alias="/about/onaa/agencies"] {
-
+/* This selector encompasses all pages, including the overview*/
+#page[data-page-path-alias^="/about/offices/onaa"] {
   @mixin create-header($label) {
     content: $label;
     color: #000;
@@ -33,28 +35,23 @@
   $submit-button-width: 40px;
 
   #secondary_header_region {
-    #block-breadcrumbs {
-      @include content-container;
-      margin: 30px auto 0;
-    }
-    #block-pagetitle-2, #block-views-block-image-carousel-block-1 {
+    #block-pagetitle-2{
       display: none;
-    }
-    #block-about-achp-share {
-      @include content-container;
-      margin: 0 auto 30px;     
     }
     #block-officeofnativeamericanaffairsmenu {
       @include content-container;
     }
     h1 {
-      font-size: rem(36px);
+      @include content-container;
+      color: $color-darkblue2;
+      font-weight: 400;
 
       &:after {
         @include hr($color-red);
         content: "";
         display: block;
         margin: 10px auto 25px;
+        min-width: 150px;
         width: 20%;
       }
     }
@@ -68,8 +65,8 @@
       article {
         margin: 25px 0 50px;
 
-        h2 {
-          margin-top: 20px;
+        h3 {
+          margin-top: 40px;
           text-align: left;
 
           &+p {
@@ -80,6 +77,10 @@
     }
     #block-related-resources-block {
       margin-bottom: 50px;
+
+      h2 {
+        font-size: rem(22px);
+      }
     }
     #block-onaa-staff-list ul {
       margin-bottom: 100px;

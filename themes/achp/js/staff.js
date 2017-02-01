@@ -25,46 +25,9 @@
     Accepts no arguments, returns undefined.
   */
   function initFilterBehavior () {
-    // checkForIE ();
-    addDropdownIcon ();
     setTextInputPlaceholder ();
     removeSubmitButtonText ();
-    setDropdownListener ();
   }
-
-  /* 
-    Accepts no arguments, checks to see if the browser is a version
-    of IE above 9, and returns undefined.
-   */
-  function checkForIE () {
-    // if (window.navigator.userAgent.indexOf('Trident') > 0 && navigator.appVersion.indexOf("MSIE 9") === -1) {
-      // If browser is IE10+, remove icon
-    //   console.log('[success_stories_landing][checkforIE] IE10+ detected; removing incompatible styles');
-    //   removeIEStyling ();
-    // } else if (navigator.appVersion.indexOf("MSIE 9") === -1) {
-    //   addDropdownIcon ();
-    // }
-  }
-  
-  /*
-    Accepts no arguments, removes the dropdown element's 
-    background image, and returns undefined.
-  */
-  function removeIEStyling () {
-    console.log('removeIeStyling')
-    getDropdownElement ().css('background-image', 'none');
-  }
-
-  /*
-    Accepts no arguments, appends an icon to the dropdown
-    menu, and returns undefined.
-  */
-  function addDropdownIcon () {
-    getDropdownElement ().after($("<div></div>")
-      .addClass('dropdown-icon-button')
-    );
-  }
-
 
   /*
     Accepts no input, sets placeholder text on the text input
@@ -80,16 +43,6 @@
   */
   function removeSubmitButtonText () {
     getFilterSubmitButton ().attr('value', '');
-  }
-
-  /*
-    Accepts no arguments, sets an on-change listener 
-    on the dropdown filter, and returns undefined.
-  */
-  function setDropdownListener () {
-    getDropdownElement ().change (function () {
-      submitFilterForm ();
-    })
   }
 
   /*
@@ -117,14 +70,6 @@
   */
   function getTextInputElement () {
     return getViewContainerElement ().find (getTextInputSelector ());
-  }
-
-  /* 
-    Accepts no arguments and returns a jQuery
-    HTML Element representing the dropdown element.
-  */
-  function getDropdownElement () {
-    return getViewContainerElement ().find (getDropdownElementSelector ());
   }
 
   /*
@@ -157,14 +102,6 @@
   */
   function getTextInputSelector () {
     return 'input[type="text"]';
-  }
-
-  /*
-    Accepts no arguments and returns a string representing
-    the dropdown element selector.
-  */
-  function getDropdownElementSelector () {
-    return 'select';
   }
 
   /*

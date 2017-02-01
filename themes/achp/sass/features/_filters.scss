@@ -1,5 +1,5 @@
 /*
-  Styles for the filter and sort menus
+  Styles for the filter and sort menus. Apply to anywhere that has 
 */
 
 /*#block-success-stories-list, 
@@ -12,8 +12,6 @@
   $dropdown-button-width: 24px;
   $text-input-width: 450px;
   $dropdown-menu-width: 240px;
-  $filter-breakpoint: 530px;
-  $filter-breakpoint: calc(#{$text-input-width} + #{$submit-button-width} + #{$mobile-horiz-padding} * 2);
 
   .views-exposed-form {
     font-family: $sans-text;
@@ -41,46 +39,17 @@
         padding-left: 5px;
       }
       select {
-        background: transparent;
+        background-image: url("../images/dropdownbox-icon.svg");
+        background-position: right center;
+        background-repeat: no-repeat;
         border-right: 0;
         cursor: pointer;
         position: relative;
         width: $dropdown-menu-width;
-        z-index: 100;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
       }
-      .dropdown-icon-button {
-        background-image: url("../images/dropdownbox-icon.svg");
-        border: none;
-        border-radius: 0 2px 2px 0;
-        bottom: 0;
-        cursor: pointer;
-        content: "";
-        display: block;
-        height: $submit-button-width;
-        position: absolute;
-        right: 0; 
-        width: $dropdown-button-width;
-        pointer-events: none;
-        z-index: 200; 
-      }
-/*      label[for="edit-sort-by"]:after {
-        background-image: url("../images/dropdownbox-icon.svg");
-        border: none;
-        border-radius: 0 2px 2px 0;
-        bottom: 0;
-        cursor: pointer;
-        content: "";
-        display: block;
-        height: $submit-button-width;
-        position: absolute;
-        right: 0; 
-        width: $dropdown-button-width;
-        pointer-events: none;
-        z-index: 200;   
-      }*/
       input[type="text"] {
         margin: 0 20px 15px 0;
         width: 450px;
@@ -102,8 +71,9 @@
       width: $submit-button-width;
     }
 
-    @media (max-width: 530px) {
-      /*@media (max-width: calc(#{$filter-breakpoint} + 0px) {*/
+    /*@media (max-widt)*/
+
+    @media (max-width: 550px) {
       .js-form-item {
         width: 100%;
         

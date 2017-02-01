@@ -157,6 +157,7 @@ blockquote {
 .read_more, .read-more {  
   cursor: pointer;
   font-family: $sans-text;
+  text-transform: uppercase;
 
   a {
     @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -20px, $color-blue-primary);

@@ -25,6 +25,17 @@
         display: none;
       }
     }
+    #block-members-in-the-news-archives, #block-section-106-archives {
+      @include content-container;
+      .item-list ul li {
+        a {
+          color: $color-blue-primary;
+        }
+        &:first-of-type a:after {
+          content: " - latest edition";
+        }
+      }
+    }
     article a {
       color: $color-blue-primary;
     }
