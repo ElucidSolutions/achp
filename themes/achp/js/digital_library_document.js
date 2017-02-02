@@ -105,7 +105,20 @@
   */
   function getDigitalLibraryDocumentNodeTypes () {
     return [
-      'publication'
+      'alternative_procedure',
+      'exemption',
+      'guidance_document',
+      'legislation',
+      'memorandum_of_agreement',
+      'opinion_statement',
+      'policy_document',
+      'program_comments',
+      'programmatic_agreement',
+      'prototype_programmatic_agreement',
+      'publication',
+      'regulation',
+      'report',
+      'whitepapers'
     ];
   }
 }) (jQuery);
