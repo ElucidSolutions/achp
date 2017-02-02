@@ -2,30 +2,34 @@
   This stylesheet provides the default styling
   for the Related Resources block.
 */
-[data-derivative-plugin-id^="related_resources"] {
-  @import "../styleguide";
-  @include styleguide;
-  @include body-text;
+#page {
+  #main {
+    [data-derivative-plugin-id^="related_resources"] {
+      @import "../styleguide";
+      @include styleguide;
+      @include body-text;
 
-  h2 {
-    border-bottom: $separator;
-    color: $color-red2 !important;
-    margin-bottom: $margin-med;
-    padding-bottom: $margin-xsmall;
-    @include responsive(text-align, left, left !important);
-    text-transform: uppercase;
-  }
-  .views-field-title {
-    font-size: rem(18px);
-    margin-bottom: $margin-xsmall;
+      h2 {
+        @include h4($color: $color-red2);
+        @include responsive(text-align, left, left !important);
+        border-bottom: $separator;
+        margin-bottom: $margin-med;
+        padding-bottom: $margin-xsmall;
+        text-transform: uppercase;
+      }
+      .views-field-title {
+        font-size: rem(18px);
+        margin-bottom: $margin-xsmall;
 
-    a {
-      color: $color-blue-primary;
+        a {
+          color: $color-blue-primary;
+        }
+      }
+      .views-field-body {
+        color: $color-grey2;
+        font-size: rem(18px);
+        margin-bottom: $margin-med;
+      }
     }
-  }
-  .views-field-body {
-    color: $color-grey2;
-    font-size: rem(18px);
-    margin-bottom: $margin-med;
   }
 }

@@ -13,12 +13,13 @@
   margin-bottom: $margin-large;
 
   #content {
-    @include tablet(max-width, $max-content-narrow-width);
+    // @include tablet(max-width, $max-content-narrow-width);
     position: relative;
   }
   #content_region {
-    @include tablet(margin-left, 0 !important);
-    @include responsive(max-width, $max-content-narrow-width, 100% !important);
+    @include tablet(margin, 0 auto !important);
+    max-width: $max-content-narrow-width;
+    margin: 0 auto;
 
     h3 {
       color: $color-red2;
@@ -34,7 +35,6 @@
       color: $color-lightgrey-2;
       font-family: $sans-text;
       font-size: rem(16px);
-      font-style: italic;
       margin: 0 0 $margin-small;
     }
     [data-plugin-id="share_this_page_block"] {
@@ -42,19 +42,16 @@
     }
     [data-plugin-id="page_menu_block"] {
       @include responsive(position, absolute, static);
-      @include tablet (margin-bottom, $margin-med);
+      @include tablet(margin-bottom, $margin-med);
+      @include tablet(margin-left, 0);
       padding-top: 0 !important;
 
       .page-menu-instance-container {
         @include responsive(padding-top, 300px, 0 !important);
 
-        .page-menu-instance-menu {
-          
-
-          .page-menu-instance-menu-list {
-            @include body-text($font-family: $sans-text);
-            margin: 0;
-          }
+        .page-menu-instance-menu-list {
+          @include body-text($font-family: $sans-text);
+          margin: 0;
         }
       }
     }

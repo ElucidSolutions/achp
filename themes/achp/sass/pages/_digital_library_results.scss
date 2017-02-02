@@ -15,7 +15,7 @@
     #secondary_header {
       margin: 0 auto;
       max-width: $max-content-width;
-      padding: $margin-small $margin-med 0 !important;
+      padding: $margin-small $margin-large 0 !important;
 
       h1 {
         color: $color-darkblue2;
@@ -83,7 +83,7 @@
                 line-height: 1.4;
               }
               .views-field-title {
-                @include h3;
+                @include h3($center: false);
                 font-family: $sans-text;
               }
               .views-field-type {

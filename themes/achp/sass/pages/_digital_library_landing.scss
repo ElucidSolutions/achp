@@ -10,9 +10,11 @@
     @include body-text;
 
     #secondary_header {
+      @include responsive(padding, $margin-large !important, $margin-med !important);
       margin: 0 auto;
       max-width: $max-content-width;
-      padding: $margin-small $margin-med 0 !important;
+      padding-bottom: 0 !important;
+      padding-top: $margin-small !important;
 
       h1 {
         color: $color-darkblue2;
@@ -49,14 +51,13 @@
         border-bottom: 1px solid $background-color-grey2;
         font-size: rem(32px);
         margin: $margin-med 0;
-        text-align: left;
       }
       .views-element-container {
         margin-bottom: $margin-xlarge;
 
         h2 {
+          @include h2($color: $color-red2);
           border: none;
-          color: $color-red2;
           font-size: rem(22px);
           margin: $margin-small 0;
         }
@@ -69,7 +70,8 @@
         .more-link {
           @include hover-transition-background ($background-color-lightblue);
           background-color: $background-color-grey2;
-          box-shadow: 0px 1px 3px $color-lightgrey;
+          border: 1px solid $background-color-grey2;
+          box-shadow: 0px 1px 3px $background-color-grey2;
           cursor: pointer;
           text-align: center;
           text-transform: uppercase;
@@ -85,6 +87,7 @@
             width: 100%;
           }
           &:hover {
+            border: 1px solid $background-color-lightblue;
             box-shadow: 0px 1px 3px $background-color-lightblue;
 
             a {
@@ -93,7 +96,7 @@
           }        
         }
         .item-list {
-          box-shadow: 0px 1px 3px $color-lightgrey;
+          border: 1px solid $background-color-grey2;
 
           ol {
             margin: 0;
@@ -109,7 +112,7 @@
                 line-height: 1.4;
               }
               .views-field-title {
-                @include h3;
+                @include h3($center: false);
                 font-family: $sans-text;
               }
               .views-field-type {

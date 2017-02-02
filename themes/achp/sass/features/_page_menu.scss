@@ -22,6 +22,7 @@
 
   height: 100%;
   left: 0;
+  margin-left: 40px;
   top: 0;
   padding-top: $page-menu-block-margin;
   position: relative;
@@ -72,6 +73,7 @@
           width: 100%;
 
           .page-menu-instance-menu-item {
+            @include hover-transition-content-and-background(white, $color-lightblue-primary);
             border-bottom: $page-menu-instance-menu-item-border;
             cursor: pointer;
             padding: $page-menu-instance-menu-item-padding;

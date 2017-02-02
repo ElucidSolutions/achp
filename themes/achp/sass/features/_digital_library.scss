@@ -25,7 +25,7 @@
     border-radius: 2px;
     box-shadow: none;
     color: $color-darkgrey2;
-    font-size: rem(18px);
+    font-size: rem(16px);
     font-family: $sans-text;
   }
   select {
@@ -35,7 +35,7 @@
     border: 1px solid $color-grey2;
     border-radius: 2px;
     color: $color-darkgrey2;
-    font-size: rem(18px);
+    font-size: rem(16px);
     font-family: $sans-text;
     padding: $margin-xsmall - 1;
   }
@@ -58,6 +58,15 @@
         font-family: $sans-text !important;
         font-size: rem(16px) !important;
         line-height: 1.4 !important;
+
+        &.highlighted {
+          background-color: $color-blue-primary;
+          background-image: none;
+          color: white;
+        }
+        &.result-selected {
+          color: $color-lightgrey;
+        }
       }
     }
     .search-choice {
@@ -85,7 +94,7 @@
       font-family: $sans-text;
       font-size: rem(16px);
       font-weight: 500;
-      padding: $margin-small 0;
+      padding: $margin-small 0 $margin-xsmall;
     }
     input {
       width: 100%;
@@ -121,7 +130,7 @@
     width: 65%;
 
     .form-text {
-      padding: 5px 10px;
+      padding: 7px 10px 3px;
     }
   }
   .form-item-field-tags-target-id-2 {
