@@ -277,8 +277,16 @@
     that represents the filter forms.
   */
   function getFilterContainer () {
-    return $('.views-exposed-form');
+    return $('.views-exposed-form', getNewsLandingContainer ());
   }  
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the News Landing Container element.
+  */
+  function getNewsLandingContainer () {
+    return $('.' + getNewsLandingContainerClassName ());
+  }
 
   /*
     Accepts no arguments and returns a jQuery HTML Element

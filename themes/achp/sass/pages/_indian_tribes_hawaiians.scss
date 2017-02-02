@@ -10,7 +10,6 @@
   $success-card-shadow-width: 3px;
   $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
   $two-card-container-width: calc(#{$success-card-width} * 2 + #{$success-card-margin-horiz} + #{$success-card-shadow-width} * 2 + #{$container-padding} * 2);
- 
 
   #secondary_header_region {
     #block-breadcrumbs {
@@ -49,7 +48,7 @@
           h2 {
             font-size: rem(32px);
             margin-bottom: 0;
-            text-align: center;
+            /*text-align: center;*/
 
             &+ p {
               margin: 0 0 30px;
@@ -198,7 +197,7 @@
 
               &_link {
                 @include center-x;
-                bottom: 0;
+                bottom: -5px;
                 padding-right: 5px;
 
                 a {

@@ -7,6 +7,32 @@
     [data-derivative-plugin-id="image_carousel-block_1"] {
       @include content-container;
     }
+    #block-pagetitle-2 {
+      @include content-container;
+      color: $color-darkblue2;
+      font-weight: 400;
+
+      h1 span {
+        display: inline-block;
+
+        &:after {
+          @include hr($color-red);
+          content: "";
+          display: block;
+          margin: 10px auto 25px;
+          min-width: 150px;
+          width: 20%;
+        }
+      }
+    } 
+    #block-breadcrumbs {
+      @include content-container;
+      margin-top: 30px;
+    }
+    #block-sharethispage {
+      @include content-container;
+      margin: 15px auto 30px;
+    }
   }
   #content {   
     width: 100%;
@@ -17,21 +43,13 @@
       .addtoany_list{
         display: none;
       }
-      h1 {
+/*      h1 {
         color: $color-darkblue2;
-      }
+      }*/
       #block-achp-content, #block-achp-local-tasks {
         @include content-container;
       }
-      #block-breadcrumbs {
-        @include content-container;
-        /*margin-top: 20px;*/
-      }
-      #block-sharethispage {
-        @include content-container;
-        margin: 15px auto 30px;
-      }
-      #block-members-in-the-news-archives, #block-section-106-archives {
+/*      #block-members-in-the-news-archives, #block-section-106-archives {
         @include content-container;
         .item-list ul li {
           a {
@@ -41,7 +59,7 @@
             content: " - latest edition";
           }
         }
-      }
+      }*/
     }
   }
 

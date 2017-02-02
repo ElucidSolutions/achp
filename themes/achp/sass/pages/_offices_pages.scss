@@ -1,0 +1,135 @@
+/*
+  Styles for the offices pages
+*/
+
+/* */
+#page[data-page-path-alias="/about/offices"] {
+  #content #content_region #block-achp-content article {
+    margin-bottom: 50px;  
+  }
+}
+
+/* This selector applies to the offices landing page, as well as 
+  any page aliased within that URL */
+#page[data-page-path-alias^="/about/offices"] {
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-views-block-image-carousel-block-1 {
+      display: none;
+    } 
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;     
+    }
+    .achp-field h1 {
+      @include content-container;
+      color: $color-darkblue2;
+      font-weight: 400;
+
+      &:after {
+        @include hr($color-red);
+        content: "";
+        display: block;
+        margin: 10px auto 25px;
+        min-width: 150px;
+        width: 20%;
+      }
+    }
+  }
+  #content #content_region #block-achp-content {
+    padding: 0 !important;
+
+    article {
+      .read_more a:after {
+        bottom: 1px;
+        left: 10px;
+        position: relative;
+      }
+      h2 {
+        margin-top: 30px;
+        text-align: left;
+
+        & + p {
+          margin-top: 0;
+        }
+      }
+      p + h2 {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+/* This selector applies to an office's pages, but not the 
+general office landing page */
+#page[data-page-path-alias^="/about/offices/"] {
+  #secondary_header_region {
+    #block-pagetitle-2 {
+      display: none;
+    }
+    nav:not(.achp-breadcrumb) {
+      @include content-container;
+    }
+  }
+
+  #content #content_region {
+    #block-achp-content article {
+      font-size: rem(18px);
+      margin: 25px 0 0;
+
+      h3 {
+        margin-top: 40px;
+        text-align: left;
+
+        &+p {
+          margin-top: 0;
+        }
+      }
+    }
+    .staff-view-block ul {
+      margin: 40px 0 50px;
+      padding-left: 0;
+      font-size: rem(18px);
+
+      li {
+        color: $color-darkgrey;
+        font-family: $sans-text;
+        list-style: none;
+        padding-bottom: 20px;
+
+        .views-field-title {
+          color: $color-darkblue2;
+          font-weight: 500;
+        }
+        .views-field-field-staff-position {
+          color: $color-lightgrey-2;
+        }
+        .views-field-field-staff-phone,
+        .views-field-field-staff-fax,
+        .views-field-field-staff-email {
+          position: relative;
+
+          .field-content {
+            display: inline;
+            left: 75px;
+            position: absolute;   
+
+            a {
+              color: $color-blue-primary;
+            }             
+          }
+        }
+      }
+    }
+    #block-views-block-related-resources-block-1 {
+      margin: 50px 0;
+
+      h2 {
+        font-size: rem(22px);
+      }
+    }
+  }
+}

@@ -3,6 +3,13 @@
 */
 [data-page-path-alias="/success-stories"] {
 
+  $success-card-margin-vert: 25px;
+  $success-card-margin-horiz: 20px;
+  $success-card-height: 400px;
+  $success-card-width: 300px;
+
+  $submit-button-width: 40px;
+
   #secondary_header_region {
     #block-breadcrumbs {
       @include content-container;
@@ -114,66 +121,6 @@
           margin-bottom: $row-padding;
         }
         .success_stories_list_container {
-
-          .views-exposed-form {
-            font-family: $sans-text;
-            font-size: rem(16px);
-            margin-bottom: 40px;
-            position: relative;
-
-            .js-form-item {
-              display: inline-block;
-              position: relative;
-
-              label {
-                display: block;
-                font-weight: 500;
-              }
-              input, select {
-                border: 1px solid #CCCCCC;
-                color: $color-darkgrey2;
-                font-family: $sans-text;
-                font-size: rem(16px);
-                height: 40px;
-                padding: 0 5px;
-                position: relative;
-              }
-              select {
-                background-image: url("../images/dropdownbox-icon.svg");
-                background-position: right center;
-                background-repeat: no-repeat;
-                cursor: pointer;
-                width: 150px;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-              }
-              input[type="text"] {
-                margin-right: 20px;
-                width: 450px;
-              }
-            }
-          .form-actions input[type="submit"] {
-            background-color: $color-blue-primary;
-            background-image: url("../images/filter-icon.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            border: none;
-            /*bottom: 0;*/
-            color: transparent;
-            cursor: pointer;
-            height: 40px;
-            left: 410px;
-            /*position: absolute;*/
-            width: 40px;
-            position: relative;
-            bottom: 40px;
-/*              -webkit-appearance: none;
-              -moz-appearance: none;
-              appearance: none;*/
-        }
-          }
-
           .views-row {
             @include clear-float;
             border-bottom: 1px solid $background-color-grey2;
@@ -193,7 +140,7 @@
                 color: $color-darkblue;
               }
             }
-            .views-field-field-success-images, .views-field-field-image {
+            .views-field-field-image, .views-field-field-image {
               @include clear-float;
               float: left;
               height: $img-height;
@@ -210,10 +157,14 @@
                 width: auto;
               }
             }
-            .views-field-field-success-state {
+            .views-field-field-success-city, .views-field-field-success-state-or-territory {
               color: $color-lightgrey-2;
+              display: inline-block;
               font-family: $sans-text;
               margin-bottom: 15px;
+            }
+            .views-field-field-success-city span {
+              padding-right: 5px;
             }
             .views-field-body {
               color: $color-grey;
@@ -274,7 +225,7 @@
           .views-row {
             padding-bottom: $img-margin;
 
-            .views-field-field-success-images {
+            .views-field-field-image {
               background-color: #fff;
               float: none;
               margin: 0 auto $row-padding;
@@ -337,7 +288,7 @@
 
           .success_stories_list_container {
             .views-row {
-              .views-field-field-success-images {
+              .views-field-field-image {
                 img {
                   height: auto;
                   max-height: 100%;
