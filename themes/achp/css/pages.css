@@ -526,7 +526,6 @@ html {
 /*
   Styles for the case map page
 */
-/*#page[data-page-node-type="page"] {*/
 [data-page-path-alias="/case-map"] #secondary_header_region #block-breadcrumbs {
   margin: 0 auto;
   max-width: 1024px;
@@ -2778,6 +2777,8 @@ html {
   max-width: 620px;
   margin: 0 auto 40px;
   padding: 0 40px; }
+  #page[data-page-node-type="news_story"] #main #secondary_header_region #block-breadcrumbs {
+    margin: 30px 0 10px; }
   #page[data-page-node-type="news_story"] #main #secondary_header_region #block-pagetitle-2 h1 {
     color: #043B62;
     font-size: 2.25rem;
@@ -3550,46 +3551,48 @@ general office landing page */
     #page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav:not(.achp-breadcrumb) {
       padding-left: 20px;
       padding-right: 20px; } }
-#page[data-page-path-alias^="/about/offices/"] #content #content_region #block-achp-content article {
-  font-size: 1.125rem;
-  margin: 25px 0 0; }
-  #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-achp-content article h3 {
-    margin-top: 40px;
-    text-align: left; }
-    #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-achp-content article h3 + p {
-      margin-top: 0; }
-#page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul {
-  margin: 40px 0 50px;
-  padding-left: 0;
-  font-size: 1.125rem; }
-  #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li {
-    color: #262626;
-    font-family: "p22-underground", sans-serif;
-    list-style: none;
-    padding-bottom: 20px; }
-    #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-title {
-      color: #003A5E;
-      font-weight: 500; }
-    #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-position {
-      color: #7C7C7C; }
-    #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-phone,
-    #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-fax,
-    #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-email {
-      position: relative; }
-      #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-phone .field-content,
-      #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-fax .field-content,
-      #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-email .field-content {
-        display: inline;
-        left: 75px;
-        position: absolute; }
-        #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-phone .field-content a,
-        #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-fax .field-content a,
-        #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-email .field-content a {
-          color: #0990FE; }
-#page[data-page-path-alias^="/about/offices/"] #content #content_region #block-views-block-related-resources-block-1 {
-  margin: 50px 0; }
-  #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-views-block-related-resources-block-1 h2 {
-    font-size: 1.375rem; }
+#page[data-page-path-alias^="/about/offices/"] #content #content_region {
+  border: 1px solid pink; }
+  #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-achp-content article {
+    font-size: 1.125rem;
+    margin: 25px 0 0; }
+    #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-achp-content article h3 {
+      margin-top: 40px;
+      text-align: left; }
+      #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-achp-content article h3 + p {
+        margin-top: 0; }
+  #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul {
+    margin: 40px 0 50px;
+    padding-left: 0;
+    font-size: 1.125rem; }
+    #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li {
+      color: #262626;
+      font-family: "p22-underground", sans-serif;
+      list-style: none;
+      padding-bottom: 20px; }
+      #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-title {
+        color: #003A5E;
+        font-weight: 500; }
+      #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-position {
+        color: #7C7C7C; }
+      #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-phone,
+      #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-fax,
+      #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-email {
+        position: relative; }
+        #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-phone .field-content,
+        #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-fax .field-content,
+        #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-email .field-content {
+          display: inline;
+          left: 75px;
+          position: absolute; }
+          #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-phone .field-content a,
+          #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-fax .field-content a,
+          #page[data-page-path-alias^="/about/offices/"] #content #content_region .staff-view-block ul li .views-field-field-staff-email .field-content a {
+            color: #0990FE; }
+  #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-views-block-related-resources-block-1 {
+    margin: 50px 0; }
+    #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-views-block-related-resources-block-1 h2 {
+      font-size: 1.375rem; }
 
 /*
   Styles for ONAA office pages
@@ -3737,6 +3740,8 @@ general office landing page */
       padding-right: 20px; } }
 [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region p a {
   color: #0990FE; }
+[data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .no_results {
+  margin-bottom: 40px; }
 [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open ol {
   color: #950306;
   counter-reset: achp-theme-cases;
@@ -8576,7 +8581,6 @@ general office landing page */
   max-width: 700px;
   width: 100%;
   margin: 30px auto 0;
-  /*max-width: $main-content-max-width;*/
   padding-top: 0; }
   @media (max-width: 400px) {
     #page[data-page-node-type="success_story"] #secondary_header_region #block-breadcrumbs {
@@ -8588,8 +8592,7 @@ general office landing page */
   margin: 0 auto;
   max-width: 700px;
   width: 100%;
-  margin: 0 auto 30px;
-  /*max-width: $main-content-max-width;*/ }
+  margin: 0 auto 30px; }
   @media (max-width: 400px) {
     #page[data-page-node-type="success_story"] #secondary_header_region #block-sharethispage {
       padding: 0 20px; } }
@@ -8641,24 +8644,21 @@ general office landing page */
       margin: 0 auto;
       max-width: 700px;
       width: 100%;
-      margin: 15px auto 40px;
-      /*max-width: $main-content-max-width;*/ }
+      margin: 15px auto 40px; }
       @media (max-width: 400px) {
         #page[data-page-node-type="success_story"] #content #content_region #block-sharethispage {
           padding: 0 20px; } }
     #page[data-page-node-type="success_story"] #content #content_region #block-achp-local-tasks {
       margin: 0 auto;
       max-width: 700px;
-      width: 100%;
-      /*max-width: $main-content-max-width;*/ }
+      width: 100%; }
       @media (max-width: 400px) {
         #page[data-page-node-type="success_story"] #content #content_region #block-achp-local-tasks {
           padding: 0 20px; } }
     #page[data-page-node-type="success_story"] #content #content_region #block-achp-content {
       margin: 0 auto;
       max-width: 700px;
-      width: 100%;
-      /*max-width: $main-content-max-width;*/ }
+      width: 100%; }
       @media (max-width: 400px) {
         #page[data-page-node-type="success_story"] #content #content_region #block-achp-content {
           padding: 0 20px; } }
@@ -8687,8 +8687,7 @@ general office landing page */
     #page[data-page-node-type="success_story"] #content #content_region #block-views-block-related-resources-block-1 {
       margin: 0 auto;
       max-width: 700px;
-      width: 100%;
-      /*max-width: $main-content-max-width;*/ }
+      width: 100%; }
       @media (max-width: 400px) {
         #page[data-page-node-type="success_story"] #content #content_region #block-views-block-related-resources-block-1 {
           padding: 0 20px; } }
