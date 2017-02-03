@@ -20,6 +20,9 @@ $submit-button-width: 40px;
       color: $color-blue-primary;
     }
     #block-list-cases-open {
+      .no_results {
+        margin-bottom: 40px;
+      }
       ol {
         color: $color-red;
         counter-reset: achp-theme-cases;
