@@ -42,6 +42,7 @@ class IssuesInPreservationBlock extends BlockBase {
 
     $query = \Drupal::entityQuery ('node')
       ->condition ('type', 'issue')      
+      ->condition ('field_featured', true)
       ->condition ('status', 1);
     
     $result = $query->execute ();
