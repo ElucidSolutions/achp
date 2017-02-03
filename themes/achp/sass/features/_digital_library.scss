@@ -22,28 +22,60 @@
   }
   input {
     border: 1px solid $color-grey2;
-    height: $input-height;
-    padding: $margin-xsmall;
+    border-radius: 2px;
+    box-shadow: none;
+    color: $color-darkgrey2;
+    font-size: rem(16px);
+    font-family: $sans-text;
   }
   select {
     -moz-appearance: none;
+    -webkit-appearance: none;
     background-color: transparent;
     border: 1px solid $color-grey2;
-    height: $input-height;
-    padding: $margin-xsmall;
+    border-radius: 2px;
+    color: $color-darkgrey2;
+    font-size: rem(16px);
+    font-family: $sans-text;
+    padding: $margin-xsmall - 1;
   }
-  .chosen-container-multi .chosen-choices {
-    border: 1px solid $color-grey2;
-    margin: 0;
-    min-height: $input-height;
-    padding: 0 0 0 $margin-small;
+  .chosen-container-multi {
+    .chosen-choices {
+      background-image: none;
+      border: 1px solid $color-grey2;
+      border-radius: 2px;
+      margin: 0;
+      min-height: $input-height;
+      padding: 0 0 0 $margin-small;
 
+      li {
+        line-height: $input-height !important;
+      }
+    }
+    .chosen-results {
+      li {
+        color: $color-darkgrey2;
+        font-family: $sans-text !important;
+        font-size: rem(16px) !important;
+        line-height: 1.4 !important;
+
+        &.highlighted {
+          background-color: $color-blue-primary;
+          background-image: none;
+          color: white;
+        }
+        &.result-selected {
+          color: $color-lightgrey;
+        }
+      }
+    }
     .search-choice {
       background: transparent;
       border: none;
       box-shadow: none;
-      height: $input-height;
-      line-height: $input-height;
+      font-family: $sans-text !important;
+      font-size: rem(16px) !important;
+      line-height: 1.4 !important;
       margin: 0;
       padding: 0 $margin-med 0 0;
 
@@ -59,11 +91,15 @@
 
     label {
       display: block;
-      padding: $margin-small 0;
+      font-family: $sans-text;
+      font-size: rem(16px);
+      font-weight: 500;
+      padding: $margin-small 0 $margin-xsmall;
     }
     input {
       width: 100%;
     }
+    
     select {
       width: 100%;
     }
@@ -76,17 +112,26 @@
     float: left;
 
     .form-submit {
+      @include hover-transition-background($color-lightblue-primary);
       background-color: $color-blue-primary;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
       color: white;
       cursor: pointer;
       border: none;
-      border-radius: $margin-xsmall;
-      padding: $margin-xsmall $margin-med;
+      border-radius: 2px;
+      font-size: rem(16px);
+      font-family: $sans-text;
+      font-weight: 600;
+      padding: 10px 35px 6px;
       text-transform: uppercase;
     }
   }
   .form-item-keys {
     width: 65%;
+
+    .form-text {
+      padding: 7px 10px 3px;
+    }
   }
   .form-item-field-tags-target-id-2 {
     width: 35%;
@@ -97,10 +142,18 @@
   .form-item-field-tags-target-id {
     width: 50%;
   }
+  &:before {
+    clear: both;
+    color: $color-darkblue2;
+    content: 'Search';
+    display: block;
+    font-family: $sans-text;
+    font-size: rem(20px);
+    font-weight: 400;
+  }
   &:after {
     clear: both;
     content: '';
     display: block;
   }
-  
 }

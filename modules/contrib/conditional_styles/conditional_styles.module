@@ -11,7 +11,6 @@ use \Drupal\Component\Utility\Unicode;
  * Implements hook_css_alter().
  */
 function conditional_styles_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
-  \Drupal::logger('conditional styles')->notice('[conditional_styles_css_alter]');
   $theme_handler = \Drupal::service('theme_handler');
   $current_theme = $theme_handler->getDefault();
   $path = drupal_get_path('theme', $current_theme);
@@ -20,7 +19,6 @@ function conditional_styles_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsIn
     foreach ($info['conditional-stylesheets'] as $version => $media) {
       foreach ($media as $key => $file_path) {
         $full_path = "{$path}/{$file_path}";
-        \Drupal::logger('conditional styles')->notice('[conditional_styles_css_alter] ' . $media . ' ' . $key . ' ' . $file_path);
         $css[$full_path] = [
           'group' => CSS_THEME,
           'weight' => 999,

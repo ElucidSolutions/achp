@@ -40,9 +40,9 @@
           instanceContainerElement.append (instance.element);
           instance.init ();
 
-          contentRegionElement.css ('margin-left', instance.element.width ());
+          contentRegionElement.css ('margin-left', instance.element.outerWidth (true));
           $(window).resize (function () {
-            contentRegionElement.css ('margin-left', instance.element.width ());
+            contentRegionElement.css ('margin-left', instance.element.outerWidth (true));
           });
         }
     });

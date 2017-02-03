@@ -22,6 +22,7 @@ class Section106MapBlock extends BlockBase {
       '#attached' => array (
         'library' => array ('section_106_map/section_106_map_library'),
         'drupalSettings' => array (
+          'module_path' => base_path () . drupal_get_path ('module', 'section_106_map'),
           'section_106_map' => array (
             'mapbox_access_token'    => $config->get ('mapbox_access_token'),
             'filter_score_threshold' => $config->get ('filter_score_threshold'),

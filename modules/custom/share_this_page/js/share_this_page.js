@@ -33,7 +33,7 @@
 
   // Loads and enables the share icons when the page loads.
   $(document).ready (function () {
-    if (a2a) {
+    if (typeof a2a !== 'undefined') {
       // enable the Add To Any share elements.
       a2a.init_all ('page');
 

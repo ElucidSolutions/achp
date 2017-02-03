@@ -1,0 +1,592 @@
+/* The Section 106 Map Sass library defines the default
+ * styling for the Preserve America Map module. */
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.preserve_america_map {
+  text-align: center;
+  width: 100%;
+  font-family: 'p22-underground', sans-serif; }
+  .preserve_america_map::after {
+    content: "";
+    display: block;
+    clear: both; }
+  .preserve_america_map .leaflet-container .leaflet-control-attribution {
+    display: none; }
+  .preserve_america_map .leaflet-top {
+    z-index: 9; }
+    .preserve_america_map .leaflet-top .leaflet-control {
+      margin-left: 40px;
+      margin-top: 65px; }
+  .preserve_america_map .preserve_america_map_feature.preserve_america_map_feature_small .preserve_america_map_feature_body {
+    min-height: 375px; }
+    .preserve_america_map .preserve_america_map_feature.preserve_america_map_feature_small .preserve_america_map_feature_body .preserve_america_map_map {
+      height: 375px; }
+      .preserve_america_map .preserve_america_map_feature.preserve_america_map_feature_small .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container {
+        height: 375px; }
+      .preserve_america_map .preserve_america_map_feature.preserve_america_map_feature_small .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel {
+        height: 375px; }
+    .preserve_america_map .preserve_america_map_feature.preserve_america_map_feature_small .preserve_america_map_feature_body .preserve_america_map_grid {
+      min-height: 375px; }
+      .preserve_america_map .preserve_america_map_feature.preserve_america_map_feature_small .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body {
+        min-height: 215px; }
+  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header {
+    height: 75px;
+    width: 100%; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_header {
+      height: 0px;
+      width: 100%; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body {
+      height: 75px;
+      width: 100%; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs {
+        text-transform: uppercase;
+        border-top: solid white 1px;
+        height: 75px;
+        width: 300px;
+        margin: 0px auto; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs .preserve_america_map_feature_tab {
+          color: white;
+          cursor: pointer;
+          float: left;
+          height: 100%;
+          padding-top: 37.5px;
+          width: 150px; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs .preserve_america_map_feature_tab:hover, .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs .preserve_america_map_feature_tab.preserve_america_map_selected {
+            color: #6fbefe;
+            border-bottom: 5px solid #6fbefe; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs .preserve_america_map_feature_map_tab {
+          background: url("../images/map-icon.svg") no-repeat 50% 12px;
+          background-size: 15px; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs .preserve_america_map_feature_map_tab:hover, .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs .preserve_america_map_feature_map_tab.preserve_america_map_selected {
+            background: url("../images/map-icon-blue.svg") no-repeat 50% 12px;
+            background-size: 15px; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs .preserve_america_map_feature_grid_tab {
+          background: url("../images/grid-icon.svg") no-repeat 50% 17px;
+          background-size: 15px; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs .preserve_america_map_feature_grid_tab:hover, .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_header .preserve_america_map_feature_header_body .preserve_america_map_feature_header_body_tabs .preserve_america_map_feature_grid_tab.preserve_america_map_selected {
+            background: url("../images/grid-icon-blue.svg") no-repeat 50% 17px;
+            background-size: 15px; }
+  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body {
+    background: #E8F8FF;
+    min-height: 725px;
+    position: relative;
+    width: 100%; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile {
+      padding: 30px 0px 0px 30px;
+      text-align: left; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile:nth-child(even) {
+        background-color: #f6f6f6; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile .preserve_america_map_profile_item {
+        margin-left: 25px; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile .preserve_america_map_profile_item .preserve_america_map_profile_num {
+          left: 18px;
+          position: absolute; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile .preserve_america_map_profile_item .preserve_america_map_profile_title a {
+          color: #053c5d;
+          font-size: 1.75rem;
+          text-decoration: none; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile .preserve_america_map_profile_item .preserve_america_map_profile_location {
+          color: #97000e;
+          font-size: 1.375rem; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile .preserve_america_map_profile_item .preserve_america_map_profile_body {
+          color: black;
+          font-size: 1rem; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile .preserve_america_map_profile_item .preserve_america_map_profile_body .section_106_case_field {
+            font-family: "minion-pro", serif; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile .preserve_america_map_profile_item .preserve_america_map_profile_body .preserve_america_map_profile_contact_info > div {
+            display: inline-block;
+            margin-right: 25px; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_profile .preserve_america_map_profile_item .preserve_america_map_profile_body .preserve_america_map_profile_description p {
+            margin: 0px;
+            padding: 0px;
+            text-align: left; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map {
+      height: 725px;
+      width: 100%; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container {
+        height: 725px;
+        width: 100%; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .leaflet-div-icon {
+          background: none;
+          border: none; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .preserve_america_map_marker {
+          -webkit-transform: translate(-50%, -100%);
+          -moz-transform: translate(-50%, -100%);
+          -ms-transform: translate(-50%, -100%);
+          -o-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%); }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .preserve_america_map_marker.preserve_america_map_selected #Front-Marker,
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .preserve_america_map_marker.preserve_america_map_selected #Back-Marker, .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .preserve_america_map_marker:hover #Front-Marker,
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .preserve_america_map_marker:hover #Back-Marker {
+            fill: #fda485; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .preserve_america_map_multiple_cases_marker .preserve_america_map_marker_label {
+          fill: #ffffff;
+          font-size: 20px;
+          font-family: "Open Sans";
+          text-anchor: middle; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .preserve_america_map_cluster_marker {
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .preserve_america_map_cluster_marker:hover #Oval-35 {
+            fill: #fda485; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_container .preserve_america_map_cluster_marker .preserve_america_map_cluster_marker_label {
+            fill: #ffffff;
+            font-size: 20px;
+            font-family: "Open Sans";
+            text-anchor: middle; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel {
+        background: white;
+        border-top: #97000e 5px solid;
+        /* note: the following statement creates a drop shadow and masks out the overflow into the following section. */
+        box-shadow: 0px 10px 10px #F4F4F4, -5px 0px 10px rgba(0, 0, 0, 0.4);
+        font-size: 16px;
+        height: 725px;
+        max-width: 343px;
+        overflow-y: scroll;
+        position: absolute;
+        right: 0px;
+        z-index: 10; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_header {
+          height: 50px;
+          padding: 10px 15px 10px 18px; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_header .preserve_america_map_state_panel_header_close_button {
+            background: url("../images/close-icon.svg") no-repeat 50% 50%;
+            cursor: pointer;
+            float: right;
+            height: 100%;
+            width: 25px;
+            -moz-transition: all 0.25s ease;
+            -webkit-transition: all 0.25s ease;
+            -o-transition: all 0.25s ease;
+            transition: all 0.25s ease; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_header .preserve_america_map_state_panel_header_close_button:hover {
+              -moz-transform: rotate(180deg);
+              -webkit-transform: rotate(180deg);
+              -o-transform: rotate(180deg);
+              transform: rotate(180deg); }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_header .preserve_america_map_state_panel_header_title {
+            color: #053c5d;
+            float: left;
+            height: 100%;
+            font-size: 1.175rem;
+            text-align: left;
+            display: inline-block; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_header .preserve_america_map_state_panel_header_title:after {
+              content: "";
+              height: 1px;
+              width: 95%;
+              background-color: #97000e;
+              display: block; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list {
+          color: #97000e;
+          list-style-type: none;
+          margin: 0px;
+          padding: 0px; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile {
+            padding: 10px 30px 10px 20px; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_title a, .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_item {
+              font-size: 1.25rem; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_location {
+              display: none; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_body_contact > div {
+              display: block;
+              margin-left: 0; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_footer {
+              margin: 10px 0;
+                    /*
+                      Note: the following is a
+                      work-around to allow the anchor
+                      tags nesting SVG icons to respond
+                      to click events. 
+
+                      See: https://teamtreehouse.com/community/how-do-you-make-a-svg-clickable
+                    */ }
+              .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_footer .preserve_america_map_share_link {
+                display: inline-block;
+                position: relative; }
+                .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_footer .preserve_america_map_share_link:after {
+                  bottom: 0;
+                  content: "";
+                  left: 0;
+                  position: absolute;
+                  right: 0;
+                  top: 0; }
+                .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_footer .preserve_america_map_share_link:hover {
+                  /* Note: the following statement provides hover transition effects for share icons. */ }
+                  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_footer .preserve_america_map_share_link:hover #grid-header,
+                  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_footer .preserve_america_map_share_link:hover #share-bar-desktop,
+                  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_footer .preserve_america_map_share_link:hover #map-case-listing,
+                  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_footer .preserve_america_map_share_link:hover #original-p22-minionpro {
+                    fill: #0990FE; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel .preserve_america_map_state_panel_body .preserve_america_map_state_panel_state_profiles_list .preserve_america_map_profile .preserve_america_map_profile_nav {
+              display: none; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid {
+      min-height: 725px;
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 50px; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid::after {
+        clear: both;
+        content: "";
+        display: table; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_overlay {
+        background: white;
+        border-top: #97000e 5px solid;
+        -moz-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
+        box-shadow: -2px 0px 18px rgba(0, 0, 0, 0.4);
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        z-index: 15; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_overlay .preserve_america_map_grid_overlay_close_button {
+          background: url("../images/close-icon.svg") no-repeat 50% 50%;
+          cursor: pointer;
+          float: right;
+          height: 25px;
+          margin: 5px 15px;
+          width: 25px;
+          -moz-transition: all 0.25s ease;
+          -webkit-transition: all 0.25s ease;
+          -o-transition: all 0.25s ease;
+          transition: all 0.25s ease; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_overlay .preserve_america_map_grid_overlay_close_button:hover {
+            -moz-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg); }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_overlay .preserve_america_map_grid_overlay_body .preserve_america_map_profile .preserve_america_map_profile_item {
+          list-style: none;
+          max-width: 800px;
+          margin: 0 auto; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_overlay .preserve_america_map_grid_overlay_body .preserve_america_map_profile .preserve_america_map_profile_item .preserve_america_map_profile_num {
+            display: none; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_header {
+        height: 60px; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        min-height: 565px; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body:last-child {
+          margin-right: 0; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card {
+          background: white;
+          border-top: 5px solid #97000e;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+          cursor: pointer;
+          display: inline-block;
+          height: 140px;
+          margin: 20px 20px 0 0;
+          padding: 15px;
+          position: relative;
+          text-align: left;
+          transition: box-shadow 0.25s, border-top-color 0.25s;
+          vertical-align: middle; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card .preserve_america_map_profile_card_title, .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card .preserve_america_map_profile_card_state {
+            transition: color 0.25s; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:hover {
+            border-top-color: #0990FE;
+            box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.26); }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:hover #grid-search {
+              fill: #0990FE; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:hover .preserve_america_map_profile_card_title {
+              color: #0990FE; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:hover .preserve_america_map_profile_card_state {
+              color: #0990FE; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card .preserve_america_map_profile_card_expand_button {
+            background-size: 20px;
+            cursor: pointer;
+            float: right;
+            height: 30px;
+            width: 30px; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card .preserve_america_map_profile_card_title {
+            color: #053c5d;
+            font-size: 1.125rem; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card .preserve_america_map_profile_card_state {
+            color: #97000e;
+            position: absolute;
+            bottom: 15px; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer {
+        float: left;
+        height: 60px;
+        margin: 20px 0px;
+        width: 100%; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav {
+          height: 100%;
+          clear: both; }
+          .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links {
+            display: inline-block;
+            height: 100%; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links .preserve_america_map_grid_nav_link {
+              color: #262626;
+              cursor: pointer;
+              display: inline-block;
+              height: 30px;
+              line-height: 30px;
+              vertical-align: middle;
+              width: 30px; }
+              .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links .preserve_america_map_grid_nav_link.preserve_america_map_selected {
+                background-color: #0990FE;
+                border-radius: 50%;
+                color: white; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links .preserve_america_map_grid_nav_quick_link_start:after {
+              content: "..."; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links .preserve_america_map_grid_nav_quick_link_end:before {
+              content: "..."; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links .preserve_america_map_grid_nav_prev {
+              background: url("../images/left-arrow-icon.svg") no-repeat 50% 50%;
+              background-size: 11px; }
+              .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links .preserve_america_map_grid_nav_prev.preserve_america_map_disabled {
+                background: url("../images/left-arrow-icon-disabled.svg") no-repeat 50% 50%;
+                background-size: 11px; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links .preserve_america_map_grid_nav_next {
+              background: url("../images/right-arrow-icon.svg") no-repeat 50% 50%;
+              background-size: 10px; }
+              .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links .preserve_america_map_grid_nav_next.preserve_america_map_disabled {
+                background: url("../images/right-arrow-icon-disabled.svg") no-repeat 50% 50%;
+                background-size: 10px; }
+            .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_footer .preserve_america_map_grid_nav .preserve_america_map_grid_nav_links .preserve_america_map_grid_nav_stats {
+              height: 100%;
+              min-width: 215px;
+              text-align: right;
+              line-height: 30px;
+              color: #4F4F4F;
+              display: inline-block; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_filter {
+      background-color: white;
+      -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+      -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+      height: 35px;
+      left: 40px;
+      position: absolute;
+      top: 20px;
+      width: 300px;
+      z-index: 10; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_filter .preserve_america_map_filter_form .preserve_america_map_filter_icon {
+        background: url("../images/filter-icon.png") no-repeat 10px 50%;
+        float: left;
+        height: 35px;
+        width: 35px; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_filter .preserve_america_map_filter_form .preserve_america_map_filter_input {
+        border: none;
+        float: left;
+        height: 35px;
+        margin: 0px;
+        overflow: hidden;
+        padding: 0px 10px 0px 10px;
+        width: 230px; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_filter .preserve_america_map_filter_form .preserve_america_map_filter_input:focus {
+          outline: none; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_filter .preserve_america_map_filter_form .preserve_america_map_filter_input::-ms-clear {
+          display: none; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_filter .preserve_america_map_filter_form .preserve_america_map_filter_clear {
+        background: url("../images/close-icon.svg") no-repeat 50% 50%;
+        cursor: pointer;
+        display: table-cell;
+        height: 35px;
+        float: left;
+        width: 35px; }
+  .preserve_america_map .preserve_america_map_feature .preserve_america_map_profile_footer {
+    border-top: solid 1px grey;
+    border-bottom: solid 1px gray;
+    margin: 20px 0;
+    font-size: 1rem; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_profile_footer .preserve_america_map_share {
+      height: 38px;
+      padding: 10px 0px;
+      width: 260px;
+      margin: 0 auto; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_profile_footer .preserve_america_map_share .preserve_america_map_share_label {
+        float: left;
+        height: 18px;
+        line-height: 20px;
+        color: #97000e; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_profile_footer .preserve_america_map_share .preserve_america_map_share_button {
+        cursor: pointer;
+        float: left;
+        height: 18px;
+        line-height: 18px;
+        margin-left: 30px;
+        width: 18px; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_profile_footer .preserve_america_map_share .preserve_america_map_share_button a .preserve_america_map_share_icon {
+          height: 18px;
+          border: none; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_profile_footer .preserve_america_map_share .preserve_america_map_share_button .preserve_america_map_share_link_icon {
+          margin-top: 3px; }
+
+.preserve_america_map_grid_overlay_nav {
+  font-size: 0.875rem;
+  width: 260px;
+  margin: 0 auto;
+  color: #4F4F4F;
+  font-weight: 500;
+  height: 20px;
+  margin-bottom: 20px; }
+  .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_prev {
+    position: relative;
+    float: left;
+    cursor: pointer;
+    transition: color 0.25s; }
+    .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_prev:hover {
+      color: #0990FE; }
+    .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_prev:before {
+      background-image: url("../images/left-arrow-large-dark.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      content: "";
+      cursor: pointer;
+      height: 20px;
+      padding-left: 15px;
+      position: relative;
+      right: 5px;
+      top: -1px;
+      transition: background-image 0.25s;
+      width: 20px; }
+    .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_prev:hover:before {
+      background-image: url("../images/left-arrow-large-blue.svg"); }
+  .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_next {
+    position: relative;
+    float: right;
+    cursor: pointer;
+    transition: color 0.25s; }
+    .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_next:hover {
+      color: #0990FE; }
+    .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_next:after {
+      background-image: url("../images/right-arrow-large-dark.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      content: "";
+      cursor: pointer;
+      display: inline;
+      height: 20px;
+      padding-left: 15px;
+      position: relative;
+      right: -5px;
+      top: -1px;
+      transition: background-image 0.25s;
+      width: 20px; }
+    .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_next:hover:after {
+      background-image: url("../images/right-arrow-large-blue.svg"); }
+  .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_disabled {
+    color: #9B9B9B; }
+    .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_disabled:hover {
+      color: #9B9B9B;
+      cursor: default; }
+    .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_disabled.preserve_america_map_grid_overlay_nav_prev:before {
+      background-image: url("../../../../themes/achp/images/left-calendar-arrow.svg");
+      display: inline;
+      cursor: default; }
+      .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_disabled.preserve_america_map_grid_overlay_nav_prev:before:hover {
+        background-image: url("../../../../themes/achp/images/left-calendar-arrow.svg"); }
+    .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_disabled.preserve_america_map_grid_overlay_nav_next:after {
+      background-image: url("../../../../themes/achp/images/right-calendar-arrow.svg");
+      cursor: default; }
+      .preserve_america_map_grid_overlay_nav .preserve_america_map_grid_overlay_nav_disabled.preserve_america_map_grid_overlay_nav_next:after:hover {
+        background-image: url("../../../../themes/achp/images/left-calendar-arrow.svg"); }
+
+@media all and (max-width: 600px) {
+  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_filter {
+    width: 100%; }
+  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card {
+    margin: 20px; } }
+@media (min-width: 951px) {
+  .preserve_america_map .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .preserve_america_map .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:last-child {
+      margin-right: 0; }
+    .preserve_america_map .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:nth-of-type(3n) {
+      margin-right: 0; } }
+@media (max-width: 950px) and (min-width: 651px) {
+  .preserve_america_map .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .preserve_america_map .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:last-child {
+      margin-right: 0; }
+    .preserve_america_map .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:nth-of-type(2n) {
+      margin-right: 0; } }
+@media (max-width: 650px) {
+  .preserve_america_map .preserve_america_map_feature .preserve_america_map_filter {
+    left: 0; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_filter .preserve_america_map_filter_clear {
+      float: right; }
+  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid {
+    padding: 0; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body {
+      border-top: 6px solid #950306;
+      width: 100%; }
+      .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        margin-right: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.26);
+        box-shadow: none;
+        height: auto;
+        margin: 0;
+        padding: 15px 20px;
+        position: relative;
+        width: 100%;
+        transition: color 0.25s; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:last-child {
+          margin-right: 0; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:hover {
+          color: #0990FE; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:after {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+          background-image: url("../../../../themes/achp/images/right-arrow-icon.svg");
+          background-position: center;
+          background-repeat: no-repeat;
+          content: "";
+          cursor: pointer;
+          height: 20px;
+          padding-left: 15px;
+          right: 20px;
+          width: 20px;
+          transition: background-image 0.25s; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card:hover:after {
+          background-image: url("../../../../themes/achp/images/right-arrow-icon-blue.svg"); }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card .preserve_america_map_profile_card_expand_button {
+          display: none; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card .preserve_america_map_profile_card_state {
+          position: static; }
+        .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_body .preserve_america_map_profile_card .preserve_america_map_profile_card_title {
+          padding-right: 15px; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_grid_overlay .preserve_america_map_profile {
+      padding: 30px 50px 0px 50px; } }
+@media (max-width: 450px) {
+  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel {
+    max-width: 100%; }
+    .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_map .preserve_america_map_map_panel .preserve_america_map_state_panel_header {
+      width: 100%; }
+  .preserve_america_map .preserve_america_map_feature .preserve_america_map_feature_body .preserve_america_map_grid .preserve_america_map_profile .preserve_america_map_profile_nav {
+    width: 200px; } }

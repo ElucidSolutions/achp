@@ -4,6 +4,8 @@
 */
 [data-plugin-id="page_menu_block"] {
   @import "../styleguide";
+  @include styleguide;
+  @include body-text;
 
   $page-widescreen-padding: 50px;
   $page-menu-block-margin: 20px;
@@ -20,6 +22,7 @@
 
   height: 100%;
   left: 0;
+  margin-left: 40px;
   top: 0;
   padding-top: $page-menu-block-margin;
   position: relative;
@@ -37,6 +40,7 @@
         width: 100%;
 
         .page-menu-instance-menu-header {
+          @include hover-transition-background($color-lightblue-primary);
           background-color: $page-menu-instance-menu-header-color;
           color: $page-menu-instance-menu-header-text-color;
           cursor: pointer;
@@ -47,7 +51,7 @@
           text-transform: uppercase;
 
           .page-menu-instance-menu-header-title {
-            line-height: $margin-large;
+            padding: 6px 0 4px;
           }
           &:after {
             background-image: url('../images/plus-icon.svg');
@@ -58,7 +62,7 @@
             height: $page-menu-instance-menu-header-icon-height;
             position: absolute;
             right: $page-menu-instance-menu-header-icon-height;
-            top: $margin-small;
+            top: 13px;
             width: $page-menu-instance-menu-header-icon-height;
           }
         }
@@ -69,6 +73,7 @@
           width: 100%;
 
           .page-menu-instance-menu-item {
+            @include hover-transition-content-and-background(white, $color-lightblue-primary);
             border-bottom: $page-menu-instance-menu-item-border;
             cursor: pointer;
             padding: $page-menu-instance-menu-item-padding;

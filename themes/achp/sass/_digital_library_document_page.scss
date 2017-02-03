@@ -5,24 +5,36 @@
 
 #main {
   @import "styleguide";
+  @include styleguide;
+  @include body-text;
 
+  $max-content-narrow-width: 620px;
   $content_left_region_width: 350px;
+  margin-bottom: $margin-large;
 
   #content {
+    // @include tablet(max-width, $max-content-narrow-width);
     position: relative;
   }
   #content_region {
-    @include tablet(margin-left, 0 !important);
+    @include tablet(margin, 0 auto !important);
+    max-width: $max-content-narrow-width;
+    margin: 0 auto;
 
     h3 {
       color: $color-red2;
+    }
+    ul {
+      margin-left: $margin-med;
     }
     [data-plugin-id="system_breadcrumb_block"] {
       padding-top: 0; // fix inherited property.
     }
     .achp_date_published {
+      @include tablet(text-align, center);
       color: $color-lightgrey-2;
-      font-style: italic;
+      font-family: $sans-text;
+      font-size: rem(16px);
       margin: 0 0 $margin-small;
     }
     [data-plugin-id="share_this_page_block"] {
@@ -30,9 +42,17 @@
     }
     [data-plugin-id="page_menu_block"] {
       @include responsive(position, absolute, static);
+      @include tablet(margin-bottom, $margin-med);
+      @include tablet(margin-left, 0);
+      padding-top: 0 !important;
 
       .page-menu-instance-container {
         @include responsive(padding-top, 300px, 0 !important);
+
+        .page-menu-instance-menu-list {
+          @include body-text($font-family: $sans-text);
+          margin: 0;
+        }
       }
     }
     .achp_synopsis {
@@ -52,9 +72,12 @@
         margin-bottom: $margin-small;
       }
       .views-field-field-download {
+        @include tablet(text-align, center);
+
         a {
           font-family: $header-font-family;
           font-size: $default-font-size;
+          font-weight: 600;
           text-transform: uppercase;
 
           &:after {
@@ -68,6 +91,9 @@
             margin-left: $margin-small;
             width: $margin-med;
           }
+          &:hover:after {
+            background-image: url('../images/downloading-icon-lightblue.svg');
+          }
         }
       }
     }
@@ -77,8 +103,7 @@
       margin: $margin-med 0;
 
       .achp-field-label {
-        @include h4;
-        text-align: left;
+        @include h4($center: false);
       }
     }
   }

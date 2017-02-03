@@ -281,9 +281,10 @@
   }  
 
   /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the News Landing Container element.
   */
   function getNewsLandingContainer () {
-    // return 'news-landing-container';
     return $('.' + getNewsLandingContainerClassName ());
   }
 

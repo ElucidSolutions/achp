@@ -148,9 +148,9 @@ html {
     [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb:hover:before {
       background-image: url("../images/left-arrow-icon-blue.svg"); }
     [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb a {
-      color: #4F4F4F; }
+      color: #4F4F4F !important; }
       [data-plugin-id="system_breadcrumb_block"] .mobile_breadcrumb a:hover {
-        color: #0990FE; }
+        color: #0990FE !important; }
   [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb {
     font-family: "p22-underground", sans-serif;
     font-size: 0.875rem;
@@ -172,7 +172,7 @@ html {
         padding-left: 5px;
         position: relative; }
         [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link a {
-          color: #4F4F4F;
+          color: #4F4F4F !important;
           text-decoration: none;
           transition: color 0.25s; }
         [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon {
@@ -182,7 +182,7 @@ html {
           [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link .achp-breadcrumb-icon[data-achp-breadbrumb-icon-name='home'] {
             padding: 0 10px 0 0; }
         [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link:hover a {
-          color: #0990FE; }
+          color: #0990FE !important; }
       [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_page {
         /*color: $color-blue-primary;*/ }
       [data-plugin-id="system_breadcrumb_block"] .achp-breadcrumb ol .breadcrumb_link_home [data-achp-breadbrumb-icon-name='home'] #home-icon {
@@ -222,45 +222,84 @@ html {
   #block-exposedformdigital-librarypage-2 input,
   #block-exposedformdigital-librarypage-3 input {
     border: 1px solid #4A4A4A;
-    height: 30px;
-    padding: 5px; }
+    border-radius: 2px;
+    box-shadow: none;
+    color: #1E1E1E;
+    font-size: 1rem;
+    font-family: "p22-underground", sans-serif; }
   #block-digital-library-form select,
   #block-digital-library-native-form select,
   #block-exposedformdigital-librarypage-1 select,
   #block-exposedformdigital-librarypage-2 select,
   #block-exposedformdigital-librarypage-3 select {
     -moz-appearance: none;
+    -webkit-appearance: none;
     background-color: transparent;
     border: 1px solid #4A4A4A;
-    height: 30px;
-    padding: 5px; }
+    border-radius: 2px;
+    color: #1E1E1E;
+    font-size: 1rem;
+    font-family: "p22-underground", sans-serif;
+    padding: 4px; }
   #block-digital-library-form .chosen-container-multi .chosen-choices,
   #block-digital-library-native-form .chosen-container-multi .chosen-choices,
   #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-choices,
   #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices,
   #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-choices {
+    background-image: none;
     border: 1px solid #4A4A4A;
+    border-radius: 2px;
     margin: 0;
     min-height: 30px;
     padding: 0 0 0 10px; }
-    #block-digital-library-form .chosen-container-multi .chosen-choices .search-choice,
-    #block-digital-library-native-form .chosen-container-multi .chosen-choices .search-choice,
-    #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-choices .search-choice,
-    #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices .search-choice,
-    #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-choices .search-choice {
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      height: 30px;
-      line-height: 30px;
-      margin: 0;
-      padding: 0 20px 0 0; }
-      #block-digital-library-form .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
-      #block-digital-library-native-form .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
-      #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
-      #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
-      #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-choices .search-choice .search-choice-close {
-        top: 9px; }
+    #block-digital-library-form .chosen-container-multi .chosen-choices li,
+    #block-digital-library-native-form .chosen-container-multi .chosen-choices li,
+    #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-choices li,
+    #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-choices li,
+    #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-choices li {
+      line-height: 30px !important; }
+  #block-digital-library-form .chosen-container-multi .chosen-results li,
+  #block-digital-library-native-form .chosen-container-multi .chosen-results li,
+  #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-results li,
+  #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-results li,
+  #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-results li {
+    color: #1E1E1E;
+    font-family: "p22-underground", sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important; }
+    #block-digital-library-form .chosen-container-multi .chosen-results li.highlighted,
+    #block-digital-library-native-form .chosen-container-multi .chosen-results li.highlighted,
+    #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-results li.highlighted,
+    #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-results li.highlighted,
+    #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-results li.highlighted {
+      background-color: #0990FE;
+      background-image: none;
+      color: white; }
+    #block-digital-library-form .chosen-container-multi .chosen-results li.result-selected,
+    #block-digital-library-native-form .chosen-container-multi .chosen-results li.result-selected,
+    #block-exposedformdigital-librarypage-1 .chosen-container-multi .chosen-results li.result-selected,
+    #block-exposedformdigital-librarypage-2 .chosen-container-multi .chosen-results li.result-selected,
+    #block-exposedformdigital-librarypage-3 .chosen-container-multi .chosen-results li.result-selected {
+      color: #C6C6C6; }
+  #block-digital-library-form .chosen-container-multi .search-choice,
+  #block-digital-library-native-form .chosen-container-multi .search-choice,
+  #block-exposedformdigital-librarypage-1 .chosen-container-multi .search-choice,
+  #block-exposedformdigital-librarypage-2 .chosen-container-multi .search-choice,
+  #block-exposedformdigital-librarypage-3 .chosen-container-multi .search-choice {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-family: "p22-underground", sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin: 0;
+    padding: 0 20px 0 0; }
+    #block-digital-library-form .chosen-container-multi .search-choice .search-choice-close,
+    #block-digital-library-native-form .chosen-container-multi .search-choice .search-choice-close,
+    #block-exposedformdigital-librarypage-1 .chosen-container-multi .search-choice .search-choice-close,
+    #block-exposedformdigital-librarypage-2 .chosen-container-multi .search-choice .search-choice-close,
+    #block-exposedformdigital-librarypage-3 .chosen-container-multi .search-choice .search-choice-close {
+      top: 9px; }
   #block-digital-library-form .form-item,
   #block-digital-library-native-form .form-item,
   #block-exposedformdigital-librarypage-1 .form-item,
@@ -275,7 +314,10 @@ html {
     #block-exposedformdigital-librarypage-2 .form-item label,
     #block-exposedformdigital-librarypage-3 .form-item label {
       display: block;
-      padding: 10px 0; }
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 10px 0 5px; }
     #block-digital-library-form .form-item input,
     #block-digital-library-native-form .form-item input,
     #block-exposedformdigital-librarypage-1 .form-item input,
@@ -306,19 +348,36 @@ html {
     #block-exposedformdigital-librarypage-1 .form-actions .form-submit,
     #block-exposedformdigital-librarypage-2 .form-actions .form-submit,
     #block-exposedformdigital-librarypage-3 .form-actions .form-submit {
+      transition: background-color 0.25s;
       background-color: #0990FE;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
       color: white;
       cursor: pointer;
       border: none;
-      border-radius: 5px;
-      padding: 5px 20px;
+      border-radius: 2px;
+      font-size: 1rem;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 600;
+      padding: 10px 35px 6px;
       text-transform: uppercase; }
+      #block-digital-library-form .form-actions .form-submit:hover,
+      #block-digital-library-native-form .form-actions .form-submit:hover,
+      #block-exposedformdigital-librarypage-1 .form-actions .form-submit:hover,
+      #block-exposedformdigital-librarypage-2 .form-actions .form-submit:hover,
+      #block-exposedformdigital-librarypage-3 .form-actions .form-submit:hover {
+        background-color: #71BFFE; }
   #block-digital-library-form .form-item-keys,
   #block-digital-library-native-form .form-item-keys,
   #block-exposedformdigital-librarypage-1 .form-item-keys,
   #block-exposedformdigital-librarypage-2 .form-item-keys,
   #block-exposedformdigital-librarypage-3 .form-item-keys {
     width: 65%; }
+    #block-digital-library-form .form-item-keys .form-text,
+    #block-digital-library-native-form .form-item-keys .form-text,
+    #block-exposedformdigital-librarypage-1 .form-item-keys .form-text,
+    #block-exposedformdigital-librarypage-2 .form-item-keys .form-text,
+    #block-exposedformdigital-librarypage-3 .form-item-keys .form-text {
+      padding: 7px 10px 3px; }
   #block-digital-library-form .form-item-field-tags-target-id-2,
   #block-digital-library-native-form .form-item-field-tags-target-id-2,
   #block-exposedformdigital-librarypage-1 .form-item-field-tags-target-id-2,
@@ -337,6 +396,18 @@ html {
   #block-exposedformdigital-librarypage-2 .form-item-field-tags-target-id,
   #block-exposedformdigital-librarypage-3 .form-item-field-tags-target-id {
     width: 50%; }
+  #block-digital-library-form:before,
+  #block-digital-library-native-form:before,
+  #block-exposedformdigital-librarypage-1:before,
+  #block-exposedformdigital-librarypage-2:before,
+  #block-exposedformdigital-librarypage-3:before {
+    clear: both;
+    color: #003A5E;
+    content: 'Search';
+    display: block;
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400; }
   #block-digital-library-form:after,
   #block-digital-library-native-form:after,
   #block-exposedformdigital-librarypage-1:after,
@@ -1125,6 +1196,56 @@ the events landing page is different */
     mobile screens.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
     Accepts two arguments:
   
     * front-size, a CSS length measure
@@ -1160,20 +1281,90 @@ the events landing page is different */
     adjusting the bottom margins.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H1 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H2 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H3 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H4 element.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
   */
   font-family: "minion-pro", serif;
   font-size: 1.125rem;
@@ -1186,12 +1377,11 @@ the events landing page is different */
     element.
     */ }
   .flickity a {
-    font-family: "minion-pro", serif;
+    font-family: "p22-underground", sans-serif;
     font-size: 1.125rem;
     line-height: 1.7;
     transition: color 0.25s;
-    color: #0990FE;
-    font-family: "p22-underground", sans-serif; }
+    color: #0990FE; }
     .flickity a:hover {
       color: #71BFFE; }
   .flickity blockquote {
@@ -1202,7 +1392,8 @@ the events landing page is different */
     line-height: 1.7;
     margin-bottom: 20px;
     font-size: 1.5rem;
-    font-style: italic; }
+    font-style: italic;
+    margin-left: 20px; }
     @media screen and (max-width: 650px) {
       .flickity blockquote {
         font-size: 1.125rem; } }
@@ -1215,6 +1406,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 2.25rem;
     margin-bottom: 0; }
@@ -1233,6 +1425,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 2rem;
     margin-bottom: 20px; }
@@ -1251,6 +1444,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 1.375rem;
     margin-bottom: 5px; }
@@ -1269,6 +1463,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 1.375rem;
     margin-bottom: 0; }
@@ -1455,6 +1650,56 @@ the events landing page is different */
     mobile screens.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
     Accepts two arguments:
   
     * front-size, a CSS length measure
@@ -1490,31 +1735,100 @@ the events landing page is different */
     adjusting the bottom margins.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H1 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H2 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H3 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H4 element.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
   */
   font-family: "minion-pro", serif;
   font-size: 1.125rem;
   line-height: 1.7; }
   #lightbox a {
-    font-family: "minion-pro", serif;
+    font-family: "p22-underground", sans-serif;
     font-size: 1.125rem;
     line-height: 1.7;
     transition: color 0.25s;
-    color: #0990FE;
-    font-family: "p22-underground", sans-serif; }
+    color: #0990FE; }
     #lightbox a:hover {
       color: #71BFFE; }
   #lightbox blockquote {
@@ -1525,7 +1839,8 @@ the events landing page is different */
     line-height: 1.7;
     margin-bottom: 20px;
     font-size: 1.5rem;
-    font-style: italic; }
+    font-style: italic;
+    margin-left: 20px; }
     @media screen and (max-width: 650px) {
       #lightbox blockquote {
         font-size: 1.125rem; } }
@@ -1538,6 +1853,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 2.25rem;
     margin-bottom: 0; }
@@ -1556,6 +1872,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 2rem;
     margin-bottom: 20px; }
@@ -1574,6 +1891,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 1.375rem;
     margin-bottom: 5px; }
@@ -1592,6 +1910,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 1.375rem;
     margin-bottom: 0; }
@@ -1810,6 +2129,56 @@ the events landing page is different */
     mobile screens.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
     Accepts two arguments:
   
     * front-size, a CSS length measure
@@ -1845,36 +2214,106 @@ the events landing page is different */
     adjusting the bottom margins.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H1 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H2 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H3 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H4 element.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
   */
   font-family: "minion-pro", serif;
   font-size: 1.125rem;
   line-height: 1.7;
   height: 100%;
   left: 0;
+  margin-left: 40px;
   top: 0;
   padding-top: 20px;
   position: relative; }
   [data-plugin-id="page_menu_block"] a {
-    font-family: "minion-pro", serif;
+    font-family: "p22-underground", sans-serif;
     font-size: 1.125rem;
     line-height: 1.7;
     transition: color 0.25s;
-    color: #0990FE;
-    font-family: "p22-underground", sans-serif; }
+    color: #0990FE; }
     [data-plugin-id="page_menu_block"] a:hover {
       color: #71BFFE; }
   [data-plugin-id="page_menu_block"] blockquote {
@@ -1885,7 +2324,8 @@ the events landing page is different */
     line-height: 1.7;
     margin-bottom: 20px;
     font-size: 1.5rem;
-    font-style: italic; }
+    font-style: italic;
+    margin-left: 20px; }
     @media screen and (max-width: 650px) {
       [data-plugin-id="page_menu_block"] blockquote {
         font-size: 1.125rem; } }
@@ -1898,6 +2338,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 2.25rem;
     margin-bottom: 0; }
@@ -1916,6 +2357,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 2rem;
     margin-bottom: 20px; }
@@ -1934,6 +2376,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 1.375rem;
     margin-bottom: 5px; }
@@ -1952,6 +2395,7 @@ the events landing page is different */
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 1.375rem;
     margin-bottom: 0; }
@@ -1988,6 +2432,7 @@ the events landing page is different */
         background-color: #F4F4F4;
         width: 100%; }
         [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
+          transition: background-color 0.25s;
           background-color: #0990FE;
           color: white;
           cursor: pointer;
@@ -1996,8 +2441,10 @@ the events landing page is different */
           padding: 0 20px;
           position: relative;
           text-transform: uppercase; }
+          [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header:hover {
+            background-color: #71BFFE; }
           [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header .page-menu-instance-menu-header-title {
-            line-height: 40px; }
+            padding: 6px 0 4px; }
           [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header:after {
             background-image: url("../images/plus-icon.svg");
             background-position: center;
@@ -2007,7 +2454,7 @@ the events landing page is different */
             height: 15px;
             position: absolute;
             right: 15px;
-            top: 10px;
+            top: 13px;
             width: 15px; }
         [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list {
           list-style-type: none;
@@ -2015,11 +2462,15 @@ the events landing page is different */
           padding: 0;
           width: 100%; }
           [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item {
+            transition: color 0.25s, background-color 0.25s;
             border-bottom: 1px solid #e1e1e1;
             cursor: pointer;
             padding: 10px 20px;
             position: relative;
             width: 100%; }
+            [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item:hover {
+              background-color: #71BFFE;
+              color: white; }
             [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-list .page-menu-instance-menu-item:last-of-type {
               border-bottom: none; }
       [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance.page-menu-instance-menu-expanded .page-menu-instance-menu .page-menu-instance-menu-header:after {
@@ -2420,7 +2871,7 @@ the events landing page is different */
   This stylesheet provides the default styling
   for the Related Resources block.
 */
-[data-derivative-plugin-id^="related_resources"] {
+#page #main [data-derivative-plugin-id^="related_resources"] {
   /*
     This stylesheet defines the default styles
     for various elements as defined by the current
@@ -2465,6 +2916,56 @@ the events landing page is different */
     mobile screens.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
     Accepts two arguments:
   
     * front-size, a CSS length measure
@@ -2500,34 +3001,103 @@ the events landing page is different */
     adjusting the bottom margins.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H1 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H2 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H3 element.
   */
   /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
     Renders the element that this mixin is applied
     to as an H4 element.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
   */
   font-family: "minion-pro", serif;
   font-size: 1.125rem;
   line-height: 1.7; }
-  [data-derivative-plugin-id^="related_resources"] a {
-    font-family: "minion-pro", serif;
+  #page #main [data-derivative-plugin-id^="related_resources"] a {
+    font-family: "p22-underground", sans-serif;
     font-size: 1.125rem;
     line-height: 1.7;
     transition: color 0.25s;
-    color: #0990FE;
-    font-family: "p22-underground", sans-serif; }
-    [data-derivative-plugin-id^="related_resources"] a:hover {
+    color: #0990FE; }
+    #page #main [data-derivative-plugin-id^="related_resources"] a:hover {
       color: #71BFFE; }
-  [data-derivative-plugin-id^="related_resources"] blockquote {
+  #page #main [data-derivative-plugin-id^="related_resources"] blockquote {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
@@ -2535,112 +3105,137 @@ the events landing page is different */
     line-height: 1.7;
     margin-bottom: 20px;
     font-size: 1.5rem;
-    font-style: italic; }
+    font-style: italic;
+    margin-left: 20px; }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] blockquote {
+      #page #main [data-derivative-plugin-id^="related_resources"] blockquote {
         font-size: 1.125rem; } }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] blockquote {
+      #page #main [data-derivative-plugin-id^="related_resources"] blockquote {
         margin-bottom: 20px; } }
-  [data-derivative-plugin-id^="related_resources"] h1, [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-derivative-plugin-id^="related_resources"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-derivative-plugin-id^="related_resources"] h1 {
+  #page #main [data-derivative-plugin-id^="related_resources"] h1, #page #main [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #page #main [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"] {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 2.25rem;
     margin-bottom: 0; }
     @media screen and (max-width: 925px) {
-      [data-derivative-plugin-id^="related_resources"] h1, [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-derivative-plugin-id^="related_resources"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-derivative-plugin-id^="related_resources"] h1 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h1, #page #main [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #page #main [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"] {
         text-align: center; } }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] h1, [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-derivative-plugin-id^="related_resources"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-derivative-plugin-id^="related_resources"] h1 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h1, #page #main [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #page #main [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"] {
         font-size: 1.625rem; } }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] h1, [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], [data-derivative-plugin-id^="related_resources"] #content #block-achp-page-title h1, #content #block-achp-page-title [data-derivative-plugin-id^="related_resources"] h1 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h1, #page #main [data-derivative-plugin-id^="related_resources"] #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #page #main [data-derivative-plugin-id^="related_resources"] .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"] {
         margin-bottom: 0; } }
-  [data-derivative-plugin-id^="related_resources"] h2 {
+  #page #main [data-derivative-plugin-id^="related_resources"] h2 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 2rem;
     margin-bottom: 20px; }
     @media screen and (max-width: 925px) {
-      [data-derivative-plugin-id^="related_resources"] h2 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h2 {
         text-align: center; } }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] h2 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h2 {
         font-size: 1.375rem; } }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] h2 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h2 {
         margin-bottom: 5px; } }
-  [data-derivative-plugin-id^="related_resources"] h3 {
+  #page #main [data-derivative-plugin-id^="related_resources"] h3 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 1.375rem;
     margin-bottom: 5px; }
     @media screen and (max-width: 925px) {
-      [data-derivative-plugin-id^="related_resources"] h3 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h3 {
         text-align: center; } }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] h3 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h3 {
         font-size: 1.25rem; } }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] h3 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h3 {
         margin-bottom: 0; } }
-  [data-derivative-plugin-id^="related_resources"] h4 {
+  #page #main [data-derivative-plugin-id^="related_resources"] h4 {
     margin: 0;
     padding: 0;
     color: #003A5E;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
+    line-height: 1.4;
     text-align: left;
     font-size: 1.375rem;
     margin-bottom: 0; }
     @media screen and (max-width: 925px) {
-      [data-derivative-plugin-id^="related_resources"] h4 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h4 {
         text-align: center; } }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] h4 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h4 {
         font-size: 1.125rem; } }
     @media screen and (max-width: 650px) {
-      [data-derivative-plugin-id^="related_resources"] h4 {
+      #page #main [data-derivative-plugin-id^="related_resources"] h4 {
         margin-bottom: 0; } }
-  [data-derivative-plugin-id^="related_resources"] p {
+  #page #main [data-derivative-plugin-id^="related_resources"] p {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 20px; }
-  [data-derivative-plugin-id^="related_resources"] ul {
+  #page #main [data-derivative-plugin-id^="related_resources"] ul {
     margin: 0;
     padding: 0;
     font-family: "minion-pro", serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 20px; }
-  [data-derivative-plugin-id^="related_resources"] h2 {
-    border-bottom: 1px solid #E5E3E4;
+  #page #main [data-derivative-plugin-id^="related_resources"] h2 {
+    margin: 0;
+    padding: 0;
     color: #9B0008;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 0;
+    text-align: left;
+    border-bottom: 1px solid #E5E3E4;
     margin-bottom: 20px;
     padding-bottom: 5px;
-    text-align: left;
     text-transform: uppercase; }
-  [data-derivative-plugin-id^="related_resources"] .views-field-title {
+    @media screen and (max-width: 925px) {
+      #page #main [data-derivative-plugin-id^="related_resources"] h2 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      #page #main [data-derivative-plugin-id^="related_resources"] h2 {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      #page #main [data-derivative-plugin-id^="related_resources"] h2 {
+        margin-bottom: 0; } }
+    @media screen and (max-width: 925px) {
+      #page #main [data-derivative-plugin-id^="related_resources"] h2 {
+        text-align: left !important; } }
+  #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title {
     font-size: 1.125rem;
     margin-bottom: 5px; }
-    [data-derivative-plugin-id^="related_resources"] .views-field-title a {
+    #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title a {
       color: #0990FE; }
-  [data-derivative-plugin-id^="related_resources"] .views-field-body {
+  #page #main [data-derivative-plugin-id^="related_resources"] .views-field-body {
     color: #4A4A4A;
     font-size: 1.125rem;
     margin-bottom: 20px; }
@@ -2682,7 +3277,8 @@ the events landing page is different */
   border-color: #4F4F4F; }
   .share_this_page .share_this_page_label {
     color: #950306;
-    font-family: "p22-underground", sans-serif; }
+    font-family: "p22-underground", sans-serif;
+    font-size: 1rem; }
   @media (max-width: 500px) {
     .share_this_page .share_this_page_buttons .share_this_page_button_print {
       display: none; } }
@@ -3801,8 +4397,7 @@ html, body {
   overflow-x: hidden;
   padding: 0;
   -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  /*border: 6px solid green;*/ }
+  -moz-font-smoothing: antialiased; }
 
 h1, #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #content #block-achp-page-title h1, h2, h3 {
   font-family: 'p22-underground', sans-serif;
@@ -4054,5 +4649,3 @@ a img {
 /* Admin menu overlay */
 body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
   margin: 0px; }
-
-/*# sourceMappingURL=style.css.map */

@@ -15,6 +15,7 @@ function achp_preprocess_block (&$variables) {
   $variables ['attributes']['data-base-plugin-id']       = $variables ['base_plugin_id'];
 }
 
+
 /**
  * Implements hook_preprocess_views_view ().
  *
@@ -184,8 +185,10 @@ function achp_digital_library_form_submit (&$form, $form_state) {
 function achp_preprocess_field (&$variables, $hook) {
   if ($variables ['field_type'] === 'entity_reference') {
     foreach ($variables ['element']['#items'] as $item_key => $item) {
-      $nid = $item->getValue () ['target_id'];
-      $node = entity_load ('node', $item->getValue () ['target_id']);
+      $id = $item->getValue () ['target_id'];
+      $variables ['items'][$item_key]['attributes']['data-achp-field-item-target-id'] = $id;
+
+      $node = entity_load ('node', $id);
       if (!$node) { continue; }
 
       $title_value = $node->title->first ();
@@ -201,7 +204,7 @@ function achp_preprocess_field (&$variables, $hook) {
         $url = $file->url (); 
       } else {
         global $base_url;
-        $url = $base_url . \Drupal::service ('path.alias_manager')->getAliasByPath ('/node/' . $nid);
+        $url = $base_url . \Drupal::service ('path.alias_manager')->getAliasByPath ('/node/' . $id);
       }
 
       $variables ['items'][$item_key]['url'] = $url;

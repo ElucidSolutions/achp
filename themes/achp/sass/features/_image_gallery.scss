@@ -4,6 +4,8 @@
 */
 .flickity {
   @import "../styleguide";
+  @include styleguide;
+  @include body-text;
 
   $navigator-height: 125px;
   $navigator-item-margin: $margin-large;
@@ -168,6 +170,8 @@
 }
 #lightbox {
   @import "../styleguide";
+  @include styleguide;
+  @include body-text;
   
   .lb-caption {
     font-family: $sans-text;
