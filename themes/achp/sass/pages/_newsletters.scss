@@ -14,19 +14,12 @@
     #secondary_header {
       #block-breadcrumbs {
         @include content-container;
-
-        .achp-breadcrumb li.breadcrumb_link,
-        .achp-breadcrumb li.breadcrumb_link a {
-          /*color: $color-grey;*/
-          /*border: 1px solid pink;*/
-        }
-      }
-      #block-views-block-image-carousel-block-1 {
-        display: none;
       }
     }
+    #content #content_region #block-achp-content {
+      padding: 0;
+    }
     #block-members-in-the-news-archives, #block-section-106-archives {
-      @include content-container;
       .item-list ul li {
         a {
           color: $color-blue-primary;
