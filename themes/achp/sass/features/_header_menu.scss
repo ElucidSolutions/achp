@@ -47,18 +47,19 @@
         border: $header-menu-border-width solid $color-red2;
         border-bottom: none;
 
-        a {
+        a,span {
           color: #008BFD;
         }
       }
-      > a {
+      > a,
+      > span {
         @include center-y;
         display: block;
         margin: 0;
         padding: 0;
         position: relative;
       }
-      a {
+      a, span {
         color: #013B5E;
         text-align: center;
         text-decoration: none;
@@ -94,7 +95,7 @@
         li {
           list-style-type: none;
 
-          a {
+          a, span {
             font-family: $sans-text;
             margin-bottom: 5px;
             text-decoration: none;
@@ -117,7 +118,8 @@
           font-size: 1.125rem;
           padding: 22px 15px 0 0;
 
-          > a {
+          > a,
+          > span {
             color: $color-darkblue;  
             line-height: 1.4;
           }
@@ -132,7 +134,7 @@
         > li {
           margin-bottom: 10px;
 
-          a {
+          a, span {
             @include hover-transition-content($color-blue-primary);             
             color: $color-grey;  
             font-size: 1rem;
@@ -309,7 +311,7 @@
           list-style-type: none;
           padding: 0;
 
-          a {
+          a, span {
             color: inherit;
             padding-left: 0;
             text-decoration: none;
@@ -334,7 +336,7 @@
               padding: 10px 0px;
               text-align: center;
 
-              a {
+              a, span {
                 color: $color-grey2;
                 text-decoration: none;
               }
