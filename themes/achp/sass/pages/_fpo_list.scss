@@ -5,7 +5,6 @@
       margin: 0 auto 30px;
     }
   }
-
   @mixin create-header($label) {
     content: $label;
     color: #000;
@@ -13,10 +12,11 @@
     font-size: rem(16px);
     font-family: $sans-text;
     font-weight: 500;
-    left: -20px;
-    position: relative;
-    top: -60px;
+    left: -35px;
+    position: absolute;
+    top: -30px;
   }
+
   #content #content_region {
     #block-fpo-list {
       color: $color-grey2;
@@ -24,22 +24,21 @@
 
       .item-list {
         @include clear-float;
-        padding: 30px 25px 0;
+        padding: 30px 25px 0 40px;
         position: relative;
 
         &:first-of-type {
           border-top: 2px solid $color-lightblue-primary;
-          padding-top: 30px;
 
-          & > ul:before {
-            @include create-header('AGENCY');
-            left: 0;
-            position: absolute;
-          }
-          & > ul:after {
-            @include create-header('STAFF MEMBER');
-            left: calc(50% - 15px);
-            position: absolute;
+          h3 {
+            &:before {
+              @include create-header('AGENCY');
+              left: 25px;
+            }
+            &:after {
+              @include create-header('STAFF MEMBER');
+              left: calc(50% - 15px);
+            }
           }
         }
         &:last-of-type {
@@ -48,18 +47,27 @@
         &:nth-child(even) {
           background-color: $background-color-lightblue;
         }
-        h3 {
-          color: $color-red2;
-          display: block;
-          float: left;
-          font-size: rem(20px);
-          padding: 0 40px 0 15px;
-          position: absolute;
-          top: 29px;
-          width: 50%;
+        .agency_heading {
+          width: 100%;
 
-          & + ul li:first-of-type {
-            padding-top: 0;
+          .agency_name {
+            color: $color-red2;
+            display: block;
+            float: left;
+            font-size: rem(20px);
+            padding-right: 50px;
+            position: absolute;
+            top: 29px;
+            width: calc(50% - 15px);
+          }
+          .agency_notes {
+            color: #000;
+            font-size: rem(18px);
+            font-family: $serif-text;
+            left: calc(50% - 15px);
+            /*padding-right: 50px;*/
+            position: relative;
+            width: 50%;
           }
         }
         ul {
@@ -76,21 +84,20 @@
             position: relative;
             top: 0;
 
-            & + li {
-              .views-field-field-fpo-sub-agency {
-                top: 29px;
-              }
+            a {
+              color: $color-blue-primary;
+            }
 
+            & + li {
               &:before {
                 background-color: $background-color-grey2;              
                 content: "";
                 display: block;
                 height: 1px;
-                margin-bottom: 30px;
+                margin: 10px 0;
                 width: 100%;
               }
             }
-
             .views-field {
               left: 50%; 
               position: relative;
@@ -124,50 +131,83 @@
                   margin: 7px 0;
                 }
               }         
-              &-field-fpo-phone,
-              &-field-fpo-fax,
-              &-field-fpo-email,
-              &-field-fpo-website {
-                position: relative;
-
-               .fpo-field-value {
-                  left: 100px;
-                  position: absolute;
-                }
+             .fpo-field-value {
+                left: 100px;
+                position: absolute;
               }
               &-field-fpo-sub-agency {
                 color: $color-lightgrey-2;
                 font-size: rem(20px);  
                 font-weight: 300;              
                 left: 15px;
-                position: absolute;
-                top: 30px;
+                max-width: calc(50% - 15px);
+                padding-right: 50px;
+                top: 28px;
+                width: calc(50% - 15px);
+
+                .sub_agency_notes {
+                  width: calc(100% - 50px);
+                  position: absolute;
+
+                  a {
+                    color: $color-blue-primary;
+                    font-size: rem(18px);
+                    margin-top: 20px;
+                  }
+                }
               }
             }
           }
         }
       }
     }
-    @media (max-width: 825px) {
+    @media (max-width: 900px) {
       #block-fpo-list .item-list {
         &:first-of-type {
           padding-top: 30px;
 
-          ul:before, ul:after {
+          h3:before, h3:after {
             display: none;
           }
         }
-        & > ul li .views-field {
-          float: none;
-          width: 100%;
+        .agency_heading {
+          margin: 0 0 15px 0;
 
-          &-field-fpo-agencies {
-            display: none;
+          .agency_name, .agency_notes {
+            float: none;
+            position: static;
+            width: 100%;
           }
-          .views-label {
-            color: $color-grey2;
-            font-weight: 500;
-          }         
+
+        }
+        ul li {
+          & + li:before {
+            margin: 5px 0 25px;
+          }
+
+          .views-field  {
+            position: static;
+            width: 100%;
+
+            &-field-fpo-sub-agency {
+              max-width: 100%;
+              width: 100%;
+
+              .sub_agency_name {
+                position: static;
+              } 
+              .sub_agency_notes {
+                margin-bottom: 10px;
+                position: static;
+              }
+            }
+            &-field-fpo-address {
+              &:before, &:after {
+                /*margin: 0 auto;*/
+                max-width: 400px;
+              }
+            }
+          }
         }
       }        
     }
