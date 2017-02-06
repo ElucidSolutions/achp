@@ -368,7 +368,7 @@ $separator: 1px solid $background-color-grey2;
   $center: null
 ) {
   @include header-text-block($color, $font-family, $font-weight, $line-height, $center);
-  @include widescreen-mobile-font-size(rem(32px), $margin-med, rem(22px), $margin-xsmall);
+  @include widescreen-mobile-font-size(rem(32px), $margin-med, rem(22px), $margin-med);
 }
 
 /*
