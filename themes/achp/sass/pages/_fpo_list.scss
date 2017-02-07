@@ -29,6 +29,10 @@
 
         &:first-of-type {
           border-top: 2px solid $color-lightblue-primary;
+          
+          ul li .views-field-title {
+            padding-top: 0;
+          }
 
           h3 {
             &:before {
@@ -109,6 +113,7 @@
               &-title {
                 color: $color-darkblue2;
                 font-weight: 500;
+                padding-top: 30px;
               }
               &-field-fpo-position {
                 color: $color-lightgrey-2;
@@ -144,14 +149,18 @@
                 top: 28px;
                 width: calc(50% - 15px);
 
-                .sub_agency_notes {
-                  width: calc(100% - 50px);
+                .sub_agency_heading {
                   position: absolute;
 
-                  a {
-                    color: $color-blue-primary;
-                    font-size: rem(18px);
-                    margin-top: 20px;
+                  .sub_agency_notes {
+                    width: calc(100% - 50px);
+                    /*position: absolute;*/
+
+                    a {
+                      color: $color-blue-primary;
+                      font-size: rem(18px);
+                      margin-top: 20px;
+                    }
                   }
                 }
               }

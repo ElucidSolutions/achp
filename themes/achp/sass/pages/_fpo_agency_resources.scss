@@ -1,0 +1,320 @@
+#page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] {
+  $vertical-padding: 35px;
+  $container-padding: 50px;
+  $success-card-margin-vert: 25px;
+  $success-card-margin-horiz: 20px;
+  $success-card-height: 400px;
+  $success-card-shadow-width: 3px;
+  $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
+  $two-card-container-width: calc(#{$success-card-width} * 2 + #{$success-card-margin-horiz} + #{$success-card-shadow-width} * 2 + #{$container-padding} * 2);
+
+  @mixin create-header($label) {
+    content: $label;
+    color: #000;
+    display: block;
+    font-size: rem(16px);
+    font-family: $sans-text;
+    font-weight: 500;
+    left: -35px;
+    position: absolute;
+    top: -30px;
+  }
+
+  @extend #page[data-page-node-type="page"];
+  
+  #secondary_header_region {
+    #block-php-shareblock {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content {
+    max-width: 100%;
+    padding: 0;
+
+    #content_region {
+      text-align: center;
+
+      h2 {
+        display: inline-block;
+
+        &:after {
+          @include hr($color-red);
+          content: "";
+          display: block;
+          margin: 10px auto 25px;
+          /*min-width: 150px;*/
+          width: 60%;
+        }
+      }
+
+      #block-fpo-agency-success-stories {
+        background-color: $background-color-grey2;
+        clear: both;
+        height: auto;
+        padding: $vertical-padding 0;
+
+        [data-view-id="homepage_success_stories"] {
+          @include content-container;
+
+          header {
+            background-color: $background-color-grey2;
+            height: auto;
+
+            p {
+              font-size: rem(18px);
+              margin-top: 0;
+              text-align: center;
+            }
+          }
+          .success-story.card {
+            background-color: #ffffff;
+            display: inline-block;
+            height: $success-card-height;
+            margin: 25px $success-card-margin-horiz 0 0;
+            text-align: center;
+            width: $success-card-width;
+            
+            .success_story {
+              float: left;
+              height: $success-card-height - 20px; 
+              padding: 5px 10px;
+              position: relative;  
+
+              &_image {
+                $success_story_image_height: 185px;
+                @include fit-and-center-image($success_story_image_height);    
+                margin-bottom: 15px;
+
+                img {
+                  border: none !important;
+                }
+              }
+
+              &_title h3 {
+                text-align: inherit;
+              }
+
+              &_location {
+                color: $color-lightgrey-2;
+              }
+
+              &_body p {
+                font-family: $serif-text;
+                font-size: rem(16px);
+                margin: 5px;
+                text-align: center;
+              }
+
+              &_link {
+                @include center-x;
+                bottom: -5px;
+                padding-right: 5px;
+
+                a {
+                  vertical-align: 0;   
+                }
+              }
+            }
+          }
+          .success-story.card.view-item-3 {
+            margin-right: 0;
+          }
+        }
+      }
+
+      #block-agency-fpo-list, #block-agency-fpo-list-2 {
+        @include content-container;
+        margin: $vertical-padding auto 50px;
+
+        .item-list {
+          /*@include clear-float;*/
+          background-color: $background-color-lightblue;
+          border-top: 2px solid $color-lightblue-primary;
+          margin-top: 30px;
+          padding: 30px 25px 0 40px;
+          position: relative;
+          text-align: left;
+
+          &:before {
+            @include create-header('AGENCY');
+            left: 25px;
+          }
+          &:after {
+            @include create-header('STAFF MEMBER');
+            left: calc(50% - 15px);
+          }
+          ul {
+            margin: 0;
+            padding: 0;
+            position: relative;
+
+            li {
+              color: $color-grey2;
+              font-family: $sans-text;
+              font-size: rem(18px);
+              list-style: none;
+              padding: 0 0 30px;
+              position: relative;
+              top: 0;
+
+              a {
+                color: $color-blue-primary;
+              }
+
+              & + li {
+                &:before {
+                  background-color: $background-color-grey2;              
+                  content: "";
+                  display: block;
+                  height: 1px;
+                  margin: 10px 0;
+                  width: 100%;
+                }
+              }
+              .views-field {
+                left: 50%; 
+                position: relative;
+                width: 50%;
+
+                .field-content {
+                  display: inline;
+                }
+                .field-value {
+                  left: 100px;
+                  position: absolute;
+                }
+
+                &-title {
+                  color: $color-darkblue2;
+                  font-weight: 500;
+                }
+                &-field-fpo-officer-type {
+                  color: $color-red;
+                  left: 0;
+                  position: absolute;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      #block-achp-content {
+        @include content-container;
+        margin: $vertical-padding auto;
+      }
+
+      #block-views-block-related-resources-block-1 {
+        @include content-container;
+        text-align: left;
+
+        h2 {
+          display: block;
+
+          &:after {
+            display: none;
+          }
+        }
+      }
+
+      @media (max-width: $max-content-width) {
+        #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+          $two-card-container-width: calc(#{$success-card-width} * 2 
+            + #{$success-card-margin-horiz} 
+            + #{$success-card-shadow-width} * 2);
+          $two-card-container-margin: calc((100% - #{$two-card-container-width})/2);
+
+          .success-story.card {
+            &.view-item-1 {
+              margin-left: $success-card-margin-horiz;
+            }
+            &.view-item-3 {
+              display: block;
+              margin: 25px auto 0;
+            }
+          }
+        }
+        #block-agency-fpo-list, #block-agency-fpo-list-2 {
+          .item-list {
+            margin-top: 0;
+
+            &:before, &:after {
+              display: none;
+            }
+            ul {
+              text-align: center;
+
+              li {
+                display: inline-block;
+                margin: 0 auto;
+                text-align: left;
+
+                .views-field  {
+                  position: static;
+                  width: 100%;   
+                }
+              }          
+            }
+          }
+        }        
+      }
+      @media (max-width: 750px) {
+        #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+          .success-story.card {
+            &.view-item-1, &.view-item-2, &.view-item-3 {
+            /*margin: 25px auto 0;*/
+            display: block;
+            margin: 25px auto 0;
+          }
+          }
+        }
+      }
+      @media (max-width: 650px) {
+/*        h2, h3 {
+          text-align: center;
+        }*/
+        #block-fpo-agency-success-stories {
+          [data-view-id="preservation_initiatives"] .views-field-view-node {
+            width: 100%;
+
+            .read-more {
+              @include center-x;
+              position: relative;
+
+              a {
+                vertical-align: -3%;
+                &:after {
+                  /*right: auto;*/
+                }
+              }
+            }
+          }
+        }
+      }
+      @media (max-width: 500px) {
+        #block-fpo-agency-success-stories {
+          .views-row {
+            .views-field-field-issue-thumbnail-image {
+              img {
+                height: auto;
+                max-height: 100%;
+                max-width: 100%;
+                width: auto;
+              }
+            }
+            .views-field-field-issue-summary {
+              padding-bottom: 70px;
+            }
+            .views-field-view-node a {
+              padding-right: 20px;
+              &:after {
+                right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
