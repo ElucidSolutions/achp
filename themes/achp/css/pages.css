@@ -2742,8 +2742,7 @@ html {
         color: #000;
         font-size: 1.125rem;
         font-family: "minion-pro", serif;
-        left: calc(50% - 15px);
-        /*padding-right: 50px;*/
+        left: 50%;
         position: relative;
         width: 50%; }
     #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul {
@@ -2797,7 +2796,7 @@ html {
             color: #7C7C7C;
             font-size: 1.25rem;
             font-weight: 300;
-            left: 15px;
+            left: 0;
             max-width: calc(50% - 15px);
             padding-right: 50px;
             top: 28px;
@@ -2834,7 +2833,6 @@ html {
         margin-bottom: 10px;
         position: static; }
     #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-fpo-address:before, #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-fpo-address:after {
-      /*margin: 0 auto;*/
       max-width: 400px; } }
 
 /*
@@ -12292,6 +12290,7 @@ general office landing page */
           margin-top: 5px;
           padding-left: 30px; }
           #page[data-page-node-type="success_story"] #content #content_region #block-achp-content #success_story_container .success_story_parties ul li {
+            color: #043B62;
             font-family: "p22-underground", sans-serif;
             padding: 0 0 5px 10px; }
             #page[data-page-node-type="success_story"] #content #content_region #block-achp-content #success_story_container .success_story_parties ul li a {

@@ -64,8 +64,7 @@
             color: #000;
             font-size: rem(18px);
             font-family: $serif-text;
-            left: calc(50% - 15px);
-            /*padding-right: 50px;*/
+            left: 50%;
             position: relative;
             width: 50%;
           }
@@ -139,7 +138,7 @@
                 color: $color-lightgrey-2;
                 font-size: rem(20px);  
                 font-weight: 300;              
-                left: 15px;
+                left: 0;
                 max-width: calc(50% - 15px);
                 padding-right: 50px;
                 top: 28px;
@@ -203,7 +202,6 @@
             }
             &-field-fpo-address {
               &:before, &:after {
-                /*margin: 0 auto;*/
                 max-width: 400px;
               }
             }
