@@ -1,4 +1,5 @@
 #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] {
+  @import "../styleguide";
   $vertical-padding: 35px;
   $container-padding: 50px;
   $success-card-margin-vert: 25px;
@@ -52,7 +53,7 @@
         background-color: $background-color-grey2;
         clear: both;
         height: auto;
-        padding: $vertical-padding 0;
+        /*padding: $vertical-padding 0;*/
 
         [data-view-id="homepage_success_stories"] {
           @include content-container;
@@ -60,6 +61,7 @@
           header {
             background-color: $background-color-grey2;
             height: auto;
+            padding-top: $vertical-padding;
 
             p {
               font-size: rem(18px);
@@ -121,14 +123,18 @@
             margin-right: 0;
           }
         }
+
+        footer {
+          padding: $vertical-padding 0;
+        }
       }
 
       #block-agency-fpo-list, #block-agency-fpo-list-2 {
         @include content-container;
-        margin: $vertical-padding auto 50px;
+        padding-bottom: 25px;
+        padding-top: 15px;
 
         .item-list {
-          /*@include clear-float;*/
           background-color: $background-color-lightblue;
           border-top: 2px solid $color-lightblue-primary;
           margin-top: 30px;
@@ -137,7 +143,7 @@
           text-align: left;
 
           &:before {
-            @include create-header('AGENCY');
+            @include create-header('POSITION');
             left: 25px;
           }
           &:after {
@@ -202,11 +208,83 @@
 
       #block-achp-content {
         @include content-container;
-        margin: $vertical-padding auto;
+        padding-bottom: 20px;
+        font-size: rem(18px);
+
+        h2 + p {
+          margin-top: 0;
+        }
+      }
+
+      #block-views-block-digital-library-block-12 {
+        @include content-container;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        .item-list {
+          border: 1px solid $background-color-grey2;
+          border-bottom: none;
+          text-align: left;
+
+          ol {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            /*counter-reset: li-counter;*/
+
+            li {
+              border-bottom: 1px solid $background-color-grey2;
+              /*list-style-type: none;*/
+              /*list-style-image: none;*/
+              /*margin-bottom: $margin-med;*/
+              /*padding-left: $margin-med;*/
+              padding: 0;
+              /*position: relative;*/
+
+              .views-field {
+                font-size: rem(18px);
+                line-height: 1.4;
+              }
+              .views-field-title {
+                /*@include h3($center: false);*/
+                font-size: rem(18px);
+                font-family: $sans-text;
+                padding: 20px 20px 0;
+
+                a {
+                  color: $color-blue-primary;
+                }
+              }
+              .views-field-type {
+                color: $color-lightgrey-2;
+                font-family: $sans-text;
+                margin-bottom: $margin-xsmall;
+                padding: 10px 20px 0;
+              }
+              .views-field-body {
+                color: $color-grey2;
+                padding: 0px 20px 20px;
+              }
+/*              &:before {
+                @include body-text($font-family: $sans-text);
+                color: $color-red2;
+                content: counter(li-counter);
+                counter-increment: li-counter;
+                left: - $margin-large;
+                position: absolute;
+                text-align: right;
+                top: 2px;
+                width: $margin-med;
+              }*/
+            }
+          }
+        }
       }
 
       #block-views-block-related-resources-block-1 {
         @include content-container;
+        padding-top: 50px;
+        padding-bottom: 50px;
         text-align: left;
 
         h2 {
