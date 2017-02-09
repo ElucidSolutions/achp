@@ -99,7 +99,7 @@ html {
         padding-right: 40px;
         width: 100%;
         color: #1E1E1E;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.5rem;
         font-style: italic;
         padding: 30px 100px 20px;
@@ -441,7 +441,7 @@ html {
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -456,7 +456,7 @@ html {
     [data-page-node-type="alternative_procedure"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -548,14 +548,14 @@ html {
     [data-page-node-type="alternative_procedure"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="alternative_procedure"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -611,7 +611,7 @@ html {
       [data-page-node-type="alternative_procedure"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -622,7 +622,7 @@ html {
         [data-page-node-type="alternative_procedure"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -890,7 +890,7 @@ html {
     the rules specified in the current styleguide.
   */ }
   #page[data-page-path-alias="/case-map"] #main {
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7; }
     #page[data-page-path-alias="/case-map"] #main a {
@@ -904,7 +904,7 @@ html {
     #page[data-page-path-alias="/case-map"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -996,14 +996,14 @@ html {
     #page[data-page-path-alias="/case-map"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     #page[data-page-path-alias="/case-map"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -1123,105 +1123,85 @@ html {
         #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-body, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-body {
           border-left: 1px solid #E5E3E4;
           float: right;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           padding: 0 0 35px 20px;
           width: calc(100% - 275px + 20px); }
           #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-body p:first-of-type, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-body p:first-of-type {
             margin-top: 0; }
         #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node {
-          /*border-left: 1px solid pink;*/
           bottom: 20px;
           left: calc(275px + 20px);
-          position: absolute; }
+          position: absolute;
+          width: auto; }
           #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node .read-more a, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node .read-more a {
-            transition: color 0.25s; }
-            #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node .read-more a:hover, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node .read-more a:hover {
-              color: #0990FE; }
+            padding-right: 15px; }
             #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node .read-more a:after, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node .read-more a:after {
-              -webkit-transform: translateY(-50%);
-              -moz-transform: translateY(-50%);
-              -ms-transform: translateY(-50%);
-              -o-transform: translateY(-50%);
-              transform: translateY(-50%);
-              position: absolute;
-              top: 50%;
-              background-image: url("../images/right-arrow-icon.svg");
-              background-position: center;
-              background-repeat: no-repeat;
-              content: "";
-              cursor: pointer;
-              height: 20px;
-              padding-left: 15px;
-              right: -30px;
-              transition: background-image 0.25s;
-              width: 20px; }
-            #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node .read-more a:hover:after, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node .read-more a:hover:after {
-              background-image: url("../images/right-arrow-icon-blue.svg"); }
-            #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node .read-more a:after, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node .read-more a:after {
-              position: relative;
-              right: -15px; }
-  #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group {
-    text-align: center;
-    font-family: "p22-underground", sans-serif; }
-    #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box {
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-      display: inline-block;
-      height: 175px;
-      margin: 6px;
-      width: 220px;
-      position: relative; }
-      #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box .council_box_text {
-        -webkit-transform: translateX(-50%) translateY(-50%);
-        -moz-transform: translateX(-50%) translateY(-50%);
-        -ms-transform: translateX(-50%) translateY(-50%);
-        -o-transform: translateX(-50%) translateY(-50%);
-        transform: translateX(-50%) translateY(-50%);
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        width: calc(220px - 15px * 2); }
-        #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box .council_box_text .council_name {
-          color: #043B62;
-          font-weight: 500;
-          padding-bottom: 5px; }
-        #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box .council_box_text .council_position {
-          color: #9B0008; }
-      #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee {
-        height: 365px;
-        padding: 0;
-        width: 250px; }
-        #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_box_text {
-          -webkit-transform: translateX(-50%);
-          -moz-transform: translateX(-50%);
-          -ms-transform: translateX(-50%);
-          -o-transform: translateX(-50%);
-          transform: translateX(-50%);
+              height: 19px; }
+  #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes {
+    padding-bottom: 50px; }
+    #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group {
+      font-family: "p22-underground", sans-serif;
+      padding-bottom: 10px;
+      text-align: center; }
+      #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+        display: inline-block;
+        height: 175px;
+        margin: 6px;
+        width: 220px;
+        position: relative; }
+        #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box .council_box_text, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box .council_box_text {
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -o-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
           left: 50%;
           position: absolute;
-          position: absolute;
-          top: 15px;
-          width: calc(250px - 15px * 2); }
-        #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_designee {
-          background-color: #f4f4f4;
-          color: #4A4A4A;
-          height: 55%;
-          position: absolute;
-          top: 45%;
-          width: 100%; }
-          #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_designee .council_designee_box_text {
+          top: 50%;
+          width: calc(220px - 15px * 2); }
+          #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box .council_box_text .council_name, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box .council_box_text .council_name {
+            color: #043B62;
+            font-weight: 500;
+            padding-bottom: 5px; }
+          #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box .council_box_text .council_position, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box .council_box_text .council_position {
+            color: #9B0008; }
+        #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box.council_box_with_designee {
+          height: 360px;
+          padding: 0;
+          width: 250px; }
+          #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_box_text, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box.council_box_with_designee .council_box_text {
             -webkit-transform: translateX(-50%);
             -moz-transform: translateX(-50%);
             -ms-transform: translateX(-50%);
             -o-transform: translateX(-50%);
             transform: translateX(-50%);
             left: 50%;
-            position: absolute; }
-            #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_designee .council_designee_box_text .council_designee_name {
-              color: #0990FE;
-              font-weight: 500;
-              padding: 5px 0; }
-            #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_designee .council_designee_box_text .council_designee_position {
-              color: #000; }
+            position: absolute;
+            position: absolute;
+            top: 15px;
+            width: calc(250px - 15px * 2); }
+          #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_designee, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box.council_box_with_designee .council_designee {
+            background-color: #f4f4f4;
+            color: #4A4A4A;
+            height: 55%;
+            position: absolute;
+            top: 45%;
+            width: 100%; }
+            #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_designee .council_designee_box_text, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box.council_box_with_designee .council_designee .council_designee_box_text {
+              -webkit-transform: translateX(-50%);
+              -moz-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
+              -o-transform: translateX(-50%);
+              transform: translateX(-50%);
+              left: 50%;
+              position: absolute; }
+              #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_designee .council_designee_box_text .council_designee_name, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box.council_box_with_designee .council_designee .council_designee_box_text .council_designee_name {
+                color: #0990FE;
+                font-weight: 500;
+                padding: 5px 0; }
+              #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-boxes .council_box_group .council_box.council_box_with_designee .council_designee .council_designee_box_text .council_designee_position, #page[data-page-path-alias="/about/council-members"] #content #content_region #block-council-member-observer-boxes .council_box_group .council_box.council_box_with_designee .council_designee .council_designee_box_text .council_designee_position {
+                color: #000; }
 
 /*
   This stylesheet provides styling for the
@@ -1443,7 +1423,7 @@ html {
     the rules specified in the current styleguide.
   */ }
   [data-page-node-type="digital_library_landing_page"] #main {
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7; }
     [data-page-node-type="digital_library_landing_page"] #main a {
@@ -1457,7 +1437,7 @@ html {
     [data-page-node-type="digital_library_landing_page"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -1549,14 +1529,14 @@ html {
     [data-page-node-type="digital_library_landing_page"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="digital_library_landing_page"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -1901,7 +1881,7 @@ html {
     the rules specified in the current styleguide.
   */ }
   [data-page-view-id="digital_library"] #main {
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7; }
     [data-page-view-id="digital_library"] #main a {
@@ -1915,7 +1895,7 @@ html {
     [data-page-view-id="digital_library"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -2007,14 +1987,14 @@ html {
     [data-page-view-id="digital_library"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-view-id="digital_library"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -2181,7 +2161,7 @@ html {
   font-size: 1.125rem;
   max-width: 705px; }
   #page[data-page-node-type="event"] #main #content #event_item_container .event_item_field {
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     margin-bottom: 20px; }
     #page[data-page-node-type="event"] #main #content #event_item_container .event_item_field_label {
       border-bottom: 1px solid #C6C6C6;
@@ -2192,7 +2172,7 @@ html {
     #page[data-page-node-type="event"] #main #content #event_item_container .event_item_field .field_event_location p {
       margin: 0; }
   #page[data-page-node-type="event"] #main #content #event_item_container .event_description .body {
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem; }
     #page[data-page-node-type="event"] #main #content #event_item_container .event_description .body p:first-of-type {
       margin-top: 0; }
@@ -2201,7 +2181,7 @@ html {
     font-family: "p22-underground", sans-serif; }
   #page[data-page-node-type="event"] #main #content #event_item_container .event_attachments .event_attachment_body {
     color: #4A4A4A;
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     margin-bottom: 20px; }
     #page[data-page-node-type="event"] #main #content #event_item_container .event_attachments .event_attachment_body p {
       margin: 0; }
@@ -2323,7 +2303,7 @@ html {
               display: none; }
             #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_description {
               display: block;
-              font-family: "minion-pro", serif;
+              font-family: "minion-pro", Times, serif;
               margin-bottom: 50px; }
             #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_footer {
               bottom: 0px;
@@ -2618,7 +2598,7 @@ html {
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -2633,7 +2613,7 @@ html {
     [data-page-node-type="exemption"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -2725,14 +2705,14 @@ html {
     [data-page-node-type="exemption"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="exemption"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -2788,7 +2768,7 @@ html {
       [data-page-node-type="exemption"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -2799,7 +2779,7 @@ html {
         [data-page-node-type="exemption"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -2913,7 +2893,7 @@ html {
       #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list .agency_heading .agency_notes {
         color: #000;
         font-size: 1.125rem;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         left: 50%;
         position: relative;
         width: 50%; }
@@ -3314,7 +3294,7 @@ html {
               #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_location {
                 color: #7C7C7C; }
               #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_body p {
-                font-family: "minion-pro", serif;
+                font-family: "minion-pro", Times, serif;
                 font-size: 1rem;
                 margin: 5px;
                 text-align: center; }
@@ -3525,6 +3505,8 @@ html {
               #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a {
                 vertical-align: -3%; }
                 #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a:after {
+                  -ms-transform: none;
+                  top: 0;
                   /*right: auto;*/ } }
       @media (max-width: 500px) {
         #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-field-issue-thumbnail-image img {
@@ -3763,7 +3745,7 @@ html {
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -3778,7 +3760,7 @@ html {
     [data-page-node-type="guidance_document"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -3870,14 +3852,14 @@ html {
     [data-page-node-type="guidance_document"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="guidance_document"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -3933,7 +3915,7 @@ html {
       [data-page-node-type="guidance_document"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -3944,7 +3926,7 @@ html {
         [data-page-node-type="guidance_document"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -4215,7 +4197,7 @@ html {
             #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_location {
               color: #7C7C7C; }
             #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_body p {
-              font-family: "minion-pro", serif;
+              font-family: "minion-pro", Times, serif;
               font-size: 1rem;
               margin: 5px;
               text-align: center; }
@@ -4314,7 +4296,8 @@ html {
           #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a {
             vertical-align: -3%; }
             #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a:after {
-              /*right: auto;*/ } }
+              -ms-transform: none;
+              top: 0; } }
     @media (max-width: 500px) {
       #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-thumbnail-image img {
         height: auto;
@@ -4821,7 +4804,7 @@ html {
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -4836,7 +4819,7 @@ html {
     [data-page-node-type="legislation"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -4928,14 +4911,14 @@ html {
     [data-page-node-type="legislation"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="legislation"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -4991,7 +4974,7 @@ html {
       [data-page-node-type="legislation"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -5002,7 +4985,7 @@ html {
         [data-page-node-type="legislation"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -5275,7 +5258,7 @@ html {
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -5290,7 +5273,7 @@ html {
     [data-page-node-type="memorandum_of_agreement"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -5382,14 +5365,14 @@ html {
     [data-page-node-type="memorandum_of_agreement"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="memorandum_of_agreement"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -5445,7 +5428,7 @@ html {
       [data-page-node-type="memorandum_of_agreement"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -5456,7 +5439,7 @@ html {
         [data-page-node-type="memorandum_of_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -5556,7 +5539,7 @@ html {
         text-align: left; }
       #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body {
         color: #1E1E1E;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem; }
         #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body p {
           margin: 0; }
@@ -5846,7 +5829,7 @@ html {
           max-width: 300px;
           padding: 5px 15px 0 0; }
         #news_landing_page #content .news-landing-container .news-item .views-field-body {
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem; }
           #news_landing_page #content .news-landing-container .news-item .views-field-body p {
             margin-top: 5px; }
@@ -6212,6 +6195,16 @@ html {
 /* */
 #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article {
   margin-bottom: 50px; }
+  #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .read_more {
+    padding-bottom: 20px;
+    position: relative; }
+    #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .read_more a {
+      /*position: absolute;*/
+      /*height: 11px;*/
+      /*border: 1px solid pink;*/ }
+      #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .read_more a:after {
+        -ms-transform: none;
+        position: relative; }
 
 /* This selector applies to the offices landing page, as well as 
   any page aliased within that URL */
@@ -6506,7 +6499,7 @@ general office landing page */
   font-weight: 400; }
 [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .views-field-body, [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .views-field-body p {
   color: #000;
-  font-family: "minion-pro", serif;
+  font-family: "minion-pro", Times, serif;
   font-size: 1.125rem;
   margin-top: 0; }
 [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .read-more {
@@ -6738,7 +6731,7 @@ general office landing page */
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -6753,7 +6746,7 @@ general office landing page */
     [data-page-node-type="opinion_statement"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -6845,14 +6838,14 @@ general office landing page */
     [data-page-node-type="opinion_statement"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="opinion_statement"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -6908,7 +6901,7 @@ general office landing page */
       [data-page-node-type="opinion_statement"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -6919,7 +6912,7 @@ general office landing page */
         [data-page-node-type="opinion_statement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -7334,7 +7327,7 @@ general office landing page */
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -7349,7 +7342,7 @@ general office landing page */
     [data-page-node-type="policy_document"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -7441,14 +7434,14 @@ general office landing page */
     [data-page-node-type="policy_document"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="policy_document"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -7504,7 +7497,7 @@ general office landing page */
       [data-page-node-type="policy_document"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -7515,7 +7508,7 @@ general office landing page */
         [data-page-node-type="policy_document"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -7730,7 +7723,8 @@ general office landing page */
             [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a {
               vertical-align: -3%; }
               [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a:after, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a:after {
-                /*right: auto;*/ } }
+                -ms-transform: none;
+                top: 0; } }
       @media (max-width: 500px) {
         [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-thumbnail-image img, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-field-issue-thumbnail-image img {
           height: auto;
@@ -8504,7 +8498,7 @@ general office landing page */
     the rules specified in the current styleguide.
   */ }
   #page[data-page-path-alias="/preserve-america/preserve-america-communities"] #main {
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7; }
     #page[data-page-path-alias="/preserve-america/preserve-america-communities"] #main a {
@@ -8518,7 +8512,7 @@ general office landing page */
     #page[data-page-path-alias="/preserve-america/preserve-america-communities"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -8610,14 +8604,14 @@ general office landing page */
     #page[data-page-path-alias="/preserve-america/preserve-america-communities"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     #page[data-page-path-alias="/preserve-america/preserve-america-communities"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -9268,7 +9262,7 @@ general office landing page */
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -9283,7 +9277,7 @@ general office landing page */
     [data-page-node-type="program_comments"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -9375,14 +9369,14 @@ general office landing page */
     [data-page-node-type="program_comments"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="program_comments"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -9438,7 +9432,7 @@ general office landing page */
       [data-page-node-type="program_comments"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -9449,7 +9443,7 @@ general office landing page */
         [data-page-node-type="program_comments"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -9722,7 +9716,7 @@ general office landing page */
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -9737,7 +9731,7 @@ general office landing page */
     [data-page-node-type="programmatic_agreement"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -9829,14 +9823,14 @@ general office landing page */
     [data-page-node-type="programmatic_agreement"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="programmatic_agreement"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -9892,7 +9886,7 @@ general office landing page */
       [data-page-node-type="programmatic_agreement"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -9903,7 +9897,7 @@ general office landing page */
         [data-page-node-type="programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -10108,7 +10102,7 @@ general office landing page */
         [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories .card .success_story_location {
           color: #7C7C7C; }
         [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories .card .success_story_body p {
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1rem;
           margin: 5px;
           text-align: center; }
@@ -10676,7 +10670,7 @@ general office landing page */
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -10691,7 +10685,7 @@ general office landing page */
     [data-page-node-type="prototype_programmatic_agreement"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -10783,14 +10777,14 @@ general office landing page */
     [data-page-node-type="prototype_programmatic_agreement"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="prototype_programmatic_agreement"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -10846,7 +10840,7 @@ general office landing page */
       [data-page-node-type="prototype_programmatic_agreement"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -10857,7 +10851,7 @@ general office landing page */
         [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -11130,7 +11124,7 @@ general office landing page */
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -11145,7 +11139,7 @@ general office landing page */
     [data-page-node-type="publication"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -11237,14 +11231,14 @@ general office landing page */
     [data-page-node-type="publication"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="publication"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -11300,7 +11294,7 @@ general office landing page */
       [data-page-node-type="publication"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -11311,7 +11305,7 @@ general office landing page */
         [data-page-node-type="publication"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -11584,7 +11578,7 @@ general office landing page */
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -11599,7 +11593,7 @@ general office landing page */
     [data-page-node-type="regulation"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -11691,14 +11685,14 @@ general office landing page */
     [data-page-node-type="regulation"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="regulation"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -11754,7 +11748,7 @@ general office landing page */
       [data-page-node-type="regulation"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -11765,7 +11759,7 @@ general office landing page */
         [data-page-node-type="regulation"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -12038,7 +12032,7 @@ general office landing page */
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -12053,7 +12047,7 @@ general office landing page */
     [data-page-node-type="report"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -12145,14 +12139,14 @@ general office landing page */
     [data-page-node-type="report"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="report"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -12208,7 +12202,7 @@ general office landing page */
       [data-page-node-type="report"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -12219,7 +12213,7 @@ general office landing page */
         [data-page-node-type="report"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -12721,7 +12715,7 @@ general office landing page */
           [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_location {
             color: #7C7C7C; }
           [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_body p {
-            font-family: "minion-pro", serif;
+            font-family: "minion-pro", Times, serif;
             font-size: 1rem;
             margin: 5px;
             text-align: center; }
@@ -13262,7 +13256,7 @@ general office landing page */
       that this mixin is applied to according to
       the rules specified in the current styleguide.
     */
-    font-family: "minion-pro", serif;
+    font-family: "minion-pro", Times, serif;
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 40px; }
@@ -13277,7 +13271,7 @@ general office landing page */
     [data-page-node-type="whitepapers"] #main blockquote {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px;
@@ -13369,14 +13363,14 @@ general office landing page */
     [data-page-node-type="whitepapers"] #main p {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
     [data-page-node-type="whitepapers"] #main ul {
       margin: 0;
       padding: 0;
-      font-family: "minion-pro", serif;
+      font-family: "minion-pro", Times, serif;
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
@@ -13432,7 +13426,7 @@ general office landing page */
       [data-page-node-type="whitepapers"] #main #content_region .achp_synopsis {
         margin: 0;
         padding: 0;
-        font-family: "minion-pro", serif;
+        font-family: "minion-pro", Times, serif;
         font-size: 1.125rem;
         line-height: 1.7;
         margin-bottom: 20px; }
@@ -13443,7 +13437,7 @@ general office landing page */
         [data-page-node-type="whitepapers"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
           margin: 0;
           padding: 0;
-          font-family: "minion-pro", serif;
+          font-family: "minion-pro", Times, serif;
           font-size: 1.125rem;
           line-height: 1.7;
           margin-bottom: 20px;

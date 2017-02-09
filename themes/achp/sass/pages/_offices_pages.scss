@@ -6,6 +6,22 @@
 #page[data-page-path-alias="/about/offices"] {
   #content #content_region #block-achp-content article {
     margin-bottom: 50px;  
+
+    .read_more {
+      padding-bottom: 20px;
+      position: relative;
+
+      a {
+        /*position: absolute;*/
+        /*height: 11px;*/
+        /*border: 1px solid pink;*/
+
+        &:after {
+          -ms-transform: none;
+          position: relative;
+        }
+      }
+    }
   }
 }
 
