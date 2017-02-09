@@ -201,7 +201,7 @@
         @include outer-container;
         font-family: $sans-text;
         max-width: 800px;
-        padding: 0 0 $vertical-padding;
+        padding: 0;
 
         .library_category {
           @include span-columns(5 of 12);
@@ -257,12 +257,13 @@
       $margin-xlarge: 60px;
 
       box-shadow: 0px 1px 3px $color-lightgrey;
+      font-family: $sans-text;
       padding: $margin-med;
-      margin: 0 auto $margin-large;
+      margin: 0 auto $margin-med;
       max-width: $max-content-width - 2 * $margin-large;
 
       &:before {
-        background-image: url('../images/publications-icon.svg');
+        background-image: url('../images/featured-icon.svg');
         background-repeat: no-repeat;
         background-position: left;
         content: 'Featured Library Entries';
@@ -303,10 +304,18 @@
             }
             .views-field-type {
               color: $color-grey3;
+              padding-top: 5px;
+            }
+            .views-field-body {
+              font-family: $serif-text;
+              padding-top: 10px;
             }
           }
         }
       }
+    }
+    #block-php-digital-library-button {
+      padding: 10px 0 20px;
     }
     #block-electronic106submissionsystem {
       background-color: $color-lightblue3;

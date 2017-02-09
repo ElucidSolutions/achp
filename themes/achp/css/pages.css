@@ -10138,7 +10138,7 @@ general office landing page */
       margin-right: auto;
       font-family: "p22-underground", sans-serif;
       max-width: 800px;
-      padding: 0 0 35px; }
+      padding: 0; }
       [data-page-path-alias="/protecting-historic-properties"] #content_region #block-digitallibrary .library_categories::after {
         clear: both;
         content: "";
@@ -10186,11 +10186,12 @@ general office landing page */
       margin-bottom: 0; }
   [data-page-path-alias="/protecting-historic-properties"] #content_region [data-derivative-plugin-id="digital_library-block_1"] {
     box-shadow: 0px 1px 3px #C6C6C6;
+    font-family: "p22-underground", sans-serif;
     padding: 20px;
-    margin: 0 auto 40px;
+    margin: 0 auto 20px;
     max-width: 944px; }
     [data-page-path-alias="/protecting-historic-properties"] #content_region [data-derivative-plugin-id="digital_library-block_1"]:before {
-      background-image: url("../images/publications-icon.svg");
+      background-image: url("../images/featured-icon.svg");
       background-repeat: no-repeat;
       background-position: left;
       content: 'Featured Library Entries';
@@ -10221,7 +10222,13 @@ general office landing page */
           [data-page-path-alias="/protecting-historic-properties"] #content_region [data-derivative-plugin-id="digital_library-block_1"] .item-list ol li .views-field-title a {
             color: #0990FE; }
           [data-page-path-alias="/protecting-historic-properties"] #content_region [data-derivative-plugin-id="digital_library-block_1"] .item-list ol li .views-field-type {
-            color: #E2E2E2; }
+            color: #E2E2E2;
+            padding-top: 5px; }
+          [data-page-path-alias="/protecting-historic-properties"] #content_region [data-derivative-plugin-id="digital_library-block_1"] .item-list ol li .views-field-body {
+            font-family: "minion-pro", Times, serif;
+            padding-top: 10px; }
+  [data-page-path-alias="/protecting-historic-properties"] #content_region #block-php-digital-library-button {
+    padding: 10px 0 20px; }
   [data-page-path-alias="/protecting-historic-properties"] #content_region #block-electronic106submissionsystem {
     background-color: #E6F8FF; }
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-electronic106submissionsystem .block_container {
