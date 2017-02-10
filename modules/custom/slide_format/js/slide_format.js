@@ -589,8 +589,7 @@
         getItemElementActiveClassName () : null)
       .attr (getItemElementIndexAttribute (), index)
       .append (targetItemElement.clone (true))
-      .focusin (function () { feature.slideTo (index); })
-      .click (function () { feature.slideTo (index); });
+      .focusin (function () { feature.slideTo (index); });
   }
 
   /*

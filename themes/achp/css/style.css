@@ -3638,11 +3638,14 @@ the events landing page is different */
       width: calc(100% - 200px);
       border-top: 1px solid #CD1803; }
     .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item {
-      margin-left: 25px;
       margin-right: 25px; }
       .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item:first-of-type {
         width: 200px; }
+        @media screen and (max-width: 650px) {
+          .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item:first-of-type {
+            margin-left: 95px; } }
       .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item:nth-of-type(n+2) {
+        margin-left: 25px;
         padding-left: 70px;
         width: 270px; }
         .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item:nth-of-type(n+2):before {
@@ -3677,7 +3680,7 @@ the events landing page is different */
         font-size: 1rem;
         font-weight: 600;
         line-height: 1.2; }
-      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item .views-field-field-process-step-summary {
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item .views-field-field-process-step-summary a {
         color: #4A4A4A;
         font-family: "minion-pro", serif;
         font-size: 0.875rem;
@@ -4514,6 +4517,8 @@ header {
   background-color: #E8F8FF;
   padding: 25px 0px 0px 0px;
   width: 100%; }
+  #homepage_flowchart_region .slide-format-feature {
+    background-color: white; }
   #homepage_flowchart_region #block-readmoreaboutthefederalpreservationprocess {
     padding: 20px 20px 30px;
     text-transform: uppercase; }

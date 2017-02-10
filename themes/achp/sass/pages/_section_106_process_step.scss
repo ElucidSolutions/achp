@@ -65,7 +65,7 @@ $determination-header-tab-size: 51px;
   determination body text element.
 */
 @mixin determination-body-text {
-  padding: 30px;
+  padding: 20px 50px 30px 30px;
 }
 
 /*
@@ -101,7 +101,7 @@ $determination-header-tab-size: 51px;
     }
     &:after {
       background-image: url("../images/timeline-read-more-arrow.svg");
-      background-position: 50%;
+      background-position: 5px 50%;
       background-repeat: no-repeat;
       background-size: 10px;
       content: "";
@@ -139,7 +139,7 @@ $determination-header-tab-size: 51px;
         color: rgba(149, 3, 6, 1);
         font-family: $sans-text;
         line-height: 1.4;
-        margin-bottom: $margin-med;
+        margin-bottom: $margin-small;
         position: relative;
         text-transform: uppercase;
 
@@ -233,6 +233,9 @@ $determination-header-tab-size: 51px;
         padding: 30px 30px 30px 70px;
         position: relative;
         text-transform: uppercase;
+      }
+      [data-derivative-plugin-id="related_resources-block_1"] {
+        margin-top: $margin-med;
       }
     }
   }
