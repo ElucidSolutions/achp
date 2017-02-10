@@ -1,0 +1,88 @@
+[data-page-path-alias="/preservation-legislation"],
+[data-page-path-alias="/preservation-policy"] {
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+      padding-top: 0;
+    }
+    #block-sharethispageblock-3 {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region {
+    h2 + p {
+      margin-top: 0;
+    }
+
+    #block-achp-content {
+      @include outer-container;
+
+      p + h2 {
+        margin-top: 30px;
+      }
+
+      ul {
+        @include span-columns (12);
+        margin-top: 0;
+
+        li {
+          @include span-columns (6 of 12);
+          display: list-item;
+        }
+      }
+    }
+    [data-derivative-plugin-id="digital_library-block_13"],
+    [data-derivative-plugin-id="digital_library-block_14"] {
+      $margin-xsmall: 5px;
+      $margin-small: 10px;
+      $margin-med: 20px;
+      $margin-large: 40px;
+      $margin-xlarge: 60px;
+
+      font-family: $sans-text;
+      margin: 0 auto 50px;
+      max-width: $max-content-width - 2 * $margin-large;
+
+      header {
+        display: none;
+      }
+      .item-list {
+
+        ol {
+          margin: 0;
+          padding: 0;
+
+          li {
+            box-shadow: 0px 1px 3px $color-lightgrey;
+            list-style-type: none;
+            margin: 30px 0;            
+            padding: $margin-med 0 $margin-med $margin-med;
+
+            .views-field-title {
+              a {
+                color: $color-blue-primary;
+              }
+            }
+            .views-field-body {
+              color: $color-grey2;
+              font-family: $serif-text;
+              padding-top: 10px;
+            }
+          }
+        }
+      }
+    }
+    #block-related-resources-block {
+      margin: 60px 0 40px;
+    }
+    @media (max-width: 700px) {
+      #block-achp-content ul li {
+        @include span-columns (12 of 12);
+      }
+    }
+  }
+
+}

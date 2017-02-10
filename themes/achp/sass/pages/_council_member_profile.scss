@@ -47,11 +47,11 @@
         
         .General {
           background-color: $color-lightblue3;
-          padding: 5px 8px;
+          padding: 8px 10px 5px;
         }
         .Expert {
           background-color: #ffe5e0;
-          padding: 5px 10px;
+          padding: 8px 10px 5px;
         }
       }
     }
@@ -60,7 +60,6 @@
     }
     @media (max-width: 600px) {
       .council_member_info {
-        /*@include clear-float;        */
         float: none;
         height: 100%;
         margin: 0 auto;
