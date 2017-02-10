@@ -3246,30 +3246,465 @@ the events landing page is different */
 ** This Sass file defines the styles for the 
 ** Section 106 Process module.
 */
-#homepage_flowchart_region {
-  background-color: #E8F8FF;
-  height: auto;
-  padding: 25px 0 0;
+/*
+  This module defines the default styles for
+  the slide feature elements created by the
+  Slide Format module.
+*/
+/*
+  Accepts two arguments:
+
+  * $feature-height, a CSS dimension
+  * $feature-item-width, a CSS dimension
+
+  and applies the minimal styles needed to
+  render the target element as a slide format
+  feature element.
+*/
+.slide-format-target {
+  display: none; }
+
+/*
+  This stylesheet defines the default styles
+  for various elements as defined by the current
+  version of the ACHP styleguide.
+*/
+/*
+  Accepts no arguments and removes the padding
+  and margins from the element this mixin is
+  applied to.
+*/
+/*
+  Accepts two arguments:
+
+  * property, a CSS property
+  * and mobile-value, another CSS value
+
+  sets property to mobile-value and adds a media
+  query that sets property to mobile-value for
+  mobile screens.
+*/
+/*
+  Accepts two arguments:
+
+  * property, a CSS property
+  * and tablet-value, another CSS value
+
+  sets property to tablet-value and adds a media
+  query that sets property to tablet-value for
+  tablet screens.
+*/
+/*
+  Accepts four arguments:
+
+  * property, a CSS property
+  * widescreen-value, a CSS value
+  * tablet-value, a CSS value
+  * and mobile-value, an optional CSS value
+
+  sets property to widescreen-value and
+  adds media queries that sets property to
+  tablet-value and mobile-value for tablet and
+  mobile screens.
+*/
+/*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
+  and renders the element it is applied to
+  as a header element overriding the default
+  properties with the given values.
+
+  Note: if $center is false, this mixin will
+  not add responsive behavior that centers text
+  within the element on small devices.
+*/
+/*
+  Accepts three optional arguments:
+
+  * $font-family, a font-family string
+  * $font-size, a CSS dimension
+  * $line-height, a CSS dimension
+
+  and renders the element it is applied to as
+  a body text element overriding the default
+  properties values with the given values.
+*/
+/*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
+  and renders the element it is applied to as
+  a header block element.
+*/
+/*
+  Accepts three optional arguments:
+
+  * $font-family, a font-family string
+  * $font-size, a CSS dimension
+  * $line-height, a CSS dimension
+
+  and renders the element it is applied to as
+  a body text block element.
+*/
+/*
+  Accepts two arguments:
+
+  * front-size, a CSS length measure
+  * margin-bottom, a CSS length measure
+
+  and sets both the font size and bottom margin
+  of the element that this mixin is applied to.
+
+  Note: this mixin sets the bottom margin
+  because, in general, changing the font size
+  changes the size of the font's dropdown area -
+  affecting the bottom margin.
+*/
+/*
+  Accepts two arguments:
+
+  * font-size, a CSS length measure
+  * and margin-bottom, a CSS length measure
+
+  and sets the mobile font size and bottom margin
+  of the element that this mixin is applied to.
+
+  Note: this mixin sets the bottom margin
+  because, in general, changing the font size
+  changes the size of the font's dropdown area.
+*/
+/*
+  Accepts four length measures as
+  arguments: $widescreen-font-size,
+  $widescreen-margin-bottom, $mobile-font-size,
+  and $mobile-margin-bottom, and sets the
+  widescreen and mobile font sizes while
+  adjusting the bottom margins.
+*/
+/*
+  Accepts five optional arguments:
+
+  * $color, a CSS color
+  * $font-family, a font-family string
+  * $font-size, a CSS dimension
+  * $highlight-color, a CSS color
+  * $line-height, a CSS dimension
+
+  and renders the element that this mixin is
+  applied to as an anchor element.
+*/
+/*
+  Accepts seven optional arguments:
+
+  * $background-color, a CSS color
+  * $color, a CSS color
+  * $font-family, a font-family string
+  * $font-size, a CSS dimension
+  * $font-weight, a font-weight
+  * $highlight-color, a CSS color
+  * $uppercase, a boolea
+
+  Renders the element that this mixin is applied
+  to as a button element.
+
+  Note: if $uppercase is false this mixin does
+  not text-transform uppercase the button label.
+*/
+/*
+  Renders the element that this mixin is applied
+  to as a blockquote element.
+*/
+/*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
+  Renders the element that this mixin is applied
+  to as an H1 element.
+*/
+/*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
+  Renders the element that this mixin is applied
+  to as an H2 element.
+*/
+/*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
+  Renders the element that this mixin is applied
+  to as an H3 element.
+*/
+/*
+  Accepts five optional arguments:
+
+  * $color: a Color value
+  * $font-family: a font-family string
+  * $font-weight: a font-weight
+  * $line-height: a line-height
+  * and $center: a boolean value
+
+  Renders the element that this mixin is applied
+  to as an H4 element.
+*/
+/*
+  Renders the element children of the element
+  that this mixin is applied to according to
+  the rules specified in the current styleguide.
+*/
+.slide-format-feature {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
   width: 100%; }
-
-.flowchart_content_wrapper {
-  margin: 0 auto;
-  text-align: center; }
-
-.header_container {
-  display: inline-block;
-  padding: 0px 20px;
-  height: auto; }
-  .header_container hr {
-    width: 60%; }
-
-#homepage_flowchart_region {
-  padding: 25px 0 0; }
-
-#block-readmoreaboutthefederalpreservationprocess div {
-  margin: 20px 20px 30px; }
-  #block-readmoreaboutthefederalpreservationprocess div button {
-    text-transform: uppercase; }
+  .slide-format-feature a {
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    transition: color 0.25s;
+    color: #0990FE; }
+    .slide-format-feature a:hover {
+      color: #71BFFE; }
+  .slide-format-feature blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-left: 20px; }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature blockquote {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature blockquote {
+        margin-bottom: 20px; } }
+  .slide-format-feature h1, .slide-format-feature #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .slide-format-feature .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], .slide-format-feature #content #block-achp-page-title h1, #content #block-achp-page-title .slide-format-feature h1 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 2.25rem;
+    margin-bottom: 0; }
+    @media screen and (max-width: 925px) {
+      .slide-format-feature h1, .slide-format-feature #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .slide-format-feature .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], .slide-format-feature #content #block-achp-page-title h1, #content #block-achp-page-title .slide-format-feature h1 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature h1, .slide-format-feature #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .slide-format-feature .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], .slide-format-feature #content #block-achp-page-title h1, #content #block-achp-page-title .slide-format-feature h1 {
+        font-size: 1.625rem; } }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature h1, .slide-format-feature #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .slide-format-feature .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], .slide-format-feature #content #block-achp-page-title h1, #content #block-achp-page-title .slide-format-feature h1 {
+        margin-bottom: 0; } }
+  .slide-format-feature h2 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 20px; }
+    @media screen and (max-width: 925px) {
+      .slide-format-feature h2 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature h2 {
+        font-size: 1.375rem; } }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature h2 {
+        margin-bottom: 20px; } }
+  .slide-format-feature h3 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 5px; }
+    @media screen and (max-width: 925px) {
+      .slide-format-feature h3 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature h3 {
+        font-size: 1.25rem; } }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature h3 {
+        margin-bottom: 0; } }
+  .slide-format-feature h4 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 0; }
+    @media screen and (max-width: 925px) {
+      .slide-format-feature h4 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature h4 {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      .slide-format-feature h4 {
+        margin-bottom: 0; } }
+  .slide-format-feature p {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  .slide-format-feature ul {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  .slide-format-feature .slide-format-feature-slide-container {
+    height: 100%;
+    position: relative; }
+    .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-focus {
+      height: 100%;
+      position: absolute;
+      top: 0; }
+    .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide {
+      height: 100%;
+      position: absolute; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item {
+        float: left;
+        height: 100%;
+        position: relative;
+        width: 300px; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide:not(.ui-draggable-disabled) {
+        cursor: pointer; }
+  .slide-format-feature .slide-format-feature-slide-button {
+    cursor: pointer;
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0; }
+  .slide-format-feature .slide-format-feature-left-slide-button {
+    left: 0; }
+  .slide-format-feature .slide-format-feature-right-slide-button {
+    right: 0; }
+  .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-focus {
+    max-width: 1024px; }
+  .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide {
+    counter-reset: slide-format-feature-item-counter;
+    padding: 28px 0 28px; }
+    .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 103px;
+      left: 100px;
+      width: calc(100% - 200px);
+      border-top: 1px solid #CD1803; }
+    .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item {
+      margin-left: 25px;
+      margin-right: 25px; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item:first-of-type {
+        width: 200px; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item:nth-of-type(n+2) {
+        padding-left: 70px;
+        width: 270px; }
+        .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item:nth-of-type(n+2):before {
+          background: #CD1803;
+          border-radius: 50%;
+          color: white;
+          content: counter(slide-format-feature-item-counter);
+          counter-increment: slide-format-feature-item-counter;
+          font-family: "p22-underground", sans-serif;
+          font-size: 1.4375rem;
+          height: 40px;
+          left: 0px;
+          padding-top: 5px;
+          position: absolute;
+          text-align: center;
+          top: 55px;
+          width: 40px; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item.slide-format-feature-item-active:before, .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item:hover:before {
+        background: #0990FE; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item.slide-format-feature-item-active .views-field-view-node a, .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item:hover .views-field-view-node a {
+        background-image: url("../images/timeline-read-more-arrow-blue.svg");
+        color: #0990FE; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item .views-field-field-process-step-image img {
+        border-radius: 50%;
+        font-family: 'object-fit: cover;';
+        height: 150px;
+        object-fit: cover;
+        width: 150px; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item .views-field-title a {
+        color: black;
+        font-family: "p22-underground", sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.2; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item .views-field-field-process-step-summary {
+        color: #4A4A4A;
+        font-family: "minion-pro", serif;
+        font-size: 0.875rem;
+        line-height: 1.4; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item .views-field-view-node a {
+        background-image: url("../images/timeline-read-more-arrow.svg");
+        background-position: 100% 5px;
+        background-repeat: no-repeat;
+        background-size: 7px;
+        color: #4F4F4F;
+        font-family: "p22-underground", sans-serif;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.6;
+        padding: 5px 15px 5px 0; }
+      .slide-format-feature .slide-format-feature-slide-container .slide-format-feature-slide .slide-format-feature-item .views-field-path {
+        display: none; }
+  .slide-format-feature .slide-format-feature-slide-button {
+    background-color: #0990FE;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 6.5px;
+    width: 25px; }
+  .slide-format-feature .slide-format-feature-left-slide-button {
+    background-image: url("../images/timeline-prev-arrow.svg"); }
+  .slide-format-feature .slide-format-feature-right-slide-button {
+    background-image: url("../images/timeline-next-arrow.svg"); }
 
 /*
   This module defines the styles for the Share
@@ -3333,19 +3768,6 @@ the events landing page is different */
     background-size: 12px;
     background-repeat: no-repeat; }
 
-/*#block-resourcesmenu,
-#block-publicationsmenu,
-#block-problemsmenu,
-#block-partners,
-#block-aboutmenu {
-  background-color: $slide-menu-menu-background-color;
-  color: $slide-menu-menu-text-color;
-
-  h2 {
-    font-size: rem(18px);
-  }
-}
-*/
 #homepage_success_content #block-views-block-homepage-success-stories-block .card, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_calendar_body, .event_calendar #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_calendar_body, #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar .event_calendar_grid_body .event_calendar_grid_card, .event_calendar .event_calendar_grid_body #homepage_success_content #block-views-block-homepage-success-stories-block .event_calendar_grid_card, #homepage_success_content #block-views-block-homepage-success-stories-block #homepage_quicklinks_region #homepage_quicklinks_content .views-element-container, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_success_content #block-views-block-homepage-success-stories-block .views-element-container {
   background-color: #ffffff;
   text-align: center; }
@@ -4092,6 +4514,9 @@ header {
   background-color: #E8F8FF;
   padding: 25px 0px 0px 0px;
   width: 100%; }
+  #homepage_flowchart_region #block-readmoreaboutthefederalpreservationprocess {
+    padding: 20px 20px 30px;
+    text-transform: uppercase; }
 
 /*
   This module contains styles used in the

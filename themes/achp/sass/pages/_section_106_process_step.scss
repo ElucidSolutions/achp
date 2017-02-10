@@ -1,0 +1,239 @@
+/*
+  This stylesheet defines the default styles
+  used by the Section 106 Process Step pages.
+*/
+@import "../styleguide";
+
+// Represents the size of determination header tabs.
+$determination-header-tab-size: 51px;
+
+/*
+  Accepts one argument, $background-color, and
+  styles the element that this mixin is applied
+  to as a determination header.
+*/
+@mixin determination-header($background-color) {
+  background-color: $background-color;
+  color: $color-grey2;
+  font-family: $sans-text;
+  margin-top: $margin-med;
+  width: 100%;
+}
+
+/*
+  Accepts one argument, $background-color, and
+  styles the element that this mixin is applied
+  to as a determination header tab.
+*/
+@mixin determination-header-tab($background-color) {
+  @include responsive(width, $determination-header-tab-size, 100%);
+  background-color: $background-color;
+  color: white;
+  display: inline-block;
+  height: $determination-header-tab-size;
+  line-height: $determination-header-tab-size;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/*
+  Accepts no arguments and styles that
+  element that this mixin is applied to as a
+  determination header label.
+*/
+@mixin determination-header-label {
+  @include tablet(width, 100%);
+  @include responsive(padding, 0 0 0 30px, $margin-small 30px);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*
+  Accepts one argument, $background-color, and
+  styles the element that this mixin is applied
+  to as a determination body element.
+*/
+@mixin determination-body($background-color) {
+   @include responsive(margin-left, $determination-header-tab-size, 0);
+   background-color: $background-color;
+}
+
+/*
+  Accepts no arguments and styles the
+  element that this mixin is applied to as a
+  determination body text element.
+*/
+@mixin determination-body-text {
+  padding: 30px;
+}
+
+/*
+  Accepts no arguments and styles the
+  element that this mixin is applied to as a
+  next step link element.
+*/
+@mixin determination-next() {
+  a {
+    @include determination-body-text;
+    border-top: 1px solid rgba(30, 30, 30, 0.1);
+    color: black;
+    display: block;
+    font-family: $sans-text;
+    position: relative;
+    text-transform: uppercase;
+    transition: color 0s;
+
+    &:hover {
+      color: $color-blue-primary;
+
+      &:before {
+        color: $color-blue-primary;
+      }
+      &:after {
+        background-image: url("../images/timeline-read-more-arrow-blue.svg");
+      }
+    }
+    &:before {
+      content: "LEARN MORE ABOUT THE NEXT STEP:";
+      display: block;
+      color: $color-grey2;
+    }
+    &:after {
+      background-image: url("../images/timeline-read-more-arrow.svg");
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: 10px;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 30px;
+    }
+  }
+}
+
+[data-page-node-type="section_106_process_step"] {
+  $max-content-narrow-width: 620px;
+
+  .slide-format-feature {
+    background-color: $color-lightblue3;
+    margin-bottom: $margin-med;
+
+    .slide-format-feature-focus {
+      max-width: $max-content-narrow-width;
+    }
+  }
+  #main {
+    #content_region {
+      @include styleguide;
+      @include body-text;
+
+      max-width: $max-content-narrow-width;
+      margin: 0 auto $margin-large;
+
+      .step-number {
+        @include responsive(font-size, rem(24px), rem(20px));
+        color: rgba(149, 3, 6, 1);
+        font-family: $sans-text;
+        line-height: 1.4;
+        margin-bottom: $margin-med;
+        position: relative;
+        text-transform: uppercase;
+
+        div {
+          display: inline-block;
+        }
+      }
+      .step-title {
+        @include responsive(font-size, rem(36px), rem(26px));
+        @include responsive(line-height, 1.4, 1.2);
+        color: rgba(4, 59, 98, 1);
+        font-family: $sans-text;
+        margin-bottom: $margin-med;
+      }
+      [data-plugin-id="share_this_page_block"] {
+        margin-bottom: $margin-med;
+      }
+      .step-body-text {
+        color: $color-darkgrey2;
+      }
+      .determination-section-title {
+        color: rgba(0, 58, 94, 1);
+        font-family: $sans-text;
+        font-size: rem(22);
+        line-height: rem(30.8);
+        text-transform: uppercase;
+      }
+      div.step-content > hr {
+        background-color: #CCC;
+      }
+      .determination-prompt {
+        @include determination-header(rgb(232, 248, 255));
+
+        .determination-image {
+          @include determination-header-tab(rgb(1, 59, 94)) ;
+          background-image: url("../images/split-icon.svg");
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
+        }
+        .achp-field {
+          @include determination-header-label;
+        }
+      }
+      .determination-yes-wrapper {
+        @include determination-header(rgb(208, 239, 215));
+
+        .determination-prompt-yes {
+          @include determination-header-tab(rgb(43, 136, 63));
+        }
+        .achp-field {
+          @include determination-header-label;
+        }
+      }
+      .yes-explaination-and-action {
+        @include determination-body(rgb(242, 255, 245));
+
+        .achp-field {
+          @include determination-body-text;
+        }
+        .yes-next-step {
+          @include determination-next;
+        }
+      }
+      .determination-no-wrapper {
+        @include determination-header(rgb(229, 227, 228));
+
+        .determination-prompt-no {
+          @include determination-header-tab($color-grey2);
+        }
+        .achp-field {
+          @include determination-header-label;
+        }
+      }
+      .no-explaination-and-action {
+        @include determination-body(rgb(244, 244, 244));
+
+        .achp-field {
+          @include determination-body-text;
+        }
+        .no-next-step {
+          @include determination-next;
+        }
+      }
+      .no-further-action {
+        background-image: url("../images/stop-icon.svg");
+        background-position: left 30px center;
+        background-repeat: no-repeat;
+        border-top: 1px solid rgba(30, 30, 30, 0.1);
+        color: $color-grey2;
+        font-family: $sans-text;
+        padding: 30px 30px 30px 70px;
+        position: relative;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

@@ -129,20 +129,11 @@
     window.setInterval (function () {
       self.shouldShowSlideLeftButton () ? self.showSlideLeftButton () : self.hideSlideLeftButton ();
       self.shouldShowSlideRightButton () ? self.showSlideRightButton () : self.hideSlideRightButton ();
-    }, 2000);
+    }, 1000);
   }
 
   /*
-    B. UPDATERS
-
-    The following functions resize/reposition
-    the HTML elements that represent this menu
-    when the menu is initialized and the screen
-    is resized.
-  */
-
-  /*
-    Accepts no arguments, update whether or
+    Accepts no arguments, updates whether or
     not the slide element is draggable, and
     return undefined.
 
@@ -366,7 +357,7 @@
   }
 
   /*
-    Accepts one argument: index, a natural number
+    Accepts no arguments and returns a natural number
     that references the menu item that represents
     the current page.
   */
@@ -592,6 +583,7 @@
         getMenuItemElementActiveClassName () : null)
       .attr (getMenuItemElementIndexAttribute (), index)
       .append (linkElement)
+      .focusin (function () { menu.slideTo (index); })
       .click (function () { menu.slideTo (index); });
   }
 
