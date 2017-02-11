@@ -10,6 +10,7 @@
   $success-card-shadow-width: 3px;
   $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
   $two-card-container-width: calc(#{$success-card-width} * 2 + #{$success-card-margin-horiz} + #{$success-card-shadow-width} * 2 + #{$container-padding} * 2);
+  $library_icon_height: 50px;
 
   #secondary_header_region {
     #block-breadcrumbs {
@@ -124,7 +125,8 @@
           }
         }
       }
-      #block-learnaboutpolicies, #block-specificdocument {
+      #block-achp-native-youth, #block-section-106-assistance {
+      // #block-learnaboutpolicies, #block-specificdocument {
         .textblock_with_background {
           margin-bottom: $vertical-padding;
           margin-top: $vertical-padding;
@@ -223,6 +225,138 @@
           }
         }
       }
+      #block-indian-hawaiian-library {
+        @include content-container-section;
+        // $library_icon_height: 50px;
+        // $icon-width: 46px;
+        // $icon-height: $icon-width;
+
+        .library_categories {
+          @include outer-container;
+          font-family: $sans-text;
+          max-width: 800px;
+          padding: 0;
+
+          .library_category {
+            @include span-columns(5 of 12);
+            @include shift(1);
+            height: $library_icon_height;
+            position: relative;
+            margin-bottom: 20px;
+
+            &:before {
+              background-repeat: no-repeat;
+              background-position: center;
+              content: "";
+              display: block;
+              height: $library_icon_height;
+              width: $library_icon_height;
+            }
+
+            &_regulations:before {
+              background-image: url('../images/regulations-icon.svg');
+            }
+            &_guidance:before {
+              background-image: url('../images/guidance-docs-icon.svg');
+            }
+            &_agreement:before {
+              background-image: url('../images/agreement-docs-icon.svg');
+            }
+            &_faq:before {
+              background-image: url('../images/faq-icon.svg');
+            }
+            &_explanation:before {
+              background-image: url('../images/explanation-resources-icon.svg');
+            }
+            &_publications:before {
+              background-image: url('../images/publications-icon.svg');
+            }
+            .library_text {
+              @include center-y;
+              margin-left: 60px;
+            }
+          }
+        }
+        .library_button {
+          button {
+            margin-bottom: 0;
+          }
+        }
+      }
+      [data-derivative-plugin-id="digital_library-block_16"] {
+        $margin-xsmall: 5px;
+        $margin-small: 10px;
+        $margin-med: 20px;
+        $margin-large: 40px;
+        $margin-xlarge: 60px;
+
+        @include content-container;
+        box-shadow: 0px 1px 3px $color-lightgrey;
+        font-family: $sans-text;
+        padding: $margin-med 40px;
+        margin: 0 auto $margin-med;
+        // max-width: $max-content-width - 2 * $margin-large;
+        max-width: 100%;
+
+        &:before {
+          background-image: url('../images/featured-icon.svg');
+          background-repeat: no-repeat;
+          background-position: left;
+          content: 'Featured Library Entries';
+          color: $color-red2;
+          display: block;
+          height: $library_icon_height;
+          font-size: rem(22px);
+          line-height: $library_icon_height;
+          margin: $margin-small 0;
+          padding-left: $margin-xlarge;
+          width: 100%;
+        }
+        h2 {
+          border: none;
+          color: $color-red2;
+          font-size: rem(22px);
+          margin: $margin-small 0;
+        }
+        header {
+          display: none;
+        }
+        .item-list {
+          box-shadow: 0px 1px 3px $color-lightgrey;
+
+          ol {
+            margin: 0;
+            padding: 0;
+
+            li {
+              border-bottom: 1px solid $color-lightgrey;
+              list-style-type: none;
+              padding: $margin-med 0 $margin-med $margin-med;
+
+              .views-field-title {
+                a {
+                  color: $color-blue-primary;
+                }
+              }
+              .views-field-type {
+                color: $color-grey3;
+                padding-top: 5px;
+              }
+              .views-field-body {
+                font-family: $serif-text;
+                padding-top: 10px;
+              }
+            }
+          }
+        }
+      }
+      #block-native-digital-library-button {
+        @include content-container;
+        padding: 10px 0 20px;
+      }
+      #block-related-resources-block {
+        @include content-container;
+      }
       @media (max-width: $max-content-width) {
         #block-indian-tribes-hawaiians-initiatives {
           .views-row {
@@ -271,7 +405,8 @@
         }
       }
       @media (max-width: 750px) {
-        #block-learnaboutpolicies, #block-specificdocument {
+        #block-achp-native-youth, #block-section-106-assistance {
+        // #block-learnaboutpolicies, #block-specificdocument {
           margin: 0;
 
           .textblock_with_background {
