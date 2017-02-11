@@ -69,7 +69,7 @@ $card-width: 300px;
               display: none;
             }
             &_title {
-              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 0, $color-blue-primary);
+              @include after-element-icon-with-hover-aligned('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 0, $color-blue-primary);
               @include center-y;
               cursor: pointer;
               line-height: 24px;

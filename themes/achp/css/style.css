@@ -629,23 +629,19 @@ the events landing page is different */
         #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover {
           color: #0990FE; }
         #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
-          -webkit-transform: translateY(-50%);
-          -moz-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-          -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-          position: absolute;
-          top: 50%;
           background-image: url("../images/right-arrow-icon.svg");
           background-position: center;
           background-repeat: no-repeat;
           content: "";
           cursor: pointer;
-          height: 20px;
-          padding-left: 15px;
-          right: -14px;
           transition: background-image 0.25s;
-          width: 20px; }
+          height: 1em;
+          width: 1em;
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 20px;
+          position: absolute;
+          bottom: 0.35em; }
         #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:hover:after {
           background-image: url("../images/right-arrow-icon-blue.svg"); }
         #block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card_title:after {
@@ -2076,9 +2072,7 @@ the events landing page is different */
             padding-left: 15px;
             right: 0;
             transition: background-image 0.25s;
-            width: 20px; }
-          #homepage_news_content #block-views-block-latest-news-block .card.view-item-1 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-1.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-1.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-2 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-2.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-2.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .card.view-item-3 .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, .event_calendar #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_calendar_body .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block .event_calendar .event_calendar_grid_body .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, .event_calendar .event_calendar_grid_body #homepage_news_content #block-views-block-latest-news-block .view-item-3.event_calendar_grid_card .homepage_news_item .news_item_title:hover:after, #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after, #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3.views-element-container .homepage_news_item .news_item_title:hover:after {
-            background-image: url("../images/right-arrow-icon-blue.svg"); } }
+            width: 20px; } }
 
 /*
   This stylesheet defines default styling for
@@ -2698,8 +2692,6 @@ the events landing page is different */
       right: 13px;
       transition: background-image 0.25s;
       width: 20px; }
-    #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover:after {
-      background-image: url("../images/more-dots-icon-white.svg"); }
     #homepage_quicklinks_region #homepage_quicklinks_content .quicklinks-column footer:hover {
       background-color: #0990FE;
       color: #fff; }
@@ -2742,9 +2734,7 @@ the events landing page is different */
         padding-left: 15px;
         right: -2px;
         transition: background-image 0.25s;
-        width: 20px; }
-      #homepage_quicklinks_region > #homepage_quicklinks_content .quicklinks-column > .views-row a:hover:after {
-        background-image: url("../images/right-arrow-icon-blue.svg"); } }
+        width: 20px; } }
   @media (max-width: 1024px) {
     #homepage_quicklinks_region > #homepage_quicklinks_content {
       /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
@@ -2794,8 +2784,6 @@ the events landing page is different */
             right: 8px;
             transition: background-image 0.25s;
             width: 20px; }
-          #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container .views-row a:hover:after {
-            background-image: url("../images/right-arrow-icon-blue.svg"); }
         #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header {
           height: 75px; }
           #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header .views-row {
@@ -2839,8 +2827,6 @@ the events landing page is different */
               right: 0;
               transition: background-image 0.25s;
               width: 20px; }
-            #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3:hover:after {
-              background-image: url("../images/down-arrow-icon-blue.svg"); }
             #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open {
               transition: color 0.25s;
               color: #0990FE; }
@@ -2863,9 +2849,7 @@ the events landing page is different */
                 padding-left: 15px;
                 right: 0;
                 transition: background-image 0.25s;
-                width: 20px; }
-              #homepage_quicklinks_region > #homepage_quicklinks_content .views-element-container header h3.open:hover:after {
-                background-image: url("../images/up-arrow-icon-blue.svg"); } }
+                width: 20px; } }
 
 /*
   This stylesheet provides the default styling
@@ -4552,25 +4536,58 @@ blockquote {
     .read_more a:hover, .read-more a:hover {
       color: #0990FE; }
     .read_more a:after, .read-more a:after {
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);
-      position: absolute;
-      top: 50%;
       background-image: url("../images/right-arrow-icon.svg");
       background-position: center;
       background-repeat: no-repeat;
       content: "";
       cursor: pointer;
-      height: 20px;
-      padding-left: 15px;
-      right: -20px;
       transition: background-image 0.25s;
-      width: 20px; }
+      height: 1em;
+      width: 1em;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 20px;
+      position: absolute;
+      bottom: 0.35em; }
     .read_more a:hover:after, .read-more a:hover:after {
       background-image: url("../images/right-arrow-icon-blue.svg"); }
+
+ol.alpha_list {
+  list-style-type: lower-alpha; }
+  ol.alpha_list li {
+    padding-bottom: 5px; }
+  ol.alpha_list p {
+    margin: 0; }
+
+ol.roman_list {
+  list-style-type: upper-roman; }
+
+.library_resource_list {
+  box-shadow: 0px 1px 3px #C6C6C6;
+  font-family: "p22-underground", sans-serif;
+  padding: 20px;
+  margin: 0 auto 20px;
+  max-width: 944px;
+  box-shadow: 0px 1px 3px #C6C6C6;
+  font-family: "p22-underground", sans-serif;
+  font-size: 1.125rem;
+  margin: 30px 0;
+  padding: 0; }
+  .library_resource_list .library_resource {
+    border-bottom: 1px solid #E5E3E4; }
+    .library_resource_list .library_resource_title {
+      padding: 20px 20px 0; }
+      .library_resource_list .library_resource_title a {
+        color: #0990FE; }
+    .library_resource_list .library_resource_type {
+      color: #7C7C7C;
+      font-size: 1.0625rem;
+      padding: 5px 20px; }
+    .library_resource_list .library_resource p {
+      color: #4A4A4A;
+      font-family: "minion-pro", Times, serif;
+      margin: 0;
+      padding: 0 20px 20px; }
 
 .textblock_with_background {
   background-position: center;

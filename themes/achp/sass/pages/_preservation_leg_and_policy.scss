@@ -35,7 +35,8 @@
       }
     }
     [data-derivative-plugin-id="digital_library-block_13"],
-    [data-derivative-plugin-id="digital_library-block_14"] {
+    [data-derivative-plugin-id="digital_library-block_14"],
+    [data-derivative-plugin-id="digital_library-block_15"] {
       $margin-xsmall: 5px;
       $margin-small: 10px;
       $margin-med: 20px;
@@ -61,10 +62,8 @@
             margin: 30px 0;            
             padding: $margin-med 0 $margin-med $margin-med;
 
-            .views-field-title {
-              a {
-                color: $color-blue-primary;
-              }
+            .views-field-title a {
+              color: $color-blue-primary;
             }
             .views-field-body {
               color: $color-grey2;

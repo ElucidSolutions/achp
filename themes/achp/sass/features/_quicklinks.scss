@@ -86,7 +86,7 @@
     }
     .quicklinks-column {
       footer {
-        @include after-element-icon-with-hover('../images/more-dots-icon.svg', '../images/more-dots-icon-white.svg', 13px, #fff);
+        @include after-element-icon-with-hover-aligned('../images/more-dots-icon.svg', '../images/more-dots-icon-white.svg', 13px, #fff);
         @include hover-transition-content-and-background(#fff, $color-blue-primary);
         background: $color-lightgrey;
         border: none;
@@ -115,7 +115,7 @@
 #homepage_quicklinks_region > #homepage_quicklinks_content {
   @media (min-width: 700px) {
     .quicklinks-column > .views-row a {
-      @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -2px, $color-blue-primary);
+      @include after-element-icon-with-hover-aligned('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -2px, $color-blue-primary);
     }
   }
 /*  At this width 2 cards are on the first row, and the third is on the second.
@@ -152,7 +152,7 @@
         display: none;
       }
       .views-row a {
-        @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 8px, $color-blue-primary);
+        @include after-element-icon-with-hover-aligned('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 8px, $color-blue-primary);
       }
 
       header {
@@ -170,14 +170,14 @@
         }
         h3 {
           @include center-y;
-          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0, $color-blue-primary);
+          @include after-element-icon-with-hover-aligned('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0, $color-blue-primary);
           cursor: pointer;
           height: auto;
           padding: 15px;
           width: 95%;
 
           &.open {
-            @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0, $color-blue-primary);
+            @include after-element-icon-with-hover-aligned('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0, $color-blue-primary);
             color: $color-blue-primary;
           }
         }

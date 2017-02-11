@@ -83,8 +83,8 @@
               position: absolute;
 
               a:after {
-                @include undo-center-y;
-                padding-left: 30px;
+                // @include undo-center-y;
+                // padding-left: 30px;
               }
             }
           }
@@ -180,19 +180,19 @@
 
             .read-more {
               display: inline-block;
-              vertical-align: 25%;
+              // vertical-align: 25%;
 
               a {
-                @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
-                color: $color-grey;
-                font-family: $sans-text;
-                font-size: 0.875rem;
-                font-weight: 500;
-                text-decoration: none;
-                text-transform: uppercase;
+                // @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
+                // color: $color-grey;
+                // font-family: $sans-text;
+                // font-size: 0.875rem;
+                // font-weight: 500;
+                // text-decoration: none;
+                // text-transform: uppercase;
               }
               &:hover {
-                color: $color-blue-primary;
+                // color: $color-blue-primary;
               }
             }
           }
@@ -258,7 +258,7 @@
             .views-field-view-node a {
               padding-right: 20px;
               &:after {
-                right: 0;
+                // right: 0;
               }
             }
           }

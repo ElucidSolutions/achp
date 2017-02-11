@@ -85,14 +85,14 @@
 
         .read_more {
           a {
-            display: block;
-            max-width: calc(100% - 20px);
-            position: relative;
+            // display: block;
+            // max-width: calc(100% - 20px);
+            // position: relative;
 
             &:after {
-              @include undo-center-y;
-              position: relative;
-              top: -2px;
+              // @include undo-center-y;
+              // position: relative;
+              // top: -2px;
             }
           }
         }
@@ -127,8 +127,8 @@
       }
       @media (max-width: 550px) {
         #block-preserveamericapagelinks .read_more a:after {
-          @include center-y;
-          position: absolute;        
+          // @include center-y;
+          // position: absolute;        
         }
       }
     }

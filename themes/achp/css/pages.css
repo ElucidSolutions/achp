@@ -1135,10 +1135,6 @@ html {
           left: calc(275px + 20px);
           position: absolute;
           width: auto; }
-          #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node .read-more a, #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node-1 .read-more a, #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node .read-more a, #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node-1 .read-more a {
-            padding-right: 15px; }
-            #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node .read-more a:after, #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node-1 .read-more a:after, #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node .read-more a:after, #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node-1 .read-more a:after {
-              height: 19px; }
         #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list .views-row .views-field-view-node-1, #page[data-page-path-alias^="/about/council-members"] #content #content_region #block-council-member-list2 .views-row .views-field-view-node-1 {
           display: none;
           left: 0;
@@ -2611,34 +2607,12 @@ html {
               #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_google_calendar:hover:after {
                 color: #71BFFE; }
             #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link {
-              transition: background-color 0.25s;
               background-color: #E5E3E4;
               bottom: -35px;
               height: 35px;
               left: -20px;
               position: absolute;
               width: 100%; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link:hover {
-                background-color: #E8F8FF; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link a {
-                -webkit-transform: translateX(-50%) translateY(-50%);
-                -moz-transform: translateX(-50%) translateY(-50%);
-                -ms-transform: translateX(-50%) translateY(-50%);
-                -o-transform: translateX(-50%) translateY(-50%);
-                transform: translateX(-50%) translateY(-50%);
-                left: 50%;
-                position: absolute;
-                top: 50%;
-                color: #4F4F4F;
-                font-weight: 500;
-                text-align: center;
-                text-decoration: none;
-                transition: color 0.25s;
-                width: 100%; }
-                #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link a:after {
-                  background-image: none; }
-              #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link:hover a {
-                color: #0990FE; }
         #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature_footer {
           display: none; }
     #events_landing_page #content #content_region #block-achp-content {
@@ -3596,8 +3570,6 @@ html {
                 position: absolute;
                 bottom: -5px;
                 padding-right: 5px; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_link a {
-                  vertical-align: 0; }
           #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
             margin-right: 0; }
         #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories footer {
@@ -3790,12 +3762,8 @@ html {
               left: 50%;
               position: absolute;
               position: relative; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a {
-                vertical-align: -3%; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a:after {
-                  -ms-transform: none;
-                  top: 0;
-                  /*right: auto;*/ } }
+              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a:after {
+                /*right: auto;*/ } }
       @media (max-width: 500px) {
         #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-field-issue-thumbnail-image img {
           height: auto;
@@ -3805,9 +3773,7 @@ html {
         #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-field-issue-summary {
           padding-bottom: 70px; }
         #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-view-node a {
-          padding-right: 20px; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-view-node a:after {
-            right: 0; } }
+          padding-right: 20px; } }
 
 /*
   This stylesheet defines the default styles
@@ -4370,44 +4336,7 @@ html {
           left: calc(265px + 20px);
           position: absolute; }
           #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node .read-more {
-            display: inline-block;
-            vertical-align: 25%; }
-            #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node .read-more a {
-              transition: color 0.25s;
-              color: #4F4F4F;
-              display: inline-block;
-              font-family: "p22-underground", sans-serif;
-              font-size: 0.875rem;
-              font-weight: 500;
-              text-decoration: none;
-              text-transform: uppercase;
-              width: 95%; }
-              #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node .read-more a:hover {
-                color: #0990FE; }
-              #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node .read-more a:after {
-                -webkit-transform: translateY(-50%);
-                -moz-transform: translateY(-50%);
-                -ms-transform: translateY(-50%);
-                -o-transform: translateY(-50%);
-                transform: translateY(-50%);
-                position: absolute;
-                top: 50%;
-                background-image: url("../images/right-arrow-icon.svg");
-                background-position: center;
-                background-repeat: no-repeat;
-                content: "";
-                cursor: pointer;
-                height: 20px;
-                padding-left: 15px;
-                right: -30px;
-                transition: background-image 0.25s;
-                width: 20px; }
-              #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node .read-more a:hover:after {
-                background-image: url("../images/right-arrow-icon-blue.svg"); }
-              #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node .read-more a:after {
-                right: 0; }
-            #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node .read-more:hover {
-              color: #0990FE; }
+            display: inline-block; }
         #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row:after {
           background-color: #E5E3E4;
           bottom: -20px;
@@ -4499,8 +4428,6 @@ html {
               position: absolute;
               bottom: -5px;
               padding-right: 5px; }
-              #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_link a {
-                vertical-align: 0; }
         #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
           margin-right: 0; }
     #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-more-success-stories-button {
@@ -4533,9 +4460,6 @@ html {
       #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node {
         bottom: 0px;
         left: 0; }
-        #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node .read-more a {
-          padding-right: 30px;
-          width: 100%; }
       #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1 {
         margin-left: calc((100% - calc(calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3) * 2  + 20px  + 3px * 2))/2); }
       #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
@@ -4580,12 +4504,7 @@ html {
           transform: translateX(-50%);
           left: 50%;
           position: absolute;
-          position: relative; }
-          #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a {
-            vertical-align: -3%; }
-            #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a:after {
-              -ms-transform: none;
-              top: 0; } }
+          position: relative; } }
     @media (max-width: 500px) {
       #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-thumbnail-image img {
         height: auto;
@@ -4595,9 +4514,7 @@ html {
       #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-summary {
         padding-bottom: 70px; }
       #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node a {
-        padding-right: 20px; }
-        #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node a:after {
-          right: 0; } }
+        padding-right: 20px; } }
 
 #page[data-page-node-type="issue"] #secondary_header_region #block-breadcrumbs {
   margin: 0 auto;
@@ -4692,20 +4609,6 @@ html {
           #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card .read-more {
             bottom: 25px;
             position: absolute; }
-            #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news .news-card-container .card .read-more a:after {
-              -webkit-transform: none;
-              -moz-transform: none;
-              -ms-transform: none;
-              -o-transform: none;
-              transform: none;
-              position: static;
-              top: 0;
-              /*  -webkit-transform: none;
-                -moz-transform: none;
-                -ms-transform: none;
-                -o-transform: none;
-                transform: none;*/
-              padding-left: 30px; }
       #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-in-the-news footer {
         clear: both;
         padding-bottom: 35px; }
@@ -4780,40 +4683,7 @@ html {
           left: calc(300px + 20px);
           position: absolute; }
           #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more {
-            display: inline-block;
-            vertical-align: 25%; }
-            #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a {
-              transition: color 0.25s;
-              color: #4F4F4F;
-              font-family: "p22-underground", sans-serif;
-              font-size: 0.875rem;
-              font-weight: 500;
-              text-decoration: none;
-              text-transform: uppercase; }
-              #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a:hover {
-                color: #0990FE; }
-              #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a:after {
-                -webkit-transform: translateY(-50%);
-                -moz-transform: translateY(-50%);
-                -ms-transform: translateY(-50%);
-                -o-transform: translateY(-50%);
-                transform: translateY(-50%);
-                position: absolute;
-                top: 50%;
-                background-image: url("../images/right-arrow-icon.svg");
-                background-position: center;
-                background-repeat: no-repeat;
-                content: "";
-                cursor: pointer;
-                height: 20px;
-                padding-left: 15px;
-                right: -30px;
-                transition: background-image 0.25s;
-                width: 20px; }
-              #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a:hover:after {
-                background-image: url("../images/right-arrow-icon-blue.svg"); }
-            #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more:hover {
-              color: #0990FE; }
+            display: inline-block; }
         #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row:after {
           background-color: #E5E3E4;
           bottom: -20px;
@@ -4852,9 +4722,7 @@ html {
         #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-field-issue-summary {
           padding-bottom: 40px; }
         #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node a {
-          padding-right: 20px; }
-          #page[data-page-node-type="issue"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node a:after {
-            right: 0; } }
+          padding-right: 20px; } }
     #page[data-page-node-type="issue"] #content #content_region #block-views-block-related-resources-block-1 {
       margin: 0 auto;
       max-width: 1024px;
@@ -6138,34 +6006,6 @@ html {
               transition: color 0.25s; }
               #news_landing_page #content .news-landing-container .news-item ul li a:hover {
                 color: #71BFFE; }
-        #news_landing_page #content .news-landing-container .news-item .views-field-view-node {
-          transition: background-color 0.25s;
-          background-color: #E5E3E4;
-          bottom: -35px;
-          font-size: 0.875rem;
-          height: 35px;
-          left: 0;
-          position: absolute;
-          width: 100%; }
-          #news_landing_page #content .news-landing-container .news-item .views-field-view-node:hover {
-            background-color: #E8F8FF; }
-          #news_landing_page #content .news-landing-container .news-item .views-field-view-node a {
-            -webkit-transform: translateX(-50%) translateY(-50%);
-            -moz-transform: translateX(-50%) translateY(-50%);
-            -ms-transform: translateX(-50%) translateY(-50%);
-            -o-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
-            left: 50%;
-            position: absolute;
-            top: 50%;
-            color: #4F4F4F;
-            font-weight: 500;
-            text-align: center;
-            text-decoration: none;
-            transition: color 0.25s;
-            width: 100%; }
-          #news_landing_page #content .news-landing-container .news-item .views-field-view-node:hover a {
-            color: #0990FE; }
   @media (max-width: 1024px) {
     #news_landing_page #content .news-landing-container .views-exposed-form {
       float: left;
@@ -6265,23 +6105,19 @@ html {
           #news_landing_page #content .news-landing-container header .news_filter.news_filter_closed:hover {
             color: #0990FE; }
           #news_landing_page #content .news-landing-container header .news_filter.news_filter_closed:after {
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
-            position: absolute;
-            top: 50%;
             background-image: url("../images/down-arrow-icon.svg");
             background-position: center;
             background-repeat: no-repeat;
             content: "";
             cursor: pointer;
-            height: 20px;
-            padding-left: 15px;
-            right: 0;
             transition: background-image 0.25s;
-            width: 20px; }
+            height: 1em;
+            width: 1em;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 20px;
+            position: absolute;
+            bottom: 0.35em; }
           #news_landing_page #content .news-landing-container header .news_filter.news_filter_closed:hover:after {
             background-image: url("../images/down-arrow-icon-dark-blue.svg"); }
         #news_landing_page #content .news-landing-container header .news_filter.news_filter_open {
@@ -6291,23 +6127,19 @@ html {
           #news_landing_page #content .news-landing-container header .news_filter.news_filter_open:hover {
             color: #0990FE; }
           #news_landing_page #content .news-landing-container header .news_filter.news_filter_open:after {
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
-            position: absolute;
-            top: 50%;
             background-image: url("../images/up-arrow-icon.svg");
             background-position: center;
             background-repeat: no-repeat;
             content: "";
             cursor: pointer;
-            height: 20px;
-            padding-left: 15px;
-            right: 0;
             transition: background-image 0.25s;
-            width: 20px; }
+            height: 1em;
+            width: 1em;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 20px;
+            position: absolute;
+            bottom: 0.35em; }
           #news_landing_page #content .news-landing-container header .news_filter.news_filter_open:hover:after {
             background-image: url("../images/up-arrow-icon-dark-blue.svg"); } }
   @media (max-width: 600px) {
@@ -6483,16 +6315,13 @@ html {
 /* */
 #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article {
   margin-bottom: 50px; }
-  #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .read_more {
+  #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .read_more, #page[data-page-path-alias="/about/offices"] #events_landing_page #content #content_region #block-achp-content article #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, #events_landing_page #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, #page[data-page-path-alias="/about/offices"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-achp-content article .event_calendar_grid_card_link, #events_landing_page #page[data-page-path-alias="/about/offices"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-achp-content article .event_calendar_grid_card_link, #page[data-page-path-alias="/about/offices"] #news_landing_page #content #content_region #block-achp-content article .news-landing-container .news-item .views-field-view-node, #news_landing_page #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .news-landing-container .news-item .views-field-view-node, #page[data-page-path-alias="/about/offices"] #news_landing_page #content .news-landing-container .news-item #content_region #block-achp-content article .views-field-view-node, #news_landing_page #page[data-page-path-alias="/about/offices"] #content .news-landing-container .news-item #content_region #block-achp-content article .views-field-view-node {
     padding-bottom: 20px;
     position: relative; }
-    #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .read_more a {
+    #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .read_more a, #page[data-page-path-alias="/about/offices"] #events_landing_page #content #content_region #block-achp-content article #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link a, #events_landing_page #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link a, #page[data-page-path-alias="/about/offices"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-achp-content article .event_calendar_grid_card_link a, #events_landing_page #page[data-page-path-alias="/about/offices"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-achp-content article .event_calendar_grid_card_link a, #page[data-page-path-alias="/about/offices"] #news_landing_page #content #content_region #block-achp-content article .news-landing-container .news-item .views-field-view-node a, #news_landing_page #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .news-landing-container .news-item .views-field-view-node a, #page[data-page-path-alias="/about/offices"] #news_landing_page #content .news-landing-container .news-item #content_region #block-achp-content article .views-field-view-node a, #news_landing_page #page[data-page-path-alias="/about/offices"] #content .news-landing-container .news-item #content_region #block-achp-content article .views-field-view-node a {
       /*position: absolute;*/
       /*height: 11px;*/
       /*border: 1px solid pink;*/ }
-      #page[data-page-path-alias="/about/offices"] #content #content_region #block-achp-content article .read_more a:after {
-        -ms-transform: none;
-        position: relative; }
 
 /* This selector applies to the offices landing page, as well as 
   any page aliased within that URL */
@@ -6542,10 +6371,6 @@ html {
     width: 20%; }
 #page[data-page-path-alias^="/about/offices"] #content #content_region #block-achp-content {
   padding: 0 !important; }
-  #page[data-page-path-alias^="/about/offices"] #content #content_region #block-achp-content article .read_more a:after {
-    bottom: 1px;
-    left: 10px;
-    position: relative; }
   #page[data-page-path-alias^="/about/offices"] #content #content_region #block-achp-content article h2 {
     margin-top: 30px;
     text-align: left; }
@@ -6792,8 +6617,6 @@ general office landing page */
   margin-top: 0; }
 [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .read-more {
   position: relative; }
-  [data-page-path-alias="/protecting-historic-properties/open-cases"] #content #content_region #block-list-cases-open .read-more a {
-    vertical-align: 0%; }
 
 /*
   This stylesheet defines the default styles
@@ -7944,23 +7767,19 @@ general office landing page */
               [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more a:hover, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a:hover {
                 color: #0990FE; }
               [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more a:after, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a:after {
-                -webkit-transform: translateY(-50%);
-                -moz-transform: translateY(-50%);
-                -ms-transform: translateY(-50%);
-                -o-transform: translateY(-50%);
-                transform: translateY(-50%);
-                position: absolute;
-                top: 50%;
                 background-image: url("../images/right-arrow-icon.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 content: "";
                 cursor: pointer;
-                height: 20px;
-                padding-left: 15px;
-                right: -30px;
                 transition: background-image 0.25s;
-                width: 20px; }
+                height: 1em;
+                width: 1em;
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 20px;
+                position: absolute;
+                bottom: 0.35em; }
               [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more a:hover:after, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more a:hover:after {
                 background-image: url("../images/right-arrow-icon-blue.svg"); }
             [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node .read-more:hover, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node .read-more:hover {
@@ -8114,39 +7933,51 @@ general office landing page */
         margin-right: 0; }
 [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"],
 [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"],
+[data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"],
 [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"],
-[data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] {
+[data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"],
+[data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] {
   font-family: "p22-underground", sans-serif;
   margin: 0 auto 50px;
   max-width: 944px; }
   [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] header,
   [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] header,
+  [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] header,
   [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] header,
-  [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] header {
+  [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] header,
+  [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] header {
     display: none; }
   [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] .item-list ol,
   [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol,
+  [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] .item-list ol,
   [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] .item-list ol,
-  [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol {
+  [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol,
+  [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] .item-list ol {
     margin: 0;
     padding: 0; }
     [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] .item-list ol li,
     [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol li,
+    [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] .item-list ol li,
     [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] .item-list ol li,
-    [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol li {
+    [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol li,
+    [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] .item-list ol li {
       box-shadow: 0px 1px 3px #C6C6C6;
       list-style-type: none;
       margin: 30px 0;
       padding: 20px 0 20px 20px; }
       [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] .item-list ol li .views-field-title a,
       [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol li .views-field-title a,
+      [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] .item-list ol li .views-field-title a,
       [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] .item-list ol li .views-field-title a,
-      [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol li .views-field-title a {
+      [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol li .views-field-title a,
+      [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] .item-list ol li .views-field-title a {
         color: #0990FE; }
       [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] .item-list ol li .views-field-body,
       [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol li .views-field-body,
+      [data-page-path-alias="/preservation-legislation"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] .item-list ol li .views-field-body,
       [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_13"] .item-list ol li .views-field-body,
-      [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol li .views-field-body {
+      [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_14"] .item-list ol li .views-field-body,
+      [data-page-path-alias="/preservation-policy"] #content #content_region [data-derivative-plugin-id="digital_library-block_15"] .item-list ol li .views-field-body {
         color: #4A4A4A;
         font-family: "minion-pro", Times, serif;
         padding-top: 10px; }
@@ -8353,13 +8184,61 @@ general office landing page */
             [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region article .preserve_america_intro_block p {
               height: auto;
               margin-top: 0; }
-              [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p .read_more, [data-page-path-alias="/preserve-america"] #events_landing_page #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, #events_landing_page [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, [data-page-path-alias="/preserve-america"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link, #events_landing_page [data-page-path-alias="/preserve-america"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link, [data-page-path-alias="/preserve-america"] #news_landing_page #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node, #news_landing_page [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node, [data-page-path-alias="/preserve-america"] #news_landing_page #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node, #news_landing_page [data-page-path-alias="/preserve-america"] #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
               [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/stewards"] #events_landing_page #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/stewards"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/stewards"] #news_landing_page #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              [data-page-path-alias="/preserve-america/stewards"] #news_landing_page #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/stewards"] #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
               [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/presidential-award"] #events_landing_page #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/presidential-award"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/presidential-award"] #news_landing_page #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              [data-page-path-alias="/preserve-america/presidential-award"] #news_landing_page #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/presidential-award"] #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
               [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/federal-support"] #events_landing_page #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/federal-support"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/federal-support"] #news_landing_page #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              [data-page-path-alias="/preserve-america/federal-support"] #news_landing_page #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/federal-support"] #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
               [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/clearinghouse"] #events_landing_page #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/clearinghouse"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/clearinghouse"] #news_landing_page #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              [data-page-path-alias="/preserve-america/clearinghouse"] #news_landing_page #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/clearinghouse"] #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
               [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block p .read_more,
-              [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region article .preserve_america_intro_block p .read_more {
+              [data-page-path-alias="/preserve-america/application"] #events_landing_page #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/application"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/application"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/application"] #news_landing_page #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/application"] #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              [data-page-path-alias="/preserve-america/application"] #news_landing_page #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/application"] #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
+              [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/streamlined-process"] #events_landing_page #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region article .preserve_america_intro_block p #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/streamlined-process"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              #events_landing_page [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature article .preserve_america_intro_block p .event_calendar_grid_card_link,
+              [data-page-path-alias="/preserve-america/streamlined-process"] #news_landing_page #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region article .preserve_america_intro_block p .news-landing-container .news-item .views-field-view-node,
+              [data-page-path-alias="/preserve-america/streamlined-process"] #news_landing_page #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node,
+              #news_landing_page [data-page-path-alias="/preserve-america/streamlined-process"] #content .news-landing-container .news-item #content_region article .preserve_america_intro_block p .views-field-view-node {
                 left: 0;
                 margin-top: 15px;
                 position: relative; } }
@@ -8455,37 +8334,6 @@ general office landing page */
         [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region #block-preserveamericapagelinks {
           padding-left: 20px;
           padding-right: 20px; } }
-      [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a,
-      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a,
-      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a,
-      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a,
-      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a,
-      [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericapagelinks .read_more a,
-      [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region #block-preserveamericapagelinks .read_more a {
-        display: block;
-        max-width: calc(100% - 20px);
-        position: relative; }
-        [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-        [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-        [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-        [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-        [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-        [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-        [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region #block-preserveamericapagelinks .read_more a:after {
-          -webkit-transform: none;
-          -moz-transform: none;
-          -ms-transform: none;
-          -o-transform: none;
-          transform: none;
-          position: static;
-          top: 0;
-          /*  -webkit-transform: none;
-            -moz-transform: none;
-            -ms-transform: none;
-            -o-transform: none;
-            transform: none;*/
-          position: relative;
-          top: -2px; }
       [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks hr,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks hr,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks hr,
@@ -8598,22 +8446,6 @@ general office landing page */
         [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button {
           padding-left: 25px;
           padding-right: 25px; } }
-    @media (max-width: 550px) {
-      [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-      [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-      [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-      [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-      [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-      [data-page-path-alias="/preserve-america/application"] #content #content_region #block-preserveamericapagelinks .read_more a:after,
-      [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region #block-preserveamericapagelinks .read_more a:after {
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        position: absolute;
-        top: 50%;
-        position: absolute; } }
 
 [data-page-path-alias="/preserve-america/application"] #content #content_region article {
   padding-bottom: 50px; }
@@ -8644,24 +8476,6 @@ general office landing page */
     color: #0990FE; }
   [data-page-path-alias="/preserve-america/application"] #content #content_region article h4 {
     margin-bottom: 10px; }
-  [data-page-path-alias="/preserve-america/application"] #content #content_region article .read_more a {
-    position: relative;
-    text-transform: uppercase; }
-    [data-page-path-alias="/preserve-america/application"] #content #content_region article .read_more a:after {
-      -webkit-transform: none;
-      -moz-transform: none;
-      -ms-transform: none;
-      -o-transform: none;
-      transform: none;
-      position: static;
-      top: 0;
-      /*  -webkit-transform: none;
-        -moz-transform: none;
-        -ms-transform: none;
-        -o-transform: none;
-        transform: none;*/
-      margin-left: 10px;
-      top: -1px; }
 @media (max-width: 900px) {
   [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type {
     float: left;
@@ -9251,26 +9065,8 @@ general office landing page */
       margin: 35px auto;
       width: 100%; }
 
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more {
+[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more, [data-page-path-alias="/preserve-america/stewards"] #events_landing_page #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, #events_landing_page [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, [data-page-path-alias="/preserve-america/stewards"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-achp-content > article[about="/preserve-america/stewards"] .event_calendar_grid_card_link, #events_landing_page [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-achp-content > article[about="/preserve-america/stewards"] .event_calendar_grid_card_link, [data-page-path-alias="/preserve-america/stewards"] #news_landing_page #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .news-landing-container .news-item .views-field-view-node, #news_landing_page [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .news-landing-container .news-item .views-field-view-node, [data-page-path-alias="/preserve-america/stewards"] #news_landing_page #content .news-landing-container .news-item #content_region #block-achp-content > article[about="/preserve-america/stewards"] .views-field-view-node, #news_landing_page [data-page-path-alias="/preserve-america/stewards"] #content .news-landing-container .news-item #content_region #block-achp-content > article[about="/preserve-america/stewards"] .views-field-view-node {
   margin: 0 0 25px; }
-  [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more a {
-    display: inline-block;
-    position: relative; }
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .read_more a:after {
-      -webkit-transform: none;
-      -moz-transform: none;
-      -ms-transform: none;
-      -o-transform: none;
-      transform: none;
-      position: static;
-      top: 0;
-      /*  -webkit-transform: none;
-        -moz-transform: none;
-        -ms-transform: none;
-        -o-transform: none;
-        transform: none;*/
-      position: absolute;
-      top: -1px; }
 [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] h4 {
   color: #950306;
   margin-bottom: 0; }
@@ -10428,18 +10224,13 @@ general office landing page */
         height: 195px; }
         [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text p {
           margin: 0; }
-        [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more {
+        [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more, [data-page-path-alias="/protecting-historic-properties"] #events_landing_page #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, #events_landing_page #content [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, [data-page-path-alias="/protecting-historic-properties"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-anintroductiontosection106 .block_container .intro_106_text .event_calendar_grid_card_link, #events_landing_page #content [data-page-path-alias="/protecting-historic-properties"] #content_region #block-eventcalendarpage-block .event_calendar_feature #block-anintroductiontosection106 .block_container .intro_106_text .event_calendar_grid_card_link, [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text #news_landing_page #content .news-landing-container .news-item .views-field-view-node, #news_landing_page #content .news-landing-container .news-item [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .views-field-view-node {
           bottom: 0;
           font-family: "p22-underground", sans-serif;
           font-size: 0.875rem;
           left: calc(300px + 20px);
           padding: 3px 15px 0 0;
           position: absolute; }
-          [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a {
-            display: inline-block;
-            padding-right: 15px; }
-            [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after {
-              right: 0; }
   [data-page-path-alias="/protecting-historic-properties"] #content_region #block-viewactivesection106casesinvolvingtheachp .textblock_with_background,
   [data-page-path-alias="/protecting-historic-properties"] #content_region #block-searchforafederalpreservationofficer .textblock_with_background {
     margin-bottom: 35px;
@@ -10519,8 +10310,6 @@ general office landing page */
           position: absolute;
           bottom: 0;
           padding-right: 5px; }
-          [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories .card .success_story_link a {
-            vertical-align: 0; }
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories .card.view-item-3 {
       margin-right: 0 !important; }
   [data-page-path-alias="/protecting-historic-properties"] #content_region #block-moresuccessstoriesbutton-2 {
@@ -10743,12 +10532,10 @@ general office landing page */
       margin: 0 0 10px; }
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text {
       height: auto; }
-      [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more {
+      [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more, [data-page-path-alias="/protecting-historic-properties"] #events_landing_page #content #content_region #block-anintroductiontosection106 .block_container .intro_106_text #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, #events_landing_page #content [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, [data-page-path-alias="/protecting-historic-properties"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-anintroductiontosection106 .block_container .intro_106_text .event_calendar_grid_card_link, #events_landing_page #content [data-page-path-alias="/protecting-historic-properties"] #content_region #block-eventcalendarpage-block .event_calendar_feature #block-anintroductiontosection106 .block_container .intro_106_text .event_calendar_grid_card_link, [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text #news_landing_page #content .news-landing-container .news-item .views-field-view-node, #news_landing_page #content .news-landing-container .news-item [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .views-field-view-node {
         left: 0;
         margin-top: 15px;
         position: relative; }
-        [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after {
-          right: auto; }
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-viewactivesection106casesinvolvingtheachp,
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-searchforafederalpreservationofficer {
       margin: 0; }
@@ -10852,9 +10639,6 @@ general office landing page */
           transform: none;*/
         padding: 0 10px 10px;
         top: 60%; } }
-  @media (max-width: 500px) {
-    [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container .intro_106_text .read_more a:after {
-      right: 0; } }
 
 /*
   This stylesheet defines the default styles
@@ -13129,7 +12913,7 @@ general office landing page */
             font-size: 1rem;
             margin: 5px;
             text-align: center; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story .read_more {
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story .read_more, [data-page-path-alias="/success-stories"] #events_landing_page #content #content_region #block-featured-success-stories .card .success_story #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, #events_landing_page [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story #block-eventcalendarpage-block .event_calendar_feature .event_calendar_grid_card_link, [data-page-path-alias="/success-stories"] #events_landing_page #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-featured-success-stories .card .success_story .event_calendar_grid_card_link, #events_landing_page [data-page-path-alias="/success-stories"] #content #content_region #block-eventcalendarpage-block .event_calendar_feature #block-featured-success-stories .card .success_story .event_calendar_grid_card_link, [data-page-path-alias="/success-stories"] #news_landing_page #content #content_region #block-featured-success-stories .card .success_story .news-landing-container .news-item .views-field-view-node, #news_landing_page [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story .news-landing-container .news-item .views-field-view-node, [data-page-path-alias="/success-stories"] #news_landing_page #content .news-landing-container .news-item #content_region #block-featured-success-stories .card .success_story .views-field-view-node, #news_landing_page [data-page-path-alias="/success-stories"] #content .news-landing-container .news-item #content_region #block-featured-success-stories .card .success_story .views-field-view-node {
             -webkit-transform: translateX(-50%);
             -moz-transform: translateX(-50%);
             -ms-transform: translateX(-50%);
@@ -13139,8 +12923,6 @@ general office landing page */
             position: absolute;
             bottom: 0;
             padding-right: 5px; }
-            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story .read_more a {
-              vertical-align: -3%; }
       [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card.view-item-3 {
         margin-right: 0 !important; }
     [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list {
@@ -13208,39 +12990,6 @@ general office landing page */
           left: 395px;
           left: calc(268px + 30px + 20px);
           position: absolute; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a {
-            transition: color 0.25s;
-            color: #4F4F4F;
-            font-family: "p22-underground", sans-serif;
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-decoration: none;
-            text-transform: uppercase;
-            vertical-align: 0; }
-            [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a:hover {
-              color: #0990FE; }
-            [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a:after {
-              -webkit-transform: translateY(-50%);
-              -moz-transform: translateY(-50%);
-              -ms-transform: translateY(-50%);
-              -o-transform: translateY(-50%);
-              transform: translateY(-50%);
-              position: absolute;
-              top: 50%;
-              background-image: url("../images/right-arrow-icon.svg");
-              background-position: center;
-              background-repeat: no-repeat;
-              content: "";
-              cursor: pointer;
-              height: 20px;
-              padding-left: 15px;
-              right: -30px;
-              transition: background-image 0.25s;
-              width: 20px; }
-            [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more a:hover:after {
-              background-image: url("../images/right-arrow-icon-blue.svg"); }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node .read-more:hover {
-            color: #0990FE; }
     @media (max-width: 1040px) {
       [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories {
         height: auto; }
