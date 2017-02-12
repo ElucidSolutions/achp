@@ -17,6 +17,7 @@
     @include span-columns (4 of 12);
     box-sizing: border-box;
     height: 300px;
+    line-height: 1.2;
     margin-bottom: 15px;
     padding: 25px;
     text-align: center;
@@ -24,17 +25,24 @@
     img {
       height: 120px;
     }
-    .impact_number {
-      @include font-size($impact_number-font-sizes);
-      color: #309AEE;
-      font-family: $sans-text;
-      font-weight: 500;
-      margin-top: 20px;
-    }
-    p {
+    .impact_text {
       color: $color-grey;
-      margin: 5px 0 25px;
+      font-family: $sans-text;
+      font-size: rem(22px);
+      margin: 20px 0 25px;
+
+      .impact_number {
+        // @include font-size($impact_number-font-sizes);
+        color: #309AEE;
+        // font-family: $sans-text;
+        font-weight: 600;
+        // margin-top: 20px;
+      }
     }
+    // p {
+    //   color: $color-grey;
+    //   margin: 5px 0 25px;
+    // }
   }
   button {
     clear: both;

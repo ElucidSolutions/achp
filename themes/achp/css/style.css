@@ -4160,6 +4160,7 @@ header {
     width: 33.33333%;
     box-sizing: border-box;
     height: 300px;
+    line-height: 1.2;
     margin-bottom: 15px;
     padding: 25px;
     text-align: center; }
@@ -4167,18 +4168,14 @@ header {
       margin-right: 0; }
     #homepage_impact_region .impact_item img {
       height: 120px; }
-    #homepage_impact_region .impact_item .impact_number {
-      font-size: 1.25rem;
-      color: #309AEE;
-      font-family: "p22-underground", sans-serif;
-      font-weight: 500;
-      margin-top: 20px; }
-      @media screen and (min-width: 650px) {
-        #homepage_impact_region .impact_item .impact_number {
-          font-size: 1.625rem; } }
-    #homepage_impact_region .impact_item p {
+    #homepage_impact_region .impact_item .impact_text {
       color: #4F4F4F;
-      margin: 5px 0 25px; }
+      font-family: "p22-underground", sans-serif;
+      font-size: 1.375rem;
+      margin: 20px 0 25px; }
+      #homepage_impact_region .impact_item .impact_text .impact_number {
+        color: #309AEE;
+        font-weight: 600; }
   #homepage_impact_region button {
     clear: both; }
   @media (max-width: 750px) {
