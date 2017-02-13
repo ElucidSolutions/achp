@@ -1,4 +1,9 @@
-#page[data-page-path-alias="/indian-tribes-native-hawaiians"] {
+/*
+  Styles for Indian Tribes & Native Hawaiians landing
+  page, as well as Native Youth page
+*/
+
+#page[data-page-path-alias^="/indian-tribes-native-hawaiians"] {
   $vertical-padding: 35px;
   $container-padding: 50px;
   $img-height: 200px;
@@ -34,7 +39,20 @@
       #block-achp-content {
         @include content-container;
 
-        h2 + p {
+        h2 {
+          text-align: left;
+
+          & + p {
+            margin-top: 0;
+          }
+          & + h4 {
+            margin-top: 0;
+          }
+          & + ul {
+            margin-top: 5px;
+          }
+        }
+        h4 + p {
           margin-top: 0;
         }
       }
@@ -49,7 +67,6 @@
           h2 {
             font-size: rem(32px);
             margin-bottom: 0;
-            /*text-align: center;*/
 
             &+ p {
               margin: 0 0 30px;
@@ -90,7 +107,7 @@
 
             .read-more {
               display: inline-block;
-              // vertical-align: 25%;
+/*              // vertical-align: 25%;
 
               // a {
               //   @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
@@ -109,7 +126,7 @@
               // }
               // &:hover {
               //   color: $color-blue-primary;
-              // }
+              // }*/
             }
           }
           &:after {
@@ -144,7 +161,6 @@
         clear: both;
         height: auto;
         padding-bottom: $vertical-padding;
-        /*margin-top: $vertical-padding;*/
 
         [data-view-id="homepage_success_stories"] {
           @include content-container;
@@ -293,10 +309,9 @@
         @include content-container;
         box-shadow: 0px 1px 3px $color-lightgrey;
         font-family: $sans-text;
-        padding: $margin-med 40px;
         margin: 0 auto $margin-med;
-        // max-width: $max-content-width - 2 * $margin-large;
-        max-width: 100%;
+        max-width: $max-content-width - 2 * $margin-large;
+        padding: $margin-med 40px;
 
         &:before {
           background-image: url('../images/featured-icon.svg');
@@ -356,6 +371,7 @@
       }
       #block-related-resources-block {
         @include content-container;
+        margin-bottom: 40px;
       }
       @media (max-width: $max-content-width) {
         #block-indian-tribes-hawaiians-initiatives {
@@ -447,14 +463,6 @@
             .read-more {
               @include center-x;
               position: relative;
-              
-              // a {
-              //   vertical-align: -3%;
-              //   &:after {
-              //     -ms-transform: none;
-              //     top: 0;
-              //   }
-              // }
             }
           }
         }
@@ -482,6 +490,25 @@
           }
         }
       }
+    }
+  }
+}
+
+#page[data-page-path-alias="/indian-tribes-native-hawaiians/youth"] {
+  #content #content_region #block-achp-content {
+    margin-bottom: 50px;
+
+    p + h2, ul + h2 {
+      padding-top: 15px;
+    }
+    h4 {
+      margin: 10px 0 0;
+      & + p {
+        margin-top: 0;
+      }
+    }
+    .read_more {
+      padding-bottom: 15px;
     }
   }
 }

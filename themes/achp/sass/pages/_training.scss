@@ -20,39 +20,42 @@
     h2 + p {
       margin-top: 0;
     }
+    .training_types {
+      margin-top: 50px;
 
-    .training_section {
-      @include clear-float;
-      height: $img-height;
-      position: relative;
-      margin-bottom: 100px;
-
-      h3 {
-        color: $color-red2;
-        margin-bottom: 10px;
-      }
-
-      img {
-        float: left;
-        margin-right: $img-margin;
-        max-width: 100%;
-      }
-      .training_text {
-        position: relative;
+      .training_section {
+        @include clear-float;
         height: $img-height;
+        position: relative;
+        margin-bottom: 100px;
 
-        p {
-          margin-top: 0;
+        h3 {
+          color: $color-red2;
+          margin-bottom: 10px;
         }
-        .read_more {
-          bottom: 15px;
-          left: calc(#{$img-width} + #{$img-margin});
-          position: absolute;
+
+        img {
+          float: left;
+          margin-right: $img-margin;
+          max-width: 100%;
+        }
+        .training_text {
+          position: relative;
+          height: $img-height;
+
+          p {
+            margin-top: 0;
+          }
+          .read_more {
+            bottom: 15px;
+            left: calc(#{$img-width} + #{$img-margin});
+            position: absolute;
+          }
         }
       }
     }
     @media (max-width: 800px) {
-      .training_section {
+      .training_types .training_section {
         height: auto;
         margin-bottom: 30px;
 
