@@ -3,8 +3,25 @@
   for the e106 content type.
 */
 [data-page-path="/contact/e106_submission_form"] {
+  @import "../styleguide";
   @import "../digital_library_document_page";
 
+  h1 {
+    font-family: $sans-text;
+    font-size: rem(36px);
+    color: $color-darkblue;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: $margin-med;
+
+    &:after {
+      border-bottom: 1px solid $color-red;
+      content: "";
+      display: block;
+      margin-bottom: $margin-med;
+      width: 60%;
+    }
+  }
   .form-item > label {
     display: none;
   }
