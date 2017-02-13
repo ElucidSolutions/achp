@@ -83,9 +83,13 @@
       <div class="news_item_photo">
         {{ content.field_news_photo }}
       </div>  
-      <div class="news_item_attachments">
-        <h3>ATTACHMENTS</h3>
-        {{ content.field_news_attachments }} 
-      </div>
+      {{ content.field_news_attachments[0] }}
+      {{ content.field_news_attachments|length }}
+      {% if content.field_news_attachments[0] != "" %}
+        <div class="news_item_attachments">
+          <h3>ATTACHMENTS</h3>
+          {{ content.field_news_attachments }} 
+        </div>
+      {% endif %}
     </div>
   </div>

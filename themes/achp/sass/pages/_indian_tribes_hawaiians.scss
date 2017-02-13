@@ -37,7 +37,7 @@
       width: 100%;
 
       #block-achp-content {
-        @include content-container;
+        /*@include content-container;*/
 
         h2 {
           text-align: left;
@@ -107,26 +107,6 @@
 
             .read-more {
               display: inline-block;
-/*              // vertical-align: 25%;
-
-              // a {
-              //   @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
-              //   color: $color-grey;
-              //   display: inline-block;
-              //   font-family: $sans-text;
-              //   font-size: 0.875rem;
-              //   font-weight: 500;
-              //   text-decoration: none;
-              //   text-transform: uppercase;
-              //   width: 95%;
-
-              //   &:after {
-              //     right: 0;
-              //   }
-              // }
-              // &:hover {
-              //   color: $color-blue-primary;
-              // }*/
             }
           }
           &:after {
@@ -143,7 +123,6 @@
         }
       }
       #block-achp-native-youth, #block-section-106-assistance {
-      // #block-learnaboutpolicies, #block-specificdocument {
         .textblock_with_background {
           margin-bottom: $vertical-padding;
           margin-top: $vertical-padding;
@@ -176,7 +155,6 @@
           .success-story.card {
             background-color: #ffffff;
             display: inline-block;
-            /*float: left;*/
             height: $success-card-height;
             margin: 25px $success-card-margin-horiz 0 0;
             text-align: center;
@@ -217,10 +195,6 @@
                 @include center-x;
                 bottom: -5px;
                 padding-right: 5px;
-
-                a {
-                  // vertical-align: 0;   
-                }
               }
             }
           }
@@ -243,9 +217,6 @@
       }
       #block-indian-hawaiian-library {
         @include content-container-section;
-        // $library_icon_height: 50px;
-        // $icon-width: 46px;
-        // $icon-height: $icon-width;
 
         .library_categories {
           @include outer-container;
@@ -422,7 +393,6 @@
       }
       @media (max-width: 750px) {
         #block-achp-native-youth, #block-section-106-assistance {
-        // #block-learnaboutpolicies, #block-specificdocument {
           margin: 0;
 
           .textblock_with_background {
@@ -444,6 +414,7 @@
         }
         #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
           .success-story.card {
+
             &.view-item-1, &.view-item-2, &.view-item-3 {
             /*margin: 25px auto 0;*/
             display: block;
@@ -494,8 +465,15 @@
   }
 }
 
+#page[data-page-path-alias="/indian-tribes-native-hawaiians"] {
+  #content #content_region #block-achp-content {
+    @include content-container;
+  }
+}
+
 #page[data-page-path-alias="/indian-tribes-native-hawaiians/youth"] {
   #content #content_region #block-achp-content {
+    @include content-container;
     margin-bottom: 50px;
 
     p + h2, ul + h2 {
