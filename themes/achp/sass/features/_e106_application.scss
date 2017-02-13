@@ -1,53 +1,14 @@
+/*
+  This stylesheet defines the default styles
+  for the e106 content type.
+*/
 [data-page-path="/contact/e106_submission_form"] {
+  @import "../digital_library_document_page";
+
   .form-item > label {
     display: none;
   }
   .filter-wrapper {
     display: none;
-  }
-}
-[data-page-path-alias="/contact/electronic_section_106_documenta"] {
-
-  #content #content_region {
-    .contact-message-electronic-section-106-documenta-form {
-      color: $color-darkgrey2;
-      counter-reset: application-counter;
-      font-size: rem(18px);
-
-      .field--type-file:before {
-        content: counter(application-counter) ".";
-        counter-increment: application-counter;
-        margin-right: 5px;          
-      }
-      .js-form-item {
-        position: relative;
-        margin-bottom: 40px;
-
-        label:before {
-          content: counter(application-counter) ".";
-          counter-increment: application-counter;
-          margin-right: 5px;
-        }
-        label[for="edit-field-e106-supporting-docs-0-upload"]{
-          display: none;
-        }
-        label.option:before {
-          content: "";
-        }
-        .description {
-          padding: 10px 0 15px 30px;
-          color: $color-grey2;
-        }
-        select {
-          left: 0;
-        }
-        p {
-          margin-top: 0;
-        }
-        ul {
-          margin: 0;
-        }
-      }
-    }
   }
 }
