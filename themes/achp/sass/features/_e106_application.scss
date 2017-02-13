@@ -43,6 +43,29 @@
       .field--type-text-long {
         margin-bottom: $margin-large;
       }
+      .field--type-file {
+        summary {
+          display: none;
+        }
+        .tabledrag-toggle-weight-wrapper {
+          display: none;
+        }
+        thead {
+          display: none;
+        }
+        input[type="text"] {
+          margin: $margin-med 0;
+        }
+        input[type="submit"] {
+          @include achp-button();
+        }
+        input[type="file"] {
+          @include achp-button();
+        }
+        .description {
+          font-size: 14px;
+        }
+      }
       .form-item > label {
         display: none;
       }
