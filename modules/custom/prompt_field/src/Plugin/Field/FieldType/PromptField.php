@@ -25,14 +25,22 @@ class PromptField extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function schema(FieldStorageDefinitionInterface $field_definition) {
-    return [];
+    return ['columns' => [
+      'value' => [
+        'type' => 'varchar',
+        'length' => 256
+    ]]];
   }
 
   /**
    * {@inheritdoc}
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    return [];
+    $properties['value'] = DataDefinition::create('string')
+      ->setLabel(t(''))
+      ->setRequired(false);
+
+    return $properties;
   }
 
   /**

@@ -33,6 +33,7 @@ class PromptFieldWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
+    \Drupal::logger ('prompt_field')->notice ('[settingsForm]');
     $element['description'] = array (
       '#type' => 'textfield',
       '#title' => t('Description'),
@@ -52,10 +53,11 @@ class PromptFieldWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function settingsSummary() {
+    \Drupal::logger ('prompt_field')->notice ('[settingSummary]');
     $summary = array();
 
-    $html = $this->getSetting('description');
-    if (!empty($placeholder)) {
+    $description = $this->getSetting('description');
+    if (!empty($description)) {
       $summary[] = t('Description: @description', array('@description' => $description));
     }
     else {
@@ -69,6 +71,7 @@ class PromptFieldWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
+    \Drupal::logger ('prompt_field')->notice ('[formElement] html: <pre>' . $this->getSetting ('html') . '</pre>');
     $element['html'] = $element + array(
       '#markup' => $this->getSetting ('html')
     );
