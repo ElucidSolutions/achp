@@ -417,6 +417,38 @@ html {
     content: '';
     display: block; }
 
+[data-page-path="/contact/e106_submission_form"] .filter-wrapper {
+  display: none; }
+
+[data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form {
+  color: #1E1E1E;
+  counter-reset: application-counter;
+  font-size: 1.125rem; }
+  [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .field--type-file:before {
+    content: counter(application-counter) ".";
+    counter-increment: application-counter;
+    margin-right: 5px; }
+  [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item {
+    position: relative;
+    margin-bottom: 40px; }
+    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item label:before {
+      content: counter(application-counter) ".";
+      counter-increment: application-counter;
+      margin-right: 5px; }
+    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item label[for="edit-field-e106-supporting-docs-0-upload"] {
+      display: none; }
+    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item label.option:before {
+      content: ""; }
+    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item .description {
+      padding: 10px 0 15px 30px;
+      color: #4A4A4A; }
+    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item select {
+      left: 0; }
+    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item p {
+      margin-top: 0; }
+    [data-page-path-alias="/contact/electronic_section_106_documenta"] #content #content_region .contact-message-electronic-section-106-documenta-form .js-form-item ul {
+      margin: 0; }
+
 /*
   This module contains styles used by the Event
   Calendar feature.
