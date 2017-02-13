@@ -15,23 +15,40 @@
           color: $color-darkblue;
           line-height: 1.2;
           text-align: center;
-          margin-bottom: $margin-med;
 
           &:after {
             border-bottom: 1px solid $color-red;
             content: "";
             display: block;
-            margin: 0 auto $margin-med;
+            margin: $margin-med auto $margin-large;
             width: 60%;
           }
         }
       }
     }
-    .form-item > label {
-      display: none;
-    }
-    .filter-wrapper {
-      display: none;
+    #content_region {
+      .field--type-prompt-field {
+        color: $color-grey2;
+
+        p:first-of-type {
+          color: $color-darkgrey2;
+        }
+        p:nth-of-type(n+2) {
+          padding: $margin-small $margin-med;
+        }
+        strong {
+          color: black;
+        }
+      }
+      .field--type-text-long {
+        margin-bottom: $margin-large;
+      }
+      .form-item > label {
+        display: none;
+      }
+      .filter-wrapper {
+        display: none;
+      }
     }
   }
 }
