@@ -6,26 +6,32 @@
   @import "../styleguide";
   @import "../digital_library_document_page";
 
-  h1 {
-    font-family: $sans-text;
-    font-size: rem(36px);
-    color: $color-darkblue;
-    line-height: 1.2;
-    text-align: center;
-    margin-bottom: $margin-med;
+  #main {
+    #seconday_header_region {
+      [data-plugin-id="page_title_block"] {
+        h1 {
+          font-family: $sans-text;
+          font-size: rem(36px);
+          color: $color-darkblue;
+          line-height: 1.2;
+          text-align: center;
+          margin-bottom: $margin-med;
 
-    &:after {
-      border-bottom: 1px solid $color-red;
-      content: "";
-      display: block;
-      margin: 0 auto $margin-med;
-      width: 60%;
+          &:after {
+            border-bottom: 1px solid $color-red;
+            content: "";
+            display: block;
+            margin: 0 auto $margin-med;
+            width: 60%;
+          }
+        }
+      }
     }
-  }
-  .form-item > label {
-    display: none;
-  }
-  .filter-wrapper {
-    display: none;
+    .form-item > label {
+      display: none;
+    }
+    .filter-wrapper {
+      display: none;
+    }
   }
 }
