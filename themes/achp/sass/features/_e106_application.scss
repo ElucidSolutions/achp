@@ -69,8 +69,7 @@
           @include achp-button();
         }
         input[type="file"] {
-          @include appearance(none);
-          @include achp-button();
+          &::-ms-browse,
           &::-webkit-file-upload-button {
             @include achp-button();
           }
