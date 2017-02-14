@@ -9,6 +9,7 @@
     #secondary_header_region {
       margin: 0 auto;
       max-width: $max-content-width;
+      padding: 0 $margin-large;
 
       [data-plugin-id="page_title_block"] {
         h1 {
@@ -32,6 +33,8 @@
       }
     }
     #content_region {
+      margin-bottom: $margin-large;
+
       .field--type-prompt-field {
         color: $color-grey2;
 
