@@ -75,6 +75,8 @@
           &::-ms-browse,
           &::-webkit-file-upload-button {
             @include achp-button();
+            background-color: red;
+            display: none;
           }
         }
         .description {
