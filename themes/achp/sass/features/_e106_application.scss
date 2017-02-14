@@ -36,8 +36,9 @@
       margin-bottom: $margin-large;
 
       input[type="submit"] {
-          @include appearance(none);
-          @include achp-button();
+        @include appearance(none);
+        @include achp-button();
+        padding: $margin-small 35px $margin-xsmall;
       }
       input[type="file"] {
         // @include appearance(none);
