@@ -70,6 +70,7 @@
         }
         input[type="file"] {
           @include appearance(none);
+          @include achp-button();
           &::-webkit-file-upload-button {
             @include achp-button();
           }
