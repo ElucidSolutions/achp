@@ -3308,15 +3308,11 @@ html {
         content: "";
         display: block; }
       #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list h3 {
-        /*position: absolute;*/
         width: 100%; }
-      #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li:first-of-type .views-field-title {
-        padding-top: 0;
-        /*border: 1px solid pink;*/ }
       #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list:first-of-type {
         border-top: 2px solid #71BFFE; }
         #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list:first-of-type ul li .views-field-title {
-          /*padding-top: 0;*/ }
+          padding-top: 0; }
         #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list:first-of-type h3:before {
           content: "AGENCY";
           color: #000;
@@ -3363,7 +3359,7 @@ html {
           width: 50%; }
         #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list .agency_heading .agency_link {
           line-height: 1;
-          top: 60px;
+          padding-top: 50px;
           position: absolute;
           width: calc(50% - 50px); }
           #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list .agency_heading .agency_link a {
@@ -3429,8 +3425,6 @@ html {
               width: calc(50% - 15px); }
               #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-fpo-sub-agency .sub_agency_heading {
                 position: absolute; }
-                #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-fpo-sub-agency .sub_agency_heading .sub_agency_name {
-                  /*position: absolute;*/ }
                 #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-fpo-sub-agency .sub_agency_heading .sub_agency_notes {
                   width: calc(100% - 50px);
                   /*position: absolute;*/ }
@@ -6094,6 +6088,8 @@ html {
           #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_tags .field_tags a {
             color: #0990FE;
             text-decoration: none; }
+    #page[data-page-node-type="news_story"] #main #content #news_item_page .news_item_photo {
+      display: none; }
   #page[data-page-node-type="news_story"] #main #content #block-views-block-related-news-items-block-1 {
     background-color: #fff;
     margin: 20px auto 40px;
@@ -14200,4 +14196,4 @@ general office landing page */
             [data-page-node-type="whitepapers"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
               margin-bottom: 0; } }
 
-/*# sourceMappingURL=pages.css.map */
+/*# sourceMappingURL=_pages.css.map */

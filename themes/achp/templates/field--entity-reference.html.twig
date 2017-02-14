@@ -37,20 +37,19 @@
  */
 #}
 
-Test 123
-{{ item }}
+TEST
 {% if label_hidden %}
   {% if multiple %}
     <div{{ attributes }}>
       {% for item in items %}
-        <div class="news_attachment_title"><a href="{{ item.url }}">{{ item.title }}</a></div>
-        <div class="news_attachment_body">{{ item.body|raw }}</div>
+        <div class="achp-entity-reference-title"><a class="achp-entity-reference-link" href="{{ item.url }}">{{ item.title }}</a></div>
+        <div class="achp-entity-reference-body">{{ item.body|raw }}</div>
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <div class="news_attachment_title"><a href="{{ item.url }}">{{ item.title }}</a></div>
-      <div class="news_attachment_body">{{ item.body|raw }}</div>
+      <div class="achp-entity-reference-title"><a class="achp-entity-reference-link" href="{{ item.url }}">{{ item.title }}</a></div>
+      <div class="achp-entity-reference-body">{{ item.body|raw }}</div>
     {% endfor %}
   {% endif %}
 {% else %}
@@ -60,8 +59,8 @@ Test 123
       <div>
     {% endif %}
     {% for item in items %}
-      <div class="news_attachment_title"><a href="{{ item.url }}">{{ item.title }}</a></div>
-      <div class="news_attachment_body">{{ item.body|raw }}</div>
+      <div class="achp-entity-reference-title"><a class="achp-entity-reference-link" href="{{ item.url }}">{{ item.title }}</a></div>
+      <div class="achp-entity-reference-body">{{ item.body|raw }}</div>
     {% endfor %}
     {% if multiple %}
       </div>

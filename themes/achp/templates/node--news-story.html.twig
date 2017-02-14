@@ -80,16 +80,16 @@
         <div class="news_item_tags_label">TOPICS</div>
         {{ content.field_tags }}
       </div>
-      <div class="news_item_photo">
-        {{ content.field_news_photo }}
-      </div>  
-      {{ content.field_news_attachments[0] }}
-      {{ content.field_news_attachments|length }}
-      {% if content.field_news_attachments[0] != "" %}
-        <div class="news_item_attachments">
-          <h3>ATTACHMENTS</h3>
-          {{ content.field_news_attachments }} 
-        </div>
-      {% endif %}
+      <div class="news_item_attachments">
+        <h3>ATTACHMENTS</h3>
+        {{ content.field_test_attachments|length }}
+        {{ content.field_news_attachments|length }}
+        <ul>
+          {% for key in node.field_news_attachments|keys %}
+            <li>{{ items [key] }}</li>
+            <li><a href="{{ items [key].url }}">{{ items [key].title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>

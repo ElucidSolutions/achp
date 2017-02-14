@@ -16,7 +16,7 @@
   }
 
   $(document).ready (function () {
-    
+
     initFilterBehavior ();
 
   })
@@ -25,12 +25,13 @@
     Accepts no arguments, returns undefined.
   */
   function initFilterBehavior () {
+    getNotesWithText ();
     setTextInputPlaceholder ();
     removeSubmitButtonText ();
   }
 
   /*
-    Accepts no input, sets placeholder text on the text input
+    Accepts no arguments, sets placeholder text on the text input
     element, and returns undefined.
   */
   function setTextInputPlaceholder () {
@@ -38,12 +39,35 @@
   }
 
   /*
-    Accepts no input, removes default text from the submit
+    Accepts no arguments, removes default text from the submit
     button, and returns undefined.
   */
   function removeSubmitButtonText () {
     getFilterSubmitButton ().attr('value', '');
   }
+
+  /*
+    Accepts no arguments, ends the parent h3 element of any notes
+     that are not empty to addNotesPadding, and returns undefined.
+  */
+  function getNotesWithText () {
+    $(getAgencyNotes ().each (function (i, note) {
+      var note = $(note);
+        if (note.text () != "") {
+          addNotesPadding (note.parents('h3'));
+        }
+    }))
+  }
+
+  /*
+    Accepts one argument, an HTML Element representing
+    the h3 parent of an agency note element, finds the
+    first title element of the following li's children,
+    and adds top-padding.
+  */
+  function addNotesPadding (heading) {
+    $(heading.next($('ul')).find('li:first .' + getFPONameClass ())).css('padding-top', '30px');
+  }    
 
   /*
     Accepts no arguments,submits this filter's view form 
@@ -95,6 +119,30 @@
   function getViewContainerElement () {
     return $('#' + getViewContainerID ());
   }
+
+  /*
+    Accepts no arguments and returns all agency
+    notes elements.
+  */
+  function getAgencyNotes () {
+    return getViewContainerElement ().find('.' + getAgencyNotesClass ());
+  }
+
+  /*
+    Accepts no arguments, and returns a string representing
+    the class name of the FPO title (name) field.
+  */
+  function getFPONameClass () {
+    return 'views-field-title';
+  }
+
+  /*
+    Accepts no arguments and returns a string representing
+    the agency notes class.
+  */
+  function getAgencyNotesClass () {
+    return 'agency_notes';
+  }  
 
   /*
     Accepts no arguments and returns a string representing

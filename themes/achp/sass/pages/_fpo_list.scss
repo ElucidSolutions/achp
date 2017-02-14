@@ -30,14 +30,19 @@
         position: relative;
 
         h3 {
+          /*position: absolute;*/
           width: 100%;
+        }
+        ul li:first-of-type .views-field-title {
+          padding-top: 0;
+          /*border: 1px solid pink;*/
         }
 
         &:first-of-type {
           border-top: 2px solid $color-lightblue-primary;
           
           ul li .views-field-title {
-            padding-top: 0;
+            /*padding-top: 0;*/
           }
 
           h3 {
@@ -80,7 +85,7 @@
           }
           .agency_link {
             line-height: 1;
-            padding-top: 50px;
+            top: 60px;
             position: absolute;
             width: calc(50% - 50px);
 
@@ -169,6 +174,10 @@
 
                 .sub_agency_heading {
                   position: absolute;
+
+                  .sub_agency_name {
+                    /*position: absolute;*/
+                  }
 
                   .sub_agency_notes {
                     width: calc(100% - 50px);
