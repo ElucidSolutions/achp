@@ -74,6 +74,7 @@
 
           &::-ms-browse,
           &::-webkit-file-upload-button {
+            @include appearance(none);
             @include achp-button();
             background-color: red;
             display: none;
