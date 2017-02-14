@@ -66,8 +66,12 @@
           color: black;
         }
       }
-      .field--type-text-long {
+      .field--type-text-string-long {
         margin-bottom: $margin-large;
+
+        textarea {
+          width: 100%;
+        }
       }
       .field--type-file {
         summary {
