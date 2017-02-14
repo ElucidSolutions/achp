@@ -35,6 +35,19 @@
     #content_region {
       margin-bottom: $margin-large;
 
+      input,
+      input[type="file"] {
+        @include appearance(none);
+        @include achp-button();
+
+        &::-ms-browse,
+        &::-webkit-file-upload-button {
+          @include appearance(none);
+          @include achp-button();
+          background-color: red;
+          display: none;
+        }
+      }
       .field--type-prompt-field {
         color: $color-grey2;
 
