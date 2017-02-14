@@ -78,11 +78,14 @@
         }
       }
       .field--type-boolean {
+        margin-bottom: $margin-large;
+
         input[type="checkbox"] {
           float: left;
           margin: 6px $margin-small 0 $margin-med;
         }
         .description {
+          color: $color-grey2;
           margin-left: $margin-large;
         }
       }
