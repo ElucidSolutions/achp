@@ -53,6 +53,9 @@
           display: none;
         }
       }
+      ul {
+        margin-left: $margin-large;
+      }
       .field--type-prompt-field {
         color: $color-grey2;
 
@@ -70,7 +73,14 @@
         margin-bottom: $margin-large;
 
         textarea {
+          padding: $margin-small;
           width: 100%;
+        }
+      }
+      .field--type-boolean {
+        input[type="checkbox"] {
+          float: left;
+          margin: 6px $margin-small 0 $margin-med;
         }
       }
       .field--type-file {
