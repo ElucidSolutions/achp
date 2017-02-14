@@ -29,6 +29,10 @@
         padding: 30px 25px 0 40px;
         position: relative;
 
+        h3 {
+          width: 100%;
+        }
+
         &:first-of-type {
           border-top: 2px solid $color-lightblue-primary;
           
@@ -66,13 +70,25 @@
             top: 29px;
             width: calc(50% - 15px);
           }
-          .agency_notes {
+          .agency_notes, .agency-notes {
             color: #000;
             font-size: rem(18px);
             font-family: $serif-text;
             left: 50%;
             position: relative;
             width: 50%;
+          }
+          .agency_link {
+            line-height: 1;
+            padding-top: 50px;
+            position: absolute;
+            width: calc(50% - 50px);
+
+            a {
+              color: $color-blue-primary;
+              font-size: rem(18px);
+              margin-top: 20px;
+            }           
           }
         }
         ul {
@@ -157,12 +173,12 @@
                   .sub_agency_notes {
                     width: calc(100% - 50px);
                     /*position: absolute;*/
+                  }
 
-                    a {
-                      color: $color-blue-primary;
-                      font-size: rem(18px);
-                      margin-top: 20px;
-                    }
+                  .sub_agency_link a {
+                    color: $color-blue-primary;
+                    font-size: rem(18px);
+                    margin-top: 20px; 
                   }
                 }
               }
