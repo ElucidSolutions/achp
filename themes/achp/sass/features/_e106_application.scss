@@ -35,10 +35,13 @@
     #content_region {
       margin-bottom: $margin-large;
 
-      input,
+      input[type="submit"] {
+          @include appearance(none);
+          @include achp-button();
+      }
       input[type="file"] {
-        @include appearance(none);
-        @include achp-button();
+        // @include appearance(none);
+        // @include achp-button();
 
         &::-ms-browse,
         &::-webkit-file-upload-button {
@@ -77,21 +80,6 @@
         input[type="text"] {
           height: 35px;
           margin: $margin-med 0;
-        }
-        input[type="submit"] {
-          @include achp-button();
-        }
-        input[type="file"] {
-          @include appearance(none);
-          @include achp-button();
-
-          &::-ms-browse,
-          &::-webkit-file-upload-button {
-            @include appearance(none);
-            @include achp-button();
-            background-color: red;
-            display: none;
-          }
         }
         .description {
           font-size: 14px;
