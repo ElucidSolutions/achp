@@ -4,10 +4,12 @@
 */
 [data-page-path="/contact/e106_submission_form"] {
   @import "../styleguide";
-  @import "../digital_library_document_page";
 
   #main {
     #secondary_header_region {
+      margin: 0 auto;
+      max-width: $max-content-width;
+
       [data-plugin-id="page_title_block"] {
         h1 {
           font-family: $sans-text;
@@ -24,6 +26,9 @@
             width: 60%;
           }
         }
+      }
+      [data-plugin-id="share_this_page_block"] {
+        margin-bottom: $margin-large;
       }
     }
     #content_region {
@@ -54,6 +59,7 @@
           display: none;
         }
         input[type="text"] {
+          height: 35px;
           margin: $margin-med 0;
         }
         input[type="submit"] {
