@@ -697,7 +697,23 @@ html {
       -moz-appearance: none;
       -ms-appearance: none;
       -o-appearance: none;
-      appearance: none; }
+      appearance: none;
+      transition: background-color 0.25s;
+      background-color: #0990FE;
+      border: none;
+      border-radius: 2px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 600;
+      padding: 5px 35px;
+      text-transform: uppercase; }
+      [data-page-path="/contact/e106_submission_form"] #main #content_region .field--type-file input[type="file"]:hover {
+        background-color: #71BFFE; }
+      @media screen and (max-width: 650px) {
+        [data-page-path="/contact/e106_submission_form"] #main #content_region .field--type-file input[type="file"] {
+          width: 100%; } }
       [data-page-path="/contact/e106_submission_form"] #main #content_region .field--type-file input[type="file"]::-ms-browse, [data-page-path="/contact/e106_submission_form"] #main #content_region .field--type-file input[type="file"]::-webkit-file-upload-button {
         transition: background-color 0.25s;
         background-color: #0990FE;
