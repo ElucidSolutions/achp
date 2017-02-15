@@ -3,5 +3,34 @@
   the ACHP Internal Resource Page content type.
 */
 [data-page-node-type="achp_internal_resource_page"] {
+  @import "../styleguide";
   @import "../digital_library_document_page";
+
+  [data-achp-field-name="field_internal_resource_type"] {
+    .achp-field-label {
+      @include h4;
+      float: left;
+      margin-right: $margin-med;
+
+      &:after {
+        content: ":";
+      }
+    }
+    .achp-field-item {
+      color: $color-lightgrey-2;
+      display: inline-block;
+      margin-right: $margin-med;
+
+      &:after {
+        content: ",";
+      }
+      &:last-of-type {
+        margin-right: 0;
+
+        &:after {
+          content: "";
+        }
+      }
+    }
+  }
 }

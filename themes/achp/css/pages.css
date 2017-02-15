@@ -223,6 +223,225 @@ html {
 */
 [data-page-node-type="achp_internal_resource_page"] {
   /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and mobile-value, another CSS value
+  
+    sets property to mobile-value and adds a media
+    query that sets property to mobile-value for
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and tablet-value, another CSS value
+  
+    sets property to tablet-value and adds a media
+    query that sets property to tablet-value for
+    tablet screens.
+  */
+  /*
+    Accepts four arguments:
+  
+    * property, a CSS property
+    * widescreen-value, a CSS value
+    * tablet-value, a CSS value
+    * and mobile-value, an optional CSS value
+  
+    sets property to widescreen-value and
+    adds media queries that sets property to
+    tablet-value and mobile-value for tablet and
+    mobile screens.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
+    Accepts two arguments:
+  
+    * front-size, a CSS length measure
+    * margin-bottom, a CSS length measure
+  
+    and sets both the font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area -
+    affecting the bottom margin.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Accepts four length measures as
+    arguments: $widescreen-font-size,
+    $widescreen-margin-bottom, $mobile-font-size,
+    and $mobile-margin-bottom, and sets the
+    widescreen and mobile font sizes while
+    adjusting the bottom margins.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */
+  /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
+  */
+  /*
     This stylesheet defines default styles shared
     by the Digital Library document pages.
   */ }
@@ -679,6 +898,39 @@ html {
               margin-bottom: 0; } }
       [data-page-node-type="achp_internal_resource_page"] #main #content_region [data-derivative-plugin-id^="related_resources"] {
         padding: 0; }
+  [data-page-node-type="achp_internal_resource_page"] [data-achp-field-name="field_internal_resource_type"] .achp-field-label {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 0;
+    float: left;
+    margin-right: 20px; }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="achp_internal_resource_page"] [data-achp-field-name="field_internal_resource_type"] .achp-field-label {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      [data-page-node-type="achp_internal_resource_page"] [data-achp-field-name="field_internal_resource_type"] .achp-field-label {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      [data-page-node-type="achp_internal_resource_page"] [data-achp-field-name="field_internal_resource_type"] .achp-field-label {
+        margin-bottom: 0; } }
+    [data-page-node-type="achp_internal_resource_page"] [data-achp-field-name="field_internal_resource_type"] .achp-field-label:after {
+      content: ":"; }
+  [data-page-node-type="achp_internal_resource_page"] [data-achp-field-name="field_internal_resource_type"] .achp-field-item {
+    color: #7C7C7C;
+    display: inline-block;
+    margin-right: 20px; }
+    [data-page-node-type="achp_internal_resource_page"] [data-achp-field-name="field_internal_resource_type"] .achp-field-item:after {
+      content: ","; }
+    [data-page-node-type="achp_internal_resource_page"] [data-achp-field-name="field_internal_resource_type"] .achp-field-item:last-of-type {
+      margin-right: 0; }
+      [data-page-node-type="achp_internal_resource_page"] [data-achp-field-name="field_internal_resource_type"] .achp-field-item:last-of-type:after {
+        content: ""; }
 
 /*
   This stylesheet defines the default styles
