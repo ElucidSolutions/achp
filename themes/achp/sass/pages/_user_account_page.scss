@@ -10,21 +10,24 @@
       margin: 0 auto;
       max-width: $max-content-width;
       padding: 0 $margin-large;
+
+      #block-useraccountpagewelcomeblock {
+        @include styleguide;
+
+        h3 {
+          @include h3($color: $color-red, $center: false);
+          color: $color-red;
+          text-align: left;
+        }
+        h4 {
+          @include h4($color: $color-red, $center: false);
+          color: $color-red;
+          text-align: left;
+        }
+      }
     }
     #content_region {
       @include styleguide;
-      background-color: blue;
-
-      h3 {
-        @include h3($color: $color-red, $center: false);
-        color: $color-red;
-        text-align: left;
-      }
-      h4 {
-        @include h4($color: $color-red, $center: false);
-        color: $color-red;
-        text-align: left;
-      }
     }
   }
 }
