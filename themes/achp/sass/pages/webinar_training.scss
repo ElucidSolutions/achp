@@ -1,0 +1,67 @@
+#page[data-page-path-alias="/training/webinars"] {
+  @extend #page[data-page-path-alias^="/training/classroom"];
+
+  #content #content_region {
+    #block-achp-content {
+      ul {
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+      .logos {
+        margin-top: 10px;
+
+        & + p {
+          margin-top: 0;
+        }
+      }
+    }
+    #block-webinar-registration {
+      .views-row {
+        padding-bottom: 30px;
+
+        h3 {
+          color: $color-red2;
+        }
+        h4 {
+          color: $color-darkblue2;
+          margin: 5px 0 0;
+        }
+        .views-field-field-webinar-level + .views-field-body p {
+          margin-top: 5px;
+        }
+        ul {
+          margin-bottom: 20px;
+        }
+        .views-field-field-webinar-link {
+          @include hover-transition-background($color-lightblue-primary);
+          background-color: $color-blue-primary;
+          border: none;
+          border-radius: 2px;  
+          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+          cursor: pointer;
+          display: inline-block;
+          font-family: $sans-text;
+          font-size: rem(16px);
+          font-weight: 400;
+          letter-spacing: 0.02rem;
+          line-height: 1.4rem;
+          margin-bottom: 30px;
+          padding: 12px 38px 8px;
+          text-transform: uppercase;
+
+          a {
+            color: #fff;
+          }
+
+          @media (max-width: $mobile-breakpoint) {
+            line-height: 1.2rem;
+          }
+
+          @media (max-width: 400px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

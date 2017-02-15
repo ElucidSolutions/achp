@@ -71,6 +71,10 @@
       .logos {
         margin-top: 10px;
 
+        img:first-of-type {
+          margin-right: 5px;
+        }
+
         & + p {
           margin-top: 10px;
         }
@@ -89,8 +93,10 @@
         /*left: 0;*/
         position: absolute;
         top: -30px;
-      }      
-
+      }   
+      a {
+        color: $color-blue-primary;
+      }   
       header {
         background-color: #fff;
         height: auto;
@@ -112,29 +118,68 @@
           &:first-of-type {
             td.views-field-field-classroom-offer-end:before {
               @include create-header ("Dates");
-              /*content: "Dates";*/
-              /*display: block;*/
             }
-            td.views-field-field-classroom-offer-city-state :before {
+            td.views-field-field-classroom-offer-venue:before {
               @include create-header ("Location");
-              /*display: block;*/
             }
-            td.views-field-field-classroom-offer-full:before {
+            td.views-field-field-classroom-offer-reg-link-1:before {
               @include create-header ("Registration Forms");
-              /*display: block;*/
             }      
           }  
           td {
             padding: 10px;
 
-            &.views-field-field-classroom-offer-full {
+            &.views-field-field-classroom-offer-end {
+              min-width: 150px;
+            }
+            &.views-field-field-classroom-offer-venue {
+              min-width: 200px;
+            }
+            &.views-field-field-classroom-offer-reg-link-1 {
               max-width: 50%;
             }
           }            
         }
+        a {
+          color: $color-blue-primary;
+        }
+      }
+    }
+    #block-classroom-training-registration-mobile {
+      display: none;
+    }
+    @media (max-width: 700px) {
+      #block-classroom-training-registration {
+        display: none;
+      }
+      #block-classroom-training-registration-mobile {
+        display: block;
+        font-family: $sans-text;
+        font-size: rem(16px);
+        margin-top: 40px;
+        position: relative;
+        width: 100%;
 
         a {
           color: $color-blue-primary;
+        }   
+        header {
+          background-color: #fff;
+          height: auto;
+        }
+        .view-item-1 {
+          border-top: 2px solid $color-lightblue-primary;
+        }
+        .views-row {
+          padding: 0 20px 10px;
+          &:nth-child(even) {
+            background-color: $background-color-lightblue;
+          }
+          .views-label {
+            display: inline-block;
+            font-weight: 500;
+            padding-top: 10px;
+          }
         }
       }
     }
