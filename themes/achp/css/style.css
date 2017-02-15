@@ -1095,13 +1095,14 @@ html {
   [data-derivative-plugin-id="contact_messages-block_1"] h2 {
     margin: 0;
     padding: 0;
-    color: #003A5E;
+    color: #950306;
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
     line-height: 1.4;
     font-size: 2rem;
     margin-bottom: 20px;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    text-align: left; }
     @media screen and (max-width: 650px) {
       [data-derivative-plugin-id="contact_messages-block_1"] h2 {
         font-size: 1.375rem; } }
@@ -3980,6 +3981,397 @@ the events landing page is different */
     color: #4A4A4A;
     font-size: 1.125rem;
     margin-bottom: 20px; }
+
+/*
+  This stylesheet defines the default styles for
+  the Resources Pages block which is displayed
+  on User Account pages for certain roles.
+*/
+#block-useraccountpageresourcepagesblock {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and mobile-value, another CSS value
+  
+    sets property to mobile-value and adds a media
+    query that sets property to mobile-value for
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and tablet-value, another CSS value
+  
+    sets property to tablet-value and adds a media
+    query that sets property to tablet-value for
+    tablet screens.
+  */
+  /*
+    Accepts four arguments:
+  
+    * property, a CSS property
+    * widescreen-value, a CSS value
+    * tablet-value, a CSS value
+    * and mobile-value, an optional CSS value
+  
+    sets property to widescreen-value and
+    adds media queries that sets property to
+    tablet-value and mobile-value for tablet and
+    mobile screens.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
+    Accepts two arguments:
+  
+    * front-size, a CSS length measure
+    * margin-bottom, a CSS length measure
+  
+    and sets both the font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area -
+    affecting the bottom margin.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Accepts four length measures as
+    arguments: $widescreen-font-size,
+    $widescreen-margin-bottom, $mobile-font-size,
+    and $mobile-margin-bottom, and sets the
+    widescreen and mobile font sizes while
+    adjusting the bottom margins.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */
+  /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
+  */ }
+  #block-useraccountpageresourcepagesblock a {
+    font-family: "p22-underground", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    transition: color 0.25s;
+    color: #0990FE; }
+    #block-useraccountpageresourcepagesblock a:hover {
+      color: #71BFFE; }
+  #block-useraccountpageresourcepagesblock blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-left: 20px; }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock blockquote {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock blockquote {
+        margin-bottom: 20px; } }
+  #block-useraccountpageresourcepagesblock h1, #block-useraccountpageresourcepagesblock #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-useraccountpageresourcepagesblock .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #block-useraccountpageresourcepagesblock #content #block-achp-page-title h1, #content #block-achp-page-title #block-useraccountpageresourcepagesblock h1 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 2.25rem;
+    margin-bottom: 0; }
+    @media screen and (max-width: 925px) {
+      #block-useraccountpageresourcepagesblock h1, #block-useraccountpageresourcepagesblock #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-useraccountpageresourcepagesblock .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #block-useraccountpageresourcepagesblock #content #block-achp-page-title h1, #content #block-achp-page-title #block-useraccountpageresourcepagesblock h1 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h1, #block-useraccountpageresourcepagesblock #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-useraccountpageresourcepagesblock .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #block-useraccountpageresourcepagesblock #content #block-achp-page-title h1, #content #block-achp-page-title #block-useraccountpageresourcepagesblock h1 {
+        font-size: 1.625rem; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h1, #block-useraccountpageresourcepagesblock #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #secondary_header #secondary_header_region .node-banner .node-banner-banner .node-banner-banner-overlay #block-useraccountpageresourcepagesblock .node-banner-banner-overlay-field[data-node-banner-overlay-field="title"], #block-useraccountpageresourcepagesblock #content #block-achp-page-title h1, #content #block-achp-page-title #block-useraccountpageresourcepagesblock h1 {
+        margin-bottom: 0; } }
+  #block-useraccountpageresourcepagesblock h2 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 20px; }
+    @media screen and (max-width: 925px) {
+      #block-useraccountpageresourcepagesblock h2 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h2 {
+        font-size: 1.375rem; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h2 {
+        margin-bottom: 20px; } }
+  #block-useraccountpageresourcepagesblock h3 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 5px; }
+    @media screen and (max-width: 925px) {
+      #block-useraccountpageresourcepagesblock h3 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h3 {
+        font-size: 1.25rem; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h3 {
+        margin-bottom: 0; } }
+  #block-useraccountpageresourcepagesblock h4 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 1.375rem;
+    margin-bottom: 0; }
+    @media screen and (max-width: 925px) {
+      #block-useraccountpageresourcepagesblock h4 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h4 {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h4 {
+        margin-bottom: 0; } }
+  #block-useraccountpageresourcepagesblock p {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  #block-useraccountpageresourcepagesblock ul {
+    margin: 0;
+    padding: 0;
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 20px; }
+  #block-useraccountpageresourcepagesblock table {
+    border-collapse: collapse; }
+  #block-useraccountpageresourcepagesblock h2 {
+    margin: 0;
+    padding: 0;
+    color: #950306;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-bottom: 0;
+    text-align: left; }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h2 {
+        font-size: 1.375rem; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h2 {
+        margin-bottom: 20px; } }
+  #block-useraccountpageresourcepagesblock h3 {
+    margin: 0;
+    padding: 0;
+    color: #950306;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: 1.375rem;
+    margin-bottom: 5px;
+    text-align: left; }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h3 {
+        font-size: 1.25rem; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h3 {
+        margin-bottom: 0; } }
+  #block-useraccountpageresourcepagesblock h4 {
+    margin: 0;
+    padding: 0;
+    color: #950306;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: 1.375rem;
+    margin-bottom: 0;
+    text-align: left; }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h4 {
+        font-size: 1.125rem; } }
+    @media screen and (max-width: 650px) {
+      #block-useraccountpageresourcepagesblock h4 {
+        margin-bottom: 0; } }
 
 /*
 ** This Sass file defines the styles for the 

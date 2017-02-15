@@ -12,6 +12,16 @@
       padding: 0 $margin-large;
     }
     #content_region {
+      @include styleguide;
+
+      h3 {
+        @include h3($color: $color-red, $center: false);
+        text-align: left;
+      }
+      h4 {
+        @include h4($color: $color-red, $center: false);
+        text-align: left;
+      }
     }
   }
 }

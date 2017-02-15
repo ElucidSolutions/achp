@@ -8,8 +8,9 @@
   @import "../styleguide";
 
   h2 {
-    @include h2($center: false);
+    @include h2($color: $color-red, $center: false);
     margin-bottom: 0;
+    text-align: left;
   }
   header {
     background-color: transparent;
