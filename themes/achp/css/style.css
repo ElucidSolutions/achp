@@ -1099,12 +1099,9 @@ html {
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
     line-height: 1.4;
-    text-align: left;
     font-size: 2rem;
-    margin-bottom: 20px; }
-    @media screen and (max-width: 925px) {
-      [data-derivative-plugin-id="contact_messages-block_1"] h2 {
-        text-align: center; } }
+    margin-bottom: 20px;
+    margin-bottom: 0; }
     @media screen and (max-width: 650px) {
       [data-derivative-plugin-id="contact_messages-block_1"] h2 {
         font-size: 1.375rem; } }
@@ -1119,9 +1116,8 @@ html {
     [data-derivative-plugin-id="contact_messages-block_1"] table thead tr th {
       color: black;
       font-family: "p22-underground", sans-serif;
-      font-weight: 500;
-      line-height: 1.4;
       font-size: 1rem;
+      font-weight: 500;
       padding: 10px 0 5px; }
     [data-derivative-plugin-id="contact_messages-block_1"] table tbody tr td {
       border: 1px solid #E5E3E4;
