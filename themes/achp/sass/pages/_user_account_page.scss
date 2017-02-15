@@ -1,0 +1,17 @@
+/*
+  This stylesheet defines the default styles
+  for the User Account pages.
+*/
+[data-page-path^="/user/"] {
+  @import "../styleguide";
+
+  #main {
+    #secondary_header_region {
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: 0 $margin-large;
+    }
+    #content_region {
+    }
+  }
+}
