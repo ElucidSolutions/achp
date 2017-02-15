@@ -16,10 +16,12 @@
 
       h3 {
         @include h3($color: $color-red, $center: false);
+        color: $color-red;
         text-align: left;
       }
       h4 {
         @include h4($color: $color-red, $center: false);
+        color: $color-red;
         text-align: left;
       }
     }
