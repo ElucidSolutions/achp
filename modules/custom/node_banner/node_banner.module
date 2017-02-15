@@ -14,3 +14,13 @@ function node_banner_theme () {
     ]
   ];
 }
+
+/*
+  Implements hook_page_attachements().
+
+  Note: this function attaches the Node Banner
+  library to every page.
+*/
+function node_banner_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'node_banner/node_banner_library';
+}
