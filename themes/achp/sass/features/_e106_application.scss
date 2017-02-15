@@ -42,9 +42,6 @@
         padding: $margin-small 35px $margin-xsmall;
       }
       input[type="file"] {
-        // @include appearance(none);
-        // @include achp-button();
-
         &::-ms-browse,
         &::-webkit-file-upload-button {
           @include appearance(none);

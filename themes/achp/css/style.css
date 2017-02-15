@@ -632,6 +632,11 @@ html {
     to as an H4 element.
   */
   /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
     Renders the element children of the element
     that this mixin is applied to according to
     the rules specified in the current styleguide.
@@ -770,6 +775,8 @@ html {
       font-size: 1.125rem;
       line-height: 1.7;
       margin-bottom: 20px; }
+    [data-page-path="/contact/e106_submission_form"] #main #content_region table {
+      border-collapse: collapse; }
     [data-page-path="/contact/e106_submission_form"] #main #content_region input[type="submit"] {
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -858,6 +865,248 @@ html {
       display: none; }
     [data-page-path="/contact/e106_submission_form"] #main #content_region .filter-wrapper {
       display: none; }
+
+/*
+  This stylesheet defines the default styles
+  for the e106 Submissions block table, which
+  lists the status of the e106 notifications
+  submitted by the current user.
+*/
+[data-derivative-plugin-id="contact_messages-block_1"] {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and mobile-value, another CSS value
+  
+    sets property to mobile-value and adds a media
+    query that sets property to mobile-value for
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and tablet-value, another CSS value
+  
+    sets property to tablet-value and adds a media
+    query that sets property to tablet-value for
+    tablet screens.
+  */
+  /*
+    Accepts four arguments:
+  
+    * property, a CSS property
+    * widescreen-value, a CSS value
+    * tablet-value, a CSS value
+    * and mobile-value, an optional CSS value
+  
+    sets property to widescreen-value and
+    adds media queries that sets property to
+    tablet-value and mobile-value for tablet and
+    mobile screens.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
+    Accepts two arguments:
+  
+    * front-size, a CSS length measure
+    * margin-bottom, a CSS length measure
+  
+    and sets both the font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area -
+    affecting the bottom margin.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Accepts four length measures as
+    arguments: $widescreen-font-size,
+    $widescreen-margin-bottom, $mobile-font-size,
+    and $mobile-margin-bottom, and sets the
+    widescreen and mobile font sizes while
+    adjusting the bottom margins.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */
+  /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
+  */ }
+  [data-derivative-plugin-id="contact_messages-block_1"] table {
+    border-collapse: collapse;
+    width: 100%; }
+    [data-derivative-plugin-id="contact_messages-block_1"] table thead tr th {
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 500;
+      line-height: 1.4;
+      font-size: 1rem;
+      padding: 10px 0 5px; }
+    [data-derivative-plugin-id="contact_messages-block_1"] table tbody tr td {
+      border: 1px solid #E5E3E4;
+      padding: 20px; }
+      [data-derivative-plugin-id="contact_messages-block_1"] table tbody tr td.views-field-field-e106-notification-status {
+        font-style: italic; }
 
 /*
   This module contains styles used by the Event
@@ -1806,6 +2055,11 @@ the events landing page is different */
     to as an H4 element.
   */
   /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
     Renders the element children of the element
     that this mixin is applied to according to
     the rules specified in the current styleguide.
@@ -1934,6 +2188,8 @@ the events landing page is different */
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 20px; }
+  .flickity table {
+    border-collapse: collapse; }
   .flickity .gallery-cell {
     display: none; }
   .flickity .flickity-prev-next-button {
@@ -2260,6 +2516,11 @@ the events landing page is different */
     to as an H4 element.
   */
   /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
     Renders the element children of the element
     that this mixin is applied to according to
     the rules specified in the current styleguide.
@@ -2381,6 +2642,8 @@ the events landing page is different */
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 20px; }
+  #lightbox table {
+    border-collapse: collapse; }
   #lightbox .lb-caption {
     font-family: "p22-underground", sans-serif;
     font-size: 1rem;
@@ -2739,6 +3002,11 @@ the events landing page is different */
     to as an H4 element.
   */
   /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
     Renders the element children of the element
     that this mixin is applied to according to
     the rules specified in the current styleguide.
@@ -2866,6 +3134,8 @@ the events landing page is different */
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 20px; }
+  [data-plugin-id="page_menu_block"] table {
+    border-collapse: collapse; }
   [data-plugin-id="page_menu_block"] .page-menu-instance-container {
     height: 100%; }
     [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance {
@@ -3526,6 +3796,11 @@ the events landing page is different */
     to as an H4 element.
   */
   /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
     Renders the element children of the element
     that this mixin is applied to according to
     the rules specified in the current styleguide.
@@ -3650,6 +3925,8 @@ the events landing page is different */
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 20px; }
+  #page #main [data-derivative-plugin-id^="related_resources"] table {
+    border-collapse: collapse; }
   #page #main [data-derivative-plugin-id^="related_resources"] h2 {
     margin: 0;
     padding: 0;
@@ -3919,6 +4196,11 @@ the events landing page is different */
   to as an H4 element.
 */
 /*
+  Accepts no arguments and styles the element
+  that this mixin is applied to as a table
+  element.
+*/
+/*
   Renders the element children of the element
   that this mixin is applied to according to
   the rules specified in the current styleguide.
@@ -4042,6 +4324,8 @@ the events landing page is different */
     font-size: 1.125rem;
     line-height: 1.7;
     margin-bottom: 20px; }
+  .slide-format-feature table {
+    border-collapse: collapse; }
   .slide-format-feature .slide-format-feature-slide-container {
     height: 100%;
     position: relative; }
