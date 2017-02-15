@@ -5,31 +5,12 @@
   font-size: rem(18px);
 
   #secondary_header_region {
+    max-width: $page-max-width;
+    margin: 0 auto;
+
     #block-breadcrumbs {
-      @include content-container;
       margin: 30px auto 0 !important;
-      max-width: $page-max-width;
-    }
-    #block-pagetitle-2{
-      @include content-container;
-      max-width: $page-max-width;
-      text-align: center;
-
-      h1 {
-        color: $color-darkblue2;
-        font-weight: normal;
-        line-height: 1.2;
-
-        &:after {
-          background-color: $color-red;
-          display: block;
-          content: "";
-          height: 1px;
-          margin: 15px auto 25px;
-          min-width: 50px;
-          width: 15%;
-        }
-      }
+      max-width: 100%;
     }
     [data-derivative-plugin-id="image_carousel-block_1"] {
       @include content-container;
@@ -46,13 +27,14 @@
     max-width: $page-max-width;
 
     #block-achp-content article {
+      @include content-container;
+
       figure {
         margin: 15px 0 25px;
 
         img {
           max-width: 100%;
         }
-
         figcaption {
           font-family: $sans-text;
           font-size: rem(16px);

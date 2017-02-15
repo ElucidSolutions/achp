@@ -30,7 +30,10 @@
           margin-top: 5px;
         }
         ul {
-          margin-bottom: 20px;
+          margin-bottom: 0;
+          & + ul {
+            margin: 0;
+          }
         }
         .views-field-field-webinar-link {
           @include hover-transition-background($color-lightblue-primary);
@@ -45,7 +48,7 @@
           font-weight: 400;
           letter-spacing: 0.02rem;
           line-height: 1.4rem;
-          margin-bottom: 30px;
+          margin: 25px 0 30px;
           padding: 12px 38px 8px;
           text-transform: uppercase;
 

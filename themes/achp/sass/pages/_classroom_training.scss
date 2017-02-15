@@ -43,7 +43,16 @@
     }
     ul {
       margin-bottom: $subsection-padding;
-    }
+
+      li + p {
+        margin-top: 0;
+      }
+    }   
+    #block-achp-content, #block-classroom-courses-tailored {
+      a {
+        color: $color-blue-primary;
+      } 
+    }  
     #block-classroom-training-courses {
       margin-bottom: $subsection-padding;
 
@@ -94,9 +103,6 @@
         position: absolute;
         top: -30px;
       }   
-      a {
-        color: $color-blue-primary;
-      }   
       header {
         background-color: #fff;
         height: auto;
@@ -122,7 +128,7 @@
             td.views-field-field-classroom-offer-venue:before {
               @include create-header ("Location");
             }
-            td.views-field-field-classroom-offer-reg-link-1:before {
+            td.views-field-field-classroom-offer-link:before {
               @include create-header ("Registration Forms");
             }      
           }  
@@ -147,6 +153,19 @@
     }
     #block-classroom-training-registration-mobile {
       display: none;
+    }
+    #block-classroom-training-info {
+      margin: 50px 0;
+
+      p + ul {
+        margin-bottom: 0;
+      }
+      ul {
+        margin: 10px 0 18px;
+      }
+      a {
+        color: $color-blue-primary;
+      }
     }
     @media (max-width: 700px) {
       #block-classroom-training-registration {

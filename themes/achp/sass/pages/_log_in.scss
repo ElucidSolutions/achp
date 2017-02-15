@@ -1,0 +1,81 @@
+#page[data-page-path-alias="/user/login"] {
+  @extend #page[data-page-node-type="page"];
+
+  #secondary_header {
+
+    #block-about-achp-share {
+      @include content-container;
+      margin-bottom: 30px;
+    }
+
+    h1 span {
+      color: $color-darkblue2;
+      display: inline-block;
+
+      &:after {
+        @include hr($color-red);
+        content: "";
+        display: block;
+        margin: 10px auto 25px;
+        width: 50%;
+      }
+    }
+  }
+  #content #content_region {
+    @include content-container;
+    font-size: rem(18px);
+    margin-bottom: 40px;
+
+    a {
+      color: $color-blue-primary;
+    }
+
+    #block-achp-content {
+      font-family: $sans-text;
+      margin: 30px 0;
+
+      form.user-login-form {
+        .js-form-item  {
+          margin-bottom: 15px;
+
+          label {
+            display: block;
+            font-size: rem(16px);
+            font-weight: 600;
+          }
+          .description {
+            display: none;
+          }
+        }
+        #edit-actions input#edit-submit {
+          @include hover-transition-background($color-lightblue-primary);
+          background-color: $color-blue-primary;
+          border: none;
+          border-radius: 2px;  
+          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+          color: #FFFFFF;
+          cursor: pointer;
+          display: block;
+          font-family: $sans-text;
+          font-size: rem(16px);
+          font-weight: 400;
+          letter-spacing: 0.02rem;
+          line-height: 1.4rem;
+          margin: 30px 0;
+          /*padding: 12px 38px 8px;*/
+          padding: 8px 38px 6px;
+          text-transform: uppercase;
+
+          @media (max-width: $mobile-breakpoint) {
+            line-height: 1.2rem;
+          }
+
+          @media (max-width: 400px) {
+            width: 100%;
+          }
+          
+        }
+      }
+    }
+  }
+}
