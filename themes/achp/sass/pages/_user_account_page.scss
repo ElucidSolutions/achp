@@ -13,6 +13,7 @@
     }
     #content_region {
       @include styleguide;
+      background-color: blue;
 
       h3 {
         @include h3($color: $color-red, $center: false);
