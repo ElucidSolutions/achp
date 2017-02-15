@@ -8,6 +8,9 @@
       @import "../styleguide";
       @include styleguide;
       @include body-text;
+      max-width: $max-content-width;
+      margin: 0 auto;
+      padding: 0 $margin-large;
 
       h2 {
         @include h4($color: $color-red2);
