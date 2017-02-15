@@ -6,7 +6,13 @@
 */
 [data-derivative-plugin-id="contact_messages-block_1"] {
   @import "../styleguide";
-  
+
+  h2 {
+    @include h2;
+  }
+  header {
+    background-color: transparent;
+  }
   table {
     @include table;
     width: 100%;
@@ -14,7 +20,7 @@
     thead {
       tr {
         th {
-          @include header-text($font-weight: 500, $center: false);
+          @include header-text($color: black, $font-weight: 500, $center: false);
           font-size: rem(16px);
           padding: $margin-small 0 $margin-xsmall;
         }

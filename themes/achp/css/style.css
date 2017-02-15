@@ -1092,11 +1092,32 @@ html {
     that this mixin is applied to according to
     the rules specified in the current styleguide.
   */ }
+  [data-derivative-plugin-id="contact_messages-block_1"] h2 {
+    margin: 0;
+    padding: 0;
+    color: #003A5E;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 20px; }
+    @media screen and (max-width: 925px) {
+      [data-derivative-plugin-id="contact_messages-block_1"] h2 {
+        text-align: center; } }
+    @media screen and (max-width: 650px) {
+      [data-derivative-plugin-id="contact_messages-block_1"] h2 {
+        font-size: 1.375rem; } }
+    @media screen and (max-width: 650px) {
+      [data-derivative-plugin-id="contact_messages-block_1"] h2 {
+        margin-bottom: 20px; } }
+  [data-derivative-plugin-id="contact_messages-block_1"] header {
+    background-color: transparent; }
   [data-derivative-plugin-id="contact_messages-block_1"] table {
     border-collapse: collapse;
     width: 100%; }
     [data-derivative-plugin-id="contact_messages-block_1"] table thead tr th {
-      color: #003A5E;
+      color: black;
       font-family: "p22-underground", sans-serif;
       font-weight: 500;
       line-height: 1.4;
