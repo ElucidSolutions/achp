@@ -31,8 +31,9 @@
         }
         // add an icon for those titles that represent external links.
         .field-content.external-link {
+          display: block;
+          padding-left: 30px;
           position: relative;
-          padding: 30px;
 
           &:before {
             background-image: url('../images/external-link-icon.svg');

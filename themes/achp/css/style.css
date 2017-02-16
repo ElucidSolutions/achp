@@ -3978,8 +3978,9 @@ the events landing page is different */
     #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content a {
       color: #0990FE; }
     #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content.external-link {
-      position: relative;
-      padding: 30px; }
+      display: block;
+      padding-left: 30px;
+      position: relative; }
       #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content.external-link:before {
         background-image: url("../images/external-link-icon.svg");
         background-repeat: no-repeat;
