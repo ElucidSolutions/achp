@@ -134,14 +134,13 @@ $determination-header-tab-size: 51px;
       max-width: $max-content-narrow-width;
       margin: 0 auto $margin-large;
 
-      .step-number {
+      .step-label {
         @include responsive(font-size, rem(24px), rem(20px));
         color: rgba(149, 3, 6, 1);
         font-family: $sans-text;
         line-height: 1.4;
         margin-bottom: $margin-small;
         position: relative;
-        text-transform: uppercase;
 
         div {
           display: inline-block;
