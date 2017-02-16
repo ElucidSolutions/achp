@@ -118,7 +118,7 @@ $determination-header-tab-size: 51px;
 }
 
 [data-page-node-type="section_106_process_step"] {
-  $max-content-narrow-width: 620px;
+  $max-content-narrow-width: 680px;
 
   .slide-format-feature {
     background-color: $color-lightblue3;
@@ -136,6 +136,9 @@ $determination-header-tab-size: 51px;
       max-width: $max-content-narrow-width;
       margin: 0 auto $margin-large;
 
+      .process-step-node {
+        margin: 0 $margin-large;
+      }
       .step-label {
         @include responsive(font-size, rem(24px), rem(20px));
         color: rgba(149, 3, 6, 1);
