@@ -41,11 +41,15 @@ $determination-header-tab-size: 51px;
   Accepts one argument: $border-color, and styles
   the element that this mixin is applied to as
   a determination header label.
+
 */
 @mixin determination-header-label($border-color) {
   @include tablet(width, 100%);
   @include responsive(padding, 0 0 0 30px, $margin-small 30px);
   border-left: $determination-header-tab-size solid $border-color;
+  display: inline-block;
+  min-height: $determination-header-tab-size;
+  vertical-align: middle;
 }
 
 /*

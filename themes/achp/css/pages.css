@@ -13446,6 +13446,7 @@ general office landing page */
   Accepts one argument: $border-color, and styles
   the element that this mixin is applied to as
   a determination header label.
+
 */
 /*
   Accepts one argument, $background-color, and
@@ -13681,7 +13682,10 @@ general office landing page */
           width: 100%; } }
     [data-page-node-type="section_106_process_step"] #main #content_region .determination-prompt .achp-field {
       padding: 0 0 0 30px;
-      border-left: 51px solid #013b5e; }
+      border-left: 51px solid #013b5e;
+      display: inline-block;
+      min-height: 51px;
+      vertical-align: middle; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="section_106_process_step"] #main #content_region .determination-prompt .achp-field {
           width: 100%; } }
@@ -13709,7 +13713,10 @@ general office landing page */
           width: 100%; } }
     [data-page-node-type="section_106_process_step"] #main #content_region .determination-yes-wrapper .achp-field {
       padding: 0 0 0 30px;
-      border-left: 51px solid #2b883f; }
+      border-left: 51px solid #2b883f;
+      display: inline-block;
+      min-height: 51px;
+      vertical-align: middle; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="section_106_process_step"] #main #content_region .determination-yes-wrapper .achp-field {
           width: 100%; } }
@@ -13776,7 +13783,10 @@ general office landing page */
           width: 100%; } }
     [data-page-node-type="section_106_process_step"] #main #content_region .determination-no-wrapper .achp-field {
       padding: 0 0 0 30px;
-      border-left: 51px solid #4A4A4A; }
+      border-left: 51px solid #4A4A4A;
+      display: inline-block;
+      min-height: 51px;
+      vertical-align: middle; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="section_106_process_step"] #main #content_region .determination-no-wrapper .achp-field {
           width: 100%; } }
