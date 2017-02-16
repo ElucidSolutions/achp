@@ -13594,7 +13594,7 @@ general office landing page */
     margin: 0 40px; }
     @media screen and (max-width: 925px) {
       [data-page-node-type="section_106_process_step"] #main #content_region .process-step-node {
-        margin: 0 10px; } }
+        margin: 0; } }
   [data-page-node-type="section_106_process_step"] #main #content_region .step-label {
     font-size: 1.5rem;
     color: #950306;
@@ -13620,6 +13620,9 @@ general office landing page */
     @media screen and (max-width: 925px) {
       [data-page-node-type="section_106_process_step"] #main #content_region .step-title {
         line-height: 1.2; } }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="section_106_process_step"] #main #content_region .step-title {
+        text-align: center; } }
   [data-page-node-type="section_106_process_step"] #main #content_region [data-plugin-id="share_this_page_block"] {
     margin-bottom: 20px; }
   [data-page-node-type="section_106_process_step"] #main #content_region .step-body-text {
@@ -13630,6 +13633,9 @@ general office landing page */
     font-size: 1.375rem;
     line-height: 1.925rem;
     text-transform: uppercase; }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="section_106_process_step"] #main #content_region .determination-section-title {
+        text-align: center; } }
   [data-page-node-type="section_106_process_step"] #main #content_region div.step-content > hr {
     background-color: #CCC; }
   [data-page-node-type="section_106_process_step"] #main #content_region .next-step a {
@@ -13865,7 +13871,11 @@ general office landing page */
     [data-page-node-type="section_106_process_step"] #main #content_region .no-further-action .achp-field {
       padding: 0; }
   [data-page-node-type="section_106_process_step"] #main #content_region [data-derivative-plugin-id="related_resources-block_1"] {
-    margin-top: 20px; }
+    margin-top: 20px;
+    padding: 0; }
+    @media screen and (max-width: 925px) {
+      [data-page-node-type="section_106_process_step"] #main #content_region [data-derivative-plugin-id="related_resources-block_1"] h2 {
+        text-align: center; } }
 
 #page[data-page-path-alias="/about/staff"] #secondary_header_region #block-breadcrumbs {
   margin: 0 auto;

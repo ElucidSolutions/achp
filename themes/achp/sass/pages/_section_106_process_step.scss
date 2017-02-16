@@ -137,7 +137,7 @@ $determination-header-tab-size: 51px;
       margin: 0 auto $margin-large;
 
       .process-step-node {
-        @include responsive(margin, 0 $margin-large, 0 $margin-small);
+        @include responsive(margin, 0 $margin-large, 0);
       }
       .step-label {
         @include responsive(font-size, rem(24px), rem(20px));
@@ -155,6 +155,7 @@ $determination-header-tab-size: 51px;
       .step-title {
         @include responsive(font-size, rem(36px), rem(26px));
         @include responsive(line-height, 1.4, 1.2);
+        @include tablet(text-align, center);
         color: rgba(4, 59, 98, 1);
         font-family: $sans-text;
         margin-bottom: $margin-med;
@@ -166,6 +167,7 @@ $determination-header-tab-size: 51px;
         color: $color-darkgrey2;
       }
       .determination-section-title {
+        @include tablet(text-align, center);
         color: rgba(0, 58, 94, 1);
         font-family: $sans-text;
         font-size: rem(22);
@@ -247,8 +249,12 @@ $determination-header-tab-size: 51px;
         }
       }
       [data-derivative-plugin-id="related_resources-block_1"] {
-        
         margin-top: $margin-med;
+        padding: 0;
+
+        h2 {
+          @include tablet(text-align, center);
+        }
       }
     }
   }
