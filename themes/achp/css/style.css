@@ -3977,14 +3977,15 @@ the events landing page is different */
     margin-bottom: 5px; }
     #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content a {
       color: #0990FE; }
-    #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content.external-link:after {
-      background-image: url("../images/external-link-icon.svg");
-      background-repeat: no-repeat;
-      content: "";
-      height: 20px;
-      position: absolute;
-      right: 5px;
-      width: 20px; }
+    #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content.external-link {
+      position: relative; }
+      #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content.external-link:before {
+        background-image: url("../images/external-link-icon.svg");
+        background-repeat: no-repeat;
+        content: "";
+        float: right;
+        height: 20px;
+        width: 20px; }
   #page #main [data-derivative-plugin-id^="related_resources"] .views-field-body {
     color: #4A4A4A;
     font-size: 1.125rem;

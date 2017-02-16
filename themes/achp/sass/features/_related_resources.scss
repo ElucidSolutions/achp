@@ -31,13 +31,14 @@
         }
         // add an icon for those titles that represent external links.
         .field-content.external-link {
-          &:after {
+          position: relative;
+
+          &:before {
             background-image: url('../images/external-link-icon.svg');
             background-repeat: no-repeat;
             content: "";
+            float: right;
             height: $margin-med;
-            position: absolute;
-            right: $margin-xsmall;
             width: $margin-med;
           }
         }
