@@ -3,7 +3,8 @@
   page, as well as Native Youth page
 */
 
-#page[data-page-path-alias^="/indian-tribes-native-hawaiians"] {
+#page[data-page-path-alias^="/indian-tribes-native-hawaiians"],
+#page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] {
   $vertical-padding: 35px;
   $container-padding: 50px;
   $img-height: 200px;
@@ -465,13 +466,15 @@
   }
 }
 
-#page[data-page-path-alias="/indian-tribes-native-hawaiians"] {
+#page[data-page-path-alias="/indian-tribes-native-hawaiians"],
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiians"] {
   #content #content_region #block-achp-content {
     @include content-container;
   }
 }
 
-#page[data-page-path-alias="/indian-tribes-native-hawaiians/youth"] {
+#page[data-page-path-alias="/indian-tribes-native-hawaiians/youth"]
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiians/youth"] {
   #content #content_region #block-achp-content {
     @include content-container;
     margin-bottom: 50px;
@@ -487,6 +490,18 @@
     }
     .read_more {
       padding-bottom: 15px;
+    }
+  }
+}
+
+#page[data-page-path-alias="/indian-tribes-native-hawaiians/native-hawaiian-federal-interagency-working-group"],
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiians/native-hawaiian-federal-interagency-working-group"] {
+  #content #content_region #block-achp-content {
+    @include content-container;
+    margin-bottom: 40px;
+
+    a {
+      color: $color-blue-primary;
     }
   }
 }

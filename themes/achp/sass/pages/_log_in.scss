@@ -1,13 +1,14 @@
 #page[data-page-path-alias="/user/login"] {
-  @extend #page[data-page-node-type="page"];
+  /*@extend #page[data-page-node-type="page"];*/
 
   #secondary_header {
-
+    #block-user-account-breadcrumbs {
+      margin: 30px 0 15px;
+    }
     #block-about-achp-share {
       @include content-container;
       margin-bottom: 30px;
     }
-
     h1 span {
       color: $color-darkblue2;
       display: inline-block;
@@ -19,6 +20,9 @@
         margin: 10px auto 25px;
         width: 50%;
       }
+    }
+    #block-useraccountpagewelcomeblock {
+      display: none;
     }
   }
   #content #content_region {

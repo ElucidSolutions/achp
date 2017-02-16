@@ -67,10 +67,16 @@
             font-family: $serif-text;
             font-size: rem(18);  
 
-            p {
-              margin: 0;
-            }   
+            h2, h3, h4 {
+              text-align: left;
 
+              & + p {
+                margin-top: 10px;
+              }
+            }
+            h4 {
+              margin-bottom: 0;
+            }
           }
           .news_divider {
             background-color: $color-lightgrey;
@@ -181,6 +187,13 @@
         .views-field-field-news-date { 
           text-align: left;
         }      
+      }
+    }
+  }
+  @media (max-width: $mobile-breakpoint) {
+    #main #content #news_item_page  #news_content_container .news_item_body {
+      h2, h3, h4 {
+        text-align: center;
       }
     }
   }

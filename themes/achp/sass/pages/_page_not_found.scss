@@ -1,6 +1,17 @@
-#page[data-page-path-alias="/page-not-found"] {
-
+#page[data-page-path="/node/7649"] {
   #secondary_header {
+    #secondary_header_region .achp-breadcrumb ol {
+      .breadcrumb_page_text {
+        display: none;
+      }
+      .breadcrumb_page .achp-breadcrumb-icon:after {
+        content: "PAGE NOT FOUND";
+        color: $color-blue-primary;
+        display: inline;
+        padding-left: 20px;
+      }
+    }
+  
     #block-about-achp-share {
       @include content-container;
       margin-bottom: 30px;

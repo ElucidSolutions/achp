@@ -21,7 +21,6 @@ html, body {
 h1, h2, h3 {
   font-family: 'p22-underground', sans-serif;
   font-weight: normal;
-  text-align: center;
   margin: 0;
   text-align: center;
 }
@@ -40,6 +39,7 @@ h3 {
   @include font-size($h3-font-sizes);
   color: $color-darkblue;
   text-align: left;
+
   a {
     color: inherit;
     text-decoration: none;
@@ -51,6 +51,10 @@ h4 {
   color: $color-darkblue; 
   font-family: $sans-text; 
   font-weight: normal;
+
+  @media (max-width: $mobile-breakpoint) {
+    text-align: center;
+  }
 }
 
 hr {
@@ -182,7 +186,6 @@ ol.alpha_list {
 }
 
 ol.roman_list {
-  // @extend .alpha_list;
   list-style-type: upper-roman;
 }
 
