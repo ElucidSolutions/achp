@@ -23,7 +23,7 @@
   /*
     Accepts two arguments:
 
-    * url, a URL string
+    * url, an external URL string
     * rowElement, a jQuery HTML Element that
       represents a Related Resources View Row
       element
@@ -32,7 +32,9 @@
     and returns undefined.
   */
   function setTitleLinkURL (url, rowElement) {
-    getTitleLinkElement (rowElement).attr ('href', url);
+    getTitleLinkElement (rowElement)
+      .addClass (getExternalLinkClassName ())
+      .attr ('href', url);
   }
 
   /*
@@ -122,5 +124,14 @@
   */
   function getRelatedResourcesBlockElements () {
     return $('[data-derivative-plugin-id^="related_resources-block_"]').toArray ();
+  }
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the class used to label View
+    Row Fields that link to external resources.
+  */
+  function getExternalLinkClassName () {
+    return 'achp-external-link';
   }
 }) (jQuery);

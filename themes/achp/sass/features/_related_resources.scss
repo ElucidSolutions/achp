@@ -29,22 +29,22 @@
             color: $color-blue-primary;
           }
         }
-        // add an icon for those titles that represent external links.
-        .field-content.external-link {
-          display: block;
-          padding-left: 30px;
-          position: relative;
+      }
+      // add an icon to external links.
+      .achp-external-link {
+        display: block;
+        padding-left: 30px;
+        position: relative;
 
-          &:before {
-            background-image: url('../images/external-link-icon.svg');
-            background-repeat: no-repeat;
-            background-position: 50%;
-            content: "";
-            height: 30px;
-            left: 0;
-            position: absolute;
-            width: $margin-med;
-          }
+        &:before {
+          background-image: url('../images/external-link-icon.svg');
+          background-repeat: no-repeat;
+          background-position: 50%;
+          content: "";
+          height: 30px;
+          left: 0;
+          position: absolute;
+          width: $margin-med;
         }
       }
       .views-field-body {
