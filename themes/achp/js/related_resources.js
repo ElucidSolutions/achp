@@ -12,12 +12,10 @@
   $(document).ready (function () {
     getRelatedResourcesBlockElements ().forEach (
       function (blockElement) {
-        getRowElements ($(blockElement)).forEach (
+        getExternalLinkRowElements ($(blockElement)).forEach (
           function (rowElement) {
             rowElement = $(rowElement);
-
-            hasExternalLinkFieldElement (rowElement) &&
-              setTitleLinkURL (getExternalLink (rowElement), rowElement);
+            setTitleLinkURL (getExternalLink (rowElement), rowElement);
         });
     });
   });
@@ -60,7 +58,7 @@
     Link Field element.
   */
   function hasExternalLinkFieldElement (rowElement) {
-    return getExternalLinkFieldElement (rowElement).length === 0;
+    return getExternalLinkFieldElement (rowElement).length > 0;
   }
 
   /*
