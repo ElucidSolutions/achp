@@ -30,6 +30,11 @@
           }
         }
       }
+      // hide the external link field.
+      // note: the external link field is used by the Related Resources JS script.
+      .views-field-field-external-link {
+        display: none;
+      }
       // add an icon to external links.
       .achp-external-link {
         display: block;
