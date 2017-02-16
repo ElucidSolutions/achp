@@ -27,12 +27,12 @@ $determination-header-tab-size: 51px;
 */
 @mixin determination-header-tab($background-color) {
   @include responsive(width, $determination-header-tab-size, 100%);
+  @include responsive(position, absolute, static);
   background-color: $background-color;
   color: white;
   display: block;
   height: $determination-header-tab-size;
   line-height: $determination-header-tab-size;
-  position: absolute;
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
@@ -47,7 +47,7 @@ $determination-header-tab-size: 51px;
 @mixin determination-header-label {
   @include tablet(width, 100%);
   @include responsive(padding, $margin-small 0 $margin-small 30px, $margin-small 30px);
-  border-left: $determination-header-tab-size solid white;
+  @include responsive(border-left, $determination-header-tab-size solid white, none);
   min-height: $determination-header-tab-size;
 }
 
@@ -137,7 +137,7 @@ $determination-header-tab-size: 51px;
       margin: 0 auto $margin-large;
 
       .process-step-node {
-        margin: 0 $margin-large;
+        @include responsive(margin, 0 $margin-large, 0 $margin-small);
       }
       .step-label {
         @include responsive(font-size, rem(24px), rem(20px));
@@ -247,6 +247,7 @@ $determination-header-tab-size: 51px;
         }
       }
       [data-derivative-plugin-id="related_resources-block_1"] {
+        
         margin-top: $margin-med;
       }
     }
