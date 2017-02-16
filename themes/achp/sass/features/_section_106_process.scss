@@ -8,6 +8,7 @@
 .slide-format-feature {
   @include styleguide; 
   @include slide-format-feature($feature-height: 400px, $feature-item-width: 300px);
+  text-align: left;
 
   $slide-format-feature-color-red: #CD1803;
   $slide-format-feature-slide-padding: 28px 0 28px;
