@@ -3977,9 +3977,10 @@ the events landing page is different */
     margin-bottom: 5px; }
     #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content a {
       color: #0990FE; }
-    #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content.external-link::after {
+    #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content.external-link:after {
       background-image: url("../images/external-link-icon.svg");
       background-repeat: no-repeat;
+      content: "";
       height: 20px;
       position: absolute;
       right: 5px;

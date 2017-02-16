@@ -28,16 +28,17 @@
           a {
             color: $color-blue-primary;
           }
-          // add an icon for those titles that represent external links.
-          &.external-link {
-            &::after {
-              background-image: url('../images/external-link-icon.svg');
-              background-repeat: no-repeat;
-              height: $margin-med;
-              position: absolute;
-              right: $margin-xsmall;
-              width: $margin-med;
-            }
+        }
+        // add an icon for those titles that represent external links.
+        .field-content.external-link {
+          &:after {
+            background-image: url('../images/external-link-icon.svg');
+            background-repeat: no-repeat;
+            content: "";
+            height: $margin-med;
+            position: absolute;
+            right: $margin-xsmall;
+            width: $margin-med;
           }
         }
       }
