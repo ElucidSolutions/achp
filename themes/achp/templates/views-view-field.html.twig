@@ -20,14 +20,11 @@
  * @ingroup themeable
  */
 #}
-<ul>field keys:
-  {% for key in field|keys %}
-    <li>key: {{ key }}</li>
-  {% endfor %}
-</ul>
-<ul>row keys:
-  {% for key in row|keys %}
-    <li>key: {{ key }}</li>
-  {% endfor %}
-</ul>
+
+<pre>field keys:
+  {% field|json_encode() %}
+</pre>
+<pre>row keys:
+  {% row|json_encode() %}
+</pre>
 {{ output -}}
