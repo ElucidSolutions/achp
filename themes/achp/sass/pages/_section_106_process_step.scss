@@ -141,6 +141,7 @@ $determination-header-tab-size: 51px;
       }
       .step-label {
         @include responsive(font-size, rem(24px), rem(20px));
+        @include tablet(text-align, center);
         color: rgba(149, 3, 6, 1);
         font-family: $sans-text;
         line-height: 1.4;
@@ -254,6 +255,7 @@ $determination-header-tab-size: 51px;
 
         h2 {
           @include tablet(text-align, center);
+          color: $color-red;
         }
       }
     }
