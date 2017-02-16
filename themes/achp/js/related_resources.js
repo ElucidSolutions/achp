@@ -122,7 +122,7 @@
     jQuery HTML Elements that lists the Related
     Resource block elements on the current page.
   */
-  function getRelatedResourceBlockElements () {
+  function getRelatedResourcesBlockElements () {
     return $('[data-derivative-plugin-id^="related_resources-block_"]').toArray ();
   }
 }) (jQuery);
