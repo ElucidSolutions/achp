@@ -169,6 +169,9 @@ $determination-header-tab-size: 51px;
       div.step-content > hr {
         background-color: #CCC;
       }
+      .next-step {
+        @include determination-next;
+      }
       .determination-prompt {
         @include determination-header(rgb(232, 248, 255));
 

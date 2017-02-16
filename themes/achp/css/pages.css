@@ -13626,6 +13626,37 @@ general office landing page */
     text-transform: uppercase; }
   [data-page-node-type="section_106_process_step"] #main #content_region div.step-content > hr {
     background-color: #CCC; }
+  [data-page-node-type="section_106_process_step"] #main #content_region .next-step a {
+    padding: 20px 50px 30px 30px;
+    border-top: 1px solid rgba(30, 30, 30, 0.1);
+    color: black;
+    display: block;
+    font-family: "p22-underground", sans-serif;
+    position: relative;
+    text-transform: uppercase;
+    transition: color 0s; }
+    [data-page-node-type="section_106_process_step"] #main #content_region .next-step a:hover {
+      color: #0990FE; }
+      [data-page-node-type="section_106_process_step"] #main #content_region .next-step a:hover:before {
+        color: #0990FE; }
+      [data-page-node-type="section_106_process_step"] #main #content_region .next-step a:hover:after {
+        background-image: url("../images/timeline-read-more-arrow-blue.svg"); }
+    [data-page-node-type="section_106_process_step"] #main #content_region .next-step a:before {
+      content: "LEARN MORE ABOUT THE NEXT STEP:";
+      display: block;
+      color: #4A4A4A; }
+    [data-page-node-type="section_106_process_step"] #main #content_region .next-step a:after {
+      background-image: url("../images/timeline-read-more-arrow.svg");
+      background-position: 5px 50%;
+      background-repeat: no-repeat;
+      background-size: 10px;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 30px; }
   [data-page-node-type="section_106_process_step"] #main #content_region .determination-prompt {
     background-color: #e8f8ff;
     color: #4A4A4A;
