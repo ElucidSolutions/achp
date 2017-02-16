@@ -24,8 +24,21 @@
         font-size: rem(18px);
         margin-bottom: $margin-xsmall;
 
-        a {
-          color: $color-blue-primary;
+        .field-content {
+          a {
+            color: $color-blue-primary;
+          }
+          // add an icon for those titles that represent external links.
+          &.external-link {
+            &::after {
+              background-image: url('../images/external-link-icon.svg');
+              background-repeat: no-repeat;
+              height: $margin-med;
+              position: absolute;
+              right: $margin-xsmall;
+              width: $margin-med;
+            }
+          }
         }
       }
       .views-field-body {
