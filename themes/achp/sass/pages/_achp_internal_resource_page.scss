@@ -7,8 +7,11 @@
   @import "../digital_library_document_page";
 
   [data-achp-field-name="field_internal_resource_type"] {
+    margin-bottom: $margin-large;
+
     .achp-field-label {
       @include h4;
+      font-size: rem(18px);
       float: left;
       margin-right: $margin-med;
 
@@ -19,7 +22,8 @@
     .achp-field-item {
       color: $color-lightgrey-2;
       display: inline-block;
-      margin-right: $margin-med;
+      font-size: rem(14px);
+      margin-right: $margin-small;
 
       &:after {
         content: ",";
