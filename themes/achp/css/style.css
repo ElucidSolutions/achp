@@ -3976,7 +3976,13 @@ the events landing page is different */
     font-size: 1.125rem;
     margin-bottom: 5px; }
     #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content a {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: color 0.25s;
       color: #0990FE; }
+      #page #main [data-derivative-plugin-id^="related_resources"] .views-field-title .field-content a:hover {
+        color: #71BFFE; }
   #page #main [data-derivative-plugin-id^="related_resources"] .views-field-field-external-link {
     display: none; }
   #page #main [data-derivative-plugin-id^="related_resources"] .achp-external-link {
