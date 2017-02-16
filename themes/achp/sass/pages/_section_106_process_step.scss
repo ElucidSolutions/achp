@@ -118,14 +118,14 @@ $determination-header-tab-size: 51px;
 }
 
 [data-page-node-type="section_106_process_step"] {
-  $max-content-narrow-width: 680px;
+  $max-content-narrow-width: 620px;
 
   .slide-format-feature {
     background-color: $color-lightblue3;
     margin-bottom: $margin-med;
 
     .slide-format-feature-focus {
-      max-width: $max-content-narrow-width - 2 * $margin-large;
+      max-width: $max-content-narrow-width;
     }
   }
   #main {
@@ -136,9 +136,6 @@ $determination-header-tab-size: 51px;
       max-width: $max-content-narrow-width;
       margin: 0 auto $margin-large;
 
-      .process-step-node {
-        @include responsive(margin, 0 $margin-large, 0);
-      }
       .step-label {
         @include responsive(font-size, rem(24px), rem(20px));
         @include tablet(text-align, center);
