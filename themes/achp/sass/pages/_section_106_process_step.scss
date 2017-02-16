@@ -21,32 +21,31 @@ $determination-header-tab-size: 51px;
 }
 
 /*
-  Accepts one argument, $background-color, and
-  styles the element that this mixin is applied
-  to as a determination header tab.
+  Accepts no arguments and styles the
+  element that this mixin is applied to as a
+  determination header tab.
 */
-@mixin determination-header-tab($background-color) {
+@mixin determination-header-tab {
   @include responsive(width, $determination-header-tab-size, 100%);
-  background-color: $background-color;
   color: white;
-  display: inline-block;
+  display: block;
   height: $determination-header-tab-size;
   line-height: $determination-header-tab-size;
+  position: absolute;
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
 }
 
 /*
-  Accepts no arguments and styles that
-  element that this mixin is applied to as a
-  determination header label.
+  Accepts one argument: $border-color, and styles
+  the element that this mixin is applied to as
+  a determination header label.
 */
-@mixin determination-header-label {
+@mixin determination-header-label($border-color) {
   @include tablet(width, 100%);
   @include responsive(padding, 0 0 0 30px, $margin-small 30px);
-  display: inline-block;
-  vertical-align: middle;
+  border-left: $determination-header-tab-size solid $border-color;
 }
 
 /*
@@ -174,23 +173,23 @@ $determination-header-tab-size: 51px;
         @include determination-header(rgb(232, 248, 255));
 
         .determination-image {
-          @include determination-header-tab(rgb(1, 59, 94)) ;
+          @include determination-header-tab;
           background-image: url("../images/split-icon.svg");
           background-position: 50% 50%;
           background-repeat: no-repeat;
         }
         .achp-field {
-          @include determination-header-label;
+          @include determination-header-label(rgb(1, 59, 94));
         }
       }
       .determination-yes-wrapper {
         @include determination-header(rgb(208, 239, 215));
 
         .determination-prompt-yes {
-          @include determination-header-tab(rgb(43, 136, 63));
+          @include determination-header-tab;
         }
         .achp-field {
-          @include determination-header-label;
+          @include determination-header-label(rgb(43, 136, 63));
         }
       }
       .yes-explaination-and-action {
@@ -207,10 +206,10 @@ $determination-header-tab-size: 51px;
         @include determination-header(rgb(229, 227, 228));
 
         .determination-prompt-no {
-          @include determination-header-tab($color-grey2);
+          @include determination-header-tab;
         }
         .achp-field {
-          @include determination-header-label;
+          @include determination-header-label($color-grey2);
         }
       }
       .no-explaination-and-action {
