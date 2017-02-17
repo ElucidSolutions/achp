@@ -144,6 +144,7 @@
 
         [data-view-id="homepage_success_stories"] {
           @include content-container;
+          text-align: center;
 
           header {
             background-color: $background-color-grey2;
@@ -367,11 +368,6 @@
             .views-field-view-node {
               bottom: 0px;
               left: 0;
-
-              .read-more a {
-                // padding-right: 30px;
-                // width: 100%;
-              }
             }
           }
         }
@@ -473,17 +469,21 @@
   }
 }
 
-#page[data-page-path-alias="/indian-tribes-native-hawaiians/youth"]
+#page[data-page-path-alias="/indian-tribes-native-hawaiians/youth"],
 #page[data-page-path-alias="/indian-tribes-and-native-hawaiians/youth"] {
   #content #content_region #block-achp-content {
     @include content-container;
     margin-bottom: 50px;
 
+    p a, li a {
+      color: $color-blue-primary;
+    }
     p + h2, ul + h2 {
       padding-top: 15px;
     }
     h4 {
       margin: 10px 0 0;
+
       & + p {
         margin-top: 0;
       }
@@ -502,6 +502,14 @@
 
     a {
       color: $color-blue-primary;
+    }
+  }
+}
+#page[data-page-path-alias^="/indian-tribes-native-hawaiians"][data-page-node-type="issue"],
+#page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"][data-page-node-type="issue"] {
+  #content #content_region {
+    h2 {
+      margin-top: 30px;
     }
   }
 }

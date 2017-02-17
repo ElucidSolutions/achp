@@ -121,7 +121,9 @@
         }
       }
       #block-views-block-related-resources-block-1 {
-        @include content-container;
+        max-width: $main-content-max-width;
+        padding: 0;
+        /*@include content-container;*/
       }
     }
   }
