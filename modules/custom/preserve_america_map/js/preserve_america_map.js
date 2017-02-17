@@ -808,10 +808,13 @@
     nested within cluster as an integer.
   */
   function getClusterNumProfiles (cluster) {
+    return getClusterMarkers (cluster).length;
+/*
     return getClusterMarkers (cluster).reduce (
       function (numProfiles, marker) {
         return numProfiles + marker.options.state.profiles.length;
     }, 0);
+*/
   }
 
   /*
