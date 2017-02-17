@@ -8,14 +8,14 @@
   #block-useraccountregistrationpagetitle {
     h1 {
       @include h1($color: $color-darkblue);
-      margin-bottom: $margin-med;
+      text-align: center;
 
       &:after {
         border-bottom: 1px solid $color-red;
         content: "";
         display: block;
-        margin: 0 auto $margin-med;
-        width: 60%;
+        margin: $margin-med auto;
+        width: 40%;
       }
     }
   }
