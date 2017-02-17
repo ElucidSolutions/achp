@@ -65,10 +65,11 @@ class PreserveAmericaMapBlock extends BlockBase {
   private function createProfile ($node_array) {
     $nid = $this->getFieldValue ($node_array, 'nid');
     $url = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ('absolute' => true));
+    $alias_url = \Drupal::service('path.alias_manager')->getAliasByPath($url->toString ());
     // \Drupal::logger ('preserve_america_map')->notice ('[PreserveAmericaMap::createProfile] node array: <pre>' . print_r ($node_array, true) . '</pre>');
     return [
       'id'        => $nid,
-      'url'       => $url->toString (),
+      'url'       => $alias_url,
       'title'     => $this->getFieldValue ($node_array, 'title'),
       'body'      => $this->getSummaryBodyFieldValue ($node_array),
       'website'   => $this->getFieldValue ($node_array, 'field_community_website'),
