@@ -6,10 +6,18 @@
   @import "../styleguide";
   @import "../digital_library_document_page";
 
+  h1.achp-page-title {
+    &:after {
+      border-bottom: 1px solid $color-red;
+      content: "";
+      display: block;
+      margin: $margin-med 0;
+      width: 60%;
+    }
+  }
   .achp-case-details {
     color: $color-darkblue2 !important;
     font-size: rem(28px);
-
   }
   .section_106_map_case_location {
     color: $color-red;
