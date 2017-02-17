@@ -301,17 +301,17 @@ $preserve_america_map_share_padding: 10px;
           right: 0px;
           z-index: 10;
 
-          .preserve_america_map_state_panel {
+          .preserve_america_map_profile_panel {
             $state_panel_header_height: 50px;
             $state_panel_header_width: $panel_width - 20px;
 
-            .preserve_america_map_state_panel_header {
+            .preserve_america_map_profile_panel_header {
               height: $state_panel_header_height;
               padding: 10px 15px 10px 18px;
 
               $state_panel_header_close_button_width: 25px;
 
-              .preserve_america_map_state_panel_header_close_button {
+              .preserve_america_map_profile_panel_header_close_button {
                 background: url("../images/close-icon.svg") no-repeat 50% 50%;
                 cursor: pointer;
                 float: right;
@@ -332,7 +332,7 @@ $preserve_america_map_share_padding: 10px;
 
               $state_panel_header_title_width: $state_panel_header_width - 2 * $panel_padding - $state_panel_header_close_button_width;
 
-              .preserve_america_map_state_panel_header_title {
+              .preserve_america_map_profile_panel_header_title {
                 color: $dark_blue_color;
                 float: left;
                 height: 100%;
@@ -349,8 +349,8 @@ $preserve_america_map_share_padding: 10px;
                 }
               }
             }
-            .preserve_america_map_state_panel_body {
-              .preserve_america_map_state_panel_state_profiles_list {
+            .preserve_america_map_profile_panel_body {
+              .preserve_america_map_profile_panel_profile_profiles_list {
                 color: $red_color;
                 list-style-type: none;
                 margin: 0px;
@@ -870,7 +870,7 @@ $preserve_america_map_share_padding: 10px;
       .preserve_america_map_map_panel {
         max-width: 100%;
 
-        .preserve_america_map_state_panel_header {
+        .preserve_america_map_profile_panel_header {
           width: 100%;
         }
       }

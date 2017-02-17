@@ -690,7 +690,8 @@
     object array.
   */
   Map.prototype.createMarkers = function (profiles) {
-    return createStates (profiles).map (this.createMarker, this);
+    profiles.map (this.createMarker, this);
+    // return createStates (profiles).map (this.createMarker, this);
   }
 
   /*
@@ -704,6 +705,7 @@
     objects for those states and territories
     listed in STATE_ABBREVIATIONS.
   */
+/*
   function createStates (profiles) {
     return _.chain (profiles)
       .pluck   ('states')
@@ -719,30 +721,29 @@
       .compact ()
       .value   ();
   }
-
+*/
   /*
-    Accepts one argument: state, a State object;
+    Accepts one argument: profile, a Profile object;
     and returns a State Leaflet Marker object
-    that represents state.
+    that represents profile.
 
     See: https://www.mapbox.com/mapbox.js/api/v2.2.4/l-marker/
   */
-  Map.prototype.createMarker = function (state) {
+  Map.prototype.createMarker = function (profile) {
     var self = this;
     var marker = new L.marker (
-      [state.coordinates.latitude, state.coordinates.longitude],
+      [profile.latitude, profile.longitude],
       {
-        icon:     createMarkerIcon (state),
-        title:    state.name,
-        state:    state
+        icon:     createMarkerIcon (profile),
+        title:    profile.title
       }
     ).on ('click', function () {
-      // select the state marker.
+      // select the profile marker.
       self.deselectMarkerElements ();
-      self.selectMarkerElement (state.abbreviation);
+      self.selectMarkerElement (profile.id);
 
       // show state panel.
-      self.showStatePanelElement (state);
+      self.showProfilePanelElement (profile);
     });
     return marker;
   }
@@ -763,6 +764,7 @@
     is not listed in this array, this function
     will return null.
   */
+/*
   function createState (stateName, profiles) {
     var abbreviation = getStateAbbreviation (stateName);
     var coordinates  = abbreviation ? getStateCoordinates (abbreviation) : null;
@@ -774,17 +776,17 @@
       profiles:     profiles
     } : null;
   }
-
+*/
   /*
-    Accepts no arguments and returns a Mapbox
-    Icon object that represents the State
-    marker icon.
+    Accepts one argument: profile, a Profile object;
+    and returns a Mapbox Icon object that represents
+    the Profile marker icon.
 
     See: https://www.mapbox.com/mapbox.js/api/v2.4.0/l-icon/
   */
-  function createMarkerIcon (state) {
+  function createMarkerIcon (profile) {
     return new L.DivIcon ({
-      'html': createMarkerIconSVG (state)
+      'html': createMarkerIconSVG (profile)
     });
   }
 
@@ -827,15 +829,13 @@
   }
 
   /*
-    Accepts one argument: state, a State object;
-    and returns an SVG Element string that
-    represents a marker element for state.
+    Accepts one argument: profile, a Profile
+    object; and returns an SVG Element string
+    that represents a marker element for profile.
   */
-  function createMarkerIconSVG (state) {
+  function createMarkerIconSVG (profile) {
     var svgElementString = '<div></div>';
-    var svgDocument = state.profiles.length > 1 ?
-      getRawIcon ('multiple-profiles-marker-icon', drupalSettings.module_path + '/images/multiple-profiles-marker-icon.svg'):
-      getRawIcon ('single-profile-marker-icon', drupalSettings.module_path + '/images/single-profile-marker-icon.svg');
+    var svgDocument = getRawIcon ('single-profile-marker-icon', drupalSettings.module_path + '/images/single-profile-marker-icon.svg');
 
     if (!svgDocument) { return null; }
 
@@ -846,28 +846,16 @@
 
     // Add a class attribute to the icon element.
     svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
-    svgElement.className.baseVal = svgElement.className.baseVal + ' ' + getMarkerClassName () + ' ' +
-      (state.profiles.length > 1 ?
-        prefix + '_multiple_profiles_marker':
-        prefix + '_single_profile_marker');
+    svgElement.className.baseVal = svgElement.className.baseVal + ' ' + getMarkerClassName () + ' ' + prefix + '_single_profile_marker';
 
     // Set/Create the marker's title (hover text).
     titleElements = svgElement.getElementsByTagName ('title');
     if (titleElements.length > 0) {
-      titleElements.item (0).textContent = state.name;
+      titleElements.item (0).textContent = profile.title;
     } else {
       var titleElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'title');
-      titleElement.textContent = state.name;
+      titleElement.textContent = profile.title;
       svgElement.appendChild (titleElement);
-    }
-
-    if (state.profiles.length > 1) {
-      // Add cluster child count to the icon element.
-      labelElement = document.importNode (svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text'), true);
-      labelElement.setAttribute ('transform', 'translate(25, 25)');
-      labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix +  '_marker_label';
-      labelElement.textContent = state.profiles.length.toString ();
-      svgElement.appendChild (labelElement);
     }
 
     // Serialize icon element as a string.
@@ -936,19 +924,19 @@
   }
 
   /*
-    Accepts one argument: state, a State
+    Accepts one argument: profile, a Profile
     object; and returns a JQuery HTML Element
-    that represents a state panel element
-    representing state.
+    that represents a profile panel element
+    representing profile.
   */
-  Map.prototype.createStatePanelElement = function (state) {
+  Map.prototype.createProfilePanelElement = function (profile) {
     var self = this;
-    var classPrefix = getModuleClassPrefix () + '_state_panel';
-    var dataPrefix  = getModuleDataPrefix () + '-state-panel';
+    var classPrefix = getModuleClassPrefix () + '_profile_panel';
+    var dataPrefix  = getModuleDataPrefix () + '-profile-panel';
     return $('<div></div>')
       .addClass (classPrefix)
-      .attr (dataPrefix + '-state-name', state.name)
-      .attr (dataPrefix + '-state-abbreviation', state.abbreviation)
+      .attr (dataPrefix + '-profile-name', profile.title)
+      .attr (dataPrefix + '-profile-id', profile.id)
       .append ($('<div></div>')
         .addClass (classPrefix + '_header')
         .append ($('<div></div>')
@@ -960,8 +948,8 @@
       .append ($('<div></div>')
         .addClass (classPrefix + '_body')
         .append ($('<ol></ol>')
-          .addClass (classPrefix + '_state_profiles_list')
-          .append (state.profiles.map (createProfileElement))))
+          .addClass (classPrefix + '_profile_profiles_list')
+          .append (createProfileElement (profile))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_footer'));
   }
@@ -983,17 +971,17 @@
   }
 
   /*
-    Accepts one argument: state, a State object;
-    creates a state panel element that represents
-    state; adds that element to this component's
+    Accepts one argument: profile, a Profile object;
+    creates a profile panel element that represents
+    profile; adds that element to this component's
     panel element; displays the panel element;
     and returns undefined.
   */
-  Map.prototype.showStatePanelElement = function (state) {
+  Map.prototype.showProfilePanelElement = function (profile) {
     this.hideLogoElement ();
     this.getPanelElement ()
       .empty ()
-      .append (this.createStatePanelElement (state))
+      .append (this.createProfilePanelElement (profile))
       .show ('slide', {direction: 'right'}, 500,
         function () {
           // create profile share elements.
@@ -1021,14 +1009,14 @@
   }
 
   /*
-    Accepts one argument: stateAbbreviation,
-    a string that represents a state
-    abbreviation; and selects the marker
-    associated with the state referenced by
-    stateAbbreviation.
+    Accepts one argument: profileId,
+    an integer that represents a profile
+    node ID; and selects the marker
+    associated with the profile referenced by
+    profileId.
   */
-  Map.prototype.selectMarkerElement = function (stateAbbreviation) {
-    var markerElement= this.getMarkerElement (stateAbbreviation).get (0);
+  Map.prototype.selectMarkerElement = function (profileId) {
+    var markerElement= this.getMarkerElement (profileId).get (0);
     markerElement.className.baseVal = markerElement.className.baseVal + ' ' + getSelectedClassName ();
   }
 
@@ -1073,14 +1061,14 @@
   }
 
   /*
-    Accepts argument: stateAbbreviation, a string
-    that represents a state abbreviation; and
+    Accepts argument: profileId, an integer
+    that represents a profile node ID; and
     returns a jQuery HTML Element that represents
-    the marker for the state referenced by
-    stateAbbreviation.
+    the marker for the profile referenced by
+    profileId.
   */
-  Map.prototype.getMarkerElement = function (stateAbbreviation) {
-    return $('.' + getMarkerClassName () + '[' + getMarkerStateAttribName () + '="' + stateAbbreviation + '"]', this.getComponentElement ());
+  Map.prototype.getMarkerElement = function (profileId) {
+    return $('.' + getMarkerClassName () + '[' + getMarkerProfileIdAttribName () + '="' + profileId + '"]', this.getComponentElement ());
   }
 
   /*
@@ -1120,11 +1108,11 @@
 
   /*
     Accepts no arguments and returns a string
-    representing the name of the marker state
-    data attribute.
+    representing the name of the marker profile
+    ID data attribute.
   */
-  function getMarkerStateAttribName () {
-    return getModuleDataPrefix () + '-marker-state';
+  function getMarkerProfileIdAttribName () {
+    return getModuleDataPrefix () + '-marker-profile';
   }
 
   /*
@@ -1968,10 +1956,11 @@
     territory; and returns the state/territory's
     abbreviation as a string.
   */
+/*
   function getStateAbbreviation (stateName) {
     return STATE_ABBREVIATIONS [stateName.toLowerCase ()];
   }
-
+*/
   /*
     Accepts one argument: stateAbbreviation,
     a string that represents a valid U.S. state
@@ -1979,16 +1968,18 @@
     Coordinate object representing the center
     of the referenced state or territory.
   */
+/*
   function getStateCoordinates (stateAbbreviation) {
     return STATE_COORDINATES [stateAbbreviation];
   }
-
+*/
   /*
     An associative array of U.S. state and
     territory abbreviations keyed by state name.
 
     See: http://www.stateabbreviations.us/
   */
+/*
   var STATE_ABBREVIATIONS = {
     'alabama':                        'al',
     'alaska':                         'ak',
@@ -2050,7 +2041,7 @@
     'wisconsin':                      'wi',
     'wyoming':                        'wy',
   };
-
+*/
   /*
     An associative array of GPS coordinates
     recording the center of each U.S. state
@@ -2058,6 +2049,7 @@
 
     See: http://dev.maxmind.com/geoip/legacy/codes/state_latlon/
   */
+/*
   var STATE_COORDINATES = {
     'ak': {'latitude': 61.3850, 'longitude':-152.2683},
     'al': {'latitude': 32.7990, 'longitude':-86.8073},
@@ -2115,7 +2107,7 @@
     'wv': {'latitude': 38.4680, 'longitude':-80.9696},
     'wy': {'latitude': 42.7475, 'longitude':-107.2085}
   };
-
+*/
   /*
     Accepts three arguments:
 

@@ -65,15 +65,17 @@ class PreserveAmericaMapBlock extends BlockBase {
   private function createProfile ($node_array) {
     $nid = $this->getFieldValue ($node_array, 'nid');
     $url = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ('absolute' => true));
-    \Drupal::logger ('preserve_america_map')->notice ('[PreserveAmericaMap::createProfile] node array: <pre>' . print_r ($node_array, true) . '</pre>');
+    // \Drupal::logger ('preserve_america_map')->notice ('[PreserveAmericaMap::createProfile] node array: <pre>' . print_r ($node_array, true) . '</pre>');
     return [
-      'id'       => $nid,
-      'url'      => $url->toString (),
-      'title'    => $this->getFieldValue ($node_array, 'title'),
-      'body'     => $this->getSummaryBodyFieldValue ($node_array),
-      'website'  => $this->getFieldValue ($node_array, 'field_community_website'),
-      'location' => $this->getFieldValue ($node_array, 'field_community_location'),
-      'states'   => $this->getReferencedTermsNames ($node_array, 'field_community_state')
+      'id'        => $nid,
+      'url'       => $url->toString (),
+      'title'     => $this->getFieldValue ($node_array, 'title'),
+      'body'      => $this->getSummaryBodyFieldValue ($node_array),
+      'website'   => $this->getFieldValue ($node_array, 'field_community_website'),
+      'location'  => $this->getFieldValue ($node_array, 'field_community_location'),
+      'latitude'  => $this->getFieldValue ($node_array, 'field_community_coordinates', 'lat'),
+      'longitude' => $this->getFieldValue ($node_array, 'field_community_coordinates', 'lng'),
+      'states'    => $this->getReferencedTermsNames ($node_array, 'field_community_state')
     ];
   }
 
