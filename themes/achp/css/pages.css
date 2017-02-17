@@ -13890,6 +13890,9 @@ general office landing page */
               margin-bottom: 0; } }
       [data-page-node-type="section_106_case_profile"] #main #content_region [data-derivative-plugin-id^="related_resources"] {
         padding: 0; }
+  [data-page-node-type="section_106_case_profile"] .achp-case-details {
+    color: #003A5E;
+    font-size: 1.75rem; }
   [data-page-node-type="section_106_case_profile"] .section_106_map_case_location {
     color: #950306;
     font-size: 1.375rem; }
@@ -13907,11 +13910,33 @@ general office landing page */
       text-align: left; }
     [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_agency_header_title,
     [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_contact_header_title {
+      margin: 0;
+      padding: 0;
       color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 0;
       margin-top: 10px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_agency_header_title,
+        [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_contact_header_title {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_agency_header_title,
+        [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_contact_header_title {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_agency_header_title,
+        [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_contact_header_title {
+          margin-bottom: 0; } }
     [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_agency_header,
     [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_contact_header {
       margin-top: 10px; }
+    [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_contact .achp-field {
+      display: inline; }
     [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_contact_title {
       color: #bababa;
       margin-left: 10px;

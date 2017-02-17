@@ -6,6 +6,11 @@
   @import "../styleguide";
   @import "../digital_library_document_page";
 
+  .achp-case-details {
+    color: $color-darkblue2;
+    font-size: rem(28px);
+
+  }
   .section_106_map_case_location {
     color: $color-red;
     font-size: 1.375rem;
@@ -30,12 +35,17 @@
     }
     .section_106_map_case_body_agency_header_title,
     .section_106_map_case_body_contact_header_title {
-      color: $color-darkblue2;
+      @include h4($color: $color-darkblue2);
       margin-top: 10px;
     }
     .section_106_map_case_body_agency_header,
     .section_106_map_case_body_contact_header {
       margin-top: 10px;
+    }
+    .section_106_map_case_body_contact {
+      .achp-field {
+        display: inline;
+      }
     }
     .section_106_map_case_contact_title {
       color: rgb(186, 186, 186);
