@@ -307,15 +307,18 @@ $preserve_america_map_share_padding: 10px;
 
             .preserve_america_map_profile_panel_header {
               height: $state_panel_header_height;
-              padding: 10px 15px 10px 18px;
+              padding: 10px 50px 10px 18px;
+              position: relative;
 
               $state_panel_header_close_button_width: 25px;
 
               .preserve_america_map_profile_panel_header_close_button {
                 background: url("../images/close-icon.svg") no-repeat 50% 50%;
                 cursor: pointer;
-                float: right;
                 height: 100%;
+                position: absolute;
+                right: 20px;
+                top: 0;
                 width: $state_panel_header_close_button_width;
                 -moz-transition: all 0.25s ease;
                 -webkit-transition: all 0.25s ease;
@@ -347,6 +350,7 @@ $preserve_america_map_share_padding: 10px;
                   width: 95%;
                   background-color: $red_color;
                   display: block;
+                  margin-top: 10px;
                 }
               }
             }
@@ -365,7 +369,7 @@ $preserve_america_map_share_padding: 10px;
                   }
                   .preserve_america_map_profile_title {
                     a {
-                      color: $color-darkblue;
+                      color: $color-darkblue !important;
                       font-family: $sans-text;
                       font-size: rem(20px);
                     }
@@ -381,23 +385,28 @@ $preserve_america_map_share_padding: 10px;
                     line-height: 1.4;
                   }
                   .preserve_america_map_profile_read_more {
-                    color: $color-grey;
-                    font-size: rem(14px);
-                    margin: 15px 0;
-
+                    a.preserve_america_map_profile_read_more_link {
+                      color: $color-grey;
+                      font-size: rem(14px);
+                      font-weight: 600;
+                      margin: 15px 0;
+                    }
                     &:after {
                       background-image: url('../images/right-arrow-large-dark.svg');
-                      background-position: 50%;
+                      background-position: 50% 4px;
                       background-repeat: no-repeat;
-                      background-size: 20px;
+                      background-size: 8px;
                       content: "";
-                      display: block;
-                      height: 20px; 
+                      display: inline-block;
+                      height: 25px; 
+                      margin: 0 10px;
+                      vertical-align: top;
                       width: 10px;
                     }
                     &:hover {
-                      color: $color-lightblue-primary;
-
+                      a.preserve_america_map_profile_read_more_link {
+                        color: $color-lightblue-primary;
+                      }
                       &:after {
                         background-image: url('../images/right-arrow-large-blue.svg');
                       }

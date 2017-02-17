@@ -1806,7 +1806,10 @@
             .html (profile.body)))
         .append ($('<div></div>')
           .addClass (classPrefix + '_read_more')
-          .text ('Read More'))
+          .append ($('<a></a>')
+            .addClass (classPrefix + '_read_more_link')
+            .attr ('href', profile.url)
+            .text ('Read More')))
         .append ($('<div></div>')
           .addClass (classPrefix + '_footer')
           .append (createShareElement (profile))));
