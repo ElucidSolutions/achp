@@ -302,11 +302,9 @@ $preserve_america_map_share_padding: 10px;
           z-index: 10;
 
           .preserve_america_map_profile_panel {
-            $state_panel_header_height: 50px;
             $state_panel_header_width: $panel_width - 20px;
 
             .preserve_america_map_profile_panel_header {
-              height: $state_panel_header_height;
               padding: 10px 50px 10px 18px;
               position: relative;
 
@@ -337,7 +335,6 @@ $preserve_america_map_share_padding: 10px;
 
               .preserve_america_map_profile_panel_header_title {
                 color: $color-darkblue;
-                float: left;
                 height: 100%;
                 font-size: rem(22px);
                 line-height: 1.4;
@@ -386,8 +383,9 @@ $preserve_america_map_share_padding: 10px;
                   }
                   .preserve_america_map_profile_read_more {
                     a.preserve_america_map_profile_read_more_link {
-                      color: $color-grey;
-                      font-size: rem(14px);
+                      color: $color-grey !important;
+                      font-size: rem(14px) !important;
+                      transition: color 0s !important;
                       font-weight: 600;
                       margin: 15px 0;
                     }
@@ -405,7 +403,7 @@ $preserve_america_map_share_padding: 10px;
                     }
                     &:hover {
                       a.preserve_america_map_profile_read_more_link {
-                        color: $color-lightblue-primary;
+                        color: $color-lightblue-primary !important;
                       }
                       &:after {
                         background-image: url('../images/right-arrow-large-blue.svg');
