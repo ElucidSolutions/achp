@@ -1,0 +1,69 @@
+/*
+  This stylesheet defines the default styles
+  for the User Registration form.
+*/
+
+/*
+  Accepts no arguments and styles the element
+  that this mixin is applied to as a form label.
+
+  Note: this mixin should be applied to label
+  elements.
+*/
+@mixin achp-label {
+  @include header-text($color: $color-grey, $font-weight: 600, $center: false);
+  display: block;
+  font-size: rem(16px);
+  margin-bottom: $margin-small;
+
+  &.form-required:after {
+    content: "*";
+  }
+}
+
+/*
+  Accepts no arguments and styles the element
+  that this mixin is applied to as a textfield.
+
+  Note: this mixin should be applied to input
+  elements.
+*/
+@mixin achp-textfield {
+  border: 1px solid $color-lightgrey-2;
+  border-radius: 2px;
+  height: 40px;
+  margin-bottom: $margin-med;
+  padding: 5px;
+
+  @include placeholder {
+    font-family: $sans-text;
+    font-size: rem(16px);
+    color: #BBBBBB;
+  }
+}
+
+form.user-register-form {
+  @import "../styleguide";
+
+  .form-item {
+    label {
+      @include achp-label;
+    }
+    input.form-text {
+      @include achp-textfield;
+    }
+    .description {
+      display: none;
+    }
+  }
+  .form-actions {
+    &:before {
+      content: "An ACHP Site administrator will review your registration. Upon confirmation you will receive a confirmation email to set your password and setup your account.";
+      display: block;
+      margin-bottom: $margin-large;
+    }
+    input[type="submit"] {
+      @include achp-button;
+    }
+  }
+}
