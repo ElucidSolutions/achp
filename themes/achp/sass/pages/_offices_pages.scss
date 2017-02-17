@@ -10,17 +10,6 @@
     .read_more {
       padding-bottom: 20px;
       position: relative;
-
-      a {
-        /*position: absolute;*/
-        /*height: 11px;*/
-        /*border: 1px solid pink;*/
-
-        &:after {
-          // -ms-transform: none;
-          // position: relative;
-        }
-      }
     }
   }
 }
@@ -56,11 +45,6 @@
     padding: 0 !important;
 
     article {
-      .read_more a:after {
-        // bottom: 1px;
-        // left: 10px;
-        // position: relative;
-      }
       h2 {
         margin-top: 30px;
         text-align: left;
@@ -106,42 +90,46 @@ general office landing page */
         }
       }
     }
-    .staff-view-block .item-list{
-      h3 {
-        @include font-size($h4-font-sizes);
-        margin: 0;
-      }
-      ul {
-        margin: 0;
-        padding-left: 0;
-        font-size: rem(18px);
+    .views-element-container {
+      margin-bottom: 40px;
+      
+      .staff-view-block .item-list{
+        h3 {
+          @include font-size($h4-font-sizes);
+          margin: 0;
+        }
+        ul {
+          margin: 0;
+          padding-left: 0;
+          font-size: rem(18px);
 
-        li {
-          color: $color-darkgrey;
-          font-family: $sans-text;
-          list-style: none;
-          padding-bottom: 20px;
+          li {
+            color: $color-darkgrey;
+            font-family: $sans-text;
+            list-style: none;
+            padding-bottom: 20px;
 
-          .views-field-title {
-            color: $color-darkblue2;
-            font-weight: 500;
-          }
-          .views-field-field-staff-position {
-            color: $color-lightgrey-2;
-          }
-          .views-field-field-staff-phone,
-          .views-field-field-staff-fax,
-          .views-field-field-staff-email {
-            position: relative;
+            .views-field-title {
+              color: $color-darkblue2;
+              font-weight: 500;
+            }
+            .views-field-field-staff-position {
+              color: $color-lightgrey-2;
+            }
+            .views-field-field-staff-phone,
+            .views-field-field-staff-fax,
+            .views-field-field-staff-email {
+              position: relative;
 
-            .field-content {
-              display: inline;
-              left: 75px;
-              position: absolute;   
+              .field-content {
+                display: inline;
+                left: 75px;
+                position: absolute;   
 
-              a {
-                color: $color-blue-primary;
-              }             
+                a {
+                  color: $color-blue-primary;
+                }             
+              }
             }
           }
         }
@@ -149,6 +137,7 @@ general office landing page */
     }
     #block-views-block-related-resources-block-1 {
       margin: 50px 0;
+      padding: 0;
 
       h2 {
         font-size: rem(22px);

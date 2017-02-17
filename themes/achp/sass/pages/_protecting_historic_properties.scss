@@ -3,7 +3,7 @@
 */
 [data-page-path-alias="/protecting-historic-properties"] {
   $vertical-padding: 35px;
-  $container-padding: 50px;
+  $container-padding: 40px;
   $success-card-margin-vert: 25px;
   $success-card-margin-horiz: 20px;
   $success-card-height: 400px;
@@ -109,13 +109,89 @@
         }
       }
     }
+
     #block-featured-success-stories {
+      background-color: $color-lightblue3;
+      clear: both;
+      height: auto;
+      margin-top: $vertical-padding;
+
+      h2 {
+        @include content-container;
+        padding-top: 30px;
+      }
+
+      [data-view-id="homepage_success_stories"] {
+        @include content-container;
+        text-align: center;
+
+        header {
+          background-color: $background-color-grey2;
+          height: auto;
+
+          h2 {
+            margin-top: $vertical-padding
+          }
+        }
+        .success-story.card {
+          background-color: #ffffff;
+          display: inline-block;
+          height: $success-card-height;
+          margin: 25px $success-card-margin-horiz 0 0;
+          text-align: center;
+          width: $success-card-width;
+          
+          .success_story {
+            float: left;
+            height: $success-card-height - 20px; 
+            padding: 5px 10px;
+            position: relative;  
+
+            &_image {
+              $success_story_image_height: 185px;
+              @include fit-and-center-image($success_story_image_height);    
+              margin-bottom: 15px;
+
+              img {
+                border: none !important;
+              }
+            }
+
+            &_title h3 {
+              text-align: inherit;
+            }
+
+            &_location {
+              color: $color-lightgrey-2;
+            }
+
+            &_body p {
+              font-family: $serif-text;
+              font-size: rem(16px);
+              margin: 5px;
+              text-align: center;
+            }
+
+            &_link {
+              @include center-x;
+              bottom: -5px;
+              padding-right: 5px;
+            }
+          }
+        }
+        .success-story.card.view-item-3 {
+          margin-right: 0;
+        }
+      }      
+    }
+
+    /*#block-featured-success-stories {*/
       /* IE has a lot of trouble interpreting calculated values from variables,
       so I included two values for many of the margins and widths below: the
       first as a simple px value, and the second the calculated variable-based
       value. If the second value fails, it will revert to the first.*/
 
-      background-color: $color-lightblue3;
+/*      background-color: $color-lightblue3;
       clear: both;
       height: auto;
       margin-top: $vertical-padding;
@@ -183,19 +259,19 @@
       .card.view-item-3 {
         margin-right: 0 !important;
       }
-    }
+    }*/
+
     #block-moresuccessstoriesbutton-2 {
       background-color: $color-lightblue3;
-      padding-bottom: $vertical-padding;
+      padding: $vertical-padding 0;
 
       button {
         margin: 0 auto;
       }
     }
+
     #block-digitallibrary {
       @include content-container-section;
-      // $icon-width: 46px;
-      // $icon-height: $icon-width;
 
       .library_categories {
         @include outer-container;
@@ -367,22 +443,21 @@
       @include content-container-section;
       padding-top: 50px;
     }
-    @media (max-width: 1040px) {
-      #block-featured-success-stories > div {
-        max-width: 100%;
-        padding: 0 $container-padding $vertical-padding;
-        width: 710px;
-        width: $two-card-container-width;
+    @media (max-width: $max-content-width) {
+      #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+        $two-card-container-width: calc(#{$success-card-width} * 2 
+          + #{$success-card-margin-horiz} 
+          + #{$success-card-shadow-width} * 2);
+        $two-card-container-margin: calc((100% - #{$two-card-container-width})/2);
 
-        .card {
-          &:nth-of-type(2) {
-            margin-right: 0;
+        .success-story.card {
+          &.view-item-1 {
+            margin-left: $two-card-container-margin;
           }
-        }
-        .card.view-item-3 {
-          margin: 25px 0 0;
-          margin-left: 151px;
-          margin-left: calc(#{$success-card-width} / 2);
+          &.view-item-3 {
+            display: block;
+            margin: 25px auto 0;
+          }
         }
       }
     }

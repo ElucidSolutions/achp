@@ -106,6 +106,10 @@
       header {
         background-color: #fff;
         height: auto;
+
+        p {
+          margin-top: 0;
+        }
       }
       table {
         border-collapse: collapse;
@@ -155,7 +159,7 @@
       display: none;
     }
     #block-classroom-training-advanced-info, #block-classroom-training-essentials-info {
-      margin: 50px 0;
+      margin: 40px 0;
 
       p + ul {
         margin-bottom: 0;
@@ -191,7 +195,8 @@
         }
         .views-row {
           padding: 0 20px 10px;
-          &:nth-child(even) {
+
+          &:nth-child(odd) {
             background-color: $background-color-lightblue;
           }
           .views-label {

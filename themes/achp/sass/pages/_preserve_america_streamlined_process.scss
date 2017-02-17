@@ -9,17 +9,21 @@
   #content #content_region {
     $container-padding: 50px;
 
-    #block-achp-content > article {
-      padding: 0;
+    #block-achp-content {
+      @include content-container;
 
-      p:first-of-type {
-        margin-top: 0;
-      }
-      h2 {
-        text-align: left;
-      }
-      a {
-        color: $color-blue-primary;
+      article {
+        padding: 0;
+
+        p:first-of-type {
+          margin-top: 0;
+        }
+        h2 {
+          text-align: left;
+        }
+        a {
+          color: $color-blue-primary;
+        }
       }
     }
   }
