@@ -24,7 +24,7 @@ $default-line-height: 1.7;
 $header-line-height: 1.4;
 
 // The default body font.
-$default-font-family: "minion-pro", serif;
+$default-font-family: "minion-pro", Times, serif;
 
 // The default header font.
 $header-font-family: "p22-underground", sans-serif;
@@ -300,17 +300,22 @@ $separator: 1px solid $background-color-grey2;
   $uppercase: null
 ) {
   @include hover-transition-background(if($background-color, $background-color, $color-lightblue-primary));
-  @include mobile(width, 100%);
+  @include mobile(line-height, 1.2rem);
   background-color: if($background-color, $background-color, $color-blue-primary);
   border: none;
   border-radius: 2px;
   color: if($color, $color, white);
   cursor: pointer;
+  display: inline-block;
   font-size: if($font-size, $font-size, 16px);
   font-family: if($font-family, $font-family, $sans-text);
   font-weight: if($font-weight, $font-weight, 600);
-  padding: $margin-xsmall 35px;
+  padding: 12px 38px 8px;
   @if $uppercase == null or $uppercase { text-transform: uppercase; }
+
+  a {
+    color: if($color, $color, white);
+  }
 }
 
 /*

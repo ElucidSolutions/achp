@@ -151,8 +151,10 @@
 
               a {
                 vertical-align: -3%;
+                
                 &:after {
-                  /*right: auto;*/
+                  -ms-transform: none;
+                  top: 0;
                 }
               }
             }

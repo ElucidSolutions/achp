@@ -16,7 +16,6 @@
   $e106-img-width: 100px;
   $library_icon_height: 50px;
 
-
   #secondary_header_region {
     #block-breadcrumbs {
       @include content-container;
@@ -85,18 +84,19 @@
             position: absolute;
 
             a {
-              display: inline-block;
-              padding-right: 15px;
+              // display: inline-block;
+              // padding-right: 15px;
 
               &:after {
-                right: 0;
+                // right: 0;
               }
             }
           }
         }
       } 
     }
-    #block-viewactivesection106casesinvolvingtheachp, #block-commentonrecentlyclosedsection106cases {
+    #block-viewactivesection106casesinvolvingtheachp, 
+    #block-searchforafederalpreservationofficer {
       .textblock_with_background {
         margin-bottom: $vertical-padding;
         margin-top: $vertical-padding;
@@ -105,7 +105,7 @@
           background-image: url('../images/half-section-section-106-map.png');
         }
         &.textblock_right {
-          background-image: url('../images/half-section-section-106-comments.png');          
+          background-image: url('../images/half-section-fpo-list.png');          
         }
       }
     }
@@ -175,7 +175,7 @@
             padding-right: 5px;
 
             a {
-              vertical-align: 0;   
+              // vertical-align: 0;   
             }
           }
         }
@@ -194,14 +194,14 @@
     }
     #block-digitallibrary {
       @include content-container-section;
-      $icon-width: 46px;
-      $icon-height: $icon-width;
+      // $icon-width: 46px;
+      // $icon-height: $icon-width;
 
       .library_categories {
         @include outer-container;
         font-family: $sans-text;
         max-width: 800px;
-        padding: 0 0 $vertical-padding;
+        padding: 0;
 
         .library_category {
           @include span-columns(5 of 12);
@@ -257,12 +257,13 @@
       $margin-xlarge: 60px;
 
       box-shadow: 0px 1px 3px $color-lightgrey;
+      font-family: $sans-text;
       padding: $margin-med;
-      margin: 0 auto $margin-large;
+      margin: 0 auto $margin-med;
       max-width: $max-content-width - 2 * $margin-large;
 
       &:before {
-        background-image: url('../images/publications-icon.svg');
+        background-image: url('../images/featured-icon.svg');
         background-repeat: no-repeat;
         background-position: left;
         content: 'Featured Library Entries';
@@ -302,11 +303,19 @@
               }
             }
             .views-field-type {
-              color: $color-grey3;
+              color: rgba(124, 124, 124, 1);
+              padding-top: 5px;
+            }
+            .views-field-body {
+              font-family: $serif-text;
+              padding-top: 10px;
             }
           }
         }
       }
+    }
+    #block-php-digital-library-button {
+      padding: 10px 0 20px;
     }
     #block-electronic106submissionsystem {
       background-color: $color-lightblue3;
@@ -324,7 +333,6 @@
           width: 100%;
 
           .warning_icon {
-            /*@include clear-float;*/
             background: #CD1803 url('../images/warning-icon.svg');
             background-position: center;
             background-repeat: no-repeat;
@@ -354,6 +362,10 @@
       &>div {
         @include content-container;
       }
+    }
+    #block-related-resources-block {
+      @include content-container-section;
+      padding-top: 50px;
     }
     @media (max-width: 1040px) {
       #block-featured-success-stories > div {
@@ -408,12 +420,13 @@
             position: relative;
 
             a:after {
-              right: auto;
+              // right: auto;
             }
           }
         }
       }
-      #block-viewactivesection106casesinvolvingtheachp, #block-commentonrecentlyclosedsection106cases {
+      #block-viewactivesection106casesinvolvingtheachp, 
+      #block-searchforafederalpreservationofficer {
         margin: 0;
 
         .textblock_with_background {
@@ -497,7 +510,7 @@
     @media (max-width: 500px) {
       #block-anintroductiontosection106 .block_container {
         .intro_106_text .read_more a:after {
-          right: 0;
+          // right: 0;
         }
       }
     }

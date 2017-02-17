@@ -1,4 +1,10 @@
-#page[data-page-path-alias="/indian-tribes-native-hawaiians"] {
+/*
+  Styles for Indian Tribes & Native Hawaiians landing
+  page, as well as Native Youth page
+*/
+
+#page[data-page-path-alias^="/indian-tribes-native-hawaiians"],
+#page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] {
   $vertical-padding: 35px;
   $container-padding: 50px;
   $img-height: 200px;
@@ -10,6 +16,7 @@
   $success-card-shadow-width: 3px;
   $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
   $two-card-container-width: calc(#{$success-card-width} * 2 + #{$success-card-margin-horiz} + #{$success-card-shadow-width} * 2 + #{$container-padding} * 2);
+  $library_icon_height: 50px;
 
   #secondary_header_region {
     #block-breadcrumbs {
@@ -31,9 +38,22 @@
       width: 100%;
 
       #block-achp-content {
-        @include content-container;
+        /*@include content-container;*/
 
-        h2 + p {
+        h2 {
+          text-align: left;
+
+          & + p {
+            margin-top: 0;
+          }
+          & + h4 {
+            margin-top: 0;
+          }
+          & + ul {
+            margin-top: 5px;
+          }
+        }
+        h4 + p {
           margin-top: 0;
         }
       }
@@ -48,7 +68,6 @@
           h2 {
             font-size: rem(32px);
             margin-bottom: 0;
-            /*text-align: center;*/
 
             &+ p {
               margin: 0 0 30px;
@@ -89,26 +108,6 @@
 
             .read-more {
               display: inline-block;
-              vertical-align: 25%;
-
-              a {
-                @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -30px, $color-blue-primary);
-                color: $color-grey;
-                display: inline-block;
-                font-family: $sans-text;
-                font-size: 0.875rem;
-                font-weight: 500;
-                text-decoration: none;
-                text-transform: uppercase;
-                width: 95%;
-
-                &:after {
-                  right: 0;
-                }
-              }
-              &:hover {
-                color: $color-blue-primary;
-              }
             }
           }
           &:after {
@@ -124,13 +123,13 @@
           }
         }
       }
-      #block-learnaboutpolicies, #block-specificdocument {
+      #block-achp-native-youth, #block-section-106-assistance {
         .textblock_with_background {
           margin-bottom: $vertical-padding;
           margin-top: $vertical-padding;
 
           &.textblock_left {
-            background-image: url('../images/half-section-section-106-map.png');
+            background-image: url('../images/half-section-native-youth.png');
           }
           &.textblock_right {
             background-image: url('../images/half-section-section-106-comments.png');          
@@ -142,7 +141,6 @@
         clear: both;
         height: auto;
         padding-bottom: $vertical-padding;
-        /*margin-top: $vertical-padding;*/
 
         [data-view-id="homepage_success_stories"] {
           @include content-container;
@@ -158,7 +156,6 @@
           .success-story.card {
             background-color: #ffffff;
             display: inline-block;
-            /*float: left;*/
             height: $success-card-height;
             margin: 25px $success-card-margin-horiz 0 0;
             text-align: center;
@@ -199,10 +196,6 @@
                 @include center-x;
                 bottom: -5px;
                 padding-right: 5px;
-
-                a {
-                  vertical-align: 0;   
-                }
               }
             }
           }
@@ -222,6 +215,135 @@
             margin: 0 auto;
           }
         }
+      }
+      #block-indian-hawaiian-library {
+        @include content-container-section;
+
+        .library_categories {
+          @include outer-container;
+          font-family: $sans-text;
+          max-width: 800px;
+          padding: 0;
+
+          .library_category {
+            @include span-columns(5 of 12);
+            @include shift(1);
+            height: $library_icon_height;
+            position: relative;
+            margin-bottom: 20px;
+
+            &:before {
+              background-repeat: no-repeat;
+              background-position: center;
+              content: "";
+              display: block;
+              height: $library_icon_height;
+              width: $library_icon_height;
+            }
+
+            &_regulations:before {
+              background-image: url('../images/regulations-icon.svg');
+            }
+            &_guidance:before {
+              background-image: url('../images/guidance-docs-icon.svg');
+            }
+            &_agreement:before {
+              background-image: url('../images/agreement-docs-icon.svg');
+            }
+            &_faq:before {
+              background-image: url('../images/faq-icon.svg');
+            }
+            &_explanation:before {
+              background-image: url('../images/explanation-resources-icon.svg');
+            }
+            &_publications:before {
+              background-image: url('../images/publications-icon.svg');
+            }
+            .library_text {
+              @include center-y;
+              margin-left: 60px;
+            }
+          }
+        }
+        .library_button {
+          button {
+            margin-bottom: 0;
+          }
+        }
+      }
+      [data-derivative-plugin-id="digital_library-block_16"] {
+        $margin-xsmall: 5px;
+        $margin-small: 10px;
+        $margin-med: 20px;
+        $margin-large: 40px;
+        $margin-xlarge: 60px;
+
+        @include content-container;
+        box-shadow: 0px 1px 3px $color-lightgrey;
+        font-family: $sans-text;
+        margin: 0 auto $margin-med;
+        max-width: $max-content-width - 2 * $margin-large;
+        padding: $margin-med 40px;
+
+        &:before {
+          background-image: url('../images/featured-icon.svg');
+          background-repeat: no-repeat;
+          background-position: left;
+          content: 'Featured Library Entries';
+          color: $color-red2;
+          display: block;
+          height: $library_icon_height;
+          font-size: rem(22px);
+          line-height: $library_icon_height;
+          margin: $margin-small 0;
+          padding-left: $margin-xlarge;
+          width: 100%;
+        }
+        h2 {
+          border: none;
+          color: $color-red2;
+          font-size: rem(22px);
+          margin: $margin-small 0;
+        }
+        header {
+          display: none;
+        }
+        .item-list {
+          box-shadow: 0px 1px 3px $color-lightgrey;
+
+          ol {
+            margin: 0;
+            padding: 0;
+
+            li {
+              border-bottom: 1px solid $color-lightgrey;
+              list-style-type: none;
+              padding: $margin-med 0 $margin-med $margin-med;
+
+              .views-field-title {
+                a {
+                  color: $color-blue-primary;
+                }
+              }
+              .views-field-type {
+                color: rgba(124, 124, 124, 1);
+                padding-top: 5px;
+              }
+              .views-field-body {
+                font-family: $serif-text;
+                padding-top: 10px;
+              }
+            }
+          }
+        }
+      }
+      #block-native-digital-library-button {
+        @include content-container;
+        padding: 10px 0 20px;
+      }
+      #block-related-resources-block {
+        @include content-container;
+        margin-bottom: 40px;
       }
       @media (max-width: $max-content-width) {
         #block-indian-tribes-hawaiians-initiatives {
@@ -247,8 +369,8 @@
               left: 0;
 
               .read-more a {
-                padding-right: 30px;
-                width: 100%;
+                // padding-right: 30px;
+                // width: 100%;
               }
             }
           }
@@ -271,7 +393,7 @@
         }
       }
       @media (max-width: 750px) {
-        #block-learnaboutpolicies, #block-specificdocument {
+        #block-achp-native-youth, #block-section-106-assistance {
           margin: 0;
 
           .textblock_with_background {
@@ -293,6 +415,7 @@
         }
         #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
           .success-story.card {
+
             &.view-item-1, &.view-item-2, &.view-item-3 {
             /*margin: 25px auto 0;*/
             display: block;
@@ -312,13 +435,6 @@
             .read-more {
               @include center-x;
               position: relative;
-
-              a {
-                vertical-align: -3%;
-                &:after {
-                  /*right: auto;*/
-                }
-              }
             }
           }
         }
@@ -340,12 +456,52 @@
             .views-field-view-node a {
               padding-right: 20px;
               &:after {
-                right: 0;
+                // right: 0;
               }
             }
           }
         }
       }
+    }
+  }
+}
+
+#page[data-page-path-alias="/indian-tribes-native-hawaiians"],
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiians"] {
+  #content #content_region #block-achp-content {
+    @include content-container;
+  }
+}
+
+#page[data-page-path-alias="/indian-tribes-native-hawaiians/youth"]
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiians/youth"] {
+  #content #content_region #block-achp-content {
+    @include content-container;
+    margin-bottom: 50px;
+
+    p + h2, ul + h2 {
+      padding-top: 15px;
+    }
+    h4 {
+      margin: 10px 0 0;
+      & + p {
+        margin-top: 0;
+      }
+    }
+    .read_more {
+      padding-bottom: 15px;
+    }
+  }
+}
+
+#page[data-page-path-alias="/indian-tribes-native-hawaiians/native-hawaiian-federal-interagency-working-group"],
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiians/native-hawaiian-federal-interagency-working-group"] {
+  #content #content_region #block-achp-content {
+    @include content-container;
+    margin-bottom: 40px;
+
+    a {
+      color: $color-blue-primary;
     }
   }
 }

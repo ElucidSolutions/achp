@@ -50,7 +50,7 @@
       .views-field-field-success-city {
         padding-right: 5px;
       }
-      .views-field-title {
+      .views-field-field-success-tagline {
         color: $color-grey2;
         font-size: rem(18px);
         font-style: italic;
@@ -60,11 +60,11 @@
   }
 
   #content { 
-    width: 100%;
 
     $vertical-padding: 35px;
 
     #content_region {
+      font-size: rem(18px);
       margin: 0 auto;
       padding: 20px 0 0;
 
@@ -100,13 +100,14 @@
             h4 {
               color: $color-red;
               margin: 0;
-              padding-top: 10px;
+              padding-top: 15px;
             }
             ul {
               margin-top: 5px;
               padding-left: 30px;
 
               li {
+                color: $color-darkblue;
                 font-family: $sans-text;
                 padding: 0 0 5px 10px;
 

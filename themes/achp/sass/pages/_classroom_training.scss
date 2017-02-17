@@ -1,0 +1,206 @@
+#page[data-page-path-alias^="/training/classroom"] {
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-training-share-block {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region {
+    $subsection-padding: 40px;
+    font-size: 18px;
+    margin-bottom: $subsection-padding;
+
+    h2 {
+      text-align: left;
+
+      & + p {
+        margin-top: 0;
+      }
+      & + h4 {
+        margin-top: 5px;
+      }
+      & + ul {
+        margin-top: 5px;
+      }
+    }
+    h4 {
+      color: $color-red2;
+      margin-bottom: 0;
+
+      a {
+        color: $color-red;
+      }
+      & + p {
+        margin-top: 0;
+      }
+    }
+    p + h2 {
+      margin-top: $subsection-padding;
+    }
+    ul {
+      margin-bottom: $subsection-padding;
+
+      li + p {
+        margin-top: 0;
+      }
+    }   
+    #block-achp-content, #block-classroom-courses-tailored {
+      a {
+        color: $color-blue-primary;
+      } 
+    }  
+    #block-classroom-training-courses {
+      margin-bottom: $subsection-padding;
+
+      h4.field-content {
+        margin-top: 5px;
+      }
+      .views-field-view-node {
+        margin: 10px 0 30px;
+      }
+    }
+  }
+}
+
+#page[data-page-path-alias^="/training/classroom/"] {
+  @extend #page[data-page-node-type="page"];
+    $subsection-padding: 40px;
+    margin-bottom: $subsection-padding;
+
+  #content #content_region {
+    #block-achp-content {
+      ul {
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+      .logos {
+        margin-top: 10px;
+
+        img:first-of-type {
+          margin-right: 5px;
+        }
+
+        & + p {
+          margin-top: 10px;
+        }
+      }
+    }
+    #block-classroom-training-registration {
+      margin-top: $subsection-padding;
+
+      @mixin create-header($label) {
+        content: $label;
+        color: #000;
+        display: block;
+        font-size: rem(16px);
+        font-family: $sans-text;
+        font-weight: 500;
+        /*left: 0;*/
+        position: absolute;
+        top: -30px;
+      }   
+      header {
+        background-color: #fff;
+        height: auto;
+      }
+      table {
+        border-collapse: collapse;
+        border-top: 2px solid $color-lightblue-primary;
+        font-family: $sans-text;
+        font-size: rem(16px);
+        margin-top: 40px;
+        position: relative;
+        width: 100%;
+
+        tr {
+          &:nth-child(even) {
+            background-color: $background-color-lightblue;
+          }
+
+          &:first-of-type {
+            td.views-field-field-classroom-offer-end:before {
+              @include create-header ("Dates");
+            }
+            td.views-field-field-classroom-offer-venue:before {
+              @include create-header ("Location");
+            }
+            td.views-field-field-classroom-offer-link:before {
+              @include create-header ("Registration Forms");
+            }      
+          }  
+          td {
+            padding: 10px;
+
+            &.views-field-field-classroom-offer-end {
+              min-width: 150px;
+            }
+            &.views-field-field-classroom-offer-venue {
+              min-width: 200px;
+            }
+            &.views-field-field-classroom-offer-reg-link-1 {
+              max-width: 50%;
+            }
+          }            
+        }
+        a {
+          color: $color-blue-primary;
+        }
+      }
+    }
+    #block-classroom-training-registration-mobile {
+      display: none;
+    }
+    #block-classroom-training-advanced-info, #block-classroom-training-essentials-info {
+      margin: 50px 0;
+
+      p + ul {
+        margin-bottom: 0;
+      }
+      ul {
+        margin: 10px 0 18px;
+      }
+      a {
+        color: $color-blue-primary;
+      }
+    }
+    @media (max-width: 700px) {
+      #block-classroom-training-registration {
+        display: none;
+      }
+      #block-classroom-training-registration-mobile {
+        display: block;
+        font-family: $sans-text;
+        font-size: rem(16px);
+        margin-top: 40px;
+        position: relative;
+        width: 100%;
+
+        a {
+          color: $color-blue-primary;
+        }   
+        header {
+          background-color: #fff;
+          height: auto;
+        }
+        .view-item-1 {
+          border-top: 2px solid $color-lightblue-primary;
+        }
+        .views-row {
+          padding: 0 20px 10px;
+          &:nth-child(even) {
+            background-color: $background-color-lightblue;
+          }
+          .views-label {
+            display: inline-block;
+            font-weight: 500;
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}

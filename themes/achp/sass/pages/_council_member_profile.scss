@@ -1,0 +1,71 @@
+#page[data-page-path-alias^="/about/council-members/"] {
+  @extend #page[data-page-node-type="page"];
+  @import "../styleguide";
+
+  #secondary_header_region {
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+
+  #content #content_region {
+    $council-image-width: 219px;
+
+    @include clear-float;
+    position: relative;
+
+    .council_member_info {
+      float: left;
+      font-family: $sans-text;
+      height: auto;
+      margin: 0 25px 25px 0;
+      width: $council-image-width;
+
+      .council_member_name {
+        color: $color-darkblue;
+        font-weight: 500;
+      }
+      .council_member_position {
+        color: $color-red2;
+      }
+      .council_member_term {
+        color: $color-lightgrey-2;
+
+        div {
+          display: inline;
+          padding-left: 5px;
+        }
+      }
+      .council_member_location {
+        color: $color-grey;
+      }
+      .council_member_designation {
+        display: inline-block;
+        font-weight: 300;
+        margin-top: 8px;
+        
+        .General {
+          background-color: $color-lightblue3;
+          padding: 8px 10px 5px;
+        }
+        .Expert {
+          background-color: #ffe5e0;
+          padding: 8px 10px 5px;
+        }
+      }
+    }
+    .council_member_bio {
+      margin-bottom: $margin-xlarge;
+    }
+    @media (max-width: 600px) {
+      .council_member_info {
+        float: none;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+      }
+    }
+  }
+}

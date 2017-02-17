@@ -21,7 +21,6 @@ html, body {
 h1, h2, h3 {
   font-family: 'p22-underground', sans-serif;
   font-weight: normal;
-  text-align: center;
   margin: 0;
   text-align: center;
 }
@@ -40,6 +39,7 @@ h3 {
   @include font-size($h3-font-sizes);
   color: $color-darkblue;
   text-align: left;
+
   a {
     color: inherit;
     text-decoration: none;
@@ -51,6 +51,10 @@ h4 {
   color: $color-darkblue; 
   font-family: $sans-text; 
   font-weight: normal;
+
+  @media (max-width: $mobile-breakpoint) {
+    text-align: center;
+  }
 }
 
 hr {
@@ -73,7 +77,7 @@ button {
   display: block;
   font-family: $sans-text;
   font-size: rem(16px);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.02rem;
   line-height: 1.4rem;
   margin: 0 auto 30px;
@@ -165,7 +169,65 @@ blockquote {
     font-weight: 500;
     text-decoration: none;
     vertical-align: bottom;
+    position: relative;
+    display: inline-block;
   }
+}
+
+ol.alpha_list {
+  list-style-type: lower-alpha;
+
+  li {
+    padding-bottom: 5px;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+ol.roman_list {
+  list-style-type: upper-roman;
+}
+
+.library_resource_list {
+  box-shadow: 0px 1px 3px $color-lightgrey;
+  font-family: $sans-text;
+  padding: 20px;
+  margin: 0 auto 20px;
+  max-width: $max-content-width - 2 * 40px;
+  box-shadow: 0px 1px 3px $color-lightgrey;
+  font-family: $sans-text;
+  font-size: rem(18px);
+  margin: 30px 0;            
+  padding: 0;
+
+  .library_resource {
+    border-bottom: 1px solid $background-color-grey2;
+    // margin: 30px 0 30px 30px;
+
+    &_title {
+      padding: 20px 20px 0;
+
+      a {
+      color: $color-blue-primary;
+      }
+    }
+    &_type {
+      color: $color-lightgrey-2;
+      font-size: rem(17px);
+      padding: 5px 20px;
+    }
+    p {
+      color: $color-grey2;
+      font-family: $serif-text;
+      margin: 0;
+      padding: 0 20px 20px;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
 }
 
 .textblock_with_background {

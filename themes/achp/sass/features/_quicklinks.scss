@@ -1,17 +1,18 @@
 @import "../global";
 
 #homepage_quicklinks_region {
-  #block-quicklinks {
-    @include span-columns(12 of 12);
-  }
 
   #homepage_quicklinks_content {
     $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
+    @include span-columns(12 of 12);
     width: $card-container-width;
+
+    #block-quicklinks-column-1, #block-quicklinks-column-2, #block-quicklinks-column-3 {
+      @include span-columns(4 of 12);
+    }  
 
     .views-element-container {
       @extend .card;
-      @include span-columns(4 of 12);
       background-color: #FFFFFF;
       float: left;
       height: 518px;
@@ -66,11 +67,12 @@
         .views-field, .quicklink-item-title {
           @include center-y;
           position: relative;
+
           a {
             color: $color-grey;
             display: block;
             height: 100%;
-            line-height: 22.39px;
+            line-height: 1.3;
             padding: 20px 25px;
             position: relative;
             text-decoration: none;
@@ -86,7 +88,7 @@
     }
     .quicklinks-column {
       footer {
-        @include after-element-icon-with-hover('../images/more-dots-icon.svg', '../images/more-dots-icon-white.svg', 13px, #fff);
+        @include after-element-icon-with-hover-aligned('../images/more-dots-icon.svg', '../images/more-dots-icon-white.svg', 13px, #fff);
         @include hover-transition-content-and-background(#fff, $color-blue-primary);
         background: $color-lightgrey;
         border: none;
@@ -115,7 +117,7 @@
 #homepage_quicklinks_region > #homepage_quicklinks_content {
   @media (min-width: 700px) {
     .quicklinks-column > .views-row a {
-      @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -2px, $color-blue-primary);
+      @include after-element-icon-with-hover-aligned('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -2px, $color-blue-primary);
     }
   }
 /*  At this width 2 cards are on the first row, and the third is on the second.
@@ -152,7 +154,7 @@
         display: none;
       }
       .views-row a {
-        @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 8px, $color-blue-primary);
+        @include after-element-icon-with-hover-aligned('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 8px, $color-blue-primary);
       }
 
       header {
@@ -170,14 +172,14 @@
         }
         h3 {
           @include center-y;
-          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0, $color-blue-primary);
+          @include after-element-icon-with-hover-aligned('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0, $color-blue-primary);
           cursor: pointer;
           height: auto;
           padding: 15px;
           width: 95%;
 
           &.open {
-            @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0, $color-blue-primary);
+            @include after-element-icon-with-hover-aligned('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0, $color-blue-primary);
             color: $color-blue-primary;
           }
         }

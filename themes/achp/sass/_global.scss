@@ -27,7 +27,7 @@ $mobile-horiz-padding: 20px;
 /* Global variables: text */
 
 $sans-text: 'p22-underground', sans-serif;
-$serif-text: 'minion-pro', serif;
+$serif-text: 'minion-pro', Times, serif;
 $base-text-size: 16px;
 $default-line-height: 1.5;
 $default-letter-spacing: 0.02rem;
@@ -128,8 +128,8 @@ $grid-columns: 12;
 }
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 
-/* Mixin for attaching icons as after-elements */
-@mixin after-element-icon-with-hover($icon-path, $icon-hover-path, $right-positioning, $color) {
+
+@mixin after-element-icon-with-hover-aligned($icon-path, $icon-hover-path, $right-positioning, $color) {
   @include hover-transition-content($color);
 
   &:after {
@@ -144,6 +144,34 @@ $grid-columns: 12;
     right: $right-positioning;
     transition: background-image 0.25s;
     width: 20px;
+    // height: 1em;
+    // width: 1em;
+    // display: inline-block;
+    // vertical-align: middle;
+    // margin-left: 20px;
+    // position: absolute;
+    // bottom: 0.35em;
+  }
+}
+
+/* Mixin for attaching icons as after-elements */
+@mixin after-element-icon-with-hover($icon-path, $icon-hover-path, $right-positioning, $color) {
+  @include hover-transition-content($color);
+
+  &:after {
+    background-image: url($icon-path);
+    background-position: center;
+    background-repeat: no-repeat;
+    content: "";
+    cursor: pointer;
+    transition: background-image 0.25s;
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+    position: absolute;
+    bottom: 0.35em;
   }
 
   &:hover:after {

@@ -1,0 +1,16 @@
+#page[data-page-path-alias="/about/organization-chart"] {
+  #secondary_header_region {
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region #block-achp-content {
+    font-size: rem(18px);
+    padding: 0 0 40px;
+
+    a {
+      color: $color-blue-primary;
+    }
+  }
+}

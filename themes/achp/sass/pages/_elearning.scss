@@ -1,0 +1,97 @@
+#page[data-page-path-alias="/training/elearning"] {
+  @extend #page[data-page-path-alias^="/training/classroom"];
+  @import "../styleguide";
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-training-share-block {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+
+  #content #content_region {
+    h2 + p {
+      margin-top: 0;
+    }
+    h4 {
+      margin: 25px 0 0;
+
+      & + p {
+        margin-top: 5px;
+      }
+    }
+    ul {
+      margin: 5px 0 20px;
+    }
+    #block-elearning-courses {
+      margin-top: 50px;
+
+      header {
+        background-color: #fff;
+        height: auto;
+      }
+      h3 {
+        color: $color-red2;
+      }
+      .views-field-body p {
+        margin-top: 0;
+      }
+      .views-field-field-elearning-cost,
+      .views-field-field-elearning-course-length,
+      .views-field-field-elearning-access-period {
+        position: relative;
+
+        .views-label {
+          font-weight: 600;
+        }
+        .field-content {
+          display: inline-block;
+          position: absolute;
+          left: 150px;
+        }
+      }
+      .views-field-field-elearning-reg-link {
+        margin-top: 20px;
+        margin-bottom: 40px;
+
+        .field-content {
+          @include achp-button;
+
+          @media (max-width: 400px) {
+            width: 100%;
+          }
+        }
+        @media (max-width: $mobile-breakpoint) {
+          text-align: center;
+
+          .field-content {
+            line-height: 1.2rem;
+          }
+        }
+      }
+    }
+    #block-achp-content .register_button {
+      margin-top: 20px;
+      margin-bottom: 40px;
+
+      a {
+        @include achp-button;
+
+        @media (max-width: 400px) {
+          width: 100%;
+        }
+      }
+      @media (max-width: $mobile-breakpoint) {
+        text-align: center;
+
+        .field-content {
+          line-height: 1.2rem;
+        }
+      }
+    }
+  }
+}
