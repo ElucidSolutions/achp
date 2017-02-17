@@ -13919,6 +13919,7 @@ general office landing page */
       text-align: left;
       font-size: 1.375rem;
       margin-bottom: 0;
+      font-size: 1rem;
       margin-top: 10px; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_agency_header_title,
@@ -13937,10 +13938,16 @@ general office landing page */
       margin-top: 10px; }
     [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_body_contact .achp-field {
       display: inline; }
-    [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_contact_title {
-      color: #bababa;
-      margin-left: 10px;
-      font-family: "minion-pro", serif; }
+    [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_contact_name_title {
+      font-size: 1rem; }
+      [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_contact_name_title .section_106_map_case_contact_title {
+        color: #bababa;
+        margin-left: 10px;
+        font-family: "minion-pro", serif; }
+      [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_contact_name_title .section_106_map_case_contact_email {
+        color: #0990FE; }
+      [data-page-node-type="section_106_case_profile"] .section_106_map_case_body .section_106_map_case_contact_name_title .section_106_map_case_contact_phone {
+        color: #4F4F4F; }
 
 /*
   This stylesheet defines the default styles

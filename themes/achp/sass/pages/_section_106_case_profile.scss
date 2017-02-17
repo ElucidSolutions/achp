@@ -36,6 +36,7 @@
     .section_106_map_case_body_agency_header_title,
     .section_106_map_case_body_contact_header_title {
       @include h4($color: $color-darkblue2);
+      font-size: rem(16px);
       margin-top: 10px;
     }
     .section_106_map_case_body_agency_header,
@@ -47,10 +48,20 @@
         display: inline;
       }
     }
-    .section_106_map_case_contact_title {
-      color: rgb(186, 186, 186);
-      margin-left: 10px;
-      font-family: $serif-text;
+    .section_106_map_case_contact_name_title {
+      font-size: rem(16px);
+
+      .section_106_map_case_contact_title {
+        color: rgb(186, 186, 186);
+        margin-left: 10px;
+        font-family: $serif-text;
+      }
+      .section_106_map_case_contact_email {
+        color: $color-blue-primary;
+      }
+      .section_106_map_case_contact_phone {
+        color: $color-grey;
+      }
     }
   }
 }
