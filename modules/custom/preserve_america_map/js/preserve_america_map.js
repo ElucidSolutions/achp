@@ -944,7 +944,7 @@
         .addClass (classPrefix + '_header')
         .append ($('<div></div>')
           .addClass (classPrefix + '_header_title')
-          .text (state.name))
+          .text (profile.title))
         .append ($('<div></div>')
           .addClass (classPrefix + '_header_close_button'))
           .click (_.bind (this.hidePanelElement, this)))
