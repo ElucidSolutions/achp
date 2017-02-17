@@ -23,8 +23,9 @@
           <a href="{{ item.url }}">{{ item.text }}</a>
         </li>
       {% else %}
+        {% set item_text = item.text|raw %}
         <li class="breadcrumb_link breadcrumb_page">
-          <span class="breadcrumb_page_text">{{ item.text }}</span>
+          <span class="breadcrumb_page_text">{{ item_text|replace({'%20': ' '}) }}</span>
         </li>
       {% endif %}
     {% endfor %}

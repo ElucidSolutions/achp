@@ -44,9 +44,6 @@
           color: $color-grey2;
         }
       }
-    }
-    #block-requestpublicationsformintro {
-      margin-top: 40px;
 
       h2 {
         text-align: left;
@@ -55,6 +52,9 @@
           margin-top: 0;
         }
       }
+    }
+    #block-request-pubs-available-docs {
+      margin-top: 30px;
     }
     #contact-message-request-publications-form {
       margin-bottom: 40px;
@@ -84,8 +84,9 @@
           }
           textarea {
             height: 200px;
+            min-width: 75%;
             max-width: 100%;
-            width: 600px;
+            /*width: 600px;*/
           }
         }
       }
@@ -101,7 +102,7 @@
           display: block;
           font-family: $sans-text;
           font-size: rem(16px);
-          /*font-weight: 400;*/
+          font-weight: 600;
           letter-spacing: 0.02rem;
           line-height: 1.4rem;
           margin: 25px 0;
