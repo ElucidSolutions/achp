@@ -68,7 +68,7 @@ class Section106MapBlock extends BlockBase {
   */
   private function createCase ($node_array) {
     $nid = $this->getFieldValue ($node_array, 'nid');
-    $url = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ('absolute' => true));
+    $url = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ());
     $alias_url = \Drupal::service('path.alias_manager')->getAliasByPath($url->toString ());
 
     return [
