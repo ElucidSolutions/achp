@@ -70,7 +70,7 @@ class Section106MapBlock extends BlockBase {
     $nid = $this->getFieldValue ($node_array, 'nid');
     $url = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ());
     $alias_url = \Drupal::service('path.alias_manager')->getAliasByPath($url->toString ());
-
+    // \Drupal::logger ('preserve_america_map')->notice ('[PreserveAmericaMap::createProfile] node array: <pre>' . print_r ($node_array, true) . '</pre>');
     return [
       'id'     => $nid,
       'url'    => $alias_url,
