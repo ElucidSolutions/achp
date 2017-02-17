@@ -5088,6 +5088,11 @@ the events landing page is different */
 */
 /*
   Accepts no arguments and styles the element
+  that this mixin is applied to as generic
+  prompt text.
+*/
+/*
+  Accepts no arguments and styles the element
   that this mixin is applied to as a form label.
 
   Note: this mixin should be applied to label
@@ -5320,6 +5325,14 @@ form.user-register-form {
     that this mixin is applied to according to
     the rules specified in the current styleguide.
   */ }
+  form.user-register-form:before {
+    font-family: "minion-pro", serif;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: #1E1E1E;
+    content: "Please enter your contact information.";
+    display: block;
+    margin-bottom: 20px; }
   form.user-register-form .form-item label {
     color: #4F4F4F;
     font-family: "p22-underground", sans-serif;
@@ -5352,29 +5365,57 @@ form.user-register-form {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
       color: #BBBBBB; }
+  form.user-register-form .form-item input.form-email {
+    border: 1px solid #7C7C7C;
+    border-radius: 2px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 5px; }
+    form.user-register-form .form-item input.form-email::-webkit-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.user-register-form .form-item input.form-email::-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.user-register-form .form-item input.form-email:-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.user-register-form .form-item input.form-email:-ms-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
   form.user-register-form .form-item .description {
     display: none; }
-  form.user-register-form .form-actions:before {
-    content: "An ACHP Site administrator will review your registration. Upon confirmation you will receive a confirmation email to set your password and setup your account.";
-    display: block;
+  form.user-register-form .form-actions {
     margin-bottom: 40px; }
-  form.user-register-form .form-actions input[type="submit"] {
-    transition: background-color 0.25s;
-    background-color: #0990FE;
-    border: none;
-    border-radius: 2px;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: "p22-underground", sans-serif;
-    font-weight: 600;
-    padding: 5px 35px;
-    text-transform: uppercase; }
-    form.user-register-form .form-actions input[type="submit"]:hover {
-      background-color: #71BFFE; }
-    @media screen and (max-width: 650px) {
-      form.user-register-form .form-actions input[type="submit"] {
-        width: 100%; } }
+    form.user-register-form .form-actions:before {
+      font-family: "minion-pro", serif;
+      font-size: 1.125rem;
+      line-height: 1.5;
+      color: #1E1E1E;
+      content: "An ACHP Site administrator will review your registration. Upon confirmation you will receive a confirmation email to set your password and setup your account.";
+      display: block;
+      margin-bottom: 40px; }
+    form.user-register-form .form-actions input[type="submit"] {
+      transition: background-color 0.25s;
+      background-color: #0990FE;
+      border: none;
+      border-radius: 2px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 600;
+      padding: 5px 35px;
+      text-transform: uppercase; }
+      form.user-register-form .form-actions input[type="submit"]:hover {
+        background-color: #71BFFE; }
+      @media screen and (max-width: 650px) {
+        form.user-register-form .form-actions input[type="submit"] {
+          width: 100%; } }
 
 /*
   This module contains styles for the page
