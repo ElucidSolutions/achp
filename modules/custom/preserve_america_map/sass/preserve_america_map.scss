@@ -4,6 +4,11 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
+$color-darkblue: #043B62;
+$color-red: #A1000A;
+$color-darkgrey2: #1E1E1E;
+$color-lightblue-primary: #71BFFE;
+
 $light_blue_color: #0990FE;
 $lighter_blue_color: rgba(111, 190, 254, 100);
 $dark_blue_color: rgb(5, 60, 93);
@@ -11,6 +16,7 @@ $red_color: rgb(151, 0, 14);
 
 $color-grey: #4F4F4F;
 $color-darkgrey: #262626;
+$sans-text: 'p22-underground', sans-serif;
 $serif-text: 'minion-pro', serif;
 $background-color-lightblue: #E8F8FF;
 $color-blue-primary: #0990FE;
@@ -88,7 +94,7 @@ $preserve_america_map_share_padding: 10px;
 
   text-align: center;
   width: $feature_width;
-  font-family: 'p22-underground', sans-serif;
+  font-family: $sans-text; 
 
   &::after {
     content: "";
@@ -203,12 +209,6 @@ $preserve_america_map_share_padding: 10px;
           background-color: rgb(246, 246, 246);
         }
         .preserve_america_map_profile_item {
-          margin-left: 25px;
-
-          .preserve_america_map_profile_num {
-            left: 18px;
-            position: absolute;
-          }
           .preserve_america_map_profile_title {
             a {
               color: $dark_blue_color;
@@ -333,10 +333,11 @@ $preserve_america_map_share_padding: 10px;
               $state_panel_header_title_width: $state_panel_header_width - 2 * $panel_padding - $state_panel_header_close_button_width;
 
               .preserve_america_map_profile_panel_header_title {
-                color: $dark_blue_color;
+                color: $color-darkblue;
                 float: left;
                 height: 100%;
-                font-size: 1.175rem; // Reduced to prevent "District of Columbia" from overflowing.
+                font-size: rem(22px);
+                line-height: 1.4;
                 text-align: left;
                 display: inline-block;
 
@@ -359,15 +360,48 @@ $preserve_america_map_share_padding: 10px;
                 .preserve_america_map_profile {
                   padding: 10px 30px 10px 20px;
 
-                  .preserve_america_map_profile_title a, .preserve_america_map_profile_item {
+                  .preserve_america_map_profile_item {
                     font-size: 1.25rem;
                   }
-                  .preserve_america_map_profile_location {
-                    display: none;
+                  .preserve_america_map_profile_title {
+                    a {
+                      color: $color-darkblue;
+                      font-family: $sans-text;
+                      font-size: rem(20px);
+                    }
                   }
-                  .preserve_america_map_profile_body_contact > div {
-                    display: block;
-                    margin-left: 0;
+                  .preserve_america_map_profile_location {
+                    color: $color-red;
+                    font-family: $sans-text;
+                    font-size: rem(16px);
+                  }
+                  .preserve_america_map_profile_body {
+                    color: $color-darkgrey2;
+                    font-size: rem(16px);
+                    line-height: 1.4;
+                  }
+                  .preserve_america_map_profile_read_more {
+                    color: $color-grey;
+                    font-size: rem(14px);
+                    margin: 15px 0;
+
+                    &:after {
+                      background-image: url('../images/right-arrow-large-dark.svg');
+                      background-position: 50%;
+                      background-repeat: no-repeat;
+                      background-size: 20px;
+                      content: "";
+                      display: block;
+                      height: 20px; 
+                      width: 10px;
+                    }
+                    &:hover {
+                      color: $color-lightblue-primary;
+
+                      &:after {
+                        background-image: url('../images/right-arrow-large-blue.svg');
+                      }
+                    }
                   }
                   .preserve_america_map_profile_footer {
                     margin: 10px 0;
