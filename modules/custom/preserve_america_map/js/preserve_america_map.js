@@ -690,7 +690,7 @@
     object array.
   */
   Map.prototype.createMarkers = function (profiles) {
-    profiles.map (this.createMarker, this);
+    return profiles.map (this.createMarker, this);
     // return createStates (profiles).map (this.createMarker, this);
   }
 
