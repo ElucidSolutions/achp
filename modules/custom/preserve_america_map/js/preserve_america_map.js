@@ -845,7 +845,7 @@
     var svgElement = document.importNode (svgDocument.documentElement, true);
 
     // Add a class attribute to the icon element.
-    svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
+    svgElement.setAttribute (getMarkerProfileIdAttribName (), profile.id);
     svgElement.className.baseVal = svgElement.className.baseVal + ' ' + getMarkerClassName () + ' ' + prefix + '_single_profile_marker';
 
     // Set/Create the marker's title (hover text).
