@@ -952,7 +952,7 @@
         .addClass (classPrefix + '_body')
         .append ($('<ol></ol>')
           .addClass (classPrefix + '_profile_profiles_list')
-          .append (createProfileElement (profile))))
+          .append (createProfileElement (profile, 1))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_footer'));
   }
