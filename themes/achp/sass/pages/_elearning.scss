@@ -1,5 +1,6 @@
 #page[data-page-path-alias="/training/elearning"] {
   @extend #page[data-page-path-alias^="/training/classroom"];
+  @import "../styleguide";
 
   #secondary_header_region {
     #block-breadcrumbs {
@@ -53,35 +54,43 @@
           left: 150px;
         }
       }
-      .views-field-field-elearning-reg-link a {
-        @extend .register_button;
-        margin: 25px 0 40px;
+      .views-field-field-elearning-reg-link {
+        margin-top: 20px;
+        margin-bottom: 40px;
+
+        .field-content {
+          @include achp-button;
+
+          @media (max-width: 400px) {
+            width: 100%;
+          }
+        }
+        @media (max-width: $mobile-breakpoint) {
+          text-align: center;
+
+          .field-content {
+            line-height: 1.2rem;
+          }
+        }
       }
     }
-    #block-achp-content article a.register_button {
-      @include hover-transition-background($color-lightblue-primary);
-      background-color: $color-blue-primary;
-      border: none;
-      border-radius: 2px;  
-      box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-      font-family: $sans-text;
-      font-size: rem(16px);
-      font-weight: 600;
-      letter-spacing: 0.02rem;
-      line-height: 1.4rem;
-      margin-bottom: 10px;
-      padding: 12px 38px 8px;
-      text-transform: uppercase;
+    #block-achp-content .register_button {
+      margin-top: 20px;
+      margin-bottom: 40px;
 
-      @media (max-width: $mobile-breakpoint) {
-        line-height: 1.2rem;
+      a {
+        @include achp-button;
+
+        @media (max-width: 400px) {
+          width: 100%;
+        }
       }
+      @media (max-width: $mobile-breakpoint) {
+        text-align: center;
 
-      @media (max-width: 400px) {
-        width: 100%;
+        .field-content {
+          line-height: 1.2rem;
+        }
       }
     }
   }

@@ -1,5 +1,6 @@
 #page[data-page-path-alias="/training/webinars"] {
   @extend #page[data-page-path-alias^="/training/classroom"];
+  @import "../styleguide";
 
   #content #content_region {
     #block-achp-content {
@@ -36,32 +37,21 @@
           }
         }
         .views-field-field-webinar-link {
-          @include hover-transition-background($color-lightblue-primary);
-          background-color: $color-blue-primary;
-          border: none;
-          border-radius: 2px;  
-          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-          cursor: pointer;
-          display: inline-block;
-          font-family: $sans-text;
-          font-size: rem(16px);
-          font-weight: 600;
-          letter-spacing: 0.02rem;
-          line-height: 1.4rem;
-          margin: 25px 0 30px;
-          padding: 12px 38px 8px;
-          text-transform: uppercase;
+          margin-top: 20px;
 
-          a {
-            color: #fff;
+          .field-content {
+            @include achp-button;
+
+            @media (max-width: 400px) {
+              width: 100%;
+            }
           }
-
           @media (max-width: $mobile-breakpoint) {
-            line-height: 1.2rem;
-          }
+            text-align: center;
 
-          @media (max-width: 400px) {
-            width: 100%;
+            .field-content {
+              line-height: 1.2rem;
+            }
           }
         }
       }

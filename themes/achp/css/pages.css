@@ -2735,86 +2735,336 @@ html {
               [data-page-view-id="digital_library"] #main #content_region .views-element-container nav ul li a:hover {
                 color: #0990FE; }
 
-#page[data-page-path-alias="/training/elearning"] #secondary_header_region #block-breadcrumbs {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding-left: 40px;
-  padding-right: 40px;
-  width: 100%;
-  margin: 30px auto 0; }
-  @media (max-width: 400px) {
-    #page[data-page-path-alias="/training/elearning"] #secondary_header_region #block-breadcrumbs {
-      padding-left: 20px;
-      padding-right: 20px; } }
-#page[data-page-path-alias="/training/elearning"] #secondary_header_region #block-training-share-block {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding-left: 40px;
-  padding-right: 40px;
-  width: 100%;
-  margin: 0 auto 30px; }
-  @media (max-width: 400px) {
-    #page[data-page-path-alias="/training/elearning"] #secondary_header_region #block-training-share-block {
-      padding-left: 20px;
-      padding-right: 20px; } }
-#page[data-page-path-alias="/training/elearning"] #content #content_region h2 + p {
-  margin-top: 0; }
-#page[data-page-path-alias="/training/elearning"] #content #content_region h4 {
-  margin: 25px 0 0; }
-  #page[data-page-path-alias="/training/elearning"] #content #content_region h4 + p {
-    margin-top: 5px; }
-#page[data-page-path-alias="/training/elearning"] #content #content_region ul {
-  margin: 5px 0 20px; }
-#page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses {
-  margin-top: 50px; }
-  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses header {
-    background-color: #fff;
-    height: auto; }
-  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses h3 {
-    color: #9B0008; }
-  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-body p {
+#page[data-page-path-alias="/training/elearning"] {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and mobile-value, another CSS value
+  
+    sets property to mobile-value and adds a media
+    query that sets property to mobile-value for
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and tablet-value, another CSS value
+  
+    sets property to tablet-value and adds a media
+    query that sets property to tablet-value for
+    tablet screens.
+  */
+  /*
+    Accepts four arguments:
+  
+    * property, a CSS property
+    * widescreen-value, a CSS value
+    * tablet-value, a CSS value
+    * and mobile-value, an optional CSS value
+  
+    sets property to widescreen-value and
+    adds media queries that sets property to
+    tablet-value and mobile-value for tablet and
+    mobile screens.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
+    Accepts two arguments:
+  
+    * front-size, a CSS length measure
+    * margin-bottom, a CSS length measure
+  
+    and sets both the font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area -
+    affecting the bottom margin.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Accepts four length measures as
+    arguments: $widescreen-font-size,
+    $widescreen-margin-bottom, $mobile-font-size,
+    and $mobile-margin-bottom, and sets the
+    widescreen and mobile font sizes while
+    adjusting the bottom margins.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
+  */ }
+  #page[data-page-path-alias="/training/elearning"] #secondary_header_region #block-breadcrumbs {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    margin: 30px auto 0; }
+    @media (max-width: 400px) {
+      #page[data-page-path-alias="/training/elearning"] #secondary_header_region #block-breadcrumbs {
+        padding-left: 20px;
+        padding-right: 20px; } }
+  #page[data-page-path-alias="/training/elearning"] #secondary_header_region #block-training-share-block {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    margin: 0 auto 30px; }
+    @media (max-width: 400px) {
+      #page[data-page-path-alias="/training/elearning"] #secondary_header_region #block-training-share-block {
+        padding-left: 20px;
+        padding-right: 20px; } }
+  #page[data-page-path-alias="/training/elearning"] #content #content_region h2 + p {
     margin-top: 0; }
-  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-cost,
-  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-course-length,
-  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-access-period {
-    position: relative; }
-    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-cost .views-label,
-    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-course-length .views-label,
-    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-access-period .views-label {
-      font-weight: 600; }
-    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-cost .field-content,
-    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-course-length .field-content,
-    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-access-period .field-content {
+  #page[data-page-path-alias="/training/elearning"] #content #content_region h4 {
+    margin: 25px 0 0; }
+    #page[data-page-path-alias="/training/elearning"] #content #content_region h4 + p {
+      margin-top: 5px; }
+  #page[data-page-path-alias="/training/elearning"] #content #content_region ul {
+    margin: 5px 0 20px; }
+  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses {
+    margin-top: 50px; }
+    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses header {
+      background-color: #fff;
+      height: auto; }
+    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses h3 {
+      color: #9B0008; }
+    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-body p {
+      margin-top: 0; }
+    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-cost,
+    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-course-length,
+    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-access-period {
+      position: relative; }
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-cost .views-label,
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-course-length .views-label,
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-access-period .views-label {
+        font-weight: 600; }
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-cost .field-content,
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-course-length .field-content,
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-access-period .field-content {
+        display: inline-block;
+        position: absolute;
+        left: 150px; }
+    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link {
+      margin-top: 20px;
+      margin-bottom: 40px; }
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link .field-content {
+        transition: background-color 0.25s;
+        background-color: #0990FE;
+        border: none;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 600;
+        padding: 12px 38px 8px;
+        text-transform: uppercase; }
+        #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link .field-content:hover {
+          background-color: #71BFFE; }
+        @media screen and (max-width: 650px) {
+          #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link .field-content {
+            line-height: 1.2rem; } }
+        #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link .field-content a {
+          color: white; }
+        @media (max-width: 400px) {
+          #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link .field-content {
+            width: 100%; } }
+      @media (max-width: 650px) {
+        #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link {
+          text-align: center; }
+          #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link .field-content {
+            line-height: 1.2rem; } }
+  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content .register_button {
+    margin-top: 20px;
+    margin-bottom: 40px; }
+    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content .register_button a {
+      transition: background-color 0.25s;
+      background-color: #0990FE;
+      border: none;
+      border-radius: 2px;
+      color: white;
+      cursor: pointer;
       display: inline-block;
-      position: absolute;
-      left: 150px; }
-  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link a {
-    margin: 25px 0 40px; }
-#page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content article a.register_button, #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content article #block-elearning-courses .views-field-field-elearning-reg-link a, #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link #block-achp-content article a {
-  transition: background-color 0.25s;
-  background-color: #0990FE;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "p22-underground", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.02rem;
-  line-height: 1.4rem;
-  margin-bottom: 10px;
-  padding: 12px 38px 8px;
-  text-transform: uppercase; }
-  #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content article a.register_button:hover, #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content article #block-elearning-courses .views-field-field-elearning-reg-link a:hover, #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link #block-achp-content article a:hover {
-    background-color: #71BFFE; }
-  @media (max-width: 650px) {
-    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content article a.register_button, #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content article #block-elearning-courses .views-field-field-elearning-reg-link a, #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link #block-achp-content article a {
-      line-height: 1.2rem; } }
-  @media (max-width: 400px) {
-    #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content article a.register_button, #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content article #block-elearning-courses .views-field-field-elearning-reg-link a, #page[data-page-path-alias="/training/elearning"] #content #content_region #block-elearning-courses .views-field-field-elearning-reg-link #block-achp-content article a {
-      width: 100%; } }
+      font-size: 16px;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 600;
+      padding: 12px 38px 8px;
+      text-transform: uppercase; }
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content .register_button a:hover {
+        background-color: #71BFFE; }
+      @media screen and (max-width: 650px) {
+        #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content .register_button a {
+          line-height: 1.2rem; } }
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content .register_button a a {
+        color: white; }
+      @media (max-width: 400px) {
+        #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content .register_button a {
+          width: 100%; } }
+    @media (max-width: 650px) {
+      #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content .register_button {
+        text-align: center; }
+        #page[data-page-path-alias="/training/elearning"] #content #content_region #block-achp-content .register_button .field-content {
+          line-height: 1.2rem; } }
 
 /*
   Styles for the event item page
@@ -14373,52 +14623,271 @@ general office landing page */
           padding-top: 10px;
           position: relative; } }
 
-#page[data-page-path-alias="/training/webinars"] #content #content_region #block-achp-content ul {
-  margin-top: 5px;
-  margin-bottom: 0; }
-#page[data-page-path-alias="/training/webinars"] #content #content_region #block-achp-content .logos {
-  margin-top: 10px; }
-  #page[data-page-path-alias="/training/webinars"] #content #content_region #block-achp-content .logos + p {
-    margin-top: 0; }
-#page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row {
-  padding-bottom: 30px; }
-  #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row h3 {
-    color: #9B0008; }
-  #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row h4 {
-    color: #003A5E;
-    margin: 5px 0 0; }
-  #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-level + .views-field-body p {
-    margin-top: 5px; }
-  #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row ul {
+#page[data-page-path-alias="/training/webinars"] {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and mobile-value, another CSS value
+  
+    sets property to mobile-value and adds a media
+    query that sets property to mobile-value for
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and tablet-value, another CSS value
+  
+    sets property to tablet-value and adds a media
+    query that sets property to tablet-value for
+    tablet screens.
+  */
+  /*
+    Accepts four arguments:
+  
+    * property, a CSS property
+    * widescreen-value, a CSS value
+    * tablet-value, a CSS value
+    * and mobile-value, an optional CSS value
+  
+    sets property to widescreen-value and
+    adds media queries that sets property to
+    tablet-value and mobile-value for tablet and
+    mobile screens.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
+    Accepts two arguments:
+  
+    * front-size, a CSS length measure
+    * margin-bottom, a CSS length measure
+  
+    and sets both the font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area -
+    affecting the bottom margin.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Accepts four length measures as
+    arguments: $widescreen-font-size,
+    $widescreen-margin-bottom, $mobile-font-size,
+    and $mobile-margin-bottom, and sets the
+    widescreen and mobile font sizes while
+    adjusting the bottom margins.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
+  */ }
+  #page[data-page-path-alias="/training/webinars"] #content #content_region #block-achp-content ul {
+    margin-top: 5px;
     margin-bottom: 0; }
-    #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row ul + ul {
-      margin: 0; }
-  #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link {
-    transition: background-color 0.25s;
-    background-color: #0990FE;
-    border: none;
-    border-radius: 2px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
-    cursor: pointer;
-    display: inline-block;
-    font-family: "p22-underground", sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.02rem;
-    line-height: 1.4rem;
-    margin: 25px 0 30px;
-    padding: 12px 38px 8px;
-    text-transform: uppercase; }
-    #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link:hover {
-      background-color: #71BFFE; }
-    #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link a {
-      color: #fff; }
-    @media (max-width: 650px) {
-      #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link {
-        line-height: 1.2rem; } }
-    @media (max-width: 400px) {
-      #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link {
-        width: 100%; } }
+  #page[data-page-path-alias="/training/webinars"] #content #content_region #block-achp-content .logos {
+    margin-top: 10px; }
+    #page[data-page-path-alias="/training/webinars"] #content #content_region #block-achp-content .logos + p {
+      margin-top: 0; }
+  #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row {
+    padding-bottom: 30px; }
+    #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row h3 {
+      color: #9B0008; }
+    #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row h4 {
+      color: #003A5E;
+      margin: 5px 0 0; }
+    #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-level + .views-field-body p {
+      margin-top: 5px; }
+    #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row ul {
+      margin-bottom: 0; }
+      #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row ul + ul {
+        margin: 0; }
+    #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link {
+      margin-top: 20px; }
+      #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link .field-content {
+        transition: background-color 0.25s;
+        background-color: #0990FE;
+        border: none;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 600;
+        padding: 12px 38px 8px;
+        text-transform: uppercase; }
+        #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link .field-content:hover {
+          background-color: #71BFFE; }
+        @media screen and (max-width: 650px) {
+          #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link .field-content {
+            line-height: 1.2rem; } }
+        #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link .field-content a {
+          color: white; }
+        @media (max-width: 400px) {
+          #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link .field-content {
+            width: 100%; } }
+      @media (max-width: 650px) {
+        #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link {
+          text-align: center; }
+          #page[data-page-path-alias="/training/webinars"] #content #content_region #block-webinar-registration .views-row .views-field-field-webinar-link .field-content {
+            line-height: 1.2rem; } }
 
 /*
   This stylesheet defines the default styles
