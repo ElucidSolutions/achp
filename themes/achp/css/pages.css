@@ -18176,8 +18176,7 @@ general office landing page */
       so I included two values for many of the margins and widths below: the
       first as a simple px value, and the second the calculated variable-based
       value. If the second value fails, it will revert to the first.*/
-      background-color: #E6F8FF;
-      min-height: 550px; }
+      background-color: #E6F8FF; }
       [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories h2 {
         margin: 0 auto;
         max-width: 1024px;
@@ -18189,69 +18188,82 @@ general office landing page */
           [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories h2 {
             padding-left: 20px;
             padding-right: 20px; } }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] {
         margin: 0 auto;
         max-width: 1024px;
-        padding: 0 40px 35px;
-        width: 100%; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card {
-        background-color: #ffffff;
-        display: inline-block;
-        float: left;
-        height: 400px;
-        margin: 25px 17px 0 0;
-        text-align: center;
-        width: 300px; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card:after {
-          clear: both;
-          content: "";
-          display: block; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story {
-          height: 370px;
-          padding: 5px 10px;
-          position: relative; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_image {
-            height: 185px;
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
-            margin-bottom: 15px; }
-            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_image img {
-              -webkit-transform: translateX(-50%) translateY(-50%);
-              -moz-transform: translateX(-50%) translateY(-50%);
-              -ms-transform: translateX(-50%) translateY(-50%);
-              -o-transform: translateX(-50%) translateY(-50%);
-              transform: translateX(-50%) translateY(-50%);
-              left: 50%;
-              position: absolute;
-              top: 50%;
-              height: 100%;
-              min-width: 100%;
-              width: auto; }
-            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_image img {
-              border: none !important; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_title h3 {
-            text-align: inherit; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_location {
-            color: #7C7C7C; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story_body p {
-            font-family: "minion-pro", Times, serif;
-            font-size: 1rem;
-            margin: 5px;
-            text-align: center; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card .success_story .read_more {
-            -webkit-transform: translateX(-50%);
-            -moz-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-            -o-transform: translateX(-50%);
-            transform: translateX(-50%);
+        padding-left: 40px;
+        padding-right: 40px;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        text-align: center; }
+        @media (max-width: 400px) {
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+            padding-left: 20px;
+            padding-right: 20px; } }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
+          background-color: #ffffff;
+          display: inline-block;
+          height: 400px;
+          margin-top: 25px;
+          position: relative;
+          text-align: center;
+          width: 300px; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card + .success-story.card {
+            margin-left: 17px; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story {
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -o-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
             left: 50%;
             position: absolute;
-            bottom: 0;
-            padding-right: 5px; }
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories .card.view-item-3 {
-        margin-right: 0 !important; }
+            top: 50%;
+            height: 370px;
+            width: 280px;
+            position: absolute; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image {
+              max-height: 185px;
+              height: 185px;
+              overflow: hidden;
+              position: relative;
+              width: 100%;
+              /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
+              margin-bottom: 15px; }
+              [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -ms-transform: translateX(-50%) translateY(-50%);
+                -o-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                height: 100%;
+                min-width: 100%;
+                width: auto; }
+              [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
+                border: none !important; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_title h3 {
+              text-align: inherit; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_location {
+              color: #7C7C7C; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_body p {
+              font-family: "minion-pro", Times, serif;
+              font-size: 1rem;
+              margin: 5px;
+              text-align: center; }
+            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story .read_more {
+              -webkit-transform: translateX(-50%);
+              -moz-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
+              -o-transform: translateX(-50%);
+              transform: translateX(-50%);
+              left: 50%;
+              position: absolute;
+              bottom: 0;
+              padding-right: 5px; }
     [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list {
       margin: 0 auto;
       max-width: 1024px;
@@ -18317,21 +18329,11 @@ general office landing page */
           left: 395px;
           left: calc(268px + 30px + 20px);
           position: absolute; }
-    @media (max-width: 1040px) {
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories {
-        height: auto; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
-          padding: 0 0 35px;
-          margin: 0 auto;
-          width: 624px; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card {
-            float: none; }
-            [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card:nth-of-type(2) {
-              margin-right: 0; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card.view-item-3 {
-            margin: 25px 0 0;
-            margin-left: 151px;
-            margin-left: calc(300px / 2); } }
+    @media (max-width: 1023px) {
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+        max-width: 800px; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card:last-of-type {
+          margin-left: 0 !important; } }
     @media (max-width: 800px) {
       [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row {
         padding-bottom: 30px; }
@@ -18348,32 +18350,16 @@ general office landing page */
         [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-view-node {
           bottom: 20px;
           left: 20px; } }
-    @media (max-width: 700px) {
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
-        position: relative;
-        width: 380px; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card {
-          -webkit-transform: translateX(-50%);
-          -moz-transform: translateX(-50%);
-          -ms-transform: translateX(-50%);
-          -o-transform: translateX(-50%);
-          transform: translateX(-50%);
-          left: 50%;
-          position: absolute;
-          position: relative;
-          margin-right: 0;
-          margin-left: 0; }
-          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card:nth-of-type(3) {
-            margin-left: 0 !important; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .card.view-item-3 {
-          margin: 25px 0 0;
-          margin-left: 151px;
-          margin-left: calc(300px / 2); } }
-    @media (max-width: 475px) {
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
-        max-width: 340px; }
-        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div .success-story.card {
+    @media (max-width: 702px) {
+      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+        max-width: 700px; }
+        [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
+          display: block;
+          margin: 25px auto 0 !important;
           max-width: 100%; }
+          [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card:last-of-type {
+            margin: 25px auto 0 !important; } }
+    @media (max-width: 475px) {
       [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list {
         padding: 35px 20px 50px; }
         [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-field-image img {
@@ -18383,9 +18369,6 @@ general office landing page */
           width: auto; }
         [data-page-path-alias="/success-stories"] #content #content_region #block-success-stories-list .success_stories_list_container .views-row .views-field-body {
           padding-bottom: 40px; } }
-    @media (max-width: 400px) {
-      [data-page-path-alias="/success-stories"] #content #content_region #block-featured-success-stories > div {
-        width: 340px; } }
 
 #page[data-page-node-type="success_story"] #secondary_header_region #block-breadcrumbs {
   margin: 0 auto;

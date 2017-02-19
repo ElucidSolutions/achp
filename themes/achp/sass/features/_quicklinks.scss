@@ -137,20 +137,17 @@
         width: 100%;
 
         .quicklinks-column {
-          // height: 75px;
           position: relative;
 
           & > .views-row, .views-field-field-quicklink-image, footer {
             display: none;
           }
         }
-
         .views-row a {
           @include after-element-icon-with-hover-aligned('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 8px, $color-blue-primary);
           padding-left: 0 !important;
           margin-left: 25px;
         }
-
         header {
           height: 75px !important;
           position: relative;
