@@ -60,6 +60,10 @@
       }
       #block-indian-hawaiian-major-initiatives-intro {
         @include content-container;
+
+        h2 + p {
+          margin-top: 0;
+        }
       }
       #block-indian-tribes-hawaiians-initiatives {
         @include content-container;

@@ -6728,6 +6728,9 @@ qui#page[data-page-path-alias="/training/elearning"] {
         #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro {
           padding-left: 20px;
           padding-right: 20px; } }
+      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro h2 + p,
+      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro h2 + p {
+        margin-top: 0; }
     #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives,
     #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives {
       margin: 0 auto;
@@ -14189,6 +14192,18 @@ general office landing page */
           transform: none;*/
         padding: 0 10px 10px;
         top: 60%; } }
+
+[data-page-path-alias="/protecting-historic-properties/program-alternatives"] #secondary_header_region #block-php-shareblock {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 30px; }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/protecting-historic-properties/program-alternatives"] #secondary_header_region #block-php-shareblock {
+      padding-left: 20px;
+      padding-right: 20px; } }
 
 /*
   This stylesheet defines the default styles
