@@ -1,0 +1,16 @@
+<?php
+/*
+  Defines the Contact Us block module which
+  defines the template variables for the Contact
+  Us/Sign In block.
+*/
+
+// Implements hook_theme ()
+function contact_us_block_theme () {
+  return [
+    'contact_us_block' => [
+      'variables' => [
+        'logged_in' => false
+      ]
+  ]];
+}

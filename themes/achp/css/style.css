@@ -5642,33 +5642,42 @@ header {
     header #header_branding_title a {
       color: #fff;
       text-decoration: none; }
-  header #block-headercontactlinks {
+  header #block-headercontactlinks,
+  header [data-plugin-id="contact_us_block"] {
     color: white;
     float: right;
     font-weight: 400;
     padding: 15px 0 5px; }
-    header #block-headercontactlinks a {
+    header #block-headercontactlinks a,
+    header [data-plugin-id="contact_us_block"] a {
       transition: color 0.25s;
       color: white;
       font-family: "p22-underground", sans-serif;
       font-size: 0.875rem;
       text-decoration: none; }
-      header #block-headercontactlinks a:hover {
+      header #block-headercontactlinks a:hover,
+      header [data-plugin-id="contact_us_block"] a:hover {
         color: #71BFFE; }
-    header #block-headercontactlinks .text_links a {
+    header #block-headercontactlinks .text_links a,
+    header [data-plugin-id="contact_us_block"] .text_links a {
       border-right: 1px solid rgba(9, 144, 254, 0.6);
       padding: 5px 15px; }
-    header #block-headercontactlinks .social_icons {
+    header #block-headercontactlinks .social_icons,
+    header [data-plugin-id="contact_us_block"] .social_icons {
       margin-left: 15px;
       vertical-align: sub; }
-      header #block-headercontactlinks .social_icons .social_media {
+      header #block-headercontactlinks .social_icons .social_media,
+      header [data-plugin-id="contact_us_block"] .social_icons .social_media {
         transition: color 0.25s;
         padding-right: 10px; }
-        header #block-headercontactlinks .social_icons .social_media:hover {
+        header #block-headercontactlinks .social_icons .social_media:hover,
+        header [data-plugin-id="contact_us_block"] .social_icons .social_media:hover {
           color: #71BFFE; }
-        header #block-headercontactlinks .social_icons .social_media:last-of-type {
+        header #block-headercontactlinks .social_icons .social_media:last-of-type,
+        header [data-plugin-id="contact_us_block"] .social_icons .social_media:last-of-type {
           padding-right: 0; }
-    header #block-headercontactlinks img {
+    header #block-headercontactlinks img,
+    header [data-plugin-id="contact_us_block"] img {
       vertical-align: text-bottom; }
   header #block-headertextdropdown, header #block-headertextdropdown-3 {
     color: white;
@@ -5797,7 +5806,8 @@ header {
       text-align: center;
       top: 37.5px;
       width: 300px; }
-    header #block-headercontactlinks {
+    header #block-headercontactlinks,
+    header [data-plugin-id="contact_us_block"] {
       display: none; } }
 @media (max-width: 500px) {
   header #header_left {

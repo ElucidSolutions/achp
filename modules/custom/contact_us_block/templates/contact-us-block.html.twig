@@ -1,0 +1,14 @@
+<span class="contact-us-block">
+  <span class="text_links">
+    <a href="#">CONTACT US</a>
+    {% if logged_in %}
+      <a href="/user/logout">SIGN OUT</a>
+    {% else %}
+      <a href="/user/login">SIGN IN</a>
+    {% endif %}
+  </span>
+  <span class="social_icons">
+    <a href="https://www.facebook.com/usachp/" class="social_media"><embed src="/themes/achp/images/facebook-icon.svg" /></a>
+    <a href="https://twitter.com/usachp" class="social_media"><embed src="/themes/achp/images/twitter-icon.svg" /></a>
+  </span>
+</span>

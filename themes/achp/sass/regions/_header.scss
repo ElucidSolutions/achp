@@ -44,7 +44,8 @@ header {
     }
   }
 
-  #block-headercontactlinks {
+  #block-headercontactlinks, 
+  [data-plugin-id="contact_us_block"] {
     color: white;
     float: right;
     font-weight: 400;
@@ -213,7 +214,8 @@ header {
       top: $header-mobile-height / 2;
       width: $header-title-medium-width;
     }
-    #block-headercontactlinks {
+    #block-headercontactlinks,
+    [data-plugin-id="contact_us_block"] {
       display: none;
     }
   }
