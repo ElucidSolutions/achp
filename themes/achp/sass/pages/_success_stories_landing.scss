@@ -42,7 +42,6 @@
         value. If the second value fails, it will revert to the first.*/
 
         background-color: $color-lightblue3;
-        // min-height: 550px;
         
         h2 {
           @include content-container;
@@ -53,15 +52,12 @@
           @include content-container;
           margin: 0 auto;
           padding-bottom: 25px;
-          // max-width: $max-content-width;
           text-align: center;
 
           .success-story.card {
             background-color: #ffffff;
             display: inline-block;
             height: $success-card-height;
-            // margin: 25px $success-card-margin-horiz 0 0;
-            // margin: 25px 8px 0;
             margin-top: 25px;
             position: relative;
             text-align: center;
@@ -69,10 +65,6 @@
 
             & + .success-story.card {
               margin-left: $success-card-margin-horiz;
-            }
-
-            &:last-of-type {
-              // margin-right: 0;
             }
             .success_story {
               @include center-xy;

@@ -6712,6 +6712,18 @@ qui#page[data-page-path-alias="/training/elearning"] {
       #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h4 + p,
       #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h4 + p {
         margin-top: 0; }
+    #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro,
+    #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro {
+      margin: 0 auto;
+      max-width: 1024px;
+      padding-left: 40px;
+      padding-right: 40px;
+      width: 100%; }
+      @media (max-width: 400px) {
+        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro,
+        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro {
+          padding-left: 20px;
+          padding-right: 20px; } }
     #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives,
     #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives {
       margin: 0 auto;
@@ -6818,6 +6830,8 @@ qui#page[data-page-path-alias="/training/elearning"] {
         padding-left: 40px;
         padding-right: 40px;
         width: 100%;
+        margin: 0 auto;
+        padding-bottom: 25px;
         text-align: center; }
         @media (max-width: 400px) {
           #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"],
@@ -6826,27 +6840,38 @@ qui#page[data-page-path-alias="/training/elearning"] {
             padding-right: 20px; } }
         #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] header,
         #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] header {
-          background-color: #E5E3E4;
+          background-color: inherit;
           height: auto; }
           #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] header h2,
           #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] header h2 {
-            margin-top: 35px; }
+            padding-top: 25px; }
         #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card,
         #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
           background-color: #ffffff;
           display: inline-block;
           height: 400px;
-          margin: 25px 20px 0 0;
+          margin-top: 25px;
+          position: relative;
           text-align: center;
-          width: calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3); }
+          width: 300px; }
+          #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card + .success-story.card,
+          #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card + .success-story.card {
+            margin-left: 17px; }
           #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story,
           #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story {
-            float: left;
-            height: 380px;
-            padding: 5px 10px;
-            position: relative; }
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -o-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            height: 370px;
+            width: calc(100% - 20px); }
             #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image,
             #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image {
+              max-height: 185px;
               height: 185px;
               overflow: hidden;
               position: relative;
@@ -6881,8 +6906,8 @@ qui#page[data-page-path-alias="/training/elearning"] {
               font-size: 1rem;
               margin: 5px;
               text-align: center; }
-            #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_link,
-            #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_link {
+            #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story .read_more,
+            #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story .read_more {
               -webkit-transform: translateX(-50%);
               -moz-transform: translateX(-50%);
               -ms-transform: translateX(-50%);
@@ -6890,11 +6915,8 @@ qui#page[data-page-path-alias="/training/elearning"] {
               transform: translateX(-50%);
               left: 50%;
               position: absolute;
-              bottom: -5px;
+              bottom: 0;
               padding-right: 5px; }
-        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3,
-        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-          margin-right: 0; }
     #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-more-success-stories-button,
     #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-more-success-stories-button {
       background-color: #E5E3E4;
@@ -7077,33 +7099,26 @@ qui#page[data-page-path-alias="/training/elearning"] {
         #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-related-resources-block {
           padding-left: 20px;
           padding-right: 20px; } }
-    @media (max-width: 1024px) {
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-title h3,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-title h3 {
-        text-align: center; }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-thumbnail-image,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-thumbnail-image {
-        float: none;
-        margin: 0 auto 20px; }
-        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-thumbnail-image img,
-        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-thumbnail-image img {
-          max-height: 100%;
-          max-width: 100%;
-          width: auto; }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-summary,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-summary {
-        padding-bottom: 40px; }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node {
-        bottom: 0px;
-        left: 0; }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1 {
-        margin-left: calc((100% - calc(calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3) * 2  + 20px  + 3px * 2))/2); }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-        display: block;
-        margin: 25px auto 0; } }
+    @media (max-width: 1023px) {
+      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"],
+      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
+        max-width: 800px; }
+        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card:last-of-type,
+        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card:last-of-type {
+          margin-left: 0 !important; } }
+    @media (max-width: 702px) {
+      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"],
+      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
+        max-width: 700px; }
+        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card,
+        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
+          display: block;
+          margin: 25px auto 0 !important;
+          max-width: 100%; }
+          #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card:last-of-type, #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(2),
+          #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card:last-of-type,
+          #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(2) {
+            margin: 25px auto 0 !important; } }
     @media (max-width: 750px) {
       #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-native-youth, #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-section-106-assistance,
       #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-native-youth,
@@ -7137,14 +7152,7 @@ qui#page[data-page-path-alias="/training/elearning"] {
           #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-native-youth .textblock_with_background button,
           #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-section-106-assistance .textblock_with_background button {
             padding-left: 25px;
-            padding-right: 25px; }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1, #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-2, #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-2,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-        /*margin: 25px auto 0;*/
-        display: block;
-        margin: 25px auto 0; } }
+            padding-right: 25px; } }
     @media (max-width: 650px) {
       #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region h2, #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region h3,
       #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region h2,
@@ -7163,19 +7171,6 @@ qui#page[data-page-path-alias="/training/elearning"] {
           left: 50%;
           position: absolute;
           position: relative; } }
-    @media (max-width: 500px) {
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-thumbnail-image img,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-thumbnail-image img {
-        height: auto;
-        max-height: 100%;
-        max-width: 100%;
-        width: auto; }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-summary,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-field-issue-summary {
-        padding-bottom: 70px; }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node a,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-tribes-hawaiians-initiatives .views-row .views-field-view-node a {
-        padding-right: 20px; } }
 
 #page[data-page-path-alias="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content,
 #page[data-page-path-alias="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content {
@@ -13247,81 +13242,7 @@ general office landing page */
   margin: 0 auto;
   max-width: 100%;
   padding: 0;
-  width: 100%;
-  /*#block-featured-success-stories {*/
-  /* IE has a lot of trouble interpreting calculated values from variables,
-  so I included two values for many of the margins and widths below: the
-  first as a simple px value, and the second the calculated variable-based
-  value. If the second value fails, it will revert to the first.*/
-  /*      background-color: $color-lightblue3;
-        clear: both;
-        height: auto;
-        margin-top: $vertical-padding;
-        
-        h2 {
-          max-width: $max-content-width;
-          margin: 0 auto;
-          padding: $vertical-padding $container-padding 0;
-        }
-        & > div {
-          margin: 0 auto;
-          max-width: 1024px;
-          padding: 0 $container-padding $vertical-padding;
-          width: 100%;
-        }
-        .card {
-          background-color: #ffffff;
-          display: inline-block;
-          height: $success-card-height;
-          margin: 25px $success-card-margin-horiz 0 0;
-          text-align: center;
-          width: $success-card-width;
-          
-          .success_story {
-            height: $success-card-height - 30px; 
-            padding: 5px 10px;
-            position: relative;  
-  
-            &_image {
-              $success_story_image_height: 185px;
-              @include fit-and-center-image($success_story_image_height);    
-              margin-bottom: 15px;
-  
-              img {
-                border: none !important;
-              }
-            }
-  
-            &_title h3 {
-              text-align: inherit;
-            }
-  
-            &_location {
-              color: $color-lightgrey-2;
-            }
-  
-            &_body p {
-              font-family: $serif-text;
-              font-size: rem(16px);
-              margin: 5px;
-              text-align: center;
-            }
-  
-            &_link {
-              @include center-x;
-              bottom: 0;
-              padding-right: 5px;
-  
-              a {
-                // vertical-align: 0;   
-              }
-            }
-          }
-        }
-        .card.view-item-3 {
-          margin-right: 0 !important;
-        }
-      }*/ }
+  width: 100%; }
   [data-page-path-alias="/protecting-historic-properties"] #content_region h2 + p {
     margin-top: 0; }
   [data-page-path-alias="/protecting-historic-properties"] #content_region #block-achp-content article {
@@ -13330,8 +13251,7 @@ general office landing page */
     padding-left: 40px;
     padding-right: 40px;
     width: 100%;
-    padding-bottom: 35px;
-    /*padding-top: $vertical-padding;*/ }
+    padding-bottom: 35px; }
     @media (max-width: 400px) {
       [data-page-path-alias="/protecting-historic-properties"] #content_region #block-achp-content article {
         padding-left: 20px;
@@ -13393,7 +13313,7 @@ general office landing page */
       padding-left: 40px;
       padding-right: 40px;
       width: 100%;
-      padding-top: 30px; }
+      padding-top: 35px; }
       @media (max-width: 400px) {
         [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories h2 {
           padding-left: 20px;
@@ -13404,29 +13324,37 @@ general office landing page */
       padding-left: 40px;
       padding-right: 40px;
       width: 100%;
+      margin: 0 auto;
+      padding-bottom: 25px;
       text-align: center; }
       @media (max-width: 400px) {
         [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] {
           padding-left: 20px;
           padding-right: 20px; } }
-      [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] header {
-        background-color: #E5E3E4;
-        height: auto; }
-        [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] header h2 {
-          margin-top: 35px; }
       [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
         background-color: #ffffff;
         display: inline-block;
         height: 400px;
-        margin: 25px 20px 0 0;
+        margin-top: 25px;
+        position: relative;
         text-align: center;
-        width: calc((1024px - 40px * 2 - 20px * 2 - 3px * 3)/ 3); }
+        width: 300px; }
+        [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card + .success-story.card {
+          margin-left: 17px; }
         [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story {
-          float: left;
-          height: 380px;
-          padding: 5px 10px;
-          position: relative; }
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -o-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          height: 370px;
+          width: 280px;
+          position: absolute; }
           [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image {
+            max-height: 185px;
             height: 185px;
             overflow: hidden;
             position: relative;
@@ -13456,7 +13384,7 @@ general office landing page */
             font-size: 1rem;
             margin: 5px;
             text-align: center; }
-          [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_link {
+          [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story .read_more {
             -webkit-transform: translateX(-50%);
             -moz-transform: translateX(-50%);
             -ms-transform: translateX(-50%);
@@ -13464,13 +13392,11 @@ general office landing page */
             transform: translateX(-50%);
             left: 50%;
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             padding-right: 5px; }
-      [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-        margin-right: 0; }
   [data-page-path-alias="/protecting-historic-properties"] #content_region #block-moresuccessstoriesbutton-2 {
     background-color: #E6F8FF;
-    padding: 35px 0; }
+    padding: 0 0 35px; }
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-moresuccessstoriesbutton-2 button {
       margin: 0 auto; }
   [data-page-path-alias="/protecting-historic-properties"] #content_region #block-digitallibrary {
@@ -13640,12 +13566,11 @@ general office landing page */
     @media (max-width: 400px) {
       [data-page-path-alias="/protecting-historic-properties"] #content_region #block-related-resources-block {
         padding: 35px 20px; } }
-  @media (max-width: 1024px) {
-    [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1 {
-      margin-left: calc((100% - calc(calc((1024px - 40px * 2 - 20px * 2 - 3px * 3)/ 3) * 2  + 20px  + 3px * 2))/2); }
-    [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-      display: block;
-      margin: 25px auto 0; } }
+  @media (max-width: 1023px) {
+    [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+      max-width: 800px; }
+      [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card:last-of-type {
+        margin-left: 0 !important; } }
   @media (max-width: 950px) {
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-electronic106submissionsystem .block_container .warning_block {
       height: 150px; }
@@ -13668,6 +13593,15 @@ general office landing page */
         top: 50%;
         left: calc(100px + 15px * 2);
         margin-top: 0; } }
+  @media (max-width: 702px) {
+    [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+      max-width: 700px; }
+      [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
+        display: block;
+        margin: 25px auto 0 !important;
+        max-width: 100%; }
+        [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories [data-view-id="homepage_success_stories"] .success-story.card:last-of-type {
+          margin: 25px auto 0 !important; } }
   @media (max-width: 750px) {
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-anintroductiontosection106 .block_container img {
       -webkit-transform: translateX(-50%);
@@ -13720,13 +13654,7 @@ general office landing page */
       width: 75%;
       margin-left: 25%; }
       [data-page-path-alias="/protecting-historic-properties"] #content_region #block-digitallibrary .library_categories .library_category:last-child {
-        margin-right: 0; }
-    [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories {
-      margin-top: 0; } }
-  @media (max-width: 724px) {
-    [data-page-path-alias="/protecting-historic-properties"] #content_region #block-featured-success-stories > div .success-story.card {
-      margin: 25px auto 0 !important;
-      display: block !important; } }
+        margin-right: 0; } }
   @media (max-width: 700px) {
     [data-page-path-alias="/protecting-historic-properties"] #content_region #block-electronic106submissionsystem .block_container .warning_block {
       height: 200px; } }
