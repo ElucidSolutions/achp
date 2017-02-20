@@ -2411,7 +2411,11 @@ html {
     that this mixin is applied to according to
     the rules specified in the current styleguide.
   */ }
-  [data-page-path="/contact/feedback"] #block-contactuspagetitle {
+  [data-page-path="/contact/feedback"] #secondary_header_region {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 40px; }
+  [data-page-path="/contact/feedback"] #block-contactuspagetitle h1 {
     margin: 0;
     padding: 0;
     color: #003A5E;
@@ -2422,14 +2426,20 @@ html {
     font-size: 2.25rem;
     margin-bottom: 0; }
     @media screen and (max-width: 925px) {
-      [data-page-path="/contact/feedback"] #block-contactuspagetitle {
+      [data-page-path="/contact/feedback"] #block-contactuspagetitle h1 {
         text-align: center; } }
     @media screen and (max-width: 650px) {
-      [data-page-path="/contact/feedback"] #block-contactuspagetitle {
+      [data-page-path="/contact/feedback"] #block-contactuspagetitle h1 {
         font-size: 1.625rem; } }
     @media screen and (max-width: 650px) {
-      [data-page-path="/contact/feedback"] #block-contactuspagetitle {
+      [data-page-path="/contact/feedback"] #block-contactuspagetitle h1 {
         margin-bottom: 0; } }
+    [data-page-path="/contact/feedback"] #block-contactuspagetitle h1:after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid #950306;
+      margin: 10px 0;
+      width: 60%; }
   [data-page-path="/contact/feedback"] [data-plugin-id="share_this_page_block"] {
     margin-bottom: 20px; }
   [data-page-path="/contact/feedback"] #block-contactusinformationblock {

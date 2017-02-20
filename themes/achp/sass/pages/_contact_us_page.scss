@@ -6,8 +6,23 @@
 [data-page-path="/contact/feedback"] {
   @import "../styleguide";
 
+  #secondary_header_region {
+    max-width: $max-content-width;
+    margin: 0 auto;
+    padding: 0 $margin-large;
+  }
   #block-contactuspagetitle {
-    @include h1;
+    h1 {
+      @include h1;
+
+      &:after {
+        content: "";
+        display: block;
+        border-bottom: 1px solid $color-red;
+        margin: $margin-small 0;
+        width: 60%;
+      }
+    }
   }
   [data-plugin-id="share_this_page_block"] {
     margin-bottom: $margin-med;
