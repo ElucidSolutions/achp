@@ -1,8 +1,9 @@
 #page[data-page-path-alias="/user/login"] {
-  /*@extend #page[data-page-node-type="page"];*/
+  @import "../styleguide";
 
   #secondary_header {
     #block-user-account-breadcrumbs {
+      @include content-container;
       margin: 30px 0 15px;
     }
     #block-about-achp-share {
@@ -42,6 +43,12 @@
         .js-form-item  {
           margin-bottom: 15px;
 
+          input[type="text"], input[type="password"] {
+            font-size: rem(16px);
+            height: 40px;
+            max-width: 100%;
+            padding: 0 5px;
+          }
           label {
             display: block;
             font-size: rem(16px);
@@ -51,32 +58,20 @@
             display: none;
           }
         }
-        #edit-actions input#edit-submit {
-          @include hover-transition-background($color-lightblue-primary);
-          background-color: $color-blue-primary;
-          border: none;
-          border-radius: 2px;  
-          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-          color: #FFFFFF;
-          cursor: pointer;
-          display: block;
-          font-family: $sans-text;
-          font-size: rem(16px);
-          font-weight: 600;
-          letter-spacing: 0.02rem;
-          line-height: 1.4rem;
-          margin: 30px 0;
-          padding: 7px 38px 4px;
-          text-transform: uppercase;
+        #edit-actions {
+          margin-top: 25px;
 
-          @media (max-width: $mobile-breakpoint) {
-            line-height: 1.2rem;
-          }
+          input#edit-submit {
+            @include achp-button;
+            height: 40px;
 
-          @media (max-width: 400px) {
-            width: 100%;
+            @media (max-width: 400px) {
+              width: 100%;
+            }
+            @media (max-width: $mobile-breakpoint) {
+              line-height: 1.2rem;
+            }
           }
-          
         }
       }
     }
