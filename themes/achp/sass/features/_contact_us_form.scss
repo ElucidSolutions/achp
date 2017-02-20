@@ -1,0 +1,32 @@
+/*
+  This stylesheet defines the default styles
+  for the Contact Us stylesheet.
+*/
+
+form.contact-message-feedback-form {
+  @import "../styleguide";
+
+  
+  .form-item {
+    label {
+      @include achp-label;
+    }
+    input.form-text {
+      @include achp-textfield;
+    }
+    input.form-email {
+      @include achp-textfield;
+    }
+    .description {
+      display: none;
+    }
+  }
+  .form-actions {
+    margin-bottom: $margin-large;
+
+    input[type="submit"] {
+      @include achp-button;
+      padding-top: 9px;
+    }
+  }
+}
