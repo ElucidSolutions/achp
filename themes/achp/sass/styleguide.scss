@@ -450,13 +450,15 @@ $separator: 1px solid $background-color-grey2;
 }
 
 /*
-  Accepts no arguments and styles the element
-  that this mixin is applied to as a textfield.
+  Accepts one argument: $placeholder-color,
+  a CSS color value; and styles the element
+  that this mixin is applied to as a textfield
+  form element.
 
   Note: this mixin should be applied to input
   elements.
 */
-@mixin achp-textfield {
+@mixin achp-textfield($placeholder-color: null) {
   border: 1px solid $color-lightgrey-2;
   border-radius: 2px;
   height: 40px;
@@ -467,7 +469,7 @@ $separator: 1px solid $background-color-grey2;
   @include placeholder {
     font-family: $sans-text;
     font-size: rem(16px);
-    color: #BBBBBB;
+    color: if($placeholder-color, $placeholder-color, #BBBBBB);
   }
 }
 

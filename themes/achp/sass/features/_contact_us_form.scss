@@ -9,16 +9,16 @@ form.contact-message-feedback-form {
   
   .form-item {
     label {
-      @include achp-label;
+      display: none;
     }
     input.form-text {
-      @include achp-textfield;
+      @include achp-textfield($placeholder-color: $color-darkgrey2);
     }
     input.form-email {
-      @include achp-textfield;
+      @include achp-textfield($placeholder-color: $color-darkgrey2);
     }
     input.form-tel {
-      @include achp-textfield;
+      @include achp-textfield($placeholder-color: $color-darkgrey2);
     }
     .description {
       display: none;

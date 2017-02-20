@@ -425,8 +425,10 @@ form.contact-message-feedback-form {
     elements.
   */
   /*
-    Accepts no arguments and styles the element
-    that this mixin is applied to as a textfield.
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
   
     Note: this mixin should be applied to input
     elements.
@@ -437,15 +439,7 @@ form.contact-message-feedback-form {
     the rules specified in the current styleguide.
   */ }
   form.contact-message-feedback-form .form-item label {
-    color: #4F4F4F;
-    font-family: "p22-underground", sans-serif;
-    font-weight: 600;
-    line-height: 1.4;
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 10px; }
-    form.contact-message-feedback-form .form-item label.form-required:after {
-      content: "*"; }
+    display: none; }
   form.contact-message-feedback-form .form-item input.form-text {
     border: 1px solid #7C7C7C;
     border-radius: 2px;
@@ -456,19 +450,19 @@ form.contact-message-feedback-form {
     form.contact-message-feedback-form .form-item input.form-text::-webkit-input-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
     form.contact-message-feedback-form .form-item input.form-text::-moz-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
     form.contact-message-feedback-form .form-item input.form-text:-moz-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
     form.contact-message-feedback-form .form-item input.form-text:-ms-input-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
   form.contact-message-feedback-form .form-item input.form-email {
     border: 1px solid #7C7C7C;
     border-radius: 2px;
@@ -479,19 +473,19 @@ form.contact-message-feedback-form {
     form.contact-message-feedback-form .form-item input.form-email::-webkit-input-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
     form.contact-message-feedback-form .form-item input.form-email::-moz-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
     form.contact-message-feedback-form .form-item input.form-email:-moz-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
     form.contact-message-feedback-form .form-item input.form-email:-ms-input-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
   form.contact-message-feedback-form .form-item input.form-tel {
     border: 1px solid #7C7C7C;
     border-radius: 2px;
@@ -502,19 +496,19 @@ form.contact-message-feedback-form {
     form.contact-message-feedback-form .form-item input.form-tel::-webkit-input-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
     form.contact-message-feedback-form .form-item input.form-tel::-moz-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
     form.contact-message-feedback-form .form-item input.form-tel:-moz-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
     form.contact-message-feedback-form .form-item input.form-tel:-ms-input-placeholder {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
-      color: #BBBBBB; }
+      color: #1E1E1E; }
   form.contact-message-feedback-form .form-item .description {
     display: none; }
   form.contact-message-feedback-form .form-actions {
@@ -989,8 +983,10 @@ form.contact-message-feedback-form {
     elements.
   */
   /*
-    Accepts no arguments and styles the element
-    that this mixin is applied to as a textfield.
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
   
     Note: this mixin should be applied to input
     elements.
@@ -1460,8 +1456,10 @@ form.contact-message-feedback-form {
     elements.
   */
   /*
-    Accepts no arguments and styles the element
-    that this mixin is applied to as a textfield.
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
   
     Note: this mixin should be applied to input
     elements.
@@ -2460,8 +2458,10 @@ the events landing page is different */
     elements.
   */
   /*
-    Accepts no arguments and styles the element
-    that this mixin is applied to as a textfield.
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
   
     Note: this mixin should be applied to input
     elements.
@@ -2935,8 +2935,10 @@ the events landing page is different */
     elements.
   */
   /*
-    Accepts no arguments and styles the element
-    that this mixin is applied to as a textfield.
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
   
     Note: this mixin should be applied to input
     elements.
@@ -3433,8 +3435,10 @@ the events landing page is different */
     elements.
   */
   /*
-    Accepts no arguments and styles the element
-    that this mixin is applied to as a textfield.
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
   
     Note: this mixin should be applied to input
     elements.
@@ -4231,8 +4235,10 @@ the events landing page is different */
     elements.
   */
   /*
-    Accepts no arguments and styles the element
-    that this mixin is applied to as a textfield.
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
   
     Note: this mixin should be applied to input
     elements.
@@ -4650,8 +4656,10 @@ the events landing page is different */
     elements.
   */
   /*
-    Accepts no arguments and styles the element
-    that this mixin is applied to as a textfield.
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
   
     Note: this mixin should be applied to input
     elements.
@@ -5073,8 +5081,10 @@ the events landing page is different */
   elements.
 */
 /*
-  Accepts no arguments and styles the element
-  that this mixin is applied to as a textfield.
+  Accepts one argument: $placeholder-color,
+  a CSS color value; and styles the element
+  that this mixin is applied to as a textfield
+  form element.
 
   Note: this mixin should be applied to input
   elements.
@@ -5538,20 +5548,6 @@ the events landing page is different */
   that this mixin is applied to as generic
   prompt text.
 */
-/*
-  Accepts no arguments and styles the element
-  that this mixin is applied to as a form label.
-
-  Note: this mixin should be applied to label
-  elements.
-*/
-/*
-  Accepts no arguments and styles the element
-  that this mixin is applied to as a textfield.
-
-  Note: this mixin should be applied to input
-  elements.
-*/
 form.user-register-form {
   /*
     This stylesheet defines the default styles
@@ -5775,8 +5771,10 @@ form.user-register-form {
     elements.
   */
   /*
-    Accepts no arguments and styles the element
-    that this mixin is applied to as a textfield.
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
   
     Note: this mixin should be applied to input
     elements.
