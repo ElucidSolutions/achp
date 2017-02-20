@@ -17,6 +17,9 @@ form.contact-message-feedback-form {
     input.form-email {
       @include achp-textfield;
     }
+    input.form-tel {
+      @include achp-textfield;
+    }
     .description {
       display: none;
     }
@@ -28,5 +31,8 @@ form.contact-message-feedback-form {
       @include achp-button;
       padding-top: 9px;
     }
+  }
+  #edit-preview {
+    display: none;
   }
 }
