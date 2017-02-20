@@ -6,10 +6,17 @@
 [data-page-path="/contact/feedback"] {
   @import "../styleguide";
 
+  #block-contactuspagetitle {
+    @include h1;
+  }
+  [data-plugin-id="share_this_page_block"] {
+    margin-bottom: $margin-med;
+  }
   #block-contactusinformationblock {
-    float: right;
+    @include responsive(float, right, none);
     border: 1px solid $color-lightgrey-2;
-    padding: 15px;
+    padding: $margin-small;;
+    margin-bottom: $margin-med;
 
     .contact-us-information-header-title {
       @include h2($center: false);
@@ -33,7 +40,7 @@
         @include strip-margins;
       }
       .contact-us-information-body-section-label {
-        @include achp-label;
+        @include achp-label($margin-bottom: 0);
       }
     }
   }
