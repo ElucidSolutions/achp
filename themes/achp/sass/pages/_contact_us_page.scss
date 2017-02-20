@@ -26,13 +26,13 @@
     }
   }
   [data-plugin-id="share_this_page_block"] {
-    margin-bottom: $margin-med;
+    margin-bottom: $margin-large;
   }
   #block-contactusinformationblock {
     @include responsive(float, right, none);
+    @include responsive(margin, 0 $margin-med $margin-med, 0 0 $margin-med);
     border: 1px solid $color-lightgrey-2;
     padding: $margin-small;;
-    margin-bottom: $margin-med;
 
     .contact-us-information-header-title {
       @include h2($center: false);

@@ -2438,15 +2438,18 @@ html {
       margin: 10px auto 40px;
       width: 60%; }
   [data-page-path="/contact/feedback"] [data-plugin-id="share_this_page_block"] {
-    margin-bottom: 20px; }
+    margin-bottom: 40px; }
   [data-page-path="/contact/feedback"] #block-contactusinformationblock {
     float: right;
+    margin: 0 20px 20px;
     border: 1px solid #7C7C7C;
-    padding: 10px;
-    margin-bottom: 20px; }
+    padding: 10px; }
     @media screen and (max-width: 925px) {
       [data-page-path="/contact/feedback"] #block-contactusinformationblock {
         float: none; } }
+    @media screen and (max-width: 925px) {
+      [data-page-path="/contact/feedback"] #block-contactusinformationblock {
+        margin: 0 0 20px; } }
     [data-page-path="/contact/feedback"] #block-contactusinformationblock .contact-us-information-header-title {
       margin: 0;
       padding: 0;
