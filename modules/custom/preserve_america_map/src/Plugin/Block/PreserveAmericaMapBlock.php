@@ -69,7 +69,7 @@ class PreserveAmericaMapBlock extends BlockBase {
     // \Drupal::logger ('preserve_america_map')->notice ('[PreserveAmericaMap::createProfile] node array: <pre>' . print_r ($node_array, true) . '</pre>');
     return [
       'id'        => $nid,
-      'url'       => $url,
+      'url'       => $url->toString (),
       'title'     => $this->getFieldValue ($node_array, 'title'),
       'body'      => $this->getSummaryBodyFieldValue ($node_array),
       'website'   => $this->getFieldValue ($node_array, 'field_community_website'),
