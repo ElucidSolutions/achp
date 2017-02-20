@@ -13,13 +13,14 @@
   }
   #block-contactuspagetitle {
     h1 {
-      @include h1;
+      @include h1($center: false);
+      text-align: center;
 
       &:after {
         content: "";
         display: block;
         border-bottom: 1px solid $color-red;
-        margin: $margin-small 0;
+        margin: $margin-small auto $margin-large;
         width: 60%;
       }
     }

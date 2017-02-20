@@ -2422,12 +2422,9 @@ html {
     font-family: "p22-underground", sans-serif;
     font-weight: 400;
     line-height: 1.4;
-    text-align: left;
     font-size: 2.25rem;
-    margin-bottom: 0; }
-    @media screen and (max-width: 925px) {
-      [data-page-path="/contact/feedback"] #block-contactuspagetitle h1 {
-        text-align: center; } }
+    margin-bottom: 0;
+    text-align: center; }
     @media screen and (max-width: 650px) {
       [data-page-path="/contact/feedback"] #block-contactuspagetitle h1 {
         font-size: 1.625rem; } }
@@ -2438,7 +2435,7 @@ html {
       content: "";
       display: block;
       border-bottom: 1px solid #950306;
-      margin: 10px 0;
+      margin: 10px auto 40px;
       width: 60%; }
   [data-page-path="/contact/feedback"] [data-plugin-id="share_this_page_block"] {
     margin-bottom: 20px; }
