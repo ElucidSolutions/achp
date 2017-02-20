@@ -1,0 +1,43 @@
+/*
+  This stylesheet defines the default styles
+  for the Contact Us page.
+*/
+
+[data-page-path="/contact/feedback"] {
+  @import "../styleguide";
+
+  #block-contactusinformationblock {
+    float: right;
+    border: 1px solid $color-lightgrey-2;
+    padding: 15px;
+
+    .contact-us-information-header-title {
+      @include h2($center: false);
+      font-size: rem(18px);
+
+      &:after {
+        content: "";
+        display: block;
+        border-bottom: 1px solid $color-red;
+        margin: $margin-small 0;
+        width: 60%;
+      }
+    }
+    .contact-us-information-body-section {
+      margin-bottom: $margin-med;
+
+      a {
+        @include a;
+      }
+      p {
+        @include strip-margins;
+      }
+      .contact-us-information-body-section-label {
+        @include achp-label;
+      }
+    }
+  }
+  #block-contactusintroduction {
+    @include styleguide;
+  }
+}
