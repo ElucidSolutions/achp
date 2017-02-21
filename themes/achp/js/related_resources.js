@@ -57,10 +57,10 @@
     HTML Element that represents a Related
     Resources View Row element; and returns
     true iff rowElement contains an External
-    Link Field element.
+    Link element.
   */
-  function hasExternalLinkFieldElement (rowElement) {
-    return getExternalLinkFieldElement (rowElement).text () !== '';
+  function hasExternalLinkElement (rowElement) {
+    return getExternalLinkElement (rowElement).length > 0;
   }
 
   /*
@@ -78,10 +78,10 @@
     HTML Element that represents a Related
     Resources View Row; and returns a jQuery HTML
     Element that represents the row's External
-    Link Field element.
+    Link element.
   */
-  function getExternalLinkFieldElement (rowElement) {
-    return $('.views-field-field-external-link', rowElement).first ();
+  function getExternalLinkElement (rowElement) {
+    return $('.views-field-field-external-link > a', rowElement).first ();
   }
 
   /*
