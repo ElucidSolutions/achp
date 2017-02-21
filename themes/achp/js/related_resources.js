@@ -81,7 +81,7 @@
     Link element.
   */
   function getExternalLinkElement (rowElement) {
-    return $('.views-field-field-external-link > a', rowElement).first ();
+    return $('.views-field-field-external-link a', rowElement).first ();
   }
 
   /*
