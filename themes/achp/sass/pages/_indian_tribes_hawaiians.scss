@@ -150,7 +150,6 @@
         height: auto;
         padding-bottom: $vertical-padding;
 
-
         [data-view-id="homepage_success_stories"] {
           @include content-container;
           margin: 0 auto;
@@ -346,12 +345,15 @@
             }
           }
         }
+        .more-link {
+          display: none;
+        }
       }
       #block-native-digital-library-button {
         @include content-container;
         padding: 10px 0 20px;
       }
-      #block-related-resources-block {
+      #block-pages-related-resources-block, #block-views-block-related-resources-block-1 {
         @include content-container;
         margin-bottom: 40px;
       }

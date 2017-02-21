@@ -36,6 +36,11 @@
       margin: 0 auto 30px;
       max-width: $page-max-width;
     }
+    [data-derivative-plugin-id^="image_carousel-block"] {
+      @include content-container;
+      margin-bottom: 30px;
+      max-width: $page-max-width;
+    }
   }
   #content {
     padding: 0;
@@ -56,7 +61,7 @@
       a {
         color: $color-blue-primary;
       }
-      .views-field-field-community-website h4 {
+      h4 {
         margin-bottom: 10px;
 
         &:before {
