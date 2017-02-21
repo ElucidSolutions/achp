@@ -60,7 +60,7 @@
     Link Field element.
   */
   function hasExternalLinkFieldElement (rowElement) {
-    return getExternalLinkFieldElement (rowElement).length > 0;
+    return getExternalLinkFieldElement (rowElement).text () !== '';
   }
 
   /*
