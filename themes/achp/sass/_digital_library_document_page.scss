@@ -18,6 +18,7 @@
   }
   #content_region {
     @include tablet(margin, 0 auto !important);
+    // max-width: $max-content-narrow-width;
     max-width: $max-content-narrow-width;
     margin: 0 auto;
 
@@ -41,14 +42,31 @@
       @include responsive(margin-bottom, $margin-large, $margin-med);
     }
     [data-plugin-id="page_menu_block"] {
-      @include responsive(position, absolute, static);
-      @include tablet(margin-bottom, $margin-med);
-      @include tablet(margin-left, 0);
+      // @include responsive(position, absolute, static);
+      // @include tablet(margin-bottom, $margin-med);
+      margin-bottom: $margin-med;
+      margin-left: 0;
       padding-top: 0 !important;
 
       .page-menu-instance-container {
-        @include responsive(padding-top, 300px, 0 !important);
+        // @include responsive(padding-top, 300px, 0 !important);
+        padding-top: 0 !important;
 
+        .page-menu-instance {
+          margin: 0;
+          position: static;
+          width: 100%;
+
+          .page-menu-instance-menu {
+            margin: 0px;
+            position: static;
+            top: 0px;
+
+            .page-menu-instance-menu-header {
+              display: block;
+            }
+          }
+        }
         .page-menu-instance-menu-list {
           @include body-text($font-family: $sans-text);
           margin: 0;
