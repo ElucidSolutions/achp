@@ -3643,20 +3643,26 @@ the events landing page is different */
         width: 15px; }
   @media screen and (min-width: 925px) {
     [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
-      display: block !important; }
-      [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected {
-        background-color: #0990FE;
-        color: white; }
-        [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-item.page-menu-instance-menu-item-selected:after {
-          border: 10px solid #0990FE;
-          border-top-color: transparent;
-          border-right-color: transparent;
-          border-bottom-color: transparent;
-          content: '';
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: -18px; } }
+      /*
+                  display: block !important;
+      
+                  .page-menu-instance-menu-item.page-menu-instance-menu-item-selected {
+                    background-color: $page-menu-instance-menu-item-selected-color;
+                    color: white;
+      
+                    &:after {
+                      border: 10px solid $page-menu-instance-menu-item-selected-color;
+                      border-top-color: transparent;
+                      border-right-color: transparent;
+                      border-bottom-color: transparent;
+                      content: '';
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      right: -18px
+                    }
+                  }
+      */ } }
   @media screen and (max-width: 925px) {
     [data-plugin-id="page_menu_block"] {
       width: 100%; }
