@@ -411,10 +411,13 @@
            .addClass('menu_slide_extras')
            .append ($('<li></li>')
              .addClass ('menu_slide_extra_item')
-             .html ('<a href="#">CONTACT US</a>'))
+             .html ('<a href="/contact/feedback">CONTACT US</a>'))
            .append ($('<li></li>')
              .addClass ('menu_slide_extra_item')
-             .html ('<a href="#">SIGN IN</a>'))
+             .html (drupalSettings.user.uid === 0 ?
+               ('<a href="/user/login">SIGN IN</a>') :
+               ('<a href="/user/logout">SIGN OUT</a>')
+             ))
           );
   }
 
