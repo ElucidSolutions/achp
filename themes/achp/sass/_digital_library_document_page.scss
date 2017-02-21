@@ -20,7 +20,8 @@
     @include tablet(margin, 0 auto !important);
     // max-width: $max-content-narrow-width;
     max-width: $max-content-narrow-width;
-    margin: 0 auto;
+    // margin: 0 auto;
+    margin: 0 auto !important;
 
     h3 {
       color: $color-red2;
@@ -61,9 +62,27 @@
             margin: 0px;
             position: static;
             top: 0px;
+            width: 100%;
 
             .page-menu-instance-menu-header {
               display: block;
+              transition: background-color 0.25s;
+              background-color: #0990FE;
+              color: white;
+              cursor: pointer;
+              display: none;
+              font-family: $sans-text;
+              padding: 0 20px;
+              position: relative;
+              text-transform: uppercase;
+            }
+            .page-menu-instance-menu-collapsible {
+              .page-menu-instance-menu-list {
+                font-family: $sans-text;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0;
+              }
             }
           }
         }

@@ -823,7 +823,7 @@ html {
       position: relative; }
     [data-page-node-type="achp_internal_resource_page"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="achp_internal_resource_page"] #main #content_region {
           margin: 0 auto !important; } }
@@ -859,9 +859,24 @@ html {
             [data-page-node-type="achp_internal_resource_page"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="achp_internal_resource_page"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="achp_internal_resource_page"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="achp_internal_resource_page"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -1343,7 +1358,7 @@ html {
       position: relative; }
     [data-page-node-type="alternative_procedure"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="alternative_procedure"] #main #content_region {
           margin: 0 auto !important; } }
@@ -1379,9 +1394,24 @@ html {
             [data-page-node-type="alternative_procedure"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="alternative_procedure"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="alternative_procedure"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="alternative_procedure"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -5010,7 +5040,7 @@ qui#page[data-page-path-alias="/training/elearning"] {
       position: relative; }
     [data-page-node-type="executive_order"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="executive_order"] #main #content_region {
           margin: 0 auto !important; } }
@@ -5046,9 +5076,24 @@ qui#page[data-page-path-alias="/training/elearning"] {
             [data-page-node-type="executive_order"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="executive_order"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="executive_order"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="executive_order"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -5489,7 +5534,7 @@ qui#page[data-page-path-alias="/training/elearning"] {
       position: relative; }
     [data-page-node-type="exemption"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="exemption"] #main #content_region {
           margin: 0 auto !important; } }
@@ -5525,9 +5570,24 @@ qui#page[data-page-path-alias="/training/elearning"] {
             [data-page-node-type="exemption"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="exemption"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="exemption"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="exemption"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -5968,7 +6028,7 @@ qui#page[data-page-path-alias="/training/elearning"] {
       position: relative; }
     [data-page-node-type="external_link"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="external_link"] #main #content_region {
           margin: 0 auto !important; } }
@@ -6004,9 +6064,24 @@ qui#page[data-page-path-alias="/training/elearning"] {
             [data-page-node-type="external_link"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="external_link"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="external_link"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="external_link"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -7193,7 +7268,7 @@ qui#page[data-page-path-alias="/training/elearning"] {
       position: relative; }
     [data-page-node-type="guidance_document"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="guidance_document"] #main #content_region {
           margin: 0 auto !important; } }
@@ -7229,9 +7304,24 @@ qui#page[data-page-path-alias="/training/elearning"] {
             [data-page-node-type="guidance_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="guidance_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="guidance_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="guidance_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -8489,7 +8579,7 @@ qui#page[data-page-path-alias="/training/elearning"] {
       position: relative; }
     [data-page-node-type="legislation"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="legislation"] #main #content_region {
           margin: 0 auto !important; } }
@@ -8525,9 +8615,24 @@ qui#page[data-page-path-alias="/training/elearning"] {
             [data-page-node-type="legislation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="legislation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="legislation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="legislation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -9048,7 +9153,7 @@ qui#page[data-page-path-alias="/training/elearning"] {
       position: relative; }
     [data-page-node-type="memorandum_of_agreement"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="memorandum_of_agreement"] #main #content_region {
           margin: 0 auto !important; } }
@@ -9084,9 +9189,24 @@ qui#page[data-page-path-alias="/training/elearning"] {
             [data-page-node-type="memorandum_of_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="memorandum_of_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="memorandum_of_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="memorandum_of_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -10618,7 +10738,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="opinion_statement"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="opinion_statement"] #main #content_region {
           margin: 0 auto !important; } }
@@ -10654,9 +10774,24 @@ general office landing page */
             [data-page-node-type="opinion_statement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="opinion_statement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="opinion_statement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="opinion_statement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -11363,7 +11498,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="policy_document"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="policy_document"] #main #content_region {
           margin: 0 auto !important; } }
@@ -11399,9 +11534,24 @@ general office landing page */
             [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="policy_document"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -13398,7 +13548,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="program_comments"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="program_comments"] #main #content_region {
           margin: 0 auto !important; } }
@@ -13434,9 +13584,24 @@ general office landing page */
             [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="program_comments"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -13877,7 +14042,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="programmatic_agreement"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="programmatic_agreement"] #main #content_region {
           margin: 0 auto !important; } }
@@ -13913,9 +14078,24 @@ general office landing page */
             [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -14934,7 +15114,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="prototype_programmatic_agreement"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="prototype_programmatic_agreement"] #main #content_region {
           margin: 0 auto !important; } }
@@ -14970,9 +15150,24 @@ general office landing page */
             [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="prototype_programmatic_agreement"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -15649,7 +15844,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="public_resources"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="public_resources"] #main #content_region {
           margin: 0 auto !important; } }
@@ -15685,9 +15880,24 @@ general office landing page */
             [data-page-node-type="public_resources"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="public_resources"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="public_resources"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="public_resources"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -16169,7 +16379,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="publication"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="publication"] #main #content_region {
           margin: 0 auto !important; } }
@@ -16205,9 +16415,24 @@ general office landing page */
             [data-page-node-type="publication"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="publication"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="publication"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="publication"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -16682,7 +16907,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="regulation"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="regulation"] #main #content_region {
           margin: 0 auto !important; } }
@@ -16718,9 +16943,24 @@ general office landing page */
             [data-page-node-type="regulation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="regulation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="regulation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="regulation"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -17265,7 +17505,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="report"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="report"] #main #content_region {
           margin: 0 auto !important; } }
@@ -17301,9 +17541,24 @@ general office landing page */
             [data-page-node-type="report"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="report"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="report"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="report"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -17980,7 +18235,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="section_106_case_profile"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="section_106_case_profile"] #main #content_region {
           margin: 0 auto !important; } }
@@ -18016,9 +18271,24 @@ general office landing page */
             [data-page-node-type="section_106_case_profile"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="section_106_case_profile"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="section_106_case_profile"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="section_106_case_profile"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
@@ -20838,7 +21108,7 @@ general office landing page */
       position: relative; }
     [data-page-node-type="whitepapers"] #main #content_region {
       max-width: 620px;
-      margin: 0 auto; }
+      margin: 0 auto !important; }
       @media screen and (max-width: 925px) {
         [data-page-node-type="whitepapers"] #main #content_region {
           margin: 0 auto !important; } }
@@ -20874,9 +21144,24 @@ general office landing page */
             [data-page-node-type="whitepapers"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
               margin: 0px;
               position: static;
-              top: 0px; }
+              top: 0px;
+              width: 100%; }
               [data-page-node-type="whitepapers"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
-                display: block; }
+                display: block;
+                transition: background-color 0.25s;
+                background-color: #0990FE;
+                color: white;
+                cursor: pointer;
+                display: none;
+                font-family: "p22-underground", sans-serif;
+                padding: 0 20px;
+                position: relative;
+                text-transform: uppercase; }
+              [data-page-node-type="whitepapers"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                font-family: "p22-underground", sans-serif;
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin: 0; }
           [data-page-node-type="whitepapers"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
             font-family: "p22-underground", sans-serif;
             font-size: 1.125rem;
