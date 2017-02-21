@@ -75,19 +75,13 @@
   <div id="news_item_page">
     <div id="news_content_container">
       <div class="news_item_body">{{ content.body }}</div>
-      {% if content.field_tags[0] != "" or content.field_news_attachments[0] != "" %}
+      {% if content.field_tags[0] != "" and content.field_news_attachments[0] != "" %}
         <hr class="news_divider" />
       {% endif %}
       {% if content.field_tags[0] != "" %}
         <div class="news_item_tags">
           <div class="news_item_tags_label">TOPICS</div>
           {{ content.field_tags }}
-        </div>
-      {% endif %}
-      {% if content.field_news_attachments[0] != "" %}
-        <div class="news_item_attachments">
-          <div class="news_item_field_label"><h3>ATTACHMENTS</h3></div>
-          {{ content.field_news_attachments }}
         </div>
       {% endif %}
     </div>

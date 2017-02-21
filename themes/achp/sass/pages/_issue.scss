@@ -238,7 +238,7 @@
                 width: auto;
               }
             }
-            .views-field-field-issue-summary {
+            .views-field-field-issue-summary, .views-field-body {
               padding-bottom: 20px;
             }
             .views-field-view-node {
@@ -247,6 +247,7 @@
 
               .read-more a {
                 padding-right: 30px;
+                
                 &:after {
                   right: 0;
                 }
@@ -254,7 +255,6 @@
             }
           }
         }
-
         @media (max-width: 500px) {
           .views-row {
             .views-field-field-issue-thumbnail-image {

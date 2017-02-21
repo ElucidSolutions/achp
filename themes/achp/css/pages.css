@@ -7692,7 +7692,7 @@ html {
               max-height: 100%;
               max-width: 100%;
               width: auto; }
-          #page[data-page-node-type="issue"] #content #content_region #block-sub-issue-initiatives .views-row .views-field-field-issue-summary {
+          #page[data-page-node-type="issue"] #content #content_region #block-sub-issue-initiatives .views-row .views-field-field-issue-summary, #page[data-page-node-type="issue"] #content #content_region #block-sub-issue-initiatives .views-row .views-field-body {
             padding-bottom: 20px; }
           #page[data-page-node-type="issue"] #content #content_region #block-sub-issue-initiatives .views-row .views-field-view-node {
             bottom: 0px;
@@ -9019,6 +9019,8 @@ html {
         color: #1E1E1E;
         font-family: "minion-pro", Times, serif;
         font-size: 1.125rem; }
+        #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body a {
+          color: #0990FE; }
         #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body h2, #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body h3, #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body h4 {
           text-align: left; }
           #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body h2 + p, #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body h3 + p, #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body h4 + p {
@@ -9027,7 +9029,7 @@ html {
           margin-bottom: 0; }
       #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_divider {
         background-color: #C6C6C6;
-        height: 2px;
+        height: 1px;
         margin: 30px 0 20px; }
       #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_tags {
         font-family: "p22-underground", sans-serif; }
@@ -9042,6 +9044,29 @@ html {
           #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_tags .field_tags a {
             color: #0990FE;
             text-decoration: none; }
+  #page[data-page-node-type="news_story"] #main #content #block-news-attachments {
+    font-size: 1.125rem;
+    margin: 35px 0 25px;
+    max-width: 100%; }
+    #page[data-page-node-type="news_story"] #main #content #block-news-attachments header {
+      background-color: #fff;
+      height: auto; }
+      #page[data-page-node-type="news_story"] #main #content #block-news-attachments header h3 {
+        color: #9B0008;
+        font-size: 1.375rem; }
+        #page[data-page-node-type="news_story"] #main #content #block-news-attachments header h3:after {
+          background-color: #C6C6C6;
+          content: "";
+          display: block;
+          width: 100%;
+          height: 1px; }
+    #page[data-page-node-type="news_story"] #main #content #block-news-attachments .views-field-title {
+      margin-top: 20px; }
+      #page[data-page-node-type="news_story"] #main #content #block-news-attachments .views-field-title a {
+        color: #0990FE;
+        font-family: "p22-underground", sans-serif; }
+    #page[data-page-node-type="news_story"] #main #content #block-news-attachments .views-field-body {
+      color: #4A4A4A; }
   #page[data-page-node-type="news_story"] #main #content #block-views-block-related-news-items-block-1 {
     background-color: #fff;
     margin: 20px auto 40px;
@@ -11613,7 +11638,7 @@ general office landing page */
             max-height: 100%;
             max-width: 100%;
             width: auto; }
-        [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-summary, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-field-issue-summary {
+        [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-field-issue-summary, [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-body, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-field-issue-summary, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-body {
           padding-bottom: 20px; }
         [data-page-path-alias="/initiatives"] #content #content_region #block-preservation-initiatives-list .views-row .views-field-view-node, [data-page-path-alias="/initiatives"] #content #content_region #block-youth-outreach-initiatives .views-row .views-field-view-node {
           bottom: 0px;
