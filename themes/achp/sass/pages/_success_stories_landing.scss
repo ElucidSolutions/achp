@@ -30,78 +30,80 @@
       $vertical-padding: 35px;
       $container-padding: 50px;
 
+      $success-card-margin-horiz: 17px;
+      $section-padding-horiz: 40px;
+      $three-card-max-width: $success-card-width * 3 + $success-card-margin-horiz * 2 + $section-padding-horiz * 2;
+      $two-card-max-width: $success-card-width * 2 + $success-card-margin-horiz + $section-padding-horiz * 2;
+
       #block-featured-success-stories {
         /* IE has a lot of trouble interpreting calculated values from variables,
         so I included two values for many of the margins and widths below: the
         first as a simple px value, and the second the calculated variable-based
         value. If the second value fails, it will revert to the first.*/
 
-        $success-card-margin-horiz: 17px;
-
         background-color: $color-lightblue3;
-        min-height: 550px;
         
         h2 {
           @include content-container;
           padding-top: $vertical-padding;
         }
-        & > div {
+
+        [data-view-id="homepage_success_stories"] {
+          @include content-container;
           margin: 0 auto;
-          max-width: 1024px;
-          padding: 0 40px $vertical-padding;
-          width: 100%;
-        }
-        .card {
-          @include clear-float;
-          background-color: #ffffff;
-          display: inline-block;
-          float: left;
-          height: $success-card-height;
-          margin: 25px $success-card-margin-horiz 0 0;
+          padding-bottom: 25px;
           text-align: center;
-          width: $success-card-width;
-          
-          .success_story {
-            height: $success-card-height - 30px; 
-            padding: 5px 10px;
-            position: relative;  
 
-            &_image {
-              $success_story_image_height: 185px;
-              @include fit-and-center-image($success_story_image_height);    
-              margin-bottom: 15px;
+          .success-story.card {
+            background-color: #ffffff;
+            display: inline-block;
+            height: $success-card-height;
+            margin-top: 25px;
+            position: relative;
+            text-align: center;
+            width: $success-card-width;
 
-              img {
-                border: none !important;
+            & + .success-story.card {
+              margin-left: $success-card-margin-horiz;
+            }
+            .success_story {
+              @include center-xy;
+              height: $success-card-height - 30px; 
+              width: $success-card-width - 20px;
+              position: absolute;  
+
+              &_image {
+                $success-card-image-height: 185px;
+                max-height: $success-card-image-height;
+                @include fit-and-center-image($success-card-image-height);    
+                margin-bottom: 15px;
+
+                img {
+                  border: none !important;
+                }
               }
-            }
-
-            &_title h3 {
-              text-align: inherit;
-            }
-
-            &_location {
-              color: $color-lightgrey-2;
-            }
-
-            &_body p {
-              font-family: $serif-text;
-              font-size: rem(16px);
-              margin: 5px;
-              text-align: center;
-            }
-
-            .read_more {
-              @include center-x;
-              bottom: 0;
-              padding-right: 5px;
-            }
+              &_title h3 {
+                text-align: inherit;
+              }
+              &_location {
+                color: $color-lightgrey-2;
+              }
+              &_body p {
+                font-family: $serif-text;
+                font-size: rem(16px);
+                margin: 5px;
+                text-align: center;
+              }
+              .read_more {
+                @include center-x;
+                bottom: 0;
+                padding-right: 5px;
+              }
+            }           
           }
         }
-        .card.view-item-3 {
-          margin-right: 0 !important;
-        }
       }
+
       #block-success-stories-list {
         @include content-container-section;
         padding-bottom: 100px;
@@ -174,26 +176,12 @@
           }
         }
       }
-      @media (max-width: 1040px) {
-        #block-featured-success-stories {
-          height: auto;
-
-          & > div {
-            padding: 0 0 $vertical-padding;
-            margin: 0 auto;
-            width: 624px;
-
-            .card {
-              float: none;
-              &:nth-of-type(2) {
-                margin-right: 0;
-              }
-            }
-            .card.view-item-3 {
-              margin: 25px 0 0;
-              margin-left: 151px;
-              margin-left: calc(#{$success-card-width} / 2);
-            }
+      @media (max-width: $three-card-max-width + 9px) {
+        #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+          max-width: 800px;
+          
+          .success-story.card:last-of-type {
+            margin-left: 0 !important;
           }
         }
       }
@@ -226,26 +214,17 @@
           }
         }
       }
-      @media (max-width: 700px) {
-        #block-featured-success-stories {
-          & > div {
-            position: relative;
-            width: 380px;
+      @media (max-width: $two-card-max-width + 5px) {
+        #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+          max-width: 700px;
+          
+          .success-story.card {
+            display: block;
+            margin: 25px auto 0 !important;
+            max-width: 100%;
 
-            .card {
-              @include center-x;
-              position: relative;
-              margin-right: 0;
-              margin-left: 0;
-
-              &:nth-of-type(3) {
-                margin-left: 0 !important;
-              }
-            }
-            .card.view-item-3 {
-              margin: 25px 0 0;
-              margin-left: 151px;
-              margin-left: calc(#{$success-card-width} / 2);
+            &:last-of-type {
+              margin: 25px auto 0 !important;
             }
           }
         }
@@ -254,15 +233,6 @@
         $vertical-padding: 35px;
         $row-padding: 20px;
         
-        #block-featured-success-stories {
-          & > div {
-            max-width: 340px;
-
-            .success-story.card {
-              max-width: 100%;
-            }
-          }
-        }
         #block-success-stories-list {
           padding: $vertical-padding $row-padding 50px;
 
@@ -280,13 +250,6 @@
                 padding-bottom: 40px;
               }
             }
-          }
-        }
-      }
-      @media (max-width: 400px) {
-        #block-featured-success-stories {
-          & > div {
-            width: 340px;
           }
         }
       }

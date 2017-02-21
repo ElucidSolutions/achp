@@ -60,6 +60,10 @@ qui#page[data-page-path-alias="/training/elearning"] {
 
         .field-content {
           @include achp-button;
+          border: 1px solid $color-blue-primary;
+          left: -5px;
+          padding: 9px 38px 7px !important;
+          position: relative;
 
           @media (max-width: 400px) {
             width: 100%;

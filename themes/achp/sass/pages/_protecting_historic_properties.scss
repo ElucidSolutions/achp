@@ -4,12 +4,15 @@
 [data-page-path-alias="/protecting-historic-properties"] {
   $vertical-padding: 35px;
   $container-padding: 40px;
+
   $success-card-margin-vert: 25px;
-  $success-card-margin-horiz: 20px;
+  $success-card-margin-horiz: 17px;
   $success-card-height: 400px;
-  $success-card-shadow-width: 3px;
-  $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
-  $two-card-container-width: calc(#{$success-card-width} * 2 + #{$success-card-margin-horiz} + #{$success-card-shadow-width} * 2 + #{$container-padding} * 2);
+  $success-card-width: 300px;
+  $section-padding-horiz: 40px;
+  $three-card-max-width: $success-card-width * 3 + $success-card-margin-horiz * 2 + $section-padding-horiz * 2;
+  $two-card-max-width: $success-card-width * 2 + $success-card-margin-horiz + $section-padding-horiz * 2;
+
   $intro-106-img-width: 300px;
   $intro-106-img-height: 195px;
   $intro-106-img-padding: 20px;
@@ -48,7 +51,6 @@
       article {
         @include content-container;
         padding-bottom: $vertical-padding;
-        /*padding-top: $vertical-padding;*/
       }
     }
     #block-anintroductiontosection106 {
@@ -109,167 +111,80 @@
         }
       }
     }
-
     #block-featured-success-stories {
       background-color: $color-lightblue3;
       clear: both;
       height: auto;
       margin-top: $vertical-padding;
 
-      h2 {
-        @include content-container;
-        padding-top: 30px;
-      }
-
-      [data-view-id="homepage_success_stories"] {
-        @include content-container;
-        text-align: center;
-
-        header {
-          background-color: $background-color-grey2;
-          height: auto;
-
-          h2 {
-            margin-top: $vertical-padding
-          }
+        h2 {
+          @include content-container;
+          padding-top: $vertical-padding;
         }
-        .success-story.card {
-          background-color: #ffffff;
-          display: inline-block;
-          height: $success-card-height;
-          margin: 25px $success-card-margin-horiz 0 0;
+
+        [data-view-id="homepage_success_stories"] {
+          @include content-container;
+          margin: 0 auto;
+          padding-bottom: 25px;
           text-align: center;
-          width: $success-card-width;
-          
-          .success_story {
-            float: left;
-            height: $success-card-height - 20px; 
-            padding: 5px 10px;
-            position: relative;  
 
-            &_image {
-              $success_story_image_height: 185px;
-              @include fit-and-center-image($success_story_image_height);    
-              margin-bottom: 15px;
-
-              img {
-                border: none !important;
-              }
-            }
-
-            &_title h3 {
-              text-align: inherit;
-            }
-
-            &_location {
-              color: $color-lightgrey-2;
-            }
-
-            &_body p {
-              font-family: $serif-text;
-              font-size: rem(16px);
-              margin: 5px;
-              text-align: center;
-            }
-
-            &_link {
-              @include center-x;
-              bottom: -5px;
-              padding-right: 5px;
-            }
-          }
-        }
-        .success-story.card.view-item-3 {
-          margin-right: 0;
-        }
-      }      
-    }
-
-    /*#block-featured-success-stories {*/
-      /* IE has a lot of trouble interpreting calculated values from variables,
-      so I included two values for many of the margins and widths below: the
-      first as a simple px value, and the second the calculated variable-based
-      value. If the second value fails, it will revert to the first.*/
-
-/*      background-color: $color-lightblue3;
-      clear: both;
-      height: auto;
-      margin-top: $vertical-padding;
-      
-      h2 {
-        max-width: $max-content-width;
-        margin: 0 auto;
-        padding: $vertical-padding $container-padding 0;
-      }
-      & > div {
-        margin: 0 auto;
-        max-width: 1024px;
-        padding: 0 $container-padding $vertical-padding;
-        width: 100%;
-      }
-      .card {
-        background-color: #ffffff;
-        display: inline-block;
-        height: $success-card-height;
-        margin: 25px $success-card-margin-horiz 0 0;
-        text-align: center;
-        width: $success-card-width;
-        
-        .success_story {
-          height: $success-card-height - 30px; 
-          padding: 5px 10px;
-          position: relative;  
-
-          &_image {
-            $success_story_image_height: 185px;
-            @include fit-and-center-image($success_story_image_height);    
-            margin-bottom: 15px;
-
-            img {
-              border: none !important;
-            }
-          }
-
-          &_title h3 {
-            text-align: inherit;
-          }
-
-          &_location {
-            color: $color-lightgrey-2;
-          }
-
-          &_body p {
-            font-family: $serif-text;
-            font-size: rem(16px);
-            margin: 5px;
+          .success-story.card {
+            background-color: #ffffff;
+            display: inline-block;
+            height: $success-card-height;
+            margin-top: 25px;
+            position: relative;
             text-align: center;
-          }
+            width: $success-card-width;
 
-          &_link {
-            @include center-x;
-            bottom: 0;
-            padding-right: 5px;
-
-            a {
-              // vertical-align: 0;   
+            & + .success-story.card {
+              margin-left: $success-card-margin-horiz;
             }
-          }
-        }
-      }
-      .card.view-item-3 {
-        margin-right: 0 !important;
-      }
-    }*/
+            .success_story {
+              @include center-xy;
+              height: $success-card-height - 30px; 
+              width: $success-card-width - 20px;
+              position: absolute;  
 
+              &_image {
+                $success-card-image-height: 185px;
+                max-height: $success-card-image-height;
+                @include fit-and-center-image($success-card-image-height);    
+                margin-bottom: 15px;
+
+                img {
+                  border: none !important;
+                }
+              }
+              &_title h3 {
+                text-align: inherit;
+              }
+              &_location {
+                color: $color-lightgrey-2;
+              }
+              &_body p {
+                font-family: $serif-text;
+                font-size: rem(16px);
+                margin: 5px;
+                text-align: center;
+              }
+              .read_more {
+                @include center-x;
+                bottom: 0;
+                padding-right: 5px;
+              }
+            }           
+          }
+        }   
+    }
     #block-moresuccessstoriesbutton-2 {
       background-color: $color-lightblue3;
-      padding: $vertical-padding 0;
+      padding: 0 0 $vertical-padding;
 
       button {
         margin: 0 auto;
       }
     }
-
     #block-digitallibrary {
       @include content-container-section;
 
@@ -443,21 +358,12 @@
       @include content-container-section;
       padding-top: 50px;
     }
-    @media (max-width: $max-content-width) {
+    @media (max-width: $three-card-max-width + 9px) {
       #block-featured-success-stories [data-view-id="homepage_success_stories"] {
-        $two-card-container-width: calc(#{$success-card-width} * 2 
-          + #{$success-card-margin-horiz} 
-          + #{$success-card-shadow-width} * 2);
-        $two-card-container-margin: calc((100% - #{$two-card-container-width})/2);
-
-        .success-story.card {
-          &.view-item-1 {
-            margin-left: $two-card-container-margin;
-          }
-          &.view-item-3 {
-            display: block;
-            margin: 25px auto 0;
-          }
+        max-width: 800px;
+        
+        .success-story.card:last-of-type {
+          margin-left: 0 !important;
         }
       }
     }
@@ -475,6 +381,21 @@
           @include center-y;
           left: calc(#{$e106-img-width} + #{$mobile-img-left-padding} * 2);
           margin-top: 0;
+        }
+      }
+    }
+    @media (max-width: $two-card-max-width + 5px) {
+      #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+        max-width: 700px;
+        
+        .success-story.card {
+          display: block;
+          margin: 25px auto 0 !important;
+          max-width: 100%;
+
+          &:last-of-type {
+            margin: 25px auto 0 !important;
+          }
         }
       }
     }
@@ -527,17 +448,9 @@
           @include shift(3);
         }
       }
-      #block-featured-success-stories {
-        margin-top: 0;
-      }
-    }
-    @media (max-width: 724px) {
-      #block-featured-success-stories > div {
-        .success-story.card {
-          margin: 25px auto 0 !important;
-          display: block !important;
-        }
-      }
+      // #block-featured-success-stories {
+      //   margin-top: 0;
+      // }
     }
     @media (max-width: 700px) {
       #block-electronic106submissionsystem .block_container .warning_block {
@@ -582,12 +495,20 @@
         }
       }
     }
-    @media (max-width: 500px) {
-      #block-anintroductiontosection106 .block_container {
-        .intro_106_text .read_more a:after {
-          // right: 0;
-        }
-      }
+    // @media (max-width: 500px) {
+    //   #block-anintroductiontosection106 .block_container {
+    //     .intro_106_text .read_more a:after {
+    //       // right: 0;
+    //     }
+    //   }
+    // }
+  }
+}
+[data-page-path-alias="/protecting-historic-properties/program-alternatives"] {
+  #secondary_header_region {
+    #block-php-shareblock {
+      @include content-container;
+      margin: 0 auto 30px;
     }
   }
 }

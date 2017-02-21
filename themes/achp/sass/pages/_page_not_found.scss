@@ -1,4 +1,6 @@
-#page[data-page-path="/node/7649"] {
+#page[data-page-path="/node/7672"] {
+  @import "../styleguide";
+
   #secondary_header {
     #secondary_header_region .achp-breadcrumb ol {
       .breadcrumb_page_text {
@@ -36,12 +38,17 @@
 
         .js-form-item {
           display: inline-block;
+          max-width: 100%;
 
-          input.form-search {
+          input[type="search"] {
+            background-color: #fff;
+            border: 1px solid rgba(151,151,151,1);
+            border-radius: 2px;
             font-family: $sans-text;
+            font-size: rem(16px);
             height: 35px;
-            padding: 0px 10px;
             max-width: 100%;
+            padding: 0 10px;
             width: 400px;
           }
         }
@@ -49,27 +56,12 @@
           display: inline-block;
 
           input[type="submit"] {
-            @include hover-transition-background($color-lightblue-primary);
-            background-color: $color-blue-primary;
-            border: none;
-            border-radius: 2px;  
-            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-            color: #FFFFFF;
-            cursor: pointer;
-            /*display: block;*/
-            display: inline-block;
-            font-family: $sans-text;
-            font-size: rem(16px);
-            font-weight: 600;
-            letter-spacing: 0.02rem;
-            /*line-height: 1.4rem;*/
-            /*margin: 30px 0;*/
-            /*padding: 12px 38px 8px;*/
-            padding: 4px 38px 1px;
+            @include achp-button;
+            border: 1px solid $color-blue-primary;
             position: relative;
-            left: -5px;
-            height: 35px;
-            text-transform: uppercase;
+            left: -7px;
+            padding: 8px 38px 6px;
+            top: 1px;
 
             @media (max-width: $mobile-breakpoint) {
               line-height: 1.2rem;
@@ -79,6 +71,14 @@
               width: 100%;
             }
           }
+          @media (max-width: 600px) {
+            display: block;
+
+            input[type="submit"] {
+              left: 0;
+              top: 10px;
+            }
+          }              
         }
       }
     }
