@@ -1,5 +1,6 @@
 #page[data-page-node-type="issue"] {
   @extend #page[data-page-node-type="page_with_banner"];
+  @import "../styleguide";
 
   $vertical-padding: 35px;
   $container-padding: 50px;
@@ -31,38 +32,59 @@
           color: $color-blue-primary;
         }
       }
-      #block-youth-outreach-in-the-news {
+      #block-issue-in-the-news {
         background-color: $background-color-grey;
+        clear: both;
+        min-height: $card-height;
         width: 100%;
 
         $card-width: 300px;
-        $card-margin-horiz: 21px;
+        $card-margin-horiz: 17px;
         $card-height: 350px;
-        $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
+        $section-padding-horiz: 40px;
         $two-card-container-width: $card-width * 2 + $card-margin-horiz;
         $single-card-screen-max-width: $two-card-container-width + $container-padding * 2;
 
-        h2 {
-          @include content-container;
-          padding-top: $vertical-padding;
-        }
         .news-card-container {
           @include content-container;
           height: auto;
-          /*margin: 0 auto;*/
-          /*padding: 0 40px;*/
-          /*max-width: 1024px;*/
 
+          header {
+            background-color: inherit;
+            height: auto;
+
+            h2 {
+              padding-top: $vertical-padding;
+            }
+          }
           .card {
             @include clear-float;
             background: #fff;
             float: left;
             height: $card-height;
             margin: $card-margin-vert 0;
-            margin-right: $card-margin-horiz;
             padding: 20px;
             position: relative;
             width: $card-width;
+
+            /* Every card past the first has a margin-left */
+            & + .card {
+              margin-left: $card-margin-horiz;
+            }
+
+            /* If there's only one card, just display it as a centered, unfloated block */
+            &:first-of-type:last-of-type {
+              display: block;
+              float: none;
+              margin: 25px auto;
+            }
+
+            /* If there are two cards, shift the first over by half the 
+            extra width of its container */
+            &:first-of-type:nth-last-of-type(2) {
+              margin-top: 25px;
+              margin-left: calc((100% - #{$two-card-container-width}) / 2);
+            }
 
             h3 a {
               color: $color-darkblue2;
@@ -81,56 +103,63 @@
             .read-more {
               bottom: 25px;
               position: absolute;
-
-              a:after {
-                // @include undo-center-y;
-                // padding-left: 30px;
-              }
             }
           }
         }
         footer {
           clear: both;
-          padding-bottom: $vertical-padding;
+          padding: 0 0 $vertical-padding;
+          text-align: center;
 
-          button {
+          a {
+            @include achp-button;
             margin-bottom: 0;
+            max-width: 100%;
           }
         }
-        @media (max-width: $max-content-width) {   
+        @media (max-width: $max-content-width + 10px) {   
+          /* When only two cards fit on a line ... */
           .news-card-container { 
-            height: auto;
-            padding: 0;
-            width: $two-card-container-width; 
-
+            h2 {
+              text-align: center;
+            }
+            /* only blocks with 3 cards are affected */
             .card {
+              /* push the first card partway across the page */
+              &:first-of-type:nth-last-of-type(3) {
+                margin-left: calc((100% - #{$two-card-container-width}) / 2);
+              }
+              /* remove the margin right from the second; it will fall into place
+              to the right of the first */
               &.view-item-2 {
                 margin-right: 0;
               }
+              /* turn the third into a centered, unfloated block */
               &.view-item-3 {
-                $horiz-margin: ($two-card-container-width - $card-width) / 2;
-                margin: 0 $horiz-margin $card-margin-vert;
-              }
+                clear: both;
+                display: block;
+                float: none;
+                margin: 0 auto 25px;
+              }              
             }
           }
         }   
-        @media (max-width: $single-card-screen-max-width) {
-          $card-vertical-margin: 25px;
-
+        @media (max-width: $single-card-screen-max-width + 10px) {
+          /* When only 1 card can fit on a line, turn them all into
+          centered, unfloated blocks */
           .news-card-container { 
             height: 100%;
-            width: $card-width;
 
-            .card, .card.view-item-2 {
-              margin: $card-vertical-margin 0 0;
-            }
-            .card.view-item-3 {
-              margin: $card-vertical-margin 0;
+            .card {
+              display: block;
+              float: none;
+              margin: 25px auto !important;
+              max-width: 100%;
             }
           }
         }
       }
-      #block-youth-outreach-initiatives {
+      #block-sub-issue-initiatives {
         @include content-container;
 
         $img-height: 200px;
