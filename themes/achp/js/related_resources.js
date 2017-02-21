@@ -48,7 +48,7 @@
   function getExternalLinkRowElements (blockElement) {
     return getRowElements (blockElement).filter (
       function (rowElement) {
-        return hasExternalLinkFieldElement ($(rowElement));
+        return hasExternalLinkElement ($(rowElement));
     });
   }
 
