@@ -8152,6 +8152,23 @@ html {
     element.
   */
   /*
+    Accepts one argument: $margin-bottom; and 
+    styles the element that this mixin is
+    applied to as a form label.
+  
+    Note: this mixin should be applied to label
+    elements.
+  */
+  /*
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
+  
+    Note: this mixin should be applied to input
+    elements.
+  */
+  /*
     Renders the element children of the element
     that this mixin is applied to according to
     the rules specified in the current styleguide.
@@ -9116,6 +9133,23 @@ html {
     element.
   */
   /*
+    Accepts one argument: $margin-bottom; and 
+    styles the element that this mixin is
+    applied to as a form label.
+  
+    Note: this mixin should be applied to label
+    elements.
+  */
+  /*
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
+  
+    Note: this mixin should be applied to input
+    elements.
+  */
+  /*
     Renders the element children of the element
     that this mixin is applied to according to
     the rules specified in the current styleguide.
@@ -10049,7 +10083,7 @@ html {
         float: left;
         display: block;
         margin-right: 0%;
-        width: 75%;
+        width: 75.0%;
         background-color: #fff;
         border-bottom: 35px solid transparent;
         float: right;
@@ -11533,6 +11567,23 @@ general office landing page */
     Accepts no arguments and styles the element
     that this mixin is applied to as a table
     element.
+  */
+  /*
+    Accepts one argument: $margin-bottom; and 
+    styles the element that this mixin is
+    applied to as a form label.
+  
+    Note: this mixin should be applied to label
+    elements.
+  */
+  /*
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
+  
+    Note: this mixin should be applied to input
+    elements.
   */
   /*
     Renders the element children of the element
@@ -15319,8 +15370,8 @@ general office landing page */
       float: left;
       display: block;
       margin-right: 0%;
-      width: 75%;
-      margin-left: 25%; }
+      width: 75.0%;
+      margin-left: 25.0%; }
       [data-page-path-alias="/protecting-historic-properties"] #content_region #block-digitallibrary .library_categories .library_category:last-child {
         margin-right: 0; } }
   @media (max-width: 700px) {
@@ -21799,5 +21850,3 @@ general office landing page */
               margin-bottom: 0; } }
       [data-page-node-type="whitepapers"] #main #content_region [data-derivative-plugin-id^="related_resources"] {
         padding: 0; }
-
-/*# sourceMappingURL=pages.css.map */
