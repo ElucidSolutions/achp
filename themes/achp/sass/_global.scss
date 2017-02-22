@@ -144,13 +144,9 @@ $grid-columns: 12;
     right: $right-positioning;
     transition: background-image 0.25s;
     width: 20px;
-    // height: 1em;
-    // width: 1em;
-    // display: inline-block;
-    // vertical-align: middle;
-    // margin-left: 20px;
-    // position: absolute;
-    // bottom: 0.35em;
+  }
+  &:hover:after {
+    background-image: url($icon-hover-path);    
   }
 }
 

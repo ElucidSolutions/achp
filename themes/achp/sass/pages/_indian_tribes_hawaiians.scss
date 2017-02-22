@@ -10,13 +10,14 @@
   $img-height: 200px;
   $img-width: 265px;
   $img-margin: 20px;
-  $success-card-margin-vert: 25px;
-  $success-card-margin-horiz: 20px;
-  $success-card-height: 400px;
-  $success-card-shadow-width: 3px;
-  $success-card-width: calc((1024px - #{$container-padding} * 2 - #{$success-card-margin-horiz} * 2 - #{$success-card-shadow-width} * 3)/ 3);
-  $two-card-container-width: calc(#{$success-card-width} * 2 + #{$success-card-margin-horiz} + #{$success-card-shadow-width} * 2 + #{$container-padding} * 2);
   $library_icon_height: 50px;
+  $success-card-margin-vert: 25px;
+  $success-card-margin-horiz: 17px;
+  $success-card-height: 400px;
+  $success-card-width: 300px;
+  $section-padding-horiz: 40px;
+  $three-card-max-width: $success-card-width * 3 + $success-card-margin-horiz * 2 + $section-padding-horiz * 2;
+  $two-card-max-width: $success-card-width * 2 + $success-card-margin-horiz + $section-padding-horiz * 2;
 
   #secondary_header_region {
     #block-breadcrumbs {
@@ -54,6 +55,13 @@
           }
         }
         h4 + p {
+          margin-top: 0;
+        }
+      }
+      #block-indian-hawaiian-major-initiatives-intro {
+        @include content-container;
+
+        h2 + p {
           margin-top: 0;
         }
       }
@@ -144,64 +152,64 @@
 
         [data-view-id="homepage_success_stories"] {
           @include content-container;
+          margin: 0 auto;
+          padding-bottom: 25px;
           text-align: center;
 
           header {
-            background-color: $background-color-grey2;
+            background-color: inherit;
             height: auto;
 
             h2 {
-              margin-top: $vertical-padding
+              padding-top: 25px;
             }
           }
           .success-story.card {
             background-color: #ffffff;
             display: inline-block;
             height: $success-card-height;
-            margin: 25px $success-card-margin-horiz 0 0;
+            margin-top: 25px;
+            position: relative;
             text-align: center;
             width: $success-card-width;
-            
+
+            & + .success-story.card {
+              margin-left: $success-card-margin-horiz;
+            }
+
             .success_story {
-              float: left;
-              height: $success-card-height - 20px; 
-              padding: 5px 10px;
-              position: relative;  
+              @include center-xy;
+              height: $success-card-height - 30px; 
+              width: calc(100% - 20px);
 
               &_image {
-                $success_story_image_height: 185px;
-                @include fit-and-center-image($success_story_image_height);    
+                $success-card-image-height: 185px;
+                max-height: $success-card-image-height;
+                @include fit-and-center-image($success-card-image-height);    
                 margin-bottom: 15px;
 
                 img {
                   border: none !important;
                 }
               }
-
               &_title h3 {
                 text-align: inherit;
               }
-
               &_location {
                 color: $color-lightgrey-2;
               }
-
               &_body p {
                 font-family: $serif-text;
                 font-size: rem(16px);
                 margin: 5px;
                 text-align: center;
               }
-
-              &_link {
+              .read_more {
                 @include center-x;
-                bottom: -5px;
+                bottom: 0;
                 padding-right: 5px;
               }
-            }
-          }
-          .success-story.card.view-item-3 {
-            margin-right: 0;
+            }           
           }
         }
       }
@@ -337,57 +345,42 @@
             }
           }
         }
+        .more-link {
+          display: none;
+        }
       }
       #block-native-digital-library-button {
         @include content-container;
         padding: 10px 0 20px;
       }
-      #block-related-resources-block {
+      #block-pages-related-resources-block, #block-views-block-related-resources-block-1 {
         @include content-container;
         margin-bottom: 40px;
       }
-      @media (max-width: $max-content-width) {
-        #block-indian-tribes-hawaiians-initiatives {
-          .views-row {
-            .views-field-title h3 {
-              text-align: center;
-            }
-            .views-field-field-issue-thumbnail-image {
-              float: none;
-              margin: 0 auto $img-margin;
-
-              img {
-                max-height: 100%;
-                max-width: 100%;
-                width: auto;
-              }
-            }
-            .views-field-field-issue-summary {
-              padding-bottom: 40px;
-            }
-            .views-field-view-node {
-              bottom: 0px;
-              left: 0;
-            }
-          }
-        }
+      @media (max-width: $three-card-max-width + 9px) {
         #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
-          $two-card-container-width: calc(#{$success-card-width} * 2 
-            + #{$success-card-margin-horiz} 
-            + #{$success-card-shadow-width} * 2);
-          $two-card-container-margin: calc((100% - #{$two-card-container-width})/2);
-
-          .success-story.card {
-            &.view-item-1 {
-              margin-left: $two-card-container-margin;
-            }
-            &.view-item-3 {
-              display: block;
-              margin: 25px auto 0;
-            }
+          max-width: 800px;
+          
+          .success-story.card:last-of-type {
+            margin-left: 0 !important;
           }
         }
       }
+      @media (max-width: $two-card-max-width + 5px) {
+        #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
+          max-width: 700px;
+          
+          .success-story.card {
+            display: block;
+            margin: 25px auto 0 !important;
+            max-width: 100%;
+
+            &:last-of-type, &:nth-of-type(2) {
+              margin: 25px auto 0 !important;
+            }
+          }
+        }
+      }  
       @media (max-width: 750px) {
         #block-achp-native-youth, #block-section-106-assistance {
           margin: 0;
@@ -409,17 +402,7 @@
             }
           }
         }
-        #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
-          .success-story.card {
-
-            &.view-item-1, &.view-item-2, &.view-item-3 {
-            /*margin: 25px auto 0;*/
-            display: block;
-            margin: 25px auto 0;
-          }
-          }
-        }
-      }
+      }    
       @media (max-width: 650px) {
         h2, h3 {
           text-align: center;
@@ -436,27 +419,27 @@
         }
       }
       @media (max-width: 500px) {
-        #block-indian-tribes-hawaiians-initiatives {
-          .views-row {
-            .views-field-field-issue-thumbnail-image {
-              img {
-                height: auto;
-                max-height: 100%;
-                max-width: 100%;
-                width: auto;
-              }
-            }
-            .views-field-field-issue-summary {
-              padding-bottom: 70px;
-            }
-            .views-field-view-node a {
-              padding-right: 20px;
-              &:after {
-                // right: 0;
-              }
-            }
-          }
-        }
+        // #block-indian-tribes-hawaiians-initiatives {
+        //   .views-row {
+        //     .views-field-field-issue-thumbnail-image {
+        //       img {
+        //         height: auto;
+        //         max-height: 100%;
+        //         max-width: 100%;
+        //         width: auto;
+        //       }
+        //     }
+        //     .views-field-field-issue-summary {
+        //       padding-bottom: 70px;
+        //     }
+        //     .views-field-view-node a {
+        //       padding-right: 20px;
+        //       &:after {
+        //         // right: 0;
+        //       }
+        //     }
+        //   }
+        // }
       }
     }
   }
