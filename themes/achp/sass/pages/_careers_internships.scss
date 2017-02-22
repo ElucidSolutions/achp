@@ -76,6 +76,10 @@
 #page[data-page-path-alias^="/internships/"] {
   @extend #page[data-page-node-type="page"];
 
+  p a {
+    color: $color-blue-primary;
+  }
+
   #secondary_header_region #block-about-achp-share {
     @include content-container;
     margin: 0 auto 30px;
