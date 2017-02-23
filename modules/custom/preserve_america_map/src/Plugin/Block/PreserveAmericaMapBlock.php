@@ -73,7 +73,6 @@ class PreserveAmericaMapBlock extends BlockBase {
       'title'     => $this->getFieldValue ($node_array, 'title'),
       'body'      => $this->getSummaryBodyFieldValue ($node_array),
       'website'   => $this->getFieldValue ($node_array, 'field_community_website'),
-      'location'  => $this->getFieldValue ($node_array, 'field_community_location'),
       'latitude'  => $this->getFieldValue ($node_array, 'field_community_coordinates', 'lat'),
       'longitude' => $this->getFieldValue ($node_array, 'field_community_coordinates', 'lng'),
       'states'    => $this->getReferencedTermsNames ($node_array, 'field_community_state')

@@ -21,7 +21,6 @@
       this.field ('title', 100);
       this.field ('body');
       this.field ('website', 100);
-      this.field ('location', 100);
       this.field ('states', 100);
     });
 
@@ -41,7 +40,6 @@
         title:    profile.title,
         body:     profile.body,
         website:  profile.website,
-        location: profile.location,
         states:   profile.states.join ()
       });
     });
@@ -1794,10 +1792,6 @@
             .append ($('<a></a>')
               .attr ('href', profile.url)
               .text (profile.title))))
-        .append (profile.location && $('<div></div>')
-          .addClass (classPrefix + '_location')
-          .addClass ('preserve_america_profile_field')
-          .text(profile.location))
         .append ($('<div></div>')
           .addClass (classPrefix + '_body')
           .append ($('<div></div>')
