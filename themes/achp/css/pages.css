@@ -13678,6 +13678,490 @@ general office landing page */
         margin: 35px auto;
         width: 100%; }
 
+/*
+  This stylesheet defines the default styles
+  for the Preserve America Grant content type.
+*/
+[data-page-node-type="preserve_america_grant"] {
+  /*
+    This stylesheet defines default styles shared
+    by the Digital Library document pages.
+  */ }
+  [data-page-node-type="preserve_america_grant"] #main {
+    /*
+      This stylesheet defines the default styles
+      for various elements as defined by the current
+      version of the ACHP styleguide.
+    */
+    /*
+      Accepts no arguments and removes the padding
+      and margins from the element this mixin is
+      applied to.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and mobile-value, another CSS value
+    
+      sets property to mobile-value and adds a media
+      query that sets property to mobile-value for
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and tablet-value, another CSS value
+    
+      sets property to tablet-value and adds a media
+      query that sets property to tablet-value for
+      tablet screens.
+    */
+    /*
+      Accepts four arguments:
+    
+      * property, a CSS property
+      * widescreen-value, a CSS value
+      * tablet-value, a CSS value
+      * and mobile-value, an optional CSS value
+    
+      sets property to widescreen-value and
+      adds media queries that sets property to
+      tablet-value and mobile-value for tablet and
+      mobile screens.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      and renders the element it is applied to
+      as a header element overriding the default
+      properties with the given values.
+    
+      Note: if $center is false, this mixin will
+      not add responsive behavior that centers text
+      within the element on small devices.
+    */
+    /*
+      Accepts three optional arguments:
+    
+      * $font-family, a font-family string
+      * $font-size, a CSS dimension
+      * $line-height, a CSS dimension
+    
+      and renders the element it is applied to as
+      a body text element overriding the default
+      properties values with the given values.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      and renders the element it is applied to as
+      a header block element.
+    */
+    /*
+      Accepts three optional arguments:
+    
+      * $font-family, a font-family string
+      * $font-size, a CSS dimension
+      * $line-height, a CSS dimension
+    
+      and renders the element it is applied to as
+      a body text block element.
+    */
+    /*
+      Accepts two arguments:
+    
+      * front-size, a CSS length measure
+      * margin-bottom, a CSS length measure
+    
+      and sets both the font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area -
+      affecting the bottom margin.
+    */
+    /*
+      Accepts two arguments:
+    
+      * font-size, a CSS length measure
+      * and margin-bottom, a CSS length measure
+    
+      and sets the mobile font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area.
+    */
+    /*
+      Accepts four length measures as
+      arguments: $widescreen-font-size,
+      $widescreen-margin-bottom, $mobile-font-size,
+      and $mobile-margin-bottom, and sets the
+      widescreen and mobile font sizes while
+      adjusting the bottom margins.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color, a CSS color
+      * $font-family, a font-family string
+      * $font-size, a CSS dimension
+      * $highlight-color, a CSS color
+      * $line-height, a CSS dimension
+    
+      and renders the element that this mixin is
+      applied to as an anchor element.
+    */
+    /*
+      Accepts seven optional arguments:
+    
+      * $background-color, a CSS color
+      * $color, a CSS color
+      * $font-family, a font-family string
+      * $font-size, a CSS dimension
+      * $font-weight, a font-weight
+      * $highlight-color, a CSS color
+      * $uppercase, a boolea
+    
+      Renders the element that this mixin is applied
+      to as a button element.
+    
+      Note: if $uppercase is false this mixin does
+      not text-transform uppercase the button label.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as a blockquote element.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      Renders the element that this mixin is applied
+      to as an H1 element.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      Renders the element that this mixin is applied
+      to as an H2 element.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      Renders the element that this mixin is applied
+      to as an H3 element.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      Renders the element that this mixin is applied
+      to as an H4 element.
+    */
+    /*
+      Accepts no arguments and styles the element
+      that this mixin is applied to as a table
+      element.
+    */
+    /*
+      Accepts one argument: $margin-bottom; and 
+      styles the element that this mixin is
+      applied to as a form label.
+    
+      Note: this mixin should be applied to label
+      elements.
+    */
+    /*
+      Accepts one argument: $placeholder-color,
+      a CSS color value; and styles the element
+      that this mixin is applied to as a textfield
+      form element.
+    
+      Note: this mixin should be applied to input
+      elements.
+    */
+    /*
+      Renders the element children of the element
+      that this mixin is applied to according to
+      the rules specified in the current styleguide.
+    */
+    font-family: "minion-pro", Times, serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 40px; }
+    [data-page-node-type="preserve_america_grant"] #main a {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: color 0.25s;
+      color: #0990FE; }
+      [data-page-node-type="preserve_america_grant"] #main a:hover {
+        color: #71BFFE; }
+    [data-page-node-type="preserve_america_grant"] #main blockquote {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", Times, serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-left: 20px; }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main blockquote {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main blockquote {
+          margin-bottom: 20px; } }
+    [data-page-node-type="preserve_america_grant"] #main h1 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: left;
+      font-size: 2.25rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="preserve_america_grant"] #main h1 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main h1 {
+          font-size: 1.625rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main h1 {
+          margin-bottom: 0; } }
+    [data-page-node-type="preserve_america_grant"] #main h2 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="preserve_america_grant"] #main h2 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main h2 {
+          font-size: 1.375rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main h2 {
+          margin-bottom: 20px; } }
+    [data-page-node-type="preserve_america_grant"] #main h3 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 5px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="preserve_america_grant"] #main h3 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main h3 {
+          font-size: 1.25rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main h3 {
+          margin-bottom: 0; } }
+    [data-page-node-type="preserve_america_grant"] #main h4 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="preserve_america_grant"] #main h4 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main h4 {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="preserve_america_grant"] #main h4 {
+          margin-bottom: 0; } }
+    [data-page-node-type="preserve_america_grant"] #main p {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", Times, serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="preserve_america_grant"] #main ul {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", Times, serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="preserve_america_grant"] #main table {
+      border-collapse: collapse; }
+    [data-page-node-type="preserve_america_grant"] #main #content {
+      position: relative; }
+    [data-page-node-type="preserve_america_grant"] #main #content_region {
+      max-width: 620px;
+      margin: 0 auto !important; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="preserve_america_grant"] #main #content_region {
+          margin: 0 auto !important; } }
+      [data-page-node-type="preserve_america_grant"] #main #content_region h3 {
+        color: #9B0008; }
+      [data-page-node-type="preserve_america_grant"] #main #content_region ul {
+        margin-left: 20px; }
+      [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="system_breadcrumb_block"] {
+        padding-top: 0; }
+      [data-page-node-type="preserve_america_grant"] #main #content_region .achp_date_published {
+        color: #7C7C7C;
+        font-family: "p22-underground", sans-serif;
+        font-size: 1rem;
+        margin: 0 0 10px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="preserve_america_grant"] #main #content_region .achp_date_published {
+            text-align: center; } }
+      [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="share_this_page_block"] {
+        margin-bottom: 40px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="share_this_page_block"] {
+            margin-bottom: 20px; } }
+      [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="page_menu_block"] {
+        margin-bottom: 20px;
+        margin-left: 0;
+        padding-top: 0 !important; }
+        [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+          padding-top: 0 !important; }
+          [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance {
+            margin: 0;
+            position: static;
+            width: 100%; }
+            [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
+              margin: 0px;
+              position: static;
+              top: 0px;
+              width: 100%; }
+              [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
+                display: block; }
+              [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
+                display: none; }
+                [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                  margin: 0; }
+          [data-page-node-type="preserve_america_grant"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
+            font-family: "p22-underground", sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin: 0; }
+      [data-page-node-type="preserve_america_grant"] #main #content_region .achp_synopsis {
+        margin: 0;
+        padding: 0;
+        font-family: "minion-pro", Times, serif;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 20px; }
+      [data-page-node-type="preserve_america_grant"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #E5E3E4; }
+        [data-page-node-type="preserve_america_grant"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
+          margin: 0;
+          padding: 0;
+          font-family: "minion-pro", Times, serif;
+          font-size: 1.125rem;
+          line-height: 1.7;
+          margin-bottom: 20px;
+          background-color: transparent;
+          color: #7C7C7C;
+          font-style: italic;
+          height: auto;
+          margin-bottom: 10px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="preserve_america_grant"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download {
+            text-align: center; } }
+        [data-page-node-type="preserve_america_grant"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+          font-family: "p22-underground", sans-serif;
+          font-size: 1.125rem;
+          font-weight: 600;
+          text-transform: uppercase; }
+          [data-page-node-type="preserve_america_grant"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:after {
+            background-image: url("../images/downloading-icon.svg");
+            background-position-y: bottom;
+            background-size: 12px;
+            background-repeat: no-repeat;
+            content: '';
+            display: inline-block;
+            height: 16px;
+            margin-left: 10px;
+            width: 20px; }
+          [data-page-node-type="preserve_america_grant"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:hover:after {
+            background-image: url("../images/downloading-icon-lightblue.svg"); }
+      [data-page-node-type="preserve_america_grant"] #main #content_region [data-achp-field-name="field_tags"] {
+        border-top: 1px solid #E5E3E4;
+        padding-top: 20px;
+        margin: 20px 0; }
+        [data-page-node-type="preserve_america_grant"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+          margin: 0;
+          padding: 0;
+          color: #003A5E;
+          font-family: "p22-underground", sans-serif;
+          font-weight: 400;
+          line-height: 1.4;
+          font-size: 1.375rem;
+          margin-bottom: 0; }
+          @media screen and (max-width: 650px) {
+            [data-page-node-type="preserve_america_grant"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+              font-size: 1.125rem; } }
+          @media screen and (max-width: 650px) {
+            [data-page-node-type="preserve_america_grant"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+              margin-bottom: 0; } }
+      [data-page-node-type="preserve_america_grant"] #main #content_region [data-derivative-plugin-id^="related_resources"] {
+        padding: 0; }
+
 [data-page-path-alias="/preserve-america/stewards/list"] #secondary_header_region #block-breadcrumbs {
   margin: 0 auto;
   max-width: 1024px;
