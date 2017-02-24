@@ -10664,18 +10664,20 @@ html {
 
 /* This selector applies to an office's pages, but not the 
 general office landing page */
-#page[data-page-path-alias^="/about/offices/"] #secondary_header_region #block-pagetitle-2 {
-  display: none; }
-#page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav:not(.achp-breadcrumb) {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding-left: 40px;
-  padding-right: 40px;
-  width: 100%; }
-  @media (max-width: 400px) {
-    #page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav:not(.achp-breadcrumb) {
-      padding-left: 20px;
-      padding-right: 20px; } }
+#page[data-page-path-alias^="/about/offices/"] #secondary_header_region {
+  /*    #block-pagetitle-2 {
+        display: none;
+      }*/ }
+  #page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav:not(.achp-breadcrumb) {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%; }
+    @media (max-width: 400px) {
+      #page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav:not(.achp-breadcrumb) {
+        padding-left: 20px;
+        padding-right: 20px; } }
 #page[data-page-path-alias^="/about/offices/"] #content #content_region #block-achp-content article {
   font-size: 1.125rem;
   margin: 25px 0 0; }
@@ -10915,21 +10917,46 @@ general office landing page */
           padding: 0; } }
 
 /* These selectors encompasses all pages beyond the overview */
-#page[data-page-path-alias^="/about/offices/onaa/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/ofap/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page {
+#page[data-page-path-alias="/about/offices/onaa/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/onaa/agencies"]
+#page[data-page-path-alias="/about/offices/ofap/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ofap/agencies"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ogc/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/oed/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/opi/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ocea/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page {
   display: none; }
-#page[data-page-path-alias^="/about/offices/onaa/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/ofap/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a {
+#page[data-page-path-alias="/about/offices/onaa/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/onaa/agencies"]
+#page[data-page-path-alias="/about/offices/ofap/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ofap/agencies"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ogc/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/oed/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/opi/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ocea/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a {
   color: #0990FE;
   cursor: text; }
+#page[data-page-path-alias="/about/offices/onaa/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/onaa/agencies"]
+#page[data-page-path-alias="/about/offices/ofap/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ofap/agencies"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ogc/"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ogc/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/oed/"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/oed/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/opi/"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/opi/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ocea/"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ocea/staff"] #secondary_header_region #block-pagetitle-2 {
+  display: none; }
 
 #page[data-page-path-alias="/about/offices/onaa"] #content #content_region #block-achp-content,
 #page[data-page-path-alias="/about/offices/ofap"] #content #content_region #block-achp-content,
