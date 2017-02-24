@@ -2449,7 +2449,8 @@ html {
       display: block;
       border-bottom: 1px solid #950306;
       margin: 10px auto 40px;
-      width: 60%; }
+      min-width: 100px;
+      width: 10%; }
   [data-page-path="/contact/feedback"] [data-plugin-id="share_this_page_block"] {
     margin-bottom: 40px; }
   [data-page-path="/contact/feedback"] #block-contactusinformationblock {
@@ -4470,6 +4471,9 @@ html {
     margin-bottom: 20px; }
     #page[data-page-node-type="event"] #main #content #event_item_container .event_attachments .event_attachment_body p {
       margin: 0; }
+  #page[data-page-node-type="event"] #main #content #block-views-block-related-resources-block-1 {
+    margin-bottom: 40px;
+    padding: 0; }
 @media (max-width: 805px) {
   #page[data-page-node-type="event"] #main {
     margin: 0;
@@ -6313,9 +6317,14 @@ html {
           margin-bottom: 10px;
           position: static; }
       #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-fpo-address:before, #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-fpo-address:after {
-        max-width: 400px; } }
+        max-width: 400px; }
+      #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-agency-taxonomy-link {
+        left: 0;
+        top: 5px;
+        position: absolute;
+        width: calc(50% - 15px); } }
 
-#page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] {
+#page[data-page-node-type="fpo_resources_page"] {
   /*
     This stylesheet defines the default styles
     for various elements as defined by the current
@@ -6552,25 +6561,25 @@ html {
     that this mixin is applied to according to
     the rules specified in the current styleguide.
   */ }
-  #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-php-shareblock {
+  #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-php-shareblock {
     margin: 0 auto;
     max-width: 1024px;
     padding-left: 40px;
     padding-right: 40px;
     width: 100%;
-    margin: 0 auto 30px; }
+    margin: 0 auto; }
     @media (max-width: 400px) {
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-php-shareblock {
+      #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-php-shareblock {
         padding-left: 20px;
         padding-right: 20px; } }
-  #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content {
+  #page[data-page-node-type="fpo_resources_page"] #content {
     max-width: 100%;
     padding: 0; }
-    #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region {
+    #page[data-page-node-type="fpo_resources_page"] #content #content_region {
       text-align: center; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2 {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region h2 {
         display: inline-block; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2:after {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region h2:after {
           background-color: #950306;
           border: none;
           color: #950306;
@@ -6580,12 +6589,110 @@ html {
           margin: 10px auto 25px;
           /*min-width: 150px;*/
           width: 60%; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2,
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 {
+        margin: 0 auto;
+        max-width: 1024px;
+        padding-left: 40px;
+        padding-right: 40px;
+        width: 100%;
+        padding-bottom: 25px;
+        padding-top: 25px; }
+        @media (max-width: 400px) {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2,
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 {
+            padding-left: 20px;
+            padding-right: 20px; } }
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list header, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 header,
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 header, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 header {
+          background-color: #fff;
+          height: auto; }
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list,
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list {
+          background-color: #E8F8FF;
+          border-top: 2px solid #71BFFE;
+          margin-top: 30px;
+          padding: 30px 25px 0 40px;
+          position: relative;
+          text-align: left; }
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:before,
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list:before {
+            content: "POSITION";
+            color: #000;
+            display: block;
+            font-size: 1rem;
+            font-family: "p22-underground", sans-serif;
+            font-weight: 500;
+            left: -35px;
+            position: absolute;
+            top: -30px;
+            left: 25px; }
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:after,
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list:after, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list:after {
+            content: "CONTACT INFORMATION";
+            color: #000;
+            display: block;
+            font-size: 1rem;
+            font-family: "p22-underground", sans-serif;
+            font-weight: 500;
+            left: -35px;
+            position: absolute;
+            top: -30px;
+            left: calc(50% - 15px); }
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul,
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul {
+            margin: 0;
+            padding: 0;
+            position: relative; }
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li,
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li {
+              color: #4A4A4A;
+              font-family: "p22-underground", sans-serif;
+              font-size: 1.125rem;
+              list-style: none;
+              padding: 0 0 30px;
+              position: relative;
+              top: 0; }
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li a, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li a,
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li a, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li a {
+                color: #0990FE; }
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li + li:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li + li:before,
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li + li:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li + li:before {
+                background-color: #E5E3E4;
+                content: "";
+                display: block;
+                height: 1px;
+                margin: 10px 0;
+                width: 100%; }
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field,
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field {
+                left: 50%;
+                position: relative;
+                width: 50%; }
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-content, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-content,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field .field-content, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field .field-content {
+                  display: inline; }
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-value, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-value,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field .field-value, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field .field-value {
+                  left: 100px;
+                  position: absolute; }
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-title, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-title-1, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-title, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-title-1,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field-title,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field-title-1, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field-title, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field-title-1 {
+                  color: #003A5E;
+                  font-weight: 500; }
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-field-staff-position, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-field-staff-position,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field-field-fpo-officer-type,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field-field-staff-position, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field-field-staff-position {
+                  color: #950306;
+                  left: 0;
+                  position: absolute; }
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories {
         background-color: #E5E3E4;
         clear: both;
         height: auto;
         padding-bottom: 35px; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
           margin: 0 auto;
           max-width: 1024px;
           padding-left: 40px;
@@ -6595,18 +6702,18 @@ html {
           padding-bottom: 25px;
           text-align: center; }
           @media (max-width: 400px) {
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
               padding-left: 20px;
               padding-right: 20px; } }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] header {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] header {
             background-color: #E5E3E4;
             height: auto;
             padding-top: 35px; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] header p {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] header p {
               font-size: 1.125rem;
               margin: 0 0 40px;
               text-align: center; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
             background-color: #fff;
             display: inline-block;
             height: 400px;
@@ -6614,9 +6721,9 @@ html {
             position: relative;
             text-align: center;
             width: 300px; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card + .success-story.card {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card + .success-story.card {
               margin-left: 17px; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story {
               -webkit-transform: translateX(-50%) translateY(-50%);
               -moz-transform: translateX(-50%) translateY(-50%);
               -ms-transform: translateX(-50%) translateY(-50%);
@@ -6627,7 +6734,7 @@ html {
               top: 50%;
               height: 370px;
               width: calc(100% - 20px); }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image {
                 max-height: 185px;
                 height: 185px;
                 overflow: hidden;
@@ -6635,7 +6742,7 @@ html {
                 width: 100%;
                 /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
                 margin-bottom: 15px; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
                   -webkit-transform: translateX(-50%) translateY(-50%);
                   -moz-transform: translateX(-50%) translateY(-50%);
                   -ms-transform: translateX(-50%) translateY(-50%);
@@ -6647,18 +6754,18 @@ html {
                   height: 100%;
                   min-width: 100%;
                   width: auto; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
                   border: none !important; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_title h3 {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_title h3 {
                 text-align: inherit; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_location {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_location {
                 color: #7C7C7C; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_body p {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_body p {
                 font-family: "minion-pro", Times, serif;
                 font-size: 1rem;
                 margin: 5px;
                 text-align: center; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story .read_more {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story .read_more {
                 -webkit-transform: translateX(-50%);
                 -moz-transform: translateX(-50%);
                 -ms-transform: translateX(-50%);
@@ -6668,7 +6775,7 @@ html {
                 position: absolute;
                 bottom: 0;
                 padding-right: 5px; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 {
         margin: 0 auto;
         max-width: 1024px;
         padding-left: 40px;
@@ -6677,17 +6784,17 @@ html {
         padding-bottom: 25px;
         padding-top: 15px; }
         @media (max-width: 400px) {
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 {
             padding-left: 20px;
             padding-right: 20px; } }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list {
           background-color: #E8F8FF;
           border-top: 2px solid #71BFFE;
           margin-top: 30px;
           padding: 30px 25px 0 40px;
           position: relative;
           text-align: left; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:before {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:before {
             content: "POSITION";
             color: #000;
             display: block;
@@ -6698,8 +6805,8 @@ html {
             position: absolute;
             top: -30px;
             left: 25px; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:after {
-            content: "STAFF MEMBER";
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:after {
+            content: "CONTACT INFORMATION";
             color: #000;
             display: block;
             font-size: 1rem;
@@ -6709,11 +6816,11 @@ html {
             position: absolute;
             top: -30px;
             left: calc(50% - 15px); }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul {
             margin: 0;
             padding: 0;
             position: relative; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li {
               color: #4A4A4A;
               font-family: "p22-underground", sans-serif;
               font-size: 1.125rem;
@@ -6721,32 +6828,32 @@ html {
               padding: 0 0 30px;
               position: relative;
               top: 0; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li a, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li a {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li a, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li a {
                 color: #0990FE; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li + li:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li + li:before {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li + li:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li + li:before {
                 background-color: #E5E3E4;
                 content: "";
                 display: block;
                 height: 1px;
                 margin: 10px 0;
                 width: 100%; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field {
                 left: 50%;
                 position: relative;
                 width: 50%; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-content, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-content {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-content, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-content {
                   display: inline; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-value, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-value {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-value, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-value {
                   left: 100px;
                   position: absolute; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-title, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-title {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-title, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-title {
                   color: #003A5E;
                   font-weight: 500; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-field-fpo-officer-type {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-field-fpo-officer-type {
                   color: #950306;
                   left: 0;
                   position: absolute; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-achp-content {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-achp-content {
         margin: 0 auto;
         max-width: 1024px;
         padding-left: 40px;
@@ -6755,12 +6862,12 @@ html {
         padding-bottom: 20px;
         font-size: 1.125rem; }
         @media (max-width: 400px) {
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-achp-content {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-achp-content {
             padding-left: 20px;
             padding-right: 20px; } }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-achp-content h2 + p {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-achp-content h2 + p {
           margin-top: 0; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 {
         margin: 0 auto;
         max-width: 1024px;
         padding-left: 40px;
@@ -6768,38 +6875,38 @@ html {
         width: 100%;
         padding: 40px 0; }
         @media (max-width: 400px) {
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 {
             padding-left: 20px;
             padding-right: 20px; } }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list {
           border: 1px solid #E5E3E4;
           border-bottom: none;
           text-align: left; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol {
             list-style-type: none;
             margin: 0;
             padding: 0; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li {
               border-bottom: 1px solid #E5E3E4;
               padding: 0; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field {
                 font-size: 1.125rem;
                 line-height: 1.4; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-title {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-title {
                 font-family: "p22-underground", sans-serif;
                 font-size: 1.125rem;
                 padding: 20px 20px 0; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-title a {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-title a {
                   color: #0990FE; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-type {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-type {
                 color: #7C7C7C;
                 font-family: "p22-underground", sans-serif;
                 margin-bottom: 5px;
                 padding: 10px 20px 0; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-body {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-body {
                 color: #4A4A4A;
                 padding: 0px 20px 20px; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-related-resources-block-1 {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-related-resources-block-1 {
         margin: 0 auto;
         max-width: 1024px;
         padding-left: 40px;
@@ -6809,40 +6916,40 @@ html {
         padding-bottom: 50px;
         text-align: left; }
         @media (max-width: 400px) {
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-related-resources-block-1 {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-related-resources-block-1 {
             padding-left: 20px;
             padding-right: 20px; } }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-related-resources-block-1 h2 {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-related-resources-block-1 h2 {
           display: block; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-related-resources-block-1 h2:after {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-related-resources-block-1 h2:after {
             display: none; }
       @media (max-width: 1024px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list {
           margin-top: 0; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:after {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:after {
             display: none; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul {
             text-align: center; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li {
               display: inline-block;
               margin: 0 auto;
               text-align: left; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field {
                 position: static;
                 width: 100%; } }
       @media (max-width: 1023px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
           max-width: 800px; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(3) {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(3) {
             margin-left: 0 !important; } }
       @media (max-width: 702px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
           max-width: 700px; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
             display: block;
             margin: 0 auto 25px !important;
             max-width: 100%; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(3) {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(3) {
               margin: 0 auto 25px !important; } }
 
 /*
@@ -7379,24 +7486,21 @@ html {
   #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region {
     margin: 0 auto;
     width: 100%; }
-    #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content,
-    #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content {
-      /*@include content-container;*/ }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 {
-        text-align: left; }
-        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + p,
-        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + p {
-          margin-top: 0; }
-        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + h4,
-        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + h4 {
-          margin-top: 0; }
-        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + ul,
-        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + ul {
-          margin-top: 5px; }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h4 + p,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h4 + p {
+    #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2,
+    #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 {
+      text-align: left; }
+      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + p,
+      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + p {
         margin-top: 0; }
+      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + h4,
+      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + h4 {
+        margin-top: 0; }
+      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + ul,
+      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + ul {
+        margin-top: 5px; }
+    #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h4 + p,
+    #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h4 + p {
+      margin-top: 0; }
     #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro,
     #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro {
       margin: 0 auto;
@@ -7509,8 +7613,7 @@ html {
     #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories {
       background-color: #E5E3E4;
       clear: both;
-      height: auto;
-      padding-bottom: 35px; }
+      height: auto; }
       #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"],
       #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
         margin: 0 auto;
@@ -8193,6 +8296,7 @@ html {
     padding: 0;
     max-width: 100%; }
     #page[data-page-node-type="issue"] #content #content_region {
+      margin-bottom: 40px;
       width: 100%; }
       #page[data-page-node-type="issue"] #content #content_region #block-achp-content article {
         margin: 0 auto;
@@ -8327,7 +8431,8 @@ html {
         max-width: 1024px;
         padding-left: 40px;
         padding-right: 40px;
-        width: 100%; }
+        width: 100%;
+        margin-bottom: 60px; }
         @media (max-width: 400px) {
           #page[data-page-node-type="issue"] #content #content_region #block-sub-issue-initiatives {
             padding-left: 20px;
@@ -9758,12 +9863,47 @@ html {
       margin: 0 auto;
       padding: 10px 0; }
 #page[data-page-node-type="news_story"] #main #content {
-  max-width: 620px; }
+  max-width: 620px;
+  /*      #block-news-attachments {
+          font-size: rem(18px);
+          margin: 35px 0 25px;
+          max-width: 100%;
+  
+          header {
+            background-color: #fff;
+            height: auto;
+  
+            h3 {
+              color: $color-red2;
+              font-size: rem(22px);
+  
+              &:after {
+                background-color: $color-lightgrey;
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+              }
+            }
+          }
+          .views-field-field-file, .views-field-title-1 {
+            margin-top: 20px;
+  
+            a {
+              color: $color-blue-primary;
+              font-family: $sans-text;
+            }
+          }
+          .views-field-body {
+            color: $color-grey2;
+          }
+        }*/ }
   #page[data-page-node-type="news_story"] #main #content #news_item_page {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 100%; }
+    height: 100%;
+    margin-bottom: 40px; }
     #page[data-page-node-type="news_story"] #main #content #news_item_page::after {
       clear: both;
       content: "";
@@ -9793,6 +9933,24 @@ html {
             margin-top: 10px; }
         #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body h4 {
           margin-bottom: 0; }
+      #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments {
+        margin-top: 30px; }
+        #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments h4 {
+          color: #9B0008; }
+          #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments h4:after {
+            background-color: #C6C6C6;
+            content: "";
+            display: block;
+            height: 1px;
+            /*margin-bottom: 20px;*/ }
+        #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments .news_attachment_title {
+          color: #0990FE;
+          font-family: "p22-underground", sans-serif;
+          margin-top: 15px; }
+        #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments .news_attachment_body {
+          font-size: 1.125rem; }
+          #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments .news_attachment_body p {
+            margin: 0; }
       #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_divider {
         background-color: #C6C6C6;
         height: 1px;
@@ -9810,30 +9968,6 @@ html {
           #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_tags .field_tags a {
             color: #0990FE;
             text-decoration: none; }
-  #page[data-page-node-type="news_story"] #main #content #block-news-attachments {
-    display: none;
-    font-size: 1.125rem;
-    margin: 35px 0 25px;
-    max-width: 100%; }
-    #page[data-page-node-type="news_story"] #main #content #block-news-attachments header {
-      background-color: #fff;
-      height: auto; }
-      #page[data-page-node-type="news_story"] #main #content #block-news-attachments header h3 {
-        color: #9B0008;
-        font-size: 1.375rem; }
-        #page[data-page-node-type="news_story"] #main #content #block-news-attachments header h3:after {
-          background-color: #C6C6C6;
-          content: "";
-          display: block;
-          width: 100%;
-          height: 1px; }
-    #page[data-page-node-type="news_story"] #main #content #block-news-attachments .views-field-title {
-      margin-top: 20px; }
-      #page[data-page-node-type="news_story"] #main #content #block-news-attachments .views-field-title a {
-        color: #0990FE;
-        font-family: "p22-underground", sans-serif; }
-    #page[data-page-node-type="news_story"] #main #content #block-news-attachments .views-field-body {
-      color: #4A4A4A; }
   #page[data-page-node-type="news_story"] #main #content #block-views-block-related-news-items-block-1 {
     background-color: #fff;
     margin: 20px auto 40px;
@@ -10116,6 +10250,8 @@ html {
           padding: 20px 0 5px; }
           #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .views-label {
             color: #043B62; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-field-tags a {
+            color: #0990FE; }
         #news_landing_page #content .news-landing-container .news-item ul {
           list-style-type: none;
           margin: 0;
@@ -10726,6 +10862,17 @@ general office landing page */
           #page[data-page-path-alias="/about/offices/ofap/agencies"] #content #content_region #block-onaa-agency-assignments .item-list > ul li .views-field-nothing-1,
           #page[data-page-path-alias="/about/offices/ofap/agencies"] #content #content_region #block-ofap-agency-assignments .item-list > ul li .views-field-nothing-1 {
             display: none; }
+#page[data-page-path-alias="/about/offices/onaa/agencies"] #content #content_region #block-ofap-agency-assignments .item-list:first-of-type > ul:before,
+#page[data-page-path-alias="/about/offices/ofap/agencies"] #content #content_region #block-ofap-agency-assignments .item-list:first-of-type > ul:before {
+  content: "OFAP STAFF MEMBER";
+  color: #000;
+  display: block;
+  font-size: 1rem;
+  font-family: "p22-underground", sans-serif;
+  font-weight: 500;
+  left: -15px;
+  position: relative;
+  top: -30px; }
 @media (max-width: 825px) {
   #page[data-page-path-alias="/about/offices/onaa/agencies"] #content #content_region #block-onaa-agency-assignments .item-list:first-of-type, #page[data-page-path-alias="/about/offices/onaa/agencies"] #content #content_region #block-ofap-agency-assignments .item-list:first-of-type,
   #page[data-page-path-alias="/about/offices/ofap/agencies"] #content #content_region #block-onaa-agency-assignments .item-list:first-of-type,
@@ -11681,7 +11828,7 @@ general office landing page */
   Styles for a general page without a banner image.
 */
 #page[data-page-node-type="page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/careers/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"],
-#page[data-page-path-alias^="/internships/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
+#page[data-page-path-alias^="/internships/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-node-type="fpo_resources_page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
   margin: 0 auto;
   max-width: 1024px;
   padding-left: 40px;
@@ -11689,11 +11836,11 @@ general office landing page */
   width: 100%; }
   @media (max-width: 400px) {
     #page[data-page-node-type="page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/careers/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"],
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-node-type="fpo_resources_page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
       padding-left: 20px;
       padding-right: 20px; } }
 #page[data-page-node-type="page"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-pagetitle-2,
-#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-pagetitle-2 {
+#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-pagetitle-2 {
   margin: 0 auto;
   max-width: 1024px;
   padding-left: 40px;
@@ -11703,14 +11850,14 @@ general office landing page */
   font-weight: 400; }
   @media (max-width: 400px) {
     #page[data-page-node-type="page"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-pagetitle-2,
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-pagetitle-2 {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-pagetitle-2 {
       padding-left: 20px;
       padding-right: 20px; } }
   #page[data-page-node-type="page"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-pagetitle-2 h1 span,
-  #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-pagetitle-2 h1 span {
+  #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-pagetitle-2 h1 span {
     display: inline-block; }
     #page[data-page-node-type="page"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-pagetitle-2 h1 span:after,
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-pagetitle-2 h1 span:after {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-pagetitle-2 h1 span:after {
       background-color: #950306;
       border: none;
       color: #950306;
@@ -11721,7 +11868,7 @@ general office landing page */
       min-width: 150px;
       width: 20%; }
 #page[data-page-node-type="page"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-breadcrumbs,
-#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-breadcrumbs {
+#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-breadcrumbs, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-breadcrumbs {
   margin: 0 auto;
   max-width: 1024px;
   padding-left: 40px;
@@ -11730,11 +11877,11 @@ general office landing page */
   margin-top: 30px; }
   @media (max-width: 400px) {
     #page[data-page-node-type="page"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-breadcrumbs,
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-breadcrumbs {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-breadcrumbs, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-breadcrumbs {
       padding-left: 20px;
       padding-right: 20px; } }
 #page[data-page-node-type="page"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-sharethispage,
-#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-sharethispage {
+#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-sharethispage, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-sharethispage {
   margin: 0 auto;
   max-width: 1024px;
   padding-left: 40px;
@@ -11743,64 +11890,64 @@ general office landing page */
   margin: 15px auto 30px; }
   @media (max-width: 400px) {
     #page[data-page-node-type="page"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-sharethispage,
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-sharethispage {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-sharethispage, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-sharethispage {
       padding-left: 20px;
       padding-right: 20px; } }
 #page[data-page-node-type="page"] #content, #page[data-page-path-alias^="/careers/"] #content,
-#page[data-page-path-alias^="/internships/"] #content, #page[data-page-path-alias^="/training/classroom/"] #content, #page[data-page-path-alias^="/about/council-members/"] #content, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content {
+#page[data-page-path-alias^="/internships/"] #content, #page[data-page-path-alias^="/training/classroom/"] #content, #page[data-page-path-alias^="/about/council-members/"] #content, #page[data-page-node-type="fpo_resources_page"] #content {
   width: 100%; }
   #page[data-page-node-type="page"] #content #content_region, #page[data-page-path-alias^="/careers/"] #content #content_region,
-  #page[data-page-path-alias^="/internships/"] #content #content_region, #page[data-page-path-alias^="/training/classroom/"] #content #content_region, #page[data-page-path-alias^="/about/council-members/"] #content #content_region, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region {
+  #page[data-page-path-alias^="/internships/"] #content #content_region, #page[data-page-path-alias^="/training/classroom/"] #content #content_region, #page[data-page-path-alias^="/about/council-members/"] #content #content_region, #page[data-page-node-type="fpo_resources_page"] #content #content_region {
     font-size: 1.125rem;
     padding: 0; }
     #page[data-page-node-type="page"] #content #content_region h2, #page[data-page-path-alias^="/careers/"] #content #content_region h2,
-    #page[data-page-path-alias^="/internships/"] #content #content_region h2, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2, #page[data-page-node-type="page"] #content #content_region h3, #page[data-page-path-alias^="/careers/"] #content #content_region h3,
-    #page[data-page-path-alias^="/internships/"] #content #content_region h3, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h3, #page[data-page-node-type="page"] #content #content_region h4, #page[data-page-path-alias^="/careers/"] #content #content_region h4,
-    #page[data-page-path-alias^="/internships/"] #content #content_region h4, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h4 {
+    #page[data-page-path-alias^="/internships/"] #content #content_region h2, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2, #page[data-page-node-type="fpo_resources_page"] #content #content_region h2, #page[data-page-node-type="page"] #content #content_region h3, #page[data-page-path-alias^="/careers/"] #content #content_region h3,
+    #page[data-page-path-alias^="/internships/"] #content #content_region h3, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3, #page[data-page-node-type="fpo_resources_page"] #content #content_region h3, #page[data-page-node-type="page"] #content #content_region h4, #page[data-page-path-alias^="/careers/"] #content #content_region h4,
+    #page[data-page-path-alias^="/internships/"] #content #content_region h4, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4, #page[data-page-node-type="fpo_resources_page"] #content #content_region h4 {
       text-align: left; }
       #page[data-page-node-type="page"] #content #content_region h2 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h2 + p,
-      #page[data-page-path-alias^="/internships/"] #content #content_region h2 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2 + p, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2 + p, #page[data-page-node-type="page"] #content #content_region h3 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h3 + p,
-      #page[data-page-path-alias^="/internships/"] #content #content_region h3 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3 + p, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h3 + p, #page[data-page-node-type="page"] #content #content_region h4 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h4 + p,
-      #page[data-page-path-alias^="/internships/"] #content #content_region h4 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4 + p, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h4 + p {
+      #page[data-page-path-alias^="/internships/"] #content #content_region h2 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2 + p, #page[data-page-node-type="fpo_resources_page"] #content #content_region h2 + p, #page[data-page-node-type="page"] #content #content_region h3 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h3 + p,
+      #page[data-page-path-alias^="/internships/"] #content #content_region h3 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3 + p, #page[data-page-node-type="fpo_resources_page"] #content #content_region h3 + p, #page[data-page-node-type="page"] #content #content_region h4 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h4 + p,
+      #page[data-page-path-alias^="/internships/"] #content #content_region h4 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4 + p, #page[data-page-node-type="fpo_resources_page"] #content #content_region h4 + p {
         margin-top: 0; }
     #page[data-page-node-type="page"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/careers/"] #content #content_region .addtoany_list,
-    #page[data-page-path-alias^="/internships/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region .addtoany_list {
+    #page[data-page-path-alias^="/internships/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .addtoany_list, #page[data-page-node-type="fpo_resources_page"] #content #content_region .addtoany_list {
       display: none; }
 @media (max-width: 925px) {
   #page[data-page-node-type="page"] #content, #page[data-page-path-alias^="/careers/"] #content,
-  #page[data-page-path-alias^="/internships/"] #content, #page[data-page-path-alias^="/training/classroom/"] #content, #page[data-page-path-alias^="/about/council-members/"] #content, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content {
+  #page[data-page-path-alias^="/internships/"] #content, #page[data-page-path-alias^="/training/classroom/"] #content, #page[data-page-path-alias^="/about/council-members/"] #content, #page[data-page-node-type="fpo_resources_page"] #content {
     box-shadow: none; } }
 @media (max-width: 800px) {
   #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page_button,
-  #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page_button {
+  #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page_button {
     margin-left: 15px; }
     #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page_button_print,
-    #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page_button_print {
+    #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page_button_print {
       display: none; } }
 @media (max-width: 650px) {
   #page[data-page-node-type="page"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/careers/"] #content #content_region .achp-breadcrumb,
-  #page[data-page-path-alias^="/internships/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region .achp-breadcrumb {
+  #page[data-page-path-alias^="/internships/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .achp-breadcrumb, #page[data-page-node-type="fpo_resources_page"] #content #content_region .achp-breadcrumb {
     display: none; }
   #page[data-page-node-type="page"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/careers/"] #content #content_region .mobile_breadcrumb,
-  #page[data-page-path-alias^="/internships/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region .mobile_breadcrumb {
+  #page[data-page-path-alias^="/internships/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .mobile_breadcrumb, #page[data-page-node-type="fpo_resources_page"] #content #content_region .mobile_breadcrumb {
     display: block; }
   #page[data-page-node-type="page"] #content #content_region h2, #page[data-page-path-alias^="/careers/"] #content #content_region h2,
-  #page[data-page-path-alias^="/internships/"] #content #content_region h2, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2, #page[data-page-node-type="page"] #content #content_region h3, #page[data-page-path-alias^="/careers/"] #content #content_region h3,
-  #page[data-page-path-alias^="/internships/"] #content #content_region h3, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h3, #page[data-page-node-type="page"] #content #content_region h4, #page[data-page-path-alias^="/careers/"] #content #content_region h4,
-  #page[data-page-path-alias^="/internships/"] #content #content_region h4, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h4 {
+  #page[data-page-path-alias^="/internships/"] #content #content_region h2, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2, #page[data-page-node-type="fpo_resources_page"] #content #content_region h2, #page[data-page-node-type="page"] #content #content_region h3, #page[data-page-path-alias^="/careers/"] #content #content_region h3,
+  #page[data-page-path-alias^="/internships/"] #content #content_region h3, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3, #page[data-page-node-type="fpo_resources_page"] #content #content_region h3, #page[data-page-node-type="page"] #content #content_region h4, #page[data-page-path-alias^="/careers/"] #content #content_region h4,
+  #page[data-page-path-alias^="/internships/"] #content #content_region h4, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4, #page[data-page-node-type="fpo_resources_page"] #content #content_region h4 {
     text-align: center; } }
 @media (max-width: 400px) {
   #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page,
-  #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page {
+  #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page {
     padding-left: 0; }
     #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons,
-    #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons {
+    #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons {
       text-align: left; }
       #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before,
-      #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before {
+      #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before {
         padding-right: calc(100% - 215px); }
       #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button,
-      #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button {
+      #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button {
         margin-left: 10px; } }
 
 /*
@@ -12660,6 +12807,25 @@ general office landing page */
 [data-page-path-alias="/preservation-policy"] #content #content_region #block-pages-related-resources-block {
   margin: 60px 0 40px;
   padding: 0; }
+
+#page[data-page-path-alias="/about/preservation-officers"] #secondary_header_region #bblock-about-achp-share {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 30px; }
+  @media (max-width: 400px) {
+    #page[data-page-path-alias="/about/preservation-officers"] #secondary_header_region #bblock-about-achp-share {
+      padding-left: 20px;
+      padding-right: 20px; } }
+#page[data-page-path-alias="/about/preservation-officers"] #content #content_region #block-achp-content {
+  margin-bottom: 40px; }
+  #page[data-page-path-alias="/about/preservation-officers"] #content #content_region #block-achp-content a {
+    color: #0990FE; }
+#page[data-page-path-alias="/about/preservation-officers"] #content #content_region #block-views-block-related-resources-block-1 {
+  padding: 0;
+  margin-bottom: 40px; }
 
 [data-page-path-alias="/preserve-america"] #secondary_header_region #block-breadcrumbs,
 [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-breadcrumbs,

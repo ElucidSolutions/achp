@@ -1,0 +1,21 @@
+#page[data-page-path-alias="/about/preservation-officers"] {
+  #secondary_header_region {
+    #bblock-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region {
+    #block-achp-content {
+      margin-bottom: 40px;
+
+      a {
+        color: $color-blue-primary;
+      }
+    }
+    #block-views-block-related-resources-block-1 {
+      padding: 0;
+      margin-bottom: 40px;
+    }
+  }
+}
