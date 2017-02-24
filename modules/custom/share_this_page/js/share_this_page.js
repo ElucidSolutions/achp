@@ -6,11 +6,11 @@
   // Represents the set of Add to Any icons.
   var a2aIcons = [
     {
-      'selector': '.share_this_page_button_icon_facebook',
+      'selector': '.share_this_page_button_facebook',
       'url': '/images/facebook-icon.svg'
     },
     {
-      'selector': '.share_this_page_button_icon_twitter',
+      'selector': '.share_this_page_button_twitter',
       'url': '/images/twitter-icon.svg'
     }
   ];
@@ -18,15 +18,15 @@
   // Represents the set of icons that do not depend on Add to Any.
   var icons = [
     {
-      'selector': '.share_this_page_button_icon_email',
+      'selector': '.share_this_page_button_email',
       'url': '/images/email-icon.svg'
     },
     {
-      'selector': '.share_this_page_button_icon_link',
+      'selector': '.share_this_page_button_direct_link',
       'url': '/images/link-icon.svg'
     },
     {
-      'selector': '.share_this_page_button_icon_print',
+      'selector': '.share_this_page_button_print',
       'url': '/images/print-icon.svg'
     }
   ];
@@ -75,7 +75,9 @@
   */
   function loadSVGIcons (icons) {
     icons.forEach (function (icon) {
-      $(icon.selector).html (loadSVG (drupalSettings.share_this_page.module_path + icon.url));
+      var buttonElement = $(icon.selector);
+      var linkElement = getButtonLinkElement (buttonElement);
+      linkElement.html (loadSVG (drupalSettings.share_this_page.module_path + icon.url));
     });
   }
 
@@ -104,5 +106,15 @@
       }
     });
     return svgElementString;
+  }
+
+  /*
+    Accepts one argument: buttonElement,
+    a jQuery HTML Element that represents a
+    button element; and returns a jQuery HTML
+    Element that represents buttonElement's link.
+  */
+  function getButtonLinkElement (buttonElement) {
+    return $('.share_this_page_button_icon', buttonElement);
   }
 }) (jQuery);
