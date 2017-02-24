@@ -3451,13 +3451,13 @@ html {
       @media screen and (max-width: 925px) {
         [data-page-node-type="digital_library_landing_page"] #main #secondary_header {
           padding: 20px !important; } }
-      [data-page-node-type="digital_library_landing_page"] #main #secondary_header h1 {
+      [data-page-node-type="digital_library_landing_page"] #main #secondary_header #block-digital-library-title h1 {
         color: #003A5E;
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: 20px;
         text-align: center; }
-        [data-page-node-type="digital_library_landing_page"] #main #secondary_header h1:after {
+        [data-page-node-type="digital_library_landing_page"] #main #secondary_header #block-digital-library-title h1:after {
           content: "";
           display: block;
           max-width: 200px;
@@ -6584,13 +6584,16 @@ html {
         background-color: #E5E3E4;
         clear: both;
         height: auto;
-        /*padding: $vertical-padding 0;*/ }
+        padding-bottom: 35px; }
         #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
           margin: 0 auto;
           max-width: 1024px;
           padding-left: 40px;
           padding-right: 40px;
-          width: 100%; }
+          width: 100%;
+          margin: 0 auto;
+          padding-bottom: 25px;
+          text-align: center; }
           @media (max-width: 400px) {
             #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
               padding-left: 20px;
@@ -6601,21 +6604,31 @@ html {
             padding-top: 35px; }
             #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] header p {
               font-size: 1.125rem;
-              margin-top: 0;
+              margin: 0 0 40px;
               text-align: center; }
           #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
-            background-color: #ffffff;
+            background-color: #fff;
             display: inline-block;
             height: 400px;
-            margin: 25px 20px 0 0;
+            margin-bottom: 25px;
+            position: relative;
             text-align: center;
-            width: calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3); }
+            width: 300px; }
+            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card + .success-story.card {
+              margin-left: 17px; }
             #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story {
-              float: left;
-              height: 380px;
-              padding: 5px 10px;
-              position: relative; }
+              -webkit-transform: translateX(-50%) translateY(-50%);
+              -moz-transform: translateX(-50%) translateY(-50%);
+              -ms-transform: translateX(-50%) translateY(-50%);
+              -o-transform: translateX(-50%) translateY(-50%);
+              transform: translateX(-50%) translateY(-50%);
+              left: 50%;
+              position: absolute;
+              top: 50%;
+              height: 370px;
+              width: calc(100% - 20px); }
               #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image {
+                max-height: 185px;
                 height: 185px;
                 overflow: hidden;
                 position: relative;
@@ -6645,7 +6658,7 @@ html {
                 font-size: 1rem;
                 margin: 5px;
                 text-align: center; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_link {
+              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story .read_more {
                 -webkit-transform: translateX(-50%);
                 -moz-transform: translateX(-50%);
                 -ms-transform: translateX(-50%);
@@ -6653,12 +6666,8 @@ html {
                 transform: translateX(-50%);
                 left: 50%;
                 position: absolute;
-                bottom: -5px;
+                bottom: 0;
                 padding-right: 5px; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-            margin-right: 0; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories footer {
-          padding: 35px 0; }
       #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 {
         margin: 0 auto;
         max-width: 1024px;
@@ -6757,7 +6766,7 @@ html {
         padding-left: 40px;
         padding-right: 40px;
         width: 100%;
-        padding-top: 40px; }
+        padding: 40px 0; }
         @media (max-width: 400px) {
           #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 {
             padding-left: 20px;
@@ -6808,11 +6817,6 @@ html {
           #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-related-resources-block-1 h2:after {
             display: none; }
       @media (max-width: 1024px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1 {
-          margin-left: 20px; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-          display: block;
-          margin: 25px auto 0; }
         #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list {
           margin-top: 0; }
           #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:after {
@@ -6826,39 +6830,20 @@ html {
               #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field {
                 position: static;
                 width: 100%; } }
-      @media (max-width: 750px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-          /*margin: 25px auto 0;*/
-          display: block;
-          margin: 25px auto 0; } }
-      @media (max-width: 650px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region {
-          /*        h2, h3 {
-                    text-align: center;
-                  }*/ }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node {
-            width: 100%; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node .read-more {
-              -webkit-transform: translateX(-50%);
-              -moz-transform: translateX(-50%);
-              -ms-transform: translateX(-50%);
-              -o-transform: translateX(-50%);
-              transform: translateX(-50%);
-              left: 50%;
-              position: absolute;
-              position: relative; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a:after {
-                /*right: auto;*/ } }
-      @media (max-width: 500px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-field-issue-thumbnail-image img {
-          height: auto;
-          max-height: 100%;
-          max-width: 100%;
-          width: auto; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-field-issue-summary {
-          padding-bottom: 70px; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-view-node a {
-          padding-right: 20px; } }
+      @media (max-width: 1023px) {
+        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+          max-width: 800px; }
+          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(3) {
+            margin-left: 0 !important; } }
+      @media (max-width: 702px) {
+        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+          max-width: 700px; }
+          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
+            display: block;
+            margin: 0 auto 25px !important;
+            max-width: 100%; }
+            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(3) {
+              margin: 0 auto 25px !important; } }
 
 /*
   This stylesheet defines the default styles
