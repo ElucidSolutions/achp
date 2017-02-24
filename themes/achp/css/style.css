@@ -3379,7 +3379,60 @@ form.contact-message-internship-form {
       font-family: "p22-underground", sans-serif;
       font-size: 1rem;
       color: #BBBBBB; }
+  form.contact-message-internship-form .form-item input.form-tel {
+    border: 1px solid #7C7C7C;
+    border-radius: 2px;
+    height: 40px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    padding: 5px; }
+    form.contact-message-internship-form .form-item input.form-tel::-webkit-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-tel::-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-tel:-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-tel:-ms-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
   form.contact-message-internship-form .form-item .description {
+    display: none; }
+  form.contact-message-internship-form .form-item input.field-add-more-submit {
+    transition: background-color 0.25s;
+    background-color: #0990FE;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 600;
+    padding: 12px 38px 8px;
+    text-transform: uppercase; }
+    form.contact-message-internship-form .form-item input.field-add-more-submit:hover {
+      background-color: #71BFFE; }
+    @media screen and (max-width: 650px) {
+      form.contact-message-internship-form .form-item input.field-add-more-submit {
+        line-height: 1.2rem; } }
+    form.contact-message-internship-form .form-item input.field-add-more-submit a {
+      color: white; }
+  form.contact-message-internship-form .field--type-boolean {
+    float: left; }
+    form.contact-message-internship-form .field--type-boolean input.form-checkbox {
+      float: left; }
+    form.contact-message-internship-form .field--type-boolean label {
+      float: left; }
+  form.contact-message-internship-form .field--type-prompt-field {
+    clear: both; }
+  form.contact-message-internship-form .tabledrag-toggle-weight-wrapper {
     display: none; }
   form.contact-message-internship-form .form-actions {
     margin-bottom: 40px; }
