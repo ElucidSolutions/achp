@@ -28,11 +28,14 @@ form.contact-message-internship-form {
   }
   .field--type-boolean {
     float: left;
+    margin-bottom: $margin-large;
+    margin-left: $margin-small;
 
     .form-item {
 
       input.form-checkbox {
         float: left;
+        margin-top: 9px;
       }
       label {
         display: block;
@@ -42,6 +45,9 @@ form.contact-message-internship-form {
   }
   .field--type-prompt-field {
     clear: both;
+  }
+  .field--type-datetime {
+    margin-bottom: $margin-large;
   }
   .field--name-field-intern-degrees {
     margin-bottom: $margin-large;
