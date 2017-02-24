@@ -7,7 +7,8 @@ form.contact-message-internship-form {
 
   .form-item {
     label {
-      @include achp-label;
+      display: none;
+      // @include achp-label;
     }
     input.form-text {
       @include achp-textfield;
@@ -28,11 +29,13 @@ form.contact-message-internship-form {
   .field--type-boolean {
     float: left;
 
-    input.form-checkbox {
-      float: left;
-    }
-    label {
-      float: left;
+    .form-item {
+      input.form-checkbox {
+        float: left;
+      }
+      label {
+        float: left;
+      }
     }
   }
   .field--type-prompt-field {

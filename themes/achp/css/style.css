@@ -3324,15 +3324,7 @@ form.contact-message-internship-form {
     the rules specified in the current styleguide.
   */ }
   form.contact-message-internship-form .form-item label {
-    color: #4F4F4F;
-    font-family: "p22-underground", sans-serif;
-    font-weight: 600;
-    line-height: 1.4;
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 10px; }
-    form.contact-message-internship-form .form-item label.form-required:after {
-      content: "*"; }
+    display: none; }
   form.contact-message-internship-form .form-item input.form-text {
     border: 1px solid #7C7C7C;
     border-radius: 2px;
@@ -3426,9 +3418,9 @@ form.contact-message-internship-form {
       color: white; }
   form.contact-message-internship-form .field--type-boolean {
     float: left; }
-    form.contact-message-internship-form .field--type-boolean input.form-checkbox {
+    form.contact-message-internship-form .field--type-boolean .form-item input.form-checkbox {
       float: left; }
-    form.contact-message-internship-form .field--type-boolean label {
+    form.contact-message-internship-form .field--type-boolean .form-item label {
       float: left; }
   form.contact-message-internship-form .field--type-prompt-field {
     clear: both; }
