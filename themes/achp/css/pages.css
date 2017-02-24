@@ -13344,10 +13344,16 @@ general office landing page */
       [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type .application_description {
         height: 110px;
         margin-top: 10px; }
-  [data-page-path-alias="/preserve-america/application"] #content #content_region article p a {
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article p a, [data-page-path-alias="/preserve-america/application"] #content #content_region article .application_link a {
     color: #0990FE; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article p > .application_link {
+    margin-bottom: 0; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article h3 + p {
+    margin-top: 10px; }
   [data-page-path-alias="/preserve-america/application"] #content #content_region article h4 {
     margin-bottom: 10px; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article .read_more {
+    margin-bottom: 25px; }
 @media (max-width: 900px) {
   [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type {
     float: left;
@@ -13981,10 +13987,19 @@ general office landing page */
 [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] h4 {
   color: #950306;
   margin-bottom: 0; }
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] p > .application_link {
-  margin-bottom: 0; }
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .application_link a {
+[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] p a {
   color: #0990FE; }
+[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-views-block-related-resources-block-1 {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin-bottom: 40px; }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-views-block-related-resources-block-1 {
+      padding-left: 20px;
+      padding-right: 20px; } }
 
 /*
   Styles for the Preserve America streamlined process page

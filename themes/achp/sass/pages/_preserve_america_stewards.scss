@@ -4,32 +4,20 @@
     $container-padding: 50px;
 
     #block-achp-content > article[about="/preserve-america/stewards"] {
-      
       .read_more {
         margin: 0 0 25px;
-        
-        a {
-          // display: inline-block;
-          // position: relative;
-
-          &:after {
-            // @include undo-center-y;
-            // position: absolute;
-            // top: -1px;
-          }
-        }
       }
       h4 {
         color: $color-red;
         margin-bottom: 0;
       }
-
-      p > .application_link {
-        margin-bottom: 0;
-      }
-      .application_link a {
+      p a {
         color: $color-blue-primary;
       }
     }
+    #block-views-block-related-resources-block-1  {
+      @include content-container;
+      margin-bottom: 40px;
+    } 
   }
 }
