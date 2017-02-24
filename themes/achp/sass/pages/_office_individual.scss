@@ -106,6 +106,9 @@
         }
       }
     }
+    #block-ofap-agency-assignments .item-list:first-of-type > ul:before{
+      @include create-header('OFAP STAFF MEMBER');
+    }
     @media (max-width: 825px) {
       #block-onaa-agency-assignments, #block-ofap-agency-assignments {
         .item-list {

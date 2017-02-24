@@ -21,7 +21,8 @@
         display: block;
         border-bottom: 1px solid $color-red;
         margin: $margin-small auto $margin-large;
-        width: 60%;
+        min-width: 100px;
+        width: 10%;
       }
     }
   }
@@ -32,7 +33,7 @@
     @include responsive(float, right, none);
     @include responsive(margin, 0 $margin-med $margin-med, 0 0 $margin-med);
     border: 1px solid $color-lightgrey-2;
-    padding: $margin-small;;
+    padding: $margin-small;
 
     .contact-us-information-header-title {
       @include h2($center: false);
