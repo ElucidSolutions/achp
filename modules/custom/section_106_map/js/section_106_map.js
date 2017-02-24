@@ -1851,7 +1851,7 @@
               .addClass (classPrefix + '_contact_email')
               .addClass ('section_106_case_field')             
               .append ($('<a></a>')
-                .attr ('href', _case.poc.email)
+                .attr ('href', 'mailto:' + _case.poc.email)
                 .text (_case.poc.email)))
             .append (_case.poc.phone && $('<div></div>')
               .addClass (classPrefix + '_contact_phone')
