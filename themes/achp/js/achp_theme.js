@@ -597,7 +597,7 @@
   height for each submenu's header elements.
   */
   function alignSubmenuHeaders () {
-    var submenuHeaders = $('#subheader_widescreen_submenu li[data-menu-level="1"] > a');
+    var submenuHeaders = $('#subheader_widescreen_submenu li[data-menu-level="1"] > span');
     var submenuLineHeight = parseInt(submenuHeaders.css('line-height'));
     var headerHeight = submenuHeaders.toArray ().reduce (function (headerHeight, submenuHeader) {
       var numLines = Math.ceil ($(submenuHeader).height () / submenuLineHeight);
