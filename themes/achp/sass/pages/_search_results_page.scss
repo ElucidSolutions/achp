@@ -1,0 +1,213 @@
+/*[data-page-path-alias^="/search"] {*/
+
+/*
+  This stylesheet defines the default styles
+  for the Search Results page.
+*/
+[data-page-path^="/search"] {
+  @import "../styleguide";
+
+  #secondary_header_region {
+    #block-user-account-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+
+      li.breadcrumb_page {
+        display: none;
+      }
+      li:nth-last-child(2) a {
+        color: $color-blue-primary !important;
+        cursor: text;
+      }
+    }
+    #block-searchpagetitle {
+      @include content-container;
+      color: $color-darkblue2;
+
+      h1 span {
+        display: inline-block;
+
+        &:after {
+          @include hr($color-red);
+          content: "";
+          display: block;
+          margin: 10px auto 25px;
+          min-width: 150px;
+          width: 20%;
+        }
+      }      
+    }
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;     
+    }
+  }
+  #content_region {
+    form.search-form {
+      @include styleguide;
+    }
+
+    #block-achp-content {
+      font-family: $sans-text;
+
+      form.search-page-form {
+        margin-bottom: 40px;
+
+        .js-form-item {
+          display: inline-block;
+          margin-bottom: 15px;
+          max-width: 100%;
+
+          label {
+            display: block;
+          }
+
+          input[type="search"] {
+            background-color: #fff;
+            border: 1px solid rgba(151,151,151,1);
+            border-radius: 2px;
+            font-family: $sans-text;
+            font-size: rem(16px);
+            height: 35px;
+            max-width: 100%;
+            padding: 0 10px;
+            width: 500px;
+          }
+        }
+        input[type="submit"] {
+          @include achp-button;
+          border: 1px solid $color-blue-primary;
+          position: relative;
+          left: -7px;
+          padding: 8px 38px 6px;
+          top: 1px;
+
+          @media (max-width: $mobile-breakpoint) {
+            line-height: 1.2rem;
+          }
+
+          @media (max-width: 400px) {
+            width: 100%;
+          }
+        }
+        @media (max-width: 600px) {
+          display: block;
+
+          input[type="submit"] {
+            left: 0;
+            top: 10px;
+          }
+        }
+        #edit-advanced {
+          margin-top: 20px;
+          
+          [aria-controls="edit-advanced"] {
+            color: $color-red2;
+            cursor: pointer;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+
+      h2 {
+        border-bottom: 1px solid $color-lightgrey;
+        margin: $margin-large 0 $margin-med ;
+        padding-bottom: $margin-xsmall;
+        position: relative;
+        text-align: left;
+      }
+      ol {
+        margin: 0;
+        padding: 0 $margin-large;
+        counter-reset: li-counter;
+
+        li {
+          border-left: 2px solid $background-color-lightblue;
+          font-size: rem(18px);
+          list-style-type: none;
+          list-style-image: none;
+          margin-bottom: 30px;
+          padding-left: $margin-med;
+          position: relative;
+
+          .achp-search-result-title h3 {
+            font-family: $sans-text;
+            font-size: rem(18px);
+            line-height: 1.4;
+            margin-bottom: 10px;
+
+            a {
+              color: $color-blue-primary;
+            }
+          }
+          .achp-search-result-type {
+            color: $color-lightgrey-2;
+            font-family: $sans-text;
+            margin-bottom: 10px;
+          }
+          .achp-search-result-body p {
+            margin: 0;
+          }
+          .achp-search-result-footer {
+            display: none;
+          }
+          &:before {
+            @include body-text($font-family: $sans-text);
+            color: $color-red2;
+            content: counter(li-counter);
+            counter-increment: li-counter;
+            left: - $margin-large;
+            position: absolute;
+            text-align: right;
+            top: 2px;
+            width: $margin-med;
+          }
+        }
+      }
+      nav {
+        @include span-columns (12 of 12);
+        color: $color-darkgrey;
+        font-family: $sans-text;
+        font-size: rem(14px);
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+          text-align: center;
+
+          li {
+            display: inline-block;
+            line-height: 27px;
+            padding: 0 8px;
+
+            &.pager__item--last, &.pager__item--first {
+              display: none;
+            }
+            &.pager__item.is-active {
+              background-color: $color-blue-primary;
+              border-radius: 50%;
+              cursor: default;
+              height: 25px;
+              padding: 0;
+              width: 25px;
+
+              a {
+                @include hover-transition-content(#fff);              
+                color: #fff;
+                cursor: default;
+              }
+            }
+            a {
+              @include hover-transition-content($color-blue-primary);            
+              color: $color-darkgrey;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

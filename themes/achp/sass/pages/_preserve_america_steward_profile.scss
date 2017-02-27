@@ -5,6 +5,11 @@
 #page[data-page-node-type="preserve_america_steward"] {
   $page-max-width: 750px;
 
+  [data-derivative-plugin-id^="image_carousel-block"] {
+    @include content-container;
+    max-width: $page-max-width;
+  }
+
   #secondary_header_region {
     #block-breadcrumbs {
       @include content-container;
@@ -40,13 +45,14 @@
 
   #content #content_region {
     @include content-container;
+    font-size: 18px;
     margin: 0 auto 50px;
     max-width: $page-max-width;
 
     .views-field-body p:first-of-type {
       margin-top: 0;
     }
-    img {
+    [data-achp-field-name="field_steward_images"] img {
       display: none;
     }
     a {

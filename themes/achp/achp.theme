@@ -217,3 +217,26 @@ function achp_preprocess_field (&$variables, $hook) {
     }
   }
 }
+
+/**
+* Implements hook_preprocess_search_result ()
+*
+* Adds additional template variables to the
+* search-result template.
+*/
+function achp_preprocess_search_result (&$variables) {
+  // \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_search_result] result: <pre>' . print_r ($variables ['result'], true) . '</pre>');
+  if (isset ($variables ['result']['node'])) {
+    $node = $variables ['result']['node'];
+    $node_type = $node->getType ();
+
+    $node_type_label = \Drupal::entityTypeManager ()
+    ->getStorage ('node_type')
+    ->load ($node_type)
+    ->label ();
+
+    $variables ['node_type'] = $node_type_label;
+  // \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_search_result] node type: ' . $node_type);
+  // \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_search_result] node type label: ' . $node_type_label);
+  }
+}
