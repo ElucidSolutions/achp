@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\file\Entity\File;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Url;
 
 /**
@@ -187,6 +188,13 @@ function achp_preprocess_field (&$variables, $hook) {
     foreach ($variables ['element']['#items'] as $item_key => $item) {
       $id = $item->getValue () ['target_id'];
       $variables ['items'][$item_key]['attributes']['data-achp-field-item-target-id'] = $id;
+
+      $term = $term = Term::load($id);
+      if ($term) {
+        $variables ['achp_field_entity_type'] = 'term';
+        continue;
+      }
+      $variables ['achp_field_entity_type'] = 'node';
 
       $node = entity_load ('node', $id);
       if (!$node) { continue; }

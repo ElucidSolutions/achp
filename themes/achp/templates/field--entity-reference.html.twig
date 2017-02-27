@@ -31,34 +31,75 @@
  * - entity_type: The entity type to which the field belongs.
  * - field_name: The name of the field.
  * - field_type: The type of the field.
+ * - achp_field_entity_type: Either "node" or "term".
  * - label_display: The display settings for the label.
  *
  * @see template_preprocess_field()
  */
 #}
+<!-- field type: {{ field_type }} -->
+<!-- field name: {{ field_name }} -->
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes }}>
+    <div{{ attributes }} data-achp-field-name="{{ field_name }}" class="achp-field">
       {% for item in items %}
-        <div class="achp-entity-reference-title"><a class="achp-entity-reference-link" href="{{ item.url }}">{{ item.title }}</a></div>
-        <div class="achp-entity-reference-body">{{ item.body|raw }}</div>
+        <div
+          class="achp-field"
+          class="achp-field-item"
+          data-achp-field-name="{{ field_name }}"
+          data-achp-field-item-index="{{ loop.index }}"
+          {% if loop.last %}class="achp-field-item-last"{% endif %}
+          {% if loop.first %}class="achp-field-item-first"{% endif %}
+        >
+          {% if achp_field_entity_type == "node" %}
+              <div class="achp-entity-reference-title"><a class="achp-entity-reference-link" href="{{ item.url }}">{{ item.title }}</a></div>
+              <div class="achp-entity-reference-body">{{ item.body|raw }}</div>
+            </div>
+          {% else %}
+            {{ item.content }}
+          {% endif %}
+        </div>
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <div class="achp-entity-reference-title"><a class="achp-entity-reference-link" href="{{ item.url }}">{{ item.title }}</a></div>
-      <div class="achp-entity-reference-body">{{ item.body|raw }}</div>
+      <div
+        class="achp-field"
+        class="achp-field-item"
+        data-achp-field-name="{{ field_name }}"
+        data-achp-field-item-index="{{ loop.index }}"
+        {% if loop.last %}class="achp-field-item-last"{% endif %}
+        {% if loop.first %}class="achp-field-item-first"{% endif %}
+      >
+        {% if achp_field_entity_type == "node" %}
+          <div class="achp-entity-reference-title"><a class="achp-entity-reference-link" href="{{ item.url }}">{{ item.title }}</a></div>
+          <div class="achp-entity-reference-body">{{ item.body|raw }}</div>
+        {% else %}
+          {{ item.content }}
+        {% endif %}
+      </div>
     {% endfor %}
   {% endif %}
 {% else %}
-  <div{{ attributes }}>
-    <div{{ title_attributes }}>{{ label }}</div>
+  <div{{ attributes }} data-achp-field-name="{{ field_name }}" class="achp-field" class="achp-field-item">
+    <div{{ title_attributes }} class="achp-field-label">{{ label }}</div>
     {% if multiple %}
       <div>
     {% endif %}
     {% for item in items %}
-      <div class="achp-entity-reference-title"><a class="achp-entity-reference-link" href="{{ item.url }}">{{ item.title }}</a></div>
-      <div class="achp-entity-reference-body">{{ item.body|raw }}</div>
+      <div{{ item.attributes }}
+        class="achp-field-item"
+        data-achp-field-item-index="{{ loop.index }}"
+        {% if loop.last %}class="achp-field-item-last"{% endif %}
+        {% if loop.first %}class="achp-field-item-first"{% endif %}
+      >
+        {% if achp_field_entity_type == "node" %}
+          <div class="achp-entity-reference-title"><a class="achp-entity-reference-link" href="{{ item.url }}">{{ item.title }}</a></div>
+          <div class="achp-entity-reference-body">{{ item.body|raw }}</div>
+        {% else %}
+          {{ item.content }}
+        {% endif %}
+      </div>
     {% endfor %}
     {% if multiple %}
       </div>

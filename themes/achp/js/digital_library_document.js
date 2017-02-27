@@ -106,6 +106,7 @@
   function getDigitalLibraryDocumentNodeTypes () {
     return [
       'alternative_procedure',
+      'executive_order',
       'exemption',
       'guidance_document',
       'legislation',
@@ -115,6 +116,7 @@
       'program_comments',
       'programmatic_agreement',
       'prototype_programmatic_agreement',
+      'public_resources',
       'publication',
       'regulation',
       'report',
