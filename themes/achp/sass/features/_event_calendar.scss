@@ -164,6 +164,10 @@ $event-card-footer-margin: 15px;
         position: relative;
         vertical-align: top;
 
+        a {
+          color: $color-blue-primary;
+        }
+
         &_short_title, &_full_title {
           @include hover-transition-content($color-blue-primary);
           cursor: pointer;

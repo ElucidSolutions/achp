@@ -20,7 +20,6 @@
 
   function initFilterBehavior () {
     setSearchInputPlaceholder ();
-    // setAdvancedSearchListener ();
   }   
 
   /*
@@ -67,7 +66,24 @@
     element, and returns undefined.
   */
   function setSearchInputPlaceholder () {
+        console.log('2')
     getSearchInputElement ().attr('placeholder', 'Search Keywords');
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    representing the search text input element.
+  */
+  function getSearchInputElement () {
+    return getViewContainerElement ().find(getSearchInputSelector ());
+  }
+
+  /*
+    Accepts no arguments and returns a string representing
+    the search text input selector.
+  */
+  function getSearchInputSelector () {
+    return 'input[type="text"]';
   }
 
   /*
