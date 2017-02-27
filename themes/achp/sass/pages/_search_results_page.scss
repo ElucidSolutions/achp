@@ -11,14 +11,6 @@
     #block-user-account-breadcrumbs {
       @include content-container;
       margin: 30px auto 0;
-
-      li.breadcrumb_page {
-        display: none;
-      }
-      li:nth-last-child(2) a {
-        color: $color-blue-primary !important;
-        cursor: text;
-      }
     }
     #block-searchpagetitle {
       @include content-container;
@@ -42,172 +34,181 @@
       margin: 0 auto 30px;     
     }
   }
-  #content_region {
-    form.search-form {
-      @include styleguide;
-    }
+  #content #content_region {
+    font-family: $sans-text;
 
-    #block-achp-content {
+    #block-basic-search-form, #block-advanced-search-form {
       font-family: $sans-text;
 
-      form.search-page-form {
-        margin-bottom: 40px;
-
+      form {
+        .form-item-topic:before {
+          color: $color-red2;
+          content: "Advanced Options";
+          display: block;
+          font-weight: 600;
+          margin: 35px 0 10px;
+        }
         .js-form-item {
-          display: inline-block;
+          display: block;
           margin-bottom: 15px;
           max-width: 100%;
 
           label {
+            color: $color-lightgrey-2;
             display: block;
+            padding-bottom: 5px;
           }
-
-          input[type="search"] {
-            background-color: #fff;
-            border: 1px solid rgba(151,151,151,1);
-            border-radius: 2px;
+          input[name="keys"] {
             font-family: $sans-text;
             font-size: rem(16px);
-            height: 35px;
             max-width: 100%;
-            padding: 0 10px;
+            height: 40px;
+            padding: 0 5px;
             width: 500px;
           }
-        }
-        input[type="submit"] {
-          @include achp-button;
-          border: 1px solid $color-blue-primary;
-          position: relative;
-          left: -7px;
-          padding: 8px 38px 6px;
-          top: 1px;
+          select {
+            font-family: $sans-text;
+            font-size: rem(16px);
+            height: 40px;
+            max-width: 100%;
+            width: 450px;
 
-          @media (max-width: $mobile-breakpoint) {
-            line-height: 1.2rem;
+            option {
+              max-width: 100%;
+              padding: 2px 5px;
+              width: 450px;
+            }
           }
-
-          @media (max-width: 400px) {
-            width: 100%;
+          select#edit-type {
+            background-image: none;
+            height: 150px;
+            padding: 5px 0 0;
           }
         }
-        @media (max-width: 600px) {
-          display: block;
-
+        .form-actions {
           input[type="submit"] {
-            left: 0;
-            top: 10px;
-          }
-        }
-        #edit-advanced {
-          margin-top: 20px;
-          
-          [aria-controls="edit-advanced"] {
-            color: $color-red2;
-            cursor: pointer;
+            @include achp-button;
 
-            &:focus {
-              outline: none;
-            }
-          }
-        }
-      }
 
-      h2 {
-        border-bottom: 1px solid $color-lightgrey;
-        margin: $margin-large 0 $margin-med ;
-        padding-bottom: $margin-xsmall;
-        position: relative;
-        text-align: left;
-      }
-      ol {
-        margin: 0;
-        padding: 0 $margin-large;
-        counter-reset: li-counter;
-
-        li {
-          border-left: 2px solid $background-color-lightblue;
-          font-size: rem(18px);
-          list-style-type: none;
-          list-style-image: none;
-          margin-bottom: 30px;
-          padding-left: $margin-med;
-          position: relative;
-
-          .achp-search-result-title h3 {
-            font-family: $sans-text;
-            font-size: rem(18px);
-            line-height: 1.4;
-            margin-bottom: 10px;
-
-            a {
-              color: $color-blue-primary;
-            }
-          }
-          .achp-search-result-type {
-            color: $color-lightgrey-2;
-            font-family: $sans-text;
-            margin-bottom: 10px;
-          }
-          .achp-search-result-body p {
-            margin: 0;
-          }
-          .achp-search-result-footer {
-            display: none;
-          }
-          &:before {
-            @include body-text($font-family: $sans-text);
-            color: $color-red2;
-            content: counter(li-counter);
-            counter-increment: li-counter;
-            left: - $margin-large;
-            position: absolute;
-            text-align: right;
-            top: 2px;
-            width: $margin-med;
-          }
-        }
-      }
-      nav {
-        @include span-columns (12 of 12);
-        color: $color-darkgrey;
-        font-family: $sans-text;
-        font-size: rem(14px);
-
-        ul {
-          list-style-type: none;
-          padding: 0;
-          text-align: center;
-
-          li {
-            display: inline-block;
-            line-height: 27px;
-            padding: 0 8px;
-
-            &.pager__item--last, &.pager__item--first {
-              display: none;
-            }
-            &.pager__item.is-active {
-              background-color: $color-blue-primary;
-              border-radius: 50%;
-              cursor: default;
-              height: 25px;
-              padding: 0;
-              width: 25px;
-
-              a {
-                @include hover-transition-content(#fff);              
-                color: #fff;
-                cursor: default;
+            @media (max-width: 400px) {
+                width: 100%;
               }
             }
-            a {
-              @include hover-transition-content($color-blue-primary);            
-              color: $color-darkgrey;
-              text-decoration: none;
+          @media (max-width: $mobile-breakpoint) {
+            text-align: center;
+
+            .field-content {
+              line-height: 1.2rem;
             }
+          }          
+        } 
+      }
+    }
+    #block-basic-search-form {
+      position: relative;
+
+      form .form-actions input[type="submit"] {
+        left: 495px;
+        padding-bottom: 9px;
+        position: absolute;
+        top: 29px;
+
+        @media (max-width: 750px) {
+          position: static;
+        }
+      }
+    }
+    #block-advanced-search-form {
+      margin-bottom: 40px;
+    }
+    ol {
+      margin: 0;
+      padding: 0 $margin-large;
+      counter-reset: li-counter;
+
+      li {
+        border-left: 2px solid $background-color-lightblue;
+        font-size: rem(18px);
+        list-style-type: none;
+        list-style-image: none;
+        margin-bottom: 30px;
+        padding-left: $margin-med;
+        position: relative;
+
+        .views-field-title {
+          font-family: $sans-text;
+          font-size: rem(18px);
+          line-height: 1.4;
+          margin: 5px 0 10px;
+
+          a {
+            color: $color-blue-primary;
+          }
+        }
+        .views-field-type {
+          color: $color-lightgrey-2;
+          font-family: $sans-text;
+          margin-bottom: 10px;
+        }
+        .views-field-body p {
+          margin: 0;
+        }
+        &:before {
+          @include body-text($font-family: $sans-text);
+          color: $color-red2;
+          content: counter(li-counter);
+          counter-increment: li-counter;
+          left: - $margin-large;
+          position: absolute;
+          text-align: right;
+          top: 2px;
+          width: $margin-med;
+        }
+      }
+    }
+    nav {
+      @include span-columns (12 of 12);
+      color: $color-darkgrey;
+      font-family: $sans-text;
+      font-size: rem(14px);
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+
+        li {
+          display: inline-block;
+          line-height: 27px;
+          padding: 0 8px;
+
+          &.pager__item--last, &.pager__item--first {
+            display: none;
+          }
+          &.pager__item.is-active {
+            background-color: $color-blue-primary;
+            border-radius: 50%;
+            cursor: default;
+            height: 25px;
+            padding: 0;
+            width: 25px;
+
+            a {
+              @include hover-transition-content(#fff);              
+              color: #fff;
+              cursor: default;
+            }
+          }
+          a {
+            @include hover-transition-content($color-blue-primary);            
+            color: $color-darkgrey;
+            text-decoration: none;
           }
         }
       }
+    }
+    h4 {
+      color: $color-red2;
     }
   }
 }
