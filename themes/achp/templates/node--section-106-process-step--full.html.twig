@@ -97,7 +97,9 @@
                {{content.field_determine_yes_next_step[0]}}
              </div>
           {% else %}
+            {% if content.field_determine_yes_next_label[0] %}
               <div class="no-further-action">{{content.field_determine_yes_next_label}}</div>
+            {% endif %}
           {% endif %}        
         </div>
        
@@ -112,7 +114,9 @@
                {{content.field_determine_no_next_step[0]}}
              </div>
           {% else %}
+            {% if content.field_determine_no_next_label[0] %}
               <div class="no-further-action">{{content.field_determine_no_next_label}}</div>
+            {% endif %}
           {% endif %}
         </div>        
       {% else %}
