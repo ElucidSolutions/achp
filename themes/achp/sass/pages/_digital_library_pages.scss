@@ -1,0 +1,24 @@
+/*
+  This styleguide applies the Digital Library
+  Document stylesheet to all of the digital
+  library document pages.
+*/
+
+[data-page-node-type="alternative_procedure"],
+[data-page-node-type="executive_order"],
+[data-page-node-type="exemption"],
+[data-page-node-type="external_link"],
+[data-page-node-type="guidance_document"],
+[data-page-node-type="legislation"],
+[data-page-node-type="memorandum_of_agreement"],
+[data-page-node-type="opinion_statement"],
+[data-page-node-type="policy_document"],
+[data-page-node-type="program_comments"],
+[data-page-node-type="programmatic_agreement"],
+[data-page-node-type="prototype_programmatic_agreement"],
+[data-page-node-type="publication"],
+[data-page-node-type="regulation"],
+[data-page-node-type="report"],
+[data-page-node-type="whitepapers"] {
+  @import "../digital_library_document_page";
+}
