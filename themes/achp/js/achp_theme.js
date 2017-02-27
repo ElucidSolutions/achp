@@ -16,6 +16,9 @@
 
   $(document).ready (function () {
 
+    // Initialize the search bar.
+    initHeaderSearch ();
+
     // Initialize display
     formatMenuHeaders ();
 
@@ -860,5 +863,87 @@
   function getMenuList () {
     return $('>ul', getMenuBlockElement ());
   }
-  
+
+  /* 
+    Accepts no arguments and returns undefined.
+  */
+    function initHeaderSearch () {
+      setHeaderSearchPlaceholder ();
+      removeSubmitButtonText ();
+    }
+
+
+  /*
+    Accepts no arguments, sets placeholder text on the header search
+    element, and returns undefined.
+  */
+  function setHeaderSearchPlaceholder () {
+    getHeaderSearchElement ().attr('placeholder', 'SEARCH ACHP.GOV');
+  }
+
+  /*
+    Accepts no arguments, removes default text from the submit
+    button, and returns undefined.
+  */
+  function removeSubmitButtonText () {
+    getHeaderSearchSubmitButton ().attr('value', '');
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents the view form
+    submit button.
+  */
+  function getHeaderSearchSubmitButton () {
+    return getSearchContainerElement ().find (getSearchSubmitButton ());
+  }
+
+  /*
+    Accepts no arguments and returns a string representing
+    the search input field selector.
+  */
+  function getSearchSelector () {
+    return 'input#edit-keys';
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents the text
+    input field.
+  */
+  function getHeaderSearchElement () {
+    return getSearchContainerElement ().find (getSearchSelector ());
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the header search submit button.
+  */
+  function getSearchSubmitButton () {
+    return getSearchContainerElement ().find (getSearchSubmitSelector ());
+  }
+
+  /*
+    Accepts no arguments and returns a string representing
+    the search submit button selector.
+  */
+  function getSearchSubmitSelector () {
+    return 'input#edit-submit-search';
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    representing the header search container element.
+  */
+  function getSearchContainerElement () {
+    return $('#' + getSearchContainerID ());
+  }
+
+  /*
+    Accepts no arguments and reutrns a string representing
+    the header search container ID.
+  */
+  function getSearchContainerID () {
+    return 'block-header-search-filter';
+  }
 })(jQuery);
