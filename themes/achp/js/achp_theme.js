@@ -16,9 +16,6 @@
 
   $(document).ready (function () {
 
-    // Initialize the search bar.
-    initHeaderSearch ();
-
     // Initialize display
     formatMenuHeaders ();
 
@@ -182,9 +179,9 @@
       };
     })());
 
+    // Initialize the search bar.
     initHeaderSearch ();
-
-    });
+  });
 
 
   /* 
