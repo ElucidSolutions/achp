@@ -19071,6 +19071,50 @@ general office landing page */
         padding: 0; }
 
 /*[data-page-path-alias^="/search"] {*/
+#header-container #header_search_region #block-header-search-filter {
+  height: 30px;
+  position: relative;
+  /*color: white;*/
+  /*border: 2px solid white;*/ }
+  @media (max-width: 1150px) {
+    #header-container #header_search_region #block-header-search-filter {
+      display: none; } }
+  #header-container #header_search_region #block-header-search-filter form {
+    height: 100%; }
+    #header-container #header_search_region #block-header-search-filter form .js-form-item {
+      height: 30px; }
+    #header-container #header_search_region #block-header-search-filter form .js-form-type-select, #header-container #header_search_region #block-header-search-filter form label {
+      display: none;
+      height: 100%; }
+    #header-container #header_search_region #block-header-search-filter form .js-form-type-textfield input {
+      border: 1px solid #979797;
+      font-size: 0.75rem;
+      height: 100%;
+      padding: 15px 11px;
+      outline: none;
+      width: 100%; }
+    #header-container #header_search_region #block-header-search-filter form .form-actions input[type="submit"] {
+      transition: background-color 0.25s;
+      background-color: #0990FE;
+      background-image: url(../images/search-icon.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 63%;
+      border: none;
+      border-radius: 0 2px 2px 0;
+      color: transparent;
+      cursor: pointer;
+      position: absolute;
+      height: 32px;
+      right: 0;
+      top: 0;
+      width: 32px;
+      appearance: none;
+      -webkit-appearance: none;
+      /*transition: background-color 0.25s;*/ }
+      #header-container #header_search_region #block-header-search-filter form .form-actions input[type="submit"]:hover {
+        background-color: #71BFFE; }
+
 /*
   This stylesheet defines the default styles
   for the Search Results page.
@@ -19358,45 +19402,48 @@ general office landing page */
         padding-left: 20px;
         padding-right: 20px; } }
   [data-page-path^="/search"] #content #content_region {
-    font-family: "p22-underground", sans-serif; }
-    [data-page-path^="/search"] #content #content_region #block-basic-search-form, [data-page-path^="/search"] #content #content_region #block-advanced-search-form {
-      font-family: "p22-underground", sans-serif; }
-      [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-item-topic:before, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .form-item-topic:before {
+    font-family: "p22-underground", sans-serif;
+    /*#block-basic-search-form, #block-advanced-search-form {*/ }
+    [data-page-path^="/search"] #content #content_region #block-search-filters {
+      font-family: "p22-underground", sans-serif;
+      margin-bottom: 40px;
+      position: relative; }
+      [data-page-path^="/search"] #content #content_region #block-search-filters form .form-item-topic:before {
         color: #9B0008;
         content: "Advanced Options";
         display: block;
         font-weight: 600;
         margin: 35px 0 10px; }
-      [data-page-path^="/search"] #content #content_region #block-basic-search-form form .js-form-item, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .js-form-item {
+      [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item {
         display: block;
         margin-bottom: 15px;
         max-width: 100%; }
-        [data-page-path^="/search"] #content #content_region #block-basic-search-form form .js-form-item label, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .js-form-item label {
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item label {
           color: #7C7C7C;
           display: block;
           padding-bottom: 5px; }
-        [data-page-path^="/search"] #content #content_region #block-basic-search-form form .js-form-item input[name="keys"], [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .js-form-item input[name="keys"] {
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item input[name="keys"] {
           font-family: "p22-underground", sans-serif;
           font-size: 1rem;
           max-width: 100%;
           height: 40px;
           padding: 0 5px;
           width: 500px; }
-        [data-page-path^="/search"] #content #content_region #block-basic-search-form form .js-form-item select, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .js-form-item select {
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item select {
           font-family: "p22-underground", sans-serif;
           font-size: 1rem;
           height: 40px;
           max-width: 100%;
           width: 450px; }
-          [data-page-path^="/search"] #content #content_region #block-basic-search-form form .js-form-item select option, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .js-form-item select option {
+          [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item select option {
             max-width: 100%;
             padding: 2px 5px;
             width: 450px; }
-        [data-page-path^="/search"] #content #content_region #block-basic-search-form form .js-form-item select#edit-type, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .js-form-item select#edit-type {
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item select#edit-type {
           background-image: none;
           height: 150px;
           padding: 5px 0 0; }
-      [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-actions input[type="submit"], [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .form-actions input[type="submit"] {
+      [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
         transition: background-color 0.25s;
         background-color: #0990FE;
         border: none;
@@ -19409,33 +19456,29 @@ general office landing page */
         font-weight: 600;
         padding: 12px 38px 8px;
         text-transform: uppercase; }
-        [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-actions input[type="submit"]:hover, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .form-actions input[type="submit"]:hover {
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"]:hover {
           background-color: #71BFFE; }
         @media screen and (max-width: 650px) {
-          [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-actions input[type="submit"], [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .form-actions input[type="submit"] {
+          [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
             line-height: 1.2rem; } }
-        [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-actions input[type="submit"] a, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .form-actions input[type="submit"] a {
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] a {
           color: white; }
         @media (max-width: 400px) {
-          [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-actions input[type="submit"], [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .form-actions input[type="submit"] {
+          [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
             width: 100%; } }
       @media (max-width: 650px) {
-        [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-actions, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .form-actions {
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions {
           text-align: center; }
-          [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-actions .field-content, [data-page-path^="/search"] #content #content_region #block-advanced-search-form form .form-actions .field-content {
+          [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions .field-content {
             line-height: 1.2rem; } }
-    [data-page-path^="/search"] #content #content_region #block-basic-search-form {
-      position: relative; }
-      [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-actions input[type="submit"] {
-        left: 495px;
-        padding-bottom: 9px;
-        position: absolute;
-        top: 29px; }
-        @media (max-width: 750px) {
-          [data-page-path^="/search"] #content #content_region #block-basic-search-form form .form-actions input[type="submit"] {
-            position: static; } }
-    [data-page-path^="/search"] #content #content_region #block-advanced-search-form {
-      margin-bottom: 40px; }
+    [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
+      /*        left: 495px;
+              padding-bottom: 9px;
+              position: absolute;
+              top: 29px;*/ }
+      @media (max-width: 750px) {
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
+          /*position: static;*/ } }
     [data-page-path^="/search"] #content #content_region ol {
       margin: 0;
       padding: 0 40px;
@@ -19447,10 +19490,7 @@ general office landing page */
         list-style-image: none;
         margin-bottom: 30px;
         padding-left: 20px;
-        position: relative;
-        /*        .achp-search-result-footer {
-                  display: none;
-                }*/ }
+        position: relative; }
         [data-page-path^="/search"] #content #content_region ol li .views-field-title {
           font-family: "p22-underground", sans-serif;
           font-size: 1.125rem;

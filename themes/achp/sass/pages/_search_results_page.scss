@@ -1,5 +1,58 @@
 /*[data-page-path-alias^="/search"] {*/
 
+#header-container #header_search_region {
+  #block-header-search-filter {
+    height: 30px;
+    position: relative;
+    /*color: white;*/
+    /*border: 2px solid white;*/
+
+    @media (max-width: 1150px) {
+      display: none;
+    }
+
+    form {
+      height: 100%;
+
+      .js-form-item {
+        height: 30px;
+      }
+      .js-form-type-select, label {
+        display: none;
+        height: 100%;
+      }
+      .js-form-type-textfield input {
+        border: 1px solid #979797;
+        font-size: rem(12px);
+        height: 100%;
+        padding: 15px 11px;
+        outline: none;
+        width: 100%;
+      }
+      .form-actions input[type="submit"] {
+        @include hover-transition-background($color-lightblue-primary);
+        background-color: $color-blue-primary;
+        background-image: url(../images/search-icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 63%;
+        border: none;
+        border-radius: 0 2px 2px 0;
+        color: transparent;
+        cursor: pointer;
+        position: absolute;
+        height: 32px;
+        right: 0;
+        top: 0;
+        width: 32px;
+        appearance: none;
+        -webkit-appearance: none;
+        /*transition: background-color 0.25s;*/
+      }
+    }
+  }
+}
+
 /*
   This stylesheet defines the default styles
   for the Search Results page.
@@ -37,8 +90,11 @@
   #content #content_region {
     font-family: $sans-text;
 
-    #block-basic-search-form, #block-advanced-search-form {
+    /*#block-basic-search-form, #block-advanced-search-form {*/
+    #block-search-filters {
       font-family: $sans-text;
+      margin-bottom: 40px;
+      position: relative;
 
       form {
         .form-item-topic:before {
@@ -104,22 +160,18 @@
         } 
       }
     }
-    #block-basic-search-form {
-      position: relative;
+    #block-search-filters {
 
       form .form-actions input[type="submit"] {
-        left: 495px;
+/*        left: 495px;
         padding-bottom: 9px;
         position: absolute;
-        top: 29px;
+        top: 29px;*/
 
         @media (max-width: 750px) {
-          position: static;
+          /*position: static;*/
         }
       }
-    }
-    #block-advanced-search-form {
-      margin-bottom: 40px;
     }
     ol {
       margin: 0;
