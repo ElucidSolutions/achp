@@ -95,6 +95,10 @@ button {
 
 a {
   text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 #outer_container {

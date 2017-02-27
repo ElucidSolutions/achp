@@ -106,6 +106,9 @@
         }
       }
     }
+    #block-ofap-agency-assignments .item-list:first-of-type > ul:before{
+      @include create-header('OFAP STAFF MEMBER');
+    }
     @media (max-width: 825px) {
       #block-onaa-agency-assignments, #block-ofap-agency-assignments {
         .item-list {
@@ -149,19 +152,30 @@
 }
 
 /* These selectors encompasses all pages beyond the overview */
-#page[data-page-path-alias^="/about/offices/onaa/"],
-#page[data-page-path-alias^="/about/offices/ofap/"],
-#page[data-page-path-alias^="/about/offices/ogc/"],
-#page[data-page-path-alias^="/about/offices/oed/"],
-#page[data-page-path-alias^="/about/offices/opi/"],
-#page[data-page-path-alias^="/about/offices/ocea/"] {
-  #secondary_header_region .achp-breadcrumb ol {
-    li.breadcrumb_page {
-      display: none;
+#page[data-page-path-alias="/about/offices/onaa/staff"],
+#page[data-page-path-alias="/about/offices/onaa/agencies"]
+#page[data-page-path-alias="/about/offices/ofap/staff"],
+#page[data-page-path-alias="/about/offices/ofap/agencies"],
+#page[data-page-path-alias="/about/offices/ogc/"],
+#page[data-page-path-alias="/about/offices/ogc/staff"],
+#page[data-page-path-alias="/about/offices/oed/"],
+#page[data-page-path-alias="/about/offices/oed/staff"],
+#page[data-page-path-alias="/about/offices/opi/"],
+#page[data-page-path-alias="/about/offices/opi/staff"],
+#page[data-page-path-alias="/about/offices/ocea/"],
+#page[data-page-path-alias="/about/offices/ocea/staff"] {
+  #secondary_header_region {
+    .achp-breadcrumb ol {
+      li.breadcrumb_page {
+        display: none;
+      }
+      li:nth-last-child(2) a {
+        color: $color-blue-primary;
+        cursor: text;
+      }
     }
-    li:nth-last-child(2) a {
-      color: $color-blue-primary;
-      cursor: text;
+    #block-pagetitle-2 {
+      display: none;
     }
   }
 }

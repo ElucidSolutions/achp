@@ -1,8 +1,8 @@
 (function ($) {
 
-  Drupal.behaviors.success_stories_landing= {
+  Drupal.behaviors.search = {
     attach: function (context, settings) {
-      $(document).once ('success_stories_landing').ajaxComplete (
+      $(document).once ('search').ajaxComplete (
         function (event, xhr, settings) {
          if (settings.url.indexOf ('/views/ajax') === 0) {
           initFilterBehavior ();
@@ -13,16 +13,24 @@
   }
 
   $(document).ready (function () {
-
     initFilterBehavior ();
     setPageCounter ();
 
   })
 
   function initFilterBehavior () {
-    setTextInputPlaceholder ();
-    removeSubmitButtonText ();
-  }
+    setSearchInputPlaceholder ();
+    // setAdvancedSearchListener ();
+  }   
+
+  /*
+    Accepts no arguments and returns a string
+    that represents the view form button's
+    class name.
+  */
+  function getSubmitClassName () {
+    return 'js-form-submit';
+  }    
 
   /*
     Accepts no arguments and sets the search results
@@ -58,16 +66,8 @@
     Accepts no arguments, sets placeholder text on the text input
     element, and returns undefined.
   */
-  function setTextInputPlaceholder () {
-    getTextInputElement ().attr('placeholder', 'Filter Cases Open for Comment');
-  }
-
-  /*
-    Accepts no arguments, removes default text from the submit
-    button, and returns undefined.
-  */
-  function removeSubmitButtonText () {
-    getFilterSubmitButton ().attr('value', '');
+  function setSearchInputPlaceholder () {
+    getSearchInputElement ().attr('placeholder', 'Search Keywords');
   }
 
   /*
@@ -99,15 +99,6 @@
   }
 
   /*
-    Accepts no arguments and returns a jQuery
-    HTML Element that represents the text
-    input field.
-  */
-  function getTextInputElement () {
-    return getViewContainerElement ().find (getTextInputSelector ());
-  }
-
-  /*
     Accepts no arguments and returns a jQuery HTML Element
     that represents the submit button for the news filter.
   */
@@ -134,9 +125,9 @@
 
   /*
     Accepts no arguments and returns a string representing
-    the text input field selector.
+    the search input field selector.
   */
-  function getTextInputSelector () {
+  function getSearchInputSelector () {
     return 'input[type="text"]';
   }
 
@@ -155,6 +146,6 @@
     page container.
   */
   function getViewContainerID () {
-    return 'block-list-cases-open';
+    return 'search-results-page';
   }   
 }) (jQuery);

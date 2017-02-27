@@ -897,6 +897,7 @@ html {
           [data-page-node-type="achp_internal_resource_page"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download {
             text-align: center; } }
         [data-page-node-type="achp_internal_resource_page"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+          cursor: pointer;
           font-family: "p22-underground", sans-serif;
           font-size: 1.125rem;
           font-weight: 600;
@@ -1965,7 +1966,8 @@ html {
       display: block;
       border-bottom: 1px solid #950306;
       margin: 10px auto 40px;
-      width: 60%; }
+      min-width: 100px;
+      width: 10%; }
   [data-page-path="/contact/feedback"] [data-plugin-id="share_this_page_block"] {
     margin-bottom: 40px; }
   [data-page-path="/contact/feedback"] #block-contactusinformationblock {
@@ -2967,13 +2969,13 @@ html {
       @media screen and (max-width: 925px) {
         [data-page-node-type="digital_library_landing_page"] #main #secondary_header {
           padding: 20px !important; } }
-      [data-page-node-type="digital_library_landing_page"] #main #secondary_header h1 {
+      [data-page-node-type="digital_library_landing_page"] #main #secondary_header #block-digital-library-title h1 {
         color: #003A5E;
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: 20px;
         text-align: center; }
-        [data-page-node-type="digital_library_landing_page"] #main #secondary_header h1:after {
+        [data-page-node-type="digital_library_landing_page"] #main #secondary_header #block-digital-library-title h1:after {
           content: "";
           display: block;
           max-width: 200px;
@@ -4765,6 +4767,7 @@ html {
         [data-page-node-type="regulation"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a,
         [data-page-node-type="report"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a,
         [data-page-node-type="whitepapers"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+          cursor: pointer;
           font-family: "p22-underground", sans-serif;
           font-size: 1.125rem;
           font-weight: 600;
@@ -5328,6 +5331,9 @@ html {
     margin-bottom: 20px; }
     #page[data-page-node-type="event"] #main #content #event_item_container .event_attachments .event_attachment_body p {
       margin: 0; }
+  #page[data-page-node-type="event"] #main #content #block-views-block-related-resources-block-1 {
+    margin-bottom: 40px;
+    padding: 0; }
 @media (max-width: 805px) {
   #page[data-page-node-type="event"] #main {
     margin: 0;
@@ -5716,9 +5722,14 @@ html {
           margin-bottom: 10px;
           position: static; }
       #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-fpo-address:before, #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-fpo-address:after {
-        max-width: 400px; } }
+        max-width: 400px; }
+      #page[data-page-path-alias="/protecting-historic-properties/fpo-list"] #content #content_region #block-fpo-list .item-list ul li .views-field-field-agency-taxonomy-link {
+        left: 0;
+        top: 5px;
+        position: absolute;
+        width: calc(50% - 15px); } }
 
-#page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] {
+#page[data-page-node-type="fpo_resources_page"] {
   /*
     This stylesheet defines the default styles
     for various elements as defined by the current
@@ -5955,25 +5966,25 @@ html {
     that this mixin is applied to according to
     the rules specified in the current styleguide.
   */ }
-  #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-php-shareblock {
+  #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-php-shareblock {
     margin: 0 auto;
     max-width: 1024px;
     padding-left: 40px;
     padding-right: 40px;
     width: 100%;
-    margin: 0 auto 30px; }
+    margin: 0 auto; }
     @media (max-width: 400px) {
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-php-shareblock {
+      #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-php-shareblock {
         padding-left: 20px;
         padding-right: 20px; } }
-  #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content {
+  #page[data-page-node-type="fpo_resources_page"] #content {
     max-width: 100%;
     padding: 0; }
-    #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region {
+    #page[data-page-node-type="fpo_resources_page"] #content #content_region {
       text-align: center; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2 {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region h2 {
         display: inline-block; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2:after {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region h2:after {
           background-color: #950306;
           border: none;
           color: #950306;
@@ -5983,49 +5994,160 @@ html {
           margin: 10px auto 25px;
           /*min-width: 150px;*/
           width: 60%; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2,
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 {
+        margin: 0 auto;
+        max-width: 1024px;
+        padding-left: 40px;
+        padding-right: 40px;
+        width: 100%;
+        padding-bottom: 25px;
+        padding-top: 25px; }
+        @media (max-width: 400px) {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2,
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 {
+            padding-left: 20px;
+            padding-right: 20px; } }
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list header, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 header,
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 header, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 header {
+          background-color: #fff;
+          height: auto; }
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list,
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list {
+          background-color: #E8F8FF;
+          border-top: 2px solid #71BFFE;
+          margin-top: 30px;
+          padding: 30px 25px 0 40px;
+          position: relative;
+          text-align: left; }
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:before,
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list:before {
+            content: "POSITION";
+            color: #000;
+            display: block;
+            font-size: 1rem;
+            font-family: "p22-underground", sans-serif;
+            font-weight: 500;
+            left: -35px;
+            position: absolute;
+            top: -30px;
+            left: 25px; }
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:after,
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list:after, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list:after {
+            content: "CONTACT INFORMATION";
+            color: #000;
+            display: block;
+            font-size: 1rem;
+            font-family: "p22-underground", sans-serif;
+            font-weight: 500;
+            left: -35px;
+            position: absolute;
+            top: -30px;
+            left: calc(50% - 15px); }
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul,
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul {
+            margin: 0;
+            padding: 0;
+            position: relative; }
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li,
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li {
+              color: #4A4A4A;
+              font-family: "p22-underground", sans-serif;
+              font-size: 1.125rem;
+              list-style: none;
+              padding: 0 0 30px;
+              position: relative;
+              top: 0; }
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li a, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li a,
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li a, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li a {
+                color: #0990FE; }
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li + li:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li + li:before,
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li + li:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li + li:before {
+                background-color: #E5E3E4;
+                content: "";
+                display: block;
+                height: 1px;
+                margin: 10px 0;
+                width: 100%; }
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field,
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field {
+                left: 50%;
+                position: relative;
+                width: 50%; }
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-content, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-content,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field .field-content, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field .field-content {
+                  display: inline; }
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-value, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-value,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field .field-value, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field .field-value {
+                  left: 100px;
+                  position: absolute; }
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-title, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-title-1, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-title, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-title-1,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field-title,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field-title-1, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field-title, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field-title-1 {
+                  color: #003A5E;
+                  font-weight: 500; }
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-field-staff-position, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-field-staff-position,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field-field-fpo-officer-type,
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-1 .item-list ul li .views-field-field-staff-position, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-achp-contact-subagency-2 .item-list ul li .views-field-field-staff-position {
+                  color: #950306;
+                  left: 0;
+                  position: absolute; }
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories {
         background-color: #E5E3E4;
         clear: both;
         height: auto;
-        /*padding: $vertical-padding 0;*/ }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+        padding-bottom: 35px; }
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
           margin: 0 auto;
           max-width: 1024px;
           padding-left: 40px;
           padding-right: 40px;
-          width: 100%; }
+          width: 100%;
+          margin: 0 auto;
+          padding-bottom: 25px;
+          text-align: center; }
           @media (max-width: 400px) {
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
               padding-left: 20px;
               padding-right: 20px; } }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] header {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] header {
             background-color: #E5E3E4;
             height: auto;
             padding-top: 35px; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] header p {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] header p {
               font-size: 1.125rem;
-              margin-top: 0;
+              margin: 0 0 40px;
               text-align: center; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
-            background-color: #ffffff;
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
+            background-color: #fff;
             display: inline-block;
             height: 400px;
-            margin: 25px 20px 0 0;
+            margin-bottom: 25px;
+            position: relative;
             text-align: center;
-            width: calc((1024px - 50px * 2 - 20px * 2 - 3px * 3)/ 3); }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story {
-              float: left;
-              height: 380px;
-              padding: 5px 10px;
-              position: relative; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image {
+            width: 300px; }
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card + .success-story.card {
+              margin-left: 17px; }
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story {
+              -webkit-transform: translateX(-50%) translateY(-50%);
+              -moz-transform: translateX(-50%) translateY(-50%);
+              -ms-transform: translateX(-50%) translateY(-50%);
+              -o-transform: translateX(-50%) translateY(-50%);
+              transform: translateX(-50%) translateY(-50%);
+              left: 50%;
+              position: absolute;
+              top: 50%;
+              height: 370px;
+              width: calc(100% - 20px); }
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image {
+                max-height: 185px;
                 height: 185px;
                 overflow: hidden;
                 position: relative;
                 width: 100%;
                 /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
                 margin-bottom: 15px; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
                   -webkit-transform: translateX(-50%) translateY(-50%);
                   -moz-transform: translateX(-50%) translateY(-50%);
                   -ms-transform: translateX(-50%) translateY(-50%);
@@ -6037,18 +6159,18 @@ html {
                   height: 100%;
                   min-width: 100%;
                   width: auto; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_image img {
                   border: none !important; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_title h3 {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_title h3 {
                 text-align: inherit; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_location {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_location {
                 color: #7C7C7C; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_body p {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_body p {
                 font-family: "minion-pro", Times, serif;
                 font-size: 1rem;
                 margin: 5px;
                 text-align: center; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story_link {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card .success_story .read_more {
                 -webkit-transform: translateX(-50%);
                 -moz-transform: translateX(-50%);
                 -ms-transform: translateX(-50%);
@@ -6056,13 +6178,9 @@ html {
                 transform: translateX(-50%);
                 left: 50%;
                 position: absolute;
-                bottom: -5px;
+                bottom: 0;
                 padding-right: 5px; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-            margin-right: 0; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories footer {
-          padding: 35px 0; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 {
         margin: 0 auto;
         max-width: 1024px;
         padding-left: 40px;
@@ -6071,17 +6189,17 @@ html {
         padding-bottom: 25px;
         padding-top: 15px; }
         @media (max-width: 400px) {
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 {
             padding-left: 20px;
             padding-right: 20px; } }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list {
           background-color: #E8F8FF;
           border-top: 2px solid #71BFFE;
           margin-top: 30px;
           padding: 30px 25px 0 40px;
           position: relative;
           text-align: left; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:before {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:before {
             content: "POSITION";
             color: #000;
             display: block;
@@ -6092,8 +6210,8 @@ html {
             position: absolute;
             top: -30px;
             left: 25px; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:after {
-            content: "STAFF MEMBER";
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:after {
+            content: "CONTACT INFORMATION";
             color: #000;
             display: block;
             font-size: 1rem;
@@ -6103,11 +6221,11 @@ html {
             position: absolute;
             top: -30px;
             left: calc(50% - 15px); }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul {
             margin: 0;
             padding: 0;
             position: relative; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li {
               color: #4A4A4A;
               font-family: "p22-underground", sans-serif;
               font-size: 1.125rem;
@@ -6115,32 +6233,32 @@ html {
               padding: 0 0 30px;
               position: relative;
               top: 0; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li a, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li a {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li a, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li a {
                 color: #0990FE; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li + li:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li + li:before {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li + li:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li + li:before {
                 background-color: #E5E3E4;
                 content: "";
                 display: block;
                 height: 1px;
                 margin: 10px 0;
                 width: 100%; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field {
                 left: 50%;
                 position: relative;
                 width: 50%; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-content, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-content {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-content, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-content {
                   display: inline; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-value, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-value {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field .field-value, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field .field-value {
                   left: 100px;
                   position: absolute; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-title, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-title {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-title, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-title {
                   color: #003A5E;
                   font-weight: 500; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-field-fpo-officer-type {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field-field-fpo-officer-type, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field-field-fpo-officer-type {
                   color: #950306;
                   left: 0;
                   position: absolute; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-achp-content {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-achp-content {
         margin: 0 auto;
         max-width: 1024px;
         padding-left: 40px;
@@ -6149,51 +6267,51 @@ html {
         padding-bottom: 20px;
         font-size: 1.125rem; }
         @media (max-width: 400px) {
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-achp-content {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-achp-content {
             padding-left: 20px;
             padding-right: 20px; } }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-achp-content h2 + p {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-achp-content h2 + p {
           margin-top: 0; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 {
         margin: 0 auto;
         max-width: 1024px;
         padding-left: 40px;
         padding-right: 40px;
         width: 100%;
-        padding-top: 40px; }
+        padding: 40px 0; }
         @media (max-width: 400px) {
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 {
             padding-left: 20px;
             padding-right: 20px; } }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list {
           border: 1px solid #E5E3E4;
           border-bottom: none;
           text-align: left; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol {
             list-style-type: none;
             margin: 0;
             padding: 0; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li {
               border-bottom: 1px solid #E5E3E4;
               padding: 0; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field {
                 font-size: 1.125rem;
                 line-height: 1.4; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-title {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-title {
                 font-family: "p22-underground", sans-serif;
                 font-size: 1.125rem;
                 padding: 20px 20px 0; }
-                #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-title a {
+                #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-title a {
                   color: #0990FE; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-type {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-type {
                 color: #7C7C7C;
                 font-family: "p22-underground", sans-serif;
                 margin-bottom: 5px;
                 padding: 10px 20px 0; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-body {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-digital-library-block-12 .item-list ol li .views-field-body {
                 color: #4A4A4A;
                 padding: 0px 20px 20px; }
-      #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-related-resources-block-1 {
+      #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-related-resources-block-1 {
         margin: 0 auto;
         max-width: 1024px;
         padding-left: 40px;
@@ -6203,65 +6321,41 @@ html {
         padding-bottom: 50px;
         text-align: left; }
         @media (max-width: 400px) {
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-related-resources-block-1 {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-related-resources-block-1 {
             padding-left: 20px;
             padding-right: 20px; } }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-related-resources-block-1 h2 {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-related-resources-block-1 h2 {
           display: block; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-views-block-related-resources-block-1 h2:after {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-views-block-related-resources-block-1 h2:after {
             display: none; }
       @media (max-width: 1024px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1 {
-          margin-left: 20px; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-          display: block;
-          margin: 25px auto 0; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list {
           margin-top: 0; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list:after {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list:after, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list:after {
             display: none; }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul {
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul {
             text-align: center; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li {
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li {
               display: inline-block;
               margin: 0 auto;
               text-align: left; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field {
+              #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list .item-list ul li .views-field, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-agency-fpo-list-2 .item-list ul li .views-field {
                 position: static;
                 width: 100%; } }
-      @media (max-width: 750px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-1, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card.view-item-3 {
-          /*margin: 25px auto 0;*/
-          display: block;
-          margin: 25px auto 0; } }
-      @media (max-width: 650px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region {
-          /*        h2, h3 {
-                    text-align: center;
-                  }*/ }
-          #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node {
-            width: 100%; }
-            #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node .read-more {
-              -webkit-transform: translateX(-50%);
-              -moz-transform: translateX(-50%);
-              -ms-transform: translateX(-50%);
-              -o-transform: translateX(-50%);
-              transform: translateX(-50%);
-              left: 50%;
-              position: absolute;
-              position: relative; }
-              #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories [data-view-id="preservation_initiatives"] .views-field-view-node .read-more a:after {
-                /*right: auto;*/ } }
-      @media (max-width: 500px) {
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-field-issue-thumbnail-image img {
-          height: auto;
-          max-height: 100%;
-          max-width: 100%;
-          width: auto; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-field-issue-summary {
-          padding-bottom: 70px; }
-        #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-fpo-agency-success-stories .views-row .views-field-view-node a {
-          padding-right: 20px; } }
+      @media (max-width: 1023px) {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+          max-width: 800px; }
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(3) {
+            margin-left: 0 !important; } }
+      @media (max-width: 702px) {
+        #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] {
+          max-width: 700px; }
+          #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card {
+            display: block;
+            margin: 0 auto 25px !important;
+            max-width: 100%; }
+            #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-fpo-agency-success-stories [data-view-id="homepage_success_stories"] .success-story.card:nth-of-type(3) {
+              margin: 0 auto 25px !important; } }
 
 /*
   This module contains styles used by the
@@ -6312,24 +6406,21 @@ html {
   #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region {
     margin: 0 auto;
     width: 100%; }
-    #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content,
-    #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content {
-      /*@include content-container;*/ }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 {
-        text-align: left; }
-        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + p,
-        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + p {
-          margin-top: 0; }
-        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + h4,
-        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + h4 {
-          margin-top: 0; }
-        #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + ul,
-        #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + ul {
-          margin-top: 5px; }
-      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h4 + p,
-      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h4 + p {
+    #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2,
+    #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 {
+      text-align: left; }
+      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + p,
+      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + p {
         margin-top: 0; }
+      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + h4,
+      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + h4 {
+        margin-top: 0; }
+      #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h2 + ul,
+      #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h2 + ul {
+        margin-top: 5px; }
+    #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-achp-content h4 + p,
+    #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-achp-content h4 + p {
+      margin-top: 0; }
     #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro,
     #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-major-initiatives-intro {
       margin: 0 auto;
@@ -6442,8 +6533,7 @@ html {
     #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories {
       background-color: #E5E3E4;
       clear: both;
-      height: auto;
-      padding-bottom: 35px; }
+      height: auto; }
       #page[data-page-path-alias^="/indian-tribes-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"],
       #page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] #content #content_region #block-indian-hawaiian-success-stories [data-view-id="homepage_success_stories"] {
         margin: 0 auto;
@@ -7386,6 +7476,7 @@ html {
     padding: 0;
     max-width: 100%; }
     #page[data-page-node-type="issue"] #content #content_region {
+      margin-bottom: 40px;
       width: 100%; }
       #page[data-page-node-type="issue"] #content #content_region #block-achp-content article {
         margin: 0 auto;
@@ -7520,7 +7611,8 @@ html {
         max-width: 1024px;
         padding-left: 40px;
         padding-right: 40px;
-        width: 100%; }
+        width: 100%;
+        margin-bottom: 60px; }
         @media (max-width: 400px) {
           #page[data-page-node-type="issue"] #content #content_region #block-sub-issue-initiatives {
             padding-left: 20px;
@@ -7981,12 +8073,47 @@ html {
       margin: 0 auto;
       padding: 10px 0; }
 #page[data-page-node-type="news_story"] #main #content {
-  max-width: 620px; }
+  max-width: 620px;
+  /*      #block-news-attachments {
+          font-size: rem(18px);
+          margin: 35px 0 25px;
+          max-width: 100%;
+  
+          header {
+            background-color: #fff;
+            height: auto;
+  
+            h3 {
+              color: $color-red2;
+              font-size: rem(22px);
+  
+              &:after {
+                background-color: $color-lightgrey;
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+              }
+            }
+          }
+          .views-field-field-file, .views-field-title-1 {
+            margin-top: 20px;
+  
+            a {
+              color: $color-blue-primary;
+              font-family: $sans-text;
+            }
+          }
+          .views-field-body {
+            color: $color-grey2;
+          }
+        }*/ }
   #page[data-page-node-type="news_story"] #main #content #news_item_page {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 100%; }
+    height: 100%;
+    margin-bottom: 40px; }
     #page[data-page-node-type="news_story"] #main #content #news_item_page::after {
       clear: both;
       content: "";
@@ -8016,6 +8143,24 @@ html {
             margin-top: 10px; }
         #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_body h4 {
           margin-bottom: 0; }
+      #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments {
+        margin-top: 30px; }
+        #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments h4 {
+          color: #9B0008; }
+          #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments h4:after {
+            background-color: #C6C6C6;
+            content: "";
+            display: block;
+            height: 1px;
+            /*margin-bottom: 20px;*/ }
+        #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments .news_attachment_title {
+          color: #0990FE;
+          font-family: "p22-underground", sans-serif;
+          margin-top: 15px; }
+        #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments .news_attachment_body {
+          font-size: 1.125rem; }
+          #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_attachments .news_attachment_body p {
+            margin: 0; }
       #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_divider {
         background-color: #C6C6C6;
         height: 1px;
@@ -8033,30 +8178,6 @@ html {
           #page[data-page-node-type="news_story"] #main #content #news_item_page #news_content_container .news_item_tags .field_tags a {
             color: #0990FE;
             text-decoration: none; }
-  #page[data-page-node-type="news_story"] #main #content #block-news-attachments {
-    display: none;
-    font-size: 1.125rem;
-    margin: 35px 0 25px;
-    max-width: 100%; }
-    #page[data-page-node-type="news_story"] #main #content #block-news-attachments header {
-      background-color: #fff;
-      height: auto; }
-      #page[data-page-node-type="news_story"] #main #content #block-news-attachments header h3 {
-        color: #9B0008;
-        font-size: 1.375rem; }
-        #page[data-page-node-type="news_story"] #main #content #block-news-attachments header h3:after {
-          background-color: #C6C6C6;
-          content: "";
-          display: block;
-          width: 100%;
-          height: 1px; }
-    #page[data-page-node-type="news_story"] #main #content #block-news-attachments .views-field-title {
-      margin-top: 20px; }
-      #page[data-page-node-type="news_story"] #main #content #block-news-attachments .views-field-title a {
-        color: #0990FE;
-        font-family: "p22-underground", sans-serif; }
-    #page[data-page-node-type="news_story"] #main #content #block-news-attachments .views-field-body {
-      color: #4A4A4A; }
   #page[data-page-node-type="news_story"] #main #content #block-views-block-related-news-items-block-1 {
     background-color: #fff;
     margin: 20px auto 40px;
@@ -8339,6 +8460,8 @@ html {
           padding: 20px 0 5px; }
           #news_landing_page #content .news-landing-container .news-item .views-field-field-tags .views-label {
             color: #043B62; }
+          #news_landing_page #content .news-landing-container .news-item .views-field-field-tags a {
+            color: #0990FE; }
         #news_landing_page #content .news-landing-container .news-item ul {
           list-style-type: none;
           margin: 0;
@@ -8751,8 +8874,6 @@ html {
 
 /* This selector applies to an office's pages, but not the 
 general office landing page */
-#page[data-page-path-alias^="/about/offices/"] #secondary_header_region #block-pagetitle-2 {
-  display: none; }
 #page[data-page-path-alias^="/about/offices/"] #secondary_header_region nav:not(.achp-breadcrumb) {
   margin: 0 auto;
   max-width: 1024px;
@@ -8949,6 +9070,17 @@ general office landing page */
           #page[data-page-path-alias="/about/offices/ofap/agencies"] #content #content_region #block-onaa-agency-assignments .item-list > ul li .views-field-nothing-1,
           #page[data-page-path-alias="/about/offices/ofap/agencies"] #content #content_region #block-ofap-agency-assignments .item-list > ul li .views-field-nothing-1 {
             display: none; }
+#page[data-page-path-alias="/about/offices/onaa/agencies"] #content #content_region #block-ofap-agency-assignments .item-list:first-of-type > ul:before,
+#page[data-page-path-alias="/about/offices/ofap/agencies"] #content #content_region #block-ofap-agency-assignments .item-list:first-of-type > ul:before {
+  content: "OFAP STAFF MEMBER";
+  color: #000;
+  display: block;
+  font-size: 1rem;
+  font-family: "p22-underground", sans-serif;
+  font-weight: 500;
+  left: -15px;
+  position: relative;
+  top: -30px; }
 @media (max-width: 825px) {
   #page[data-page-path-alias="/about/offices/onaa/agencies"] #content #content_region #block-onaa-agency-assignments .item-list:first-of-type, #page[data-page-path-alias="/about/offices/onaa/agencies"] #content #content_region #block-ofap-agency-assignments .item-list:first-of-type,
   #page[data-page-path-alias="/about/offices/ofap/agencies"] #content #content_region #block-onaa-agency-assignments .item-list:first-of-type,
@@ -8991,21 +9123,46 @@ general office landing page */
           padding: 0; } }
 
 /* These selectors encompasses all pages beyond the overview */
-#page[data-page-path-alias^="/about/offices/onaa/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/ofap/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
-#page[data-page-path-alias^="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page {
+#page[data-page-path-alias="/about/offices/onaa/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/onaa/agencies"]
+#page[data-page-path-alias="/about/offices/ofap/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ofap/agencies"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ogc/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/oed/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/opi/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page,
+#page[data-page-path-alias="/about/offices/ocea/staff"] #secondary_header_region .achp-breadcrumb ol li.breadcrumb_page {
   display: none; }
-#page[data-page-path-alias^="/about/offices/onaa/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/ofap/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
-#page[data-page-path-alias^="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a {
+#page[data-page-path-alias="/about/offices/onaa/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/onaa/agencies"]
+#page[data-page-path-alias="/about/offices/ofap/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ofap/agencies"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ogc/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ogc/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/oed/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/oed/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/opi/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/opi/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ocea/"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a,
+#page[data-page-path-alias="/about/offices/ocea/staff"] #secondary_header_region .achp-breadcrumb ol li:nth-last-child(2) a {
   color: #0990FE;
   cursor: text; }
+#page[data-page-path-alias="/about/offices/onaa/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/onaa/agencies"]
+#page[data-page-path-alias="/about/offices/ofap/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ofap/agencies"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ogc/"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ogc/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/oed/"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/oed/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/opi/"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/opi/staff"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ocea/"] #secondary_header_region #block-pagetitle-2,
+#page[data-page-path-alias="/about/offices/ocea/staff"] #secondary_header_region #block-pagetitle-2 {
+  display: none; }
 
 #page[data-page-path-alias="/about/offices/onaa"] #content #content_region #block-achp-content,
 #page[data-page-path-alias="/about/offices/ofap"] #content #content_region #block-achp-content,
@@ -9419,7 +9576,7 @@ general office landing page */
   Styles for a general page without a banner image.
 */
 #page[data-page-node-type="page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/careers/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"],
-#page[data-page-path-alias^="/internships/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-node-type="question_answer"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
+#page[data-page-path-alias^="/internships/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-node-type="fpo_resources_page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
   margin: 0 auto;
   max-width: 1024px;
   padding-left: 40px;
@@ -9427,11 +9584,11 @@ general office landing page */
   width: 100%; }
   @media (max-width: 400px) {
     #page[data-page-node-type="page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/careers/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"],
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-node-type="question_answer"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"], #page[data-page-node-type="fpo_resources_page"] #secondary_header_region [data-derivative-plugin-id="image_carousel-block_1"] {
       padding-left: 20px;
       padding-right: 20px; } }
 #page[data-page-node-type="page"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-pagetitle-2,
-#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-pagetitle-2, #page[data-page-node-type="question_answer"] #secondary_header_region #block-pagetitle-2 {
+#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-pagetitle-2 {
   margin: 0 auto;
   max-width: 1024px;
   padding-left: 40px;
@@ -9441,14 +9598,14 @@ general office landing page */
   font-weight: 400; }
   @media (max-width: 400px) {
     #page[data-page-node-type="page"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-pagetitle-2,
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-pagetitle-2, #page[data-page-node-type="question_answer"] #secondary_header_region #block-pagetitle-2 {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-pagetitle-2 {
       padding-left: 20px;
       padding-right: 20px; } }
   #page[data-page-node-type="page"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-pagetitle-2 h1 span,
-  #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-node-type="question_answer"] #secondary_header_region #block-pagetitle-2 h1 span {
+  #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2 h1 span, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-pagetitle-2 h1 span {
     display: inline-block; }
     #page[data-page-node-type="page"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-pagetitle-2 h1 span:after,
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-node-type="question_answer"] #secondary_header_region #block-pagetitle-2 h1 span:after {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-pagetitle-2 h1 span:after, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-pagetitle-2 h1 span:after {
       background-color: #950306;
       border: none;
       color: #950306;
@@ -9459,7 +9616,7 @@ general office landing page */
       min-width: 150px;
       width: 20%; }
 #page[data-page-node-type="page"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-breadcrumbs,
-#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-breadcrumbs, #page[data-page-node-type="question_answer"] #secondary_header_region #block-breadcrumbs {
+#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-breadcrumbs, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-breadcrumbs {
   margin: 0 auto;
   max-width: 1024px;
   padding-left: 40px;
@@ -9468,11 +9625,11 @@ general office landing page */
   margin-top: 30px; }
   @media (max-width: 400px) {
     #page[data-page-node-type="page"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-breadcrumbs,
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-breadcrumbs, #page[data-page-node-type="question_answer"] #secondary_header_region #block-breadcrumbs {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-breadcrumbs, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-breadcrumbs, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-breadcrumbs {
       padding-left: 20px;
       padding-right: 20px; } }
 #page[data-page-node-type="page"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-sharethispage,
-#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-sharethispage, #page[data-page-node-type="question_answer"] #secondary_header_region #block-sharethispage {
+#page[data-page-path-alias^="/internships/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-sharethispage, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-sharethispage {
   margin: 0 auto;
   max-width: 1024px;
   padding-left: 40px;
@@ -9481,64 +9638,64 @@ general office landing page */
   margin: 15px auto 30px; }
   @media (max-width: 400px) {
     #page[data-page-node-type="page"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/careers/"] #secondary_header_region #block-sharethispage,
-    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #secondary_header_region #block-sharethispage, #page[data-page-node-type="question_answer"] #secondary_header_region #block-sharethispage {
+    #page[data-page-path-alias^="/internships/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/training/classroom/"] #secondary_header_region #block-sharethispage, #page[data-page-path-alias^="/about/council-members/"] #secondary_header_region #block-sharethispage, #page[data-page-node-type="fpo_resources_page"] #secondary_header_region #block-sharethispage {
       padding-left: 20px;
       padding-right: 20px; } }
 #page[data-page-node-type="page"] #content, #page[data-page-path-alias^="/careers/"] #content,
-#page[data-page-path-alias^="/internships/"] #content, #page[data-page-path-alias^="/training/classroom/"] #content, #page[data-page-path-alias^="/about/council-members/"] #content, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content, #page[data-page-node-type="question_answer"] #content {
+#page[data-page-path-alias^="/internships/"] #content, #page[data-page-path-alias^="/training/classroom/"] #content, #page[data-page-path-alias^="/about/council-members/"] #content, #page[data-page-node-type="fpo_resources_page"] #content {
   width: 100%; }
   #page[data-page-node-type="page"] #content #content_region, #page[data-page-path-alias^="/careers/"] #content #content_region,
-  #page[data-page-path-alias^="/internships/"] #content #content_region, #page[data-page-path-alias^="/training/classroom/"] #content #content_region, #page[data-page-path-alias^="/about/council-members/"] #content #content_region, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region, #page[data-page-node-type="question_answer"] #content #content_region {
+  #page[data-page-path-alias^="/internships/"] #content #content_region, #page[data-page-path-alias^="/training/classroom/"] #content #content_region, #page[data-page-path-alias^="/about/council-members/"] #content #content_region, #page[data-page-node-type="fpo_resources_page"] #content #content_region {
     font-size: 1.125rem;
     padding: 0; }
     #page[data-page-node-type="page"] #content #content_region h2, #page[data-page-path-alias^="/careers/"] #content #content_region h2,
-    #page[data-page-path-alias^="/internships/"] #content #content_region h2, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2, #page[data-page-node-type="question_answer"] #content #content_region h2, #page[data-page-node-type="page"] #content #content_region h3, #page[data-page-path-alias^="/careers/"] #content #content_region h3,
-    #page[data-page-path-alias^="/internships/"] #content #content_region h3, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h3, #page[data-page-node-type="question_answer"] #content #content_region h3, #page[data-page-node-type="page"] #content #content_region h4, #page[data-page-path-alias^="/careers/"] #content #content_region h4,
-    #page[data-page-path-alias^="/internships/"] #content #content_region h4, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h4, #page[data-page-node-type="question_answer"] #content #content_region h4 {
+    #page[data-page-path-alias^="/internships/"] #content #content_region h2, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2, #page[data-page-node-type="fpo_resources_page"] #content #content_region h2, #page[data-page-node-type="page"] #content #content_region h3, #page[data-page-path-alias^="/careers/"] #content #content_region h3,
+    #page[data-page-path-alias^="/internships/"] #content #content_region h3, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3, #page[data-page-node-type="fpo_resources_page"] #content #content_region h3, #page[data-page-node-type="page"] #content #content_region h4, #page[data-page-path-alias^="/careers/"] #content #content_region h4,
+    #page[data-page-path-alias^="/internships/"] #content #content_region h4, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4, #page[data-page-node-type="fpo_resources_page"] #content #content_region h4 {
       text-align: left; }
       #page[data-page-node-type="page"] #content #content_region h2 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h2 + p,
-      #page[data-page-path-alias^="/internships/"] #content #content_region h2 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2 + p, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2 + p, #page[data-page-node-type="question_answer"] #content #content_region h2 + p, #page[data-page-node-type="page"] #content #content_region h3 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h3 + p,
-      #page[data-page-path-alias^="/internships/"] #content #content_region h3 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3 + p, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h3 + p, #page[data-page-node-type="question_answer"] #content #content_region h3 + p, #page[data-page-node-type="page"] #content #content_region h4 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h4 + p,
-      #page[data-page-path-alias^="/internships/"] #content #content_region h4 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4 + p, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h4 + p, #page[data-page-node-type="question_answer"] #content #content_region h4 + p {
+      #page[data-page-path-alias^="/internships/"] #content #content_region h2 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2 + p, #page[data-page-node-type="fpo_resources_page"] #content #content_region h2 + p, #page[data-page-node-type="page"] #content #content_region h3 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h3 + p,
+      #page[data-page-path-alias^="/internships/"] #content #content_region h3 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3 + p, #page[data-page-node-type="fpo_resources_page"] #content #content_region h3 + p, #page[data-page-node-type="page"] #content #content_region h4 + p, #page[data-page-path-alias^="/careers/"] #content #content_region h4 + p,
+      #page[data-page-path-alias^="/internships/"] #content #content_region h4 + p, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4 + p, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4 + p, #page[data-page-node-type="fpo_resources_page"] #content #content_region h4 + p {
         margin-top: 0; }
     #page[data-page-node-type="page"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/careers/"] #content #content_region .addtoany_list,
-    #page[data-page-path-alias^="/internships/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region .addtoany_list, #page[data-page-node-type="question_answer"] #content #content_region .addtoany_list {
+    #page[data-page-path-alias^="/internships/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .addtoany_list, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .addtoany_list, #page[data-page-node-type="fpo_resources_page"] #content #content_region .addtoany_list {
       display: none; }
 @media (max-width: 925px) {
   #page[data-page-node-type="page"] #content, #page[data-page-path-alias^="/careers/"] #content,
-  #page[data-page-path-alias^="/internships/"] #content, #page[data-page-path-alias^="/training/classroom/"] #content, #page[data-page-path-alias^="/about/council-members/"] #content, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content, #page[data-page-node-type="question_answer"] #content {
+  #page[data-page-path-alias^="/internships/"] #content, #page[data-page-path-alias^="/training/classroom/"] #content, #page[data-page-path-alias^="/about/council-members/"] #content, #page[data-page-node-type="fpo_resources_page"] #content {
     box-shadow: none; } }
 @media (max-width: 800px) {
   #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page_button,
-  #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-node-type="question_answer"] #content #content_region #block-sharethispage .share_this_page_button {
+  #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page_button, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page_button {
     margin-left: 15px; }
     #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page_button_print,
-    #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-node-type="question_answer"] #content #content_region #block-sharethispage .share_this_page_button_print {
+    #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page_button_print, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page_button_print {
       display: none; } }
 @media (max-width: 650px) {
   #page[data-page-node-type="page"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/careers/"] #content #content_region .achp-breadcrumb,
-  #page[data-page-path-alias^="/internships/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region .achp-breadcrumb, #page[data-page-node-type="question_answer"] #content #content_region .achp-breadcrumb {
+  #page[data-page-path-alias^="/internships/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .achp-breadcrumb, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .achp-breadcrumb, #page[data-page-node-type="fpo_resources_page"] #content #content_region .achp-breadcrumb {
     display: none; }
   #page[data-page-node-type="page"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/careers/"] #content #content_region .mobile_breadcrumb,
-  #page[data-page-path-alias^="/internships/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region .mobile_breadcrumb, #page[data-page-node-type="question_answer"] #content #content_region .mobile_breadcrumb {
+  #page[data-page-path-alias^="/internships/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/training/classroom/"] #content #content_region .mobile_breadcrumb, #page[data-page-path-alias^="/about/council-members/"] #content #content_region .mobile_breadcrumb, #page[data-page-node-type="fpo_resources_page"] #content #content_region .mobile_breadcrumb {
     display: block; }
   #page[data-page-node-type="page"] #content #content_region h2, #page[data-page-path-alias^="/careers/"] #content #content_region h2,
-  #page[data-page-path-alias^="/internships/"] #content #content_region h2, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h2, #page[data-page-node-type="question_answer"] #content #content_region h2, #page[data-page-node-type="page"] #content #content_region h3, #page[data-page-path-alias^="/careers/"] #content #content_region h3,
-  #page[data-page-path-alias^="/internships/"] #content #content_region h3, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h3, #page[data-page-node-type="question_answer"] #content #content_region h3, #page[data-page-node-type="page"] #content #content_region h4, #page[data-page-path-alias^="/careers/"] #content #content_region h4,
-  #page[data-page-path-alias^="/internships/"] #content #content_region h4, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region h4, #page[data-page-node-type="question_answer"] #content #content_region h4 {
+  #page[data-page-path-alias^="/internships/"] #content #content_region h2, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h2, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h2, #page[data-page-node-type="fpo_resources_page"] #content #content_region h2, #page[data-page-node-type="page"] #content #content_region h3, #page[data-page-path-alias^="/careers/"] #content #content_region h3,
+  #page[data-page-path-alias^="/internships/"] #content #content_region h3, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h3, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h3, #page[data-page-node-type="fpo_resources_page"] #content #content_region h3, #page[data-page-node-type="page"] #content #content_region h4, #page[data-page-path-alias^="/careers/"] #content #content_region h4,
+  #page[data-page-path-alias^="/internships/"] #content #content_region h4, #page[data-page-path-alias^="/training/classroom/"] #content #content_region h4, #page[data-page-path-alias^="/about/council-members/"] #content #content_region h4, #page[data-page-node-type="fpo_resources_page"] #content #content_region h4 {
     text-align: center; } }
 @media (max-width: 400px) {
   #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page,
-  #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-node-type="question_answer"] #content #content_region #block-sharethispage .share_this_page {
+  #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page {
     padding-left: 0; }
     #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons,
-    #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-node-type="question_answer"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons {
+    #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons {
       text-align: left; }
       #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before,
-      #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-node-type="question_answer"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before {
+      #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons:before {
         padding-right: calc(100% - 215px); }
       #page[data-page-node-type="page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/careers/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button,
-      #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/protecting-historic-properties/fpo-list/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-node-type="question_answer"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button {
+      #page[data-page-path-alias^="/internships/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/training/classroom/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-path-alias^="/about/council-members/"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button, #page[data-page-node-type="fpo_resources_page"] #content #content_region #block-sharethispage .share_this_page .share_this_page_buttons .share_this_page_button {
         margin-left: 10px; } }
 
 /*
@@ -9914,7 +10071,27 @@ general office landing page */
   margin: 60px 0 40px;
   padding: 0; }
 
+#page[data-page-path-alias="/about/preservation-officers"] #secondary_header_region #bblock-about-achp-share {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto 30px; }
+  @media (max-width: 400px) {
+    #page[data-page-path-alias="/about/preservation-officers"] #secondary_header_region #bblock-about-achp-share {
+      padding-left: 20px;
+      padding-right: 20px; } }
+#page[data-page-path-alias="/about/preservation-officers"] #content #content_region #block-achp-content {
+  margin-bottom: 40px; }
+  #page[data-page-path-alias="/about/preservation-officers"] #content #content_region #block-achp-content a {
+    color: #0990FE; }
+#page[data-page-path-alias="/about/preservation-officers"] #content #content_region #block-views-block-related-resources-block-1 {
+  padding: 0;
+  margin-bottom: 40px; }
+
 [data-page-path-alias="/preserve-america"] #secondary_header_region #block-breadcrumbs,
+[data-page-path-alias="/preserve-america/preserve-america-communities"] #secondary_header_region #block-breadcrumbs,
 [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-breadcrumbs,
 [data-page-path-alias="/preserve-america/presidential-award"] #secondary_header_region #block-breadcrumbs,
 [data-page-path-alias="/preserve-america/federal-support"] #secondary_header_region #block-breadcrumbs,
@@ -9930,6 +10107,7 @@ general office landing page */
   margin: 30px auto 0; }
   @media (max-width: 400px) {
     [data-page-path-alias="/preserve-america"] #secondary_header_region #block-breadcrumbs,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #secondary_header_region #block-breadcrumbs,
     [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-breadcrumbs,
     [data-page-path-alias="/preserve-america/presidential-award"] #secondary_header_region #block-breadcrumbs,
     [data-page-path-alias="/preserve-america/federal-support"] #secondary_header_region #block-breadcrumbs,
@@ -9940,6 +10118,7 @@ general office landing page */
       padding-left: 20px;
       padding-right: 20px; } }
 [data-page-path-alias="/preserve-america"] #secondary_header_region #block-preserveamerica-shareblock,
+[data-page-path-alias="/preserve-america/preserve-america-communities"] #secondary_header_region #block-preserveamerica-shareblock,
 [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-preserveamerica-shareblock,
 [data-page-path-alias="/preserve-america/presidential-award"] #secondary_header_region #block-preserveamerica-shareblock,
 [data-page-path-alias="/preserve-america/federal-support"] #secondary_header_region #block-preserveamerica-shareblock,
@@ -9955,6 +10134,7 @@ general office landing page */
   margin: 0 auto 30px; }
   @media (max-width: 400px) {
     [data-page-path-alias="/preserve-america"] #secondary_header_region #block-preserveamerica-shareblock,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #secondary_header_region #block-preserveamerica-shareblock,
     [data-page-path-alias="/preserve-america/stewards"] #secondary_header_region #block-preserveamerica-shareblock,
     [data-page-path-alias="/preserve-america/presidential-award"] #secondary_header_region #block-preserveamerica-shareblock,
     [data-page-path-alias="/preserve-america/federal-support"] #secondary_header_region #block-preserveamerica-shareblock,
@@ -9965,6 +10145,7 @@ general office landing page */
       padding-left: 20px;
       padding-right: 20px; } }
 [data-page-path-alias="/preserve-america"] #content,
+[data-page-path-alias="/preserve-america/preserve-america-communities"] #content,
 [data-page-path-alias="/preserve-america/stewards"] #content,
 [data-page-path-alias="/preserve-america/presidential-award"] #content,
 [data-page-path-alias="/preserve-america/federal-support"] #content,
@@ -9976,6 +10157,7 @@ general office landing page */
   max-width: 100%;
   font-size: 1.125rem; }
   [data-page-path-alias="/preserve-america"] #content #content_region,
+  [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region,
   [data-page-path-alias="/preserve-america/stewards"] #content #content_region,
   [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region,
   [data-page-path-alias="/preserve-america/federal-support"] #content #content_region,
@@ -9985,6 +10167,9 @@ general office landing page */
   [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region {
     width: 100%; }
     [data-page-path-alias="/preserve-america"] #content #content_region h2 + p, [data-page-path-alias="/preserve-america"] #content #content_region h3 + p, [data-page-path-alias="/preserve-america"] #content #content_region h4 + p,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region h2 + p,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region h3 + p,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region h4 + p,
     [data-page-path-alias="/preserve-america/stewards"] #content #content_region h2 + p,
     [data-page-path-alias="/preserve-america/stewards"] #content #content_region h3 + p,
     [data-page-path-alias="/preserve-america/stewards"] #content #content_region h4 + p,
@@ -10007,24 +10192,18 @@ general office landing page */
     [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region h3 + p,
     [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region h4 + p {
       margin-top: 0; }
-    [data-page-path-alias="/preserve-america"] #content #content_region h3 + p,
     [data-page-path-alias="/preserve-america"] #content #content_region p + ul,
-    [data-page-path-alias="/preserve-america/stewards"] #content #content_region h3 + p,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region p + ul,
     [data-page-path-alias="/preserve-america/stewards"] #content #content_region p + ul,
-    [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region h3 + p,
     [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region p + ul,
-    [data-page-path-alias="/preserve-america/federal-support"] #content #content_region h3 + p,
     [data-page-path-alias="/preserve-america/federal-support"] #content #content_region p + ul,
-    [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region h3 + p,
     [data-page-path-alias="/preserve-america/clearinghouse"] #content #content_region p + ul,
-    [data-page-path-alias="/preserve-america/application"] #content #content_region h3 + p,
     [data-page-path-alias="/preserve-america/application"] #content #content_region p + ul,
-    [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region h3 + p,
     [data-page-path-alias="/preserve-america/streamlined-process"] #content #content_region p + ul,
-    [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region h3 + p,
     [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region p + ul {
       margin-top: -10px; }
     [data-page-path-alias="/preserve-america"] #content #content_region article,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article,
     [data-page-path-alias="/preserve-america/stewards"] #content #content_region article,
     [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article,
     [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article,
@@ -10040,6 +10219,7 @@ general office landing page */
       margin-bottom: 50px; }
       @media (max-width: 400px) {
         [data-page-path-alias="/preserve-america"] #content #content_region article,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region article,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article,
         [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article,
@@ -10050,6 +10230,7 @@ general office landing page */
           padding-left: 20px;
           padding-right: 20px; } }
       [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_intro_block,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block,
       [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block,
@@ -10061,6 +10242,7 @@ general office landing page */
         position: relative;
         margin-top: 25px; }
         [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block:after,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_intro_block:after,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block:after,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block:after,
         [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block:after,
@@ -10072,6 +10254,7 @@ general office landing page */
           content: "";
           display: block; }
         [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_intro_block img,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block img,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block img,
         [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block img,
@@ -10083,6 +10266,7 @@ general office landing page */
           margin-right: 20px;
           max-width: 100%; }
         [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_intro_block p,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p,
         [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p,
@@ -10094,6 +10278,7 @@ general office landing page */
           height: 154px; }
         @media (max-width: 950px) {
           [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block,
+          [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_intro_block,
           [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block,
           [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block,
           [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block,
@@ -10103,6 +10288,7 @@ general office landing page */
           [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region article .preserve_america_intro_block {
             height: auto; }
             [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block img,
+            [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_intro_block img,
             [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block img,
             [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block img,
             [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block img,
@@ -10121,6 +10307,7 @@ general office landing page */
               margin: 0 0 10px;
               position: relative; }
             [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p,
+            [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_intro_block p,
             [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p,
             [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p,
             [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p,
@@ -10131,6 +10318,7 @@ general office landing page */
               height: auto;
               margin-top: 0; }
               [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block p .read_more,
+              [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_intro_block p .read_more,
               [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block p .read_more,
               [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block p .read_more,
               [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block p .read_more,
@@ -10142,6 +10330,7 @@ general office landing page */
                 margin-top: 15px;
                 position: relative; } }
         [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_intro_block img,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_intro_block img,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_intro_block img,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_intro_block img,
         [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_intro_block img,
@@ -10152,6 +10341,7 @@ general office landing page */
           height: 154px;
           width: 235px; }
       [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions h4,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_questions h4,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions h4,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions h4,
       [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions h4,
@@ -10163,6 +10353,7 @@ general office landing page */
         margin-bottom: 10px;
         padding-top: 10px; }
       [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions p,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_questions p,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions p,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions p,
       [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions p,
@@ -10172,6 +10363,7 @@ general office landing page */
       [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region article .preserve_america_questions p {
         margin: 0; }
       [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions ul,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_questions ul,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions ul,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions ul,
       [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions ul,
@@ -10182,6 +10374,7 @@ general office landing page */
         margin: 0;
         padding-left: 30px; }
         [data-page-path-alias="/preserve-america"] #content #content_region article .preserve_america_questions ul li,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region article .preserve_america_questions ul li,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region article .preserve_america_questions ul li,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region article .preserve_america_questions ul li,
         [data-page-path-alias="/preserve-america/federal-support"] #content #content_region article .preserve_america_questions ul li,
@@ -10191,6 +10384,7 @@ general office landing page */
         [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region article .preserve_america_questions ul li {
           padding-left: 10px; }
     [data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region .textblock_with_background,
     [data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background,
     [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background,
     [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background,
@@ -10201,6 +10395,7 @@ general office landing page */
       margin-top: 35px;
       margin-bottom: 50px; }
       [data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background.textblock_left,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region .textblock_with_background.textblock_left,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background.textblock_left,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background.textblock_left,
       [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background.textblock_left,
@@ -10210,6 +10405,7 @@ general office landing page */
       [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region .textblock_with_background.textblock_left {
         background-image: url("../images/half-section-preserve-america-map.png"); }
       [data-page-path-alias="/preserve-america"] #content #content_region .textblock_with_background.textblock_right,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region .textblock_with_background.textblock_right,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region .textblock_with_background.textblock_right,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region .textblock_with_background.textblock_right,
       [data-page-path-alias="/preserve-america/federal-support"] #content #content_region .textblock_with_background.textblock_right,
@@ -10219,6 +10415,7 @@ general office landing page */
       [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region .textblock_with_background.textblock_right {
         background-image: url("../images/half-section-preserve-america-application.png"); }
     [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-preserveamericapagelinks,
     [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks,
     [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks,
     [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks,
@@ -10234,6 +10431,7 @@ general office landing page */
       margin-bottom: 50px; }
       @media (max-width: 400px) {
         [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-preserveamericapagelinks,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks,
         [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks,
@@ -10244,6 +10442,7 @@ general office landing page */
           padding-left: 20px;
           padding-right: 20px; } }
       [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericapagelinks hr,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-preserveamericapagelinks hr,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericapagelinks hr,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericapagelinks hr,
       [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-preserveamericapagelinks hr,
@@ -10255,6 +10454,7 @@ general office landing page */
         height: 1px;
         margin: 25px 0; }
     [data-page-path-alias="/preserve-america"] #content #content_region #block-related-resources-block,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-related-resources-block,
     [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-related-resources-block,
     [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-related-resources-block,
     [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-related-resources-block,
@@ -10270,6 +10470,7 @@ general office landing page */
       margin-bottom: 50px; }
       @media (max-width: 400px) {
         [data-page-path-alias="/preserve-america"] #content #content_region #block-related-resources-block,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-related-resources-block,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-related-resources-block,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-related-resources-block,
         [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-related-resources-block,
@@ -10280,6 +10481,7 @@ general office landing page */
           padding-left: 20px;
           padding-right: 20px; } }
     [data-page-path-alias="/preserve-america"] #content #content_region #block-views-block-related-resources-block-1,
+    [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-views-block-related-resources-block-1,
     [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-views-block-related-resources-block-1,
     [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-views-block-related-resources-block-1,
     [data-page-path-alias="/preserve-america/federal-support"] #content #content_region #block-views-block-related-resources-block-1,
@@ -10291,6 +10493,8 @@ general office landing page */
       padding: 0; }
     @media (max-width: 800px) {
       [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background,
@@ -10307,6 +10511,8 @@ general office landing page */
       [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background {
         height: 300px; }
         [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
@@ -10328,6 +10534,8 @@ general office landing page */
           width: 100%; } }
     @media (max-width: 800px) and (max-width: 400px) {
       [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
+      [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
       [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container,
       [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container,
@@ -10346,6 +10554,8 @@ general office landing page */
         padding-right: 20px; } }
     @media (max-width: 800px) {
           [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
+          [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
           [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
           [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p,
           [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background .split_block_container p,
@@ -10362,6 +10572,8 @@ general office landing page */
           [data-page-path-alias="/preserve-america/preserve-america-summit-fact-sheet"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background .split_block_container p {
             margin-bottom: 25px; }
         [data-page-path-alias="/preserve-america"] #content #content_region #block-preserveamericacommunities .textblock_with_background button, [data-page-path-alias="/preserve-america"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
+        [data-page-path-alias="/preserve-america/preserve-america-communities"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
         [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-applytobecomearecognizedcommunity .textblock_with_background button,
         [data-page-path-alias="/preserve-america/presidential-award"] #content #content_region #block-preserveamericacommunities .textblock_with_background button,
@@ -10404,10 +10616,16 @@ general office landing page */
       [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type .application_description {
         height: 110px;
         margin-top: 10px; }
-  [data-page-path-alias="/preserve-america/application"] #content #content_region article p a {
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article p a, [data-page-path-alias="/preserve-america/application"] #content #content_region article .application_link a {
     color: #0990FE; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article p > .application_link {
+    margin-bottom: 0; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article h3 + p {
+    margin-top: 5px !important; }
   [data-page-path-alias="/preserve-america/application"] #content #content_region article h4 {
     margin-bottom: 10px; }
+  [data-page-path-alias="/preserve-america/application"] #content #content_region article .read_more {
+    margin-bottom: 25px; }
 @media (max-width: 900px) {
   [data-page-path-alias="/preserve-america/application"] #content #content_region article .applications_table .application_type {
     float: left;
@@ -11370,6 +11588,7 @@ general office landing page */
           [data-page-node-type="preserve_america_grant"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download {
             text-align: center; } }
         [data-page-node-type="preserve_america_grant"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+          cursor: pointer;
           font-family: "p22-underground", sans-serif;
           font-size: 1.125rem;
           font-weight: 600;
@@ -11447,6 +11666,17 @@ general office landing page */
 /*
   Styles for Preserve America steward pages
 */
+#page[data-page-node-type="preserve_america_steward"] [data-derivative-plugin-id^="image_carousel-block"] {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  max-width: 750px; }
+  @media (max-width: 400px) {
+    #page[data-page-node-type="preserve_america_steward"] [data-derivative-plugin-id^="image_carousel-block"] {
+      padding-left: 20px;
+      padding-right: 20px; } }
 #page[data-page-node-type="preserve_america_steward"] #secondary_header_region #block-breadcrumbs {
   margin: 0 auto;
   max-width: 1024px;
@@ -11500,6 +11730,7 @@ general office landing page */
   padding-left: 40px;
   padding-right: 40px;
   width: 100%;
+  font-size: 18px;
   margin: 0 auto 50px;
   max-width: 750px; }
   @media (max-width: 400px) {
@@ -11508,7 +11739,7 @@ general office landing page */
       padding-right: 20px; } }
   #page[data-page-node-type="preserve_america_steward"] #content #content_region .views-field-body p:first-of-type {
     margin-top: 0; }
-  #page[data-page-node-type="preserve_america_steward"] #content #content_region img {
+  #page[data-page-node-type="preserve_america_steward"] #content #content_region [data-achp-field-name="field_steward_images"] img {
     display: none; }
   #page[data-page-node-type="preserve_america_steward"] #content #content_region a {
     color: #0990FE; }
@@ -11527,10 +11758,19 @@ general office landing page */
 [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] h4 {
   color: #950306;
   margin-bottom: 0; }
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] p > .application_link {
-  margin-bottom: 0; }
-[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] .application_link a {
+[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-achp-content > article[about="/preserve-america/stewards"] p a {
   color: #0990FE; }
+[data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-views-block-related-resources-block-1 {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin-bottom: 40px; }
+  @media (max-width: 400px) {
+    [data-page-path-alias="/preserve-america/stewards"] #content #content_region #block-views-block-related-resources-block-1 {
+      padding-left: 20px;
+      padding-right: 20px; } }
 
 /*
   Styles for the Preserve America streamlined process page
@@ -12916,6 +13156,7 @@ general office landing page */
           [data-page-node-type="public_resources"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download {
             text-align: center; } }
         [data-page-node-type="public_resources"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+          cursor: pointer;
           font-family: "p22-underground", sans-serif;
           font-size: 1.125rem;
           font-weight: 600;
@@ -12999,13 +13240,494 @@ general office landing page */
         [data-page-node-type="public_resources"] [data-achp-field-name="field_public_resource_type"] .achp-field-item:last-of-type:after {
           content: ""; }
 
-#page[data-page-node-type="question_answer"] #content #content_region #block-achp-content {
-  margin-bottom: 40px;
-  padding: 0; }
-  #page[data-page-node-type="question_answer"] #content #content_region #block-achp-content h2 {
-    text-align: left; }
-    #page[data-page-node-type="question_answer"] #content #content_region #block-achp-content h2 + p {
-      margin-top: 0; }
+/*
+  This stylesheet defines the default styles
+  for the Regulation content type.
+*/
+[data-page-node-type="question_answer"] {
+  /*
+    This stylesheet defines default styles shared
+    by the Digital Library document pages.
+  */ }
+  [data-page-node-type="question_answer"] #main {
+    /*
+      This stylesheet defines the default styles
+      for various elements as defined by the current
+      version of the ACHP styleguide.
+    */
+    /*
+      Accepts no arguments and removes the padding
+      and margins from the element this mixin is
+      applied to.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and mobile-value, another CSS value
+    
+      sets property to mobile-value and adds a media
+      query that sets property to mobile-value for
+      mobile screens.
+    */
+    /*
+      Accepts two arguments:
+    
+      * property, a CSS property
+      * and tablet-value, another CSS value
+    
+      sets property to tablet-value and adds a media
+      query that sets property to tablet-value for
+      tablet screens.
+    */
+    /*
+      Accepts four arguments:
+    
+      * property, a CSS property
+      * widescreen-value, a CSS value
+      * tablet-value, a CSS value
+      * and mobile-value, an optional CSS value
+    
+      sets property to widescreen-value and
+      adds media queries that sets property to
+      tablet-value and mobile-value for tablet and
+      mobile screens.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      and renders the element it is applied to
+      as a header element overriding the default
+      properties with the given values.
+    
+      Note: if $center is false, this mixin will
+      not add responsive behavior that centers text
+      within the element on small devices.
+    */
+    /*
+      Accepts three optional arguments:
+    
+      * $font-family, a font-family string
+      * $font-size, a CSS dimension
+      * $line-height, a CSS dimension
+    
+      and renders the element it is applied to as
+      a body text element overriding the default
+      properties values with the given values.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      and renders the element it is applied to as
+      a header block element.
+    */
+    /*
+      Accepts three optional arguments:
+    
+      * $font-family, a font-family string
+      * $font-size, a CSS dimension
+      * $line-height, a CSS dimension
+    
+      and renders the element it is applied to as
+      a body text block element.
+    */
+    /*
+      Accepts two arguments:
+    
+      * front-size, a CSS length measure
+      * margin-bottom, a CSS length measure
+    
+      and sets both the font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area -
+      affecting the bottom margin.
+    */
+    /*
+      Accepts two arguments:
+    
+      * font-size, a CSS length measure
+      * and margin-bottom, a CSS length measure
+    
+      and sets the mobile font size and bottom margin
+      of the element that this mixin is applied to.
+    
+      Note: this mixin sets the bottom margin
+      because, in general, changing the font size
+      changes the size of the font's dropdown area.
+    */
+    /*
+      Accepts four length measures as
+      arguments: $widescreen-font-size,
+      $widescreen-margin-bottom, $mobile-font-size,
+      and $mobile-margin-bottom, and sets the
+      widescreen and mobile font sizes while
+      adjusting the bottom margins.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color, a CSS color
+      * $font-family, a font-family string
+      * $font-size, a CSS dimension
+      * $highlight-color, a CSS color
+      * $line-height, a CSS dimension
+    
+      and renders the element that this mixin is
+      applied to as an anchor element.
+    */
+    /*
+      Accepts seven optional arguments:
+    
+      * $background-color, a CSS color
+      * $color, a CSS color
+      * $font-family, a font-family string
+      * $font-size, a CSS dimension
+      * $font-weight, a font-weight
+      * $highlight-color, a CSS color
+      * $uppercase, a boolea
+    
+      Renders the element that this mixin is applied
+      to as a button element.
+    
+      Note: if $uppercase is false this mixin does
+      not text-transform uppercase the button label.
+    */
+    /*
+      Renders the element that this mixin is applied
+      to as a blockquote element.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      Renders the element that this mixin is applied
+      to as an H1 element.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      Renders the element that this mixin is applied
+      to as an H2 element.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      Renders the element that this mixin is applied
+      to as an H3 element.
+    */
+    /*
+      Accepts five optional arguments:
+    
+      * $color: a Color value
+      * $font-family: a font-family string
+      * $font-weight: a font-weight
+      * $line-height: a line-height
+      * and $center: a boolean value
+    
+      Renders the element that this mixin is applied
+      to as an H4 element.
+    */
+    /*
+      Accepts no arguments and styles the element
+      that this mixin is applied to as a table
+      element.
+    */
+    /*
+      Accepts one argument: $margin-bottom; and 
+      styles the element that this mixin is
+      applied to as a form label.
+    
+      Note: this mixin should be applied to label
+      elements.
+    */
+    /*
+      Accepts one argument: $placeholder-color,
+      a CSS color value; and styles the element
+      that this mixin is applied to as a textfield
+      form element.
+    
+      Note: this mixin should be applied to input
+      elements.
+    */
+    /*
+      Renders the element children of the element
+      that this mixin is applied to according to
+      the rules specified in the current styleguide.
+    */
+    font-family: "minion-pro", Times, serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 40px; }
+    [data-page-node-type="question_answer"] #main a {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: color 0.25s;
+      color: #0990FE; }
+      [data-page-node-type="question_answer"] #main a:hover {
+        color: #71BFFE; }
+    [data-page-node-type="question_answer"] #main blockquote {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", Times, serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-left: 20px; }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main blockquote {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main blockquote {
+          margin-bottom: 20px; } }
+    [data-page-node-type="question_answer"] #main h1 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: left;
+      font-size: 2.25rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="question_answer"] #main h1 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main h1 {
+          font-size: 1.625rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main h1 {
+          margin-bottom: 0; } }
+    [data-page-node-type="question_answer"] #main h2 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="question_answer"] #main h2 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main h2 {
+          font-size: 1.375rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main h2 {
+          margin-bottom: 20px; } }
+    [data-page-node-type="question_answer"] #main h3 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 5px; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="question_answer"] #main h3 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main h3 {
+          font-size: 1.25rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main h3 {
+          margin-bottom: 0; } }
+    [data-page-node-type="question_answer"] #main h4 {
+      margin: 0;
+      padding: 0;
+      color: #003A5E;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: left;
+      font-size: 1.375rem;
+      margin-bottom: 0; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="question_answer"] #main h4 {
+          text-align: center; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main h4 {
+          font-size: 1.125rem; } }
+      @media screen and (max-width: 650px) {
+        [data-page-node-type="question_answer"] #main h4 {
+          margin-bottom: 0; } }
+    [data-page-node-type="question_answer"] #main p {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", Times, serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="question_answer"] #main ul {
+      margin: 0;
+      padding: 0;
+      font-family: "minion-pro", Times, serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px; }
+    [data-page-node-type="question_answer"] #main table {
+      border-collapse: collapse; }
+    [data-page-node-type="question_answer"] #main #content {
+      position: relative; }
+    [data-page-node-type="question_answer"] #main #content_region {
+      max-width: 620px;
+      margin: 0 auto !important; }
+      @media screen and (max-width: 925px) {
+        [data-page-node-type="question_answer"] #main #content_region {
+          margin: 0 auto !important; } }
+      [data-page-node-type="question_answer"] #main #content_region h3 {
+        color: #9B0008; }
+      [data-page-node-type="question_answer"] #main #content_region ul {
+        margin-left: 20px; }
+      [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="system_breadcrumb_block"] {
+        padding-top: 0; }
+      [data-page-node-type="question_answer"] #main #content_region .achp_date_published {
+        color: #7C7C7C;
+        font-family: "p22-underground", sans-serif;
+        font-size: 1rem;
+        margin: 0 0 10px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="question_answer"] #main #content_region .achp_date_published {
+            text-align: center; } }
+      [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="share_this_page_block"] {
+        margin-bottom: 40px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="share_this_page_block"] {
+            margin-bottom: 20px; } }
+      [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="page_menu_block"] {
+        margin-bottom: 20px;
+        margin-left: 0;
+        padding-top: 0 !important; }
+        [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container {
+          padding-top: 0 !important; }
+          [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance {
+            margin: 0;
+            position: static;
+            width: 100%; }
+            [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu {
+              margin: 0px;
+              position: static;
+              top: 0px;
+              width: 100%; }
+              [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-header {
+                display: block; }
+              [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible {
+                display: none; }
+                [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance .page-menu-instance-menu .page-menu-instance-menu-collapsible .page-menu-instance-menu-list {
+                  margin: 0; }
+          [data-page-node-type="question_answer"] #main #content_region [data-plugin-id="page_menu_block"] .page-menu-instance-container .page-menu-instance-menu-list {
+            font-family: "p22-underground", sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin: 0; }
+      [data-page-node-type="question_answer"] #main #content_region .achp_synopsis {
+        margin: 0;
+        padding: 0;
+        font-family: "minion-pro", Times, serif;
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 20px; }
+      [data-page-node-type="question_answer"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] {
+        margin-bottom: 20px; }
+        [data-page-node-type="question_answer"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] header {
+          margin: 0;
+          padding: 0;
+          font-family: "minion-pro", Times, serif;
+          font-size: 1.125rem;
+          line-height: 1.7;
+          margin-bottom: 20px;
+          background-color: transparent;
+          color: #7C7C7C;
+          font-style: italic;
+          height: auto;
+          margin-bottom: 10px; }
+        @media screen and (max-width: 925px) {
+          [data-page-node-type="question_answer"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download {
+            text-align: center; } }
+        [data-page-node-type="question_answer"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+          cursor: pointer;
+          font-family: "p22-underground", sans-serif;
+          font-size: 1.125rem;
+          font-weight: 600;
+          text-transform: uppercase; }
+          [data-page-node-type="question_answer"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:after {
+            background-image: url("../images/downloading-icon.svg");
+            background-position-y: bottom;
+            background-size: 12px;
+            background-repeat: no-repeat;
+            content: '';
+            display: inline-block;
+            height: 16px;
+            margin-left: 10px;
+            width: 20px; }
+          [data-page-node-type="question_answer"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a:hover:after {
+            background-image: url("../images/downloading-icon-lightblue.svg"); }
+      [data-page-node-type="question_answer"] #main #content_region [data-achp-field-name="body"] {
+        margin-top: 20px;
+        border-top: 1px solid #E5E3E4;
+        padding-top: 20px; }
+      [data-page-node-type="question_answer"] #main #content_region [data-achp-field-name="field_tags"] {
+        border-top: 1px solid #E5E3E4;
+        padding-top: 20px;
+        margin: 20px 0; }
+        [data-page-node-type="question_answer"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+          margin: 0;
+          padding: 0;
+          color: #003A5E;
+          font-family: "p22-underground", sans-serif;
+          font-weight: 400;
+          line-height: 1.4;
+          font-size: 1.375rem;
+          margin-bottom: 0; }
+          @media screen and (max-width: 650px) {
+            [data-page-node-type="question_answer"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+              font-size: 1.125rem; } }
+          @media screen and (max-width: 650px) {
+            [data-page-node-type="question_answer"] #main #content_region [data-achp-field-name="field_tags"] .achp-field-label {
+              margin-bottom: 0; } }
+      [data-page-node-type="question_answer"] #main #content_region [data-derivative-plugin-id^="related_resources"] {
+        padding: 0; }
+  [data-page-node-type="question_answer"] article h1 {
+    margin-bottom: 30px; }
 
 #page[data-page-path-alias="/section-106-quicklinks"] #secondary_header_region #block-about-achp-share,
 #page[data-page-path-alias="/indian-tribes-and-native-hawaiian-quicklinks"] #secondary_header_region #block-about-achp-share,
@@ -13168,6 +13890,484 @@ general office landing page */
   [data-page-path-alias="/about/request-publications"] #content #content_region #block-views-block-related-resources-block-1 {
     margin: 20px 0 40px;
     padding: 0; }
+
+/*
+  This stylesheet defines the default styles
+  for the Search Results page and the search input
+  in the header.
+*/
+/* Search Results Page */
+[data-page-path^="/search"] {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and mobile-value, another CSS value
+  
+    sets property to mobile-value and adds a media
+    query that sets property to mobile-value for
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and tablet-value, another CSS value
+  
+    sets property to tablet-value and adds a media
+    query that sets property to tablet-value for
+    tablet screens.
+  */
+  /*
+    Accepts four arguments:
+  
+    * property, a CSS property
+    * widescreen-value, a CSS value
+    * tablet-value, a CSS value
+    * and mobile-value, an optional CSS value
+  
+    sets property to widescreen-value and
+    adds media queries that sets property to
+    tablet-value and mobile-value for tablet and
+    mobile screens.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
+    Accepts two arguments:
+  
+    * front-size, a CSS length measure
+    * margin-bottom, a CSS length measure
+  
+    and sets both the font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area -
+    affecting the bottom margin.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Accepts four length measures as
+    arguments: $widescreen-font-size,
+    $widescreen-margin-bottom, $mobile-font-size,
+    and $mobile-margin-bottom, and sets the
+    widescreen and mobile font sizes while
+    adjusting the bottom margins.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */
+  /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
+    Accepts one argument: $margin-bottom; and 
+    styles the element that this mixin is
+    applied to as a form label.
+  
+    Note: this mixin should be applied to label
+    elements.
+  */
+  /*
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
+  
+    Note: this mixin should be applied to input
+    elements.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
+  */ }
+  [data-page-path^="/search"] #secondary_header_region #block-user-account-breadcrumbs {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    margin: 30px auto 0; }
+    @media (max-width: 400px) {
+      [data-page-path^="/search"] #secondary_header_region #block-user-account-breadcrumbs {
+        padding-left: 20px;
+        padding-right: 20px; } }
+  [data-page-path^="/search"] #secondary_header_region #block-searchpagetitle {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    color: #003A5E; }
+    @media (max-width: 400px) {
+      [data-page-path^="/search"] #secondary_header_region #block-searchpagetitle {
+        padding-left: 20px;
+        padding-right: 20px; } }
+    [data-page-path^="/search"] #secondary_header_region #block-searchpagetitle h1 span {
+      display: inline-block; }
+      [data-page-path^="/search"] #secondary_header_region #block-searchpagetitle h1 span:after {
+        background-color: #950306;
+        border: none;
+        color: #950306;
+        height: 1px;
+        content: "";
+        display: block;
+        margin: 10px auto 25px;
+        min-width: 150px;
+        width: 20%; }
+  [data-page-path^="/search"] #secondary_header_region #block-about-achp-share {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    margin: 0 auto 30px; }
+    @media (max-width: 400px) {
+      [data-page-path^="/search"] #secondary_header_region #block-about-achp-share {
+        padding-left: 20px;
+        padding-right: 20px; } }
+  [data-page-path^="/search"] #content #content_region {
+    font-family: "p22-underground", sans-serif; }
+    [data-page-path^="/search"] #content #content_region #block-search-filters {
+      font-family: "p22-underground", sans-serif;
+      margin-bottom: 40px;
+      position: relative; }
+      [data-page-path^="/search"] #content #content_region #block-search-filters form .form-item-topic:before {
+        color: #9B0008;
+        content: "Advanced Options";
+        display: block;
+        font-weight: 600;
+        margin: 35px 0 10px; }
+      [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item {
+        display: block;
+        margin-bottom: 15px;
+        max-width: 100%; }
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item label {
+          color: #7C7C7C;
+          display: block;
+          padding-bottom: 5px; }
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item input[name="keys"] {
+          font-family: "p22-underground", sans-serif;
+          font-size: 1rem;
+          max-width: 100%;
+          height: 40px;
+          padding: 0 5px;
+          width: 500px; }
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item select {
+          font-family: "p22-underground", sans-serif;
+          font-size: 1rem;
+          height: 40px;
+          max-width: 100%;
+          width: 450px; }
+          [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item select option {
+            max-width: 100%;
+            padding: 2px 5px;
+            width: 450px; }
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .js-form-item select#edit-type {
+          background-image: none;
+          height: 150px;
+          padding: 5px 0 0; }
+      [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
+        transition: background-color 0.25s;
+        background-color: #0990FE;
+        border: none;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-family: "p22-underground", sans-serif;
+        font-weight: 600;
+        padding: 12px 38px 8px;
+        text-transform: uppercase; }
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"]:hover {
+          background-color: #71BFFE; }
+        @media screen and (max-width: 650px) {
+          [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
+            line-height: 1.2rem; } }
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] a {
+          color: white; }
+        @media (max-width: 400px) {
+          [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
+            width: 100%; } }
+      @media (max-width: 650px) {
+        [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions {
+          text-align: center; }
+          [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions .field-content {
+            line-height: 1.2rem; } }
+    [data-page-path^="/search"] #content #content_region ol {
+      margin: 0;
+      padding: 0 40px;
+      counter-reset: li-counter; }
+      [data-page-path^="/search"] #content #content_region ol li {
+        border-left: 2px solid #E8F8FF;
+        font-size: 1.125rem;
+        list-style-type: none;
+        list-style-image: none;
+        margin-bottom: 30px;
+        padding-left: 20px;
+        position: relative; }
+        [data-page-path^="/search"] #content #content_region ol li .views-field-title {
+          font-family: "p22-underground", sans-serif;
+          font-size: 1.125rem;
+          line-height: 1.4;
+          margin: 5px 0 10px; }
+          [data-page-path^="/search"] #content #content_region ol li .views-field-title a {
+            color: #0990FE; }
+        [data-page-path^="/search"] #content #content_region ol li .views-field-type {
+          color: #7C7C7C;
+          font-family: "p22-underground", sans-serif;
+          margin-bottom: 10px; }
+        [data-page-path^="/search"] #content #content_region ol li .views-field-body p {
+          margin: 0; }
+        [data-page-path^="/search"] #content #content_region ol li:before {
+          font-family: "p22-underground", sans-serif;
+          font-size: 1.125rem;
+          line-height: 1.7;
+          color: #9B0008;
+          content: counter(li-counter);
+          counter-increment: li-counter;
+          left: -40px;
+          position: absolute;
+          text-align: right;
+          top: 2px;
+          width: 20px; }
+    [data-page-path^="/search"] #content #content_region nav {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 100%;
+      color: #262626;
+      font-family: "p22-underground", sans-serif;
+      font-size: 0.875rem; }
+      [data-page-path^="/search"] #content #content_region nav:last-child {
+        margin-right: 0; }
+      [data-page-path^="/search"] #content #content_region nav ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: center; }
+        [data-page-path^="/search"] #content #content_region nav ul li {
+          display: inline-block;
+          line-height: 27px;
+          padding: 0 8px; }
+          [data-page-path^="/search"] #content #content_region nav ul li.pager__item--last, [data-page-path^="/search"] #content #content_region nav ul li.pager__item--first {
+            display: none; }
+          [data-page-path^="/search"] #content #content_region nav ul li.pager__item.is-active {
+            background-color: #0990FE;
+            border-radius: 50%;
+            cursor: default;
+            height: 25px;
+            padding: 0;
+            width: 25px; }
+            [data-page-path^="/search"] #content #content_region nav ul li.pager__item.is-active a {
+              transition: color 0.25s;
+              color: #fff;
+              cursor: default; }
+              [data-page-path^="/search"] #content #content_region nav ul li.pager__item.is-active a:hover {
+                color: #fff; }
+          [data-page-path^="/search"] #content #content_region nav ul li a {
+            transition: color 0.25s;
+            color: #262626;
+            text-decoration: none; }
+            [data-page-path^="/search"] #content #content_region nav ul li a:hover {
+              color: #0990FE; }
+    [data-page-path^="/search"] #content #content_region h4 {
+      color: #9B0008; }
+
+/* Header Search styles */
+#header-container #header_search_region #block-header-search-filter {
+  height: 30px;
+  position: relative; }
+  @media (max-width: 1150px) {
+    #header-container #header_search_region #block-header-search-filter {
+      display: none; } }
+  #header-container #header_search_region #block-header-search-filter form {
+    height: 100%; }
+    #header-container #header_search_region #block-header-search-filter form .js-form-item {
+      height: 30px; }
+    #header-container #header_search_region #block-header-search-filter form .js-form-type-select, #header-container #header_search_region #block-header-search-filter form label {
+      display: none;
+      height: 100%; }
+    #header-container #header_search_region #block-header-search-filter form .js-form-type-textfield input {
+      border: 1px solid #979797;
+      font-size: 0.75rem;
+      height: 100%;
+      padding: 15px 11px;
+      outline: none;
+      width: 100%; }
+    #header-container #header_search_region #block-header-search-filter form .form-actions input[type="submit"] {
+      transition: background-color 0.25s;
+      background-color: #0990FE;
+      background-image: url(../images/search-icon.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 63%;
+      border: none;
+      border-radius: 0 2px 2px 0;
+      color: transparent;
+      cursor: pointer;
+      position: absolute;
+      height: 32px;
+      right: 0;
+      top: 0;
+      width: 32px;
+      appearance: none;
+      -webkit-appearance: none; }
+      #header-container #header_search_region #block-header-search-filter form .form-actions input[type="submit"]:hover {
+        background-color: #71BFFE; }
 
 /*
   This stylesheet defines the default styles
@@ -13849,6 +15049,7 @@ general office landing page */
           [data-page-node-type="section_106_case_profile"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download {
             text-align: center; } }
         [data-page-node-type="section_106_case_profile"] #main #content_region [data-derivative-plugin-id="document_download-block_1"] .views-field-field-download a {
+          cursor: pointer;
           font-family: "p22-underground", sans-serif;
           font-size: 1.125rem;
           font-weight: 600;
