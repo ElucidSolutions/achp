@@ -21,54 +21,7 @@
   function initFilterBehavior () {
     setSearchInputPlaceholder ();
     // setAdvancedSearchListener ();
-  }
-
-  function setAdvancedSearchListener () {
-    getAdvancedSearchSubmitElement ().click (function (e) {
-      // e.preventDefault ();
-      submitFilterForm ();
-      e.preventDefault ();
-    })
-  }
-
-  /*
-    Accepts no arguments,submits this filter's view form 
-    by simulating a click on the form's submit button, 
-    and returns undefined.
-  */
-  function submitFilterForm () {
-    console.log('submit filter form called')
-    getBasicSearchSubmitElement ().click ();
-  }
-
-  /*
-    Accepts no arguments and returns a jQuery HTML element
-    representing a submit button.
-  */
-  function getAdvancedSearchSubmitElement () {
-    return $('#' + getAdvancedSearchContainerID () + ' .' + getSubmitClassName ());
-  }
-
-  /*
-    Accepts no arguments and returns a jQuery HTML element
-    representing a submit button.
-  */
-  function getBasicSearchSubmitElement () {
-    return $('#' + getBasicSearchContainerID () + ' .' + getSubmitClassName ());
-  }
-
-  function getBasicSearchContainerID () {
-    return 'block-basic-search-form';
-  }
-
-  /*
-    Accepts no arguments and returns a string
-    that represents the view form button's
-    class name.
-  */
-  function getAdvancedSearchContainerID () {
-    return 'block-advanced-search-form';
-  }    
+  }   
 
   /*
     Accepts no arguments and returns a string
@@ -114,24 +67,8 @@
     element, and returns undefined.
   */
   function setSearchInputPlaceholder () {
-    console.log('1')
     getSearchInputElement ().attr('placeholder', 'Search Keywords');
   }
-
-  /*
-    Accepts no arguments, sets placeholder text on the text input
-    element, and returns undefined.
-  */
-
-
-
-  /*
-    Accepts no arguments, removes default text from the submit
-    button, and returns undefined.
-  */
-  // function removeSubmitButtonText () {
-  //   getFilterSubmitButton ().attr('value', '');
-  // }
 
   /*
     Accepts no arguments, sets an on-change listener 
@@ -160,25 +97,6 @@
   function getSubmitButtonElement () {
     return getViewContainerElement ().find (getFilterSubmitButton ());
   }
-
-  /*
-    Accepts no arguments and returns a jQuery
-    HTML Element that represents the search
-    input field.
-  */
-  function getSearchInputElement () {
-    return getBasicSearchContainerID ().find (getSearchInputSelector ());
-  }
-
-  /*
-    Accepts no arguments and returns a jQuery
-    HTML Element that represents the topic
-    input field.
-  */
-  // function getTopicInputElement () {
-  //   return getViewContainerElement ().find (getTopicInputSelector ());
-  // }
-
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
