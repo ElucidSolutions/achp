@@ -111,7 +111,6 @@
   Feature.prototype.init = function () {
     var self = this;
     this.resizeSlideElement ();
-    this.toggleSlideElement ();
     this.resizeFocusElement ();
     this.resizeSlideContainerElement ();
     this.centerFocusElement ();
@@ -121,7 +120,6 @@
     this.initSlideButtons ();
 
     $(window).resize (function () {
-      self.toggleSlideElement ();
       self.resizeFocusElement ();
       self.resizeSlideContainerElement ();
       self.centerFocusElement ();
@@ -142,23 +140,6 @@
       self.shouldShowSlideLeftButton () ? self.showSlideLeftButton () : self.hideSlideLeftButton ();
       self.shouldShowSlideRightButton () ? self.showSlideRightButton () : self.hideSlideRightButton ();
     }, 1000);
-  }
-
-  /*
-    Accepts no arguments, updates whether or
-    not the slide element is draggable, and
-    return undefined.
-
-    Note: this function sets the slide element as
-    draggable iff the slide element is clipped -
-    I.E. the feature element is smaller than the
-    slide element.
-  */
-  Feature.prototype.toggleSlideElement = function () {
-    this.slideElement.draggable (
-      this.slideElement.outerWidth (true) < this.element.width () ?
-        'disable' : 'enable'
-    );
   }
 
   /*
