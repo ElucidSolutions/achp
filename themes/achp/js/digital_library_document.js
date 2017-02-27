@@ -11,7 +11,10 @@
     Digital Library Landing page.
   */
   $(document).ready (function () {
-    isDigitalLibraryDocumentPage () && setLinks ();
+    if (isDigitalLibraryDocumentPage) {
+      setLinks ();
+      removeEmptyDownloadElement ();
+    }
   });
   
   /*
@@ -42,6 +45,16 @@
   }
 
   /*
+    Accepts no arguments, removes the Download
+    element if it is empty, and returns
+    undefined.
+  */
+  function removeEmptyDownloadElement () {
+    var downloadElement = getDownloadElement ();
+    isEmptyDownloadElement (downloadElement) && downloadElement.remove ();
+  }
+
+  /*
     Accepts one argument: termElement, a jQuery
     HTML Element that represents a field_tags
     item element; redirects termElement's link
@@ -51,6 +64,31 @@
   function setLink (termElement) {
     getTermLinkElement (termElement).attr ('href', getDigitalLibraryPath () + '&field_tags_target_id%5B%5D=' + getTermElementTargetID (termElement));
   }
+
+  /*
+    Accepts one argument: downloadElement,
+    a jQuery HTML Element that represents a
+    Download view element; and returns true iff
+    downloadElement is an empty view.
+  */
+  function isEmptyDownloadElement (downloadElement) {
+    return getDownloadLinkElement (downloadElement).length === 0;
+  }
+
+  /*
+    Accepts one argument: downloadElement,
+    a jQuery HTML Element that represents a
+    Download view element; and returns a jQuery
+    Result Set that represents the download link.
+  */
+  function getDownloadLinkElement (downloadElement) { return $('.views-field-field-download .field-content a', downloadElement); }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    Result Set that represents the Download
+    view element.
+  */
+  function getDownloadElement () { return $('[data-derivative-plugin-id^="document_download-block"]'); }
 
   /*
     Accepts one argument: termElement, a jQuery

@@ -87,8 +87,6 @@
     }
     [data-derivative-plugin-id="document_download-block_1"] {
       margin-bottom: $margin-med;
-      padding-bottom: $margin-med;
-      border-bottom: $separator;
 
       header {
         @include body-text-block;
@@ -123,6 +121,11 @@
           }
         }
       }
+    }
+    [data-achp-field-name="body"] {
+      margin-top: $margin-med;
+      border-top: $separator;
+      padding-top: $margin-med;
     }
     [data-achp-field-name="field_tags"] {
       border-top: $separator;
