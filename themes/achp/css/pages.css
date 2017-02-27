@@ -19070,55 +19070,12 @@ general office landing page */
       [data-page-node-type="report"] #main #content_region [data-derivative-plugin-id^="related_resources"] {
         padding: 0; }
 
-/*[data-page-path-alias^="/search"] {*/
-#header-container #header_search_region #block-header-search-filter {
-  height: 30px;
-  position: relative;
-  /*color: white;*/
-  /*border: 2px solid white;*/ }
-  @media (max-width: 1150px) {
-    #header-container #header_search_region #block-header-search-filter {
-      display: none; } }
-  #header-container #header_search_region #block-header-search-filter form {
-    height: 100%; }
-    #header-container #header_search_region #block-header-search-filter form .js-form-item {
-      height: 30px; }
-    #header-container #header_search_region #block-header-search-filter form .js-form-type-select, #header-container #header_search_region #block-header-search-filter form label {
-      display: none;
-      height: 100%; }
-    #header-container #header_search_region #block-header-search-filter form .js-form-type-textfield input {
-      border: 1px solid #979797;
-      font-size: 0.75rem;
-      height: 100%;
-      padding: 15px 11px;
-      outline: none;
-      width: 100%; }
-    #header-container #header_search_region #block-header-search-filter form .form-actions input[type="submit"] {
-      transition: background-color 0.25s;
-      background-color: #0990FE;
-      background-image: url(../images/search-icon.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 63%;
-      border: none;
-      border-radius: 0 2px 2px 0;
-      color: transparent;
-      cursor: pointer;
-      position: absolute;
-      height: 32px;
-      right: 0;
-      top: 0;
-      width: 32px;
-      appearance: none;
-      -webkit-appearance: none;
-      /*transition: background-color 0.25s;*/ }
-      #header-container #header_search_region #block-header-search-filter form .form-actions input[type="submit"]:hover {
-        background-color: #71BFFE; }
-
 /*
   This stylesheet defines the default styles
-  for the Search Results page.
+  for the Search Results page and the search input
+  in the header.
 */
+/* Search Results Page */
 [data-page-path^="/search"] {
   /*
     This stylesheet defines the default styles
@@ -19402,8 +19359,7 @@ general office landing page */
         padding-left: 20px;
         padding-right: 20px; } }
   [data-page-path^="/search"] #content #content_region {
-    font-family: "p22-underground", sans-serif;
-    /*#block-basic-search-form, #block-advanced-search-form {*/ }
+    font-family: "p22-underground", sans-serif; }
     [data-page-path^="/search"] #content #content_region #block-search-filters {
       font-family: "p22-underground", sans-serif;
       margin-bottom: 40px;
@@ -19471,14 +19427,6 @@ general office landing page */
           text-align: center; }
           [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions .field-content {
             line-height: 1.2rem; } }
-    [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
-      /*        left: 495px;
-              padding-bottom: 9px;
-              position: absolute;
-              top: 29px;*/ }
-      @media (max-width: 750px) {
-        [data-page-path^="/search"] #content #content_region #block-search-filters form .form-actions input[type="submit"] {
-          /*position: static;*/ } }
     [data-page-path^="/search"] #content #content_region ol {
       margin: 0;
       padding: 0 40px;
@@ -19557,6 +19505,48 @@ general office landing page */
               color: #0990FE; }
     [data-page-path^="/search"] #content #content_region h4 {
       color: #9B0008; }
+
+/* Header Search styles */
+#header-container #header_search_region #block-header-search-filter {
+  height: 30px;
+  position: relative; }
+  @media (max-width: 1150px) {
+    #header-container #header_search_region #block-header-search-filter {
+      display: none; } }
+  #header-container #header_search_region #block-header-search-filter form {
+    height: 100%; }
+    #header-container #header_search_region #block-header-search-filter form .js-form-item {
+      height: 30px; }
+    #header-container #header_search_region #block-header-search-filter form .js-form-type-select, #header-container #header_search_region #block-header-search-filter form label {
+      display: none;
+      height: 100%; }
+    #header-container #header_search_region #block-header-search-filter form .js-form-type-textfield input {
+      border: 1px solid #979797;
+      font-size: 0.75rem;
+      height: 100%;
+      padding: 15px 11px;
+      outline: none;
+      width: 100%; }
+    #header-container #header_search_region #block-header-search-filter form .form-actions input[type="submit"] {
+      transition: background-color 0.25s;
+      background-color: #0990FE;
+      background-image: url(../images/search-icon.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 63%;
+      border: none;
+      border-radius: 0 2px 2px 0;
+      color: transparent;
+      cursor: pointer;
+      position: absolute;
+      height: 32px;
+      right: 0;
+      top: 0;
+      width: 32px;
+      appearance: none;
+      -webkit-appearance: none; }
+      #header-container #header_search_region #block-header-search-filter form .form-actions input[type="submit"]:hover {
+        background-color: #71BFFE; }
 
 /*
   This stylesheet defines the default styles
