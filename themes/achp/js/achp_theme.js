@@ -842,7 +842,7 @@
     a JQuery HTML Element.
   */
   function getSearchBlockElement () {
-    return $('#block-achp-search');
+    return $('#block-header-search-filter');
   }
 
   /*
