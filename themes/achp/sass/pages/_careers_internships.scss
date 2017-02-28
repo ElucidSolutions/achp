@@ -3,7 +3,9 @@
 */
 
 #page[data-page-path-alias="/careers"],
-#page[data-page-path-alias="/internships"] {
+[data-page-path="/node/7602"],
+#page[data-page-path-alias="/internships"],
+[data-page-path="/node/7603"] {
 
   #secondary_header_region {
     #block-breadcrumbs {
@@ -73,7 +75,8 @@
 }
 
 #page[data-page-path-alias^="/careers/"],
-#page[data-page-path-alias^="/internships/"] {
+#page[data-page-path-alias^="/internships/"],
+[data-page-node-type="job_posting"] {
   @extend #page[data-page-node-type="page"];
 
   p a {

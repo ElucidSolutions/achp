@@ -1,4 +1,5 @@
-#page[data-page-path-alias^="/training/classroom"] {
+#page[data-page-path-alias^="/training/classroom"],
+[data-page-path="/node/7654"] {
   #secondary_header_region {
     #block-breadcrumbs {
       @include content-container;
@@ -66,7 +67,8 @@
   }
 }
 
-#page[data-page-path-alias^="/training/classroom/"] {
+#page[data-page-path-alias^="/training/classroom/"]
+[data-page-node-type="classroom_training_course"] {
   @extend #page[data-page-node-type="page"];
     $subsection-padding: 40px;
     margin-bottom: $subsection-padding;

@@ -66,7 +66,6 @@
     element, and returns undefined.
   */
   function setSearchInputPlaceholder () {
-        console.log('2')
     getSearchInputElement ().attr('placeholder', 'Search Keywords');
   }
 
