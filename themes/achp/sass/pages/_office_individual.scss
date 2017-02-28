@@ -49,6 +49,7 @@
           display: none;
         }
         & > ul {
+          list-style-type: none;
           margin: 0;
           padding: 0;
           position: relative;
@@ -57,7 +58,7 @@
           li {
             color: $color-darkgrey;
             font-family: $sans-text;
-            list-style: none;
+            list-style-type: none;
             padding-bottom: 15px;
             position: relative;
 
@@ -102,6 +103,15 @@
               }
               &-nothing-1 {
                 display: none;
+                
+                ul {
+                  margin: 0;
+                  padding: 0;
+
+                  li  {
+                    padding: 0;
+                  }
+                }
               }
             }
           }
