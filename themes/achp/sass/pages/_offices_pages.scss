@@ -63,13 +63,8 @@
 /* This selector applies to an office's pages, but not the 
 general office landing page */
 #page[data-page-path-alias^="/about/offices/"] {
-  #secondary_header_region {
-    #block-pagetitle-2 {
-      display: none;
-    }
-    nav:not(.achp-breadcrumb) {
-      @include content-container;
-    }
+  #secondary_header_region nav:not(.achp-breadcrumb) {
+    @include content-container;
   }
 
   #content #content_region {

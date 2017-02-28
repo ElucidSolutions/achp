@@ -4,7 +4,9 @@
 
 /* Styles for the agency assignment pages*/
 #page[data-page-path-alias="/about/offices/onaa/agencies"],
-#page[data-page-path-alias="/about/offices/ofap/agencies"] {
+#page[data-page-path-alias="/about/offices/ofap/agencies"],
+[data-page-path="/node/7565"],
+[data-page-path="/node/7700"] {
   @mixin create-header($label) {
     content: $label;
     color: #000;
@@ -106,6 +108,9 @@
         }
       }
     }
+    #block-ofap-agency-assignments .item-list:first-of-type > ul:before{
+      @include create-header('OFAP STAFF MEMBER');
+    }
     @media (max-width: 825px) {
       #block-onaa-agency-assignments, #block-ofap-agency-assignments {
         .item-list {
@@ -149,19 +154,43 @@
 }
 
 /* These selectors encompasses all pages beyond the overview */
-#page[data-page-path-alias^="/about/offices/onaa/"],
-#page[data-page-path-alias^="/about/offices/ofap/"],
-#page[data-page-path-alias^="/about/offices/ogc/"],
-#page[data-page-path-alias^="/about/offices/oed/"],
-#page[data-page-path-alias^="/about/offices/opi/"],
-#page[data-page-path-alias^="/about/offices/ocea/"] {
-  #secondary_header_region .achp-breadcrumb ol {
-    li.breadcrumb_page {
-      display: none;
+#page[data-page-path-alias="/about/offices/onaa/staff"],
+[data-page-path="/node/7567"], 
+#page[data-page-path-alias="/about/offices/onaa/agencies"]
+[data-page-path="/node/7565"],
+#page[data-page-path-alias="/about/offices/onaa"],
+#page[data-page-path-alias="/about/offices/ofap"],
+#page[data-page-path-alias="/about/offices/ofap/staff"],
+[data-page-path="/node/7579"], 
+#page[data-page-path-alias="/about/offices/ofap/agencies"],
+[data-page-path="/node/7700"], 
+#page[data-page-path-alias="/about/offices/ogc/"],
+#page[data-page-path-alias="/about/offices/ogc/staff"],
+[data-page-path="/node/7569"], 
+#page[data-page-path-alias="/about/offices/oed/"],
+#page[data-page-path-alias="/about/offices/oed/staff"],
+[data-page-path="/node/7567"], 
+#page[data-page-path-alias="/about/offices/opi/"],
+#page[data-page-path-alias="/about/offices/opi/staff"],
+[data-page-path="/node/7572"], 
+#page[data-page-path-alias="/about/offices/ocea/"],
+#page[data-page-path-alias="/about/offices/ocea/staff"],
+[data-page-path="/node/7571"],
+[data-page-node-type="achp_office"]
+
+ {
+  #secondary_header_region {
+    .achp-breadcrumb ol {
+      li.breadcrumb_page {
+        display: none;
+      }
+      li:nth-last-child(2) a {
+        color: $color-blue-primary;
+        cursor: text;
+      }
     }
-    li:nth-last-child(2) a {
-      color: $color-blue-primary;
-      cursor: text;
+    #block-pagetitle-2 {
+      display: none;
     }
   }
 }
@@ -171,7 +200,9 @@
 #page[data-page-path-alias="/about/offices/ogc"],
 #page[data-page-path-alias="/about/offices/oed"],
 #page[data-page-path-alias="/about/offices/opi"],
-#page[data-page-path-alias="/about/offices/ocea"] {
+#page[data-page-path-alias="/about/offices/ocea"],
+[data-page-node-type="achp_office"]
+ {
   #content #content_region #block-achp-content {
     margin-bottom: 40px;
   }

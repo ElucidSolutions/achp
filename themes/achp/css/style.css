@@ -1197,6 +1197,11 @@ form.contact-message-feedback-form {
         padding: 0 20px 10px; }
       [data-page-path="/contact/e106_submission_form"] #main #content_region .field--type-prompt-field strong {
         color: black; }
+    [data-page-path="/contact/e106_submission_form"] #main #content_region .field--type-email {
+      margin-bottom: 40px; }
+      [data-page-path="/contact/e106_submission_form"] #main #content_region .field--type-email input[type="email"] {
+        padding: 10px;
+        width: 100%; }
     [data-page-path="/contact/e106_submission_form"] #main #content_region .field--type-string-long {
       margin-bottom: 40px; }
       [data-page-path="/contact/e106_submission_form"] #main #content_region .field--type-string-long textarea {
@@ -1648,6 +1653,8 @@ form.contact-message-feedback-form {
         .event_calendar .event_calendar_grid_body .event_calendar_grid_card_location p {
           margin: 0;
           text-align: left; }
+        .event_calendar .event_calendar_grid_body .event_calendar_grid_card_location a {
+          color: #0990FE; }
       .event_calendar .event_calendar_grid_body .event_calendar_grid_card_description {
         display: none; }
       .event_calendar .event_calendar_grid_body .event_calendar_grid_card_footer {
@@ -1877,11 +1884,11 @@ the events landing page is different */
     justify-content: space-between;
     margin: 0 auto; }
     #header_menu ul[data-menu-level="0"] li[data-menu-level="0"] {
-      border: 3px solid transparent;
+      border: 1px solid transparent;
       border-bottom: none;
       box-sizing: border-box !important;
       display: inline-block;
-      height: 75px !important;
+      height: 73px !important;
       list-style-type: none;
       margin: 0;
       padding: 0 40px;
@@ -1890,7 +1897,7 @@ the events landing page is different */
         margin: 0; }
       #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected {
         background: white;
-        border: 3px solid #9B0008;
+        border: 1px solid #4A4A4A;
         border-bottom: none; }
         #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected a, #header_menu ul[data-menu-level="0"] li[data-menu-level="0"].menu_selected span {
           color: #008BFD; }
@@ -1954,7 +1961,7 @@ the events landing page is different */
         margin: 0;
         padding: 0 10px 10px 25px; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"].menu_selected {
-          border: 3px solid #9B0008;
+          border: 1px solid #4A4A4A;
           box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
           min-height: 150px; }
         #subheader_widescreen #subheader_widescreen_submenu_region #subheader_widescreen_submenu ul[data-menu-level="1"] li[data-menu-level="1"] {
@@ -2075,7 +2082,7 @@ the events landing page is different */
     position: relative; }
     #subheader #subheader_mobile #subheader_mobile_collapsible {
       background-color: white;
-      border: 3px solid #9B0008;
+      border: 1px solid #4A4A4A;
       display: none;
       height: 494px;
       overflow: hidden;
@@ -2114,15 +2121,28 @@ the events landing page is different */
             color: #4A4A4A; }
             #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_body > ul {
               margin: 0; }
-          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"], #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"] {
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"] {
             border-bottom: 1px solid #E2E2E2;
             cursor: pointer;
             font-size: 0.875rem;
             padding: 16px 24px;
             width: 100%; }
-            #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"]:hover {
+            #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_extra_item:hover, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:hover {
               background-color: #E8F8FF;
               color: #0990FE; }
+          #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"] {
+            border-bottom: 1px solid #E2E2E2;
+            cursor: pointer;
+            font-size: 0.875rem;
+            width: 100%; }
+            #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"]:hover {
+              background-color: #E8F8FF;
+              color: #0990FE; }
+            #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="2"] a {
+              display: block;
+              height: 100%;
+              padding: 16px 24px;
+              width: 100%; }
           #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide .menu_slide_list_item:after, #subheader #subheader_mobile #subheader_mobile_collapsible #subheader_mobile_body .menu_slide li[data-menu-level="1"]:after {
             background-image: url("../images/right-arrow-icon.svg");
             background-position: center;
@@ -3078,6 +3098,382 @@ the events landing page is different */
     font-weight: 600; }
 
 /*
+  This stylesheet defines the default styles
+  for the Internship Application Form.
+*/
+form.contact-message-internship-form {
+  /*
+    This stylesheet defines the default styles
+    for various elements as defined by the current
+    version of the ACHP styleguide.
+  */
+  /*
+    Accepts no arguments and removes the padding
+    and margins from the element this mixin is
+    applied to.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and mobile-value, another CSS value
+  
+    sets property to mobile-value and adds a media
+    query that sets property to mobile-value for
+    mobile screens.
+  */
+  /*
+    Accepts two arguments:
+  
+    * property, a CSS property
+    * and tablet-value, another CSS value
+  
+    sets property to tablet-value and adds a media
+    query that sets property to tablet-value for
+    tablet screens.
+  */
+  /*
+    Accepts four arguments:
+  
+    * property, a CSS property
+    * widescreen-value, a CSS value
+    * tablet-value, a CSS value
+    * and mobile-value, an optional CSS value
+  
+    sets property to widescreen-value and
+    adds media queries that sets property to
+    tablet-value and mobile-value for tablet and
+    mobile screens.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to
+    as a header element overriding the default
+    properties with the given values.
+  
+    Note: if $center is false, this mixin will
+    not add responsive behavior that centers text
+    within the element on small devices.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text element overriding the default
+    properties values with the given values.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    and renders the element it is applied to as
+    a header block element.
+  */
+  /*
+    Accepts three optional arguments:
+  
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $line-height, a CSS dimension
+  
+    and renders the element it is applied to as
+    a body text block element.
+  */
+  /*
+    Accepts two arguments:
+  
+    * front-size, a CSS length measure
+    * margin-bottom, a CSS length measure
+  
+    and sets both the font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area -
+    affecting the bottom margin.
+  */
+  /*
+    Accepts two arguments:
+  
+    * font-size, a CSS length measure
+    * and margin-bottom, a CSS length measure
+  
+    and sets the mobile font size and bottom margin
+    of the element that this mixin is applied to.
+  
+    Note: this mixin sets the bottom margin
+    because, in general, changing the font size
+    changes the size of the font's dropdown area.
+  */
+  /*
+    Accepts four length measures as
+    arguments: $widescreen-font-size,
+    $widescreen-margin-bottom, $mobile-font-size,
+    and $mobile-margin-bottom, and sets the
+    widescreen and mobile font sizes while
+    adjusting the bottom margins.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $highlight-color, a CSS color
+    * $line-height, a CSS dimension
+  
+    and renders the element that this mixin is
+    applied to as an anchor element.
+  */
+  /*
+    Accepts seven optional arguments:
+  
+    * $background-color, a CSS color
+    * $color, a CSS color
+    * $font-family, a font-family string
+    * $font-size, a CSS dimension
+    * $font-weight, a font-weight
+    * $highlight-color, a CSS color
+    * $uppercase, a boolea
+  
+    Renders the element that this mixin is applied
+    to as a button element.
+  
+    Note: if $uppercase is false this mixin does
+    not text-transform uppercase the button label.
+  */
+  /*
+    Renders the element that this mixin is applied
+    to as a blockquote element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H1 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H2 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H3 element.
+  */
+  /*
+    Accepts five optional arguments:
+  
+    * $color: a Color value
+    * $font-family: a font-family string
+    * $font-weight: a font-weight
+    * $line-height: a line-height
+    * and $center: a boolean value
+  
+    Renders the element that this mixin is applied
+    to as an H4 element.
+  */
+  /*
+    Accepts no arguments and styles the element
+    that this mixin is applied to as a table
+    element.
+  */
+  /*
+    Accepts one argument: $margin-bottom; and 
+    styles the element that this mixin is
+    applied to as a form label.
+  
+    Note: this mixin should be applied to label
+    elements.
+  */
+  /*
+    Accepts one argument: $placeholder-color,
+    a CSS color value; and styles the element
+    that this mixin is applied to as a textfield
+    form element.
+  
+    Note: this mixin should be applied to input
+    elements.
+  */
+  /*
+    Renders the element children of the element
+    that this mixin is applied to according to
+    the rules specified in the current styleguide.
+  */ }
+  form.contact-message-internship-form .form-item label {
+    display: none; }
+  form.contact-message-internship-form .form-item input.form-text {
+    border: 1px solid #7C7C7C;
+    border-radius: 2px;
+    height: 40px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    padding: 5px; }
+    form.contact-message-internship-form .form-item input.form-text::-webkit-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-text::-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-text:-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-text:-ms-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+  form.contact-message-internship-form .form-item input.form-email {
+    border: 1px solid #7C7C7C;
+    border-radius: 2px;
+    height: 40px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    padding: 5px; }
+    form.contact-message-internship-form .form-item input.form-email::-webkit-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-email::-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-email:-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-email:-ms-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+  form.contact-message-internship-form .form-item input.form-tel {
+    border: 1px solid #7C7C7C;
+    border-radius: 2px;
+    height: 40px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    padding: 5px; }
+    form.contact-message-internship-form .form-item input.form-tel::-webkit-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-tel::-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-tel:-moz-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+    form.contact-message-internship-form .form-item input.form-tel:-ms-input-placeholder {
+      font-family: "p22-underground", sans-serif;
+      font-size: 1rem;
+      color: #BBBBBB; }
+  form.contact-message-internship-form .form-item .description {
+    display: none; }
+  form.contact-message-internship-form .form-item input.field-add-more-submit {
+    transition: background-color 0.25s;
+    background-color: #0990FE;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-family: "p22-underground", sans-serif;
+    font-weight: 600;
+    padding: 12px 38px 8px;
+    text-transform: uppercase; }
+    form.contact-message-internship-form .form-item input.field-add-more-submit:hover {
+      background-color: #71BFFE; }
+    @media screen and (max-width: 650px) {
+      form.contact-message-internship-form .form-item input.field-add-more-submit {
+        line-height: 1.2rem; } }
+    form.contact-message-internship-form .form-item input.field-add-more-submit a {
+      color: white; }
+  form.contact-message-internship-form .field--type-boolean {
+    float: left;
+    margin-bottom: 40px;
+    margin-left: 10px; }
+    form.contact-message-internship-form .field--type-boolean .form-item input.form-checkbox {
+      float: left;
+      margin-top: 9px; }
+    form.contact-message-internship-form .field--type-boolean .form-item label {
+      display: block;
+      float: left; }
+  form.contact-message-internship-form .field--type-prompt-field {
+    clear: both; }
+  form.contact-message-internship-form .field--type-datetime {
+    margin-bottom: 40px; }
+  form.contact-message-internship-form .field--name-field-intern-degrees {
+    margin-bottom: 40px; }
+  form.contact-message-internship-form .tabledrag-toggle-weight-wrapper {
+    display: none; }
+  form.contact-message-internship-form .form-actions {
+    margin-bottom: 40px; }
+    form.contact-message-internship-form .form-actions input[type="submit"] {
+      transition: background-color 0.25s;
+      background-color: #0990FE;
+      border: none;
+      border-radius: 2px;
+      color: white;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      font-family: "p22-underground", sans-serif;
+      font-weight: 600;
+      padding: 12px 38px 8px;
+      text-transform: uppercase;
+      padding-top: 9px; }
+      form.contact-message-internship-form .form-actions input[type="submit"]:hover {
+        background-color: #71BFFE; }
+      @media screen and (max-width: 650px) {
+        form.contact-message-internship-form .form-actions input[type="submit"] {
+          line-height: 1.2rem; } }
+      form.contact-message-internship-form .form-actions input[type="submit"] a {
+        color: white; }
+
+/*
 ** This Sass file defines the styles for the 
 ** Issues in Preservation module.
 */
@@ -3346,6 +3742,30 @@ the events landing page is different */
           #homepage_news_content #block-views-block-latest-news-block #homepage_quicklinks_region #homepage_quicklinks_content .view-item-3#block-quicklinks-column-3 .homepage_news_item .news_item_title:hover:after,
           #homepage_quicklinks_region #homepage_quicklinks_content #homepage_news_content #block-views-block-latest-news-block .view-item-3#block-quicklinks-column-3 .homepage_news_item .news_item_title:hover:after {
             background-image: url("../images/right-arrow-icon-blue.svg"); } }
+
+.node-attachments {
+  font-size: 1.125rem;
+  margin: 35px 0 25px;
+  max-width: 100%; }
+  .node-attachments header {
+    background-color: #fff;
+    height: auto; }
+    .node-attachments header h3 {
+      color: #9B0008;
+      font-size: 1.375rem; }
+      .node-attachments header h3:after {
+        background-color: #C6C6C6;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px; }
+  .node-attachments .views-field-field-file, .node-attachments .views-field-title-1 {
+    margin-top: 20px; }
+    .node-attachments .views-field-field-file a, .node-attachments .views-field-title-1 a {
+      color: #0990FE;
+      font-family: "p22-underground", sans-serif; }
+  .node-attachments .views-field-body {
+    color: #4A4A4A; }
 
 /*
   This stylesheet defines default styling for
@@ -6669,7 +7089,7 @@ header {
   Homepage Hero region.
 */
 #homepage_hero_region {
-  background-image: url("../images/columns-banner-bg.png");
+  background-image: url("../images/achp-banner-main-new.jpg");
   background-position: center;
   background-size: cover;
   height: 500px;
@@ -7194,8 +7614,6 @@ button {
 
 a {
   text-decoration: none; }
-  a:focus {
-    outline: none; }
 
 #outer_container {
   background-color: #fff; }

@@ -224,6 +224,9 @@ $section_106_map_share_padding: 10px;
             color: black;
             font-size: 1rem;
 
+            a {
+              font-size: 1rem !important; 
+            }
             .section_106_case_field {
               font-family: $serif-text;
             }
@@ -246,6 +249,13 @@ $section_106_map_share_padding: 10px;
             .section_106_map_case_body_agency_header,
             .section_106_map_case_body_contact_header {
               margin-top: 10px;
+            }
+            .section_106_map_case_contact_email {
+              font-size: 1rem;
+
+              a {
+                font-size: 1rem !important; 
+              }
             }
             .section_106_map_case_contact_title {
               color: rgb(186, 186, 186);
@@ -379,9 +389,21 @@ $section_106_map_share_padding: 10px;
                   .section_106_map_case_location {
                     display: none;
                   }
+                  .section_106_map_case_body {
+                    a {
+                      font-size: 1rem !important; 
+                    }
+                  }
                   .section_106_map_case_body_contact > div {
                     display: block;
                     margin-left: 0;
+                  }
+                  .section_106_map_case_contact_email {
+                    font-size: 1rem;
+
+                    a {
+                      font-size: 1rem !important; 
+                    }
                   }
                   .section_106_map_case_footer {
                     margin: 10px 0;

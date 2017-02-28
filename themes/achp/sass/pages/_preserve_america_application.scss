@@ -1,3 +1,4 @@
+[data-page-path="/node/7517"],
 [data-page-path-alias="/preserve-america/application"] {
   #content #content_region {
 
@@ -22,21 +23,20 @@
           }
         }
       }
-      p a {
+      p a, .application_link a {
         color: $color-blue-primary;
+      }
+      p > .application_link {
+        margin-bottom: 0;
+      }
+      h3 + p {
+        margin-top: 5px !important;
       }
       h4 {
         margin-bottom: 10px;
       }
-      .read_more a {
-        // position: relative;
-        // text-transform: uppercase;
-
-        &:after {
-          // @include undo-center-y;
-          // margin-left: 10px;
-          // top: -1px;
-        }
+      .read_more {
+        margin-bottom: 25px;
       }
     }
 

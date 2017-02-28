@@ -4,7 +4,8 @@
 */
 
 #page[data-page-path-alias^="/indian-tribes-native-hawaiians"],
-#page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"] {
+#page[data-page-path-alias^="/indian-tribes-and-native-hawaiians"],
+[data-page-path="/node/7542"]  {
   $vertical-padding: 35px;
   $container-padding: 50px;
   $img-height: 200px;
@@ -39,7 +40,6 @@
       width: 100%;
 
       #block-achp-content {
-        /*@include content-container;*/
 
         h2 {
           text-align: left;
@@ -148,7 +148,6 @@
         background-color: $background-color-grey2;
         clear: both;
         height: auto;
-        padding-bottom: $vertical-padding;
 
         [data-view-id="homepage_success_stories"] {
           @include content-container;
@@ -446,14 +445,16 @@
 }
 
 #page[data-page-path-alias="/indian-tribes-native-hawaiians"],
-#page[data-page-path-alias="/indian-tribes-and-native-hawaiians"] {
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiians"],
+[data-page-path="/node/7542"]  {
   #content #content_region #block-achp-content {
     @include content-container;
   }
 }
 
 #page[data-page-path-alias="/indian-tribes-native-hawaiians/youth"],
-#page[data-page-path-alias="/indian-tribes-and-native-hawaiians/youth"] {
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiians/youth"],
+[data-page-path="/node/7608"] {
   #content #content_region #block-achp-content {
     @include content-container;
     margin-bottom: 50px;
@@ -478,7 +479,8 @@
 }
 
 #page[data-page-path-alias="/indian-tribes-native-hawaiians/native-hawaiian-federal-interagency-working-group"],
-#page[data-page-path-alias="/indian-tribes-and-native-hawaiians/native-hawaiian-federal-interagency-working-group"] {
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiians/native-hawaiian-federal-interagency-working-group"],
+[data-page-path="/node/7689"]  {
   #content #content_region #block-achp-content {
     @include content-container;
     margin-bottom: 40px;

@@ -70,7 +70,7 @@
     that represents the external link URL.
   */
   function getExternalLink (rowElement) {
-    return $('a', getExternalLinkElement (rowElement)).attr ('href');
+    return getExternalLinkElement (rowElement).attr ('href');
   }
 
   /*
