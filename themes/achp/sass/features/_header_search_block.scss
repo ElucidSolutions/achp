@@ -4,7 +4,7 @@
 */
 
 /* Header Search styles */
-#header_search_region,
+#header_widescreen_search_bar,
 #subheader_mobile_search {
   #block-header-search-filter {
     height: 30px;
@@ -16,6 +16,15 @@
     form {
       height: 100%;
 
+      label {
+        display: none;
+      }
+      .form-item-topic {
+        display: none;
+      }
+      .form-item-type {
+        display: none;
+      }
       .js-form-item {
         height: 30px;
       }
