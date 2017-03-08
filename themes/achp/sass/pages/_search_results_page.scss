@@ -200,12 +200,12 @@
 }
 
 /* Header Search styles */
-#header-container #header_search_region {
+#header-container #header_search_region, #subheader #subheader_mobile_search {
   #block-header-search-filter {
     height: 30px;
     position: relative;
 
-    @media (max-width: 1150px) {
+    @media (min-width: 1150px) {
       display: none;
     }
     form {
