@@ -759,6 +759,61 @@ form.contact-message-feedback-form {
 
 /*
   This stylesheet defines the default styles
+  for the Header Search block.
+*/
+/* Header Search styles */
+#header_search_region #block-header-search-filter,
+#subheader_mobile_search #block-header-search-filter {
+  height: 30px;
+  position: relative; }
+  @media (min-width: 1150px) {
+    #header_search_region #block-header-search-filter,
+    #subheader_mobile_search #block-header-search-filter {
+      display: none; } }
+  #header_search_region #block-header-search-filter form,
+  #subheader_mobile_search #block-header-search-filter form {
+    height: 100%; }
+    #header_search_region #block-header-search-filter form .js-form-item,
+    #subheader_mobile_search #block-header-search-filter form .js-form-item {
+      height: 30px; }
+    #header_search_region #block-header-search-filter form .js-form-type-select, #header_search_region #block-header-search-filter form label,
+    #subheader_mobile_search #block-header-search-filter form .js-form-type-select,
+    #subheader_mobile_search #block-header-search-filter form label {
+      display: none;
+      height: 100%; }
+    #header_search_region #block-header-search-filter form .js-form-type-textfield input,
+    #subheader_mobile_search #block-header-search-filter form .js-form-type-textfield input {
+      border: 1px solid #979797;
+      font-size: 0.75rem;
+      height: 100%;
+      padding: 15px 11px;
+      outline: none;
+      width: 100%; }
+    #header_search_region #block-header-search-filter form .form-actions input[type="submit"],
+    #subheader_mobile_search #block-header-search-filter form .form-actions input[type="submit"] {
+      transition: background-color 0.25s;
+      background-color: #0990FE;
+      background-image: url(../images/search-icon.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 63%;
+      border: none;
+      border-radius: 0 2px 2px 0;
+      color: transparent;
+      cursor: pointer;
+      position: absolute;
+      height: 32px;
+      right: 0;
+      top: 0;
+      width: 32px;
+      appearance: none;
+      -webkit-appearance: none; }
+      #header_search_region #block-header-search-filter form .form-actions input[type="submit"]:hover,
+      #subheader_mobile_search #block-header-search-filter form .form-actions input[type="submit"]:hover {
+        background-color: #71BFFE; }
+
+/*
+  This stylesheet defines the default styles
   for the e106 content type.
 */
 [data-page-path="/contact/e106_submission_form"] {
