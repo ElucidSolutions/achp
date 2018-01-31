@@ -75,13 +75,14 @@
   <div id="news_item_page">
     <div id="news_content_container">
       <div class="news_item_body">{{ content.body }}</div>
-      <hr class="news_divider" />
-      <div class="news_item_tags">
-        <div class="news_item_tags_label">TOPICS</div>
-        {{ content.field_tags }}
-      </div>
-      <div class="news_item_photo">
-        {{ content.field_news_photo }}
-      </div>   
+      {% if content.field_tags[0] != "" and content.field_news_attachments[0] != "" %}
+        <hr class="news_divider" />
+      {% endif %}      
+      {% if content.field_tags[0] != "" %}
+        <div class="news_item_tags">
+          <div class="news_item_tags_label">TOPICS</div>
+          {{ content.field_tags }}
+        </div>
+      {% endif %}
     </div>
   </div>

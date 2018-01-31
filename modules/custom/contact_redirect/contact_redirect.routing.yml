@@ -1,0 +1,10 @@
+# Defines the paths for pages defined by the
+# Contact Redirect module.
+
+contact_redirect.settings:
+  path: '/admin/structure/contact_redirect/settings'
+  defaults:
+    _form: '\Drupal\contact_redirect\ContactRedirectSettingsForm'
+    _title: 'Contact Redirect Settings'
+  requirements:
+    _permission: 'administer site configuration'

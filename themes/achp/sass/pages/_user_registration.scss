@@ -1,0 +1,25 @@
+/*
+  This stylesheet defines the default styles
+  for the User Registration page.
+*/
+[data-page-path="/user/register"] {
+  @import "../styleguide";
+
+  #block-useraccountregistrationpagetitle {
+    h1 {
+      @include h1($color: $color-darkblue);
+      text-align: center;
+
+      &:after {
+        border-bottom: 1px solid $color-red;
+        content: "";
+        display: block;
+        margin: $margin-small auto $margin-med;
+        width: 40%;
+      }
+    }
+  }
+  [data-plugin-id="share_this_page_block"] {
+    margin-bottom: $margin-med;
+  }
+}

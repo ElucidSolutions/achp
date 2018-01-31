@@ -1,0 +1,219 @@
+#page[data-page-path-alias^="/about/council-members"],
+[data-page-node-type="council_member"] {
+  $page-horiz-padding: 40px;
+  #secondary_header_region {
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region {
+    font-size: rem(18px);
+
+    h4 {
+      color: $color-red2;
+      margin-bottom: 15px;
+    }
+
+    #block-council-member-list, #block-council-member-list2 {
+      margin-bottom: 40px;
+
+      $row-padding: 20px;
+      $vertical-padding: 35px;
+      $container-padding: 50px;
+      $left-column-width: 275px;
+
+      header {
+        background-color: #fff;
+        height: auto;
+
+        h2 {
+          text-align: left;
+
+          & + h4 {
+            margin-top: 0;
+          }
+        }
+      }
+      .views-row {
+        @include clear-float;
+        border-bottom: 1px solid $background-color-grey2;
+        border-top: 4px solid white;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+        font-family: $sans-text;
+        padding: $row-padding;
+        position: relative;
+        width: 100%;
+
+        &:first-of-type {
+          border-top: 1px solid $background-color-grey2;
+        }
+        .views-field {
+          width: $left-column-width;
+          position: relative;
+
+          &-title a {
+            color: $color-darkblue;
+            font-weight: 500;
+          }
+          &-field-council-position {
+            color: $color-red2;
+          }
+          &-field-council-term {
+            color: $color-lightgrey-2;
+
+            div {
+              display: inline;
+              padding-left: 5px;
+            }
+          }
+          &-field-council-location {
+            color: $color-grey;
+          }
+          &-field-council-designation .field-content {
+            display: inline-block;
+            font-weight: 300;
+            margin-top: 8px;
+            
+            .General {
+              background-color: $color-lightblue3;
+              padding: 8px 10px 5px;
+            }
+            .Expert {
+              background-color: #ffe5e0;
+              padding: 8px 10px 5px;
+            }
+          }          
+          &-body, &-body-1 {
+            border-left: 1px solid $background-color-grey2;
+            float: right;
+            font-family: $serif-text;
+            padding: 0 0 $vertical-padding $row-padding;
+            width: calc(100% - #{$left-column-width} + #{$row-padding});
+
+            p:first-of-type {
+              margin-top: 0;
+            }
+          }
+          &-body-1 {
+            border-left: none;
+            display: none;
+            float: none;
+            width: 100%;
+          }
+          &-view-node, &-view-node-1 {
+            bottom: 20px;
+            left: calc(#{$left-column-width} + #{$row-padding});
+            position: absolute;
+            width: auto;
+
+            .read-more a {
+              // padding-right: 15px;
+
+              &:after {
+                // height: 19px;
+              }
+            }
+          }
+          &-view-node-1 {
+            display: none;
+            left: 0;
+            width: 100%;
+          }   
+        }      
+      }
+    }
+    #block-council-member-boxes, #block-council-member-observer-boxes {
+      $box-width: 220px;
+      $box-height: 175px;
+      $box-margin: 6px;
+      $box-padding: 15px;
+      $designee-box-height: 360px;
+      $designee-box-width: 250px;
+
+      padding-bottom: 50px;
+
+      .council_box_group {
+        font-family: $sans-text;
+        padding-bottom: 10px;
+        text-align: center;
+
+        .council_box {
+          box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+          display: inline-block;
+          height: $box-height;
+          margin: $box-margin;
+          width: $box-width;
+          position: relative;
+
+          .council_box_text {
+            @include center-xy;
+            width: calc(#{$box-width} - #{$box-padding} * 2);
+
+            .council_name {
+              color: $color-darkblue;
+              font-weight: 500;
+              padding-bottom: 5px;
+            }
+            .council_position {
+              color: $color-red2;
+            }
+          }
+          &.council_box_with_designee {
+            height: $designee-box-height;
+            padding: 0;
+            width: $designee-box-width;
+
+            .council_box_text {
+              @include center-x;
+              position: absolute;
+              top: $box-padding;
+              width: calc(#{$designee-box-width} - #{$box-padding} * 2);
+            }
+            .council_designee {
+              background-color: rgba(244,244,244,1);
+              color: $color-grey2;
+              height: 55%;
+              position: absolute;
+              top: 45%;
+              width: 100%;
+
+              .council_designee_box_text {
+                @include center-x;
+
+                .council_designee_name {
+                  color: $color-blue-primary;
+                  font-weight: 500;
+                  padding: 5px 0;
+                }
+                .council_designee_position {
+                  color: #000;
+                }
+              }
+            }
+          }
+        }
+      } 
+    }
+    @media (max-width: 700px) {
+      #block-council-member-list, #block-council-member-list2 {
+        .views-row .views-field {
+          width: 100%;
+
+          &-body, &-view-node {
+            display: none;
+          }
+          &-body-1 {
+            display: block;
+            padding: 15px 0 35px;
+          }
+          &-view-node-1 {
+            display: block;
+            width: auto;
+            left: 20px;
+          }
+        }
+      }
+    }
+  }
+}

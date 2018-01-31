@@ -1,0 +1,54 @@
+/*
+  This stylesheet defines the default styles
+  for the User Registration form.
+*/
+
+/*
+  Accepts no arguments and styles the element
+  that this mixin is applied to as generic
+  prompt text.
+*/
+@mixin achp-text {
+  @include body-text;
+  color: $color-darkgrey2;
+}
+
+
+form.user-register-form {
+  @import "../styleguide";
+
+  &:before {
+    @include achp-text;
+    content: "Please enter your contact information.";
+    display: block;
+    margin-bottom: $margin-med;
+  }
+  .form-item {
+    label {
+      @include achp-label;
+    }
+    input.form-text {
+      @include achp-textfield;
+    }
+    input.form-email {
+      @include achp-textfield;
+    }
+    .description {
+      display: none;
+    }
+  }
+  .form-actions {
+    margin-bottom: $margin-large;
+
+    &:before {
+      @include achp-text;
+      content: "An ACHP Site administrator will review your registration. Upon confirmation you will receive a confirmation email to set your password and setup your account.";
+      display: block;
+      margin-bottom: $margin-large;
+    }
+    input[type="submit"] {
+      @include achp-button;
+      padding-top: 9px;
+    }
+  }
+}

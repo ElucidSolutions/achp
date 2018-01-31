@@ -80,7 +80,7 @@
         <div{{ item.attributes }} class="{{ field_name }}">{{ item.content }}</div>
         {% if item.content['#item'].alt %}
           <div class="field_image_caption">{{ item.content['#item'].alt }}</div>
-          {% endif %}
+        {% endif %}
       {% endfor %}
     </div>
   {% else %}
@@ -92,7 +92,7 @@
   <div{{ attributes }}>
     <div{{ title_attributes }} class="{{ field_name }}_label">{{ label }}</div>
     {% if multiple %}
-      <div">
+      <div>
     {% endif %}
     {% for item in items %}
       <div{{ item.attributes }} class="{{ field_name }}">{{ item.content }}</div>

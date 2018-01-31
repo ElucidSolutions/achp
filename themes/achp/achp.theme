@@ -1,5 +1,32 @@
 <?php
 
+use Drupal\file\Entity\File;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_preprocess_block ().
+ *
+ * Ensures that every block element includes
+ * its block ID in a data attribute.
+ */
+function achp_preprocess_block (&$variables) {
+  $variables ['attributes']['data-plugin-id']            = $variables ['plugin_id'];
+  $variables ['attributes']['data-derivative-plugin-id'] = $variables ['derivative_plugin_id'];
+  $variables ['attributes']['data-base-plugin-id']       = $variables ['base_plugin_id'];
+}
+
+
+/**
+ * Implements hook_preprocess_views_view ().
+ *
+ * Ensures that every view element includes its
+ * view ID in a data attribute.
+ */
+function achp_preprocess_views_view (&$variables) {
+  $variables ['attributes']['data-view-id'] = $variables ['id'];
+}
+
 // Implements hook_preprocess ().
 function achp_preprocess_views_view__community_spotlight (&$variables) {
   foreach ($variables['rows'] as $id => &$row) {
@@ -9,11 +36,66 @@ function achp_preprocess_views_view__community_spotlight (&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_views_view_list ().
+ *
+ * Ensures that every view list item element includes its
+ * item number.
+ */
+function achp_preprocess_views_view_list (&$variables) {
+  \Drupal::logger('achp_theme')->notice('[achp_preprocess_views_view_list] variable keys: <pre>' . print_r (array_keys($variables), true) . '</pre>');
+  \Drupal::logger('achp_theme')->notice('[achp_preprocess_views_view_list] view class: <pre>' . print_r (get_class($variables['view']), true) . '</pre>');
+  $view = $variables['view'];
+  $start_index = $view->getItemsPerPage () * $view->getCurrentPage ();
+  $variables['attributes']['data-achp-theme-view-start-index'] = $start_index;
+}
+
+/**
  * Implements hook_preprocess_page ().
+ *
+ * Expose node/view IDs as template variables.
  */
 function achp_preprocess_page (&$variables) {
+  \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_page] variables: <pre>' . print_r (array_keys ($variables), true) . '</pre>');
+
+  $current_path = \Drupal::service ('path.current')->getPath ();
+  $variables ['page_path'] = $current_path;
+  $variables ['page_path_alias'] = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+
   if (isset ($variables ['node'])) {
     $variables ['node_type'] = $variables ['node']->getType ();
+    $variables ['node_id']   = $variables ['node']->id ();
+  }
+  $parameters = \Drupal::routeMatch ()->getParameters ();
+  if ($parameters->has ('view_id')) {
+    $variables ['view_id'] = $parameters->get ('view_id');
+  }
+}
+
+/**
+ * Implements hook_preprocess_node ().
+ *
+ * This function adds variables to the node
+ * template that represent system settings such
+ * as date_default_timezone.
+ *
+ * It also adds the URL of each file field item
+ * to the file's item array.
+ */
+function achp_preprocess_node (&$variables) {
+  \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_node] variables: <pre>' . print_r (array_keys ($variables), true) . '</pre>');
+  $variables ['achp_default_timezone'] = date_default_timezone_get ();
+
+  $node = $variables ['node'];
+  $field_definitions = \Drupal::service ('entity_field.manager')->getFieldDefinitions ('node', $node->getType ());
+  foreach ($field_definitions as $field_name => $field_definition) {
+    $field = $node->get ($field_name);
+    if ($field instanceof \Drupal\file\Plugin\Field\FieldType\FileFieldItemList) {
+      foreach ($field->referencedEntities () as $key => $file) {
+        if ($file instanceof \Drupal\file\Entity\File) {
+          $variables ['content'][$field_name][$key]['file_url'] = file_create_url ($file->getFileUri ());
+        }
+      }
+    }
   }
 }
 
@@ -47,4 +129,122 @@ function achp_pre_render_alter (&$build) {
  */
 function achp_form_views_exposed_form_alter (&$form, &$form_state, $form_id) {
   $form ['field_news_date_value']['#weight'] = 20;
+
+  switch ($form ['#id']) {
+    case 'views-exposed-form-digital-library-page-1':
+    case 'views-exposed-form-digital-library-page-2':
+    case 'views-exposed-form-digital-library-page-3':
+    case 'views-exposed-form-digital-library-page-4':
+    case 'views-exposed-form-digital-library-page-5':
+    case 'views-exposed-form-digital-library-page-6':
+      \Drupal::logger ('achp_theme')->notice ('[achp_form_views_exposed_form_alter] form: <pre>' . print_r (array_keys ($form ['keys']), true) . '</pre>');
+      $form ['keys']['#attributes']['placeholder'] = 'Search';
+
+      $form ['type']['#attributes']['class'][] = 'achp-select'; 
+      $form ['type']['#attributes']['data-placeholder'] = 'All Types';
+
+      $form ['field_tags_target_id']['#attributes']['class'][] = 'achp-select';
+      $form ['field_tags_target_id']['#attributes']['data-placeholder'] = 'All Topics';
+
+      $form ['actions']['submit']['#value'] = 'Search';
+
+      $form ['#submit'][] = 'achp_digital_library_form_submit';
+      break;
+  }
+}
+
+/**
+ * Process the select fields in the Digital
+ * Library view form.
+ *
+ * Note: this function must be added to
+ * the form's submit handlers list using
+ * hook_form_alter.
+ */
+function achp_digital_library_form_submit (&$form, $form_state) {
+  // select all of the content type options if none have been explicitly selected.
+  if (empty ($form ['type']['#value'])) {
+    foreach ($form ['type']['#options'] as $option) {
+      array_push ($form ['type']['#value'], $option);
+    }
+  }
+
+  // select all of the topic options if none have been explicitly selected.
+  if (empty ($form ['field_tags_target_id']['#value'])) {
+    foreach ($form ['field_tags_target_id']['#options'] as $option) {
+      array_push ($form ['field_tags_target_id']['#value'], $option);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_hook ()
+ *
+ * Exposes node fields in Entity Reference
+ * field templates.
+ */
+function achp_preprocess_field (&$variables, $hook) {
+  if ($variables ['field_type'] === 'entity_reference') {
+    foreach ($variables ['element']['#items'] as $item_key => $item) {
+      $id = $item->getValue () ['target_id'];
+      $variables ['items'][$item_key]['attributes']['data-achp-field-item-target-id'] = $id;
+
+      $term = $term = Term::load($id);
+      if ($term) {
+        $variables ['achp_field_entity_type'] = 'term';
+        continue;
+      }
+      $variables ['achp_field_entity_type'] = 'node';
+
+      $node = entity_load ('node', $id);
+      if (!$node) { continue; }
+
+      $title_value = $node->title->first ();
+      if ($title_value) { 
+        $variables ['items'][$item_key]['title'] = $title_value->getString (); 
+      }
+
+      $url = null;
+
+      if ($node->field_attachment) {
+        $value = $node->field_attachment->first ()->getValue ();
+        $file = File::load ($value ['target_id']);
+        $url = $file->url (); 
+      } else {
+        global $base_url;
+        $url = $base_url . \Drupal::service ('path.alias_manager')->getAliasByPath ('/node/' . $id);
+      }
+
+      $variables ['items'][$item_key]['url'] = $url;
+
+      foreach ($node->body->getValue () as $value_key => $value) {
+        $variables ['items'][$item_key]['body'] = $value ['summary'] ? 
+          $value ['summary'] :
+          $value ['value'];
+      }
+    }
+  }
+}
+
+/**
+* Implements hook_preprocess_search_result ()
+*
+* Adds additional template variables to the
+* search-result template.
+*/
+function achp_preprocess_search_result (&$variables) {
+  // \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_search_result] result: <pre>' . print_r ($variables ['result'], true) . '</pre>');
+  if (isset ($variables ['result']['node'])) {
+    $node = $variables ['result']['node'];
+    $node_type = $node->getType ();
+
+    $node_type_label = \Drupal::entityTypeManager ()
+    ->getStorage ('node_type')
+    ->load ($node_type)
+    ->label ();
+
+    $variables ['node_type'] = $node_type_label;
+  // \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_search_result] node type: ' . $node_type);
+  // \Drupal::logger ('achp_theme')->notice ('[achp_preprocess_search_result] node type label: ' . $node_type_label);
+  }
 }

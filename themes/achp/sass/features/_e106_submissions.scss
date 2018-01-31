@@ -1,0 +1,46 @@
+/*
+  This stylesheet defines the default styles
+  for the e106 Submissions block table, which
+  lists the status of the e106 notifications
+  submitted by the current user.
+*/
+[data-derivative-plugin-id="contact_messages-block_1"] {
+  @import "../styleguide";
+
+  h2 {
+    @include h2($center: false);
+    margin-bottom: 0;
+    text-align: left;
+  }
+  header {
+    background-color: transparent;
+  }
+  table {
+    @include table;
+    width: 100%;
+
+    thead {
+      tr {
+        th {
+          color: black;
+          font-family: $sans-text;
+          font-size: rem(16px);
+          font-weight: 500;
+          padding: $margin-small 0 $margin-xsmall;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          border: 1px solid $background-color-grey2;
+          padding: $margin-med;
+
+          &.views-field-field-e106-notification-status {
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}

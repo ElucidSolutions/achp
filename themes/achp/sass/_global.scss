@@ -1,6 +1,7 @@
 /* Global variables: widths, heights, & breakpoints */
 
 $max-content-width: 1024px;
+$max-content-width-with-padding: 1124px;
 $mobile-breakpoint: 650px;
 $hero-breakpoint: 925px;
 $menu-breakpoint: 1150px;
@@ -8,52 +9,53 @@ $header-height: 100px;
 $header-mobile-height: 75px;
 $header-menu-height: 72px;
 $header-menu-widescreen-width: 1024px;
-$header-menu-border-width: 3px;
+$header-menu-border-width: 1px;
 $header-title-medium-width: 300px;
 $header-title-small-width: 225px;
 $header-logo-width: 89px;
 $header-logo-small-width: 64px;
 $header-logo-mobile-width: 48px;
-/*$arrow-width: 8px;
-$arrow-padding: 5px;*/
 $more-quicklinks-height: 51px;
 $quicklink-image-height: 160px;
+$quicklink-image-width: 270px;
 $quicklink-item-height: 67px;
 $quicklink-header-height: 160px + 100px;
 $mobile-card-item-height: 75px;
+$mobile-horiz-padding: 20px;
+
 
 /* Global variables: text */
 
 $sans-text: 'p22-underground', sans-serif;
-$serif-text: 'minion-pro', serif;
+$serif-text: 'minion-pro', Times, serif;
 $base-text-size: 16px;
 $default-line-height: 1.5;
 $default-letter-spacing: 0.02rem;
 
 /* Global variables: colors */
 
+/* Colors in Styleguide */
+$color-darkblue2: #003A5E; /* navy blue */
+$color-blue-primary: #0990FE; /* primary blue */
+$color-lightblue3: #E6F8FF; /* light blue */
+$color-red2: #9B0008; /* deep red */
+$color-red4: #D51107;  /* red */
+$color-pink: #FF9A86; /* pink */
+$color-grey2: #4A4A4A; /* dark gray */
+$color-lightgrey-2: #7C7C7C; /* gray */
+$background-color-grey2: #E5E3E4; /* light gray */
+$color-grey: #4F4F4F; /* lightest gray */
+
+/* Colors not in Styleguide */
 $color-darkblue: #043B62;
-$color-darkblue2: #003A5E;
 $color-darkblue3: #003A53;
-$color-medblue: #013B5E;
-$color-blue-primary: #0990FE;
 $color-lightblue-primary: #71BFFE;
-$color-blue: #0990FE;
-$color-lightblue: #309AEE;
-$color-lightblue2: #008BFD;
-$color-lightblue3: #E6F8FF;
 $color-red: #950306;
-$color-red2: #9B0008;
-$color-red3: #CD1803;
-$color-grey: #4F4F4F;
-$color-grey2: #4A4A4A;
 $color-grey3: #E2E2E2;
 $color-darkgrey: #262626;
 $color-darkgrey2: #1E1E1E;
 $color-lightgrey: #C6C6C6;
-$color-lightgrey-2: #7C7C7C;
 $background-color-grey: #F4F4F4;
-$background-color-grey2: #E5E3E4;
 $background-color-lightblue: #E8F8FF;
 
 /* Variables for homepage cards */
@@ -63,92 +65,109 @@ $card-margin-horiz: 20px;
 $card-height: 400px;
 $card-width: 300px;
 
-/* Grid variables */
+/* Bourbon Grid variables */
 
 $gutter: 0;
 $grid-columns: 12;
 
 /* Mixin for centering horizontally */
-
 @mixin center-x {
-  position: absolute;
+  @include prefixer(transform, translateX(-50%), webkit moz ms o spec);
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
+  position: absolute;
 }
-
 
 /* Mixin for centering vertically */
-
 @mixin center-y {
+  @include prefixer(transform, translateY(-50%), webkit moz ms o spec);
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translategY(-50%);
-  transform: translateY(-50%);
 }
-
 
 /* Mixin for centering vertically & horizontally */
-
 @mixin center-xy {
+  @include prefixer(transform, translateX(-50%) translateY(-50%), webkit moz ms o spec);
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
 }
 
+/* Undo the center-y mixin. Useful for media queries */
+@mixin undo-center-y {
+  @include prefixer(transform, none, webkit moz ms o spec);
+  position: static;
+  top: 0;
+/*  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;*/
+}
 
 /* Mixin for generating solid-colored hr elements*/
-
 @mixin hr($color) {
-  color: $color;
   background-color: $color;
   border: none;
+  color: $color;
   height: 1px;
 }
 
 /* Mixin for centering and cropping to fit images*/
 @mixin fit-and-center-image($height) {
-  position: relative;
   height: $height;
-  width: 100%;
   overflow: hidden;
+  position: relative;
+  width: 100%;
   /* 100% width slightly distorts it, but otherwise it might be narrower ... ?? */
   img {
     @include center-xy;
     height: 100%;
-    width: auto;
     min-width: 100%;
+    width: auto;
   }
 }
 /* ALTERNATIVE: If the img has only center-xy, it doesn't distort anything but just crops to exact middle of image ... ?*/
 
-/* Mixin for attaching icons as right after-elements */
+
+@mixin after-element-icon-with-hover-aligned($icon-path, $icon-hover-path, $right-positioning, $color) {
+  @include hover-transition-content($color);
+
+  &:after {
+    @include center-y;
+    background-image: url($icon-path);
+    background-position: center;
+    background-repeat: no-repeat;
+    content: "";
+    cursor: pointer;
+    height: 20px;
+    padding-left: 15px;
+    right: $right-positioning;
+    transition: background-image 0.25s;
+    width: 20px;
+  }
+  &:hover:after {
+    background-image: url($icon-hover-path);    
+  }
+}
+
+/* Mixin for attaching icons as after-elements */
 @mixin after-element-icon-with-hover($icon-path, $icon-hover-path, $right-positioning, $color) {
   @include hover-transition-content($color);
 
   &:after {
-    content: "";
     background-image: url($icon-path);
-    background-repeat: no-repeat;
     background-position: center;
-    width: 20px;
-    height: 20px;
-    padding-left: 15px;
-    right: $right-positioning;
+    background-repeat: no-repeat;
+    content: "";
     cursor: pointer;
-    @include center-y;
     transition: background-image 0.25s;
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+    position: absolute;
+    bottom: 0.35em;
   }
 
   &:hover:after {
@@ -156,18 +175,19 @@ $grid-columns: 12;
   }
 }
 
+/* Mixin for attaching icons as after-elements, without hover effects */
 @mixin after-element-icon($icon-path, $right-positioning) {
   &:after {
-    content: "";
+    @include center-y;
     background-image: url($icon-path);
-    background-repeat: no-repeat;
     background-position: center;
-    width: 20px;
+    background-repeat: no-repeat;
+    content: "";
+    cursor: pointer;
     height: 20px;
     padding-left: 15px;
     right: $right-positioning;
-    cursor: pointer;
-    @include center-y;
+    width: 20px;
   }
 }
 
@@ -188,13 +208,90 @@ $grid-columns: 12;
   }
 }
 
+/* Mixin to include in the container of a floated element, to clear it */
+@mixin clear-float {
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+
+@mixin content-container-subsection {
+  margin: 0 auto;
+  max-width: $max-content-width;
+  width: 100%; 
+}
+
+/* Applies default width, margin, and padding to elements */
+@mixin content-container {
+  margin: 0 auto;
+  max-width: $max-content-width;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+
+  @media (max-width: 400px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@mixin content-container-section {
+  margin: 0 auto;
+  max-width: $max-content-width;
+  padding: 35px 40px;
+  
+  @media (max-width: 400px) {
+    padding: 35px 20px;
+  }
+}
+
+/* Mixin for an image floated to the left, with text on its right */
+@mixin floated-image-with-text ($img-width, $img-height, $breakpoint) {
+  @include clear-float;
+  height: $img-height;
+  position: relative;
+
+  img {
+    float: left;
+    margin-right: 20px;
+    max-width: 100%;
+  }
+  p {
+    position: relative;
+    height: $img-height;
+  }
+  @media (max-width: $breakpoint) {
+    height: auto;
+
+    img {
+      @include center-x;
+      float: none;
+      margin: 0 0 10px;
+      position: relative;
+    }
+    p {
+      height: auto;
+      margin-top: 0;
+      
+      .read_more {
+        left: 0;
+        margin-top: 15px;
+        position: relative;
+      }
+    }
+  }
+}
+
 /* If both the color and background color should change upon hover, use this - otherwise the transitions will override each other */
 @mixin hover-transition-content-and-background($content-color, $background-color) {
   transition: color 0.25s, background-color 0.25s;
 
   &:hover {
-    color: $content-color;
     background-color: $background-color;
+    color: $content-color;
   }
 }
 
@@ -242,10 +339,14 @@ $baseline-px: $base-text-size;
 }
 
 /* Maps for type changes*/
-$h1-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem, $hero-breakpoint: 2.5rem);
-$h1-subtitle-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem, $hero-breakpoint: 2.25rem);
-$h2-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem);
-$h3-font-sizes: ( null: 1.125rem, $mobile-breakpoint: 1.25rem);
+$header-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem, $hero-breakpoint: 2.5rem);
+$header-subtitle-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 2rem, $hero-breakpoint: 2.25rem);
+
+$h1-font-sizes: ( null: rem(26px), $mobile-breakpoint: rem(36px));
+$h2-font-sizes: ( null: rem(22px), $mobile-breakpoint: rem(32px));
+$h3-font-sizes: ( null: rem(20px), $mobile-breakpoint: rem(28px));
+$h4-font-sizes: ( null: rem(18px), $mobile-breakpoint: rem(22px));
+
 $button-font-sizes: ( null: 0.75rem, $mobile-breakpoint: $base-text-size);
 $hero-p-font-sizes: ( null: $base-text-size, $mobile-breakpoint: 1.25rem, $hero-breakpoint: 1.375rem);
 $impact_number-font-sizes: ( null: 1.25rem, $mobile-breakpoint: 1.625rem);

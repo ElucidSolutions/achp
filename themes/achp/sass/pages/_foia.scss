@@ -1,0 +1,22 @@
+#page[data-page-path-alias="/about/foia"],
+[data-page-path="/node/7609"] {
+  #secondary_header_region {
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region #block-achp-content {
+    font-size: rem(18px);
+
+    h2 {
+      padding-top: 10px;
+      text-align: left;
+
+      & + p {
+        margin-top: 0;
+      }
+    }
+    margin-bottom: 50px;
+  }
+}

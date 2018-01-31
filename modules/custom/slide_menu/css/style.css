@@ -1,0 +1,43 @@
+/*
+  This module defines the default styles for
+  slide menus created by the Slide Menu module.
+*/
+.slide-menu-drupal-menu {
+  display: none; }
+
+.slide-menu-menu {
+  height: 75px;
+  overflow: hidden;
+  position: relative;
+  width: 100%; }
+  .slide-menu-menu .slide-menu-menu-slide-container {
+    height: 100%;
+    position: relative; }
+    .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-focus {
+      top: 0;
+      height: 100%;
+      position: absolute; }
+    .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-slide {
+      height: 100%;
+      position: absolute; }
+      .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-slide .slide-menu-menu-item {
+        float: left;
+        height: 100%;
+        position: relative;
+        width: 150px; }
+      .slide-menu-menu .slide-menu-menu-slide-container .slide-menu-menu-slide:not(.ui-draggable-disabled) {
+        cursor: pointer; }
+  .slide-menu-menu .slide-menu-menu-slide-button {
+    background-color: rgba(176, 201, 132, 0.8);
+    cursor: pointer;
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 25px; }
+  .slide-menu-menu .slide-menu-menu-left-slide-button {
+    left: 0; }
+  .slide-menu-menu .slide-menu-menu-right-slide-button {
+    right: 0; }
+
+/*# sourceMappingURL=style.css.map */

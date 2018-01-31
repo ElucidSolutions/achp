@@ -1,0 +1,67 @@
+/*
+  This stylesheet defines the default styles
+  for the Contact Us page.
+*/
+
+[data-page-path="/contact/feedback"] {
+  @import "../styleguide";
+
+  #secondary_header_region {
+    max-width: $max-content-width;
+    margin: 0 auto;
+    padding: 0 $margin-large;
+  }
+  #block-contactuspagetitle {
+    h1 {
+      @include h1($center: false);
+      text-align: center;
+
+      &:after {
+        content: "";
+        display: block;
+        border-bottom: 1px solid $color-red;
+        margin: $margin-small auto $margin-large;
+        min-width: 100px;
+        width: 10%;
+      }
+    }
+  }
+  [data-plugin-id="share_this_page_block"] {
+    margin-bottom: $margin-large;
+  }
+  #block-contactusinformationblock {
+    @include responsive(float, right, none);
+    @include responsive(margin, 0 $margin-med $margin-med, 0 0 $margin-med);
+    border: 1px solid $color-lightgrey-2;
+    padding: $margin-small;
+
+    .contact-us-information-header-title {
+      @include h2($center: false);
+      font-size: rem(18px);
+
+      &:after {
+        content: "";
+        display: block;
+        border-bottom: 1px solid $color-red;
+        margin: $margin-small 0;
+        width: 60%;
+      }
+    }
+    .contact-us-information-body-section {
+      margin-bottom: $margin-med;
+
+      a {
+        @include a;
+      }
+      p {
+        @include strip-margins;
+      }
+      .contact-us-information-body-section-label {
+        @include achp-label($margin-bottom: 0);
+      }
+    }
+  }
+  #block-contactusintroduction {
+    @include styleguide;
+  }
+}

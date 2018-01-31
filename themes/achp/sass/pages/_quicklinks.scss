@@ -1,0 +1,24 @@
+[data-page-path="/node/7737"],
+#page[data-page-path-alias="/section-106-quicklinks"],
+[data-page-path="/node/7736"],
+#page[data-page-path-alias="/indian-tribes-and-native-hawaiian-quicklinks"], 
+[data-page-path="/node/7735"],
+#page[data-page-path-alias="/preservation-50-quicklinks"] {
+  #secondary_header_region {
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region {
+    #block-achp-content {
+      font-size: rem(18px);
+      margin: 0 0 40px;
+      padding: 0;
+      
+      a {
+        color: $color-blue-primary;
+      }
+    }
+  }
+}

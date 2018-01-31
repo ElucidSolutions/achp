@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Defines the unsubscribe block content template.
+ *
+ * Available variables:
+ * - unsubscribe.url: The URL that unsubscribe
+ *   requests should be sent to.
+ * - unsubscribe.submit_label: The text used to
+ *   label the submit button.
+ *
+ * Note: This form sends unsubscribe requests
+ * to createsend.ie. The form element names,
+ * "mb-name" and "mb-stuk-stuk", are required by
+ * this service.
+#}
+<div class="unsubscribe-container">
+  <form
+    class="unsubscribe-form"
+    action="{{ unsubscribe.url }}"
+    method="post"
+  >
+    <div class="unsubscribe-form-field unsubscribe-form-field-email">
+      <input
+        class="unsubscribe-form-field-input unsubscribe-form-field-email-input"
+        name="mb-stuk-stuk"
+        type="text"
+        required
+      />
+      <label
+        class="unsubscribe-form-field-label unsubscribe-form-field-email-label"
+        for="mb-stuk-stuk"
+      >Email</label>
+    </div>
+    <div class="unsubscribe-form-field unsubscribe-form-field-submit">
+      <input value="{{ unsubscribe.submit_label }}" type="submit"/>
+    </div>
+  </form>
+</div>
+

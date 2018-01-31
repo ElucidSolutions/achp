@@ -1,0 +1,17 @@
+<?php
+/**
+ * @file
+ * This file attaches the Slide Menu JS module
+ * to every page.
+ */
+
+/**
+ * Implements hook_preprocess_page ().
+ *
+ * Attaches the Slide Menu JS module to every
+ * page.
+ */
+function slide_menu_preprocess_page (&$variables) {
+  $variables ['#attached']['library'][] = 'slide_menu/slide_menu_library';
+}
+

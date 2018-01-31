@@ -173,9 +173,13 @@
     // convert dates from strings to Moment objects.
     _EVENTS.forEach (function (event) {
       event.start_date = moment (event.start_date);
-      event.end_date   = moment (event.end_date); 
-      event.first_par = (event.body).substr(0, event.body.indexOf('</p>') + 4)
+      // console.log(event.start_date.utcOffset());
+      event.start_date = event.start_date.add(event.start_date.utcOffset(), 'minutes');
+      event.end_date   = moment (event.end_date);
+      event.end_date = event.end_date.add(event.end_date.utcOffset(), 'minutes');
+      event.first_par = (event.body).substr(0, event.body.indexOf('</p>') + 4);
     });
+
 
     // sort the events by date.
     _EVENTS.sort (function (event1, event2) {
@@ -612,10 +616,17 @@
       .append ($('<div></div>')
         .addClass (classPrefix + '_header')
         .append ($('<h3></h3>')
-          .addClass (classPrefix + '_title')
+          .addClass (classPrefix + '_short_title')
           .append ($('<a></a>')
             .attr ('href', event.url)
-            .text (ellipse (TITLE_MAX_LINE_LENGTH, TITLE_MAX_NUM_LINES, event.title)))))
+            // .text (event.title))))
+            .text (ellipse (TITLE_MAX_LINE_LENGTH, TITLE_MAX_NUM_LINES, event.title))))
+        .append ($('<h3></h3>')
+          .addClass (classPrefix + '_full_title')
+          .append ($('<a></a>')
+            .attr ('href', event.url)
+            .text (event.title))))
+            // .text (ellipse (TITLE_MAX_LINE_LENGTH, TITLE_MAX_NUM_LINES, event.title)))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_body')
         .append ($('<div></div>')
@@ -677,7 +688,7 @@
       + encodeURIComponent(event.title || "") 
       + "&dates=" + convertToGoogleCalendarTime(event.start_date) + "/" + convertToGoogleCalendarTime(event.end_date) 
       + "&details=" + encodeURIComponent(removeHTMLTags(event.body || "")) 
-      + "&location=" + encodeURIComponent(event.location  || "");
+      + "&location=" + encodeURIComponent(removeHTMLTags(event.location  || ""));
   }
 
   /*
@@ -688,6 +699,7 @@
   */
   function convertToGoogleCalendarTime (date) {
     return convertToUTCTime (date).format('YYYYMMDDTHHmmss') + 'Z';
+    // return date.format('YYYYMMDDTHHmmss') + 'Z';
   }
 
   /*
@@ -697,6 +709,7 @@
     represents that same date in UTC time.
   */
   function convertToUTCTime (date) {
+    console.log(drupalSettings.event_calendar.system_timezone);
     return date.add (moment ().utcOffset (drupalSettings.event_calendar.system_timezone), 'minutes');
   }
 
@@ -706,7 +719,19 @@
     the resulting string.
   */
   function removeHTMLTags (html) {
-    return $('<div></div>').html (html).text ();
+    return $('<div></div>').html (addSpaceToLineBreaks(html)).text ();
+  }
+
+  /*
+    Accepts one argument: vlue, a string; and returns 
+    value with a space preceding any line breaks, so
+    that when the HTML is stripped from the string the
+    two lines are separated.
+  */
+  function addSpaceToLineBreaks (value) {
+    return value && value.indexOf('<br') >= 0 ? 
+      value.replace('<br', ' <br') :
+      value;
   }
 
   /*

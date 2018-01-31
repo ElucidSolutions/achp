@@ -6,8 +6,9 @@
 $event-calendar-width: 100% / 3;
 $event-grid-width: 100% - $event-calendar-width;
 $event-card-border-color: rgba(93,0,2,1);
-$event-card-height: 10 * 32px;
+$event-card-height: 250px;
 $event-card-footer-height: 20px;
+$event-calendar-spacing: 20px;
 $event-card-footer-margin: 15px;
 
 .event_calendar {
@@ -17,22 +18,18 @@ $event-card-footer-margin: 15px;
   .event_calendar_calendar {
     display: inline-block;
     height: 420px;
-    padding: 0px 20px 0px 0px;
+    padding: 0px $event-calendar-spacing 0px 0px;
     vertical-align: top;
     width: $event-calendar-width;
 
     .clndr {
       padding: 5px;
     }
-    &_header {
-      height: 50px;
-
-      .event_calendar_calendar_title {
-        color: #FFFFFF;
-        font-size: rem(28);
-        font-weight: 300;      
-        margin-bottom: 5px;
-      }
+    &_header .event_calendar_calendar_title {
+      color: #fff;
+      font-size: rem(28);
+      font-weight: 300;      
+      margin-bottom: 5px; 
     }
     &_body {
       @extend .card;
@@ -60,7 +57,6 @@ $event-card-footer-margin: 15px;
             width: 80%;
           }
         }
-
         .clndr-previous-button, .clndr-next-button {
           @include center-y;
           background-position: center;
@@ -71,7 +67,6 @@ $event-card-footer-margin: 15px;
           width: 15%;
           z-index: 50;
         }
-
         .clndr-previous-button {
           background-image: url('../images/left-calendar-arrow.svg');
           left: 0;
@@ -82,8 +77,8 @@ $event-card-footer-margin: 15px;
         }
         
         .clndr-next-button {
-          right: 0;
           background-image: url('../images/right-calendar-arrow.svg');
+          right: 0;
 
           &:hover {
             background-image: url('../images/right-calendar-arrow-blue.svg');
@@ -92,9 +87,9 @@ $event-card-footer-margin: 15px;
       }
       .clndr-table {
         border: none;
-        width: 100%;
-        text-align: center;
         font-size: 0.75rem;
+        text-align: center;
+        width: 100%;
 
         thead {
           font-family: $serif-text;
@@ -108,23 +103,23 @@ $event-card-footer-margin: 15px;
               background-color: #fff;
 
               &:hover {
-                cursor: default;
                 background-color: #fff;
-                color: #c6c6c6;
+                color: $color-lightgrey;
+                cursor: default;
               }
             }
           }
           .event {
-            cursor: pointer;
             background-color: $color-lightblue3;
+            cursor: pointer;
           }          
           .today {
-            color: #fff;
             background-color: $color-darkblue3;
+            color: #fff;
           }
           .event:hover {
-            color: #fff;
             background-color: $color-blue-primary; 
+            color: #fff;
           }
         }
         .day, .header-day {
@@ -138,40 +133,38 @@ $event-card-footer-margin: 15px;
     vertical-align: top;
     width: $event-grid-width;
 
-    &_header {
-      height: 50px;
-
-      .event_calendar_grid_title {
-        color: #FFFFFF;
-        font-size: rem(28);
-        font-weight: 300;      
-        margin: 0 0 5px 20px;
-      }
+    &_header .event_calendar_grid_title {
+      color: #FFFFFF;
+      font-size: rem(28);
+      font-weight: 300;      
+      margin: 0 0 5px $event-calendar-spacing;
     }
     &_body {
       text-align: left;
 
       .event_calendar_grid_message {
+        font-size: 16px;
         color: #fff;
-        @include font-size($button-font-sizes);
         margin-left: 20px;
         font-style: italic;
         font-family: $sans-text;
         text-align: left;
       }
+
+      $event-card-margin: 20px;
+      
       .event_calendar_grid_card {
         @extend .card;  
         background-color: #fff;
         display: inline-block;
-        margin: 0px 0px 20px 20px;
+        margin: 0px 0px $event-card-margin $event-card-margin;
         min-height: $event-card-height;
         overflow-wrap: break-word;
         padding: 10px 10px ($event-card-footer-height + $event-card-footer-margin) 10px;
         position: relative;
         vertical-align: top;
-        width: 260px;
 
-        &_title {
+        &_short_title, &_full_title {
           @include hover-transition-content($color-blue-primary);
           cursor: pointer;
           font-size: 1rem;
@@ -189,6 +182,10 @@ $event-card-footer-margin: 15px;
           p {
             margin: 0;
             text-align: left;
+          }
+
+          a {
+            color: $color-blue-primary;
           }
         }
         &_description {
@@ -229,128 +226,123 @@ $event-card-footer-margin: 15px;
   }
 }
 
+#block-eventcalendarblock .event_calendar .event_calendar_feature .event_calendar_grid .event_calendar_grid_body .event_calendar_grid_card {
+  $event-card-margin: 20px;
+  width: calc( (100% - #{$event-card-margin} * 2) / 2);
+
+  &_full_title {
+    display: none;
+  }
+}
+
 /* Mobile styles scoped to homepage calendar only, because
 the events landing page is different */
-#block-eventsmeetings {
-  @media (max-width: $max-content-width) {
-    .event_calendar_feature {
-      .event_calendar_calendar {
-        width: 50%;
-      }
-      .event_calendar_grid {
-        padding: 0px 0px 0px 20px;
-        width: 50%;
+@media (max-width: $max-content-width) {
+  #block-eventcalendarblock .event_calendar {
+    .event_calendar_calendar {
+      width: 50%;
+    }
+    .event_calendar_feature .event_calendar_grid {
+      padding: 0px 0px 0px 20px;
+      width: 50%;
 
-        .event_calendar_grid_header {
-          .event_calendar_grid_title {
-            margin: 0;
-          }
+      .event_calendar_grid_header {
+        .event_calendar_grid_title {
+          margin: 0 0 5px;
         }
-        .event_calendar_grid_body {
-          .event_calendar_grid_card {
-            border-top: none !important;
-            border: 0;
+      }
+      .event_calendar_grid_body {
+        .event_calendar_grid_card {
+          border: none;
+          height: $mobile-card-item-height;
+          margin: 0 0 15px;
+          max-width: 100%;
+          min-height: $mobile-card-item-height;
+          padding: 0;
+          width: 100%;
+
+          &_header {
+            background-color: #fff;
+            border-bottom: 1px solid $event-card-border-color;
             height: $mobile-card-item-height;
-            margin: 0px;
-            max-width: 100%;
-            min-height: $mobile-card-item-height;
-            padding: 0;
-            width: 100%;
-
-            &_header {
-              height: $mobile-card-item-height;
-              background-color: #fff;
-              border-bottom: 1px solid $event-card-border-color;
-              margin-left: 60px;
-              position: relative;
+            margin-left: 60px;
+            position: relative;
+          }
+          &_title {
+            @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px, $color-blue-primary);
+            @include center-y;
+            cursor: pointer;
+            font-size: .9rem;
+            width: 95%;
+          
+            &:after {
+              width: 40px;
             }
-            &_title {
-              @include center-y;
-              cursor: pointer;
-              font-size: .9rem;
-              width: 95%;
-              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -14px, $color-blue-primary);
-            
-              &:after {
-                width: 40px;
-              }
-              a {
-                display: block;
-                width: 100%;
-                padding: 25px 25px 25px 15px;
-              }
+            a {
+              display: block;
+              padding: 25px 25px 25px 15px;
+              width: 100%;
             }
-            &_date, &_location, &_footer {
-              display: none;
+          }
+          &_date, &_location, &_footer {
+            display: none;
+          }
+          &_mobile_date {
+            background-color: $color-red;
+            border-bottom: solid 1px $event-card-border-color;
+            color: #fff;
+            display: inline-block;
+            float: left;
+            height: $mobile-card-item-height;
+            line-height: 1.1;
+            padding: 15px 5px;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 60px;
+
+            &_month {
+              font-size: 1.125rem;
+              text-transform: uppercase;
             }
-            &_mobile_date {
-              background-color: $color-red;
-              border-bottom: solid 1px $event-card-border-color;
-              color: #fff;
-              display: inline-block;
-              float: left;
-              height: $mobile-card-item-height;
-              line-height: 1.1;
-              padding: 15px 5px;
-              position: absolute;
-              text-align: center;
-              top: 0;
-              width: 60px;
 
-              &_month {
-                text-transform: uppercase;
-                font-size: 1.125rem;
-              }
-
-              &_day {
-                font-size: 2.125rem;
-              }
-              &_day {
-                font-size: 2rem;    
-                font-weight: 300;          
-              }
+            &_day {
+              font-size: 2.125rem;
+            }
+            &_day {
+              font-size: 2rem;    
+              font-weight: 300;          
             }
           }
         }
       }
     }
   }
+}
 
-  @media (max-width: $mobile-breakpoint) {
-    .event_calendar_feature {
-      padding: 0px;
+@media (max-width: $mobile-breakpoint) {
+  #block-eventcalendarblock .event_calendar .event_calendar_feature {
+    padding: 0px 20px;
 
-      .event_calendar_calendar {
-        display: block;
-        padding: 0px;
-        width: 100%;
+    .event_calendar_calendar {
+      display: none;
 
-        &_header {
-          .event_calendar_calendar_title {
-            font-size: rem(18);
-            margin-left: 20px;
-          }
+      &_header {
+        .event_calendar_calendar_title {
+          font-size: rem(18);
+          margin-left: 20px;
         }
       }
-      .event_calendar_grid {
-        padding: 0px;
-        width: 100%;
+    }
+    .event_calendar_grid {
+      padding: 0px;
+      width: 100%;
 
-        .event_calendar_grid_header {
-          .event_calendar_grid_title {
-            font-size: rem(18);
-            margin-left: 20px;
-          }
-        }
-        .event_calendar_grid_body {
-          .event_calendar_grid_card {
-            margin: 0px;
-
-            .event_calendar_grid_card_title {
-              font-size: 1rem;
-            }
-          }
-        }
+      .event_calendar_grid_header {
+        display: none;
+      }
+      .event_calendar_grid_body .event_calendar_grid_card .event_calendar_grid_card_short_title {
+        font-size: 1rem;
       }
     }
   }

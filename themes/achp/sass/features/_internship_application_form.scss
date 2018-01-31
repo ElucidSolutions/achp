@@ -1,0 +1,66 @@
+/*
+  This stylesheet defines the default styles
+  for the Internship Application Form.
+*/
+form.contact-message-internship-form {
+  @import "../styleguide";
+
+  .form-item {
+    label {
+      display: none;
+      // @include achp-label;
+    }
+    input.form-text {
+      @include achp-textfield;
+    }
+    input.form-email {
+      @include achp-textfield;
+    }
+    input.form-tel {
+      @include achp-textfield;
+    }
+    .description {
+      display: none;
+    }
+    input.field-add-more-submit {
+      @include achp-button;
+    }
+  }
+  .field--type-boolean {
+    float: left;
+    margin-bottom: $margin-large;
+    margin-left: $margin-small;
+
+    .form-item {
+
+      input.form-checkbox {
+        float: left;
+        margin-top: 9px;
+      }
+      label {
+        display: block;
+        float: left;
+      }
+    }
+  }
+  .field--type-prompt-field {
+    clear: both;
+  }
+  .field--type-datetime {
+    margin-bottom: $margin-large;
+  }
+  .field--name-field-intern-degrees {
+    margin-bottom: $margin-large;
+  }
+  .tabledrag-toggle-weight-wrapper {
+    display: none;
+  }
+  .form-actions {
+    margin-bottom: $margin-large;
+
+    input[type="submit"] {
+      @include achp-button;
+      padding-top: 9px;
+    }
+  }
+}

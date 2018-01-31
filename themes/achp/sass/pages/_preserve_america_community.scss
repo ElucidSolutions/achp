@@ -1,0 +1,78 @@
+/*
+  Styles for Preserve America community profile pages
+*/
+
+#page[data-page-node-type="preserve_america_community_profi"] {
+  $page-max-width: 750px;
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+      max-width: $page-max-width;
+    }
+    #block-pagetitle-2 {
+      @include content-container;
+      max-width: $page-max-width;
+      text-align: center;
+
+      h1 {
+        color: $color-darkblue2;
+        font-weight: normal;
+
+        &:after {
+          background-color: $color-red;
+          display: block;
+          content: "";
+          height: 1px;
+          margin: 5px auto 25px;
+          min-width: 50px;
+          width: 15%;
+        }
+      }
+    }
+    #block-preserveamerica-shareblock {
+      @include content-container;
+      margin: 0 auto 30px;
+      max-width: $page-max-width;
+    }
+    [data-derivative-plugin-id^="image_carousel-block"] {
+      @include content-container;
+      margin-bottom: 30px;
+      max-width: $page-max-width;
+    }
+  }
+  #content {
+    padding: 0;
+
+    #content_region {
+      @include content-container;
+      margin: 0 auto 50px;
+      max-width: $page-max-width;
+
+      .views-field-body p:first-of-type {
+        margin-top: 0;
+      }
+
+      img {
+        display: none;
+      }
+
+      a {
+        color: $color-blue-primary;
+      }
+      h4 {
+        margin-bottom: 10px;
+
+        &:before {
+          background-color: #979797;
+          display: block;
+          content: "";
+          height: 1px;
+          margin: 35px auto;
+          width: 100%;      
+        }
+      }
+    }
+  }
+}

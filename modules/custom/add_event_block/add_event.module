@@ -1,0 +1,15 @@
+<?php
+/*
+  Defines the Add Event block module which
+  defines the template variables for the
+  Add Event block.
+*/
+
+// Implements hook_theme ()
+function add_event_theme () {
+  return [
+    'add_event' => [
+      'variables' => []
+    ]
+  ];
+}

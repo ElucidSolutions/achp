@@ -2,22 +2,40 @@ global-styling:
   css:
     theme:
       css/style.css: {}
+      css/pages.css: {}
+      chosen/chosen_v1.6.2/chosen.css: {}
   js:
+    js/bowser.js: {} # IE - Browser version detection.
+    object-fit-images/dist/ofi.js: {} # IE - Shim for object-fit CSS properties.
+    js/classList.js-master/classList.min.js: {} # IE - Shim for classList DOM property.
     js/achp_theme.js: {}
+    js/agency_assignments.js: {}
     js/breadcrumb.js: {}
-    js/quicklinks.js: {}
-    js/news_landing.js: {}
+    js/event_page.js: {}
+    js/fpo.js: {}
     js/image_gallery.js: {}
-    js/events.js: {}
+    js/news_landing.js: {}
+    js/onaa.js: {}
+    js/search.js: {}
+    js/quicklinks.js: {}
+    js/staff.js: {}
+    js/success_stories_landing.js: {}
     js/matchMedia.js-master/matchMedia.js: {}        
     js/flexibility-master/flexibility.js: {}    
     js/jquery-breakpoint-master/js/jquery.breakpoint.js: {}
     js/clipboard.js/dist/clipboard.js: {}
     js/toastr/toastr.js: {}
     js/moment.js: {}
+    chosen/chosen_v1.6.2/chosen.jquery.js: {}
+    js/select.js: {}
+    js/digital_library_document.js: {}
+    js/section_106_process.js: {}
+    js/related_resources.js: {}
   dependencies:
     - core/underscore
     - core/jquery
+    - core/jquery.ui
+    - core/jquery.ui.draggable
     - core/drupalSettings
     - core/jquery.once
     - core/jquery.ui.datepicker

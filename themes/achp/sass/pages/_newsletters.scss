@@ -1,0 +1,187 @@
+/*
+  Styles specific to the newsletters page
+*/
+#page[data-page-path-alias^="/newsletters"],
+[data-page-path="/node/7499"] {
+  $text-input-width: 220px;
+  $margin-xsmall: 10px;
+  $margin-small: 15px;
+  $margin-med: 20px;
+  $margin-large: 35px;
+  $margin-xlarge: 40px;
+
+  #main {
+
+    #secondary_header {
+      #block-breadcrumbs {
+        @include content-container;
+      }
+    }
+    #content #content_region #block-achp-content {
+      padding: 0;
+    }
+    #block-members-in-the-news-archives, #block-section-106-archives {
+      .item-list ul li {
+        a {
+          color: $color-blue-primary;
+        }
+        &:first-of-type a:after {
+          content: " - latest edition";
+        }
+      }
+    }
+    article a {
+      color: $color-blue-primary;
+    }
+    h3 {
+      margin: 0 0 $margin-small;
+    }
+    h4 {
+      margin: 0 0 $margin-small;
+    }
+    h5 {
+      color: $color-darkgrey2;
+      font-size: rem(18px);
+      font-family: $sans-text;
+      font-weight: 500;
+      margin: 0 0 30px;
+    }
+    p {
+      margin: 0 0 $margin-small;
+
+      &.newsletter_disclaimer {
+        font-size: rem(16px);
+      }
+    }
+    table {
+      border-collapse: collapse;
+
+      tr {
+        td {
+          vertical-align: top;
+          border-bottom: 1px solid  $background-color-grey2;
+          border-right: 1px solid $background-color-grey2;
+          padding: $margin-large;
+
+          &:nth-of-type(2) {
+            border-right: none;
+            min-width: 250px;
+          }
+        }
+        &:first-of-type {
+          td {
+            padding-top: 0;
+          }
+        }
+        &:last-of-type {
+          td {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+    ul {
+      margin: 0 0 $margin-small;
+    }
+    [data-base-plugin-id="system_breadcrumb_block"] {
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: $margin-med ($margin-xlarge + $margin-large) 0;
+    }
+    [data-base-plugin-id="share_this_page_block"] {
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: 0 $margin-xlarge $margin-large;
+    }
+    .subscribe-form-field,
+    .unsubscribe-form-field {
+      position: relative;
+    
+      label {
+        @include transition (all 0.2s);
+        color: $color-darkgrey2;
+        font-family: $sans-text;
+        font-size: 1rem;
+        left: $margin-small;
+        position: absolute;
+        top: 8px;
+        z-index: 5;
+      }
+      input {
+        height: $margin-xlarge;
+
+        &[type="text"],
+        &[type="email"] {
+          background-color: transparent;
+          border: 1px solid $background-color-grey2;
+          border-radius: 2px;
+          font-family: $sans-text;
+          font-size: rem(18px);
+          margin: 0 0 $margin-large;
+          padding: 0 0 0 $margin-small;
+          position: relative;
+          width: $text-input-width;
+          z-index: 20;
+
+          &:focus {
+            outline: none;
+
+              & ~ label {
+              top: - ($margin-med + 4px);
+            }
+          }
+          &:valid ~ label {
+            top: - ($margin-med + 4px);
+          }
+        }
+        &[type="submit"] {
+          @include font-size($button-font-sizes);
+          @include hover-transition-background($color-lightblue-primary);
+          background-color: $color-blue-primary;
+          border: none;
+          border-radius: 2px;  
+          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+          color: #FFFFFF;
+          cursor: pointer;
+          display: block;
+          height: 32px;
+          font-family: $sans-text;
+          letter-spacing: 0.02rem;
+          line-height: 1.4rem;
+          margin: 0 0 $margin-xlarge;
+          padding: 7px 53px;
+        }
+      }
+    }
+    @media (max-width: 750px) {
+      table {
+        tr {
+          td {
+            border: none;
+            display: block;
+            padding: 0 $margin-large;
+
+            &:first-of-type {
+              padding-top: $margin-large;
+            }
+            &:last-of-type {
+              border-bottom: 1px solid $background-color-grey2;
+              padding-bottom: $margin-large;
+            }
+          }
+          &:first-of-type {
+            td {
+              padding-top: 0;
+            }
+          }
+        }
+      }
+      .subscribe-form-field,
+      .unsubscribe-form-field {
+        input[type="submit"] {
+          margin: 0 0 $margin-large;
+        }
+      }
+    }
+  }
+}

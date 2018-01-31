@@ -1,0 +1,131 @@
+[data-page-path="/node/7617"],
+[data-page-path-alias="/about/request-publications"] {
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-training-share-block, #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region {
+    font-size: rem(18px);
+
+    #block-achp-content {
+      h4 {
+        color: $color-red2;
+        margin: 40px 0 0;
+        text-transform: uppercase;
+
+        &:after {
+          background-color: $background-color-grey2;
+          content: "";
+          display: block;
+          height: 2px;
+          margin-top: 8px;
+          width: 100%;
+        }
+
+        & + p {
+          margin-bottom: 25px;
+        }
+      }
+      .publication_for_print {
+        margin-bottom: 25px;
+
+        .publication_title a {
+          color: $color-blue-primary;
+          font-family: $sans-text;
+        }
+        p {
+          margin: 0;
+          color: $color-grey2;
+        }
+      }
+
+      h2 {
+        text-align: left;
+
+        & + p {
+          margin-top: 0;
+        }
+      }
+    }
+    #block-request-pubs-available-docs {
+      margin: 30px 0 40px;
+      padding: 0;
+    }
+    #block-request-publications-form {
+      margin-bottom: 40px;
+
+      .js-form-item {
+        font-family: $sans-text;
+        position: relative;
+
+        label:not(.option) {
+          display: block;
+        }
+        input:not(.form-checkbox) {
+          border: 1px solid #CCCCCC;
+          border-radius: 2px;
+          color: $color-darkgrey2;
+          font-family: $sans-text;
+          font-size: rem(16px);
+          height: 35px;
+          margin-bottom: 20px;
+          max-width: 100%;
+          padding: 5px 10px;
+          width: 400px;
+        }
+        .js-form-type-textarea {
+          label {
+            top: 0;
+          }
+          textarea {
+            height: 200px;
+            min-width: 75%;
+            max-width: 100%;
+            /*width: 600px;*/
+          }
+        }
+      }
+      .form-actions {
+        input#edit-submit {
+          @include hover-transition-background($color-lightblue-primary);
+          background-color: $color-blue-primary;
+          border: none;
+          border-radius: 2px;  
+          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+          color: #FFFFFF;
+          cursor: pointer;
+          display: block;
+          font-family: $sans-text;
+          font-size: rem(16px);
+          font-weight: 600;
+          letter-spacing: 0.02rem;
+          line-height: 1.4rem;
+          margin: 25px 0;
+          padding: 12px 38px 8px;
+          text-transform: uppercase;
+
+          @media (max-width: $mobile-breakpoint) {
+            line-height: 1.2rem;
+          }
+
+          @media (max-width: 400px) {
+            width: 100%;
+          }
+        }        
+        input#edit-preview {
+          display: none;
+        }
+      }
+    }
+    #block-views-block-related-resources-block-1 {
+      margin: 20px 0 40px;
+      padding: 0;
+    }
+  }
+}

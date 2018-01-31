@@ -22,6 +22,7 @@ class Section106MapBlock extends BlockBase {
       '#attached' => array (
         'library' => array ('section_106_map/section_106_map_library'),
         'drupalSettings' => array (
+          'module_path' => base_path () . drupal_get_path ('module', 'section_106_map'),
           'section_106_map' => array (
             'mapbox_access_token'    => $config->get ('mapbox_access_token'),
             'filter_score_threshold' => $config->get ('filter_score_threshold'),
@@ -67,10 +68,12 @@ class Section106MapBlock extends BlockBase {
   */
   private function createCase ($node_array) {
     $nid = $this->getFieldValue ($node_array, 'nid');
-    $url = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ('absolute' => true));
+    $url = \Drupal\Core\Url::fromRoute ('entity.node.canonical', ['node' => $nid], array ());
+    $alias_url = \Drupal::service('path.alias_manager')->getAliasByPath($url->toString ());
+    // \Drupal::logger ('preserve_america_map')->notice ('[PreserveAmericaMap::createProfile] node array: <pre>' . print_r ($node_array, true) . '</pre>');
     return [
       'id'     => $nid,
-      'url'    => $url->toString (),
+      'url'    => $alias_url,
       'title'  => $this->getFieldValue ($node_array, 'field_case_name'),
       'body'   => $this->getFieldValue ($node_array, 'body'),
       'agency' => $this->getReferencedNodeTitle ($node_array, 'field_case_federal_agency'),

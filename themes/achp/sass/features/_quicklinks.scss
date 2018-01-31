@@ -1,183 +1,175 @@
 @import "../global";
 
 #homepage_quicklinks_region {
-  #block-quicklinks {
-    @include span-columns(12 of 12);
-  }
+  $section-padding: 50px;
 
   #homepage_quicklinks_content {
-    $card-container-width: $card-width * 3 + $card-margin-horiz * 2;
-    width: $card-container-width;
+    max-width: $max-content-width;
+    text-align: center;
 
-    .views-element-container {
+    $top-border-width: 6px;
+    $quicklink-header-height: $quicklink-image-height + 100px;
+    $card-height: $top-border-width + $quicklink-item-height * 3 + $more-quicklinks-height + $quicklink-header-height;
+    $max-width-3-cards: 7px + $card-width * 3 + $card-margin-horiz * 2 + $section-padding * 2;
+    $max-width-2-cards: $card-width * 2 + $card-margin-horiz + $section-padding * 2;
+
+    #block-quicklinks-column-1, 
+    #block-quicklinks-column-2,
+    #block-quicklinks-column-3 {
       @extend .card;
-      padding: 0;
-      @include span-columns(4 of 12);
       background-color: #FFFFFF;
-      margin-right: 20px;
-      height: 518px;
-      width: $card-width;
-      margin: $card-margin-vert 0;
-      margin-right: $card-margin-horiz;
-      float: left;
+      display: inline-block;
+      height: $card-height;
+      margin: $card-margin-vert $card-margin-horiz 0 0;
+      padding: 0;
       position: relative;
+      width: $card-width;
 
-      header {
-        background-color: #fff;
-        height: $quicklink-image-height + 100px;
-
-        .views-row {
-          border-top: none;
-          padding: 0;
-          height: 100%;
-          padding: 15px 15px 5px;
-          position: static;
-          transform: none;
-        }
-
-        .views-field-field-quicklink-image {
-          @include fit-and-center-image($quicklink-image-height);    
-        }
-
-        h3 {
-          padding-top: 20px;
-        }
-      }
-
-      .quicklinks-column > .views-row {
-        border-top: 1px solid $color-grey3;
+      .quicklinks-column {
+        position: absolute;
         width: 100%;
-        height: $quicklink-item-height;
-        position: relative;
-        transition: background-color 0.25s;
 
-        &:hover {
-          background-color: #E8F8FF;
+        header {
+          background-color: #fff;
+          height: $quicklink-header-height;
+
+          .views-row {
+            border-top: none;
+            height: 100%;
+            padding: 15px 15px 5px;
+            position: static;
+            transform: none;
+          }
+          .views-field-field-quicklink-image {
+            height: $quicklink-image-height;
+            width: $quicklink-image-width; 
+
+            .field-content {
+              height: $quicklink-image-height;
+
+              img {
+                height: $quicklink-image-height;
+                object-fit: cover;
+                width: $quicklink-image-width;
+              }
+            }         
+          }
+          h3 {
+            padding-top: 20px;
+          }
         }
-
-        .views-field, .quicklink-item-title {
-          @include center-y;
+        footer {
+          @include after-element-icon-with-hover-aligned('../images/more-dots-icon.svg', '../images/more-dots-icon-white.svg', 13px, #fff);
+          @include hover-transition-content-and-background(#fff, $color-blue-primary);
+          background: $color-lightgrey;
+          border: none;
+          bottom: 0;
+          color: #4F4F4F;
+          font-size:  0.875rem;
+          font-weight: 500;
+          height: $more-quicklinks-height;
           position: relative;
+          width: 100%;
 
           a {
+            @include center-y;
+            color: inherit;
+            display: inline-block;
+            padding: 0 25px;
             text-decoration: none;
-            color: $color-grey;
-            line-height: 22.39px;
-            display: block;
-            padding: 20px 25px;
-            width: 95%;
-            height: 100%;
-            position: relative;
-            transition: color 0.25s;
-
-            &:hover {
-              color: $color-blue-primary;
-            }
-
-            @media (min-width: 701px) {
-              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -2px, $color-blue-primary);
-            }
+            width: 100%;
           }
+        }
+        & > .views-row {
+          border-top: 1px solid $color-grey3;
+          height: $quicklink-item-height;
+          position: relative;
+          transition: background-color 0.25s;
+          width: 100%;
+          line-height: 1.3;
+
+          &:hover {
+            background-color: $background-color-lightblue;
+          }
+          .views-field, .quicklink-item-title {
+            @include center-y;
+            position: relative;
+
+            a {
+              @include after-element-icon-with-hover-aligned('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 8px, $color-blue-primary);
+              color: $color-grey;
+              display: block;
+              height: 100%;
+              line-height: 1.3;
+              padding: 20px 25px;
+              position: relative;
+              text-decoration: none;
+              transition: color 0.25s;
+              width: 95%;
+
+              &:hover {
+                // color: $color-blue-primary;
+              }
+            }
+          }  
         }  
       }
     }
 
-    .quicklinks-column {
-      footer {
-        background: $color-lightgrey;
-        font-weight: 500;
-        color: #4F4F4F;
-        font-size:  0.875rem;
-        border: none;
-        position: absolute;
-        bottom: 0;
-        height: $more-quicklinks-height;
-        width: 100%;
-        @include after-element-icon-with-hover('../images/more-dots-icon.svg', '../images/more-dots-icon-white.svg', 13px, #fff);
-        @include hover-transition-content-and-background(#fff, $color-blue-primary);
+    #block-quicklinks-column-3 {
+      margin-right: 0;
+    }
 
-        a {
-          display: inline-block;
-          text-decoration: none;
-          width: 100%;
-          color: inherit;
-          padding: 0 25px;
-          @include center-y;
-        }
-      }
-    }      
-  }
-}
+    @media (max-width: $max-width-3-cards) {
+      max-width: 800px;
 
-
-#homepage_quicklinks_region > #homepage_quicklinks_content {
-/*  At this width 2 cards are on the first row, and the third is on the second.
-    First card has a margin-right, but second no longer does:*/
-  @media (max-width: 1023px) {   
-    $card-container-width: $card-width * 2 + $card-margin-horiz; 
-    width: $card-container-width; 
-    /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
-    height: $card-height * 2 + $card-margin-vert * 3; /* Top 2 cards have both top and bottom margin, whereas the 3rd has only bottom */
-
-    .views-element-container {
-      &:nth-last-of-type(2) {
-        @include omega();
-      }
-
-      &:last-of-type {
-        $horiz-margin: ($card-container-width - $card-width) / 2;
-        margin: 0 $horiz-margin;
+      #block-quicklinks-column-2 {
+        margin-right: 0;
       }
     }
-  }
-  @media (max-width: 700px) {
-    height: auto;
-    width: 100%;
+    @media (max-width: $max-width-2-cards) {
+      #block-quicklinks-column-1,
+      #block-quicklinks-column-2,
+      #block-quicklinks-column-3 {
+        display: block;
+        height: auto;
+        margin: 10px auto;
+        width: 100%;
 
-    .views-element-container {
-      @include span-columns(12 of 12);
-      margin: 10px auto 0;
-      height: auto;
-
-      &:last-of-type {
-        margin: 10px auto 0;
-      }
-
-      .quicklinks-column > .views-row, .views-field-field-quicklink-image, footer {
-        display: none;
-      }
-
-      .views-row a {
-        @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 8px, $color-blue-primary);
-      }
-
-      header {
-        height: 75px;
-
-        .views-row {
-          height: 75px;
-          padding: 10px;
-        }
-
-        .views-field {
-          height: 100%;
-          width: 100%;
+        .quicklinks-column {
           position: relative;
+
+          & > .views-row, .views-field-field-quicklink-image, footer {
+            display: none;
+          }
         }
+        .views-row a {
+          @include after-element-icon-with-hover-aligned('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 8px, $color-blue-primary);
+          padding-left: 0 !important;
+          margin-left: 25px;
+        }
+        header {
+          height: 75px !important;
+          position: relative;
 
-        h3 {
-          height: auto;
-          top: 0;
-          @include center-y;
-          padding: 15px;
-          width: 95%;
-          position: absolute;
-          cursor: pointer;
-          @include after-element-icon-with-hover('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0, $color-blue-primary);
+          .views-field {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            width: 100%;
+          }
+          h3 {
+            @include center-y;
+            @include after-element-icon-with-hover-aligned('../images/down-arrow-icon.svg', '../images/down-arrow-icon-blue.svg', 0, $color-blue-primary);
+            cursor: pointer;
+            height: auto;
+            padding: 15px 15px 15px 10px;
+            width: 95%;
 
-          &.open {
-            color: $color-blue-primary;
-            @include after-element-icon-with-hover('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0, $color-blue-primary);
+            &.open {
+              @include after-element-icon-with-hover-aligned('../images/up-arrow-icon.svg', '../images/up-arrow-icon-blue.svg', 0, $color-blue-primary);
+              color: $color-blue-primary;
+            }
           }
         }
       }

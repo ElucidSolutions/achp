@@ -1,0 +1,79 @@
+#page[data-page-path="/user/login"] {
+  @import "../styleguide";
+
+  #secondary_header {
+    #block-user-account-breadcrumbs {
+      @include content-container;
+      margin: 30px 0 15px;
+    }
+    #block-about-achp-share {
+      @include content-container;
+      margin-bottom: 30px;
+    }
+    h1 span {
+      color: $color-darkblue2;
+      display: inline-block;
+
+      &:after {
+        @include hr($color-red);
+        content: "";
+        display: block;
+        margin: 10px auto 25px;
+        width: 50%;
+      }
+    }
+    #block-useraccountpagewelcomeblock {
+      display: none;
+    }
+  }
+  #content #content_region {
+    @include content-container;
+    font-size: rem(18px);
+    margin-bottom: 40px;
+
+    a {
+      color: $color-blue-primary;
+    }
+
+    #block-achp-content {
+      font-family: $sans-text;
+      margin: 30px 0;
+
+      form.user-login-form {
+        .js-form-item  {
+          margin-bottom: 15px;
+
+          input[type="text"], input[type="password"] {
+            font-size: rem(16px);
+            height: 40px;
+            max-width: 100%;
+            padding: 0 5px;
+          }
+          label {
+            display: block;
+            font-size: rem(16px);
+            font-weight: 600;
+          }
+          .description {
+            display: none;
+          }
+        }
+        #edit-actions {
+          margin-top: 25px;
+
+          input#edit-submit {
+            @include achp-button;
+            height: 40px;
+
+            @media (max-width: 400px) {
+              width: 100%;
+            }
+            @media (max-width: $mobile-breakpoint) {
+              line-height: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,144 @@
+/*
+  This stylesheet defines default styles shared
+  by the Digital Library document pages.
+*/
+
+#main {
+  @import "styleguide";
+  @include styleguide;
+  @include body-text;
+
+  $max-content-narrow-width: 620px;
+  $content_left_region_width: 350px;
+  margin-bottom: $margin-large;
+
+  #content {
+    // @include tablet(max-width, $max-content-narrow-width);
+    position: relative;
+  }
+  #content_region {
+    @include tablet(margin, 0 auto !important);
+    // max-width: $max-content-narrow-width;
+    max-width: $max-content-narrow-width;
+    // margin: 0 auto;
+    margin: 0 auto !important;
+
+    h3 {
+      color: $color-red2;
+    }
+    ul {
+      margin-left: $margin-med;
+    }
+    [data-plugin-id="system_breadcrumb_block"] {
+      padding-top: 0; // fix inherited property.
+    }
+    .achp_date_published {
+      @include tablet(text-align, center);
+      color: $color-lightgrey-2;
+      font-family: $sans-text;
+      font-size: rem(16px);
+      margin: 0 0 $margin-small;
+    }
+    [data-plugin-id="share_this_page_block"] {
+      @include responsive(margin-bottom, $margin-large, $margin-med);
+    }
+    [data-plugin-id="page_menu_block"] {
+      // @include responsive(position, absolute, static);
+      // @include tablet(margin-bottom, $margin-med);
+      margin-bottom: $margin-med;
+      margin-left: 0;
+      padding-top: 0 !important;
+
+      .page-menu-instance-container {
+        // @include responsive(padding-top, 300px, 0 !important);
+        padding-top: 0 !important;
+
+        .page-menu-instance {
+          margin: 0;
+          position: static;
+          width: 100%;
+
+          .page-menu-instance-menu {
+            margin: 0px;
+            position: static;
+            top: 0px;
+            width: 100%;
+
+            .page-menu-instance-menu-header {
+              display: block;
+            }
+            .page-menu-instance-menu-collapsible {
+              display: none;
+
+              .page-menu-instance-menu-list {
+                margin: 0;
+              }
+            }
+          }
+        }
+        .page-menu-instance-menu-list {
+          @include body-text($font-family: $sans-text);
+          margin: 0;
+        }
+      }
+    }
+    .achp_synopsis {
+      @include body-text-block;
+    }
+    [data-derivative-plugin-id="document_download-block_1"] {
+      margin-bottom: $margin-med;
+
+      header {
+        @include body-text-block;
+        background-color: transparent; // fix inherited property.
+        color: $color-lightgrey-2;
+        font-style: italic;
+        height: auto; // fix inherited property.
+        margin-bottom: $margin-small;
+      }
+      .views-field-field-download {
+        @include tablet(text-align, center);
+
+        a {
+          cursor: pointer;
+          font-family: $header-font-family;
+          font-size: $default-font-size;
+          font-weight: 600;
+          text-transform: uppercase;
+
+          &:after {
+            background-image: url('../images/downloading-icon.svg');
+            background-position-y: bottom;
+            background-size: 12px;
+            background-repeat: no-repeat;
+            content: '';
+            display: inline-block;
+            height: 16px;
+            margin-left: $margin-small;
+            width: $margin-med;
+          }
+          &:hover:after {
+            background-image: url('../images/downloading-icon-lightblue.svg');
+          }
+        }
+      }
+    }
+    [data-achp-field-name="body"] {
+      margin-top: $margin-med;
+      border-top: $separator;
+      padding-top: $margin-med;
+    }
+    [data-achp-field-name="field_tags"] {
+      border-top: $separator;
+      padding-top: $margin-med;
+      margin: $margin-med 0;
+
+      .achp-field-label {
+        @include h4($center: false);
+      }
+    }
+    [data-derivative-plugin-id^="related_resources"] {
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+/*
+  Styles for a general page without a banner image.
+*/
+
+#page[data-page-node-type="page"] {
+  #secondary_header_region {
+    [data-derivative-plugin-id="image_carousel-block_1"] {
+      @include content-container;
+    }
+    #block-pagetitle-2 {
+      @include content-container;
+      color: $color-darkblue2;
+      font-weight: 400;
+
+      h1 span {
+        display: inline-block;
+
+        &:after {
+          @include hr($color-red);
+          content: "";
+          display: block;
+          margin: 10px auto 25px;
+          min-width: 150px;
+          width: 20%;
+        }
+      }
+    } 
+    #block-breadcrumbs {
+      @include content-container;
+      margin-top: 30px;
+    }
+    #block-sharethispage {
+      @include content-container;
+      margin: 15px auto 30px;
+    }
+  }
+  #content {   
+    width: 100%;
+
+    #content_region {
+      font-size: rem(18px);
+      padding: 0;
+
+      h2, h3, h4 {
+        text-align: left;
+
+        & + p {
+          margin-top: 0;
+        }
+      }
+      .addtoany_list{
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: $hero-breakpoint) {
+    #content {
+      box-shadow: none;
+    }
+  }
+
+  @media (max-width: 800px) {
+    #content #content_region {
+      #block-sharethispage {
+        .share_this_page_button {
+          margin-left: 15px;
+
+          &_print {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    #content #content_region {
+      .achp-breadcrumb {
+        display: none;
+      }
+      .mobile_breadcrumb {
+        display: block;
+      }
+      h2, h3, h4 {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    #content #content_region #block-sharethispage .share_this_page {
+      padding-left: 0;
+
+      .share_this_page_buttons {
+        text-align: left;
+
+        &:before {
+          padding-right: calc(100% - 215px);
+        }
+        .share_this_page_button {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

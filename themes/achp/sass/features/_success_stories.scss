@@ -1,25 +1,24 @@
-@import "../global";
-
-$success-card-margin-vert: 25px;
-$success-card-margin-horiz: 20px;
-$success-card-height: 400px;
-$success-card-width: 300px;
-
 #homepage_success_content {
+
+  $success-card-margin-vert: 25px;
+  $success-card-margin-horiz: 20px;
+  $success-card-height: 400px;
+  $success-card-width: 300px; 
+  
   #block-views-block-homepage-success-stories-block {
     .card {
-      text-align: center;
       background-color: #ffffff;
+      text-align: center;
 
       .success_story {
+        height: $success-card-height - 30px; 
         padding: 5px 10px;
-        position: relative;
-        height: $success-card-height - 30px;     
+        position: relative;  
 
         &_image {
           $success_story_image_height: 185px;
-          margin-bottom: 15px;
           @include fit-and-center-image($success_story_image_height);    
+          margin-bottom: 15px;
         }
 
         &_title h3 {
@@ -53,14 +52,13 @@ $success-card-width: 300px;
       width: $success-card-width;
 
       .card {
-        margin: $success-card-margin-vert 0;
         $success-card-height: 400px;
         height: $success-card-height;
+        margin: $success-card-margin-vert 0;
 
         &.view-item-2, &.view-item-3 {
           display: none;
         }
-
         .success_story {
           height: $success-card-height - 30px;     
         }

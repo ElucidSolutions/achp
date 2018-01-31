@@ -1,0 +1,28 @@
+[data-page-path="/node/7541"],
+[data-page-path-alias="/preserve-america/stewards/list"] {
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-preserveamerica-shareblock {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region {
+    margin-bottom: 50px; 
+
+    h3 {
+      font-size: rem(20px);
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    a {
+      color: $color-blue-primary;
+      font-family: $sans-text;
+    }
+  }
+
+}

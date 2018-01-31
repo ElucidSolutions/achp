@@ -1,37 +1,33 @@
-// @import "reset";
 @import "bourbon/bourbon";
 $gutter: 0em !global;
 @import "neat/neat";
 @import "global";
 @import "features";
 @import "regions";
-@import "pages";
+/*@import "pages";*/
 
-html,
-body {
+html, body {
   font-family: $serif-text;
   font-size: $base-text-size;
   letter-spacing: $default-letter-spacing;
   line-height: $default-line-height;
   margin: 0;
+  overflow-x: hidden;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;  
 }
 
 h1, h2, h3 {
-  font-family: $sans-text;
-  text-align: center;
-  margin: 0;
+  font-family: 'p22-underground', sans-serif;
   font-weight: normal;
+  margin: 0;
+  text-align: center;
 }
 
 h1 {
   @include font-size($h1-font-sizes);
   font-weight: 500;
-  
-  &.heading_subtitle {
-    @include font-size($h1-subtitle-font-sizes);
-    font-weight: 300;
-  }
 }
 
 h2 {
@@ -43,10 +39,21 @@ h3 {
   @include font-size($h3-font-sizes);
   color: $color-darkblue;
   text-align: left;
-  font-weight: 500;
+
   a {
     color: inherit;
     text-decoration: none;
+  }
+}
+
+h4 {
+  @include font-size($h4-font-sizes);
+  color: $color-darkblue; 
+  font-family: $sans-text; 
+  font-weight: normal;
+
+  @media (max-width: $mobile-breakpoint) {
+    text-align: center;
   }
 }
 
@@ -59,30 +66,64 @@ p {
   text-align: center;
 }
 
+button {
+  @include hover-transition-background($color-lightblue-primary);
+  background-color: $color-blue-primary;
+  border: none;
+  border-radius: 2px;  
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-family: $sans-text;
+  font-size: rem(16px);
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  line-height: 1.4rem;
+  margin: 0 auto 30px;
+  padding: 12px 38px 8px;
+  text-transform: uppercase;
+
+  @media (max-width: $mobile-breakpoint) {
+    line-height: 1.2rem;
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+
 a {
   text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 #outer_container {
   background-color: #fff;
 }
 
-button {
-  @include font-size($button-font-sizes);
-  @include hover-transition-background($color-lightblue-primary);
-  background-color: $color-blue-primary;
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.26);
-  border: none;
-  border-radius: 2px;  
-  color: #FFFFFF;
-  cursor: pointer;
-  display: block;
+blockquote {
+  $blockquote-margin: 20px;
+  color: $color-lightgrey-2;
   font-family: $sans-text;
-  letter-spacing: 0.02rem;
-  line-height: 1.4rem;
-  margin: 0 auto 30px auto;
-  padding: 12px 53px 8px;
-  text-transform: uppercase;
+  font-size: rem(24px);
+  font-weight: 300;
+  margin: 35px 0 35px $blockquote-margin;
+  position: relative;
+
+  &:before {
+    @include center-y;
+    background-color: $background-color-grey2;
+    content: "";
+    height: 95%;
+    left: -$blockquote-margin;
+    position: absolute;
+    top: 50%;
+    width: 4px;
+  }
 }
 
 .region_container {
@@ -96,36 +137,34 @@ button {
   text-align: center;
 }
 
-.header_container {
-  display: inline-block;  
-  width: auto;
-  hr {
-    width: 60%;
-  }
-}
-
 .card {
   border-top: 6px solid $color-red;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
   box-sizing: border-box;
   font-family: $sans-text;
   text-align: left;
+
+  h3 {
+    font-size: 1.25rem;
+  }
 }
 
-.card_date {
-  color: $color-lightgrey;
+.card_date, .card-date {
+  color: $color-lightgrey-2;
   margin-top: 15px;
 }
 
-.card_body {
+.card_body, .card-body {
   text-align: left;
   font-family: $serif-text;
   margin-top: 10px;
   color: $color-grey;
 }
 
-.read_more {
+.read_more, .read-more {  
   cursor: pointer;
+  font-family: $sans-text;
+  text-transform: uppercase;
 
   a {
     @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', -20px, $color-blue-primary);
@@ -134,12 +173,162 @@ button {
     font-weight: 500;
     text-decoration: none;
     vertical-align: bottom;
+    position: relative;
+    display: inline-block;
   }
+}
+
+ol.alpha_list {
+  list-style-type: lower-alpha;
+
+  li {
+    padding-bottom: 5px;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+ol.roman_list {
+  list-style-type: upper-roman;
+}
+
+.library_resource_list {
+  box-shadow: 0px 1px 3px $color-lightgrey;
+  font-family: $sans-text;
+  padding: 20px;
+  margin: 0 auto 20px;
+  max-width: $max-content-width - 2 * 40px;
+  box-shadow: 0px 1px 3px $color-lightgrey;
+  font-family: $sans-text;
+  font-size: rem(18px);
+  margin: 30px 0;            
+  padding: 0;
+
+  .library_resource {
+    border-bottom: 1px solid $background-color-grey2;
+    // margin: 30px 0 30px 30px;
+
+    &_title {
+      padding: 20px 20px 0;
+
+      a {
+      color: $color-blue-primary;
+      }
+    }
+    &_type {
+      color: $color-lightgrey-2;
+      font-size: rem(17px);
+      padding: 5px 20px;
+    }
+    p {
+      color: $color-grey2;
+      font-family: $serif-text;
+      margin: 0;
+      padding: 0 20px 20px;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.textblock_with_background {
+  $block-width: 450px;
+  $textblock-margin: 10px;
+  $content-width: 950px; 
+  $side-margin: calc((100% - #{$content-width})/2);
+  $min-side-margin: 40px;
+
+  @include clear-float;
+  background-position: center;
+  background-size: cover;
+  height: $block-width;
+  max-width: $block-width;
+  position: relative;
+
+  &.textblock_left {
+    float: left;
+    margin-left: $side-margin !important;
+  }
+  &.textblock_right {
+    @include clear-float;
+    float: right;
+    margin-right: $side-margin;
+  }
+  .split_block_container {
+    @include center-y;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+
+    h2 {
+      color: #fff;
+      line-height: 1.4;
+      text-align: center !important;
+    }
+
+    p {
+      color: #fff;
+      margin-bottom: 35px;
+      text-align: center !important;
+    }
+
+    button {
+      margin-bottom: 0;
+    }
+  }
+  @media (max-width: $max-content-width) {
+    width: calc(50% - #{$textblock-margin} - #{$min-side-margin});
+
+    &.textblock_left {
+      margin-left: $min-side-margin !important;
+    }
+
+    &.textblock_right {
+      margin-right: $min-side-margin !important;
+    }
+  }
+  @media (max-width: 800px) {
+    &.textblock_with_background {
+      float: none;
+      height: 300px;
+      margin: 30px 0 !important;
+      max-width: 100%;
+      width: 100%;
+      
+      .split_block_container {
+        padding: 20px $min-side-margin;
+      }
+      &.textblock_left {
+        margin-bottom: 0 !important;
+      }
+      &.textblock_right {
+        margin-top: 0 !important;
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    &.textblock_with_background .split_block_container {
+      padding: 15px;
+
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
+/* For IE9 */
+a img {
+  border: none !important;
 }
 
 .toast-message {
   font-family: $sans-text;
 }
+
 
 /* Admin menu overlay */
 

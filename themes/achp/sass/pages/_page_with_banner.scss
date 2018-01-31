@@ -1,0 +1,65 @@
+/*
+  Styles common to multiple banner image pages.
+*/
+
+#page[data-page-node-type="page_with_banner"] {
+
+  font-size: rem(18px);
+
+  #content { 
+    width: 100%;
+
+    #content_region {
+      article .field_page_tagline {
+        display: none;
+      }
+      h2 {
+        text-align: left;
+      }
+      #block-sharethispage {
+        @include content-container;
+        margin: 0 auto 30px;
+      }
+      #block-achp-local-tasks, 
+      .block_container, 
+      #block-achp-content > article {
+        /*@include content-container;*/
+      }
+      #block-breadcrumbs {
+        @include content-container;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    #content #content_region {
+      #block-sharethispage {
+        .share_this_page_button {
+          margin-left: 15px;
+
+          &_print {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    #content #content_region #block-sharethispage .share_this_page {
+      padding-left: 0;
+
+      .share_this_page_buttons {
+        /*text-align: left;*/
+
+        &:before {
+          padding-right: calc(100% - 215px);
+        }
+        .share_this_page_button {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

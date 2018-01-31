@@ -1,0 +1,62 @@
+/*
+  This stylesheet provides the default styling
+  for the Related Resources block.
+*/
+#page {
+  #main {
+    [data-derivative-plugin-id^="related_resources"] {
+      @import "../styleguide";
+      @include styleguide;
+      @include body-text;
+      max-width: $max-content-width;
+      margin: 0 auto;
+      padding: 0 $margin-large;
+
+      h2 {
+        @include h4($color: $color-red2);
+        @include responsive(text-align, left, left !important);
+        border-bottom: $separator;
+        margin-bottom: $margin-med;
+        padding-bottom: $margin-xsmall;
+        text-transform: uppercase;
+      }
+      .views-field-title {
+        font-size: rem(18px);
+        margin-bottom: $margin-xsmall;
+
+        .field-content {
+          a {
+            @include a;
+          }
+        }
+      }
+      // hide the external link field.
+      // note: the external link field is used by the Related Resources JS script.
+      .views-field-field-external-link {
+        display: none;
+      }
+      // add an icon to external links.
+      .achp-external-link {
+        display: block;
+        padding-left: 30px;
+        position: relative;
+
+        &:before {
+          background-image: url('../images/external-link-icon.svg');
+          background-repeat: no-repeat;
+          background-position: 50%;
+          content: "";
+          height: 30px;
+          left: 0;
+          position: absolute;
+          width: $margin-med;
+        }
+      }
+      .views-field-body {
+        color: $color-grey2;
+        font-size: rem(18px);
+        margin-bottom: $margin-med;
+      }
+    }
+  }
+}

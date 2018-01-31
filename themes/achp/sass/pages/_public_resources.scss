@@ -1,0 +1,45 @@
+/*
+  This stylesheet defines the default styles
+  for the the Public Resource pages.
+*/
+[data-page-node-type="public_resources"] {
+  @import "../styleguide";
+  @import "../digital_library_document_page";
+
+  [data-achp-field-name="field_public_resource_type"] {
+    margin-bottom: $margin-large;
+
+    &:after {
+      clear: both;
+      content: "";
+      display: block;
+    }
+    .achp-field-label {
+      @include h4;
+      float: left;
+      font-size: rem(18px);
+      margin-right: $margin-med;
+
+      &:after {
+        content: ":";
+      }
+    }
+    .achp-field-item {
+      color: $color-lightgrey-2;
+      float: left;
+      font-size: rem(14px);
+      margin-right: $margin-small;
+
+      &:after {
+        content: ",";
+      }
+      &:last-of-type {
+        margin-right: 0;
+
+        &:after {
+          content: "";
+        }
+      }
+    }
+  }
+}

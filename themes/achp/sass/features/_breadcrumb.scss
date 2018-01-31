@@ -2,58 +2,116 @@
   This module provides styling for breadcrumbs
   created using the Easy Breadcrumb module.
 */
-.achp-breadcrumb {
+[data-plugin-id="system_breadcrumb_block"] {
+  $breadcrumb-font-size: 14px;
   font-family: $sans-text;
-  font-size: rem(14px);
+  font-size: rem($breadcrumb-font-size);
   text-transform: uppercase;
+  margin: 15px 0;
 
-  ol {
-    color: $color-grey;
-    list-style-type: none;
-    padding-left: 0;
+  a {
+    font-size: rem($breadcrumb-font-size) !important;
+  }
+  .mobile_breadcrumb {
+    display: none;
+    text-align: center;
 
-    .breadcrumb_link {
-      display: inline;
-      padding-left: 5px;
-      position: relative;
-
-      a {
-        color: $color-grey;
-        text-decoration: none;
-        transition: color 0.25s;
-      }
-      .achp-breadcrumb-icon {
-        display: inline-block;
-
-        &[data-achp-breadbrumb-icon-name='arrow'] {
-          padding: 0 20px;
-        }
-        &[data-achp-breadbrumb-icon-name='home'] {
-          padding: 0 10px 0 0;
-        }
-      }
+    &:before {
+      background-image: url('../images/left-arrow-icon.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      content: "";
+      cursor: pointer;
+      height: 20px;
+      padding: 3px 0 0 15px;
+      transition: background-image 0.25s;
+      width: 20px;
+    }
+    &:hover:before {
+      background-image: url('../images/left-arrow-icon-blue.svg')
+    }
+    a {
+      color: $color-grey !important;
       &:hover {
-        a {
-          color: $color-blue-primary;
-        }
+        color: $color-blue-primary !important;
       }
     }
-    .breadcrumb_page {
+  }
+  .achp-breadcrumb {
+    font-family: $sans-text;
+    font-size: rem($breadcrumb-font-size);
+    min-height: 40px;
+    text-transform: uppercase;
+
+    ol {
       color: $color-blue-primary;
-    }
-    .breadcrumb_link_home {
-      [data-achp-breadbrumb-icon-name='home'] {
-        #home-icon {
-          transition: fill 0.25s;
+      list-style-type: none;
+      margin: 0;
+      max-height: $default-line-height * $breadcrumb-font-size;
+      overflow: hidden;
+      padding-left: 0;
+      position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-wrap: normal;
+   
+      .breadcrumb_link {
+        display: inline;
+        padding-left: 5px;
+        position: relative;
+
+        a {
+          color: $color-grey !important;
+          text-decoration: none;
+          transition: color 0.25s;
         }
-      }
-      &:hover {
-        [data-achp-breadbrumb-icon-name='home'] {
-          #home-icon {
-            fill: $color-blue-primary !important;
+        .achp-breadcrumb-icon {
+          display: inline-block;
+
+          &[data-achp-breadbrumb-icon-name='arrow'] {
+            padding: 0 20px;
+          }
+          &[data-achp-breadbrumb-icon-name='home'] {
+            padding: 0 10px 0 0;
+          }
+        }
+        &:hover {
+          a {
+            color: $color-blue-primary !important;
           }
         }
       }
+      .breadcrumb_page {
+        /*color: $color-blue-primary;*/
+      }
+      .breadcrumb_link_home {
+        [data-achp-breadbrumb-icon-name='home'] {
+          #home-icon {
+            transition: fill 0.25s;
+          }
+        }
+        &:hover {
+          [data-achp-breadbrumb-icon-name='home'] {
+            #home-icon {
+              fill: $color-blue-primary !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  [data-plugin-id="system_breadcrumb_block"] {
+    padding-top: 0;
+    padding-bottom: 20px;
+
+    .achp-breadcrumb {
+      display: none !important;
+    }
+    .mobile_breadcrumb {
+      display: block;
     }
   }
 }

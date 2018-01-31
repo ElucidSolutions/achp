@@ -2,37 +2,145 @@
 ** This Sass file defines the styles for the 
 ** Section 106 Process module.
 */
+@import "../../../../modules/custom/slide_format/scss/style";
+@import "../styleguide";
 
-#homepage_flowchart_region {
-  padding: 25px 0px 0px 0px;
-  width: 100%;
-  height: auto;
-  background-color: $background-color-lightblue;
-}
+.slide-format-feature {
+  @include styleguide; 
+  @include slide-format-feature($feature-height: 400px, $feature-item-width: 300px);
+  text-align: left;
 
-.flowchart_content_wrapper {
-  margin: 0 auto;
-  text-align: center;
-}
+  $slide-format-feature-color-red: #CD1803;
+  $slide-format-feature-slide-padding: 28px 0 28px;
+  $slide-format-feature-item-width: 270px;
+  $slide-format-feature-item-padding-left: 70px;
+  $slide-format-feature-item-margin: 25px;
+  $slide-format-feature-first-item-width: $slide-format-feature-item-width - $slide-format-feature-item-padding-left;
+  $slide-format-feature-item-number-size: 40px;
+  $slide-format-feature-item-image-size: 150px;
+  $slide-format-feature-item-read-more-icon-height: 12px;
+  $slide-format-feature-item-read-more-icon-width: 7px;
+  $slide-format-feature-slide-button-background-color: $color-blue-primary;
+  $slide-format-feature-slide-button-width: 25px;
+  $slide-format-feature-slide-button-icon-size: 6.5px;
 
-.header_container {
-  width: auto;
-  display: inline-block;
-  padding: 0px 20px;
-  hr {
-    width: 60%;
-  }
-}
-
-#homepage_flowchart_region {
-  padding: 25px 0px 0px 0px;
-}
-
-#block-readmoreaboutthefederalpreservationprocess {
-  div {
-  	margin: 20px 20px 30px 20px;
-    button {    
-      text-transform: uppercase;
+  .slide-format-feature-slide-container {
+    .slide-format-feature-focus {
+      max-width: $max-content-width;
     }
+    .slide-format-feature-slide {
+      counter-reset: slide-format-feature-item-counter;
+      padding: $slide-format-feature-slide-padding;
+
+      // Represents the horizontal rule connecting each step.
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 103px;
+        left: ($slide-format-feature-first-item-width / 2);
+        width: calc(100% - 200px); // manually calculated to extend from the center of the first item image to the center of the last.
+        border-top: 1px solid $slide-format-feature-color-red;
+      }
+      .slide-format-feature-item {
+        margin-right: $slide-format-feature-item-margin;
+
+        &:first-of-type {
+          @include mobile(margin-left, $slide-format-feature-item-margin + $slide-format-feature-item-padding-left);
+          width: $slide-format-feature-first-item-width;
+        }
+        &:nth-of-type(n+2) {
+          margin-left: $slide-format-feature-item-margin;
+          padding-left: $slide-format-feature-item-padding-left;
+          width: $slide-format-feature-item-width;
+
+          // Represents the labeled step numbers.
+          &:before {
+            background: $slide-format-feature-color-red;
+            border-radius: 50%;
+            color: white;
+            content: counter(slide-format-feature-item-counter);
+            counter-increment: slide-format-feature-item-counter;
+            font-family: $sans-text;
+            font-size: rem(23px);
+            height: $slide-format-feature-item-number-size;
+            left: 0px;
+            padding-top: $margin-xsmall;
+            position: absolute;
+            text-align: center;
+            top: 55px;
+            width: $slide-format-feature-item-number-size;
+          }
+        }
+        &.slide-format-feature-item-active,
+        &:hover {
+          &:before {
+            background: $color-blue-primary;
+          }
+          .views-field-view-node {
+            a {
+              background-image: url("../images/timeline-read-more-arrow-blue.svg");
+              color: $color-blue-primary;
+            }
+          }
+        }
+        .views-field-field-process-step-image {
+          img {
+            border-radius: 50%;
+            font-family: 'object-fit: cover;'; // Used by Object Fit Images to Shim support for object-fit in IE and Edge.
+            height: $slide-format-feature-item-image-size;
+            object-fit: cover;
+            width: $slide-format-feature-item-image-size;
+          }
+        }
+        .views-field-title {
+          a {
+            color: black;
+            font-family: $sans-text;
+            font-size: rem(16px);
+            font-weight: 600;
+            line-height: 1.2;
+          }
+        }
+        .views-field-field-process-step-summary {
+          a {
+            color: $color-grey2;
+            font-family: $serif-text;
+            font-size: rem(14px);
+            line-height: 1.4;
+          }
+        }
+        .views-field-view-node {
+          a {
+            background-image: url("../images/timeline-read-more-arrow.svg");
+            background-position: 100% $margin-xsmall;
+            background-repeat: no-repeat;
+            background-size: $slide-format-feature-item-read-more-icon-width;
+            color: $color-grey;
+            font-family: $sans-text;
+            font-size: rem(14px);
+            font-weight: 600;
+            line-height: 1.6;
+            padding: $margin-xsmall 15px $margin-xsmall 0;
+          }
+        }
+        .views-field-path {
+          display: none;
+        }
+      }
+    }
+  }
+  .slide-format-feature-slide-button {
+    background-color: $slide-format-feature-slide-button-background-color;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: $slide-format-feature-slide-button-icon-size;
+    width: $slide-format-feature-slide-button-width;
+  }
+  .slide-format-feature-left-slide-button {
+    background-image: url("../images/timeline-prev-arrow.svg");
+  }
+  .slide-format-feature-right-slide-button {
+    background-image: url("../images/timeline-next-arrow.svg");
   }
 }

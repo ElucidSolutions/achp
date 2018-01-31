@@ -1,0 +1,70 @@
+[data-page-path="/node/7509"],
+[data-page-path-alias="/preserve-america/presidential-award"] {
+  #content #content_region {
+    $vertical-padding: 35px;
+    $container-padding: 50px;
+    $padding-between-columns: 20px;
+    $sidebar-width: 300px; 
+    $column-breakpoint: 850px;
+
+    article {
+      display: table;
+      max-width: 1024px;
+      margin: 0 auto $container-padding;
+
+      .presidential_award_container {
+        display: table-row;
+
+        .presidential_award_main {
+          border-right: 1px solid $background-color-grey2;
+          display: table-cell;
+          padding: 0 $padding-between-columns $vertical-padding 0;
+
+          .presidential_award_questions {
+            p {
+              margin: 0;
+              a {
+                color: $color-blue-primary;
+              }
+            }
+          }
+        }
+        .presidential_award_sidebar {
+          padding-left: $padding-between-columns;
+          display: table-cell;
+          width: $sidebar-width;
+
+          h4 {
+            margin: 0;
+          }
+          ul {
+            margin-top: 10px;
+            padding-left: 20px;
+
+            li {
+              padding-left: 5px;
+
+              a {
+                color: $color-blue-primary;
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: $column-breakpoint)  {
+        .presidential_award_container {
+          display: block;
+
+          .presidential_award_main, .presidential_award_sidebar {
+            border-right: none;
+            display: block;
+            padding-left: 0;
+            padding-right: 0;
+            width: 100%;    
+          }
+        }
+      }
+    }
+  }
+}

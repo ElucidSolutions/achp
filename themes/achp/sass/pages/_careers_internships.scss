@@ -1,0 +1,118 @@
+/*
+  Styles for careers and internship pages, as well as the nodes for each
+*/
+
+#page[data-page-path-alias="/careers"],
+[data-page-path="/node/7602"],
+#page[data-page-path-alias="/internships"],
+[data-page-path="/node/7603"] {
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+  #content #content_region {
+    #block-open-jobs, #block-views-block-open-job-postings-block-2 {
+      margin: 30px auto; 
+
+      $box-padding: 20px;
+
+      h2 {
+        @include font-size($h4-font-sizes);
+        color: $color-red2;
+        margin-bottom: 15px;
+      }
+
+      [data-view-id="open_job_postings"] {
+        box-shadow: 0px 1px 3px $color-lightgrey;
+        font-family: $sans-text;
+        margin-bottom: 40px;
+
+        .views-row {
+          border-bottom: 1px solid $background-color-grey2;
+          position: relative;
+
+          & + .views-row {
+            margin-top: 25px;
+          }
+
+          &:only-of-type {
+            border-bottom: none;
+          }
+          .views-field {
+            padding: 0 $box-padding;
+
+            &.views-field-title {
+              padding-top: $box-padding;
+
+              a {
+                color: $color-blue-primary;
+              }
+            }
+            &.views-field-body {
+              font-family: $serif-text;
+              padding: 10px $box-padding;
+            }
+            &.views-field-view-node {
+              padding-bottom: $box-padding;
+
+              a {
+                display: inline-block;
+                position: relative;
+              }
+            }
+          }
+        }
+      }
+    }
+  }  
+}
+
+#page[data-page-path-alias^="/careers/"],
+#page[data-page-path-alias^="/internships/"],
+[data-page-node-type="job_posting"] {
+  @extend #page[data-page-node-type="page"];
+
+  p a {
+    color: $color-blue-primary;
+  }
+
+  #secondary_header_region #block-about-achp-share {
+    @include content-container;
+    margin: 0 auto 30px;
+  }
+  #content #content_region {
+    font-size: rem(18px);
+    margin-bottom: 40px;
+
+    h2 {
+      margin-top: 20px;
+      text-align: left;
+
+      & + p {
+        margin-top: 0;
+      }
+    }
+    h4 {
+      color: $color-red;
+      margin-bottom: 0;
+
+      & + p {
+        margin-top: 0;
+      }
+      & + ul {
+        margin-top: 10px;
+      }
+    }
+
+    .read_more {
+      padding: 10px 0;
+    }
+  }
+}

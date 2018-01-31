@@ -1,0 +1,25 @@
+/*
+  This stylesheet defines the default styles for
+  the Resources Pages block which is displayed
+  on User Account pages for certain roles.
+*/
+#block-useraccountpageresourcepagesblock {
+  @import "../styleguide";
+  @include styleguide;
+
+  h2 {
+    @include h2($center: false);
+    margin-bottom: 0;
+    text-align: left;
+  }
+  h3 {
+    @include h3($color: $color-red, $center: false);
+    color: $color-red;
+    text-align: left;
+  }
+  h4 {
+    @include h4($color: $color-red, $center: false);
+    color: $color-red;
+    text-align: left;
+  }
+}

@@ -1,0 +1,518 @@
+/*
+  Styles for the protecting historic properties page
+*/
+[data-page-path="/node/7471"],
+[data-page-path-alias="/protecting-historic-properties"] {
+  $vertical-padding: 35px;
+  $container-padding: 40px;
+
+  $success-card-margin-vert: 25px;
+  $success-card-margin-horiz: 17px;
+  $success-card-height: 400px;
+  $success-card-width: 300px;
+  $section-padding-horiz: 40px;
+  $three-card-max-width: $success-card-width * 3 + $success-card-margin-horiz * 2 + $section-padding-horiz * 2;
+  $two-card-max-width: $success-card-width * 2 + $success-card-margin-horiz + $section-padding-horiz * 2;
+
+  $intro-106-img-width: 300px;
+  $intro-106-img-height: 195px;
+  $intro-106-img-padding: 20px;
+  $e106-img-width: 100px;
+  $library_icon_height: 50px;
+
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+      padding-top: 0;
+    }
+    #block-php-shareblock {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+
+  #content {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+  }
+  #content_region {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+
+    h2 + p {
+      margin-top: 0;
+    }
+
+    #block-achp-content {
+      article {
+        @include content-container;
+        padding-bottom: $vertical-padding;
+      }
+    }
+    #block-anintroductiontosection106 {
+      background: $background-color-grey2;
+      padding: $vertical-padding 0;
+
+      .block_container {
+        @include clear-float;
+        @include content-container;
+        position: relative;
+
+        h2 {
+          padding-bottom: 10px;
+        }
+        img {
+          float: left;
+          margin-right: $intro-106-img-padding;
+          max-width: $intro-106-img-width;
+        }
+        .intro_106_text {
+          position: relative;
+          height: $intro-106-img-height;
+
+          p {
+            margin: 0;
+          }
+          .read_more {
+            bottom: 0;
+            font-family: $sans-text;
+            font-size: rem(14px);
+            left: calc(#{$intro-106-img-width} + #{$intro-106-img-padding});
+            padding: 3px 15px 0 0;
+            position: absolute;
+
+            a {
+              // display: inline-block;
+              // padding-right: 15px;
+
+              &:after {
+                // right: 0;
+              }
+            }
+          }
+        }
+      } 
+    }
+    #block-viewactivesection106casesinvolvingtheachp, 
+    #block-searchforafederalpreservationofficer {
+      .textblock_with_background {
+        margin-bottom: $vertical-padding;
+        margin-top: $vertical-padding;
+
+        &.textblock_left {
+          background-image: url('../images/half-section-section-106-map.png');
+        }
+        &.textblock_right {
+          background-image: url('../images/half-section-fpo-list.png');          
+        }
+      }
+    }
+    #block-featured-success-stories {
+      background-color: $color-lightblue3;
+      clear: both;
+      height: auto;
+      margin-top: $vertical-padding;
+
+        h2 {
+          @include content-container;
+          padding-top: $vertical-padding;
+        }
+
+        [data-view-id="homepage_success_stories"] {
+          @include content-container;
+          margin: 0 auto;
+          padding-bottom: 25px;
+          text-align: center;
+
+          .success-story.card {
+            background-color: #ffffff;
+            display: inline-block;
+            height: $success-card-height;
+            margin-top: 25px;
+            position: relative;
+            text-align: center;
+            width: $success-card-width;
+
+            & + .success-story.card {
+              margin-left: $success-card-margin-horiz;
+            }
+            .success_story {
+              @include center-xy;
+              height: $success-card-height - 30px; 
+              width: $success-card-width - 20px;
+              position: absolute;  
+
+              &_image {
+                $success-card-image-height: 185px;
+                max-height: $success-card-image-height;
+                @include fit-and-center-image($success-card-image-height);    
+                margin-bottom: 15px;
+
+                img {
+                  border: none !important;
+                }
+              }
+              &_title h3 {
+                text-align: inherit;
+              }
+              &_location {
+                color: $color-lightgrey-2;
+              }
+              &_body p {
+                font-family: $serif-text;
+                font-size: rem(16px);
+                margin: 5px;
+                text-align: center;
+              }
+              .read_more {
+                @include center-x;
+                bottom: 0;
+                padding-right: 5px;
+              }
+            }           
+          }
+        }   
+    }
+    #block-moresuccessstoriesbutton-2 {
+      background-color: $color-lightblue3;
+      padding: 0 0 $vertical-padding;
+
+      button {
+        margin: 0 auto;
+      }
+    }
+    #block-digitallibrary {
+      @include content-container-section;
+
+      .library_categories {
+        @include outer-container;
+        font-family: $sans-text;
+        max-width: 800px;
+        padding: 0;
+
+        .library_category {
+          @include span-columns(5 of 12);
+          @include shift(1);
+          height: $library_icon_height;
+          position: relative;
+          margin-bottom: 20px;
+
+          &:before {
+            background-repeat: no-repeat;
+            background-position: center;
+            content: "";
+            display: block;
+            height: $library_icon_height;
+            width: $library_icon_height;
+          }
+
+          &_regulations:before {
+            background-image: url('../images/regulations-icon.svg');
+          }
+          &_guidance:before {
+            background-image: url('../images/guidance-docs-icon.svg');
+          }
+          &_agreement:before {
+            background-image: url('../images/agreement-docs-icon.svg');
+          }
+          &_faq:before {
+            background-image: url('../images/faq-icon.svg');
+          }
+          &_explanation:before {
+            background-image: url('../images/explanation-resources-icon.svg');
+          }
+          &_publications:before {
+            background-image: url('../images/publications-icon.svg');
+          }
+          .library_text {
+            @include center-y;
+            margin-left: 60px;
+          }
+        }
+      }
+      .library_button {
+        button {
+          margin-bottom: 0;
+        }
+      }
+    }
+    [data-derivative-plugin-id="digital_library-block_1"] {
+      $margin-xsmall: 5px;
+      $margin-small: 10px;
+      $margin-med: 20px;
+      $margin-large: 40px;
+      $margin-xlarge: 60px;
+
+      box-shadow: 0px 1px 3px $color-lightgrey;
+      font-family: $sans-text;
+      padding: $margin-med;
+      margin: 0 auto $margin-med;
+      max-width: $max-content-width - 2 * $margin-large;
+
+      &:before {
+        background-image: url('../images/featured-icon.svg');
+        background-repeat: no-repeat;
+        background-position: left;
+        content: 'Featured Library Entries';
+        color: $color-red2;
+        display: block;
+        height: $library_icon_height;
+        font-size: rem(22px);
+        line-height: $library_icon_height;
+        margin: $margin-small 0;
+        padding-left: $margin-xlarge;
+        width: 100%;
+      }
+      h2 {
+        border: none;
+        color: $color-red2;
+        font-size: rem(22px);
+        margin: $margin-small 0;
+      }
+      header {
+        display: none;
+      }
+      .item-list {
+        box-shadow: 0px 1px 3px $color-lightgrey;
+
+        ol {
+          margin: 0;
+          padding: 0;
+
+          li {
+            border-bottom: 1px solid $color-lightgrey;
+            list-style-type: none;
+            padding: $margin-med 0 $margin-med $margin-med;
+
+            .views-field-title {
+              a {
+                color: $color-blue-primary;
+              }
+            }
+            .views-field-type {
+              color: rgba(124, 124, 124, 1);
+              padding-top: 5px;
+            }
+            .views-field-body {
+              font-family: $serif-text;
+              padding-top: 10px;
+            }
+          }
+        }
+      }
+      .more-link {
+        display: none;
+      }
+    }
+    #block-php-digital-library-button {
+      padding: 10px 0 20px;
+    }
+    #block-electronic106submissionsystem {
+      background-color: $color-lightblue3;
+
+      .block_container {
+        @include content-container-section;
+        padding-bottom: 5px;
+
+        .warning_block {
+          @include clear-float;
+          background-color: rgba(255,237,234,1);
+          height: $e106-img-width;
+          margin-bottom: $vertical-padding;
+          position: relative;
+          width: 100%;
+
+          .warning_icon {
+            background: #CD1803 url('../images/warning-icon.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 60px;
+            display: inline-block;
+            height: $e106-img-width;
+            width: $e106-img-width;
+            float: left;
+            margin-right: 25px;  
+          }
+          p {
+            @include center-y;
+            padding-right: 15px;
+            position: relative;
+
+            a {
+              color: $color-blue-primary;
+            }
+          }
+        }
+      }
+    }
+    #block-electronic106submissionsystembutton {
+      background-color: $color-lightblue3;
+      padding-bottom: $vertical-padding;   
+
+      &>div {
+        @include content-container;
+      }
+    }
+    #block-related-resources-block, #block-pages-related-resources-block {
+      @include content-container-section;
+      padding-top: 50px;
+    }
+    @media (max-width: $three-card-max-width + 9px) {
+      #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+        max-width: 800px;
+        
+        .success-story.card:last-of-type {
+          margin-left: 0 !important;
+        }
+      }
+    }
+    @media (max-width: 950px) {
+      #block-electronic106submissionsystem .block_container .warning_block {
+        height: 150px;
+
+        $mobile-img-left-padding: 15px;
+
+        .warning_icon {
+          @include center-y;
+          left: $mobile-img-left-padding;
+        }
+        p {
+          @include center-y;
+          left: calc(#{$e106-img-width} + #{$mobile-img-left-padding} * 2);
+          margin-top: 0;
+        }
+      }
+    }
+    @media (max-width: $two-card-max-width + 5px) {
+      #block-featured-success-stories [data-view-id="homepage_success_stories"] {
+        max-width: 700px;
+        
+        .success-story.card {
+          display: block;
+          margin: 25px auto 0 !important;
+          max-width: 100%;
+
+          &:last-of-type {
+            margin: 25px auto 0 !important;
+          }
+        }
+      }
+    }
+    @media (max-width: 750px) {
+      #block-anintroductiontosection106 .block_container {
+        img {
+          @include center-x;
+          float: none;
+          position: relative;
+          margin: 0 0 10px;
+        }
+        .intro_106_text {
+          height: auto;
+
+          .read_more {
+            left: 0;
+            margin-top: 15px;
+            position: relative;
+
+            a:after {
+              // right: auto;
+            }
+          }
+        }
+      }
+      #block-viewactivesection106casesinvolvingtheachp, 
+      #block-searchforafederalpreservationofficer {
+        margin: 0;
+
+        .textblock_with_background {
+          height: 275px;
+          margin: 0 !important;
+
+          .split_block_container {
+            @include content-container;
+
+            p {
+              margin-bottom: 25px;
+            }
+          }
+          button {
+            padding-left: 25px;
+            padding-right: 25px;
+          }
+        }
+      }
+      #block-digitallibrary .library_categories {
+        .library_category {
+          @include span-columns(9 of 12);
+          @include shift(3);
+        }
+      }
+      // #block-featured-success-stories {
+      //   margin-top: 0;
+      // }
+    }
+    @media (max-width: 700px) {
+      #block-electronic106submissionsystem .block_container .warning_block {
+        height: 200px;
+      }
+    }
+    @media (max-width: 650px) {
+      #block-digitallibrary .library_categories {
+        .library_category {
+          @include shift(0);
+          height: 100px;
+          margin-bottom: 5px;
+          text-align: center;
+          width: 100%;
+
+          &:before {
+            margin: 0 auto;
+          }
+          .library_text {
+            @include undo-center-y;
+            display: block;
+            margin: 5px auto 0;
+          }
+        }
+      }
+    }
+    @media (max-width: 550px) {
+      #block-electronic106submissionsystem .block_container .warning_block {
+        height: auto;
+
+        .warning_icon {
+          @include undo-center-y;
+          float: none;
+          height: 70px;
+          margin: 0;
+          width: 100%;
+        }
+        p {
+          @include undo-center-y;
+          padding: 0 10px 10px;
+          top: 60%;
+        }
+      }
+    }
+    // @media (max-width: 500px) {
+    //   #block-anintroductiontosection106 .block_container {
+    //     .intro_106_text .read_more a:after {
+    //       // right: 0;
+    //     }
+    //   }
+    // }
+  }
+}
+[data-page-path-alias="/protecting-historic-properties/program-alternatives"] {
+  #secondary_header_region {
+    #block-php-shareblock {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+}

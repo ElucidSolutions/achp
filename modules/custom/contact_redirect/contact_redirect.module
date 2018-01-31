@@ -1,0 +1,23 @@
+<?php
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_alter ()
+ *
+ * Redirects users after they have sent a message
+ * using a contact form.
+ */
+function contact_redirect_form_alter (&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if (preg_match ('/^contact_message_/', $form_id)) {
+    $form['actions']['submit']['#submit'][] = 'contact_redirect_submit';
+  }
+}
+
+/**
+ * Handles contact form submissions by
+ * redirecting users.
+ */
+function contact_redirect_submit (&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $url = \Drupal::config ('contact_redirect.settings')->get ('url');
+  $form_state->setRedirectUrl (Url::fromUserInput ($url));
+}

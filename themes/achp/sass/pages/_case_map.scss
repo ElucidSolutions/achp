@@ -1,0 +1,79 @@
+/*
+  Styles for the case map page
+*/
+#page[data-page-path-alias="/protecting-historic-properties/active-section-106-case-map"],
+[data-page-path="/node/7506"] {
+  @import "../styleguide";  
+
+  #main {
+    @include styleguide;
+    @include body-text;
+
+    #secondary_header_region {
+      [data-plugin-id="system_breadcrumb_block"] {
+        @include content-container-subsection;
+        padding-top: $margin-med;
+      }
+      [data-plugin-id="page_title_block"] {
+        @include content-container-subsection;
+
+        h1 {
+          color: $color-darkblue2;
+          font-weight: 400;
+          margin-bottom: $margin-med;
+          text-align: center;
+        }
+      }
+      [data-plugin-id="share_this_page_block"] {
+        @include content-container-subsection;
+        margin-bottom: $margin-small;
+      }
+    }
+    #content {
+      padding: 0;
+      max-width: 100%;
+
+      #content_region {
+        #block-active-106-map-block {
+          .section_106_map {
+            .section_106_map_feature {
+              .section_106_map_feature_tab {
+                color: $color-darkblue2;
+                border-bottom: 5px solid #fff;
+
+                &.section_106_map_feature_map_tab {
+                  background-image: url("../images/map-icon-navy-blue.svg");
+                }
+                &.section_106_map_feature_grid_tab {
+                  background-image: url("../images/grid-icon-navy-blue.svg");
+                }            
+                &:hover, &.section_106_map_selected {
+                  color: $color-blue-primary;
+                  border-bottom: 5px solid $color-blue-primary;
+
+                  &.section_106_map_feature_map_tab {
+                    background-image: url("../images/map-icon-primary-blue.svg");
+                  }
+                  &.section_106_map_feature_grid_tab {
+                    background-image: url("../images/grid-icon-primary-blue.svg");
+                  }  
+                }
+              }
+              .section_106_map_filter {
+                left: 50px;
+                @media (max-width: 650px) {
+                  left: 0;
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  footer {
+    position: relative;
+    z-index: 20;
+  }
+}

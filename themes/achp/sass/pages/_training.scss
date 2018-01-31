@@ -1,0 +1,82 @@
+[data-page-path="/node/7606"],
+#page[data-page-path-alias="/training"] {
+  #secondary_header_region {
+    #block-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-training-share-block {
+      @include content-container;
+      margin: 0 auto 30px;
+    }
+  }
+
+  #content #content_region {
+    $img-height: 200px;
+    $img-width: 300px;
+    $img-margin: 20px;
+
+    padding-bottom: 40px;
+
+    h2 + p {
+      margin-top: 0;
+    }
+    .training_types {
+      margin-top: 50px;
+
+      .training_section {
+        @include clear-float;
+        height: $img-height;
+        position: relative;
+        margin-bottom: 100px;
+
+        h3 {
+          color: $color-red2;
+          margin-bottom: 10px;
+        }
+
+        img {
+          float: left;
+          margin-right: $img-margin;
+          max-width: 100%;
+        }
+        .training_text {
+          position: relative;
+          height: $img-height;
+
+          p {
+            margin-top: 0;
+          }
+          .read_more {
+            bottom: 10px;
+            left: calc(#{$img-width} + #{$img-margin});
+            position: absolute;
+          }
+        }
+      }
+    }
+    @media (max-width: 800px) {
+      .training_types .training_section {
+        height: auto;
+        margin-bottom: 30px;
+
+        img {
+          @include center-x;
+          float: none;
+          margin: 0 0 10px;
+          position: relative;
+        }
+        .training_text {
+          height: auto;
+          margin-top: 0;
+          
+          .read_more {
+            left: 0;
+            padding-top: 10px;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}

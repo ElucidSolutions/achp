@@ -1,0 +1,38 @@
+/*
+  This stylesheet defines the default styles
+  for the Internship Application form page.
+*/
+[data-page-path="/contact/internship"] {
+  @import "../styleguide";
+
+  #main {
+    #secondary_header_region {
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: 0 $margin-large;
+
+      [data-plugin-id="page_title_block"] {
+        h1 {
+          font-family: $sans-text;
+          font-size: rem(36px);
+          color: $color-darkblue;
+          line-height: 1.2;
+          text-align: center;
+
+          &:after {
+            border-bottom: 1px solid $color-red;
+            content: "";
+            display: block;
+            margin: $margin-med auto $margin-large;
+            width: 60%;
+          }
+        }
+      }
+      [data-plugin-id="share_this_page_block"] {
+        margin-bottom: $margin-large;
+      }
+    }
+    #content_region {
+    }
+  }
+}

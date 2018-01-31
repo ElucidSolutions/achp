@@ -1,0 +1,11 @@
+# Defines the paths for pages defined by the
+# Preserve America Map module.
+
+# I. Preserve America Map Module Settings Route.
+preserve_america_map.settings:
+  path: '/admin/structure/preserve_america_map/settings'
+  defaults:
+    _form: '\Drupal\preserve_america_map\PreserveAmericaMapSettingsForm'
+    _title: 'Preserve America Map Settings'
+  requirements:
+    _permission: 'administer site configuration'

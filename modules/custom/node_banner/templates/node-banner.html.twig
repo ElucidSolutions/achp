@@ -1,0 +1,19 @@
+{#
+/**
+ * node_banner_banner_image_url: The HTML image
+ *   element that should be used as the banner image.
+ * node_banner_overlay_fields: An associative
+ *   array listing the overlay fields keyed by
+ *   field name.
+#}
+<div class="node-banner">
+  <div class="node-banner-banner" style="background-image: url('{{ node_banner_banner_image_url }}');">
+    <div class="node-banner-banner-overlay">
+      {% for field_name, field in node_banner_overlay_fields %}
+        <div class="node-banner-banner-overlay-field" data-node-banner-overlay-field="{{ field_name }}">
+          {{ field }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

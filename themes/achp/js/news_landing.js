@@ -252,7 +252,8 @@
     representing the news landing page's filter container.
   */
   function getFilterContainerSelectors () {
-    return $('.' + getNewsLandingContainerClassName () + ' .' + getExposedFormClassName ());
+    console.log($('.' + getNewsLandingContainerClassName () + ' #' + getExposedFormID ()))
+    return $('.' + getNewsLandingContainerClassName () + ' #' + getExposedFormID ());
   }    
 
   /*
@@ -276,8 +277,16 @@
     that represents the filter forms.
   */
   function getFilterContainer () {
-    return $('.views-exposed-form');
+    return $('.views-exposed-form', getNewsLandingContainer ());
   }  
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the News Landing Container element.
+  */
+  function getNewsLandingContainer () {
+    return $('.' + getNewsLandingContainerClassName ());
+  }
 
   /*
     Accepts no arguments and returns a jQuery HTML Element
@@ -332,11 +341,11 @@
 
   /*
     Accepts no arguments and returns a string that
-    represents the class name of the element that
+    represents the ID of the element that
     contains the filters.
   */
-  function getExposedFormClassName () {
-    return 'views-exposed-form';
+  function getExposedFormID () {
+    return 'views-exposed-form-latest-news-news-landing';
   }  
 
   /*

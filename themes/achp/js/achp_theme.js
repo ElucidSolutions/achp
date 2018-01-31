@@ -23,9 +23,17 @@
     $('#subheader_mobile_body').append (createMenuSlides (getMenuList ()));
 
     // II. Add expand/collapse click handler to subheader header.
-    $('#subheader_mobile_header').click (function () {
-      toggleSubheaderMenu ();
-    });
+    $('#subheader_mobile_header')
+      .attr ('tabindex', 0)
+      .keydown (function (event) {
+        // toggle the mobile menu when the user presses Enter over it.
+        if (event.which === 13) {
+          toggleSubheaderMenu ();
+        }
+      })
+      .click (function () {
+        toggleSubheaderMenu ();
+      });
 
     // III. Add a collapse click handler to the subheader close button.
     $('#subheader_mobile_close_button').click (function () {
@@ -42,22 +50,38 @@
     });
 
     // V. Handle subheader menu item hover events
-    $('#header_menu li[data-menu-level="0"]').hover (
-      // When mouse hovers on menu, show drop-down submenu
-      function () {
-        openWidescreenSubmenu ($('> ul', this).clone ());
-      },
-      // When mouse leaves, listen to see if it has gone to the drop-down or not 
-      function () {       
-        $('ul[data-menu-level="1"]').hover (
-          function () {
-            // If yes, keep submenu open and do nothing
-          }, function () {
-            // If no, close submenu
+    $('#header_menu li[data-menu-level="0"]')
+      .keydown (function (event) {
+        if (event.which === 13) {
+          if ($(this).hasClass ('menu_selected')) { 
             closeWidescreenSubmenu ();
-          })
-      }
-    )
+          } else {
+            // open this item's drop-down when the user presses Enter over it.
+            event.stopPropagation ();
+            closeWidescreenSubmenu ();
+            openWidescreenSubmenu ($('> ul', this).clone ());
+          }
+        } else if (event.which === 9) {
+          // close this item's drop-down if the user tabs out of it. 
+          console.log ('[achp_theme] Tabbed within a header menu item.');
+        }
+      })
+      .hover (
+        // When mouse hovers on menu, show drop-down submenu
+        function () {
+          openWidescreenSubmenu ($('> ul', this).clone ());
+        },
+        // When mouse leaves, listen to see if it has gone to the drop-down or not 
+        function () {       
+          $('ul[data-menu-level="1"]').hover (
+            function () {
+              // If yes, keep submenu open and do nothing
+            }, function () {
+              // If no, close submenu
+              closeWidescreenSubmenu ();
+            })
+        }
+      )
 
     // Continuation of part V: edge cases that should close submenu
     $('#header').mouseover ( 
@@ -155,7 +179,9 @@
       };
     })());
 
-    });
+    // Initialize the search bar.
+    initHeaderSearch ();
+  });
 
 
   /* 
@@ -186,6 +212,17 @@
                      .attr ('data-menu-item-local-index', i)
                      .attr ('data-menu-item-parent-index', parentIndex)
                      .attr ('data-menu-item-num-children', numChildren);
+
+      numChildren > 0 ?
+        $('>a', menuListItem).replaceWith (
+          $('<span></span>')
+            .html ($('>a', menuListItem).html ())
+            .attr ('tabindex', menuListItemIndex)
+            // .attr ('tabindex', 0)
+        ):
+        $('>a', menuListItem).attr ('tabindex', menuListItemIndex);
+        // $('>a', menuListItem).attr ('tabindex', 0);
+
       menuListItemIndex = setMenuItemIndices (menuListItemIndex, nestedList);
     });
     return menuListItemIndex;
@@ -240,7 +277,7 @@
     var slides = [];
 
     // I. Create slide for menu list item
-    var slide = createSlide (containerElement, index, $('>a', getMenuItem (menuList, index).clone ()), submenuListItems, parentIndex)
+    var slide = createSlide (containerElement, index, $('>a, >span', getMenuItem (menuList, index).clone ()), submenuListItems, parentIndex)
       .attr('data-menu-slide-parent-index', parentIndex);
 
     // II. Add menu list item slide to slides array
@@ -269,18 +306,26 @@
   function createSlide (containerElement, index, titleElement, menuListItems, parentIndex) {
     var slideListItems = [];
     menuListItems.each (function (i, menuListItem) {
+      menuListItem = $(menuListItem).clone (true);
+      $('>a, >span', menuListItem).attr ('tabindex', 0);
       slideListItems.push ($('>ul', menuListItem).length === 0 ? 
-         slideListItem = $(menuListItem).clone ()
-         : 
+        slideListItem = menuListItem :
         slideListItem = $('<li></li>')
           .addClass ('menu_slide_list_item')
-          .html ($('>a', menuListItem).html ())
+          .html ($('>a, >span', menuListItem).html ())
+          .attr ('tabindex', 0)
+          .keydown (function (event) {
+            // slideTo the submenu's slide when the user presses "Enter". 
+            if (event.which === 13) {
+              slideOutToLeft (index);            
+              slideInFromRight (containerElement, $(menuListItem).attr ('data-menu-item-index'));
+            }
+          })
           .click (function () {
             slideOutToLeft (index);            
             slideInFromRight (containerElement, $(menuListItem).attr ('data-menu-item-index'));
           })
         );
-        // toggleArrows (slideListItem);
     });
 
     // To remove line breaks from slide titles that have them
@@ -297,14 +342,22 @@
           .addClass ('menu_slide_header_title')
           .append ($('<div></div>')
             .addClass ('menu_slide_header_back_button')
+            .attr ('tabindex', 0)
             .html ('BACK')
+            .keydown (function (event) {
+              // go back if the user presses enter while focusing on the back button.
+              if (event.which === 13) {
+                slideInFromLeft (containerElement, parentIndex);  
+                slideOutToRight (index);
+              }  
+            })
             .click (function () {     
               slideInFromLeft (containerElement, parentIndex);  
               slideOutToRight (index);                            
             })
           )          
           .append ($('<h3></h3>')
-            .append (titleElement)))
+            .append ($(titleElement).html() ? $(titleElement).html() : titleElement)))
         )
       .append ($('<div></div>')
         .addClass ('menu_slide_body')
@@ -360,10 +413,13 @@
            .addClass('menu_slide_extras')
            .append ($('<li></li>')
              .addClass ('menu_slide_extra_item')
-             .html ('<a href="#">CONTACT US</a>'))
+             .html ('<a href="/contact/feedback">CONTACT US</a>'))
            .append ($('<li></li>')
              .addClass ('menu_slide_extra_item')
-             .html ('<a href="#">SIGN IN</a>'))
+             .html (drupalSettings.user.uid === 0 ?
+               ('<a href="/user/login">SIGN IN</a>') :
+               ('<a href="/user/logout">SIGN OUT</a>')
+             ))
           );
   }
 
@@ -403,6 +459,9 @@
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ right: '0', left: '0' }, 250, "linear")     
          .show ();
+
+    // $('li > a, .menu_slide_list_item', slide).first ().focus ();
+
     animateSubheaderHeight (setSubheaderHeight (slide));
   }
 
@@ -419,6 +478,9 @@
          .delay (0) /* This seems to fix a Safari bug */
          .animate ({ left: '0', right: '0' }, 250, "linear")
          .show ();
+
+    // $('li > a, .menu_slide_list_item', slide).first ().focus ();
+
     animateSubheaderHeight (setSubheaderHeight (slide));
   }
 
@@ -447,7 +509,10 @@
   */
   function slideOutToLeft (index) {
     $('.menu_slide[data-menu-slide-index="' + index + '"]')
-      .animate({ left: '-100vw' }, 250, "linear");
+      .animate({ left: '-100vw' }, 250, "linear",
+        function () {
+          $(this).hide ();
+        });
 
   }
 
@@ -457,7 +522,10 @@
   */
   function slideOutToRight (index) {
     $('.menu_slide[data-menu-slide-index="' + index + '"]')
-      .animate({ left: '100vw' }, 250, "linear");
+      .animate({ left: '100vw' }, 250, "linear",
+        function () {
+          $(this).hide ();
+        });
   }
 
   /*
@@ -488,7 +556,6 @@
   */
   function openHeaderMenu () {
     $('#block-achp-main-menu').show ();
-    // flexibility(document.documentElement);
   }
 
   /*
@@ -532,7 +599,7 @@
   height for each submenu's header elements.
   */
   function alignSubmenuHeaders () {
-    var submenuHeaders = $('#subheader_widescreen_submenu li[data-menu-level="1"] > a');
+    var submenuHeaders = $('#subheader_widescreen_submenu li[data-menu-level="1"] > span');
     var submenuLineHeight = parseInt(submenuHeaders.css('line-height'));
     var headerHeight = submenuHeaders.toArray ().reduce (function (headerHeight, submenuHeader) {
       var numLines = Math.ceil ($(submenuHeader).height () / submenuLineHeight);
@@ -777,7 +844,7 @@
     a JQuery HTML Element.
   */
   function getSearchBlockElement () {
-    return $('#block-achp-search');
+    return $('#block-header-search-filter');
   }
 
   /*
@@ -795,5 +862,87 @@
   function getMenuList () {
     return $('>ul', getMenuBlockElement ());
   }
-  
+
+  /* 
+    Accepts no arguments and returns undefined.
+  */
+    function initHeaderSearch () {
+      setHeaderSearchPlaceholder ();
+      removeSubmitButtonText ();
+    }
+
+
+  /*
+    Accepts no arguments, sets placeholder text on the header search
+    element, and returns undefined.
+  */
+  function setHeaderSearchPlaceholder () {
+    getHeaderSearchElement ().attr('placeholder', 'SEARCH ACHP.GOV');
+  }
+
+  /*
+    Accepts no arguments, removes default text from the submit
+    button, and returns undefined.
+  */
+  function removeSubmitButtonText () {
+    getHeaderSearchSubmitButton ().attr('value', '');
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents the view form
+    submit button.
+  */
+  function getHeaderSearchSubmitButton () {
+    return getSearchContainerElement ().find (getSearchSubmitButton ());
+  }
+
+  /*
+    Accepts no arguments and returns a string representing
+    the search input field selector.
+  */
+  function getSearchSelector () {
+    return 'input#edit-keys';
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery
+    HTML Element that represents the text
+    input field.
+  */
+  function getHeaderSearchElement () {
+    return getSearchContainerElement ().find (getSearchSelector ());
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    that represents the header search submit button.
+  */
+  function getSearchSubmitButton () {
+    return getSearchContainerElement ().find (getSearchSubmitSelector ());
+  }
+
+  /*
+    Accepts no arguments and returns a string representing
+    the search submit button selector.
+  */
+  function getSearchSubmitSelector () {
+    return 'input#edit-submit-search';
+  }
+
+  /*
+    Accepts no arguments and returns a jQuery HTML Element
+    representing the header search container element.
+  */
+  function getSearchContainerElement () {
+    return $('#' + getSearchContainerID ());
+  }
+
+  /*
+    Accepts no arguments and reutrns a string representing
+    the header search container ID.
+  */
+  function getSearchContainerID () {
+    return 'block-header-search-filter';
+  }
 })(jQuery);

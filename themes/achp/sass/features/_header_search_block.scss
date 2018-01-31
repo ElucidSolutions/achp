@@ -1,0 +1,70 @@
+/*
+  This stylesheet defines the default styles
+  for the Header Search block.
+*/
+@import "../styleguide";
+
+/* Header Search styles */
+/*
+#header_widescreen_search_bar {
+  #block-achp-search {
+    @include mobile(display, hidden);
+  }
+}
+*/
+#header_widescreen_search_bar,
+#subheader_mobile_search {
+  #block-header-search-filter {
+    height: 30px;
+    position: relative;
+
+    form {
+      height: 100%;
+
+      label {
+        display: none;
+      }
+      .form-item-topic {
+        display: none;
+      }
+      .form-item-type {
+        display: none;
+      }
+      .js-form-item {
+        height: 30px;
+      }
+      .js-form-type-select, label {
+        display: none;
+        height: 100%;
+      }
+      .js-form-type-textfield input {
+        @include tablet(border, none);
+        @include tablet(border-bottom, 0px solid #979797);
+        padding-left: 20px;
+        font-size: rem(12px);
+        height: 32px;
+        outline: none;
+        width: 100%;
+      }
+      .form-actions input[type="submit"] {
+        @include hover-transition-background($color-lightblue-primary);
+        background-color: $color-blue-primary;
+        background-image: url(../images/search-icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 63%;
+        border: none;
+        border-radius: 0 2px 2px 0;
+        color: transparent;
+        cursor: pointer;
+        position: absolute;
+        height: 32px;
+        right: 0;
+        top: 0;
+        width: 32px;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+/*
+  This stylesheet defines the default styles
+  for the e106 content type.
+*/
+[data-page-path="/contact/e106_submission_form"] {
+  @import "../styleguide";
+
+  #main {
+    #secondary_header_region {
+      margin: 0 auto;
+      max-width: $max-content-width;
+      padding: 0 $margin-large;
+
+      [data-plugin-id="page_title_block"] {
+        h1 {
+          font-family: $sans-text;
+          font-size: rem(36px);
+          color: $color-darkblue;
+          line-height: 1.2;
+          text-align: center;
+
+          &:after {
+            border-bottom: 1px solid $color-red;
+            content: "";
+            display: block;
+            margin: $margin-med auto $margin-large;
+            width: 60%;
+          }
+        }
+      }
+      [data-plugin-id="share_this_page_block"] {
+        margin-bottom: $margin-large;
+      }
+    }
+    #content_region {
+      @include styleguide;
+      margin-bottom: $margin-large;
+
+      input[type="submit"] {
+        @include appearance(none);
+        @include achp-button();
+        padding: $margin-small 35px $margin-xsmall;
+      }
+      input[type="file"] {
+        &::-ms-browse,
+        &::-webkit-file-upload-button {
+          @include appearance(none);
+          @include achp-button();
+          background-color: red;
+          display: none;
+        }
+      }
+      ul {
+        margin-left: $margin-large;
+      }
+      .field--type-prompt-field {
+        color: $color-grey2;
+
+        p:first-of-type {
+          color: $color-darkgrey2;
+        }
+        p:nth-of-type(n+2) {
+          padding: 0 $margin-med $margin-small;
+        }
+        strong {
+          color: black;
+        }
+      }
+      .field--type-email {
+        margin-bottom: $margin-large;
+
+        input[type="email"] {
+          padding: $margin-small;
+          width: 100%;
+        }
+      }
+      .field--type-string-long {
+        margin-bottom: $margin-large;
+
+        textarea {
+          padding: $margin-small;
+          width: 100%;
+        }
+      }
+      .field--type-boolean {
+        margin-bottom: $margin-large;
+
+        input[type="checkbox"] {
+          float: left;
+          margin: 6px $margin-small 0 $margin-med;
+        }
+        .description {
+          color: $color-grey2;
+          margin-left: $margin-large;
+        }
+      }
+      .field--type-file {
+        summary {
+          display: none;
+        }
+        .tabledrag-toggle-weight-wrapper {
+          display: none;
+        }
+        .tabledrag-hide {
+          display: none;
+        }
+        thead {
+          display: none;
+        }
+        input[type="text"] {
+          height: 35px;
+          margin: $margin-med 0;
+        }
+        .description {
+          font-size: 14px;
+          margin-bottom: $margin-small;
+        }
+      }
+      .form-item > label {
+        display: none;
+      }
+      .filter-wrapper {
+        display: none;
+      }
+    }
+  }
+}

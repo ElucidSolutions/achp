@@ -52,14 +52,25 @@
 
     // Create and attach the feature instances.
     $('.section_106_map').each (function (i, containerElement) {
-      instances.push (new FeatureInstance ($(containerElement)));
+      // create and attach a new map instance.
+      var instance = new FeatureInstance ($(containerElement));
+
+      // scale the map instance.
+      instance.scale ();
+
+      // add the instance to the instances array.
+      instances.push (instance);
     });
   });
 
+  /*
+    Resize the instance elements when the screen
+    size changes.
+  */
   $(window).resize (function () {
     // resize each instance's map element.
     instances.forEach (function (instance) {
-      instance.getMap ().getMap ().invalidateSize ();
+      instance.scale ();
     });
   })
 
@@ -91,6 +102,21 @@
   }
 
   // II. Feature Instance.
+
+  /*
+    The Map feature adapts to large and small
+    display sceens. When viewed on a small
+    device, this feature adds a CSS class
+    indicating that it should use a small
+    height. This integer specifies the maximum
+    size that the display screen must be for
+    this feature to add the small class.
+
+    Note: This value should be large enough to
+    ensure that the users screen is neer fully
+    covered by the map.
+  */
+  HEIGHT_THRESHOLD = 750;
 
   // Feature Instance modes
   MAP_MODE  = 0;
@@ -389,6 +415,39 @@
   }
 
   /*
+    Accepts no arguments, measures the size
+    of the current display window, adds or
+    removes a CSS class to indicate whether
+    or not this feature should be displayed in
+    small mode, and returns undefined.
+  */
+  FeatureInstance.prototype.scale = function () {
+    // I. Add/remove the Small CSS class.
+    $(window).height () >= HEIGHT_THRESHOLD ? this.removeSmallClass () : this.addSmallClass ();
+
+    // II. Update the map element.
+    this.getMap ().getMap ().invalidateSize ();
+  }
+
+  /*
+    Accepts no arguments, adds the Small class
+    to this instance's element, and returns
+    undefined.
+  */
+  FeatureInstance.prototype.addSmallClass = function () {
+    this.getInstanceElement ().addClass (getSmallClassName ());
+  }
+
+  /*
+    Accepts no arguments, removes the Small
+    class from this instance's element, and
+    returns undefined.
+  */
+  FeatureInstance.prototype.removeSmallClass = function () {
+    this.getInstanceElement ().removeClass (getSmallClassName ());
+  }
+
+  /*
     Accepts no arguments and returns a string
     representing the name of the class used to
     label the map tab.
@@ -413,6 +472,15 @@
   */
   function getTabClassName () {
     return getFeatureClassName () + '_tab';
+  }
+
+  /*
+    Accepts no arguments and returns the name
+    of the class used to label instance elements
+    in Small mode.
+  */
+  function getSmallClassName () {
+    return getFeatureClassName () + '_small';
   }
 
   /*
@@ -770,15 +838,15 @@
   function createMarkerIconSVG (state) {
     var svgElementString = '<div></div>';
     var svgDocument = state.cases.length > 1 ?
-      getRawIcon ('multiple-cases-marker-icon', 'modules/custom/section_106_map/images/multiple-cases-marker-icon.svg'):
-      getRawIcon ('single-case-marker-icon', 'modules/custom/section_106_map/images/single-case-marker-icon.svg');
+      getRawIcon ('multiple-cases-marker-icon', drupalSettings.module_path + '/images/multiple-cases-marker-icon.svg'):
+      getRawIcon ('single-case-marker-icon', drupalSettings.module_path + '/images/single-case-marker-icon.svg');
 
     if (!svgDocument) { return null; }
 
     var prefix = getModuleClassPrefix ();
 
     // Get the SVG element.
-    var svgElement = svgDocument.documentElement;
+    var svgElement = document.importNode (svgDocument.documentElement, true);
 
     // Add a class attribute to the icon element.
     svgElement.setAttribute (getMarkerStateAttribName (), state.abbreviation);
@@ -799,7 +867,7 @@
 
     if (state.cases.length > 1) {
       // Add cluster child count to the icon element.
-      labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+      labelElement = document.importNode (svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text'), true);
       labelElement.setAttribute ('transform', 'translate(25, 25)');
       labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix +  '_marker_label';
       labelElement.textContent = state.cases.length.toString ();
@@ -817,13 +885,13 @@
   */
   function createClusterIconSVG (label) {
     var svgElementString = '<div></div>';
-    var svgDocument= getRawIcon ('marker-group-icon', 'modules/custom/section_106_map/images/marker-group-icon.svg');
+    var svgDocument= getRawIcon ('marker-group-icon', drupalSettings.module_path + '/images/marker-group-icon.svg');
     if (!svgDocument) { return null; }
 
     var prefix = getModuleClassPrefix ();
 
     // Get the SVG element.
-    var svgElement = svgDocument.documentElement;
+    var svgElement = document.importNode (svgDocument.documentElement, true);
 
     // Add a class attribute to the icon element.
     svgElement.className.baseVal = svgElement.className.baseVal + ' ' + prefix + '_cluster_marker';
@@ -835,7 +903,7 @@
     }
 
     // Add cluster child count to the icon element.
-    labelElement = svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text');
+    labelElement = document.importNode (svgDocument.createElementNS ('http://www.w3.org/2000/svg', 'text'), true);
     labelElement.setAttribute ('transform', 'translate(30, 25)');
     labelElement.className.baseVal = labelElement.className.baseVal + ' ' + prefix + '_cluster_marker_label';
     labelElement.textContent = label;
@@ -933,7 +1001,7 @@
       .show ('slide', {direction: 'right'}, 500,
         function () {
           // create case share elements.
-          a2a.init_all ('page');
+          declared ('a2a') && a2a.init_all ('page');
 
           // enable the link button.
           var clipboard = new Clipboard ('.' + getShareLinkClassName ());
@@ -1335,7 +1403,7 @@
         .attr (getModuleDataPrefix () + '-map-case', _case.id)
         .append ($('<div></div>')
           .addClass (classPrefix + '_expand_button')
-          .append ($(getRawIcon ('expand-icon', '/modules/custom/section_106_map/images/expand-icon.svg').documentElement) 
+          .append ($(document.importNode (getRawIcon ('expand-icon', drupalSettings.module_path + '/images/expand-icon.svg').documentElement, true)) 
             .addClass (classPrefix + '_expand_button_icon')))
         .append ($('<div></div>')
           .addClass (classPrefix + '_title')
@@ -1369,7 +1437,7 @@
     this.getOverlayElement ().show (
       function () {
         // create case share elements.
-        a2a.init_all ('page');
+        declared ('a2a') && a2a.init_all ('page');
 
         // enable the link button.
         var clipboard = new Clipboard ('.' + getShareLinkClassName ());
@@ -1707,7 +1775,7 @@
     each page as an integer.
   */
   function getNumCasesPerPage () {
-    return 3;
+    return 6;
   }
 
   // IV. Auxiliary functions.
@@ -1782,7 +1850,9 @@
             .append (_case.poc.email && $('<div></div>')
               .addClass (classPrefix + '_contact_email')
               .addClass ('section_106_case_field')             
-              .text (_case.poc.email))
+              .append ($('<a></a>')
+                .attr ('href', 'mailto:' + _case.poc.email)
+                .text (_case.poc.email)))
             .append (_case.poc.phone && $('<div></div>')
               .addClass (classPrefix + '_contact_phone')
               .addClass ('section_106_case_field')
@@ -1824,7 +1894,7 @@
         .append ($('<a></a>')
           .addClass ('a2a_button_facebook')
           .addClass (classPrefix + '_link')
-          .append ($(getRawIcon ('facebook-icon', '/modules/custom/section_106_map/images/facebook-icon.svg').documentElement)
+          .append ($(document.importNode (getRawIcon ('facebook-icon', drupalSettings.module_path + '/images/facebook-icon.svg').documentElement, true))
             .addClass (classPrefix + '_icon')
             .addClass (classPrefix + '_facebook_icon'))))
       .append ($('<div></div>')
@@ -1833,7 +1903,7 @@
         .append ($('<a></a>')
           .addClass ('a2a_button_twitter')
           .addClass (classPrefix + '_link')
-          .append ($(getRawIcon ('twitter-icon', '/modules/custom/section_106_map/images/twitter-icon.svg').documentElement)
+          .append ($(document.importNode (getRawIcon ('twitter-icon', drupalSettings.module_path + '/images/twitter-icon.svg').documentElement, true))
             .addClass (classPrefix + '_icon')
             .addClass (classPrefix + '_twitter_icon'))))
       .append ($('<div></div>')
@@ -1843,14 +1913,14 @@
           .addClass (classPrefix + '_mail_link')
           .addClass (classPrefix + '_link')
           .attr ('href', 'mailto:?subject=Take%20a%20look%20at%20this%20&body=Take%20a%20look%20at%20this%20%3A%0A%0A' + _case.url)
-          .append ($(getRawIcon ('email-icon', '/modules/custom/section_106_map/images/email-icon.svg').documentElement)
+          .append ($(document.importNode (getRawIcon ('email-icon', drupalSettings.module_path + '/images/email-icon.svg').documentElement, true))
             .addClass (classPrefix + '_icon')
             .addClass (classPrefix + '_mail_icon'))))
       .append ($('<div></div>')
         .addClass (classPrefix + '_button')
         .addClass (getShareLinkClassName ())
         .attr ('data-clipboard-text', _case.url) // Uses clipboard.js to copy URLS to clipboards.
-        .append ($(getRawIcon ('link-icon', '/modules/custom/section_106_map/images/link-icon.svg').documentElement)
+        .append ($(document.importNode (getRawIcon ('link-icon', drupalSettings.module_path + '/images/link-icon.svg').documentElement, true))
           .addClass (classPrefix + '_icon')
           .addClass (classPrefix + '_link_icon')));
   }
@@ -2160,5 +2230,19 @@
           return text.slice (0, ((maxLength - text.length) - 3)) + '...';
       }
     }
+  }
+
+  /*
+    Accepts one argument: variable, a string
+    that represents a variable name; and
+    returns true iff the referenced variable is
+    defined.
+
+    Note: use this function to safely test that
+    a variable has been defined before
+    referencing it to avoid Reference errors.
+  */
+  function declared (variable) {
+    return eval ("typeof " + variable + " !== 'undefined'");
   }
 }) (jQuery);

@@ -1,0 +1,207 @@
+{#
+/**
+ * @file
+ * ACHP's theme override to display the Newsletters landing page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template normally located in the
+ * core/modules/system directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ * - logo: The url of the logo image, as defined in theme settings.
+ * - site_name: The name of the site. This is empty when displaying the site
+ *   name has been disabled in the theme settings.
+ * - site_slogan: The slogan of the site. This is empty when displaying the site
+ *   slogan has been disabled in theme settings.
+ * - hide_site_name: A flag indicating if the site name has been toggled off on
+ *   the theme settings page. If hidden, the "visually-hidden" class is added
+ *   to make the site name visually hidden, but still accessible.
+ * - hide_site_slogan: A flag indicating if the site slogan has been toggled off
+ *   on the theme settings page. If hidden, the "visually-hidden" class is
+ *   added to make the site slogan visually hidden, but still accessible.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title: The page title, for use in the actual content.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - tabs: Tabs linking to any sub-pages beneath the current page (e.g., the
+ *   view and edit tabs when displaying a node).
+ * - action_links: Actions local to the page, such as "Add menu" on the menu
+ *   administration interface.
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.header_left: Items for the header left region.
+ * - page.header_right: Items for the header right region.
+ * - page.menu: The menu list
+ * - page.content: The main content of the current page.
+ * - page.footer: Items for the footer.
+ * @see template_preprocess_page()
+ * @see bartik_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+<div id="page"
+  {% if page_path is defined %} data-page-path="{{ page_path }}" {% endif %}
+  {% if page_path_alias is defined %} data-page-path-alias="{{ page_path_alias }}" {% endif %}
+  {% if node_type is defined %} data-page-node-type="{{ node_type }}" {% endif %}
+  {% if node_id is defined %} data-page-node-id="{{ node_id }}" {% endif %}
+  {% if view_id is defined %} data-page-view-id="{{ view_id }}" {% endif %}
+>
+  <header id="header">
+    <div id="header-container">
+      <div class="header_left_container">
+        {{ page.header_left }}
+      </div>
+      <div class="header_right_container">
+        {{ page.header_right}}
+        <div id="header_widescreen_search_bar">
+          {{ page.header_search }} 
+        </div>
+      </div>
+    </div>
+  </header>
+  <div id="outer_container" class="page_outer_container">
+    <div id="header_region">
+      <div id="header_menu" class="region_container">
+        {{ page.menu }}
+      </div>
+      <div id="header_dropdown_submenu"></div>
+      <div id="subheader">
+        <div id="subheader_widescreen">
+          <div id="subheader_widescreen_submenu_region">
+            <div id="subheader_widescreen_submenu">
+            </div>
+          </div>
+        </div>
+        <div id="subheader_mobile">
+          <div id="subheader_mobile_header">
+            <h3 id="subheader_mobile_title">MENU</h3>
+          </div>
+          <div id="subheader_mobile_collapsible">
+            <div id="subheader_mobile_search">
+            </div>
+            <div id="subheader_mobile_body">
+            </div>
+            <div id="subheader_mobile_footer">
+              <div id="subheader_mobile_close_button">CLOSE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="main-wrapper">
+      <div id="main">
+        <div id="secondary_header">
+          {{ page.secondary_header }}
+        </div>      
+        <main id="content" role="main">
+          {{ page.content_left }}
+          <div id="content_region">
+            <article{{ attributes }}>
+              <table>
+                <tr>
+                  <td>
+                    <h3>Members in the News Newsletter</h3>
+                    <p>Come read about the latest news from members in the news. Lorem Ipsum. You’ve heard the expression, “Just believe it and it will come.” Well, technically, that is true, however, ‘believing’ is not just thinking that you can have it; it is also feeling that it is possible. When we believe that we can “have it,” that means we have no doubt in receiving it.</p>
+                    <ul class="edition_links">
+                      <li><a href="http://createsend.com/t/r-266C95A660941A972540EF23F30FEDED">View the latest edition</a></li>
+                      <li><a href="/newsletters/members-archives">View past editions</a></li>
+                    </ul>
+                    <h5>Subscribe to the Members in the News Newsletter</h5>
+                    {{ drupal_block('subscribeblock') }}
+                    <p class="newsletter_disclaimer">Note: Your e-mail address will only be used to e-mail you the Members in the News e-newsletter. We will not use it for any other purpose, nor will we give, trade, or sell it to any organization, agency, individual, or commercial entity.</p>
+                    <h5>Unsubscribe from the Members in the News Newsletter</h5>
+                    {{ drupal_block('unsubscribeblock') }}
+                  </td>
+                  <td>
+                    <div class="newsletter_related">
+                      <h4>Related Content</h4>
+                      <div class="related_item"><a href="/about/council-members">Council Members</a></div>
+                      <div class="related_item"><a href="/about">Agency Overview</a></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h3>Section 106 Newsletter</h3>
+                    <p>The ACHP's Office of Federal Agency Programs has designed this newsletter especially for federal agency officials, SHPOs and THPOs and their staff, Indian tribes, Native Hawaiian organizations, and others who work with Section 106 every day. The goal is to help stakeholders participate effectively in the Section 106 process by keeping them informed of recent Section 106 news, advice, and training from the ACHP. </p>
+                    <ul class="edition_links">
+                      <li><a href="http://createsend.com/t/r-48CF4E3F7C7B22F62540EF23F30FEDED">View the latest edition</a></li>
+                      <li><a href="/newsletters/section-106-archives">View past editions</a></li>
+                    </ul>
+                    <h5>Subscribe to the Section 106 Newsletter</h5>
+                    {{ drupal_block('subscribeblock_2') }}
+                    <p class="newsletter_disclaimer">Note: Your e-mail address will only be used to e-mail you the Section 106 e-newsletter. We will not use it for any other purpose, nor will we give, trade, or sell it to any organization, agency, individual, or commercial entity.</p>
+                    <h5>Unsubscribe from the Section 106 Newsletter</h5>
+                    {{ drupal_block('unsubscribeblock_2') }}
+                  </td>
+                  <td>
+                    <div class="newsletter_related">
+                      <h4>Related Content</h4>
+                      <div class="related_item"><a href="/protecting-historic-properties/section-106-process/introduction-section-106">An Introduction to Section 106</a></div>
+                      <div class="related_item"><a href="/success-stories">Section 106 Success Stories</a></div>
+                      <div class="related_item"><a href="/digital-library-section-106-landing">Section 106 Digital Library</a></div>
+                      <div class="related_item"><a href="/about/offices/ofap">Office of Federal Agency Programs </a></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h3>Preserve America Newsletter</h3>
+                    <p>Come read about the latest news from members in the news. Lorem Ipsum. You’ve heard the expression, “Just believe it and it will come.” Well, technically, that is true, however, ‘believing’ is not just thinking that you can have it; it is also feeling that it is possible. When we believe that we can “have it,” that means we have no doubt in receiving it.</p>
+                    <ul class="edition_links">
+                      <li><a href="/">View the latest edition</a></li>
+                      <li><a href="/newsletters/preserve-america-archives">View past editions</a></li>
+                    </ul>
+                    <h5>Subscribe to the Preserve America Newsletter</h5>
+                    {{ drupal_block('subscribeblock_3') }}
+                    <p class="newsletter_disclaimer">Note: Your e-mail address will only be used to e-mail you the Preserve America e-newsletter. We will not use it for any other purpose, nor will we give, trade, or sell it to any organization, agency, individual, or commercial entity.</p>
+                    <h5>Unsubscribe from the Preserve America Newsletter</h5>
+                    {{ drupal_block('unsubscribeblock_3') }}
+                  </td>
+                  <td>
+                    <div class="newsletter_related">
+                      <h4>Related Content</h4>
+                      <div class="related_item"><a href="/preserve-america">Program Overview</a></div>
+                      <div class="related_item"><a href="/preserve-america/preserve-america-communities">Community Map</a></div>
+                      <div class="related_item"><a href="/about/offices/opi">Office of Preservation Initiatives</a></div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </article>
+          </div>
+          {{ page.content_right }}
+        </main>
+      </div>
+    </div>
+  </div>
+  <footer id="footer">
+    <div class="content_wrapper">
+      {{ page.footer }}
+      <div id="footer_2_columns_left">
+        {{ page.footer_left }}
+        {{ page.footer_middle }}
+      </div>
+      {{ page.footer_right }}
+    </div>
+  </footer>
+</div>

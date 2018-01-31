@@ -8,22 +8,20 @@ $card-width: 300px;
 #homepage_news_content {
   #block-views-block-latest-news-block {
     .homepage_news_item {
+      height: $card-height - 30px;
       padding: 10px;
       position: relative;
-      height: $card-height - 30px;
 
       .news_item {
         &_date {
           @extend .card_date;
         }
-
         &_body p {
           @extend .card_body;
         }
-
         &_link {
-          position: absolute;
           bottom: 0;
+          position: absolute;
 
           img {
             margin-left: 5px;
@@ -36,51 +34,47 @@ $card-width: 300px;
         }
       }
     }
-
     @media (max-width: 700px) {
       /* At this width, the cards turn into just the headlines */
       $card-height: 80px;
-      height: 240px;
       border-top: 6px solid $color-red;
       box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+      height: 240px;
       margin: 25px 0 25px;
       width: 100%;
 
       .card.view-item-1, .card.view-item-2, .card.view-item-3 {
-        height: $card-height;
-        margin: 0;
-        width: 100%;
         box-shadow: none;
         border-top: 1px solid rgba(0, 0, 0, 0.26);
+        height: $card-height;
+        margin: 0;
         position: relative;
+        width: 100%;
 
         &.view-item-1 {
           border-top: none;
         }
-
         &.view-item-3 {
           margin-left: 0;
         }
-
         .homepage_news_item {
+          @include center-y;
           height: 60px;
           padding: 0;
-          width: 100%;
-          @include center-y;
           position: relative;
+          width: 100%;
 
           .news_item {
             &_date, &_body, &_link {
               display: none;
             }
-
             &_title {
-              width: 95%;
-              padding: 15px;
-              line-height: 24px;
-              cursor: pointer;
+              @include after-element-icon-with-hover-aligned('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 0, $color-blue-primary);
               @include center-y;
-              @include after-element-icon-with-hover('../images/right-arrow-icon.svg', '../images/right-arrow-icon-blue.svg', 0, $color-blue-primary);
+              cursor: pointer;
+              line-height: 24px;
+              padding: 15px;
+              width: 95%;
             }
           }
         }

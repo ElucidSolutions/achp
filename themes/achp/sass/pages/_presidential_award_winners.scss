@@ -1,0 +1,84 @@
+/*
+*/
+#page[data-page-path-alias^="/preserve-america/presidential-award/2"] {
+  $page-max-width: 750px;
+  font-size: rem(18px);
+
+  #secondary_header_region {
+    max-width: $page-max-width;
+    margin: 0 auto;
+
+    #block-breadcrumbs {
+      margin: 30px auto 0 !important;
+      max-width: 100%;
+    }
+    [data-derivative-plugin-id="image_carousel-block_1"] {
+      @include content-container;
+      max-width: $page-max-width;
+    }
+    #block-preserveamerica-shareblock {
+      @include content-container;
+      margin: 30px auto 15px !important;
+      max-width: $page-max-width;
+    }
+  }
+  #content #content_region {
+    margin: 0 auto;
+    max-width: $page-max-width;
+
+    #block-achp-content article {
+      @include content-container;
+
+      figure {
+        margin: 15px 0 25px;
+
+        img {
+          max-width: 100%;
+        }
+        figcaption {
+          font-family: $sans-text;
+          font-size: rem(16px);
+          font-weight: 500;
+          padding-top: 10px;
+        }
+      }
+      h2 {
+        line-height: 1.2;
+        margin-top: 35px;
+        text-align: left;
+      }
+      h3 {
+        color: $color-red;
+        margin-top: 15px;
+      }
+      p + h3 {
+        margin-top: 35px;
+      }
+      h3 + p {
+        margin-top: 0;
+      }
+      .text_beside_photo img {
+        float: left;
+        height: 125px;
+        margin: 0 10px 10px 0;
+      }
+      a {
+        color: $color-blue-primary;
+      }
+      div[data-achp-field-name="field_image"] {
+        .achp-field-label, img {
+          display: none;
+        } 
+      }
+      #project_details p a {
+        font-family: $sans-text;
+      }
+    }
+
+    #block-related-resources-page-specific {
+      @include content-container;
+      margin: 30px auto 50px;
+      max-width: $page-max-width;
+    }
+  }
+}

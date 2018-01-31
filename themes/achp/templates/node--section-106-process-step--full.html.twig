@@ -74,9 +74,10 @@
   #}
   <div class="process-step-node step-container">
     <div class="step-content">
-      <div class="step-number">Step {{content.field_process_step_number}}</div>
+      <div class="step-label">{{content.field_process_step_label}}</div>
       <div class="step-title">{{label}}</div>
       <div class="share-print"></div>
+      {{ drupal_block('sharethispage') }}
       <div class="step-body-text">{{content.body}}</div> 
       {% if content.field_determination_prompt[0] %}
         <div class="determination-section-title">Determination</div>   
@@ -92,9 +93,13 @@
         <div class="yes-explaination-and-action">
           {{content.field_determination_yes_text}}          
           {% if content.field_determine_yes_next_step[0] %}
-             <div class="yes-next-step">{{content.field_determine_yes_next_step}}</div>
+             <div class="yes-next-step">
+               {{content.field_determine_yes_next_step[0]}}
+             </div>
           {% else %}
-              <div class="no-further-action">The Section 106 Process is Over.</div>
+            {% if content.field_determine_yes_next_label[0] %}
+              <div class="no-further-action">{{content.field_determine_yes_next_label}}</div>
+            {% endif %}
           {% endif %}        
         </div>
        
@@ -105,11 +110,17 @@
         <div class="no-explaination-and-action">
           {{content.field_determination_no_text}} 
           {% if content.field_determine_no_next_step[0] %}
-             <div class="no-next-step">{{content.field_determine_no_next_step}}</div>
+             <div class="no-next-step">
+               {{content.field_determine_no_next_step[0]}}
+             </div>
           {% else %}
-              <div class="no-further-action">The Section 106 Process is Over.</div>
+            {% if content.field_determine_no_next_label[0] %}
+              <div class="no-further-action">{{content.field_determine_no_next_label}}</div>
+            {% endif %}
           {% endif %}
         </div>        
+      {% else %}
+        <div class="next-step">{{content.field_process_step_next}}</div>
       {% endif %}
     </div>
   </div>

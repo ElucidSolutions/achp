@@ -23,11 +23,20 @@
           <a href="{{ item.url }}">{{ item.text }}</a>
         </li>
       {% else %}
+        {% set item_text = item.text|raw %}
         <li class="breadcrumb_link breadcrumb_page">
-          {{ item.text }}
+          <span class="breadcrumb_page_text">{{ item_text|replace({'%20': ' '}) }}</span>
         </li>
       {% endif %}
     {% endfor %}
     </ol>
   </nav>
+  <div class="mobile_breadcrumb">
+  {% if (breadcrumb|length == 2) %}
+    <a href="/">BACK HOME</a>
+  {% else %}
+    {% set mobile_crumb = breadcrumb[(breadcrumb|length - 2)] %}
+    <a href="{{ mobile_crumb.url }}">BACK TO {{ mobile_crumb.text }}</a>
+  {% endif %}
+  </div>
 {% endif %}

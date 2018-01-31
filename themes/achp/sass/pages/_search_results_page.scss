@@ -1,0 +1,200 @@
+/*
+  This stylesheet defines the default styles
+  for the Search Results page and the search input
+  in the header.
+*/
+
+/* Search Results Page */
+[data-page-path^="/search"] {
+  @import "../styleguide";
+
+  #secondary_header_region {
+    #block-user-account-breadcrumbs {
+      @include content-container;
+      margin: 30px auto 0;
+    }
+    #block-searchpagetitle {
+      @include content-container;
+      color: $color-darkblue2;
+
+      h1 span {
+        display: inline-block;
+
+        &:after {
+          @include hr($color-red);
+          content: "";
+          display: block;
+          margin: 10px auto 25px;
+          min-width: 150px;
+          width: 20%;
+        }
+      }      
+    }
+    #block-about-achp-share {
+      @include content-container;
+      margin: 0 auto 30px;     
+    }
+  }
+  #content #content_region {
+    font-family: $sans-text;
+
+    #block-search-filters {
+      font-family: $sans-text;
+      margin-bottom: 40px;
+      position: relative;
+
+      form {
+        .form-item-topic:before {
+          color: $color-red2;
+          content: "Advanced Options";
+          display: block;
+          font-weight: 600;
+          margin: 35px 0 10px;
+        }
+        .js-form-item {
+          display: block;
+          margin-bottom: 15px;
+          max-width: 100%;
+
+          label {
+            color: $color-lightgrey-2;
+            display: block;
+            padding-bottom: 5px;
+          }
+          input[name="keys"] {
+            font-family: $sans-text;
+            font-size: rem(16px);
+            max-width: 100%;
+            height: 40px;
+            padding: 0 5px;
+            width: 500px;
+          }
+          select {
+            font-family: $sans-text;
+            font-size: rem(16px);
+            height: 40px;
+            max-width: 100%;
+            width: 450px;
+
+            option {
+              max-width: 100%;
+              padding: 2px 5px;
+              width: 450px;
+            }
+          }
+          select#edit-type {
+            background-image: none;
+            height: 150px;
+            padding: 5px 0 0;
+          }
+        }
+        .form-actions {
+          input[type="submit"] {
+            @include achp-button;
+
+
+            @media (max-width: 400px) {
+                width: 100%;
+              }
+            }
+          @media (max-width: $mobile-breakpoint) {
+            text-align: center;
+
+            .field-content {
+              line-height: 1.2rem;
+            }
+          }          
+        } 
+      }
+    }
+    ol {
+      margin: 0;
+      padding: 0 $margin-large;
+      counter-reset: li-counter;
+
+      li {
+        border-left: 2px solid $background-color-lightblue;
+        font-size: rem(18px);
+        list-style-type: none;
+        list-style-image: none;
+        margin-bottom: 30px;
+        padding-left: $margin-med;
+        position: relative;
+
+        .views-field-title {
+          font-family: $sans-text;
+          font-size: rem(18px);
+          line-height: 1.4;
+          margin: 5px 0 10px;
+
+          a {
+            color: $color-blue-primary;
+          }
+        }
+        .views-field-type {
+          color: $color-lightgrey-2;
+          font-family: $sans-text;
+          margin-bottom: 10px;
+        }
+        .views-field-body p {
+          margin: 0;
+        }
+        &:before {
+          @include body-text($font-family: $sans-text);
+          color: $color-red2;
+          content: counter(li-counter);
+          counter-increment: li-counter;
+          left: - $margin-large;
+          position: absolute;
+          text-align: right;
+          top: 2px;
+          width: $margin-med;
+        }
+      }
+    }
+    nav {
+      @include span-columns (12 of 12);
+      color: $color-darkgrey;
+      font-family: $sans-text;
+      font-size: rem(14px);
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+
+        li {
+          display: inline-block;
+          line-height: 27px;
+          padding: 0 8px;
+
+          &.pager__item--last, &.pager__item--first {
+            display: none;
+          }
+          &.pager__item.is-active {
+            background-color: $color-blue-primary;
+            border-radius: 50%;
+            cursor: default;
+            height: 25px;
+            padding: 0;
+            width: 25px;
+
+            a {
+              @include hover-transition-content(#fff);              
+              color: #fff;
+              cursor: default;
+            }
+          }
+          a {
+            @include hover-transition-content($color-blue-primary);            
+            color: $color-darkgrey;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    h4 {
+      color: $color-red2;
+    }
+  }
+}
