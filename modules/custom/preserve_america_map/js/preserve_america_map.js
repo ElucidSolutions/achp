@@ -986,7 +986,7 @@
       .show ('slide', {direction: 'right'}, 500,
         function () {
           // create profile share elements.
-          a2a.init_all ('page');
+          declared ('a2a') && a2a.init_all ('page');
 
           // enable the link button.
           var clipboard = new Clipboard ('.' + getShareLinkClassName ());
@@ -1422,7 +1422,7 @@
     this.getOverlayElement ().show (
       function () {
         // create profile share elements.
-        a2a.init_all ('page');
+        declared ('a2a') && a2a.init_all ('page');
 
         // enable the link button.
         var clipboard = new Clipboard ('.' + getShareLinkClassName ());
@@ -2180,5 +2180,19 @@
           return text.slice (0, ((maxLength - text.length) - 3)) + '...';
       }
     }
+  }
+
+  /*
+    Accepts one argument: variable, a string
+    that represents a variable name; and
+    returns true iff the referenced variable is
+    defined.
+
+    Note: use this function to safely test that
+    a variable has been defined before
+    referencing it to avoid Reference errors.
+  */
+  function declared (variable) {
+    return eval ("typeof " + variable + " !== 'undefined'");
   }
 }) (jQuery);
